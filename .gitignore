@@ -1,0 +1,27 @@
+# Local runtimes, caches, credentials, and generated delivery packages
+.godot/
+godot/.godot/
+__pycache__/
+*.pyc
+*.blend1
+*.blend2
+*.tmp
+.audit-tmp/
+.tools/
+assets/source/downloads/
+assets/source/archives/
+assets/provenance/*-source-page.html
+qa/local/
+qa/*local*environment*
+planning/delivery-result.json
+planning/delivery-manifest.json
+planning/localize_draft.py
+planning/refine_tickets.py
+deliverables/
+*.log
+.env
+.env.*
+*.key
+*.pem
+*CREDENTIALS*
+

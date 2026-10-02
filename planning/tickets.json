@@ -1,0 +1,1296 @@
+{
+  "schema_version": 1,
+  "project_id": "seven-district-reckoning",
+  "project_root": ".",
+  "updated": "2026-10-02",
+  "currency": "fictional-in-game-only",
+  "scope_state": "planning-complete-implementation-not-started",
+  "estimate_note": "人日為設計估算；1人日=8小時；并行需遵守依賴，另留25%整合緩沖。",
+  "tickets": [
+    {
+      "id": "TASK-001",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "規格與範圍定稿",
+      "owner_role": "製作人／遊戲設計",
+      "estimate_person_days": {
+        "min": 1,
+        "max": 2
+      },
+      "depends_on": [],
+      "output_paths": [
+        "docs/creative-bible.md",
+        "spec/spec-design-game-systems.md"
+      ],
+      "description": "固定 300×300m、MAIN-001~005、1車＋1自行車、3武器與六類破壞物；將所有設計值及未做項目註明。",
+      "acceptance": "機器檢查範圍與兩份JSON一致；不得加入全城、連線或整棟坍塌承諾。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-002",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "工具與硬體基準鎖定",
+      "owner_role": "技術負責人",
+      "estimate_person_days": {
+        "min": 1,
+        "max": 2
+      },
+      "depends_on": [
+        "TASK-001"
+      ],
+      "output_paths": [
+        "tools/toolchain.json",
+        "qa/reference-machine.json"
+      ],
+      "description": "記錄實際 Blender、Godot 4穩定版、Git/LFS、GPU、RAM；做空專案開啟與Windows離線匯出。",
+      "acceptance": "版本與雜湊可讀；離線EXE能啟動；reference-machine不是假定的硬體。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-003",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "開源倉庫與來源登記",
+      "owner_role": "工程／素材管理",
+      "estimate_person_days": {
+        "min": 2,
+        "max": 3
+      },
+      "depends_on": [
+        "TASK-001"
+      ],
+      "output_paths": [
+        ".gitignore",
+        ".gitattributes",
+        "LICENSE",
+        "LICENSE-ASSETS.md",
+        "CREDITS.md"
+      ],
+      "description": "程式採MIT提案、原創資產CC BY 4.0提案；建立來源與權利證據；.blend等二進位使用LFS並忽略快取、憑證、.audit-tmp。",
+      "acceptance": "每個納入素材都有來源、作者、license、證據；完整原始碼包能離線重建，LFS內容不是只有pointer。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-004",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "Blender→GLB→Godot管線試作",
+      "owner_role": "技術美術",
+      "estimate_person_days": {
+        "min": 3,
+        "max": 5
+      },
+      "depends_on": [
+        "TASK-002",
+        "TASK-003"
+      ],
+      "output_paths": [
+        "tools/blender/export_assets.py",
+        "godot/assets/models/pipeline_test.glb",
+        "qa/import-proof.md"
+      ],
+      "description": "用手工角色比例模型及一個街道模組驗證1m尺度、朝向、PBR、rig與動畫；.blend放在引擎根外。",
+      "acceptance": "重新匯出後無手工補救仍能導入；scale=1且輪pivot與角色腳底符合契約；保存截圖及匯出紀錄。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-005",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "第三人稱移動與鏡頭",
+      "owner_role": "遊戲工程",
+      "estimate_person_days": {
+        "min": 4,
+        "max": 6
+      },
+      "depends_on": [
+        "TASK-002"
+      ],
+      "output_paths": [
+        "godot/scenes/player/player.tscn",
+        "godot/scripts/player/player_controller.gd",
+        "godot/scripts/player/camera_rig.gd"
+      ],
+      "description": "實作CharacterBody3D行走、跑、跳、地面坡度、鏡頭碰撞與camera-relative方向。",
+      "acceptance": "連續穿越路面、坡道與樓梯10分鐘不穿牆；60/30fps下位移差≤5%；鏡頭不穿入牆內。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-006",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "輸入重設與基本無障礙",
+      "owner_role": "遊戲工程／介面",
+      "estimate_person_days": {
+        "min": 2,
+        "max": 3
+      },
+      "depends_on": [
+        "TASK-005"
+      ],
+      "output_paths": [
+        "godot/scripts/ui/input_settings.gd",
+        "godot/data/input_defaults.json"
+      ],
+      "description": "WASD移動、滑鼠視角、E互動、F上下車、Q換武器、Esc暫停；鍵位可改、靈敏度與震動可調、手把對應。",
+      "acceptance": "改鍵後重啟保留；重複鍵位有提示；主選單與暫停可用鍵盤／手把完成。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-007",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "互動、背包與撿取",
+      "owner_role": "遊戲工程",
+      "estimate_person_days": {
+        "min": 3,
+        "max": 4
+      },
+      "depends_on": [
+        "TASK-005",
+        "TASK-006"
+      ],
+      "output_paths": [
+        "godot/scripts/interaction/interactable.gd",
+        "godot/scripts/inventory/inventory.gd"
+      ],
+      "description": "以interact(actor)共同介面支援道具、門、線索；近戰2格＋遠程1格＋任務道具獨立；武器已有時補耐久／能量。",
+      "acceptance": "同時按互動不重複領取；任務道具不可丟棄；車內不能隔牆撿；滿格有替換提示。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-008",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "兩街廓灰盒與路線試走",
+      "owner_role": "關卡設計",
+      "estimate_person_days": {
+        "min": 3,
+        "max": 5
+      },
+      "depends_on": [
+        "TASK-001",
+        "TASK-005"
+      ],
+      "output_paths": [
+        "godot/scenes/world/slice_world.tscn",
+        "godot/data/maps/slice_layout.json"
+      ],
+      "description": "只在灰盒階段用佔位形狀；安排生活區、商辦前廣場、園區前站及兩條繞行道路、起點安全屋。",
+      "acceptance": "可步行跑完整圈；路寬、轉彎半徑與坡度按載具尺寸probe檢查；地圖外有可見邊界；起點到任務區正常步行≤2分鐘。實際駕車與騎車回歸留TASK-015／016／031。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-009",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "道路、碰撞與導航",
+      "owner_role": "關卡／工程",
+      "estimate_person_days": {
+        "min": 3,
+        "max": 4
+      },
+      "depends_on": [
+        "TASK-008",
+        "TASK-004"
+      ],
+      "output_paths": [
+        "godot/scripts/world/navigation_builder.gd",
+        "godot/scenes/world/navigation_region.tscn"
+      ],
+      "description": "靜態場景collision分層、NavigationRegion3D烘焙；人行道／可駕道路分開；出口與門口保留尺寸。",
+      "acceptance": "12個敵人同時尋路到各測點不永久卡住；以輪徑與自行車尺寸probe檢查碰撞、離地距離及窄路；導航不跨封閉牆；實際載具回歸於TASK-031。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-010",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "守衛與受困者AI",
+      "owner_role": "遊戲工程",
+      "estimate_person_days": {
+        "min": 4,
+        "max": 6
+      },
+      "depends_on": [
+        "TASK-009"
+      ],
+      "output_paths": [
+        "godot/scripts/ai/guard_ai.gd",
+        "godot/scripts/ai/rescue_ai.gd"
+      ],
+      "description": "守衛巡邏、調查、追擊、失去目標、擊倒；受困者以跟隨／等待／到安全點狀態運作。",
+      "acceptance": "守衛不穿牆感知；失去視線有明確退出；救援路線卡住可重新尋路；擊倒敵人不再攻擊。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-011",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "近戰與幻想遠程器具",
+      "owner_role": "遊戲工程",
+      "estimate_person_days": {
+        "min": 4,
+        "max": 6
+      },
+      "depends_on": [
+        "TASK-007",
+        "TASK-010"
+      ],
+      "output_paths": [
+        "godot/scripts/combat/weapon_controller.gd",
+        "godot/scripts/combat/damageable.gd"
+      ],
+      "description": "球棒、扳手、虛構脈衝器具；近戰判定只在動畫命中窗；對同一攻擊的同一目標只算一次。",
+      "acceptance": "三武器可撿／換／使用；友善受困者免傷；hit_id防重複；牆後無命中；hitstop與鏡頭震動可關。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-012",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "全街區武器分布與刷新",
+      "owner_role": "關卡／工程",
+      "estimate_person_days": {
+        "min": 2,
+        "max": 3
+      },
+      "depends_on": [
+        "TASK-011",
+        "TASK-008"
+      ],
+      "output_paths": [
+        "godot/data/weapons.json",
+        "godot/data/spawns/slice_pickups.json",
+        "godot/scripts/world/pickup_spawner.gd"
+      ],
+      "description": "工具箱、車庫、維修架與掉落物提供武器；初始及基礎補給更新后，每個室外可達點沿行走路徑≤40m到基礎武器；高階能量受限。",
+      "acceptance": "導航取樣驗證布局可達；基礎補給可用每180秒的新generation更新，玩家15m內或正在任務目標區延後；用(spawn_id,generation)去重；讀檔保持generation與消費狀態，不刷新高階能量。每spawn_id同時最多1個活躍實例；舊代未消費不換代，離區重訪按registry重建。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-013",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "六類預製打砸物件",
+      "owner_role": "遊戲工程／技術美術",
+      "estimate_person_days": {
+        "min": 4,
+        "max": 6
+      },
+      "depends_on": [
+        "TASK-011",
+        "TASK-004"
+      ],
+      "output_paths": [
+        "godot/scripts/world/destructible.gd",
+        "godot/data/destructibles.json"
+      ],
+      "description": "招牌、玻璃隔屏、辦公桌、展示機臺、機櫃外殼、路障使用intact/damaged/broken三狀態；任務證據獨立標記。",
+      "acceptance": "六類均有聲音與碎片反應；碰撞隨狀態更新；實體碎片池≤60、壽命≤6秒；證據被砸有fallback。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-014",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "城市警戒與增援",
+      "owner_role": "遊戲工程",
+      "estimate_person_days": {
+        "min": 3,
+        "max": 4
+      },
+      "depends_on": [
+        "TASK-010",
+        "TASK-013"
+      ],
+      "output_paths": [
+        "godot/scripts/world/heat_manager.gd",
+        "godot/data/heat_rules.json"
+      ],
+      "description": "heat_level 0~5；可見違規與園區增援升級、離開感知後衰減；城市行人撤離，敵我類型明示。",
+      "acceptance": "視野外增援且不在玩家鏡頭內憑空出現；警戒0與5可達；讀檔不清除任務既定警戒。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-015",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "汽車街機駕駛",
+      "owner_role": "遊戲工程",
+      "estimate_person_days": {
+        "min": 5,
+        "max": 8
+      },
+      "depends_on": [
+        "TASK-005",
+        "TASK-009"
+      ],
+      "output_paths": [
+        "godot/scenes/vehicles/car.tscn",
+        "godot/scripts/vehicles/car_controller.gd"
+      ],
+      "description": "自訂RigidBody3D射線懸吊控制油門、煞車、轉向、倒車；model朝向經adapter處理；設計限速60km/h。",
+      "acceptance": "駕駛、倒車、碰撞、坡道、上下車完整；10圈無失控穿透；翻覆3秒後可重置到最近安全路點。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-016",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "自行車街機騎乘",
+      "owner_role": "遊戲工程／動畫",
+      "estimate_person_days": {
+        "min": 4,
+        "max": 6
+      },
+      "depends_on": [
+        "TASK-005",
+        "TASK-009"
+      ],
+      "output_paths": [
+        "godot/scenes/vehicles/bicycle.tscn",
+        "godot/scripts/vehicles/bicycle_controller.gd"
+      ],
+      "description": "CharacterBody3D穩定車身＋視覺側傾、輪旋轉與pedal循環；切片不做真實平衡／車鏈模擬；限速25km/h。",
+      "acceptance": "上下車、轉彎、煞車、人行道與窄路可用；騎乘手腳連接正確；停車不倒地；存讀後占用狀態一致。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-017",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "載具占用、生成與取回",
+      "owner_role": "遊戲工程",
+      "estimate_person_days": {
+        "min": 3,
+        "max": 4
+      },
+      "depends_on": [
+        "TASK-015",
+        "TASK-016",
+        "TASK-007"
+      ],
+      "output_paths": [
+        "godot/scripts/vehicles/vehicle_registry.gd",
+        "godot/data/vehicles.json"
+      ],
+      "description": "統一VehicleControl enter/exit/reset介面；占用互斥、阻擋出口找另一安全側、任務車失落可取回。",
+      "acceptance": "同時上車只有一人成功；任務車摧毀／離區不軟鎖；退出不塞進牆；玩家只能同時占一輛。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-018",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "資料任務狀態機與分支",
+      "owner_role": "遊戲工程",
+      "estimate_person_days": {
+        "min": 4,
+        "max": 6
+      },
+      "depends_on": [
+        "TASK-007",
+        "TASK-014"
+      ],
+      "output_paths": [
+        "godot/scripts/missions/mission_manager.gd",
+        "godot/scripts/data/game_data.gd",
+        "godot/data/missions.json"
+      ],
+      "description": "載入docs/missions.json的投產副本；AVAILABLE/ACTIVE/SUCCEEDED/FAILED；唯一objective事件與checkpoint；線索缺失提供替代。",
+      "acceptance": "5主線能依依賴解鎖；失敗可重試；objective事件只累計一次；循環依賴／未知ID資料拒載並定位。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-019",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "切片任務MAIN-001",
+      "owner_role": "關卡／敘事工程",
+      "estimate_person_days": {
+        "min": 2,
+        "max": 3
+      },
+      "depends_on": [
+        "TASK-018",
+        "TASK-012"
+      ],
+      "output_paths": [
+        "godot/scenes/missions/main_001.tscn"
+      ],
+      "description": "依創作書實作受騙開場、手機訊息、互動與第一個工具撿取；只使用虛構平臺畫面。",
+      "acceptance": "任務觸發、目標、檢查點、獎勵及失敗重試符合missions.json；新手無外部解說可完成。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-020",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "切片任務MAIN-002：假客服的門面",
+      "owner_role": "關卡／敘事工程",
+      "estimate_person_days": {
+        "min": 2,
+        "max": 3
+      },
+      "depends_on": [
+        "TASK-019",
+        "TASK-013"
+      ],
+      "output_paths": [
+        "godot/scenes/missions/main_002.tscn"
+      ],
+      "description": "依創作書處理2名安保或替代互動，關閉或破壞假客服招牌；保存可選紀錄，取得前站通行物。",
+      "acceptance": "破壞／替代互動兩種方式可通關；紀錄未保存或被毀不軟鎖；通行物可取回；獎勵與重試不重複結算。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-021",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "切片任務MAIN-003：兩個輪子的捷徑",
+      "owner_role": "關卡／敘事工程",
+      "estimate_person_days": {
+        "min": 3,
+        "max": 4
+      },
+      "depends_on": [
+        "TASK-020",
+        "TASK-017"
+      ],
+      "output_paths": [
+        "godot/scenes/missions/main_003.tscn"
+      ],
+      "description": "依創作書騎任務自行車通過3個街廓節點，把通行物送回車店並取得共用小客車；設定可步行取回與窄巷提示。",
+      "acceptance": "騎車完成路線、轉彎與檢查點；失車可取回而不軟鎖；送達後汽車可用；任務物及獎勵不因重試重複領取。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-022",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "切片任務MAIN-004",
+      "owner_role": "關卡／敘事工程",
+      "estimate_person_days": {
+        "min": 3,
+        "max": 4
+      },
+      "depends_on": [
+        "TASK-021",
+        "TASK-010",
+        "TASK-017"
+      ],
+      "output_paths": [
+        "godot/scenes/missions/main_004.tscn"
+      ],
+      "description": "實作救援受困者、可選證據與車輛撤離；NPC明確免傷。",
+      "acceptance": "救援者能跟隨到安全區；車不在也有步行替代；每人rescued_count只增加一次。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-023",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "切片任務MAIN-005與灰盒整合",
+      "owner_role": "關卡／敘事工程",
+      "estimate_person_days": {
+        "min": 4,
+        "max": 6
+      },
+      "depends_on": [
+        "TASK-022"
+      ],
+      "output_paths": [
+        "godot/scenes/missions/main_005.tscn"
+      ],
+      "description": "園區前站收束；破壞／蒐證／救援三種選法給不同回應並預告MAIN-006；先以灰盒驗證任務串接，不結算全戰役結局。",
+      "acceptance": "三選法可分別完成與重試；MAIN-001～005能串接到切片片尾；遊玩時間與正式成品由TASK-031～033驗收。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-024",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "角色、骨架與動畫成品",
+      "owner_role": "角色美術／動畫",
+      "estimate_person_days": {
+        "min": 8,
+        "max": 12
+      },
+      "depends_on": [
+        "TASK-004"
+      ],
+      "output_paths": [
+        "assets/source/blender/characters/",
+        "godot/assets/models/characters/",
+        "godot/assets/animations/",
+        "assets/source/blender/animations/",
+        "godot/assets/models/animations/",
+        "assets/source/blender/textures/",
+        "godot/assets/textures/textures/"
+      ],
+      "description": "主角、守衛、受困者與市民共用human骨架；Idle/Walk/Run/Jump/Hit/Melee/Use/Drive/Pedal/Knockdown。",
+      "acceptance": "模型與64px剪影可讀；至少10動作導入；腳底、手握、骨架mapping符合Blender文件；不交灰盒人。",
+      "status": "Planned",
+      "asset_ids": [
+        "ASSET-001",
+        "ASSET-002",
+        "ASSET-003",
+        "ASSET-004",
+        "ASSET-005",
+        "ASSET-006",
+        "ASSET-007",
+        "ASSET-008",
+        "ASSET-009",
+        "ASSET-010",
+        "ASSET-011",
+        "ASSET-012",
+        "ASSET-013",
+        "ASSET-014",
+        "ASSET-062"
+      ]
+    },
+    {
+      "id": "TASK-025",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "商辦、街道與室內模組成品",
+      "owner_role": "環境美術",
+      "estimate_person_days": {
+        "min": 10,
+        "max": 15
+      },
+      "depends_on": [
+        "TASK-004",
+        "TASK-008"
+      ],
+      "output_paths": [
+        "assets/source/blender/environment/",
+        "godot/assets/models/environment/",
+        "assets/source/blender/world/",
+        "godot/assets/models/world/",
+        "assets/source/blender/street/",
+        "godot/assets/models/street/",
+        "assets/source/blender/buildings/",
+        "godot/assets/models/buildings/",
+        "assets/source/blender/interiors/",
+        "godot/assets/models/interiors/",
+        "assets/source/blender/proxies/",
+        "godot/assets/models/proxies/",
+        "assets/source/blender/branding/",
+        "godot/assets/textures/branding/",
+        "assets/source/blender/textures/",
+        "godot/assets/textures/textures/"
+      ],
+      "description": "手工模組化外牆、入口、騎樓、道路與大廳／辦公層／機房／屋頂；視覺輪廓有臺中高級商辦感。",
+      "acceptance": "材質在遊戲光線下可讀；collision／LOD分離；匯出無丟材質；任務重要物不與環境混色。",
+      "status": "Planned",
+      "asset_ids": [
+        "ASSET-024",
+        "ASSET-025",
+        "ASSET-026",
+        "ASSET-027",
+        "ASSET-028",
+        "ASSET-029",
+        "ASSET-030",
+        "ASSET-031",
+        "ASSET-032",
+        "ASSET-033",
+        "ASSET-034",
+        "ASSET-035",
+        "ASSET-036",
+        "ASSET-037",
+        "ASSET-038",
+        "ASSET-039",
+        "ASSET-040",
+        "ASSET-041",
+        "ASSET-042",
+        "ASSET-053",
+        "ASSET-060",
+        "ASSET-061",
+        "ASSET-063"
+      ]
+    },
+    {
+      "id": "TASK-026",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "汽車、自行車成品資產",
+      "owner_role": "載具美術／動畫",
+      "estimate_person_days": {
+        "min": 5,
+        "max": 8
+      },
+      "depends_on": [
+        "TASK-004"
+      ],
+      "output_paths": [
+        "assets/source/blender/vehicles/",
+        "godot/assets/models/vehicles/"
+      ],
+      "description": "一款虛構四輪汽車與一款自行車，獨立輪pivot、方向盤、坐墊、grip／foot marker。",
+      "acceptance": "車輪轉向與旋轉正確；騎姿不穿模；上下車定位正確；無真實車廠標誌。",
+      "status": "Planned",
+      "asset_ids": [
+        "ASSET-015",
+        "ASSET-016",
+        "ASSET-017"
+      ]
+    },
+    {
+      "id": "TASK-027",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "武器與破壞物成品資產",
+      "owner_role": "道具美術",
+      "estimate_person_days": {
+        "min": 5,
+        "max": 8
+      },
+      "depends_on": [
+        "TASK-004"
+      ],
+      "output_paths": [
+        "assets/source/blender/props/",
+        "godot/assets/models/props/",
+        "assets/source/blender/weapons/",
+        "godot/assets/models/weapons/",
+        "assets/source/blender/destructibles/",
+        "godot/assets/models/destructibles/",
+        "assets/source/blender/vfx/",
+        "godot/assets/models/vfx/"
+      ],
+      "description": "三款武器與六類破壞物全部做成美術資產；破損states與碎片預烘焙，證據色標另層。",
+      "acceptance": "每類有破壞前後剪影；手持大小與socket正確；碰撞不過密；達到asset-register驗收。",
+      "status": "Planned",
+      "asset_ids": [
+        "ASSET-019",
+        "ASSET-020",
+        "ASSET-021",
+        "ASSET-022",
+        "ASSET-023",
+        "ASSET-043",
+        "ASSET-044",
+        "ASSET-045",
+        "ASSET-048",
+        "ASSET-049",
+        "ASSET-050",
+        "ASSET-051",
+        "ASSET-052",
+        "ASSET-064"
+      ]
+    },
+    {
+      "id": "TASK-028",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "手機、HUD、地圖與提示",
+      "owner_role": "介面／工程",
+      "estimate_person_days": {
+        "min": 4,
+        "max": 6
+      },
+      "depends_on": [
+        "TASK-006",
+        "TASK-018"
+      ],
+      "output_paths": [
+        "godot/scenes/ui/hud.tscn",
+        "godot/scripts/ui/mission_phone.gd",
+        "godot/scripts/ui/minimap.gd"
+      ],
+      "description": "HUD顯示武器、健康、警戒、任務；手機接單與辨別證據／救援；小地圖標示目標／車／安全屋。",
+      "acceptance": "1080p與720p不截字；圖示與文字能補充色彩；任務marker不洩漏未解鎖支線；暫停存檔按鈕建立介面，於TASK-031接線後驗收。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-029",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "環境、武器、載具與任務聲音",
+      "owner_role": "音效設計",
+      "estimate_person_days": {
+        "min": 4,
+        "max": 6
+      },
+      "depends_on": [
+        "TASK-011",
+        "TASK-013",
+        "TASK-017"
+      ],
+      "output_paths": [
+        "godot/assets/audio/",
+        "godot/data/audio_events.json",
+        "CREDITS.md"
+      ],
+      "description": "原創／權利可用的道路、空調、玻璃、腳步、車聲、自行車鏈聲；繁中字幕配少量原創對白。",
+      "acceptance": "聲音位置與類別正確；主音量／對白／效果分別調；所有音源有來源證據；字幕與聲音觸發一致。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-030",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "存讀檔與檢查點一致性",
+      "owner_role": "遊戲工程",
+      "estimate_person_days": {
+        "min": 4,
+        "max": 6
+      },
+      "depends_on": [
+        "TASK-018",
+        "TASK-017",
+        "TASK-013"
+      ],
+      "output_paths": [
+        "godot/scripts/save/save_manager.gd",
+        "godot/data/save_schema.json"
+      ],
+      "description": "schema_version=1；原子替換＋backup；持久化任務、inventory、評分、車、pickup、破壞與檢查點；不序列化碎片。MAIN-012首次完成的結局ID與分數／救援清單以快照保存。",
+      "acceptance": "存讀3個分支各5次無重復獎勵；斷寫用backup可恢復；不合法版本有提示且不覆寫原檔。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-031",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "成品整合、光照與效能基準",
+      "owner_role": "技術美術／工程",
+      "estimate_person_days": {
+        "min": 4,
+        "max": 6
+      },
+      "depends_on": [
+        "TASK-023",
+        "TASK-024",
+        "TASK-025",
+        "TASK-026",
+        "TASK-027",
+        "TASK-028",
+        "TASK-029",
+        "TASK-030",
+        "TASK-013"
+      ],
+      "output_paths": [
+        "godot/scenes/world/slice_world.tscn",
+        "godot/scenes/player/player.tscn",
+        "godot/data/quality_profiles.json",
+        "qa/slice-performance.csv",
+        "qa/slice-build-manifest.json"
+      ],
+      "description": "替換全部灰盒為驗收後正式資產，接上動畫、HUD、聲音與存檔；固定傍晚光照，建立LOD、occlusion、instancing及低／中畫質；記錄同一build供後續測試。",
+      "acceptance": "以同一build完成五主線和三選法；暫停可存檔；參考機1080p Medium目標p95≤20ms、p99≤33.3ms、VRAM≤3GB；20分鐘壓力實測保留CSV及build雜湊。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-032",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "新手、字幕與分支可讀性驗收",
+      "owner_role": "QA／設計",
+      "estimate_person_days": {
+        "min": 3,
+        "max": 5
+      },
+      "depends_on": [
+        "TASK-031"
+      ],
+      "output_paths": [
+        "qa/slice-playtest.md",
+        "qa/accessibility-checklist.md"
+      ],
+      "description": "用TASK-031完成的同一build，至少5名首次體驗者跑完整片；記錄完成時間、迷路、武器取得、任務分支理解與暈眩；修正後需重驗受影響證據。",
+      "acceptance": "4/5不口頭提示能完成；3種路線有各1次驗證；字幕尺寸、控制重設及鏡頭效果切換有效。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-033",
+      "phase": "Slice",
+      "priority": "P0",
+      "title": "可玩切片整合與離線交付",
+      "owner_role": "QA／工程",
+      "estimate_person_days": {
+        "min": 4,
+        "max": 6
+      },
+      "depends_on": [
+        "TASK-031",
+        "TASK-032"
+      ],
+      "output_paths": [
+        "qa/slice-acceptance.md",
+        "deliverables/slice-windows/"
+      ],
+      "description": "依已驗證build封裝源碼、全部.blend與GLB、建置步驟、Windows遊戲、credits及操作說明；五主線完整串接，任何封裝前改動須重驗受影響內容。",
+      "acceptance": "運行30分鐘無崩潰／軟鎖；MAIN-001~005全部過關；錯誤率與效能證據達門檻，所有P0/P1缺陷清零。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-034",
+      "phase": "MVP",
+      "priority": "P1",
+      "title": "六區地圖與分區載入",
+      "owner_role": "工程／關卡",
+      "estimate_person_days": {
+        "min": 8,
+        "max": 12
+      },
+      "depends_on": [
+        "TASK-033"
+      ],
+      "output_paths": [
+        "godot/scenes/world/mvp_world.tscn",
+        "godot/scripts/world/zone_streamer.gd",
+        "godot/data/maps/mvp_layout.json"
+      ],
+      "description": "拓展到800×800m六區；100m網格分塊、預載相鄰區、內外場分離；世界坐標與拾取ID固定。",
+      "acceptance": "沿主環連續運行20分鐘無掉出地圖；加載前有碰撞就緒；重訪不重復人物／車／獎勵。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-035",
+      "phase": "MVP",
+      "priority": "P1",
+      "title": "敵人分工與戰鬥節奏擴充",
+      "owner_role": "工程／設計",
+      "estimate_person_days": {
+        "min": 5,
+        "max": 8
+      },
+      "depends_on": [
+        "TASK-034",
+        "TASK-010"
+      ],
+      "output_paths": [
+        "godot/data/enemy_archetypes.json",
+        "godot/scripts/ai/squad_coordinator.gd"
+      ],
+      "description": "巡邏守衛、重型保全、帶隊者不同剪影與行為；同時進攻配額避免圍毆。",
+      "acceptance": "三類可讀可反制；同時追擊≤16；高警戒有可撤退路徑；救援者不會被編入敵對組。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-036",
+      "phase": "MVP",
+      "priority": "P1",
+      "title": "追加七個主線任務",
+      "owner_role": "關卡／敘事",
+      "estimate_person_days": {
+        "min": 12,
+        "max": 18
+      },
+      "depends_on": [
+        "TASK-034",
+        "TASK-035",
+        "TASK-023"
+      ],
+      "output_paths": [
+        "godot/scenes/missions/main_006.tscn",
+        "godot/scenes/missions/main_012.tscn",
+        "godot/data/missions.json"
+      ],
+      "description": "逐一實作MAIN-006~012，按創作書呼叫共用巡邏、破壞、追車、救援與證據目標組件。",
+      "acceptance": "12主線合計且不重複切片任務；每任務有重試／checkpoint；MAIN-012發出結局觸發事件，分數可達性與三結局由TASK-039／046驗收。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-037",
+      "phase": "MVP",
+      "priority": "P1",
+      "title": "十二個支線任務",
+      "owner_role": "關卡／敘事",
+      "estimate_person_days": {
+        "min": 8,
+        "max": 12
+      },
+      "depends_on": [
+        "TASK-034",
+        "TASK-018"
+      ],
+      "output_paths": [
+        "godot/scenes/missions/side/",
+        "godot/data/missions.json"
+      ],
+      "description": "SIDE-001~012全部按創作書，融入受害者互助、街頭破壞、證據、載具與救援線。",
+      "acceptance": "12個唯一ID；不完成任何支線仍可主線通關；獎勵、重播與存檔可驗。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-038",
+      "phase": "MVP",
+      "priority": "P1",
+      "title": "八個沙盒活動",
+      "owner_role": "關卡／工程",
+      "estimate_person_days": {
+        "min": 6,
+        "max": 9
+      },
+      "depends_on": [
+        "TASK-034",
+        "TASK-017",
+        "TASK-013"
+      ],
+      "output_paths": [
+        "godot/scripts/activities/activity_manager.gd",
+        "godot/data/activities.json"
+      ],
+      "description": "ACT-001~008計時、技巧、快遞、破壞挑戰等按內容冊實施；每區至少1個活動marker。",
+      "acceptance": "8活動唯一ID且重復游玩規則明確；排行榜僅本機；活動不重復計作支線數。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-039",
+      "phase": "MVP",
+      "priority": "P1",
+      "title": "五任務線與三結局結算",
+      "owner_role": "敘事／工程",
+      "estimate_person_days": {
+        "min": 5,
+        "max": 8
+      },
+      "depends_on": [
+        "TASK-036",
+        "TASK-037"
+      ],
+      "output_paths": [
+        "godot/scripts/missions/ending_resolver.gd",
+        "godot/data/endings.json"
+      ],
+      "description": "五線共享任務引用；MAIN-012按evidence_score、community_trust、rescued_count固定優先序結算三結局。",
+      "acceptance": "所有邊界值與組合只回一個ending_id；未達高門檻用fallback；MAIN-005不誤觸完整結局。結局後支線與存讀檔不能改寫首次結局快照。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-040",
+      "phase": "MVP",
+      "priority": "P2",
+      "title": "載具與街頭器具擴充",
+      "owner_role": "美術／工程",
+      "estimate_person_days": {
+        "min": 7,
+        "max": 11
+      },
+      "depends_on": [
+        "TASK-034",
+        "TASK-026",
+        "TASK-027"
+      ],
+      "output_paths": [
+        "godot/data/vehicles.json",
+        "godot/data/weapons.json",
+        "assets/source/blender/vehicles/",
+        "assets/source/blender/props/",
+        "godot/assets/models/vehicles/",
+        "godot/assets/models/props/",
+        "assets/source/blender/weapons/",
+        "godot/assets/models/weapons/",
+        "assets/source/blender/animations/",
+        "godot/assets/models/animations/"
+      ],
+      "description": "新增2款四輪車（共3）、保留1款自行車、增加3款遊戲器具（共6）；共用控制與資料。",
+      "acceptance": "車型與器具各有可辨識差異；所有新項可拾取／搭乘／存檔；不新增不同物理底層。",
+      "status": "Planned",
+      "asset_ids": [
+        "ASSET-018",
+        "ASSET-065",
+        "ASSET-066",
+        "ASSET-067",
+        "ASSET-068",
+        "ASSET-070"
+      ]
+    },
+    {
+      "id": "TASK-041",
+      "phase": "MVP",
+      "priority": "P2",
+      "title": "街道變體與園區破損變體",
+      "owner_role": "環境／道具美術",
+      "estimate_person_days": {
+        "min": 6,
+        "max": 9
+      },
+      "depends_on": [
+        "TASK-034",
+        "TASK-027"
+      ],
+      "output_paths": [
+        "assets/source/blender/environment/variants/",
+        "godot/assets/models/environment/variants/",
+        "godot/data/destructibles.json",
+        "assets/source/blender/destructibles/",
+        "godot/assets/models/destructibles/",
+        "assets/source/blender/world/",
+        "godot/assets/models/world/",
+        "assets/source/blender/street/",
+        "godot/assets/models/street/"
+      ],
+      "description": "六區使用70項基礎清冊的派生配色／標示／破損；核心證據物保存替代證明。",
+      "acceptance": "每區有至少2個辨識地景；破壞state存讀一致；遠處不常駐碎片RigidBody。",
+      "status": "Planned",
+      "asset_ids": [
+        "ASSET-046",
+        "ASSET-047",
+        "ASSET-056",
+        "ASSET-057",
+        "ASSET-058",
+        "ASSET-059"
+      ]
+    },
+    {
+      "id": "TASK-042",
+      "phase": "MVP",
+      "priority": "P1",
+      "title": "交通與行人簡化沙盒",
+      "owner_role": "遊戲工程",
+      "estimate_person_days": {
+        "min": 6,
+        "max": 9
+      },
+      "depends_on": [
+        "TASK-034",
+        "TASK-017",
+        "TASK-014"
+      ],
+      "output_paths": [
+        "godot/scripts/traffic/traffic_manager.gd",
+        "godot/scripts/ai/civilian_ai.gd"
+      ],
+      "description": "路徑跟隨車輛、信號停等與遇事故避讓；行人非戰鬥互動、危險逃散；總活動預算固定。",
+      "acceptance": "正常車流不撞紅燈行人；20分鐘無永久堵路；近景車≤12＋行人≤24＋敵人≤16上限。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-043",
+      "phase": "MVP",
+      "priority": "P1",
+      "title": "三棟可進入建築整合",
+      "owner_role": "關卡／美術",
+      "estimate_person_days": {
+        "min": 8,
+        "max": 12
+      },
+      "depends_on": [
+        "TASK-034",
+        "TASK-025"
+      ],
+      "output_paths": [
+        "godot/scenes/interiors/",
+        "godot/data/maps/interior_links.json",
+        "assets/source/blender/buildings/",
+        "godot/assets/models/buildings/"
+      ],
+      "description": "含切片核心商辦，共3棟具可進入關鍵樓層；其餘高樓用外殼；室內loading傳送帶清晰過場。",
+      "acceptance": "三個入口與出口雙向可走；室內外存檔復原到安全點；沒有承諾每棟每層可進入。",
+      "status": "Planned",
+      "asset_ids": [
+        "ASSET-054",
+        "ASSET-055",
+        "ASSET-069"
+      ]
+    },
+    {
+      "id": "TASK-044",
+      "phase": "MVP",
+      "priority": "P2",
+      "title": "完整任務音效與字幕",
+      "owner_role": "音效／敘事",
+      "estimate_person_days": {
+        "min": 6,
+        "max": 9
+      },
+      "depends_on": [
+        "TASK-036",
+        "TASK-037",
+        "TASK-029"
+      ],
+      "output_paths": [
+        "godot/assets/audio/dialogue/",
+        "godot/data/localization/zh_TW.csv",
+        "CREDITS.md"
+      ],
+      "description": "補齊12主線與12支線文字對白、重要角色少量配音、音效混音；標題與貨幣全部虛構。",
+      "acceptance": "字幕fallback不缺字；對白重播不會破壞任務；音源／字型均有許可證據。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-045",
+      "phase": "MVP",
+      "priority": "P1",
+      "title": "資料擴充與存檔遷移",
+      "owner_role": "工程",
+      "estimate_person_days": {
+        "min": 5,
+        "max": 7
+      },
+      "depends_on": [
+        "TASK-039",
+        "TASK-040",
+        "TASK-030"
+      ],
+      "output_paths": [
+        "godot/scripts/save/save_migrations.gd",
+        "tools/validate_game_data.py",
+        "docs/modding-guide.md"
+      ],
+      "description": "建立舊版本fixture遷移、JSON任務／道具擴展驗證；僅純資料模組，MVP不執行外部腳本。",
+      "acceptance": "切片存檔升級不丟道具／分支；非法循環與未知資產拒載；樣例新增任務可離線導入。結局後完成支線、存讀與遷移仍保留原結局快照。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-046",
+      "phase": "MVP",
+      "priority": "P0",
+      "title": "全內容回歸與效能門檻",
+      "owner_role": "QA／工程",
+      "estimate_person_days": {
+        "min": 8,
+        "max": 12
+      },
+      "depends_on": [
+        "TASK-038",
+        "TASK-039",
+        "TASK-041",
+        "TASK-042",
+        "TASK-043",
+        "TASK-044",
+        "TASK-045"
+      ],
+      "output_paths": [
+        "qa/mvp-acceptance.md",
+        "qa/mvp-performance.csv",
+        "qa/known-issues.md"
+      ],
+      "description": "測試完整12主線12支線8活動、三結局、交通、存讀、資料擴展、弱硬體低檔與引用來源。",
+      "acceptance": "P0/P1清零；參考機p95≤20ms目標、p99≤33.3ms目標；60分鐘壓力無crash；全部任務可達。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-047",
+      "phase": "MVP",
+      "priority": "P0",
+      "title": "開源發行包準備",
+      "owner_role": "工程／素材管理",
+      "estimate_person_days": {
+        "min": 3,
+        "max": 5
+      },
+      "depends_on": [
+        "TASK-046",
+        "TASK-003"
+      ],
+      "output_paths": [
+        "deliverables/mvp-windows/",
+        "deliverables/mvp-linux/",
+        "docs/build-from-source.md",
+        "docs/release-checklist.md"
+      ],
+      "description": "準備源碼含LFS實檔、Blender源檔、遊戲二進位、Godot／第三方版權；Windows主驗收，Linux相容驗證；只在本機打包。",
+      "acceptance": "乾淨目錄按說明可建置；兩平臺啟動證據齊；秘密／未授權素材掃描無發現；公開發布另按當次授權。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-048",
+      "phase": "Future",
+      "priority": "P3",
+      "title": "更大城市與晝夜天氣",
+      "owner_role": "研發／美術",
+      "estimate_person_days": {
+        "min": 20,
+        "max": 40
+      },
+      "depends_on": [
+        "TASK-047"
+      ],
+      "output_paths": [
+        "docs/future/city-expansion-study.md"
+      ],
+      "description": "研究完整七期風格更大地圖、多時段燈光、雨夜，先評估內存、工作量與任務密度。",
+      "acceptance": "產出研究與測量原型后重新估算；不是首版驗收或現有完成狀態。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-049",
+      "phase": "Future",
+      "priority": "P3",
+      "title": "連線合作研究",
+      "owner_role": "網路工程",
+      "estimate_person_days": {
+        "min": 20,
+        "max": 40
+      },
+      "depends_on": [
+        "TASK-047"
+      ],
+      "output_paths": [
+        "docs/future/co-op-study.md"
+      ],
+      "description": "評估2~4人同步、房主權威、反作弊、存檔分歧；與單機代碼清晰隔離。",
+      "acceptance": "獨立原型證明載具／破壞同步與重連，之后才能列生產工單；不把單機MVP改稱已支援多人。",
+      "status": "Planned",
+      "asset_ids": []
+    },
+    {
+      "id": "TASK-050",
+      "phase": "Future",
+      "priority": "P3",
+      "title": "更多載具與物理研究",
+      "owner_role": "研發／動畫",
+      "estimate_person_days": {
+        "min": 12,
+        "max": 25
+      },
+      "depends_on": [
+        "TASK-047"
+      ],
+      "output_paths": [
+        "docs/future/vehicle-study.md"
+      ],
+      "description": "研究機車、載具損壞外觀與更真實自行車；保持Slice的arcade版本可用。",
+      "acceptance": "獨立原型有控制與效能比較，未經過驗證不替換原控制器。",
+      "status": "Planned",
+      "asset_ids": []
+    }
+  ]
+}

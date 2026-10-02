@@ -1,0 +1,8 @@
+{
+  "user_prompt": "開始製作 並推上開源",
+  "get_addon_status": "Could not connect to Blender. Make sure the Blender addon is running.",
+  "get_scene_info": "Could not connect to Blender. Make sure the Blender addon is running.",
+  "hidden_instance_attempt": "Rejected by automatic approval review; tool returned blocked by policy without a more specific reason.",
+  "production_method": "Actual installed Blender 5.2.0 LTS background CLI",
+  "mcp_production_claim": false
+}

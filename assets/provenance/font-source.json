@@ -1,0 +1,11 @@
+{
+  "name": "Noto Sans TC Regular",
+  "author": "Adobe / Noto contributors",
+  "copyright": "Copyright 2014-2021 Adobe",
+  "license": "OFL-1.1",
+  "license_file": "godot/assets/fonts/OFL.txt",
+  "source_url": "https://github.com/notofonts/noto-cjk",
+  "source_commit": "f8d157532fbfaeda587e826d4cd5b21a49186f7c",
+  "download_url": "https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/SubsetOTF/TC/NotoSansTC-Regular.otf",
+  "sha256": "5bab0cb3c1cf89dde07c4a95a4054b195afbcfe784d69d75c340780712237537"
+}

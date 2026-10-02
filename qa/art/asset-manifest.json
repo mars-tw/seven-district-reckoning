@@ -1,0 +1,654 @@
+[
+  {
+    "name": "streetlight",
+    "path": "godot\\assets\\models\\streetlight.glb",
+    "source": "Kenney city-kit-roads CC0; scaled/pivot rework",
+    "bounds_min": [
+      -0.19259260594844818,
+      -0.8666667342185974,
+      0.0
+    ],
+    "bounds_max": [
+      0.19259260594844818,
+      0.8666667342185974,
+      5.200000286102295
+    ],
+    "dimensions": [
+      0.38518521189689636,
+      1.7333334684371948,
+      5.200000286102295
+    ],
+    "triangles": 92,
+    "materials": 1,
+    "clips": [],
+    "notes": "",
+    "sha256": "d4eb8729372893d0ae12f560bad1c64c30607cd28b3c288ddc3016a463b1b9b0"
+  },
+  {
+    "name": "traffic_light",
+    "path": "godot\\assets\\models\\traffic_light.glb",
+    "source": "Kenney city-kit-roads CC0; scaled/pivot rework",
+    "bounds_min": [
+      -0.43386411666870117,
+      -0.33203884959220886,
+      0.0
+    ],
+    "bounds_max": [
+      0.43386411666870117,
+      0.33203884959220886,
+      3.8000001907348633
+    ],
+    "dimensions": [
+      0.8677282333374023,
+      0.6640776991844177,
+      3.8000001907348633
+    ],
+    "triangles": 212,
+    "materials": 1,
+    "clips": [],
+    "notes": "",
+    "sha256": "deba6c5ce9ca0e38341b98ee3d9d695bab4b61250ae48309bc7b61c72f86dd21"
+  },
+  {
+    "name": "barrier",
+    "path": "godot\\assets\\models\\barrier.glb",
+    "source": "Kenney city-kit-roads CC0; scaled/pivot rework",
+    "bounds_min": [
+      -0.5211538672447205,
+      -0.8653846383094788,
+      0.0
+    ],
+    "bounds_max": [
+      0.5211538672447205,
+      0.8653846383094788,
+      1.0
+    ],
+    "dimensions": [
+      1.042307734489441,
+      1.7307692766189575,
+      1.0
+    ],
+    "triangles": 60,
+    "materials": 1,
+    "clips": [],
+    "notes": "",
+    "sha256": "9d19c96644728184c1aa6225774fe08b8b71de1b3f71b9e2fbfea4f226167e36"
+  },
+  {
+    "name": "sign",
+    "path": "godot\\assets\\models\\sign.glb",
+    "source": "Kenney city-kit-roads CC0; scaled/pivot rework",
+    "bounds_min": [
+      -0.11578947305679321,
+      -0.11578947305679321,
+      0.0
+    ],
+    "bounds_max": [
+      0.11578947305679321,
+      0.11578947305679321,
+      2.200000047683716
+    ],
+    "dimensions": [
+      0.23157894611358643,
+      0.23157894611358643,
+      2.200000047683716
+    ],
+    "triangles": 42,
+    "materials": 1,
+    "clips": [],
+    "notes": "",
+    "sha256": "c4c433f3be78b811baa8795859d5c5a2017882dc0d800a5e6fbfa4911b59ae96"
+  },
+  {
+    "name": "bench",
+    "path": "godot\\assets\\models\\bench.glb",
+    "source": "Kenney furniture-kit CC0; scaled/pivot rework",
+    "bounds_min": [
+      -0.875,
+      -0.4375,
+      0.0
+    ],
+    "bounds_max": [
+      0.875,
+      0.4375,
+      2.0562500953674316
+    ],
+    "dimensions": [
+      1.75,
+      0.875,
+      2.0562500953674316
+    ],
+    "triangles": 170,
+    "materials": 1,
+    "clips": [],
+    "notes": "",
+    "sha256": "399c9c44f5cc98e09481565fed94d26c8ff724e3b47400f04482d38c065d0b9d"
+  },
+  {
+    "name": "planter",
+    "path": "godot\\assets\\models\\planter.glb",
+    "source": "Kenney furniture-kit CC0; scaled/pivot rework",
+    "bounds_min": [
+      -0.19454479217529297,
+      -0.22151903808116913,
+      0.0
+    ],
+    "bounds_max": [
+      0.19454479217529297,
+      0.22151903808116913,
+      1.1999999284744263
+    ],
+    "dimensions": [
+      0.38908958435058594,
+      0.44303807616233826,
+      1.1999999284744263
+    ],
+    "triangles": 60,
+    "materials": 3,
+    "clips": [],
+    "notes": "",
+    "sha256": "efd1990210bdb739df124417674d69ec65510dc2873bd0a3e837650c3da04904"
+  },
+  {
+    "name": "desk",
+    "path": "godot\\assets\\models\\desk.glb",
+    "source": "Kenney furniture-kit CC0; scaled/pivot rework",
+    "bounds_min": [
+      -0.8120341300964355,
+      -0.43372583389282227,
+      0.0
+    ],
+    "bounds_max": [
+      0.8120340704917908,
+      0.43372586369514465,
+      0.8499999642372131
+    ],
+    "dimensions": [
+      1.624068260192871,
+      0.8674516677856445,
+      0.8499999642372131
+    ],
+    "triangles": 198,
+    "materials": 2,
+    "clips": [],
+    "notes": "",
+    "sha256": "65f29c8830c8aa5d0cc86e47e06d7d79526d0e42affbbc6c21a016e7e438c3e4"
+  },
+  {
+    "name": "display",
+    "path": "godot\\assets\\models\\display.glb",
+    "source": "Kenney furniture-kit CC0; scaled/pivot rework",
+    "bounds_min": [
+      -0.5337516069412231,
+      -0.1413649022579193,
+      0.0
+    ],
+    "bounds_max": [
+      0.5337516069412231,
+      0.1413649022579193,
+      0.800000011920929
+    ],
+    "dimensions": [
+      1.0675032138824463,
+      0.2827298045158386,
+      0.800000011920929
+    ],
+    "triangles": 72,
+    "materials": 2,
+    "clips": [],
+    "notes": "",
+    "sha256": "83fe468ff790792ae9e514e90379639536a588de2ab6ff3f283ffd62bf3df3be"
+  },
+  {
+    "name": "road_straight",
+    "path": "godot\\assets\\models\\road_straight.glb",
+    "source": "Kenney city-kit-roads CC0; scaled/pivot rework",
+    "bounds_min": [
+      -6.0,
+      -6.0,
+      0.0
+    ],
+    "bounds_max": [
+      6.0,
+      6.0,
+      0.23999999463558197
+    ],
+    "dimensions": [
+      12.0,
+      12.0,
+      0.23999999463558197
+    ],
+    "triangles": 44,
+    "materials": 1,
+    "clips": [],
+    "notes": "",
+    "sha256": "1756882d5296f1f6f882b6c9123726f3db21e6f1a5b025b0646f5c130f756247"
+  },
+  {
+    "name": "road_crossing",
+    "path": "godot\\assets\\models\\road_crossing.glb",
+    "source": "Kenney city-kit-roads CC0; scaled/pivot rework",
+    "bounds_min": [
+      -6.0,
+      -6.0,
+      0.0
+    ],
+    "bounds_max": [
+      6.0,
+      6.0,
+      0.23999999463558197
+    ],
+    "dimensions": [
+      12.0,
+      12.0,
+      0.23999999463558197
+    ],
+    "triangles": 104,
+    "materials": 1,
+    "clips": [],
+    "notes": "",
+    "sha256": "424fb59ba7eb411c8ff2a963917de7b70621560c8bad2ddee77472b62c263dbc"
+  },
+  {
+    "name": "office_lobby",
+    "path": "godot\\assets\\models\\office_lobby.glb",
+    "source": "Kenney Furniture Kit CC0; hand arranged open lobby",
+    "bounds_min": [
+      -6.0,
+      -5.0,
+      0.0
+    ],
+    "bounds_max": [
+      6.0,
+      5.0,
+      2.8000001907348633
+    ],
+    "dimensions": [
+      12.0,
+      10.0,
+      2.8000001907348633
+    ],
+    "triangles": 2362,
+    "materials": 47,
+    "clips": [],
+    "notes": "12 x 10 m open floor; walkable center; outer side windows. Floor top height depends source tile, inspect bounds.",
+    "sha256": "4a0a504c86d892ff304d001915c542e1345089c1bbcb7950c8ad335fc5cfe8aa"
+  },
+  {
+    "name": "car",
+    "path": "godot\\assets\\models\\car.glb",
+    "source": "Kenney Car Kit sedan CC0; 4.2m scale/wheel pivots/seat markers",
+    "bounds_min": [
+      -1.2352941036224365,
+      -2.0999999046325684,
+      0.0
+    ],
+    "bounds_max": [
+      1.2352941036224365,
+      2.0999999046325684,
+      2.141176462173462
+    ],
+    "dimensions": [
+      2.470588207244873,
+      4.199999809265137,
+      2.141176462173462
+    ],
+    "triangles": 2032,
+    "materials": 1,
+    "clips": [],
+    "notes": "",
+    "sha256": "328ac2d9f499f0571f359033fd5920393c1a61c9e2257e63bc1ff9b5542e43ab"
+  },
+  {
+    "name": "bat",
+    "path": "godot\\assets\\models\\bat.glb",
+    "source": "Original accessory mesh, CC0-1.0",
+    "bounds_min": [
+      -0.0820000022649765,
+      -0.0820000022649765,
+      0.0
+    ],
+    "bounds_max": [
+      0.0820000022649765,
+      0.0820000022649765,
+      0.8799999952316284
+    ],
+    "dimensions": [
+      0.164000004529953,
+      0.164000004529953,
+      0.8799999952316284
+    ],
+    "triangles": 392,
+    "materials": 2,
+    "clips": [],
+    "notes": "",
+    "sha256": "768067b309ea7e27e03b802159df934d8dc9a768b9530253f9d59c972ea454da"
+  },
+  {
+    "name": "wrench",
+    "path": "godot\\assets\\models\\wrench.glb",
+    "source": "Original accessory mesh, CC0-1.0",
+    "bounds_min": [
+      -0.14000000059604645,
+      -0.054999999701976776,
+      0.0
+    ],
+    "bounds_max": [
+      0.14000000059604645,
+      0.054999999701976776,
+      0.6399999856948853
+    ],
+    "dimensions": [
+      0.2800000011920929,
+      0.10999999940395355,
+      0.6399999856948853
+    ],
+    "triangles": 200,
+    "materials": 1,
+    "clips": [],
+    "notes": "",
+    "sha256": "9879dd1a677a9605d1a965ee2635512376a16453931cee634078620d38a14fdf"
+  },
+  {
+    "name": "pulse",
+    "path": "godot\\assets\\models\\pulse.glb",
+    "source": "Original fictional non-lethal tool accessory mesh, CC0-1.0",
+    "bounds_min": [
+      -0.10999999195337296,
+      -0.0820000022649765,
+      0.0
+    ],
+    "bounds_max": [
+      0.10999999940395355,
+      0.0820000022649765,
+      0.6499999761581421
+    ],
+    "dimensions": [
+      0.2199999988079071,
+      0.164000004529953,
+      0.6499999761581421
+    ],
+    "triangles": 416,
+    "materials": 2,
+    "clips": [],
+    "notes": "",
+    "sha256": "6c47c9bd51503c49fa02b4732d5a9afc46e33f213bd8358d039f6abfa29050bf"
+  },
+  {
+    "name": "office_tower_a",
+    "path": "godot/assets/models/office_tower_a.glb",
+    "source": "Kenney city-kit-commercial CC0; scaled/pivot rework",
+    "bounds_min": [
+      -8.972220420837402,
+      -9.972223281860352,
+      0.0
+    ],
+    "bounds_max": [
+      8.972221374511719,
+      8.972223281860352,
+      38.0
+    ],
+    "dimensions": [
+      17.944442749023438,
+      18.944446563720703,
+      38.0
+    ],
+    "triangles": 1432,
+    "materials": 4,
+    "clips": [],
+    "notes": "",
+    "sha256": "ed4b1ab96721e10d00d856405689df44da78a91a116b35c0c2e5c59b82120e80"
+  },
+  {
+    "name": "office_tower_b",
+    "path": "godot/assets/models/office_tower_b.glb",
+    "source": "Kenney city-kit-commercial CC0; scaled/pivot rework",
+    "bounds_min": [
+      -6.982141971588135,
+      -7.982142925262451,
+      0.0
+    ],
+    "bounds_max": [
+      6.982141971588135,
+      6.982142925262451,
+      46.000003814697266
+    ],
+    "dimensions": [
+      13.96428394317627,
+      14.964285850524902,
+      46.000003814697266
+    ],
+    "triangles": 1732,
+    "materials": 4,
+    "clips": [],
+    "notes": "",
+    "sha256": "0038770f6c568bd460eccc71663d754cf1805ecb75042fdb904f1da2ab417202"
+  },
+  {
+    "name": "office_tower_c",
+    "path": "godot/assets/models/office_tower_c.glb",
+    "source": "Kenney city-kit-commercial CC0; scaled/pivot rework",
+    "bounds_min": [
+      -5.176469326019287,
+      -6.612795829772949,
+      0.0
+    ],
+    "bounds_max": [
+      5.176469802856445,
+      5.612796306610107,
+      33.0
+    ],
+    "dimensions": [
+      10.35293960571289,
+      12.225591659545898,
+      33.0
+    ],
+    "triangles": 1844,
+    "materials": 4,
+    "clips": [],
+    "notes": "",
+    "sha256": "7cd7455db187ec54d03f067072ad4c433441ac0564a0f4b77df182d743083b6d"
+  },
+  {
+    "name": "tree",
+    "path": "godot/assets/models/tree.glb",
+    "source": "Kenney nature-kit CC0; scaled/pivot rework",
+    "bounds_min": [
+      -1.3059313297271729,
+      -1.5079593658447266,
+      6.536100298481685e-31
+    ],
+    "bounds_max": [
+      1.3059313297271729,
+      1.5079593658447266,
+      5.0
+    ],
+    "dimensions": [
+      2.6118626594543457,
+      3.015918731689453,
+      5.0
+    ],
+    "triangles": 196,
+    "materials": 2,
+    "clips": [],
+    "notes": "",
+    "sha256": "579f21427b822c36ea91cc1500aaea81483800a8a48c18d5d2f930ed12a1bdab"
+  },
+  {
+    "name": "server",
+    "path": "godot/assets/models/server.glb",
+    "source": "Kenney furniture-kit CC0; scaled/pivot rework",
+    "bounds_min": [
+      -0.4705882668495178,
+      -0.321117639541626,
+      0.0
+    ],
+    "bounds_max": [
+      0.4705882668495178,
+      0.29411765933036804,
+      2.0
+    ],
+    "dimensions": [
+      0.9411765336990356,
+      0.6152353286743164,
+      2.0
+    ],
+    "triangles": 2616,
+    "materials": 3,
+    "clips": [],
+    "notes": "",
+    "sha256": "41db9c9a0b937e4cca0c30733f111d49e4dfec130bfaf87a51f858e4e04b738a"
+  },
+  {
+    "name": "glass",
+    "path": "godot/assets/models/glass.glb",
+    "source": "Kenney furniture-kit CC0; scaled/pivot rework",
+    "bounds_min": [
+      -1.008117914199829,
+      -0.08982330560684204,
+      0.0
+    ],
+    "bounds_max": [
+      1.008117914199829,
+      0.08982329815626144,
+      2.6000001430511475
+    ],
+    "dimensions": [
+      2.016235828399658,
+      0.17964661121368408,
+      2.6000001430511475
+    ],
+    "triangles": 108,
+    "materials": 2,
+    "clips": [],
+    "notes": "",
+    "sha256": "e7dc6dc6c7544bb25b44b41e467738f5f689300a02116aa6a01943180424fb94"
+  },
+  {
+    "name": "bicycle",
+    "path": "godot/assets/models/bicycle.glb",
+    "source": "Bicycle by Poly by Google CC-BY-3.0; source https://poly.pizza/m/19VoUuA2pcN; scaled, reoriented, sockets, UV-preserving wheel/crank separation",
+    "bounds_min": [
+      -0.3096204102039337,
+      -0.8999999165534973,
+      0.0
+    ],
+    "bounds_max": [
+      0.3096204102039337,
+      0.8999999165534973,
+      1.0516600608825684
+    ],
+    "dimensions": [
+      0.6192408204078674,
+      1.7999998331069946,
+      1.0516600608825684
+    ],
+    "triangles": 1714,
+    "materials": 1,
+    "clips": [],
+    "notes": "WheelFront, WheelRear and Crank are meshes with real axle pivots; wheel radius .357m.",
+    "sha256": "49409f5905c017b1e80f03e7768489ef51906545a0a01e2b6d5b64f5821464a6"
+  },
+  {
+    "name": "hero",
+    "path": "godot/assets/models/hero.glb",
+    "source": "Kenney Mini Characters CC0; original face/accessory/UV/animations/weighted knees",
+    "bounds_min": [
+      -0.9999216198921204,
+      -0.46598684787750244,
+      0.0
+    ],
+    "bounds_max": [
+      0.9999216198921204,
+      0.6300000548362732,
+      1.75
+    ],
+    "dimensions": [
+      1.9998432397842407,
+      1.0959868431091309,
+      1.75
+    ],
+    "triangles": 2427,
+    "materials": 1,
+    "clips": [
+      "idle",
+      "walk",
+      "run",
+      "attack",
+      "drive",
+      "knockdown",
+      "hit",
+      "pedal"
+    ],
+    "notes": "Shared 9-bone stylized rig; pedal articulated at hip/knee; precise hand/foot IK remains follow-up.",
+    "sha256": "1ce640fa5a2a7eb505bb904cb992749fa487f01e9aee5b4637a2ff258366cfb7"
+  },
+  {
+    "name": "guard",
+    "path": "godot/assets/models/guard.glb",
+    "source": "Kenney Mini Characters CC0; original face/accessory/UV/animations/weighted knees",
+    "bounds_min": [
+      -0.9708642363548279,
+      -0.4692736864089966,
+      2.842170943040401e-14
+    ],
+    "bounds_max": [
+      0.9708642363548279,
+      0.43276408314704895,
+      1.7499998807907104
+    ],
+    "dimensions": [
+      1.9417284727096558,
+      0.9020377397537231,
+      1.7499998807907104
+    ],
+    "triangles": 2562,
+    "materials": 1,
+    "clips": [
+      "idle",
+      "walk",
+      "run",
+      "attack",
+      "drive",
+      "knockdown",
+      "hit",
+      "pedal"
+    ],
+    "notes": "Shared 9-bone stylized rig; pedal articulated at hip/knee; precise hand/foot IK remains follow-up.",
+    "sha256": "e44760d4b0ff047462f1a8c27a1dd5aa9960a6055d6e28750a933b11640d3e59"
+  },
+  {
+    "name": "civilian",
+    "path": "godot/assets/models/civilian.glb",
+    "source": "Kenney Mini Characters CC0; original face/accessory/UV/animations/weighted knees",
+    "bounds_min": [
+      -0.9280006885528564,
+      -0.6629868149757385,
+      0.0
+    ],
+    "bounds_max": [
+      0.9280006885528564,
+      0.5062630772590637,
+      1.7499998807907104
+    ],
+    "dimensions": [
+      1.856001377105713,
+      1.1692498922348022,
+      1.7499998807907104
+    ],
+    "triangles": 2406,
+    "materials": 1,
+    "clips": [
+      "idle",
+      "walk",
+      "run",
+      "attack",
+      "drive",
+      "knockdown",
+      "hit",
+      "pedal"
+    ],
+    "notes": "Shared 9-bone stylized rig; pedal articulated at hip/knee; precise hand/foot IK remains follow-up.",
+    "sha256": "586890a0db1ae7d9fac6ba3b7bfc0de959267b80dcdf50f57d0e3e17c2b1f7fa"
+  }
+]

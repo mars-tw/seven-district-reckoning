@@ -1,0 +1,38 @@
+[
+  {
+    "check": "godot_import_parse",
+    "status": "PASS",
+    "returncode": 0,
+    "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\n\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Loading editor (5 steps)\u001b[39m\u001b[0m\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Loading editor layout...\u001b[39m\u001b[0m\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Loading docks...\u001b[39m\u001b[0m\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\n\u001b[0m\n"
+  },
+  {
+    "check": "gameplay_integration",
+    "status": "PASS",
+    "returncode": 0,
+    "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nINTEGRATION_PASS [\"world_interactables_present\",\"mission_order_and_event_deduplication\",\"bike_and_car_mission_unlocks\",\"rescue_identity_and_safe_point_counting\",\"five_mission_evidence_branch\",\"atomic_save_roundtrip\",\"player_actual_physics_movement\",\"bicycle_actual_physics_enter_move_exit\",\"car_actual_physics_enter_move_exit\"]\n"
+  },
+  {
+    "check": "mission_contract",
+    "status": "PASS",
+    "returncode": 0,
+    "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nALPHA_CONTRACT_CHECKS=233 FAILURES=0\n"
+  },
+  {
+    "check": "controls",
+    "status": "PASS",
+    "returncode": 0,
+    "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nCONTROL_CHECKS=44 FAILURES=0\n"
+  },
+  {
+    "check": "guard_persistence",
+    "status": "PASS",
+    "returncode": 0,
+    "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nGUARD_SAVE_CHECKS=16 FAILURES=0\n"
+  },
+  {
+    "check": "release_regressions",
+    "status": "PASS",
+    "returncode": 0,
+    "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nREVIEW_PASS premature_damage_protected_practice_1\nREVIEW_PASS premature_damage_protected_practice_2\nREVIEW_PASS premature_damage_protected_fake_sign\nREVIEW_PASS premature_damage_protected_equipment_1\nREVIEW_PASS premature_damage_protected_equipment_2\nREVIEW_PASS premature_damage_protected_equipment_3\nREVIEW_PASS premature_damage_protected_record_1\nREVIEW_PASS premature_damage_protected_record_2\nREVIEW_PASS E_cannot_complete_practice\nREVIEW_PASS actual_attack_begins_practice_1\nREVIEW_PASS actual_attack_begins_practice_2\nREVIEW_PASS actual_player_hits_complete_practice\nREVIEW_PASS slot95_mid_mission_save\nREVIEW_PASS fresh_scene_load_mid_MAIN001\nREVIEW_PASS loaded_wrench_collected_before_retry\nREVIEW_PASS retry_restores_replayable_wrench\nREVIEW_PASS retry_can_reach_practice_again\nREVIEW_PASS guard_defeat_reached\nREVIEW_PASS restore_pre_fight_save\nREVIEW_PASS pre_fight_restore_revives_guard\nREVIEW_PASS bike_mount_for_saved_occupancy\nREVIEW_PASS slot95_mounted_save\nREVIEW_PASS mounted_save_restore\nREVIEW_PASS single_vehicle_occupancy_after_restore\nREVIEW_PASS retry_releases_checkpoint_vehicle_occupancy\nREVIEW_PASS repeat_pulse_pickup_does_not_refill\nREVIEW_PASS rescue_fixture_reached\nREVIEW_PASS early_safe_arrival_keeps_retrying\nREVIEW_PASS early_safe_arrival_then_second_release_completes\nREVIEW_PASS E_cannot_complete_smash\nREVIEW_PASS real_object_destruction_advances_smash\nREVIEW_PASS legitimate_broken_objects_save_is_valid\nREVIEW_PASS slot95_broken_objects_save\nREVIEW_PASS broken_objects_JSON_roundtrip_restores\nREVIEW_PASS broken_object_roundtrip_preserves_zero_health\nREVIEW_PASS repeat_testmode_new_game_resets_mission_and_objects\nREVIEW_PASS normal_new_game_reloads_and_autostarts_scene\nRELEASE_REVIEW_RESULT {\"failures\":[],\"human_playthrough\":false,\"passed\":[\"premature_damage_protected_practice_1\",\"premature_damage_protected_practice_2\",\"premature_damage_protected_fake_sign\",\"premature_damage_protected_equipment_1\",\"premature_damage_protected_equipment_2\",\"premature_damage_protected_equipment_3\",\"premature_damage_protected_record_1\",\"premature_damage_protected_record_2\",\"E_cannot_complete_practice\",\"actual_attack_begins_practice_1\",\"actual_attack_begins_practice_2\",\"actual_player_hits_complete_practice\",\"slot95_mid_mission_save\",\"fresh_scene_load_mid_MAIN001\",\"loaded_wrench_collected_before_retry\",\"retry_restores_replayable_wrench\",\"retry_can_reach_practice_again\",\"guard_defeat_reached\",\"restore_pre_fight_save\",\"pre_fight_restore_revives_guard\",\"bike_mount_for_saved_occupancy\",\"slot95_mounted_save\",\"mounted_save_restore\",\"single_vehicle_occupancy_after_restore\",\"retry_releases_checkpoint_vehicle_occupancy\",\"repeat_pulse_pickup_does_not_refill\",\"rescue_fixture_reached\",\"early_safe_arrival_keeps_retrying\",\"early_safe_arrival_then_second_release_completes\",\"E_cannot_complete_smash\",\"real_object_destruction_advances_smash\",\"legitimate_broken_objects_save_is_valid\",\"slot95_broken_objects_save\",\"broken_objects_JSON_roundtrip_restores\",\"broken_object_roundtrip_preserves_zero_health\",\"repeat_testmode_new_game_resets_mission_and_objects\",\"normal_new_game_reloads_and_autostarts_scene\"],\"slot\":95}\n"
+  }
+]

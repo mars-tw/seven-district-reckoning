@@ -1,0 +1,2106 @@
+{
+  "status": "VERIFIED",
+  "blender_version": "5.2.0 LTS",
+  "assets": [
+    {
+      "file": "godot/assets/models/barrier.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "barrier_construction-barrier",
+            "MESH"
+          ]
+        ],
+        "triangles": 60,
+        "bounds_min": [
+          -0.52115,
+          -0.86538,
+          0.0
+        ],
+        "bounds_max": [
+          0.52115,
+          0.86538,
+          1.0
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "barrier_construction-barrier",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/bat.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "BatGrip",
+            "MESH"
+          ],
+          [
+            "GripSocket",
+            "EMPTY"
+          ],
+          [
+            "TurnedBat",
+            "MESH"
+          ]
+        ],
+        "triangles": 392,
+        "bounds_min": [
+          -0.082,
+          -0.082,
+          0.0
+        ],
+        "bounds_max": [
+          0.082,
+          0.082,
+          0.88
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "BatGrip",
+            1
+          ],
+          [
+            "TurnedBat",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/bench.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "bench_bench(Clone)",
+            "MESH"
+          ]
+        ],
+        "triangles": 170,
+        "bounds_min": [
+          -0.875,
+          -0.4375,
+          0.0
+        ],
+        "bounds_max": [
+          0.875,
+          0.4375,
+          2.05625
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "bench_bench(Clone)",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/bicycle.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "BicycleFrame",
+            "MESH"
+          ],
+          [
+            "Crank",
+            "MESH"
+          ],
+          [
+            "CrankPivot",
+            "EMPTY"
+          ],
+          [
+            "ExitLeft",
+            "EMPTY"
+          ],
+          [
+            "HandlebarGripLeft",
+            "EMPTY"
+          ],
+          [
+            "HandlebarGripRight",
+            "EMPTY"
+          ],
+          [
+            "RiderSeat",
+            "EMPTY"
+          ],
+          [
+            "WheelFront",
+            "MESH"
+          ],
+          [
+            "WheelFrontAxis",
+            "EMPTY"
+          ],
+          [
+            "WheelRear",
+            "MESH"
+          ],
+          [
+            "WheelRearAxis",
+            "EMPTY"
+          ]
+        ],
+        "triangles": 1714,
+        "bounds_min": [
+          -0.30962,
+          -0.9,
+          0.0
+        ],
+        "bounds_max": [
+          0.30962,
+          0.9,
+          1.05166
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "BicycleFrame",
+            1
+          ],
+          [
+            "Crank",
+            1
+          ],
+          [
+            "WheelFront",
+            1
+          ],
+          [
+            "WheelRear",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/car.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "DriverSeat",
+            "EMPTY"
+          ],
+          [
+            "ExitLeft",
+            "EMPTY"
+          ],
+          [
+            "ExitRight",
+            "EMPTY"
+          ],
+          [
+            "PassengerSeat",
+            "EMPTY"
+          ],
+          [
+            "body",
+            "MESH"
+          ],
+          [
+            "wheel-back-left",
+            "MESH"
+          ],
+          [
+            "wheel-back-right",
+            "MESH"
+          ],
+          [
+            "wheel-front-left",
+            "MESH"
+          ],
+          [
+            "wheel-front-right",
+            "MESH"
+          ]
+        ],
+        "triangles": 2032,
+        "bounds_min": [
+          -1.23529,
+          -2.1,
+          0.0
+        ],
+        "bounds_max": [
+          1.23529,
+          2.1,
+          2.14118
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "body",
+            1
+          ],
+          [
+            "wheel-back-left",
+            1
+          ],
+          [
+            "wheel-back-right",
+            1
+          ],
+          [
+            "wheel-front-left",
+            1
+          ],
+          [
+            "wheel-front-right",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/civilian.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "ExpressiveEyebrow",
+            "MESH"
+          ],
+          [
+            "ExpressiveEyebrow.001",
+            "MESH"
+          ],
+          [
+            "EyeWhite",
+            "MESH"
+          ],
+          [
+            "EyeWhite.001",
+            "MESH"
+          ],
+          [
+            "HairSideLock",
+            "MESH"
+          ],
+          [
+            "HairSideLock.001",
+            "MESH"
+          ],
+          [
+            "HandToolSocket",
+            "EMPTY"
+          ],
+          [
+            "HumanSkeleton",
+            "ARMATURE"
+          ],
+          [
+            "Mouth",
+            "MESH"
+          ],
+          [
+            "Nose",
+            "MESH"
+          ],
+          [
+            "Pupil",
+            "MESH"
+          ],
+          [
+            "Pupil.001",
+            "MESH"
+          ],
+          [
+            "SeatHipSocket",
+            "EMPTY"
+          ],
+          [
+            "body-mesh",
+            "MESH"
+          ],
+          [
+            "head-mesh",
+            "MESH"
+          ]
+        ],
+        "triangles": 2406,
+        "bounds_min": [
+          -0.928,
+          -0.66299,
+          0.0
+        ],
+        "bounds_max": [
+          0.928,
+          0.50626,
+          1.75
+        ],
+        "bones": [
+          "arm-left",
+          "arm-right",
+          "head",
+          "leg-left",
+          "leg-right",
+          "root",
+          "shin-left",
+          "shin-right",
+          "torso"
+        ],
+        "clips": [
+          "attack",
+          "drive",
+          "hit",
+          "idle",
+          "knockdown",
+          "pedal",
+          "run",
+          "walk"
+        ],
+        "uv_sets": [
+          [
+            "ExpressiveEyebrow",
+            1
+          ],
+          [
+            "ExpressiveEyebrow.001",
+            1
+          ],
+          [
+            "EyeWhite",
+            1
+          ],
+          [
+            "EyeWhite.001",
+            1
+          ],
+          [
+            "HairSideLock",
+            1
+          ],
+          [
+            "HairSideLock.001",
+            1
+          ],
+          [
+            "Mouth",
+            1
+          ],
+          [
+            "Nose",
+            1
+          ],
+          [
+            "Pupil",
+            1
+          ],
+          [
+            "Pupil.001",
+            1
+          ],
+          [
+            "body-mesh",
+            2
+          ],
+          [
+            "head-mesh",
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/desk.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "desk_desk(Clone)",
+            "MESH"
+          ],
+          [
+            "desk_drawer",
+            "MESH"
+          ]
+        ],
+        "triangles": 198,
+        "bounds_min": [
+          -0.81203,
+          -0.43373,
+          0.0
+        ],
+        "bounds_max": [
+          0.81203,
+          0.43373,
+          0.85
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "desk_desk(Clone)",
+            1
+          ],
+          [
+            "desk_drawer",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/display.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "display_computerScreen(Clone)",
+            "MESH"
+          ]
+        ],
+        "triangles": 72,
+        "bounds_min": [
+          -0.53375,
+          -0.14136,
+          -0.0
+        ],
+        "bounds_max": [
+          0.53375,
+          0.14136,
+          0.8
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "display_computerScreen(Clone)",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/glass.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "glass_wallWindow(Clone)",
+            "MESH"
+          ],
+          [
+            "glass_window",
+            "MESH"
+          ]
+        ],
+        "triangles": 108,
+        "bounds_min": [
+          -1.00812,
+          -0.08982,
+          0.0
+        ],
+        "bounds_max": [
+          1.00812,
+          0.08982,
+          2.6
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "glass_wallWindow(Clone)",
+            1
+          ],
+          [
+            "glass_window",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/guard.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "CapVisor",
+            "MESH"
+          ],
+          [
+            "ExpressiveEyebrow",
+            "MESH"
+          ],
+          [
+            "ExpressiveEyebrow.001",
+            "MESH"
+          ],
+          [
+            "EyeWhite",
+            "MESH"
+          ],
+          [
+            "EyeWhite.001",
+            "MESH"
+          ],
+          [
+            "HandToolSocket",
+            "EMPTY"
+          ],
+          [
+            "HumanSkeleton",
+            "ARMATURE"
+          ],
+          [
+            "Mouth",
+            "MESH"
+          ],
+          [
+            "Nose",
+            "MESH"
+          ],
+          [
+            "Pupil",
+            "MESH"
+          ],
+          [
+            "Pupil.001",
+            "MESH"
+          ],
+          [
+            "SeatHipSocket",
+            "EMPTY"
+          ],
+          [
+            "SecurityBadge",
+            "MESH"
+          ],
+          [
+            "UniformCap",
+            "MESH"
+          ],
+          [
+            "body-mesh",
+            "MESH"
+          ],
+          [
+            "head-mesh",
+            "MESH"
+          ]
+        ],
+        "triangles": 2562,
+        "bounds_min": [
+          -0.97086,
+          -0.46927,
+          0.0
+        ],
+        "bounds_max": [
+          0.97086,
+          0.43276,
+          1.75
+        ],
+        "bones": [
+          "arm-left",
+          "arm-right",
+          "head",
+          "leg-left",
+          "leg-right",
+          "root",
+          "shin-left",
+          "shin-right",
+          "torso"
+        ],
+        "clips": [
+          "attack",
+          "drive",
+          "hit",
+          "idle",
+          "knockdown",
+          "pedal",
+          "run",
+          "walk"
+        ],
+        "uv_sets": [
+          [
+            "CapVisor",
+            1
+          ],
+          [
+            "ExpressiveEyebrow",
+            1
+          ],
+          [
+            "ExpressiveEyebrow.001",
+            1
+          ],
+          [
+            "EyeWhite",
+            1
+          ],
+          [
+            "EyeWhite.001",
+            1
+          ],
+          [
+            "Mouth",
+            1
+          ],
+          [
+            "Nose",
+            1
+          ],
+          [
+            "Pupil",
+            1
+          ],
+          [
+            "Pupil.001",
+            1
+          ],
+          [
+            "SecurityBadge",
+            1
+          ],
+          [
+            "UniformCap",
+            1
+          ],
+          [
+            "body-mesh",
+            2
+          ],
+          [
+            "head-mesh",
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/hero.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "BackpackPocket",
+            "MESH"
+          ],
+          [
+            "ExpressiveEyebrow",
+            "MESH"
+          ],
+          [
+            "ExpressiveEyebrow.001",
+            "MESH"
+          ],
+          [
+            "EyeWhite",
+            "MESH"
+          ],
+          [
+            "EyeWhite.001",
+            "MESH"
+          ],
+          [
+            "HandToolSocket",
+            "EMPTY"
+          ],
+          [
+            "HumanSkeleton",
+            "ARMATURE"
+          ],
+          [
+            "JacketZip",
+            "MESH"
+          ],
+          [
+            "Mouth",
+            "MESH"
+          ],
+          [
+            "Nose",
+            "MESH"
+          ],
+          [
+            "OrangeDeliveryBackpack",
+            "MESH"
+          ],
+          [
+            "Pupil",
+            "MESH"
+          ],
+          [
+            "Pupil.001",
+            "MESH"
+          ],
+          [
+            "SeatHipSocket",
+            "EMPTY"
+          ],
+          [
+            "ShoulderStrap",
+            "MESH"
+          ],
+          [
+            "ShoulderStrap.001",
+            "MESH"
+          ],
+          [
+            "body-mesh",
+            "MESH"
+          ],
+          [
+            "head-mesh",
+            "MESH"
+          ]
+        ],
+        "triangles": 2427,
+        "bounds_min": [
+          -0.99992,
+          -0.46599,
+          0.0
+        ],
+        "bounds_max": [
+          0.99992,
+          0.63,
+          1.75
+        ],
+        "bones": [
+          "arm-left",
+          "arm-right",
+          "head",
+          "leg-left",
+          "leg-right",
+          "root",
+          "shin-left",
+          "shin-right",
+          "torso"
+        ],
+        "clips": [
+          "attack",
+          "drive",
+          "hit",
+          "idle",
+          "knockdown",
+          "pedal",
+          "run",
+          "walk"
+        ],
+        "uv_sets": [
+          [
+            "BackpackPocket",
+            1
+          ],
+          [
+            "ExpressiveEyebrow",
+            1
+          ],
+          [
+            "ExpressiveEyebrow.001",
+            1
+          ],
+          [
+            "EyeWhite",
+            1
+          ],
+          [
+            "EyeWhite.001",
+            1
+          ],
+          [
+            "JacketZip",
+            1
+          ],
+          [
+            "Mouth",
+            1
+          ],
+          [
+            "Nose",
+            1
+          ],
+          [
+            "OrangeDeliveryBackpack",
+            1
+          ],
+          [
+            "Pupil",
+            1
+          ],
+          [
+            "Pupil.001",
+            1
+          ],
+          [
+            "ShoulderStrap",
+            1
+          ],
+          [
+            "ShoulderStrap.001",
+            1
+          ],
+          [
+            "body-mesh",
+            2
+          ],
+          [
+            "head-mesh",
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/office_lobby.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "EntranceSocket",
+            "EMPTY"
+          ],
+          [
+            "ExitSocket",
+            "EMPTY"
+          ],
+          [
+            "chair",
+            "MESH"
+          ],
+          [
+            "chairDesk(Clone)",
+            "MESH"
+          ],
+          [
+            "computerScreen(Clone)",
+            "MESH"
+          ],
+          [
+            "desk(Clone)",
+            "MESH"
+          ],
+          [
+            "drawer",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).001",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).002",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).003",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).004",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).005",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).006",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).007",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).008",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).009",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).010",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).011",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).012",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).013",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).014",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).015",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).016",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).017",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).018",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).019",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).020",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).021",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).022",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).023",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).024",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).025",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).026",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).027",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).028",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).029",
+            "MESH"
+          ],
+          [
+            "floorFull(Clone).030",
+            "MESH"
+          ],
+          [
+            "loungeSofa(Clone)",
+            "MESH"
+          ],
+          [
+            "loungeSofa(Clone).001",
+            "MESH"
+          ],
+          [
+            "plant",
+            "MESH"
+          ],
+          [
+            "plant.001",
+            "MESH"
+          ],
+          [
+            "plant.002",
+            "MESH"
+          ],
+          [
+            "plant.003",
+            "MESH"
+          ],
+          [
+            "pottedPlant(Clone)",
+            "MESH"
+          ],
+          [
+            "pottedPlant(Clone).001",
+            "MESH"
+          ],
+          [
+            "pottedPlant(Clone).002",
+            "MESH"
+          ],
+          [
+            "pottedPlant(Clone).003",
+            "MESH"
+          ],
+          [
+            "wallWindow(Clone)",
+            "MESH"
+          ],
+          [
+            "wallWindow(Clone).001",
+            "MESH"
+          ],
+          [
+            "wallWindow(Clone).002",
+            "MESH"
+          ],
+          [
+            "wallWindow(Clone).003",
+            "MESH"
+          ],
+          [
+            "wallWindow(Clone).004",
+            "MESH"
+          ],
+          [
+            "wallWindow(Clone).005",
+            "MESH"
+          ],
+          [
+            "window",
+            "MESH"
+          ],
+          [
+            "window.001",
+            "MESH"
+          ],
+          [
+            "window.002",
+            "MESH"
+          ],
+          [
+            "window.003",
+            "MESH"
+          ],
+          [
+            "window.004",
+            "MESH"
+          ],
+          [
+            "window.005",
+            "MESH"
+          ]
+        ],
+        "triangles": 2362,
+        "bounds_min": [
+          -6.0,
+          -5.0,
+          0.0
+        ],
+        "bounds_max": [
+          6.0,
+          5.0,
+          2.8
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "chair",
+            1
+          ],
+          [
+            "chairDesk(Clone)",
+            1
+          ],
+          [
+            "computerScreen(Clone)",
+            1
+          ],
+          [
+            "desk(Clone)",
+            1
+          ],
+          [
+            "drawer",
+            1
+          ],
+          [
+            "floorFull(Clone).001",
+            1
+          ],
+          [
+            "floorFull(Clone).002",
+            1
+          ],
+          [
+            "floorFull(Clone).003",
+            1
+          ],
+          [
+            "floorFull(Clone).004",
+            1
+          ],
+          [
+            "floorFull(Clone).005",
+            1
+          ],
+          [
+            "floorFull(Clone).006",
+            1
+          ],
+          [
+            "floorFull(Clone).007",
+            1
+          ],
+          [
+            "floorFull(Clone).008",
+            1
+          ],
+          [
+            "floorFull(Clone).009",
+            1
+          ],
+          [
+            "floorFull(Clone).010",
+            1
+          ],
+          [
+            "floorFull(Clone).011",
+            1
+          ],
+          [
+            "floorFull(Clone).012",
+            1
+          ],
+          [
+            "floorFull(Clone).013",
+            1
+          ],
+          [
+            "floorFull(Clone).014",
+            1
+          ],
+          [
+            "floorFull(Clone).015",
+            1
+          ],
+          [
+            "floorFull(Clone).016",
+            1
+          ],
+          [
+            "floorFull(Clone).017",
+            1
+          ],
+          [
+            "floorFull(Clone).018",
+            1
+          ],
+          [
+            "floorFull(Clone).019",
+            1
+          ],
+          [
+            "floorFull(Clone).020",
+            1
+          ],
+          [
+            "floorFull(Clone).021",
+            1
+          ],
+          [
+            "floorFull(Clone).022",
+            1
+          ],
+          [
+            "floorFull(Clone).023",
+            1
+          ],
+          [
+            "floorFull(Clone).024",
+            1
+          ],
+          [
+            "floorFull(Clone).025",
+            1
+          ],
+          [
+            "floorFull(Clone).026",
+            1
+          ],
+          [
+            "floorFull(Clone).027",
+            1
+          ],
+          [
+            "floorFull(Clone).028",
+            1
+          ],
+          [
+            "floorFull(Clone).029",
+            1
+          ],
+          [
+            "floorFull(Clone).030",
+            1
+          ],
+          [
+            "loungeSofa(Clone)",
+            1
+          ],
+          [
+            "loungeSofa(Clone).001",
+            1
+          ],
+          [
+            "plant",
+            1
+          ],
+          [
+            "plant.001",
+            1
+          ],
+          [
+            "plant.002",
+            1
+          ],
+          [
+            "plant.003",
+            1
+          ],
+          [
+            "pottedPlant(Clone)",
+            1
+          ],
+          [
+            "pottedPlant(Clone).001",
+            1
+          ],
+          [
+            "pottedPlant(Clone).002",
+            1
+          ],
+          [
+            "pottedPlant(Clone).003",
+            1
+          ],
+          [
+            "wallWindow(Clone)",
+            1
+          ],
+          [
+            "wallWindow(Clone).001",
+            1
+          ],
+          [
+            "wallWindow(Clone).002",
+            1
+          ],
+          [
+            "wallWindow(Clone).003",
+            1
+          ],
+          [
+            "wallWindow(Clone).004",
+            1
+          ],
+          [
+            "wallWindow(Clone).005",
+            1
+          ],
+          [
+            "window",
+            1
+          ],
+          [
+            "window.001",
+            1
+          ],
+          [
+            "window.002",
+            1
+          ],
+          [
+            "window.003",
+            1
+          ],
+          [
+            "window.004",
+            1
+          ],
+          [
+            "window.005",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/office_tower_a.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "bridge-pillar",
+            "MESH"
+          ],
+          [
+            "bridge-pillar.001",
+            "MESH"
+          ],
+          [
+            "detail-overhang-wide",
+            "MESH"
+          ],
+          [
+            "office_tower_a_building-skyscraper-a",
+            "MESH"
+          ]
+        ],
+        "triangles": 1432,
+        "bounds_min": [
+          -8.97222,
+          -9.97222,
+          0.0
+        ],
+        "bounds_max": [
+          8.97222,
+          8.97222,
+          38.0
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "bridge-pillar",
+            1
+          ],
+          [
+            "bridge-pillar.001",
+            1
+          ],
+          [
+            "detail-overhang-wide",
+            1
+          ],
+          [
+            "office_tower_a_building-skyscraper-a",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/office_tower_b.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "bridge-pillar",
+            "MESH"
+          ],
+          [
+            "bridge-pillar.001",
+            "MESH"
+          ],
+          [
+            "detail-overhang-wide",
+            "MESH"
+          ],
+          [
+            "office_tower_b_building-skyscraper-b",
+            "MESH"
+          ]
+        ],
+        "triangles": 1732,
+        "bounds_min": [
+          -6.98214,
+          -7.98214,
+          0.0
+        ],
+        "bounds_max": [
+          6.98214,
+          6.98214,
+          46.0
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "bridge-pillar",
+            1
+          ],
+          [
+            "bridge-pillar.001",
+            1
+          ],
+          [
+            "detail-overhang-wide",
+            1
+          ],
+          [
+            "office_tower_b_building-skyscraper-b",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/office_tower_c.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "bridge-pillar",
+            "MESH"
+          ],
+          [
+            "bridge-pillar.001",
+            "MESH"
+          ],
+          [
+            "detail-overhang-wide",
+            "MESH"
+          ],
+          [
+            "office_tower_c_building-skyscraper-c",
+            "MESH"
+          ]
+        ],
+        "triangles": 1844,
+        "bounds_min": [
+          -5.17647,
+          -6.6128,
+          0.0
+        ],
+        "bounds_max": [
+          5.17647,
+          5.6128,
+          33.0
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "bridge-pillar",
+            1
+          ],
+          [
+            "bridge-pillar.001",
+            1
+          ],
+          [
+            "detail-overhang-wide",
+            1
+          ],
+          [
+            "office_tower_c_building-skyscraper-c",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/planter.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "planter_plant",
+            "MESH"
+          ],
+          [
+            "planter_pottedPlant(Clone)",
+            "MESH"
+          ]
+        ],
+        "triangles": 60,
+        "bounds_min": [
+          -0.19454,
+          -0.22152,
+          0.0
+        ],
+        "bounds_max": [
+          0.19454,
+          0.22152,
+          1.2
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "planter_plant",
+            1
+          ],
+          [
+            "planter_pottedPlant(Clone)",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/pulse.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "GripSocket",
+            "EMPTY"
+          ],
+          [
+            "PulseEmitter",
+            "MESH"
+          ],
+          [
+            "PulseGrip",
+            "MESH"
+          ],
+          [
+            "PulseHousing",
+            "MESH"
+          ]
+        ],
+        "triangles": 416,
+        "bounds_min": [
+          -0.11,
+          -0.082,
+          0.0
+        ],
+        "bounds_max": [
+          0.11,
+          0.082,
+          0.65
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "PulseEmitter",
+            1
+          ],
+          [
+            "PulseGrip",
+            1
+          ],
+          [
+            "PulseHousing",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/road_crossing.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "road_crossing_road-crossing",
+            "MESH"
+          ]
+        ],
+        "triangles": 104,
+        "bounds_min": [
+          -6.0,
+          -6.0,
+          0.0
+        ],
+        "bounds_max": [
+          6.0,
+          6.0,
+          0.24
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "road_crossing_road-crossing",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/road_straight.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "road_straight_road-straight",
+            "MESH"
+          ]
+        ],
+        "triangles": 44,
+        "bounds_min": [
+          -6.0,
+          -6.0,
+          0.0
+        ],
+        "bounds_max": [
+          6.0,
+          6.0,
+          0.24
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "road_straight_road-straight",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/server.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "RackMountedServer",
+            "MESH"
+          ],
+          [
+            "RackMountedServer.001",
+            "MESH"
+          ],
+          [
+            "RackMountedServer.002",
+            "MESH"
+          ],
+          [
+            "StatusLED",
+            "MESH"
+          ],
+          [
+            "StatusLED.001",
+            "MESH"
+          ],
+          [
+            "StatusLED.002",
+            "MESH"
+          ],
+          [
+            "StatusLED.003",
+            "MESH"
+          ],
+          [
+            "StatusLED.004",
+            "MESH"
+          ],
+          [
+            "StatusLED.005",
+            "MESH"
+          ],
+          [
+            "VentSlot",
+            "MESH"
+          ],
+          [
+            "VentSlot.001",
+            "MESH"
+          ],
+          [
+            "VentSlot.002",
+            "MESH"
+          ],
+          [
+            "VentSlot.003",
+            "MESH"
+          ],
+          [
+            "VentSlot.004",
+            "MESH"
+          ],
+          [
+            "VentSlot.005",
+            "MESH"
+          ],
+          [
+            "VentSlot.006",
+            "MESH"
+          ],
+          [
+            "VentSlot.007",
+            "MESH"
+          ],
+          [
+            "VentSlot.008",
+            "MESH"
+          ],
+          [
+            "VentSlot.009",
+            "MESH"
+          ],
+          [
+            "VentSlot.010",
+            "MESH"
+          ],
+          [
+            "VentSlot.011",
+            "MESH"
+          ],
+          [
+            "VentSlot.012",
+            "MESH"
+          ],
+          [
+            "VentSlot.013",
+            "MESH"
+          ],
+          [
+            "VentSlot.014",
+            "MESH"
+          ],
+          [
+            "VentSlot.015",
+            "MESH"
+          ],
+          [
+            "VentSlot.016",
+            "MESH"
+          ],
+          [
+            "VentSlot.017",
+            "MESH"
+          ],
+          [
+            "VentSlot.018",
+            "MESH"
+          ],
+          [
+            "VentSlot.019",
+            "MESH"
+          ],
+          [
+            "VentSlot.020",
+            "MESH"
+          ],
+          [
+            "server_bookcaseClosed(Clone)",
+            "MESH"
+          ]
+        ],
+        "triangles": 2616,
+        "bounds_min": [
+          -0.47059,
+          -0.32112,
+          0.0
+        ],
+        "bounds_max": [
+          0.47059,
+          0.29412,
+          2.0
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "RackMountedServer",
+            1
+          ],
+          [
+            "RackMountedServer.001",
+            1
+          ],
+          [
+            "RackMountedServer.002",
+            1
+          ],
+          [
+            "StatusLED",
+            1
+          ],
+          [
+            "StatusLED.001",
+            1
+          ],
+          [
+            "StatusLED.002",
+            1
+          ],
+          [
+            "StatusLED.003",
+            1
+          ],
+          [
+            "StatusLED.004",
+            1
+          ],
+          [
+            "StatusLED.005",
+            1
+          ],
+          [
+            "VentSlot",
+            1
+          ],
+          [
+            "VentSlot.001",
+            1
+          ],
+          [
+            "VentSlot.002",
+            1
+          ],
+          [
+            "VentSlot.003",
+            1
+          ],
+          [
+            "VentSlot.004",
+            1
+          ],
+          [
+            "VentSlot.005",
+            1
+          ],
+          [
+            "VentSlot.006",
+            1
+          ],
+          [
+            "VentSlot.007",
+            1
+          ],
+          [
+            "VentSlot.008",
+            1
+          ],
+          [
+            "VentSlot.009",
+            1
+          ],
+          [
+            "VentSlot.010",
+            1
+          ],
+          [
+            "VentSlot.011",
+            1
+          ],
+          [
+            "VentSlot.012",
+            1
+          ],
+          [
+            "VentSlot.013",
+            1
+          ],
+          [
+            "VentSlot.014",
+            1
+          ],
+          [
+            "VentSlot.015",
+            1
+          ],
+          [
+            "VentSlot.016",
+            1
+          ],
+          [
+            "VentSlot.017",
+            1
+          ],
+          [
+            "VentSlot.018",
+            1
+          ],
+          [
+            "VentSlot.019",
+            1
+          ],
+          [
+            "VentSlot.020",
+            1
+          ],
+          [
+            "server_bookcaseClosed(Clone)",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/sign.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "sign_road-sign-empty",
+            "MESH"
+          ]
+        ],
+        "triangles": 42,
+        "bounds_min": [
+          -0.11579,
+          -0.11579,
+          0.0
+        ],
+        "bounds_max": [
+          0.11579,
+          0.11579,
+          2.2
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "sign_road-sign-empty",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/streetlight.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "streetlight_light-curved",
+            "MESH"
+          ]
+        ],
+        "triangles": 92,
+        "bounds_min": [
+          -0.19259,
+          -0.86667,
+          0.0
+        ],
+        "bounds_max": [
+          0.19259,
+          0.86667,
+          5.2
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "streetlight_light-curved",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/traffic_light.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "traffic_light_traffic-light",
+            "MESH"
+          ]
+        ],
+        "triangles": 212,
+        "bounds_min": [
+          -0.43386,
+          -0.33204,
+          0.0
+        ],
+        "bounds_max": [
+          0.43386,
+          0.33204,
+          3.8
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "traffic_light_traffic-light",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/tree.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "tree_tree_oak",
+            "MESH"
+          ]
+        ],
+        "triangles": 196,
+        "bounds_min": [
+          -1.30593,
+          -1.50796,
+          0.0
+        ],
+        "bounds_max": [
+          1.30593,
+          1.50796,
+          5.0
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "tree_tree_oak",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "file": "godot/assets/models/wrench.glb",
+      "two_imports_identical": true,
+      "signature": {
+        "objects": [
+          [
+            "GripSocket",
+            "EMPTY"
+          ],
+          [
+            "WrenchHandle",
+            "MESH"
+          ],
+          [
+            "WrenchOpenJaw",
+            "MESH"
+          ]
+        ],
+        "triangles": 200,
+        "bounds_min": [
+          -0.14,
+          -0.055,
+          0.0
+        ],
+        "bounds_max": [
+          0.14,
+          0.055,
+          0.64
+        ],
+        "bones": [],
+        "clips": [],
+        "uv_sets": [
+          [
+            "WrenchHandle",
+            1
+          ],
+          [
+            "WrenchOpenJaw",
+            0
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+name: Validate game
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  godot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download pinned official Godot
+        shell: bash
+        run: |
+          curl -L --fail -o /tmp/godot.zip https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+          curl -L --fail -o /tmp/SHA512-SUMS.txt https://github.com/godotengine/godot/releases/download/4.7.2-stable/SHA512-SUMS.txt
+          cd /tmp
+          grep 'Godot_v4.7.2-stable_linux.x86_64.zip$' SHA512-SUMS.txt | sed 's/Godot_v4.7.2-stable_linux.x86_64.zip/godot.zip/' | sha512sum -c -
+          unzip -q godot.zip -d godot-bin
+          chmod +x godot-bin/Godot_v4.7.2-stable_linux.x86_64
+      - name: Parse and exercise the real game
+        run: python tools/test_game.py --godot /tmp/godot-bin/Godot_v4.7.2-stable_linux.x86_64
+      - name: Verify publication contents
+        run: python tools/scan_publication.py

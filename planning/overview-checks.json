@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-02",
+  "scope": "planning-overview-interface-only",
+  "browser": "Codex in-app browser",
+  "status": "VERIFIED",
+  "checks": [
+    {
+      "name": "Overview loads and displays 50 tickets, 32 missions, 70 assets",
+      "result": "PASS"
+    },
+    {
+      "name": "Ticket phase Slice and keyword bicycle filters",
+      "result": "PASS",
+      "observed_count": 6
+    },
+    {
+      "name": "Mission phase Slice filter",
+      "result": "PASS",
+      "observed_count": 5
+    },
+    {
+      "name": "Bicycle asset keyword filter",
+      "result": "PASS",
+      "observed_count": 10
+    },
+    {
+      "name": "Desktop layout screenshot inspected",
+      "result": "PASS"
+    },
+    {
+      "name": "Ending slider high branch",
+      "result": "PASS",
+      "observed": "END-001"
+    },
+    {
+      "name": "Ending slider low branch",
+      "result": "PASS",
+      "observed": "END-003"
+    },
+    {
+      "name": "Ending slider default fallback",
+      "result": "PASS",
+      "observed": "END-002"
+    },
+    {
+      "name": "Browser console errors",
+      "result": "PASS",
+      "observed_count": 0
+    }
+  ],
+  "game_playtest": "NotPerformed",
+  "game_performance_test": "NotPerformed"
+}

@@ -1,0 +1,2276 @@
+{
+  "schema_version": "1.0.0",
+  "project_title": "七期：斷鏈行動",
+  "english_title": "Seven District: Break the Chain",
+  "created_date": "2026-10-02",
+  "planning_status": "Planned",
+  "asset_count": 70,
+  "scope": {
+    "slice": {
+      "map_meters": [
+        300,
+        300
+      ],
+      "blocks": 2,
+      "play_minutes": [
+        20,
+        30
+      ],
+      "main_missions": 5,
+      "drivable_car_types": 1,
+      "rideable_bicycle_types": 1,
+      "weapon_types": 3,
+      "minimum_destructible_types": 6,
+      "enterable_major_buildings": 1,
+      "required_destructible_kinds": [
+        "signboard",
+        "glass_partition",
+        "office_desk",
+        "display_terminal",
+        "server_rack_shell",
+        "road_barrier"
+      ]
+    },
+    "mvp": {
+      "map_meters": [
+        800,
+        800
+      ],
+      "districts": 6,
+      "main_missions": 12,
+      "side_missions": 12,
+      "activity_types": 8,
+      "drivable_car_types": 3,
+      "rideable_bicycle_types": 1,
+      "weapon_types": 6,
+      "enterable_major_buildings": 3,
+      "counting_policy": "MVP totals include Slice assets. drivable_car_types means four-wheeled drivable vehicle types, including van."
+    }
+  },
+  "path_policy": "All source_path and export_path values are proposed repository-relative paths. No listed model, texture, animation or GLB has been created or imported by this planning task. Source .blend files remain outside godot/.",
+  "budget_policy": "All budget fields are proposed design caps, not measured performance or approved finished assets. Material surface counts are not engine draw call measurements.",
+  "licensing_policy": {
+    "code_direction": "MIT (proposed; actual source and release audit required)",
+    "original_assets_direction": [
+      "CC BY 4.0",
+      "CC0"
+    ],
+    "current_asset_license_state": "Proposed / pending provenance",
+    "third_party_requirement": "Author, source URL, version, acquired date, license text, redistribution compatibility and required attribution must be recorded before integration.",
+    "excluded_sources": [
+      "GTA/Rockstar models, maps, music, task text or UI assets",
+      "Unverified third-party assets",
+      "Real attack-facility address or security-layout data"
+    ]
+  },
+  "required_acceptance_for_all": [
+    "Original source and export files actually exist before production status changes.",
+    "Source and license provenance is recorded.",
+    "Repeat GLB import preserves scale, orientation, names and attachments.",
+    "Render meshes are separate from collision, navigation and occlusion proxies.",
+    "Asset is checked in a representative in-game camera; budgets are measured after import."
+  ],
+  "assets": [
+    {
+      "id": "ASSET-001",
+      "name": "共用人形骨架",
+      "slug": "shared_humanoid_rig",
+      "category": "characters",
+      "phase": "Slice",
+      "purpose": "玩家、主要角色與 NPC 共用變形骨架與插槽；骨架契約的唯一來源。",
+      "source_path": "assets/source/blender/characters/shared_humanoid_rig.blend",
+      "export_path": "godot/assets/models/characters/shared_humanoid_rig.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "65 根以下 deform bones；4 weights/vertex；腳底原點；命名、A-pose 與四種代表姿勢驗證。"
+      ],
+      "budget_class": "rig",
+      "design_budget": {
+        "deform_bones": 65,
+        "weights_per_vertex": 4
+      },
+      "provenance_path": "assets/provenance/ASSET-001/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-001/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-002",
+      "name": "林至遠／玩家角色",
+      "slug": "player_victim",
+      "category": "characters",
+      "phase": "Slice",
+      "purpose": "CHAR-PLAYER 林至遠，29歲外送員與被假投資平台詐騙的玩家主角；可選外觀但保持阿遠的劇情身分。",
+      "source_path": "assets/source/blender/characters/player_victim.blend",
+      "export_path": "godot/assets/models/characters/player_victim.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-001"
+      ],
+      "acceptance": [
+        "20k triangles 以下；持球棒、扳手、脈衝器及汽車／自行車騎姿無明顯穿插。",
+        "CHAR-PLAYER→ASSET-002映射固定；年齡29歲；外送工作短外套、便於移動的長褲與斜背配送袋；可選外觀仍維持阿遠的劇情身分。",
+        "與所有具名NPC保留不同臉部身分；玩家外觀選擇不改角色ID。"
+      ],
+      "budget_class": "hero",
+      "design_budget": {
+        "lod0_triangles": 20000,
+        "material_surfaces": 3,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-002/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-002/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "creative_character_ids": [
+        "CHAR-PLAYER"
+      ],
+      "planned_character_variant": "CHAR_PLAYER_lin_zhiyuan"
+    },
+    {
+      "id": "ASSET-003",
+      "name": "許予安／地方記者",
+      "slug": "technical_ally",
+      "category": "characters",
+      "phase": "Slice",
+      "purpose": "CHAR-YU 許予安，27歲地方記者與紀錄線聯絡人；協助整理遊戲內虛構證據與任務資料。",
+      "source_path": "assets/source/blender/characters/technical_ally.blend",
+      "export_path": "godot/assets/models/characters/technical_ally.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-001"
+      ],
+      "acceptance": [
+        "共享骨架；服裝與玩家可辨；交談、步行、坐姿可用；無現實企業標誌。",
+        "CHAR-YU→ASSET-003映射固定；年齡27歲；淺色短外套、原創記者識別證與斜背採訪袋；與美晴的修車服裝可辨。",
+        "專用臉部身分；共用骨架與基礎拓樸仍須保留臉部、髮型和服裝差異。"
+      ],
+      "budget_class": "hero",
+      "design_budget": {
+        "lod0_triangles": 20000,
+        "material_surfaces": 3,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-003/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-003/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "creative_character_ids": [
+        "CHAR-YU"
+      ],
+      "planned_character_variant": "CHAR_YU_xu_yuan"
+    },
+    {
+      "id": "ASSET-004",
+      "name": "陳美晴／自行車店主",
+      "slug": "courier_ally",
+      "category": "characters",
+      "phase": "Slice",
+      "purpose": "CHAR-MEI 陳美晴，31歲自行車店主；安全屋、修車、路線提示與工具窗口，維持完整騎姿適配。",
+      "source_path": "assets/source/blender/characters/courier_ally.blend",
+      "export_path": "godot/assets/models/characters/courier_ally.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-001"
+      ],
+      "acceptance": [
+        "共享骨架；完整騎姿可對齊 ASSET-016；修車腰包不穿入車架或手把。",
+        "CHAR-MEI→ASSET-004映射固定；年齡31歲；工作背心、短袖上衣、修車腰包與便於騎車的長褲；保留自行車騎姿。",
+        "專用臉部身分與工作服輪廓；不能沿用予安的臉只改衣服顏色。"
+      ],
+      "budget_class": "hero",
+      "design_budget": {
+        "lod0_triangles": 20000,
+        "material_surfaces": 3,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-004/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-004/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "creative_character_ids": [
+        "CHAR-MEI"
+      ],
+      "planned_character_variant": "CHAR_MEI_chen_meiqing"
+    },
+    {
+      "id": "ASSET-005",
+      "name": "廖啟宏／虛構集團負責人",
+      "slug": "group_executive",
+      "category": "characters",
+      "phase": "Slice",
+      "purpose": "CHAR-LIAO 廖啟宏，41歲虛構集團負責人與主要反派，使用專用臉部及商務服裝輪廓。",
+      "source_path": "assets/source/blender/characters/group_executive.blend",
+      "export_path": "godot/assets/models/characters/group_executive.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-001"
+      ],
+      "acceptance": [
+        "原創人物；共享骨架；交談、受擊、撤退姿勢可用；無真人 likeness。",
+        "CHAR-LIAO→ASSET-005映射固定；年齡41歲；深色合身西裝與醒目的原創領帶／胸針細節；與安保制服區別。",
+        "專用臉部身分；不與江岳、周成或一般上班族共用同一臉部成品。"
+      ],
+      "budget_class": "hero",
+      "design_budget": {
+        "lod0_triangles": 20000,
+        "material_surfaces": 3,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-005/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-005/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "creative_character_ids": [
+        "CHAR-LIAO"
+      ],
+      "planned_character_variant": "CHAR_LIAO_liao_qihong"
+    },
+    {
+      "id": "ASSET-006",
+      "name": "江岳／安保主管與保全套件",
+      "slug": "security_guard",
+      "category": "characters",
+      "phase": "Slice",
+      "purpose": "CHAR-CAPTAIN 江岳，36歲園區安保主管；ASSET-006保全套件中保留江岳專用臉部及制服變體，另供一般保全使用。",
+      "source_path": "assets/source/blender/characters/security_guard.blend",
+      "export_path": "godot/assets/models/characters/security_guard.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-001"
+      ],
+      "acceptance": [
+        "一般 NPC 8k triangles 以下；服裝與路人區別；hit、flee 等狀態可讀。",
+        "CHAR-CAPTAIN→ASSET-006映射固定；年齡36歲；專用安保制服短外套、識別肩線與工作腰帶；保留與一般保全不同的輪廓細節。",
+        "ASSET-006套件中保留江岳專用臉部與制服變體；一般保全不得取代此具名角色。"
+      ],
+      "budget_class": "npc",
+      "design_budget": {
+        "lod0_triangles": 8000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-006/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-006/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "creative_character_ids": [
+        "CHAR-CAPTAIN"
+      ],
+      "planned_character_variant": "CHAR_CAPTAIN_jiang_yue"
+    },
+    {
+      "id": "ASSET-007",
+      "name": "上班族角色",
+      "slug": "office_worker",
+      "category": "characters",
+      "phase": "Slice",
+      "purpose": "辦公區的非敵對 NPC 與場景活動。",
+      "source_path": "assets/source/blender/characters/office_worker.blend",
+      "export_path": "godot/assets/models/characters/office_worker.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-001"
+      ],
+      "acceptance": [
+        "共享骨架；8k triangles 以下；電話、走路、坐姿與撤離動作可用。"
+      ],
+      "budget_class": "npc",
+      "design_budget": {
+        "lod0_triangles": 8000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-007/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-007/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-008",
+      "name": "路人套件＋吳素蓉早餐店女性變體",
+      "slug": "pedestrian_variants",
+      "category": "characters",
+      "phase": "Slice",
+      "purpose": "原創路人服裝套件中固定包含CHAR-AUNT吳素蓉，56歲早餐店女性店主；專用臉部、短捲髮與前綁圍裙剪影。",
+      "source_path": "assets/source/blender/characters/pedestrian_variants.blend",
+      "export_path": "godot/assets/models/characters/pedestrian_variants.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-001"
+      ],
+      "acceptance": [
+        "共用材質與骨架；每實例 8k triangles 以下；不得以複製 mesh 產生唯一貼圖。",
+        "CHAR-AUNT→ASSET-008映射固定；年齡56歲；56歲女性變體；短捲髮、素色工作上衣、前綁圍裙、寬直長褲與平底工作鞋，圍裙形成早餐店工作剪影。",
+        "路人套件內保留專用具名變體與臉部身分；不可由任意女性路人或美晴／予安的臉替代。"
+      ],
+      "budget_class": "npc",
+      "design_budget": {
+        "lod0_triangles": 8000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-008/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-008/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "creative_character_ids": [
+        "CHAR-AUNT"
+      ],
+      "planned_character_variant": "CHAR_AUNT_wu_surong"
+    },
+    {
+      "id": "ASSET-009",
+      "name": "周成／受困招募員",
+      "slug": "office_victim",
+      "category": "characters",
+      "phase": "Slice",
+      "purpose": "CHAR-CHENG 周成，24歲受困招募員與目擊者；非敵對護送角色，受困／救出狀態沿用同一身分。",
+      "source_path": "assets/source/blender/characters/office_victim.blend",
+      "export_path": "godot/assets/models/characters/office_victim.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-001"
+      ],
+      "acceptance": [
+        "服裝身分可辨；步行、恐慌與跟隨動作可用；共享骨架而不新增不相容骨名。",
+        "CHAR-CHENG→ASSET-009映射固定；年齡24歲；略皺的年輕職員襯衫、原創識別證掛繩與便鞋；非敵對外觀。",
+        "專用臉部身分；受困與救出狀態沿用同一身分，不得用隨機路人替換。"
+      ],
+      "budget_class": "npc",
+      "design_budget": {
+        "lod0_triangles": 8000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-009/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-009/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "creative_character_ids": [
+        "CHAR-CHENG"
+      ],
+      "planned_character_variant": "CHAR_CHENG_zhou_cheng"
+    },
+    {
+      "id": "ASSET-010",
+      "name": "移動與拾取動畫庫",
+      "slug": "humanoid_locomotion",
+      "category": "animations",
+      "phase": "Slice",
+      "purpose": "共用 idle、walk、run、sprint、turn、jump、fall、land、crouch、pickup clips。",
+      "source_path": "assets/source/blender/animations/humanoid_locomotion.blend",
+      "export_path": "godot/assets/models/animations/humanoid_locomotion.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-001"
+      ],
+      "acceptance": [
+        "30 fps bake；clips 固定名；循環無跳幀；in-place；二次導入仍保持時長與名稱。"
+      ],
+      "budget_class": "animation",
+      "design_budget": {
+        "sample_fps": 30
+      },
+      "provenance_path": "assets/provenance/ASSET-010/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-010/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-011",
+      "name": "武器與受擊動畫庫",
+      "slug": "humanoid_action",
+      "category": "animations",
+      "phase": "Slice",
+      "purpose": "三種武器動作、受擊、倒地與恢復，用於遊戲化反擊。",
+      "source_path": "assets/source/blender/animations/humanoid_action.blend",
+      "export_path": "godot/assets/models/animations/humanoid_action.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-001",
+        "ASSET-019",
+        "ASSET-020",
+        "ASSET-021"
+      ],
+      "acceptance": [
+        "必要 clip 全數存在；握把對齊；接觸事件時間列在行為資料；不依賴 Blender constraints 執行。"
+      ],
+      "budget_class": "animation",
+      "design_budget": {
+        "sample_fps": 30
+      },
+      "provenance_path": "assets/provenance/ASSET-011/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-011/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-012",
+      "name": "汽車騎乘動畫庫",
+      "slug": "car_rider",
+      "category": "animations",
+      "phase": "Slice",
+      "purpose": "上車、駕駛待機、轉向與下車動畫。",
+      "source_path": "assets/source/blender/animations/car_rider.blend",
+      "export_path": "godot/assets/models/animations/car_rider.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-001",
+        "ASSET-015"
+      ],
+      "acceptance": [
+        "10 次上下車代表姿勢連續；座位和門框插槽一致；clips 無整場景位置偏移。"
+      ],
+      "budget_class": "animation",
+      "design_budget": {
+        "sample_fps": 30
+      },
+      "provenance_path": "assets/provenance/ASSET-012/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-012/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-013",
+      "name": "自行車騎乘動畫庫",
+      "slug": "bicycle_rider",
+      "category": "animations",
+      "phase": "Slice",
+      "purpose": "上車、停車、踩踏、煞車與下車；Slice 必需。",
+      "source_path": "assets/source/blender/animations/bicycle_rider.blend",
+      "export_path": "godot/assets/models/animations/bicycle_rider.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-001",
+        "ASSET-016"
+      ],
+      "acceptance": [
+        "30 fps；腳踏、手把、座位接點代表姿勢偏差不超過 5 cm；低／中速循環連續。"
+      ],
+      "budget_class": "animation",
+      "design_budget": {
+        "sample_fps": 30
+      },
+      "provenance_path": "assets/provenance/ASSET-013/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-013/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-014",
+      "name": "NPC 交談與反應動畫庫",
+      "slug": "npc_reactions",
+      "category": "animations",
+      "phase": "Slice",
+      "purpose": "交談、電話、坐姿、恐慌、逃離、投降 clips。",
+      "source_path": "assets/source/blender/animations/npc_reactions.blend",
+      "export_path": "godot/assets/models/animations/npc_reactions.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-001"
+      ],
+      "acceptance": [
+        "可在共用骨架播放；循環及狀態轉換無異常 root 位移；非敵對身分清楚。"
+      ],
+      "budget_class": "animation",
+      "design_budget": {
+        "sample_fps": 30
+      },
+      "provenance_path": "assets/provenance/ASSET-014/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-014/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-015",
+      "name": "原創都會汽車",
+      "slug": "compact_car",
+      "category": "vehicles",
+      "phase": "Slice",
+      "purpose": "一款可駕駛四門車；輪軸、車門、駕駛座及上下車插槽。",
+      "source_path": "assets/source/blender/vehicles/compact_car.blend",
+      "export_path": "godot/assets/models/vehicles/compact_car.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "22k triangles／3 material surfaces 以下；輪軸與門 pivot 正確；單體 collision；10 分鐘道路與 10 次上下車整合。"
+      ],
+      "budget_class": "car",
+      "design_budget": {
+        "lod0_triangles": 22000,
+        "material_surfaces": 3,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-015/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-015/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-016",
+      "name": "原創城市自行車",
+      "slug": "city_bicycle",
+      "category": "vehicles",
+      "phase": "Slice",
+      "purpose": "一款可騎自行車，與汽車同期進 Slice。",
+      "source_path": "assets/source/blender/vehicles/city_bicycle.blend",
+      "export_path": "godot/assets/models/vehicles/city_bicycle.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "9k triangles／2 surfaces 以下；輪軸、前叉、曲柄、手把及座位 socket 存在；低速、坡道、停車、10 次上下車驗證。"
+      ],
+      "budget_class": "bicycle",
+      "design_budget": {
+        "lod0_triangles": 9000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-016/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-016/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-017",
+      "name": "停放車外觀變體",
+      "slug": "parked_car_shells",
+      "category": "vehicles",
+      "phase": "Slice",
+      "purpose": "重用基礎汽車建立有限停車場景，沒有每輛可駕駛承諾。",
+      "source_path": "assets/source/blender/vehicles/parked_car_shells.blend",
+      "export_path": "godot/assets/models/vehicles/parked_car_shells.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-015"
+      ],
+      "acceptance": [
+        "共享 mesh／材質；至少三種配色；遠景 LOD 與簡化 collision；外觀無真實車標。"
+      ],
+      "budget_class": "car",
+      "design_budget": {
+        "lod0_triangles": 22000,
+        "material_surfaces": 3,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-017/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-017/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-018",
+      "name": "可駕駛原創貨運車",
+      "slug": "delivery_van",
+      "category": "vehicles",
+      "phase": "MVP",
+      "purpose": "MVP 第二款可駕駛四輪車；物流任務與較大車體的轉向差異，沿用 arcade 控制。",
+      "source_path": "assets/source/blender/vehicles/delivery_van.blend",
+      "export_path": "godot/assets/models/vehicles/delivery_van.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-015"
+      ],
+      "acceptance": [
+        "22k triangles／3 surfaces 目標；輪軸、車門、座位與上下車插槽完整；與 ASSET-070 適配；10 分鐘道路行駛、10 次上下車與低速碰撞恢復；沒有此驗收不得標可駕駛。"
+      ],
+      "budget_class": "car",
+      "design_budget": {
+        "lod0_triangles": 22000,
+        "material_surfaces": 3,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-018/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-018/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-019",
+      "name": "球棒",
+      "slug": "baseball_bat",
+      "category": "weapons",
+      "phase": "Slice",
+      "purpose": "常見可拾取近戰物件，手持與地面版本共用模型。",
+      "source_path": "assets/source/blender/weapons/baseball_bat.blend",
+      "export_path": "godot/assets/models/weapons/baseball_bat.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "3k triangles／1 surface 以下；握把 pivot 明確；地面與手持尺度一致；可對接 pickup 與 attack wrapper。"
+      ],
+      "budget_class": "weapon",
+      "design_budget": {
+        "lod0_triangles": 3000,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-019/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-019/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-020",
+      "name": "扳手",
+      "slug": "wrench",
+      "category": "weapons",
+      "phase": "Slice",
+      "purpose": "可拾取近戰與遊戲化維修互動工具。",
+      "source_path": "assets/source/blender/weapons/wrench.blend",
+      "export_path": "godot/assets/models/weapons/wrench.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "3k triangles／1 surface 以下；握把與碰撞簡化；尺寸可辨；無真實品牌標記。"
+      ],
+      "budget_class": "weapon",
+      "design_budget": {
+        "lod0_triangles": 3000,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-020/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-020/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-021",
+      "name": "虛構脈衝器具",
+      "slug": "fictional_pulse_tool",
+      "category": "weapons",
+      "phase": "Slice",
+      "purpose": "原創幻想遠程器具，形成不同戰鬥距離與非寫實視覺回饋。",
+      "source_path": "assets/source/blender/weapons/fictional_pulse_tool.blend",
+      "export_path": "godot/assets/models/weapons/fictional_pulse_tool.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "3k triangles／1 surface 以下；握把、發射視覺插槽固定；不包含現實製造或使用操作細節。"
+      ],
+      "budget_class": "weapon",
+      "design_budget": {
+        "lod0_triangles": 3000,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-021/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-021/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-022",
+      "name": "拾取物容器與辨識標記",
+      "slug": "pickup_marker_crate",
+      "category": "props",
+      "phase": "Slice",
+      "purpose": "支援散佈於地圖的武器與補給拾取點，含可辨識輪廓。",
+      "source_path": "assets/source/blender/props/pickup_marker_crate.blend",
+      "export_path": "godot/assets/models/props/pickup_marker_crate.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "可在日／夜與第三人稱鏡頭辨識；mesh 與互動觸發區分離；不增加每拾取點唯一材質。"
+      ],
+      "budget_class": "small_prop",
+      "design_budget": {
+        "lod0_triangles": 1500,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 512
+      },
+      "provenance_path": "assets/provenance/ASSET-022/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-022/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-023",
+      "name": "武器與互動插槽樣板",
+      "slug": "attachment_socket_template",
+      "category": "props",
+      "phase": "Slice",
+      "purpose": "以 Empty／transform 樣板統一 hand、back、pickup 等 attachment 定位。",
+      "source_path": "assets/source/blender/props/attachment_socket_template.blend",
+      "export_path": "godot/assets/models/props/attachment_socket_template.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-001",
+        "ASSET-019",
+        "ASSET-020",
+        "ASSET-021"
+      ],
+      "acceptance": [
+        "固定 socket 命名；GLB extras／nodes 可讀；二次導入不改位置；不產生多餘 render mesh。"
+      ],
+      "budget_class": "proxy",
+      "design_budget": {
+        "rendered": false
+      },
+      "provenance_path": "assets/provenance/ASSET-023/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-023/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-024",
+      "name": "平整街區地面 kit",
+      "slug": "terrain_tiles",
+      "category": "world",
+      "phase": "Slice",
+      "purpose": "兩街廓基礎地面、廣場與局部坡面。",
+      "source_path": "assets/source/blender/world/terrain_tiles.blend",
+      "export_path": "godot/assets/models/world/terrain_tiles.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "1 unit = 1 m；100m chunk 接縫連續；可走區collision簡化；無真實地址對應。"
+      ],
+      "budget_class": "road",
+      "design_budget": {
+        "lod0_triangles_per_20m_module": 2000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-024/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-024/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-025",
+      "name": "道路模組 kit",
+      "slug": "roadway_kit",
+      "category": "world",
+      "phase": "Slice",
+      "purpose": "直路、轉角與路口，支援車輛道路圖。",
+      "source_path": "assets/source/blender/world/roadway_kit.blend",
+      "export_path": "godot/assets/models/world/roadway_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-024"
+      ],
+      "acceptance": [
+        "20 m 模組 2k triangles 以下；拼接無縫；標線可重用；預設道路圖可沿線行駛。"
+      ],
+      "budget_class": "road",
+      "design_budget": {
+        "lod0_triangles_per_20m_module": 2000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-025/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-025/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-026",
+      "name": "人行道與路緣 kit",
+      "slug": "sidewalk_kerb_kit",
+      "category": "world",
+      "phase": "Slice",
+      "purpose": "行人與自行車主要街區動線。",
+      "source_path": "assets/source/blender/world/sidewalk_kerb_kit.blend",
+      "export_path": "godot/assets/models/world/sidewalk_kerb_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-024"
+      ],
+      "acceptance": [
+        "0.5 m 對齊格；坡口與地面銜接；collision 不留下看不見的高臺；自行車可通過設計坡口。"
+      ],
+      "budget_class": "road",
+      "design_budget": {
+        "lod0_triangles_per_20m_module": 2000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-026/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-026/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-027",
+      "name": "景觀廣場鋪面 kit",
+      "slug": "plaza_paving_kit",
+      "category": "world",
+      "phase": "Slice",
+      "purpose": "商辦前的虛構廣場、任務入口與城市辨識。",
+      "source_path": "assets/source/blender/world/plaza_paving_kit.blend",
+      "export_path": "godot/assets/models/world/plaza_paving_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-024"
+      ],
+      "acceptance": [
+        "重用材質；邊界與路緣可拼接；可玩範圍明確；不輸出每塊石磚單獨物件。"
+      ],
+      "budget_class": "road",
+      "design_budget": {
+        "lod0_triangles_per_20m_module": 2000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-027/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-027/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-028",
+      "name": "行穿線與坡道 kit",
+      "slug": "crosswalk_ramp_kit",
+      "category": "world",
+      "phase": "Slice",
+      "purpose": "道路／人行道銜接與自行車坡道測試用。",
+      "source_path": "assets/source/blender/world/crosswalk_ramp_kit.blend",
+      "export_path": "godot/assets/models/world/crosswalk_ramp_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-025",
+        "ASSET-026"
+      ],
+      "acceptance": [
+        "坡面可步行及低速騎乘；標線無 Z-fighting；碰撞與視覺一致。"
+      ],
+      "budget_class": "road",
+      "design_budget": {
+        "lod0_triangles_per_20m_module": 2000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-028/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-028/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-029",
+      "name": "路燈與道路標示 kit",
+      "slug": "streetlight_sign_kit",
+      "category": "street",
+      "phase": "Slice",
+      "purpose": "道路尺度與街道照明位置；標誌使用虛構街名。",
+      "source_path": "assets/source/blender/street/streetlight_sign_kit.blend",
+      "export_path": "godot/assets/models/street/streetlight_sign_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "2 surfaces 以下；共享貼圖；燈光由引擎設置；細小標誌不逐字建模。"
+      ],
+      "budget_class": "small_prop",
+      "design_budget": {
+        "lod0_triangles": 1500,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 512
+      },
+      "provenance_path": "assets/provenance/ASSET-029/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-029/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-030",
+      "name": "街樹與植栽槽 kit",
+      "slug": "tree_planter_kit",
+      "category": "street",
+      "phase": "Slice",
+      "purpose": "七期印象的景觀街道，維持遊戲鏡頭可讀性。",
+      "source_path": "assets/source/blender/street/tree_planter_kit.blend",
+      "export_path": "godot/assets/models/street/tree_planter_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "單株 3k triangles 以下；alpha scissor／opaque 優先；LOD 輪廓合格；trunk 簡化 collision。"
+      ],
+      "budget_class": "vegetation",
+      "design_budget": {
+        "lod0_triangles": 3000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-030/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-030/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-031",
+      "name": "街道家具 kit",
+      "slug": "street_furniture_kit",
+      "category": "street",
+      "phase": "Slice",
+      "purpose": "座椅、垃圾桶、路樁與公共設施外觀。",
+      "source_path": "assets/source/blender/street/street_furniture_kit.blend",
+      "export_path": "godot/assets/models/street/street_furniture_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "小物件 1.5k triangles 以下；共享 atlas；互動與純裝飾 collision 分開。"
+      ],
+      "budget_class": "small_prop",
+      "design_budget": {
+        "lod0_triangles": 1500,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 512
+      },
+      "provenance_path": "assets/provenance/ASSET-031/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-031/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-032",
+      "name": "自行車停放區 kit",
+      "slug": "bicycle_parking_kit",
+      "category": "street",
+      "phase": "Slice",
+      "purpose": "自行車取得、停放與任務辨識的城市資產。",
+      "source_path": "assets/source/blender/street/bicycle_parking_kit.blend",
+      "export_path": "godot/assets/models/street/bicycle_parking_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-016"
+      ],
+      "acceptance": [
+        "車架尺度吻合；騎乘進出無卡住；停車位置不佔主要行人通道。"
+      ],
+      "budget_class": "small_prop",
+      "design_budget": {
+        "lod0_triangles": 1500,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 512
+      },
+      "provenance_path": "assets/provenance/ASSET-032/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-032/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-033",
+      "name": "高樓天際線套件",
+      "slug": "skyline_silhouettes",
+      "category": "world",
+      "phase": "Slice",
+      "purpose": "遠景高樓與城市深度；非全樓可進入。",
+      "source_path": "assets/source/blender/world/skyline_silhouettes.blend",
+      "export_path": "godot/assets/models/world/skyline_silhouettes.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "每棟 1k triangles／1 surface 以下；無 collision；遠景輪廓可辨；非真實大樓完整複製。"
+      ],
+      "budget_class": "skyline",
+      "design_budget": {
+        "lod0_triangles": 1000,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-033/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-033/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-034",
+      "name": "主要商辦外殼",
+      "slug": "business_tower_shell",
+      "category": "buildings",
+      "phase": "Slice",
+      "purpose": "原創高樓外觀與主要故事地點。",
+      "source_path": "assets/source/blender/buildings/business_tower_shell.blend",
+      "export_path": "godot/assets/models/buildings/business_tower_shell.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-035"
+      ],
+      "acceptance": [
+        "人工設計入口／裙樓／立面／屋頂輪廓；完整組合 100k triangles 目標；只規劃指定可玩室內。"
+      ],
+      "budget_class": "tower",
+      "design_budget": {
+        "lod0_triangles_full_shell": 100000,
+        "shared_material_slots": 8,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-034/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-034/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-035",
+      "name": "玻璃立面與石材基座 kit",
+      "slug": "facade_panel_kit",
+      "category": "buildings",
+      "phase": "Slice",
+      "purpose": "主要商辦可重用窗格、石材、雨棚與收邊。",
+      "source_path": "assets/source/blender/buildings/facade_panel_kit.blend",
+      "export_path": "godot/assets/models/buildings/facade_panel_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "模組 6k triangles／2 surfaces 以下；比例一致；避免每窗獨立材質；LOD 無嚴重輪廓破壞。"
+      ],
+      "budget_class": "building_kit",
+      "design_budget": {
+        "lod0_triangles_per_module": 6000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-035/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-035/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-036",
+      "name": "商辦大廳 kit",
+      "slug": "lobby_kit",
+      "category": "interiors",
+      "phase": "Slice",
+      "purpose": "入口、櫃臺、休息區與電梯前室，形成首個室內任務空間。",
+      "source_path": "assets/source/blender/interiors/lobby_kit.blend",
+      "export_path": "godot/assets/models/interiors/lobby_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-040",
+        "ASSET-041"
+      ],
+      "acceptance": [
+        "人工布局與動線；玩家尺度及 collision 一致；可由 wrapper 連接四個可玩分區。"
+      ],
+      "budget_class": "building_kit",
+      "design_budget": {
+        "lod0_triangles_per_module": 6000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-036/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-036/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-037",
+      "name": "標準辦公層 kit",
+      "slug": "office_floor_kit",
+      "category": "interiors",
+      "phase": "Slice",
+      "purpose": "開放座位、會議室與辦公走道；只做一個可玩標準層。",
+      "source_path": "assets/source/blender/interiors/office_floor_kit.blend",
+      "export_path": "godot/assets/models/interiors/office_floor_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-040",
+        "ASSET-041"
+      ],
+      "acceptance": [
+        "kit 模組吸附可拼；代表角色／武器／鏡頭可使用；任務證據可讀，非全樓逐層製作。"
+      ],
+      "budget_class": "building_kit",
+      "design_budget": {
+        "lod0_triangles_per_module": 6000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-037/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-037/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-038",
+      "name": "虛構機房 kit",
+      "slug": "machine_room_kit",
+      "category": "interiors",
+      "phase": "Slice",
+      "purpose": "劇情任務空間與機櫃外觀；不含真實設施布局。",
+      "source_path": "assets/source/blender/interiors/machine_room_kit.blend",
+      "export_path": "godot/assets/models/interiors/machine_room_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-040",
+        "ASSET-051"
+      ],
+      "acceptance": [
+        "原創遊戲化機房；視線、走道與互動點明確；無真實攻擊、門禁或設備操作資料。"
+      ],
+      "budget_class": "building_kit",
+      "design_budget": {
+        "lod0_triangles_per_module": 6000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-038/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-038/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-039",
+      "name": "主要商辦屋頂 kit",
+      "slug": "rooftop_kit",
+      "category": "interiors",
+      "phase": "Slice",
+      "purpose": "屋頂任務空間、設備輪廓與遠景。",
+      "source_path": "assets/source/blender/interiors/rooftop_kit.blend",
+      "export_path": "godot/assets/models/interiors/rooftop_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-033",
+        "ASSET-041"
+      ],
+      "acceptance": [
+        "可玩邊界明確；collision 阻擋越界；與外殼高度及轉場連接一致。"
+      ],
+      "budget_class": "building_kit",
+      "design_budget": {
+        "lod0_triangles_per_module": 6000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-039/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-039/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-040",
+      "name": "門與電梯前室 kit",
+      "slug": "door_elevator_kit",
+      "category": "interiors",
+      "phase": "Slice",
+      "purpose": "進出、上樓與室內分區切換。",
+      "source_path": "assets/source/blender/interiors/door_elevator_kit.blend",
+      "export_path": "godot/assets/models/interiors/door_elevator_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "門鉸鏈 pivot 正確；door leaf 及 collision 分離；電梯使用短轉場而非全棟實時升降物理。"
+      ],
+      "budget_class": "building_kit",
+      "design_budget": {
+        "lod0_triangles_per_module": 6000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-040/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-040/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-041",
+      "name": "樓梯與坡面 kit",
+      "slug": "stairs_ramp_kit",
+      "category": "interiors",
+      "phase": "Slice",
+      "purpose": "少量室內高差、出口及測試用坡面。",
+      "source_path": "assets/source/blender/interiors/stairs_ramp_kit.blend",
+      "export_path": "godot/assets/models/interiors/stairs_ramp_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "角色 capsule 可通行；collision 可用簡化坡面；不因每階樓梯造成相機與移動跳動。"
+      ],
+      "budget_class": "building_kit",
+      "design_budget": {
+        "lod0_triangles_per_module": 6000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-041/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-041/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-042",
+      "name": "導航與遮蔽 proxy 套件",
+      "slug": "navigation_occlusion_proxies",
+      "category": "proxies",
+      "phase": "Slice",
+      "purpose": "提供簡化可走區、靜態碰撞與 occlusion 輪廓。",
+      "source_path": "assets/source/blender/proxies/navigation_occlusion_proxies.blend",
+      "export_path": "godot/assets/models/proxies/navigation_occlusion_proxies.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-024",
+        "ASSET-034",
+        "ASSET-036",
+        "ASSET-037",
+        "ASSET-038",
+        "ASSET-039"
+      ],
+      "acceptance": [
+        "render／collision／nav proxy 分層命名；不得顯示在遊戲；NPC 可達性與錯誤遮蔽檢查。"
+      ],
+      "budget_class": "proxy",
+      "design_budget": {
+        "rendered": false
+      },
+      "provenance_path": "assets/provenance/ASSET-042/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-042/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-043",
+      "name": "展示機台三態",
+      "slug": "display_terminal_three_state",
+      "category": "destructibles",
+      "phase": "Slice",
+      "purpose": "Slice 必要六類之一：虛構幣圈展示機台的打砸回饋。",
+      "source_path": "assets/source/blender/destructibles/display_terminal_three_state.blend",
+      "export_path": "godot/assets/models/destructibles/display_terminal_three_state.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "intact／damaged／broken 同 pivot；展示螢幕與機台輪廓清楚；全部殘骸 6k triangles 以下；最多 8 convex 破片；共享全場60片與6秒壽命上限；20次狀態測試。"
+      ],
+      "budget_class": "destructible",
+      "design_budget": {
+        "lod0_triangles_intact": 4000,
+        "lod0_triangles_all_debris": 6000,
+        "shared_material_surfaces": 2,
+        "debris_count": 8,
+        "texture_edge_pixels": 1024,
+        "maximum_debris_lifetime_seconds": 6
+      },
+      "provenance_path": "assets/provenance/ASSET-043/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-043/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "destructible_kind": "display_terminal",
+      "required_for_slice": true,
+      "destructible_states": [
+        "intact",
+        "damaged",
+        "broken"
+      ]
+    },
+    {
+      "id": "ASSET-044",
+      "name": "可破壞辦公桌三態",
+      "slug": "desk_three_state",
+      "category": "destructibles",
+      "phase": "Slice",
+      "purpose": "辦公室破壞回饋第二類。",
+      "source_path": "assets/source/blender/destructibles/desk_three_state.blend",
+      "export_path": "godot/assets/models/destructibles/desk_three_state.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "三態同原點；碎後移除整桌 blocking collision；最多 8 破片；不毀掉不可回復任務資料。"
+      ],
+      "budget_class": "destructible",
+      "design_budget": {
+        "lod0_triangles_intact": 4000,
+        "lod0_triangles_all_debris": 6000,
+        "shared_material_surfaces": 2,
+        "debris_count": 8,
+        "texture_edge_pixels": 1024,
+        "maximum_debris_lifetime_seconds": 6
+      },
+      "provenance_path": "assets/provenance/ASSET-044/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-044/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "destructible_kind": "office_desk",
+      "required_for_slice": true,
+      "destructible_states": [
+        "intact",
+        "damaged",
+        "broken"
+      ]
+    },
+    {
+      "id": "ASSET-045",
+      "name": "玻璃隔屏三態",
+      "slug": "glass_partition_three_state",
+      "category": "destructibles",
+      "phase": "Slice",
+      "purpose": "Slice 必要六類之一：辦公區玻璃隔屏與破壞後可通行狀態。",
+      "source_path": "assets/source/blender/destructibles/glass_partition_three_state.blend",
+      "export_path": "godot/assets/models/destructibles/glass_partition_three_state.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "三態輪廓可辨；預切玻璃；broken 後移除blocking collision；透明與碎片有上限；不使用動態trimesh；20次破壞／讀檔狀態驗證。"
+      ],
+      "budget_class": "destructible",
+      "design_budget": {
+        "lod0_triangles_intact": 4000,
+        "lod0_triangles_all_debris": 6000,
+        "shared_material_surfaces": 2,
+        "debris_count": 8,
+        "texture_edge_pixels": 1024,
+        "maximum_debris_lifetime_seconds": 6
+      },
+      "provenance_path": "assets/provenance/ASSET-045/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-045/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "destructible_kind": "glass_partition",
+      "required_for_slice": true,
+      "destructible_states": [
+        "intact",
+        "damaged",
+        "broken"
+      ]
+    },
+    {
+      "id": "ASSET-046",
+      "name": "可破壞販賣機三態",
+      "slug": "vending_machine_three_state",
+      "category": "destructibles",
+      "phase": "MVP",
+      "purpose": "MVP 可選破壞類擴充：原創販賣機；不計入Slice必要六類。",
+      "source_path": "assets/source/blender/destructibles/vending_machine_three_state.blend",
+      "export_path": "godot/assets/models/destructibles/vending_machine_three_state.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "原創品牌；三態同 pivot；金屬輪廓預製；不做實時摺曲／漏電模擬；碎片可回收。"
+      ],
+      "budget_class": "destructible",
+      "design_budget": {
+        "lod0_triangles_intact": 4000,
+        "lod0_triangles_all_debris": 6000,
+        "shared_material_surfaces": 2,
+        "debris_count": 8,
+        "texture_edge_pixels": 1024,
+        "maximum_debris_lifetime_seconds": 6
+      },
+      "provenance_path": "assets/provenance/ASSET-046/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-046/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "destructible_kind": "vending_machine",
+      "required_for_slice": false,
+      "destructible_states": [
+        "intact",
+        "damaged",
+        "broken"
+      ]
+    },
+    {
+      "id": "ASSET-047",
+      "name": "可破壞貨箱三態",
+      "slug": "cargo_crate_three_state",
+      "category": "destructibles",
+      "phase": "MVP",
+      "purpose": "MVP 可選破壞類擴充：貨箱；不計入Slice必要六類。",
+      "source_path": "assets/source/blender/destructibles/cargo_crate_three_state.blend",
+      "export_path": "godot/assets/models/destructibles/cargo_crate_three_state.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "三態與預切破片；共享材質；20 次重復破壞後物件數無持續上升。"
+      ],
+      "budget_class": "destructible",
+      "design_budget": {
+        "lod0_triangles_intact": 4000,
+        "lod0_triangles_all_debris": 6000,
+        "shared_material_surfaces": 2,
+        "debris_count": 8,
+        "texture_edge_pixels": 1024,
+        "maximum_debris_lifetime_seconds": 6
+      },
+      "provenance_path": "assets/provenance/ASSET-047/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-047/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "destructible_kind": "cargo_crate",
+      "required_for_slice": false,
+      "destructible_states": [
+        "intact",
+        "damaged",
+        "broken"
+      ]
+    },
+    {
+      "id": "ASSET-048",
+      "name": "可破壞路障三態",
+      "slug": "barrier_three_state",
+      "category": "destructibles",
+      "phase": "Slice",
+      "purpose": "室外破壞回饋第六類。",
+      "source_path": "assets/source/blender/destructibles/barrier_three_state.blend",
+      "export_path": "godot/assets/models/destructibles/barrier_three_state.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "三態 collision 可切換；安全邊界不依賴此可破壞物；broken 後道路可通行。"
+      ],
+      "budget_class": "destructible",
+      "design_budget": {
+        "lod0_triangles_intact": 4000,
+        "lod0_triangles_all_debris": 6000,
+        "shared_material_surfaces": 2,
+        "debris_count": 8,
+        "texture_edge_pixels": 1024,
+        "maximum_debris_lifetime_seconds": 6
+      },
+      "provenance_path": "assets/provenance/ASSET-048/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-048/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "destructible_kind": "road_barrier",
+      "required_for_slice": true,
+      "destructible_states": [
+        "intact",
+        "damaged",
+        "broken"
+      ]
+    },
+    {
+      "id": "ASSET-049",
+      "name": "可破壞招牌三態",
+      "slug": "signboard_three_state",
+      "category": "destructibles",
+      "phase": "Slice",
+      "purpose": "虛構企業識別與破壞回饋第七類。",
+      "source_path": "assets/source/blender/destructibles/signboard_three_state.blend",
+      "export_path": "godot/assets/models/destructibles/signboard_three_state.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-060"
+      ],
+      "acceptance": [
+        "原創圖樣；三態；破片有上限；不以真實企業 logo 替代設計。"
+      ],
+      "budget_class": "destructible",
+      "design_budget": {
+        "lod0_triangles_intact": 4000,
+        "lod0_triangles_all_debris": 6000,
+        "shared_material_surfaces": 2,
+        "debris_count": 8,
+        "texture_edge_pixels": 1024,
+        "maximum_debris_lifetime_seconds": 6
+      },
+      "provenance_path": "assets/provenance/ASSET-049/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-049/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "destructible_kind": "signboard",
+      "required_for_slice": true,
+      "destructible_states": [
+        "intact",
+        "damaged",
+        "broken"
+      ]
+    },
+    {
+      "id": "ASSET-050",
+      "name": "裝飾玻璃三態",
+      "slug": "decorative_glass_three_state",
+      "category": "destructibles",
+      "phase": "Slice",
+      "purpose": "ASSET-045 玻璃類的裝飾視覺變體；可選，不另計入Slice必要六類。",
+      "source_path": "assets/source/blender/destructibles/decorative_glass_three_state.blend",
+      "export_path": "godot/assets/models/destructibles/decorative_glass_three_state.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-045"
+      ],
+      "acceptance": [
+        "重用玻璃三態／預切／材質合約；透明與破片數量有上限；不做可破壞整片外牆或全樓坍塌；作為同類變體驗收。"
+      ],
+      "budget_class": "destructible",
+      "design_budget": {
+        "lod0_triangles_intact": 4000,
+        "lod0_triangles_all_debris": 6000,
+        "shared_material_surfaces": 2,
+        "debris_count": 8,
+        "texture_edge_pixels": 1024,
+        "maximum_debris_lifetime_seconds": 6
+      },
+      "provenance_path": "assets/provenance/ASSET-050/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-050/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "destructible_kind": "glass_partition",
+      "required_for_slice": false,
+      "destructible_states": [
+        "intact",
+        "damaged",
+        "broken"
+      ]
+    },
+    {
+      "id": "ASSET-051",
+      "name": "機櫃外殼三態",
+      "slug": "server_rack_shell_three_state",
+      "category": "destructibles",
+      "phase": "Slice",
+      "purpose": "Slice 必要六類之一：虛構機櫃外殼的預切破壞；任務資料與物理外殼分離。",
+      "source_path": "assets/source/blender/destructibles/server_rack_shell_three_state.blend",
+      "export_path": "godot/assets/models/destructibles/server_rack_shell_three_state.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "intact／damaged／broken 同原點；最多8預切convex破片；不含真實機房配置或設備破壞操作；任務唯一證據不隨破片消失；20次破壞及讀檔驗證。"
+      ],
+      "budget_class": "destructible",
+      "design_budget": {
+        "lod0_triangles_intact": 4000,
+        "lod0_triangles_all_debris": 6000,
+        "shared_material_surfaces": 2,
+        "debris_count": 8,
+        "texture_edge_pixels": 1024,
+        "maximum_debris_lifetime_seconds": 6
+      },
+      "provenance_path": "assets/provenance/ASSET-051/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-051/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null,
+      "destructible_kind": "server_rack_shell",
+      "required_for_slice": true,
+      "destructible_states": [
+        "intact",
+        "damaged",
+        "broken"
+      ]
+    },
+    {
+      "id": "ASSET-052",
+      "name": "檔案與證據道具套件",
+      "slug": "archive_evidence_kit",
+      "category": "props",
+      "phase": "Slice",
+      "purpose": "虛構文件、盒裝資料與證據拾取物。",
+      "source_path": "assets/source/blender/props/archive_evidence_kit.blend",
+      "export_path": "godot/assets/models/props/archive_evidence_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "原創文字與圖樣；遊戲鏡頭可辨；任務證據獨立存檔；沒有真實個人資料。"
+      ],
+      "budget_class": "small_prop",
+      "design_budget": {
+        "lod0_triangles": 1500,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 512
+      },
+      "provenance_path": "assets/provenance/ASSET-052/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-052/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-053",
+      "name": "安全屋與車庫 kit",
+      "slug": "safehouse_garage_kit",
+      "category": "buildings",
+      "phase": "Slice",
+      "purpose": "玩家整備、汽車／自行車取得與任務回合入口。",
+      "source_path": "assets/source/blender/buildings/safehouse_garage_kit.blend",
+      "export_path": "godot/assets/models/buildings/safehouse_garage_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-015",
+        "ASSET-016"
+      ],
+      "acceptance": [
+        "兩款車輛可進出；各可用停放 socket；共享 kit／材質；入口非真實住宅復刻。"
+      ],
+      "budget_class": "building_kit",
+      "design_budget": {
+        "lod0_triangles_per_module": 6000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-053/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-053/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-054",
+      "name": "商場裙樓街面 kit",
+      "slug": "retail_strip_kit",
+      "category": "buildings",
+      "phase": "MVP",
+      "purpose": "六區中的商業街面變化，不承諾完整商場室內。",
+      "source_path": "assets/source/blender/buildings/retail_strip_kit.blend",
+      "export_path": "godot/assets/models/buildings/retail_strip_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-035",
+        "ASSET-040"
+      ],
+      "acceptance": [
+        "原創商店招牌；共享 kit 但輪廓不同；道路／步行動線可接核心街廓。"
+      ],
+      "budget_class": "building_kit",
+      "design_budget": {
+        "lod0_triangles_per_module": 6000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-054/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-054/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-055",
+      "name": "第二棟可玩商辦 kit",
+      "slug": "secondary_tower_kit",
+      "category": "buildings",
+      "phase": "MVP",
+      "purpose": "MVP 第二棟可進關鍵樓層商辦，重用立面與標準層並新增原創入口／輪廓。",
+      "source_path": "assets/source/blender/buildings/secondary_tower_kit.blend",
+      "export_path": "godot/assets/models/buildings/secondary_tower_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-035",
+        "ASSET-037",
+        "ASSET-042"
+      ],
+      "acceptance": [
+        "入口與至少一個指定任務標準層須實際交付 render、collision 與 navigation；可步行、互動及完成任務；不能用純外殼計入三棟可進建築。"
+      ],
+      "budget_class": "building_kit",
+      "design_budget": {
+        "lod0_triangles_per_module": 6000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-055/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-055/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-056",
+      "name": "服務巷與貨運庭院 kit",
+      "slug": "service_alley_yard_kit",
+      "category": "world",
+      "phase": "MVP",
+      "purpose": "物流、證據運送與自行車支線的虛構場景。",
+      "source_path": "assets/source/blender/world/service_alley_yard_kit.blend",
+      "export_path": "godot/assets/models/world/service_alley_yard_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-025",
+        "ASSET-026",
+        "ASSET-047"
+      ],
+      "acceptance": [
+        "通路可步行與騎車；不複製真實園區入口／安保；有限交通圖可連接。"
+      ],
+      "budget_class": "road",
+      "design_budget": {
+        "lod0_triangles_per_20m_module": 2000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-056/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-056/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-057",
+      "name": "虛構高差橋面 kit",
+      "slug": "fictional_bridge_kit",
+      "category": "world",
+      "phase": "MVP",
+      "purpose": "六區景觀與路線變化，非真實橋梁復刻。",
+      "source_path": "assets/source/blender/world/fictional_bridge_kit.blend",
+      "export_path": "godot/assets/models/world/fictional_bridge_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-025",
+        "ASSET-041"
+      ],
+      "acceptance": [
+        "簡化 static collision；汽車與自行車可通行；邊界清楚；無需橋體可崩塌。"
+      ],
+      "budget_class": "building_kit",
+      "design_budget": {
+        "lod0_triangles_per_module": 6000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-057/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-057/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-058",
+      "name": "六區辨識地標套件",
+      "slug": "district_landmarks",
+      "category": "world",
+      "phase": "MVP",
+      "purpose": "以公共裝置與不同街廓輪廓幫助玩家辨識六區。",
+      "source_path": "assets/source/blender/world/district_landmarks.blend",
+      "export_path": "godot/assets/models/world/district_landmarks.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-033"
+      ],
+      "acceptance": [
+        "每區至少一個可識別原創輪廓；遠距 LOD 合格；不以真實高風險設施提供攻擊圖。"
+      ],
+      "budget_class": "skyline",
+      "design_budget": {
+        "lod0_triangles": 1000,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-058/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-058/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-059",
+      "name": "夜間發光招牌套件",
+      "slug": "night_emissive_sign_kit",
+      "category": "street",
+      "phase": "MVP",
+      "purpose": "夜間視覺與活動場景，用有限 emissive 表示。",
+      "source_path": "assets/source/blender/street/night_emissive_sign_kit.blend",
+      "export_path": "godot/assets/models/street/night_emissive_sign_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-060"
+      ],
+      "acceptance": [
+        "貼圖發光與實際照明分離；不大量新增動態燈；夜間任務與拾取物仍可讀。"
+      ],
+      "budget_class": "small_prop",
+      "design_budget": {
+        "lod0_triangles": 1500,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 512
+      },
+      "provenance_path": "assets/provenance/ASSET-059/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-059/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-060",
+      "name": "虛構企業與幣圈招牌圖樣",
+      "slug": "fictional_crypto_signage",
+      "category": "branding",
+      "phase": "Slice",
+      "purpose": "全案原創品牌語彙與虛構詐騙集團標記。",
+      "source_path": "assets/source/blender/branding/fictional_crypto_signage.blend",
+      "export_path": "godot/assets/textures/branding/fictional_crypto_signage_albedo.png",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "無真實交易所／企業商標；文字原創；來源與作者紀錄；可用 atlas 並在遊戲中辨識。"
+      ],
+      "budget_class": "texture",
+      "design_budget": {
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-060/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-060/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-061",
+      "name": "道路與街道標示 atlas",
+      "slug": "road_decal_atlas",
+      "category": "textures",
+      "phase": "Slice",
+      "purpose": "共享標線、箭頭與虛構街名圖樣，減少獨立材質。",
+      "source_path": "assets/source/blender/textures/road_decal_atlas.blend",
+      "export_path": "godot/assets/textures/textures/road_decal_atlas_albedo.png",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "1024² 上限；UV 與 mips 可讀；無 Z-fighting；無真實地址資料。"
+      ],
+      "budget_class": "texture",
+      "design_budget": {
+        "texture_edge_pixels": 1024
+      },
+      "provenance_path": "assets/provenance/ASSET-061/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-061/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-062",
+      "name": "主要角色材質套件",
+      "slug": "hero_character_atlas",
+      "category": "textures",
+      "phase": "Slice",
+      "purpose": "主要人物貼圖預算與原創外觀的作者來源。",
+      "source_path": "assets/source/blender/textures/hero_character_atlas.blend",
+      "export_path": "godot/assets/textures/textures/hero_character_atlas_albedo.png",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-002",
+        "ASSET-003",
+        "ASSET-004",
+        "ASSET-005"
+      ],
+      "acceptance": [
+        "每角色最多一套2048² Albedo／Normal／ORM；通道與 color space 明確；同角色共享資源。"
+      ],
+      "budget_class": "texture",
+      "design_budget": {
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-062/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-062/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-063",
+      "name": "環境 trim sheet 套件",
+      "slug": "environment_trim_sheet",
+      "category": "textures",
+      "phase": "Slice",
+      "purpose": "石材、金屬、窗框與辦公表面共用的原創貼圖。",
+      "source_path": "assets/source/blender/textures/environment_trim_sheet.blend",
+      "export_path": "godot/assets/textures/textures/environment_trim_sheet_albedo.png",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [],
+      "acceptance": [
+        "2048² 設計上限；UV 密度一致；可重用；不引用授權不明第三方照片。"
+      ],
+      "budget_class": "texture",
+      "design_budget": {
+        "texture_edge_pixels": 2048
+      },
+      "provenance_path": "assets/provenance/ASSET-063/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-063/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-064",
+      "name": "互動與脈衝視覺 mesh",
+      "slug": "interaction_vfx_meshes",
+      "category": "vfx",
+      "phase": "Slice",
+      "purpose": "拾取光圈、脈衝視覺與少量破壞效果的基礎 meshes；引擎設材質與時間。",
+      "source_path": "assets/source/blender/vfx/interaction_vfx_meshes.blend",
+      "export_path": "godot/assets/models/vfx/interaction_vfx_meshes.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "dependencies": [
+        "ASSET-021",
+        "ASSET-022"
+      ],
+      "acceptance": [
+        "單 effect mesh 500 triangles 以下；透明與粒子數有上限；遊戲鏡頭可讀；不從 Blender 直接搬最終 compositor。"
+      ],
+      "budget_class": "small_prop",
+      "design_budget": {
+        "lod0_triangles": 500,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 512
+      },
+      "provenance_path": "assets/provenance/ASSET-064/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-064/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-065",
+      "name": "可駕駛原創商務房車",
+      "slug": "business_sedan",
+      "category": "vehicles",
+      "phase": "MVP",
+      "purpose": "MVP 第三款可駕駛四輪車；商辦區交通及較靈活轉向手感，重用 arcade controller。",
+      "dependencies": [
+        "ASSET-015"
+      ],
+      "acceptance": [
+        "22k triangles／3 surfaces 目標；原創車型無真實標誌；車輪、車門及座位 socket 完整；10 分鐘道路與 10 次上下車測試；性能差異由遊戲資料設定。"
+      ],
+      "budget_class": "car",
+      "design_budget": {
+        "lod0_triangles": 22000,
+        "material_surfaces": 3,
+        "texture_edge_pixels": 2048
+      },
+      "source_path": "assets/source/blender/vehicles/business_sedan.blend",
+      "export_path": "godot/assets/models/vehicles/business_sedan.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "provenance_path": "assets/provenance/ASSET-065/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-065/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-066",
+      "name": "伸縮棍",
+      "slug": "telescopic_baton",
+      "category": "weapons",
+      "phase": "MVP",
+      "purpose": "第四種可拾取武器；近距離快速動作與不同於球棒的輪廓。",
+      "dependencies": [],
+      "acceptance": [
+        "3k triangles／1 surface 以下；握把與收起／展開狀態可對齊動畫；近距離命中由引擎設定；不含現實使用教學。"
+      ],
+      "budget_class": "weapon",
+      "design_budget": {
+        "lod0_triangles": 3000,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 1024
+      },
+      "source_path": "assets/source/blender/weapons/telescopic_baton.blend",
+      "export_path": "godot/assets/models/weapons/telescopic_baton.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "provenance_path": "assets/provenance/ASSET-066/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-066/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-067",
+      "name": "幻想電擊器",
+      "slug": "fictional_stun_tool",
+      "category": "weapons",
+      "phase": "MVP",
+      "purpose": "第五種可拾取武器；原創幻想短距離控制工具與清楚的效果插槽。",
+      "dependencies": [],
+      "acceptance": [
+        "3k triangles／1 surface 以下；手持尺度與特效插槽固定；效果為虛構遊戲規則；動作與 ASSET-070 對齊；不提供真實器具設計。"
+      ],
+      "budget_class": "weapon",
+      "design_budget": {
+        "lod0_triangles": 3000,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 1024
+      },
+      "source_path": "assets/source/blender/weapons/fictional_stun_tool.blend",
+      "export_path": "godot/assets/models/weapons/fictional_stun_tool.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "provenance_path": "assets/provenance/ASSET-067/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-067/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-068",
+      "name": "泡沫投射器",
+      "slug": "fictional_foam_projector",
+      "category": "weapons",
+      "phase": "MVP",
+      "purpose": "第六種可拾取武器；原創幻想投射工具，增加阻緩與物件互動的玩法差異。",
+      "dependencies": [],
+      "acceptance": [
+        "3k triangles／1 surface 以下；發射插槽明確；特效與投射物由引擎管理並有上限；與脈衝器外觀可辨；動作與 ASSET-070 對齊。"
+      ],
+      "budget_class": "weapon",
+      "design_budget": {
+        "lod0_triangles": 3000,
+        "material_surfaces": 1,
+        "texture_edge_pixels": 1024
+      },
+      "source_path": "assets/source/blender/weapons/fictional_foam_projector.blend",
+      "export_path": "godot/assets/models/weapons/fictional_foam_projector.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "provenance_path": "assets/provenance/ASSET-068/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-068/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-069",
+      "name": "第三棟可玩商辦 kit",
+      "slug": "third_enterable_tower_kit",
+      "category": "buildings",
+      "phase": "MVP",
+      "purpose": "第三棟可進關鍵樓層商辦；重用標準辦公 kit 與門／電梯，在原創入口與指定任務樓層形成差異。",
+      "dependencies": [
+        "ASSET-035",
+        "ASSET-037",
+        "ASSET-040",
+        "ASSET-042"
+      ],
+      "acceptance": [
+        "實際交付入口與至少一個可玩任務標準層；render／collision／nav 可驗收；輪廓與第二棟可辨；非真實樓宇攻擊布局；純外殼不算可進建築。"
+      ],
+      "budget_class": "building_kit",
+      "design_budget": {
+        "lod0_triangles_per_module": 6000,
+        "material_surfaces": 2,
+        "texture_edge_pixels": 2048
+      },
+      "source_path": "assets/source/blender/buildings/third_enterable_tower_kit.blend",
+      "export_path": "godot/assets/models/buildings/third_enterable_tower_kit.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "provenance_path": "assets/provenance/ASSET-069/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-069/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    },
+    {
+      "id": "ASSET-070",
+      "name": "MVP 武器與載具動作適配庫",
+      "slug": "mvp_actions_vehicle_adaptations",
+      "category": "animations",
+      "phase": "MVP",
+      "purpose": "補齊新增三武器動作及第二／第三款四輪車的上下車／駕駛適配，維持共用人形契約。",
+      "dependencies": [
+        "ASSET-001",
+        "ASSET-018",
+        "ASSET-065",
+        "ASSET-066",
+        "ASSET-067",
+        "ASSET-068"
+      ],
+      "acceptance": [
+        "30 fps bake；每新增武器有必要攻擊／持用 clips；第二／第三款車座位與車門對齊；三款四輪車各完整上下車驗收；固定 clip ID 並可重複導入。"
+      ],
+      "budget_class": "animation",
+      "design_budget": {
+        "sample_fps": 30
+      },
+      "source_path": "assets/source/blender/animations/mvp_actions_vehicle_adaptations.blend",
+      "export_path": "godot/assets/models/animations/mvp_actions_vehicle_adaptations.glb",
+      "license": "Proposed / pending provenance",
+      "status": "Planned",
+      "provenance_path": "assets/provenance/ASSET-070/source.json",
+      "license_evidence_path": "assets/provenance/ASSET-070/license-copy.txt",
+      "actual_source_url": null,
+      "actual_author": null,
+      "measured_budget": null
+    }
+  ],
+  "active_scene_design_caps": {
+    "chunk_meters": [
+      100,
+      100
+    ],
+    "pedestrians": 24,
+    "vehicles_including_player": 12,
+    "enemies": 16,
+    "dynamic_debris": 60,
+    "debris_lifetime_seconds": 6,
+    "measured": false
+  },
+  "character_asset_mapping": {
+    "CHAR-PLAYER": {
+      "asset_id": "ASSET-002",
+      "name": "林至遠",
+      "age": 29,
+      "role": "外送員／玩家主角",
+      "proposed_variant_node": "CHAR_PLAYER_lin_zhiyuan",
+      "clothing_silhouette": "外送工作短外套、便於移動的長褲與斜背配送袋；可選外觀仍維持阿遠的劇情身分。",
+      "identity_rule": "與所有具名NPC保留不同臉部身分；玩家外觀選擇不改角色ID。",
+      "status": "Planned"
+    },
+    "CHAR-YU": {
+      "asset_id": "ASSET-003",
+      "name": "許予安",
+      "age": 27,
+      "role": "地方記者／紀錄線聯絡人",
+      "proposed_variant_node": "CHAR_YU_xu_yuan",
+      "clothing_silhouette": "淺色短外套、原創記者識別證與斜背採訪袋；與美晴的修車服裝可辨。",
+      "identity_rule": "專用臉部身分；共用骨架與基礎拓樸仍須保留臉部、髮型和服裝差異。",
+      "status": "Planned"
+    },
+    "CHAR-MEI": {
+      "asset_id": "ASSET-004",
+      "name": "陳美晴",
+      "age": 31,
+      "role": "自行車店主／安全屋與修車窗口",
+      "proposed_variant_node": "CHAR_MEI_chen_meiqing",
+      "clothing_silhouette": "工作背心、短袖上衣、修車腰包與便於騎車的長褲；保留自行車騎姿。",
+      "identity_rule": "專用臉部身分與工作服輪廓；不能沿用予安的臉只改衣服顏色。",
+      "status": "Planned"
+    },
+    "CHAR-LIAO": {
+      "asset_id": "ASSET-005",
+      "name": "廖啟宏",
+      "age": 41,
+      "role": "虛構集團負責人／主要反派",
+      "proposed_variant_node": "CHAR_LIAO_liao_qihong",
+      "clothing_silhouette": "深色合身西裝與醒目的原創領帶／胸針細節；與安保制服區別。",
+      "identity_rule": "專用臉部身分；不與江岳、周成或一般上班族共用同一臉部成品。",
+      "status": "Planned"
+    },
+    "CHAR-CAPTAIN": {
+      "asset_id": "ASSET-006",
+      "name": "江岳",
+      "age": 36,
+      "role": "園區安保主管／精英敵人",
+      "proposed_variant_node": "CHAR_CAPTAIN_jiang_yue",
+      "clothing_silhouette": "專用安保制服短外套、識別肩線與工作腰帶；保留與一般保全不同的輪廓細節。",
+      "identity_rule": "ASSET-006套件中保留江岳專用臉部與制服變體；一般保全不得取代此具名角色。",
+      "status": "Planned"
+    },
+    "CHAR-CHENG": {
+      "asset_id": "ASSET-009",
+      "name": "周成",
+      "age": 24,
+      "role": "受困招募員／目擊者與護送對象",
+      "proposed_variant_node": "CHAR_CHENG_zhou_cheng",
+      "clothing_silhouette": "略皺的年輕職員襯衫、原創識別證掛繩與便鞋；非敵對外觀。",
+      "identity_rule": "專用臉部身分；受困與救出狀態沿用同一身分，不得用隨機路人替換。",
+      "status": "Planned"
+    },
+    "CHAR-AUNT": {
+      "asset_id": "ASSET-008",
+      "name": "吳素蓉",
+      "age": 56,
+      "role": "早餐店主／社區線聯絡人",
+      "proposed_variant_node": "CHAR_AUNT_wu_surong",
+      "clothing_silhouette": "56歲女性變體；短捲髮、素色工作上衣、前綁圍裙、寬直長褲與平底工作鞋，圍裙形成早餐店工作剪影。",
+      "identity_rule": "路人套件內保留專用具名變體與臉部身分；不可由任意女性路人或美晴／予安的臉替代。",
+      "status": "Planned"
+    }
+  },
+  "character_identity_policy": "Creative character IDs and ages follow docs/creative-bible.md. Shared ASSET-001 rig or base topology does not authorize a shared final face for named characters. Source slugs and paths stay stable; all variant names are planned, not existing exported nodes."
+}

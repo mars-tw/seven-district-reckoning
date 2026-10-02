@@ -1,0 +1,411 @@
+[
+  {
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license": "CC0-1.0",
+    "name": "mini-characters",
+    "source_url": "https://kenney.nl/assets/mini-characters",
+    "archive": "assets/source/downloads/mini-characters.zip",
+    "sha256": "9e1d48e6d7b8479ebbe84df71eb5bd8e1b3f0da546dea641890dccc8a02d0999",
+    "retrieved": "2026-10-02",
+    "download_url": "https://kenney.nl/media/pages/assets/mini-characters/bfc7e272b4-1774770718/kenney_mini-characters.zip",
+    "author": "Kenney",
+    "license_file": "assets/provenance/mini-characters-License.txt",
+    "used_source_files": [
+      {
+        "path": "assets/source/kenney/mini-characters/License.txt",
+        "sha256": "28358ae5accc85b572eb42507956afc8beae05acb4648bb9026a5714d421b785",
+        "bytes": 718
+      },
+      {
+        "path": "assets/source/kenney/mini-characters/Models/FBX format/Textures/colormap.png",
+        "sha256": "0d4947d34ff32acf4a359c7f22ca784e057e7e72f622170a9a77b6fc88fdb70e",
+        "bytes": 8706
+      },
+      {
+        "path": "assets/source/kenney/mini-characters/Models/GLB format/character-female-b.glb",
+        "sha256": "2288438e7baf9acc91a870c82dc00d66710bb486592cfc3474ef8ed93a03863a",
+        "bytes": 252140
+      },
+      {
+        "path": "assets/source/kenney/mini-characters/Models/GLB format/character-male-a.glb",
+        "sha256": "77572792bfe2773b715b8cd8e18644b52b3e1f155fe10450254b50f9c364382a",
+        "bytes": 246916
+      },
+      {
+        "path": "assets/source/kenney/mini-characters/Models/GLB format/character-male-e.glb",
+        "sha256": "cd76681090ce29861b055b0f8b2bdcf84bfccc4ca816f428df42a9bb76d6e1b6",
+        "bytes": 242704
+      },
+      {
+        "path": "assets/source/kenney/mini-characters/Models/GLB format/Textures/colormap.png",
+        "sha256": "0d4947d34ff32acf4a359c7f22ca784e057e7e72f622170a9a77b6fc88fdb70e",
+        "bytes": 8706
+      },
+      {
+        "path": "assets/source/kenney/mini-characters/Models/OBJ format/Textures/colormap.png",
+        "sha256": "0d4947d34ff32acf4a359c7f22ca784e057e7e72f622170a9a77b6fc88fdb70e",
+        "bytes": 8706
+      },
+      {
+        "path": "assets/source/kenney/mini-characters/Previews/character-female-b.png",
+        "sha256": "db299b4ab11a3f038cbd961b62f93cb67677d3e1a9b4cd12577978120f5f9ea6",
+        "bytes": 1820
+      },
+      {
+        "path": "assets/source/kenney/mini-characters/Previews/character-male-a.png",
+        "sha256": "150c2758ac470cc9b4e257999a66511beac6fe798ad6fcd84c911d81f56a97ab",
+        "bytes": 1775
+      },
+      {
+        "path": "assets/source/kenney/mini-characters/Previews/character-male-e.png",
+        "sha256": "e211d5bce7e8e0bb76943b64198c9819c3115b4a40a18e4cf751fa814b3341e1",
+        "bytes": 1809
+      }
+    ],
+    "unneeded_extracted_files_removed": 129
+  },
+  {
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license": "CC0-1.0",
+    "name": "city-kit-commercial",
+    "source_url": "https://kenney.nl/assets/city-kit-commercial",
+    "archive": "assets/source/downloads/city-kit-commercial.zip",
+    "sha256": "f8b09b081c2bb88bcc126e2dec1cb40fd0dad7e7e591b6c26aaefe96fb35276b",
+    "retrieved": "2026-10-02",
+    "download_url": "https://kenney.nl/media/pages/assets/city-kit-commercial/a742d900eb-1753115042/kenney_city-kit-commercial_2.1.zip",
+    "author": "Kenney",
+    "license_file": "assets/provenance/city-kit-commercial-License.txt",
+    "used_source_files": [
+      {
+        "path": "assets/source/kenney/city-kit-commercial/License.txt",
+        "sha256": "c38cee408d022e57e44e49f1cd655c2fe0dc881a07b881276b795215cdc0de69",
+        "bytes": 708
+      },
+      {
+        "path": "assets/source/kenney/city-kit-commercial/Models/FBX format/Textures/colormap.png",
+        "sha256": "191bec3889aaaca5018380038fecc129ebb5c2182879a099b7b538b3fa050b5d",
+        "bytes": 11002
+      },
+      {
+        "path": "assets/source/kenney/city-kit-commercial/Models/GLB format/building-skyscraper-a.glb",
+        "sha256": "d8339bbb75944ff91d1ec9a70ec6dead71bd98b94a42d3dd0fc1f3b107ddbe85",
+        "bytes": 111336
+      },
+      {
+        "path": "assets/source/kenney/city-kit-commercial/Models/GLB format/building-skyscraper-b.glb",
+        "sha256": "3a383e8a0a8819023d30b2aee1c6f40fa6bc28990227a306a86e531f36c6b8d5",
+        "bytes": 138480
+      },
+      {
+        "path": "assets/source/kenney/city-kit-commercial/Models/GLB format/building-skyscraper-c.glb",
+        "sha256": "e73c357554f7561fedb8c1cbecf9d7163ba09ada264d661c59a0f0a180e0185f",
+        "bytes": 149524
+      },
+      {
+        "path": "assets/source/kenney/city-kit-commercial/Models/GLB format/detail-overhang-wide.glb",
+        "sha256": "e94c5d603936a225c8d37650044cebdae99c112c49273dc19a3ee3fb2dca2bf0",
+        "bytes": 6716
+      },
+      {
+        "path": "assets/source/kenney/city-kit-commercial/Models/GLB format/Textures/colormap.png",
+        "sha256": "191bec3889aaaca5018380038fecc129ebb5c2182879a099b7b538b3fa050b5d",
+        "bytes": 11002
+      },
+      {
+        "path": "assets/source/kenney/city-kit-commercial/Models/OBJ format/Textures/colormap.png",
+        "sha256": "191bec3889aaaca5018380038fecc129ebb5c2182879a099b7b538b3fa050b5d",
+        "bytes": 11002
+      },
+      {
+        "path": "assets/source/kenney/city-kit-commercial/Models/Textures/variation-a.png",
+        "sha256": "22be5afbdf78f8158ebd568667779e73ebc16f887481d3add35df59bf820b118",
+        "bytes": 11020
+      },
+      {
+        "path": "assets/source/kenney/city-kit-commercial/Models/Textures/variation-b.png",
+        "sha256": "d7fa3fb6243fdb8cbcbbe8b61c4ff10ceb29aed23be806171f58cef13a8690e6",
+        "bytes": 10897
+      },
+      {
+        "path": "assets/source/kenney/city-kit-commercial/Previews/building-skyscraper-a.png",
+        "sha256": "8c36940e5946f691e3cbb97bb08796554f1984da80c89ce8f32d63c552323eb5",
+        "bytes": 1652
+      },
+      {
+        "path": "assets/source/kenney/city-kit-commercial/Previews/building-skyscraper-b.png",
+        "sha256": "bc2f6b71565ddc989c21b046dfdee8907da387eb4dd3d6174a96873f27bb9d6b",
+        "bytes": 1527
+      },
+      {
+        "path": "assets/source/kenney/city-kit-commercial/Previews/building-skyscraper-c.png",
+        "sha256": "d729b6ad6ff826bdfc58183f943e480e5ed1e90cf7a1144e9dacc398bcc823e4",
+        "bytes": 1506
+      },
+      {
+        "path": "assets/source/kenney/city-kit-commercial/Previews/detail-overhang-wide.png",
+        "sha256": "ca8bf019ead44233ec410756b6c41ec060257b78492e88be3cb434f682964112",
+        "bytes": 1330
+      }
+    ],
+    "unneeded_extracted_files_removed": 205
+  },
+  {
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license": "CC0-1.0",
+    "name": "car-kit",
+    "source_url": "https://kenney.nl/assets/car-kit",
+    "archive": "assets/source/downloads/car-kit.zip",
+    "sha256": "fac7dacac5c7874348cf19729af3ef205f3d366493edaf0a827d93f4fdf3d0c4",
+    "retrieved": "2026-10-02",
+    "download_url": "https://kenney.nl/media/pages/assets/car-kit/1a312ec241-1775131960/kenney_car-kit.zip",
+    "author": "Kenney",
+    "license_file": "assets/provenance/car-kit-License.txt",
+    "used_source_files": [
+      {
+        "path": "assets/source/kenney/car-kit/License.txt",
+        "sha256": "c33b7f6453d134deae7b1b8493717d9ccfa754c25ab97f6de89b88f8fda19b00",
+        "bytes": 696
+      },
+      {
+        "path": "assets/source/kenney/car-kit/Models/FBX format/Textures/colormap.png",
+        "sha256": "f3622a03a20c6696065cae9cbe391351be873508af190c2ebd1d420c055787a5",
+        "bytes": 12371
+      },
+      {
+        "path": "assets/source/kenney/car-kit/Models/GLB format/sedan.glb",
+        "sha256": "b532ea7d2c59f7f6b22b138cf1955218a2c1898f1cea932af4d3fd563c3959b7",
+        "bytes": 172216
+      },
+      {
+        "path": "assets/source/kenney/car-kit/Models/GLB format/Textures/colormap.png",
+        "sha256": "f3622a03a20c6696065cae9cbe391351be873508af190c2ebd1d420c055787a5",
+        "bytes": 12371
+      },
+      {
+        "path": "assets/source/kenney/car-kit/Models/OBJ format/Textures/colormap.png",
+        "sha256": "f3622a03a20c6696065cae9cbe391351be873508af190c2ebd1d420c055787a5",
+        "bytes": 12371
+      },
+      {
+        "path": "assets/source/kenney/car-kit/Previews/sedan.png",
+        "sha256": "d957628a5689322b152588c1d077c51d0d576b229c788195f4a73d8042177ce4",
+        "bytes": 2278
+      }
+    ],
+    "unneeded_extracted_files_removed": 253
+  },
+  {
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license": "CC0-1.0",
+    "name": "city-kit-roads",
+    "source_url": "https://kenney.nl/assets/city-kit-roads",
+    "archive": "assets/source/downloads/city-kit-roads.zip",
+    "sha256": "22058af3d68173a7cf9bda9f0e243a8cef6bd68168c302ebc76327063849674e",
+    "retrieved": "2026-10-02",
+    "download_url": "https://kenney.nl/media/pages/assets/city-kit-roads/74288c9459-1787042796/kenney_city-kit-roads.zip",
+    "author": "Kenney",
+    "license_file": "assets/provenance/city-kit-roads-License.txt",
+    "used_source_files": [
+      {
+        "path": "assets/source/kenney/city-kit-roads/License.txt",
+        "sha256": "87b9404aef5dff6162ae1e53a27bc6427fe1cdd2e2dd5ec05fdd25f17da10498",
+        "bytes": 703
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Models/FBX format/Textures/colormap.png",
+        "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185",
+        "bytes": 11428
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Models/GLB format/bridge-pillar.glb",
+        "sha256": "71c8d9dbaa502e63bf803c6873165873df4601f7285e1fe040d0f03acab3f0ec",
+        "bytes": 5468
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Models/GLB format/construction-barrier.glb",
+        "sha256": "906f73a6d62d8de58a4c5a19e76ff95b460c42b37e5fa37478b8612f06793f26",
+        "bytes": 7052
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Models/GLB format/light-curved.glb",
+        "sha256": "154dcce9d58ec2cd165e26c91a89c97bdd2838cf06d255099b3570df84f82ec6",
+        "bytes": 9492
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Models/GLB format/road-crossing.glb",
+        "sha256": "eb8575335f77da513add4a5277a7b60cad4886c07966f024b15cf55e5966cde3",
+        "bytes": 8700
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Models/GLB format/road-sign-empty.glb",
+        "sha256": "7681ee84c5363e2c95a37593fc3bdd0afb81b23fa46ae6be1c0939a112a4306a",
+        "bytes": 5968
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Models/GLB format/road-straight.glb",
+        "sha256": "f8f744fb6fc96dedd5ad1f763b550166f2624a3757bf36b4b39969d2e7cacac5",
+        "bytes": 5248
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Models/GLB format/Textures/colormap.png",
+        "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185",
+        "bytes": 11428
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Models/GLB format/traffic-light.glb",
+        "sha256": "6c9ee253b7370e1043168493b2e662b349484a0cdd02100cff04d9d8d1bd9abb",
+        "bytes": 20344
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Models/OBJ format/Textures/colormap.png",
+        "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185",
+        "bytes": 11428
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Models/Textures/variation-a.png",
+        "sha256": "e872d12fb1adcdda87e12598d00661da0abce8a24b51a0ce3d18b50f53a3635c",
+        "bytes": 11662
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Previews/bridge-pillar.png",
+        "sha256": "214399d41f66e64decca8f881a6c86d373fcba546d15fc7af32fb90d156b241c",
+        "bytes": 1230
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Previews/construction-barrier.png",
+        "sha256": "6e161364435c810ce0e2828e54276767d39ee17164fb385e9c45b0400f5986af",
+        "bytes": 2603
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Previews/light-curved.png",
+        "sha256": "a33306a6aa2c314148254a4aa7e32cd935254c97e3ec1a721bfb72c07b2ce7f5",
+        "bytes": 875
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Previews/road-crossing.png",
+        "sha256": "fa10f780a9ba677658ef360d4f6186993560a296c4e154671f78a8f08eb93b35",
+        "bytes": 1787
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Previews/road-sign-empty.png",
+        "sha256": "05e6a20410be119480ddd8ecae02e70d2474815d502f0bd3def17d25e1dbf43e",
+        "bytes": 926
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Previews/road-straight.png",
+        "sha256": "e6cccf815fea5ca225967f899cda8bd5fff9fb450a9467c24cd025cb1f48e397",
+        "bytes": 1707
+      },
+      {
+        "path": "assets/source/kenney/city-kit-roads/Previews/traffic-light.png",
+        "sha256": "9be9e14798af8fbad69d7a6ee4fd426b72ce3b97709e72449206e51799955291",
+        "bytes": 1231
+      }
+    ],
+    "unneeded_extracted_files_removed": 468
+  },
+  {
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license": "CC0-1.0",
+    "name": "furniture-kit",
+    "source_url": "https://kenney.nl/assets/furniture-kit",
+    "archive": "assets/source/downloads/furniture-kit.zip",
+    "sha256": "e67652d0932cee41683f74711c03d3e192a2af9979ef8e6b237711f5482d46b0",
+    "retrieved": "2026-10-02",
+    "download_url": "https://kenney.nl/media/pages/assets/furniture-kit/440e0608a4-1677580847/kenney_furniture-kit.zip",
+    "author": "Kenney",
+    "license_file": "assets/provenance/furniture-kit-License.txt",
+    "used_source_files": [
+      {
+        "path": "assets/source/kenney/furniture-kit/License.txt",
+        "sha256": "bc0de1a0742cb490f9ed4bae0bd284286ebb27e23149b9917c7d8c0d590b8b29",
+        "bytes": 614
+      },
+      {
+        "path": "assets/source/kenney/furniture-kit/Models/GLTF format/bench.glb",
+        "sha256": "ba05a6d23a5a5a44da016757632070e47ff7587ce10e2f6d6d52328b4cf5489b",
+        "bytes": 10756
+      },
+      {
+        "path": "assets/source/kenney/furniture-kit/Models/GLTF format/bookcaseClosed.glb",
+        "sha256": "9d210448de5e1179541da895450bbc7a39f4cd673d677654cd6b134e4ea0e047",
+        "bytes": 23132
+      },
+      {
+        "path": "assets/source/kenney/furniture-kit/Models/GLTF format/chairDesk.glb",
+        "sha256": "46406619186034cbe92b19b79a5f1a8e3f442a17a70a7524ef2c0ad0f35095c6",
+        "bytes": 39016
+      },
+      {
+        "path": "assets/source/kenney/furniture-kit/Models/GLTF format/computerScreen.glb",
+        "sha256": "5942cbad29a2d2b956619569926e81d50a4174403d592fece6556e57632dc643",
+        "bytes": 6404
+      },
+      {
+        "path": "assets/source/kenney/furniture-kit/Models/GLTF format/desk.glb",
+        "sha256": "0164fe828f028b321730fb8c74502e353583f751be74da1682d42fff7d3c5a42",
+        "bytes": 15048
+      },
+      {
+        "path": "assets/source/kenney/furniture-kit/Models/GLTF format/floorFull.glb",
+        "sha256": "99fc5df646d8dc605d6fe35001fe5b15bb7b269cc5c65f4f7793fbc76ff3d822",
+        "bytes": 2260
+      },
+      {
+        "path": "assets/source/kenney/furniture-kit/Models/GLTF format/loungeSofa.glb",
+        "sha256": "1886b811c0d3ad0d8525a4fd43adf4112c497c8e0ed906f06877ca3517f4c7dd",
+        "bytes": 9644
+      },
+      {
+        "path": "assets/source/kenney/furniture-kit/Models/GLTF format/pottedPlant.glb",
+        "sha256": "5b760eda2766f75fda36b2c5df652a1662f82981ef64cd8fa7fe7bcd386b3a15",
+        "bytes": 7576
+      },
+      {
+        "path": "assets/source/kenney/furniture-kit/Models/GLTF format/wallWindow.glb",
+        "sha256": "166a10fddb8a78d942bc2791186913f7015dfee8501d20efd7a7b8f196fc5c3e",
+        "bytes": 10744
+      }
+    ],
+    "unneeded_extracted_files_removed": 1536
+  },
+  {
+    "license_url": "https://creativecommons.org/licenses/by/3.0/",
+    "license": "CC-BY-3.0",
+    "name": "bicycle-google",
+    "source_url": "https://poly.pizza/m/19VoUuA2pcN",
+    "file": "assets/source/poly-pizza/bicycle-google.glb",
+    "title": "Bicycle",
+    "modifications": "Blender scale, axis alignment, pivots, seat and wheel markers; no endorsement implied",
+    "sha256": "197063f35b41c2c571666792ac7154d45a11d7c96c7f2aa9030e91c5037dc23e",
+    "retrieved": "2026-10-02",
+    "download_url": "https://static.poly.pizza/6048701b-fa87-426b-9242-c786ca25fa3a.glb",
+    "author": "Poly by Google",
+    "license_file": "assets/provenance/CC-BY-3.0.txt"
+  },
+  {
+    "license": "CC0-1.0",
+    "download_url": "https://kenney.nl/media/pages/assets/nature-kit/37ac38a37b-1677698939/kenney_nature-kit.zip",
+    "retrieved": "2026-10-02",
+    "archive": "assets/source/downloads/nature-kit.zip",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sha256": "fa7974a0d342bfe63c38664ba9f8ec1a4aab8ea25f099bdc56870e33588c4d9d",
+    "author": "Kenney",
+    "name": "nature-kit",
+    "source_url": "https://kenney.nl/assets/nature-kit",
+    "license_file": "assets/provenance/nature-kit-License.txt",
+    "used_source_files": [
+      {
+        "path": "assets/source/kenney/nature-kit/License.txt",
+        "sha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d",
+        "bytes": 611
+      },
+      {
+        "path": "assets/source/kenney/nature-kit/Models/GLTF format/tree_oak.glb",
+        "sha256": "d7fd8773674928c50c11b66d12c636d49bdcc15a8b1c7fbb98e6f63a3439a3f3",
+        "bytes": 14644
+      }
+    ],
+    "unneeded_extracted_files_removed": 3616
+  }
+]

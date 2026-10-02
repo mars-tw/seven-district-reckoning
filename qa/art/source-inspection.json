@@ -1,0 +1,522 @@
+{
+  "blender_version": "5.2.0 LTS",
+  "initial_scene": [
+    [
+      "Camera",
+      "CAMERA"
+    ],
+    [
+      "Cube",
+      "MESH"
+    ],
+    [
+      "Light",
+      "LIGHT"
+    ]
+  ],
+  "mini-characters": [
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\aid-cane-blind.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\aid-cane-low-vision.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\aid-cane.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\aid-crutch.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\aid-defibrillator-green.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\aid-defibrillator-red.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\aid-glasses.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\aid-mask.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\aid-sunglasses.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\aid_hearing.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\character-female-a.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\character-female-b.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\character-female-c.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\character-female-d.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\character-female-e.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\character-female-f.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\character-male-a.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\character-male-b.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\character-male-c.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\character-male-d.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\character-male-e.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\character-male-f.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\wheelchair-deluxe.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\wheelchair-power-deluxe.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\wheelchair-power.glb",
+    "assets\\source\\kenney\\mini-characters\\Models\\GLB format\\wheelchair.glb"
+  ],
+  "car-kit": [
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\ambulance.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\box.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\cone-flat.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\cone.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\debris-bolt.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\debris-bumper.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\debris-door-window.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\debris-door.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\debris-drivetrain-axle.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\debris-drivetrain.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\debris-nut.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\debris-plate-a.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\debris-plate-b.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\debris-plate-small-a.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\debris-plate-small-b.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\debris-spoiler-a.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\debris-spoiler-b.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\debris-tire.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\delivery-flat.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\delivery.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\firetruck.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\garbage-truck.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\hatchback-sports.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\kart-oobi.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\kart-oodi.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\kart-ooli.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\kart-oopi.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\kart-oozi.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\police.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\race-future.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\race.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\sedan-sports.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\sedan.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\suv-luxury.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\suv.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\taxi.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\tractor-police.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\tractor-shovel.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\tractor.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\truck-flat.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\truck.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\van.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\wheel-dark.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\wheel-default.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\wheel-racing.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\wheel-tractor-back.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\wheel-tractor-dark-back.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\wheel-tractor-dark-front.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\wheel-tractor-front.glb",
+    "assets\\source\\kenney\\car-kit\\Models\\GLB format\\wheel-truck.glb"
+  ],
+  "city-kit-commercial": [
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-a.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-b.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-c.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-d.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-e.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-f.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-g.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-h.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-i.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-j.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-k.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-l.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-m.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-n.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-skyscraper-a.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-skyscraper-b.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-skyscraper-c.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-skyscraper-d.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\building-skyscraper-e.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\detail-awning-wide.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\detail-awning.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\detail-overhang-wide.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\detail-overhang.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\detail-parasol-a.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\detail-parasol-b.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-a.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-b.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-c.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-d.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-e.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-f.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-g.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-h.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-i.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-j.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-k.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-l.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-m.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-n.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-wide-a.glb",
+    "assets\\source\\kenney\\city-kit-commercial\\Models\\GLB format\\low-detail-building-wide-b.glb"
+  ],
+  "character_detail": {
+    "objects": [
+      [
+        "body-mesh",
+        "MESH",
+        [
+          0.7671682834625244,
+          0.26985329389572144,
+          0.36824989318847656
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      [
+        "character-male-a",
+        "ARMATURE",
+        [
+          0.2283530831336975,
+          0.0634230524301529,
+          0.3745136260986328
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      [
+        "head-mesh",
+        "MESH",
+        [
+          0.45350173115730286,
+          0.33999985456466675,
+          0.3280751705169678
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      [
+        "Icosphere",
+        "MESH",
+        [
+          1.9021157026290894,
+          1.9999998807907104,
+          2.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    ],
+    "bones": [
+      [
+        "root",
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          6.112515382739048e-09,
+          0.17857946455478668
+        ]
+      ],
+      [
+        "leg-left",
+        [
+          0.08357095718383789,
+          0.02875000610947609,
+          0.17624998092651367
+        ],
+        [
+          0.08357095718383789,
+          0.028750011697411537,
+          0.35482943058013916
+        ]
+      ],
+      [
+        "leg-right",
+        [
+          -0.08357095718383789,
+          0.02875000610947609,
+          0.17624998092651367
+        ],
+        [
+          -0.08357095718383789,
+          0.028750011697411537,
+          0.35482943058013916
+        ]
+      ],
+      [
+        "torso",
+        [
+          0.0,
+          0.02875000610947609,
+          0.17624998092651367
+        ],
+        [
+          0.0,
+          0.028750011697411537,
+          0.3263961374759674
+        ]
+      ],
+      [
+        "arm-left",
+        [
+          0.09989678859710693,
+          0.01725001074373722,
+          0.2877499759197235
+        ],
+        [
+          0.09989678859710693,
+          0.01725001633167267,
+          0.43789613246917725
+        ]
+      ],
+      [
+        "arm-right",
+        [
+          -0.09989678859710693,
+          0.01725001074373722,
+          0.2877499759197235
+        ],
+        [
+          -0.09989678859710693,
+          0.01725001633167267,
+          0.43789613246917725
+        ]
+      ],
+      [
+        "head",
+        [
+          0.0,
+          0.0023612494114786386,
+          0.34324994683265686
+        ],
+        [
+          0.0,
+          0.002361254533752799,
+          0.4933961033821106
+        ]
+      ]
+    ],
+    "actions": [
+      [
+        "attack-kick-left",
+        [
+          0.0,
+          12.80000114440918
+        ]
+      ],
+      [
+        "attack-kick-right",
+        [
+          0.0,
+          12.80000114440918
+        ]
+      ],
+      [
+        "attack-melee-left",
+        [
+          0.0,
+          10.0
+        ]
+      ],
+      [
+        "attack-melee-right",
+        [
+          0.0,
+          10.0
+        ]
+      ],
+      [
+        "crouch",
+        [
+          0.0,
+          4.0
+        ]
+      ],
+      [
+        "die",
+        [
+          0.0,
+          8.0
+        ]
+      ],
+      [
+        "drive",
+        [
+          0.0,
+          4.0
+        ]
+      ],
+      [
+        "emote-no",
+        [
+          0.0,
+          16.0
+        ]
+      ],
+      [
+        "emote-yes",
+        [
+          0.0,
+          16.0
+        ]
+      ],
+      [
+        "fall",
+        [
+          0.0,
+          8.0
+        ]
+      ],
+      [
+        "holding-both",
+        [
+          0.0,
+          4.0
+        ]
+      ],
+      [
+        "holding-both-shoot",
+        [
+          0.0,
+          4.800000190734863
+        ]
+      ],
+      [
+        "holding-left",
+        [
+          0.0,
+          4.0
+        ]
+      ],
+      [
+        "holding-left-shoot",
+        [
+          0.0,
+          4.800000190734863
+        ]
+      ],
+      [
+        "holding-right",
+        [
+          0.0,
+          4.0
+        ]
+      ],
+      [
+        "holding-right-shoot",
+        [
+          0.0,
+          4.800000190734863
+        ]
+      ],
+      [
+        "idle",
+        [
+          0.0,
+          32.0
+        ]
+      ],
+      [
+        "interact-left",
+        [
+          0.0,
+          16.0
+        ]
+      ],
+      [
+        "interact-right",
+        [
+          0.0,
+          16.0
+        ]
+      ],
+      [
+        "jump",
+        [
+          0.0,
+          12.0
+        ]
+      ],
+      [
+        "pick-up",
+        [
+          0.0,
+          8.0
+        ]
+      ],
+      [
+        "sit",
+        [
+          0.0,
+          4.0
+        ]
+      ],
+      [
+        "sprint",
+        [
+          0.0,
+          12.0
+        ]
+      ],
+      [
+        "static",
+        [
+          0.0,
+          2.4000000953674316
+        ]
+      ],
+      [
+        "walk",
+        [
+          0.0,
+          16.0
+        ]
+      ],
+      [
+        "wheelchair-look-left",
+        [
+          0.0,
+          8.0
+        ]
+      ],
+      [
+        "wheelchair-look-right",
+        [
+          0.0,
+          8.0
+        ]
+      ],
+      [
+        "wheelchair-move-back",
+        [
+          0.0,
+          12.0
+        ]
+      ],
+      [
+        "wheelchair-move-forward",
+        [
+          0.0,
+          12.0
+        ]
+      ],
+      [
+        "wheelchair-move-left",
+        [
+          0.0,
+          12.0
+        ]
+      ],
+      [
+        "wheelchair-move-right",
+        [
+          0.0,
+          12.0
+        ]
+      ],
+      [
+        "wheelchair-sit",
+        [
+          0.0,
+          4.0
+        ]
+      ]
+    ],
+    "materials": [
+      "colormap"
+    ]
+  }
+}

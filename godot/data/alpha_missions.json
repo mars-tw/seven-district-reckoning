@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "scope": "first_chapter_alpha",
+  "source": "docs/missions.json",
+  "notes": ["五個主線任務的可玩第一章；不判定 MAIN-012 戰役結局。", "實際遊玩時間需試玩量測，不保證企劃中的分鐘數。"],
+  "rescue_identity": {"rescue_A":"NPC-M004-01","rescue_B":"NPC-M004-02","extra_A":"NPC-M005-01","extra_B":"NPC-M005-02"},
+  "missions": [
+    {
+      "id":"MAIN-001", "title":"賠掉的存款", "checkpoint":"美晴車店", "parts_vouchers":100,
+      "reward":{"evidence_score":5,"community_trust":0},
+      "dialogue":"美晴：地址還在？先看清楚再去。我的扳手借你，別連路邊的店一起砸。",
+      "objectives":[
+        {"key":"meet_mei","text":"到車店找美晴，按 E 交談。","events":["talk_mei"],"targets":["mei"],"required":1},
+        {"key":"read_message","text":"查看車店手機上的失聯訊息與接待站地址。","events":["read_phone"],"targets":["phone"],"required":1},
+        {"key":"borrow_wrench","text":"從工具架借用扳手。","events":["pickup_wrench"],"targets":["wrench"],"required":1},
+        {"key":"practice","text":"用扳手擊中兩個標示「練習目標」的物件。","events":["practice_hit"],"targets":["practice_1","practice_2"],"required":2}
+      ]
+    },
+    {
+      "id":"MAIN-002", "title":"假客服的門面", "checkpoint":"接待站入口", "parts_vouchers":140,
+      "reward":{"evidence_score":0,"community_trust":0},
+      "optional":{"event":"collect_evidence","target":"summary","text":"可選：保存紀錄櫃的留言摘要。","evidence_score":8},
+      "dialogue":"予安：那個櫃子先留著，裡面可能還有別人的名字。",
+      "objectives":[
+        {"key":"clear_entrance","text":"讓兩名安保停止阻擋，或使用旁邊的維修通道繞過。","events":["defeat_guard","alternate_route"],"targets":["guard_1","guard_2","service_gate"],"event_targets":{"defeat_guard":["guard_1","guard_2"],"alternate_route":["service_gate"]},"required":2,"alternative_event":"alternate_route"},
+        {"key":"close_facade","text":"關閉或砸毀標示「詐團營運目標」的假客服招牌。","events":["disable_sign"],"targets":["fake_sign"],"required":1},
+        {"key":"get_pass","text":"取得前站通行物；它會保留在任務物品中。","events":["collect_pass"],"targets":["pass"],"required":1}
+      ]
+    },
+    {
+      "id":"MAIN-003", "title":"兩個輪子的捷徑", "checkpoint":"最近通過的路段", "parts_vouchers":120,
+      "reward":{"evidence_score":5,"community_trust":0},
+      "dialogue":"美晴：大路有人守。你每天送餐那條巷子，現在還認得吧？",
+      "objectives":[
+        {"key":"mount_bike","text":"騎上接待站旁的任務自行車。","events":["mount_bicycle"],"targets":["bicycle"],"required":1},
+        {"key":"route_1","text":"通過第一個自行車路標。","events":["route_checkpoint"],"targets":["route_1"],"required":1},
+        {"key":"route_2","text":"沿巷道通過第二個自行車路標。","events":["route_checkpoint"],"targets":["route_2"],"required":1},
+        {"key":"route_3","text":"通過第三個路標，準備返回車店。","events":["route_checkpoint"],"targets":["route_3"],"required":1},
+        {"key":"deliver_pass","text":"把通行物送回美晴車店。","events":["return_shop"],"targets":["mei_shop"],"required":1},
+        {"key":"unlock_car","text":"到車店旁查看並解鎖共用小客車。","events":["unlock_car"],"targets":["car"],"required":1}
+      ]
+    },
+    {
+      "id":"MAIN-004", "title":"玻璃後面的人", "checkpoint":"前站辦公室入口", "parts_vouchers":180,
+      "reward":{"evidence_score":0,"community_trust":5},
+      "optional":{"event":"collect_evidence","target":"shift_note","text":"可選：保存辦公室的輪班便條。","evidence_score":8},
+      "dialogue":"周成：我只是來上班的。他們說，做完這一批才準走。",
+      "objectives":[
+        {"key":"open_rescue","text":"到辦公室，替兩名標示「受困者」的人解除阻擋。","events":["free_rescue"],"targets":["rescue_A","rescue_B"],"required":2},
+        {"key":"escort_main","text":"帶兩名受困者到標示「安全集合點」的位置；人到場才算救出。","events":["escort_safe"],"targets":["rescue_A","rescue_B"],"required":2,"navigation_target":"safe_point"}
+      ]
+    },
+    {
+      "id":"MAIN-005", "title":"前站斷電", "checkpoint":"營運室入口", "parts_vouchers":240,
+      "reward":{"evidence_score":0,"community_trust":0},
+      "dialogue":"予安：先把名字留下來。周成：裡面還有兩個人，他們不知道門已經開了。",
+      "objectives":[
+        {"key":"choose_branch","text":"開啟任務手機（Tab），選擇破壞、蒐證或救援。","events":["select_branch"],"targets":["smash","evidence","rescue"],"required":1,"navigation_target":"branch_console"}
+      ],
+      "branches": {
+        "smash":{"title":"破壞","source_branch_id":"destroy","reward":{"evidence_score":0,"community_trust":0},"objectives":[
+          {"key":"smash_equipment","text":"砸毀三個標示「詐團營運目標」的設備。","events":["destroy_target"],"targets":["equipment_1","equipment_2","equipment_3"],"required":3}
+        ]},
+        "evidence":{"title":"蒐證","source_branch_id":"evidence","reward":{"evidence_score":20,"community_trust":0},"objectives":[
+          {"key":"save_records","text":"保存兩份標示「可保存紀錄」的虛構文件。","events":["collect_evidence"],"targets":["record_1","record_2"],"required":2},
+          {"key":"stop_console","text":"紀錄已保存，停用營運裝置。","events":["disable_console"],"targets":["console"],"required":1}
+        ]},
+        "rescue":{"title":"救援","source_branch_id":"rescue","reward":{"evidence_score":0,"community_trust":8},"objectives":[
+          {"key":"escort_extra","text":"集合兩名額外受困者，帶到安全集合點。","events":["escort_safe"],"targets":["extra_A","extra_B"],"required":2,"navigation_target":"safe_point"},
+          {"key":"stop_console","text":"兩人已到安全點，停用營運裝置。","events":["disable_console"],"targets":["console"],"required":1}
+        ]}
+      },
+      "return_objective":{"key":"return_final","text":"營運已中止。離開前站，返回美晴車店。","events":["return_shop"],"targets":["mei_shop"],"required":1}
+    }
+  ]
+}

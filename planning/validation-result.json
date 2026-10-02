@@ -1,0 +1,34 @@
+{
+  "status": "VERIFIED",
+  "verification_scope": "planning-static-only",
+  "game_status": "NotStarted",
+  "tickets": 50,
+  "missions": 32,
+  "assets": 70,
+  "character_mappings": 7,
+  "asset_phases": {
+    "Slice": 55,
+    "MVP": 15
+  },
+  "effort_person_days": {
+    "Slice": {
+      "min": 120,
+      "max": 181,
+      "buffered_min": 150,
+      "buffered_max": 227
+    },
+    "MVP": {
+      "min": 93,
+      "max": 141,
+      "buffered_min": 117,
+      "buffered_max": 177
+    },
+    "Future": {
+      "min": 52,
+      "max": 105,
+      "buffered_min": 65,
+      "buffered_max": 132
+    }
+  },
+  "ending_boundary_cases": 216
+}

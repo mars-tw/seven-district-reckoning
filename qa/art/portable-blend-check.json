@@ -1,0 +1,102 @@
+[
+  {
+    "file": "assets/source/blender/alpha_barrier.blend",
+    "path_changes": 1
+  },
+  {
+    "file": "assets/source/blender/alpha_bat.blend",
+    "path_changes": 0
+  },
+  {
+    "file": "assets/source/blender/alpha_bench.blend",
+    "path_changes": 0
+  },
+  {
+    "file": "assets/source/blender/alpha_bicycle.blend",
+    "path_changes": 0
+  },
+  {
+    "file": "assets/source/blender/alpha_car.blend",
+    "path_changes": 1
+  },
+  {
+    "file": "assets/source/blender/alpha_civilian.blend",
+    "path_changes": 2
+  },
+  {
+    "file": "assets/source/blender/alpha_desk.blend",
+    "path_changes": 0
+  },
+  {
+    "file": "assets/source/blender/alpha_display.blend",
+    "path_changes": 0
+  },
+  {
+    "file": "assets/source/blender/alpha_glass.blend",
+    "path_changes": 0
+  },
+  {
+    "file": "assets/source/blender/alpha_guard.blend",
+    "path_changes": 2
+  },
+  {
+    "file": "assets/source/blender/alpha_hero.blend",
+    "path_changes": 2
+  },
+  {
+    "file": "assets/source/blender/alpha_office_lobby.blend",
+    "path_changes": 0
+  },
+  {
+    "file": "assets/source/blender/alpha_office_tower_a.blend",
+    "path_changes": 2
+  },
+  {
+    "file": "assets/source/blender/alpha_office_tower_b.blend",
+    "path_changes": 2
+  },
+  {
+    "file": "assets/source/blender/alpha_office_tower_c.blend",
+    "path_changes": 2
+  },
+  {
+    "file": "assets/source/blender/alpha_planter.blend",
+    "path_changes": 0
+  },
+  {
+    "file": "assets/source/blender/alpha_pulse.blend",
+    "path_changes": 0
+  },
+  {
+    "file": "assets/source/blender/alpha_road_crossing.blend",
+    "path_changes": 1
+  },
+  {
+    "file": "assets/source/blender/alpha_road_straight.blend",
+    "path_changes": 1
+  },
+  {
+    "file": "assets/source/blender/alpha_server.blend",
+    "path_changes": 0
+  },
+  {
+    "file": "assets/source/blender/alpha_sign.blend",
+    "path_changes": 1
+  },
+  {
+    "file": "assets/source/blender/alpha_streetlight.blend",
+    "path_changes": 1
+  },
+  {
+    "file": "assets/source/blender/alpha_traffic_light.blend",
+    "path_changes": 1
+  },
+  {
+    "file": "assets/source/blender/alpha_tree.blend",
+    "path_changes": 0
+  },
+  {
+    "file": "assets/source/blender/alpha_wrench.blend",
+    "path_changes": 0
+  }
+]

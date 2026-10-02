@@ -1,0 +1,654 @@
+{
+  "status": "VERIFIED",
+  "assets": [
+    {
+      "asset": "barrier",
+      "valid_glb": true,
+      "bytes": 16612,
+      "sha256": "9d19c96644728184c1aa6225774fe08b8b71de1b3f71b9e2fbfea4f226167e36",
+      "mesh_count": 1,
+      "material_count": 1,
+      "clips": [],
+      "nodes": [
+        "barrier_construction-barrier"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "bat",
+      "valid_glb": true,
+      "bytes": 27664,
+      "sha256": "768067b309ea7e27e03b802159df934d8dc9a768b9530253f9d59c972ea454da",
+      "mesh_count": 2,
+      "material_count": 2,
+      "clips": [],
+      "nodes": [
+        "BatGrip",
+        "GripSocket",
+        "TurnedBat"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "bench",
+      "valid_glb": true,
+      "bytes": 10032,
+      "sha256": "399c9c44f5cc98e09481565fed94d26c8ff724e3b47400f04482d38c065d0b9d",
+      "mesh_count": 1,
+      "material_count": 1,
+      "clips": [],
+      "nodes": [
+        "bench_bench(Clone)"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "bicycle",
+      "valid_glb": true,
+      "bytes": 2382136,
+      "sha256": "49409f5905c017b1e80f03e7768489ef51906545a0a01e2b6d5b64f5821464a6",
+      "mesh_count": 4,
+      "material_count": 1,
+      "clips": [],
+      "nodes": [
+        "BicycleFrame",
+        "Crank",
+        "CrankPivot",
+        "ExitLeft",
+        "HandlebarGripLeft",
+        "HandlebarGripRight",
+        "RiderSeat",
+        "WheelFront",
+        "WheelFrontAxis",
+        "WheelRear",
+        "WheelRearAxis"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "car",
+      "valid_glb": true,
+      "bytes": 128716,
+      "sha256": "328ac2d9f499f0571f359033fd5920393c1a61c9e2257e63bc1ff9b5542e43ab",
+      "mesh_count": 5,
+      "material_count": 1,
+      "clips": [],
+      "nodes": [
+        "body",
+        "DriverSeat",
+        "ExitLeft",
+        "ExitRight",
+        "PassengerSeat",
+        "wheel-back-left",
+        "wheel-back-right",
+        "wheel-front-left",
+        "wheel-front-right"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "civilian",
+      "valid_glb": true,
+      "bytes": 207076,
+      "sha256": "586890a0db1ae7d9fac6ba3b7bfc0de959267b80dcdf50f57d0e3e17c2b1f7fa",
+      "mesh_count": 12,
+      "material_count": 1,
+      "clips": [
+        "idle",
+        "walk",
+        "run",
+        "attack",
+        "drive",
+        "knockdown",
+        "hit",
+        "pedal"
+      ],
+      "nodes": [
+        "shin-left",
+        "leg-left",
+        "shin-right",
+        "leg-right",
+        "HandToolSocket",
+        "arm-left",
+        "arm-right",
+        "head",
+        "torso",
+        "root",
+        "body-mesh",
+        "ExpressiveEyebrow",
+        "ExpressiveEyebrow.001",
+        "EyeWhite",
+        "EyeWhite.001",
+        "HairSideLock",
+        "HairSideLock.001",
+        "head-mesh",
+        "Mouth",
+        "Nose",
+        "Pupil",
+        "Pupil.001",
+        "HumanSkeleton",
+        "SeatHipSocket"
+      ],
+      "private_extra_paths": [],
+      "joint_count": 9,
+      "clips_complete": true,
+      "clips_target_skeleton": true,
+      "clip_durations_seconds": {
+        "idle": 1.3333333333333333,
+        "walk": 0.6666666666666666,
+        "run": 0.5,
+        "attack": 0.4,
+        "drive": 0.16666666666666666,
+        "knockdown": 0.8333333333333334,
+        "hit": 0.6,
+        "pedal": 1
+      },
+      "rotation_value_ranges": {
+        "idle": 0.021999632939696312,
+        "walk": 1.0,
+        "run": 1.41421377658844,
+        "attack": 0.9010048479991029,
+        "drive": 0.0,
+        "knockdown": 0.9562868447260926,
+        "hit": 0.19866931438446045,
+        "pedal": 0.3444935381412506
+      },
+      "dynamic_clips_move_bones": true
+    },
+    {
+      "asset": "desk",
+      "valid_glb": true,
+      "bytes": 14324,
+      "sha256": "65f29c8830c8aa5d0cc86e47e06d7d79526d0e42affbbc6c21a016e7e438c3e4",
+      "mesh_count": 2,
+      "material_count": 2,
+      "clips": [],
+      "nodes": [
+        "desk_drawer",
+        "desk_desk(Clone)"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "display",
+      "valid_glb": true,
+      "bytes": 6352,
+      "sha256": "83fe468ff790792ae9e514e90379639536a588de2ab6ff3f283ffd62bf3df3be",
+      "mesh_count": 1,
+      "material_count": 2,
+      "clips": [],
+      "nodes": [
+        "display_computerScreen(Clone)"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "glass",
+      "valid_glb": true,
+      "bytes": 10328,
+      "sha256": "e7dc6dc6c7544bb25b44b41e467738f5f689300a02116aa6a01943180424fb94",
+      "mesh_count": 2,
+      "material_count": 2,
+      "clips": [],
+      "nodes": [
+        "glass_window",
+        "glass_wallWindow(Clone)"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "guard",
+      "valid_glb": true,
+      "bytes": 219688,
+      "sha256": "e44760d4b0ff047462f1a8c27a1dd5aa9960a6055d6e28750a933b11640d3e59",
+      "mesh_count": 13,
+      "material_count": 1,
+      "clips": [
+        "idle",
+        "walk",
+        "run",
+        "attack",
+        "drive",
+        "knockdown",
+        "hit",
+        "pedal"
+      ],
+      "nodes": [
+        "shin-left",
+        "leg-left",
+        "shin-right",
+        "leg-right",
+        "HandToolSocket",
+        "arm-left",
+        "arm-right",
+        "head",
+        "torso",
+        "root",
+        "body-mesh",
+        "CapVisor",
+        "ExpressiveEyebrow",
+        "ExpressiveEyebrow.001",
+        "EyeWhite",
+        "EyeWhite.001",
+        "head-mesh",
+        "Mouth",
+        "Nose",
+        "Pupil",
+        "Pupil.001",
+        "SecurityBadge",
+        "UniformCap",
+        "HumanSkeleton",
+        "SeatHipSocket"
+      ],
+      "private_extra_paths": [],
+      "joint_count": 9,
+      "clips_complete": true,
+      "clips_target_skeleton": true,
+      "clip_durations_seconds": {
+        "idle": 1.3333333333333333,
+        "walk": 0.6666666666666666,
+        "run": 0.5,
+        "attack": 0.4,
+        "drive": 0.16666666666666666,
+        "knockdown": 0.8333333333333334,
+        "hit": 0.6,
+        "pedal": 1
+      },
+      "rotation_value_ranges": {
+        "idle": 0.021999632939696312,
+        "walk": 1.0,
+        "run": 1.41421377658844,
+        "attack": 0.9010048479991024,
+        "drive": 0.0,
+        "knockdown": 0.956286844726093,
+        "hit": 0.19866931438446223,
+        "pedal": 0.3444935381412506
+      },
+      "dynamic_clips_move_bones": true
+    },
+    {
+      "asset": "hero",
+      "valid_glb": true,
+      "bytes": 233284,
+      "sha256": "1ce640fa5a2a7eb505bb904cb992749fa487f01e9aee5b4637a2ff258366cfb7",
+      "mesh_count": 15,
+      "material_count": 1,
+      "clips": [
+        "idle",
+        "walk",
+        "run",
+        "attack",
+        "drive",
+        "knockdown",
+        "hit",
+        "pedal"
+      ],
+      "nodes": [
+        "BackpackPocket",
+        "shin-left",
+        "leg-left",
+        "shin-right",
+        "leg-right",
+        "HandToolSocket",
+        "arm-left",
+        "arm-right",
+        "head",
+        "torso",
+        "root",
+        "body-mesh",
+        "ExpressiveEyebrow",
+        "ExpressiveEyebrow.001",
+        "EyeWhite",
+        "EyeWhite.001",
+        "head-mesh",
+        "JacketZip",
+        "Mouth",
+        "Nose",
+        "OrangeDeliveryBackpack",
+        "Pupil",
+        "Pupil.001",
+        "ShoulderStrap",
+        "ShoulderStrap.001",
+        "HumanSkeleton",
+        "SeatHipSocket"
+      ],
+      "private_extra_paths": [],
+      "joint_count": 9,
+      "clips_complete": true,
+      "clips_target_skeleton": true,
+      "clip_durations_seconds": {
+        "idle": 1.3333333333333333,
+        "walk": 0.6666666666666666,
+        "run": 0.5,
+        "attack": 0.4,
+        "drive": 0.16666666666666666,
+        "knockdown": 0.8333333333333334,
+        "hit": 0.6,
+        "pedal": 1
+      },
+      "rotation_value_ranges": {
+        "idle": 0.021999632939696312,
+        "walk": 1.0,
+        "run": 1.41421377658844,
+        "attack": 0.9010048479991029,
+        "drive": 0.0,
+        "knockdown": 0.9562868447260926,
+        "hit": 0.19866931438446045,
+        "pedal": 0.3444935381412506
+      },
+      "dynamic_clips_move_bones": true
+    },
+    {
+      "asset": "office_lobby",
+      "valid_glb": true,
+      "bytes": 210140,
+      "sha256": "4a0a504c86d892ff304d001915c542e1345089c1bbcb7950c8ad335fc5cfe8aa",
+      "mesh_count": 57,
+      "material_count": 47,
+      "clips": [],
+      "nodes": [
+        "chair",
+        "chairDesk(Clone)",
+        "computerScreen(Clone)",
+        "drawer",
+        "desk(Clone)",
+        "EntranceSocket",
+        "ExitSocket",
+        "floorFull(Clone).001",
+        "floorFull(Clone).002",
+        "floorFull(Clone).003",
+        "floorFull(Clone).004",
+        "floorFull(Clone).005",
+        "floorFull(Clone).006",
+        "floorFull(Clone).007",
+        "floorFull(Clone).008",
+        "floorFull(Clone).009",
+        "floorFull(Clone).010",
+        "floorFull(Clone).011",
+        "floorFull(Clone).012",
+        "floorFull(Clone).013",
+        "floorFull(Clone).014",
+        "floorFull(Clone).015",
+        "floorFull(Clone).016",
+        "floorFull(Clone).017",
+        "floorFull(Clone).018",
+        "floorFull(Clone).019",
+        "floorFull(Clone).020",
+        "floorFull(Clone).021",
+        "floorFull(Clone).022",
+        "floorFull(Clone).023",
+        "floorFull(Clone).024",
+        "floorFull(Clone).025",
+        "floorFull(Clone).026",
+        "floorFull(Clone).027",
+        "floorFull(Clone).028",
+        "floorFull(Clone).029",
+        "floorFull(Clone).030",
+        "loungeSofa(Clone)",
+        "loungeSofa(Clone).001",
+        "plant",
+        "pottedPlant(Clone)",
+        "plant.001",
+        "pottedPlant(Clone).001",
+        "plant.002",
+        "pottedPlant(Clone).002",
+        "plant.003",
+        "pottedPlant(Clone).003",
+        "window",
+        "wallWindow(Clone)",
+        "window.001",
+        "wallWindow(Clone).001",
+        "window.002",
+        "wallWindow(Clone).002",
+        "window.003",
+        "wallWindow(Clone).003",
+        "window.004",
+        "wallWindow(Clone).004",
+        "window.005",
+        "wallWindow(Clone).005"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "office_tower_a",
+      "valid_glb": true,
+      "bytes": 111828,
+      "sha256": "ed4b1ab96721e10d00d856405689df44da78a91a116b35c0c2e5c59b82120e80",
+      "mesh_count": 4,
+      "material_count": 4,
+      "clips": [],
+      "nodes": [
+        "bridge-pillar",
+        "bridge-pillar.001",
+        "detail-overhang-wide",
+        "office_tower_a_building-skyscraper-a"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "office_tower_b",
+      "valid_glb": true,
+      "bytes": 130860,
+      "sha256": "0038770f6c568bd460eccc71663d754cf1805ecb75042fdb904f1da2ab417202",
+      "mesh_count": 4,
+      "material_count": 4,
+      "clips": [],
+      "nodes": [
+        "bridge-pillar",
+        "bridge-pillar.001",
+        "detail-overhang-wide",
+        "office_tower_b_building-skyscraper-b"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "office_tower_c",
+      "valid_glb": true,
+      "bytes": 139060,
+      "sha256": "7cd7455db187ec54d03f067072ad4c433441ac0564a0f4b77df182d743083b6d",
+      "mesh_count": 4,
+      "material_count": 4,
+      "clips": [],
+      "nodes": [
+        "bridge-pillar",
+        "bridge-pillar.001",
+        "detail-overhang-wide",
+        "office_tower_c_building-skyscraper-c"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "planter",
+      "valid_glb": true,
+      "bytes": 7476,
+      "sha256": "efd1990210bdb739df124417674d69ec65510dc2873bd0a3e837650c3da04904",
+      "mesh_count": 2,
+      "material_count": 3,
+      "clips": [],
+      "nodes": [
+        "planter_plant",
+        "planter_pottedPlant(Clone)"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "pulse",
+      "valid_glb": true,
+      "bytes": 21472,
+      "sha256": "6c47c9bd51503c49fa02b4732d5a9afc46e33f213bd8358d039f6abfa29050bf",
+      "mesh_count": 3,
+      "material_count": 2,
+      "clips": [],
+      "nodes": [
+        "GripSocket",
+        "PulseEmitter",
+        "PulseGrip",
+        "PulseHousing"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "road_crossing",
+      "valid_glb": true,
+      "bytes": 18060,
+      "sha256": "424fb59ba7eb411c8ff2a963917de7b70621560c8bad2ddee77472b62c263dbc",
+      "mesh_count": 1,
+      "material_count": 1,
+      "clips": [],
+      "nodes": [
+        "road_crossing_road-crossing"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "road_straight",
+      "valid_glb": true,
+      "bytes": 15420,
+      "sha256": "1756882d5296f1f6f882b6c9123726f3db21e6f1a5b025b0646f5c130f756247",
+      "mesh_count": 1,
+      "material_count": 1,
+      "clips": [],
+      "nodes": [
+        "road_straight_road-straight"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "server",
+      "valid_glb": true,
+      "bytes": 130804,
+      "sha256": "41db9c9a0b937e4cca0c30733f111d49e4dfec130bfaf87a51f858e4e04b738a",
+      "mesh_count": 31,
+      "material_count": 3,
+      "clips": [],
+      "nodes": [
+        "RackMountedServer",
+        "RackMountedServer.001",
+        "RackMountedServer.002",
+        "server_bookcaseClosed(Clone)",
+        "StatusLED",
+        "StatusLED.001",
+        "StatusLED.002",
+        "StatusLED.003",
+        "StatusLED.004",
+        "StatusLED.005",
+        "VentSlot",
+        "VentSlot.001",
+        "VentSlot.002",
+        "VentSlot.003",
+        "VentSlot.004",
+        "VentSlot.005",
+        "VentSlot.006",
+        "VentSlot.007",
+        "VentSlot.008",
+        "VentSlot.009",
+        "VentSlot.010",
+        "VentSlot.011",
+        "VentSlot.012",
+        "VentSlot.013",
+        "VentSlot.014",
+        "VentSlot.015",
+        "VentSlot.016",
+        "VentSlot.017",
+        "VentSlot.018",
+        "VentSlot.019",
+        "VentSlot.020"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "sign",
+      "valid_glb": true,
+      "bytes": 15860,
+      "sha256": "c4c433f3be78b811baa8795859d5c5a2017882dc0d800a5e6fbfa4911b59ae96",
+      "mesh_count": 1,
+      "material_count": 1,
+      "clips": [],
+      "nodes": [
+        "sign_road-sign-empty"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "streetlight",
+      "valid_glb": true,
+      "bytes": 18504,
+      "sha256": "d4eb8729372893d0ae12f560bad1c64c30607cd28b3c288ddc3016a463b1b9b0",
+      "mesh_count": 1,
+      "material_count": 1,
+      "clips": [],
+      "nodes": [
+        "streetlight_light-curved"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "traffic_light",
+      "valid_glb": true,
+      "bytes": 26168,
+      "sha256": "deba6c5ce9ca0e38341b98ee3d9d695bab4b61250ae48309bc7b61c72f86dd21",
+      "mesh_count": 1,
+      "material_count": 1,
+      "clips": [],
+      "nodes": [
+        "traffic_light_traffic-light"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "tree",
+      "valid_glb": true,
+      "bytes": 13792,
+      "sha256": "579f21427b822c36ea91cc1500aaea81483800a8a48c18d5d2f930ed12a1bdab",
+      "mesh_count": 1,
+      "material_count": 2,
+      "clips": [],
+      "nodes": [
+        "tree_tree_oak"
+      ],
+      "private_extra_paths": []
+    },
+    {
+      "asset": "wrench",
+      "valid_glb": true,
+      "bytes": 13872,
+      "sha256": "9879dd1a677a9605d1a965ee2635512376a16453931cee634078620d38a14fdf",
+      "mesh_count": 2,
+      "material_count": 1,
+      "clips": [],
+      "nodes": [
+        "GripSocket",
+        "WrenchHandle",
+        "WrenchOpenJaw"
+      ],
+      "private_extra_paths": []
+    }
+  ],
+  "character_gates": [
+    {
+      "character": "hero",
+      "mean_luminance": 0.364438000863698,
+      "mean_saturation": 0.7297592897464287,
+      "near_black_fraction": 0.019535296729317746,
+      "low_saturation_fraction": 0.02170140056776138,
+      "numeric_gate_pass": true
+    },
+    {
+      "character": "guard",
+      "mean_luminance": 0.3619848996169112,
+      "mean_saturation": 0.7422579063038909,
+      "near_black_fraction": 0.05365191344027323,
+      "low_saturation_fraction": 0.02694493435234176,
+      "numeric_gate_pass": true
+    },
+    {
+      "character": "civilian",
+      "mean_luminance": 0.35740566310769933,
+      "mean_saturation": 0.71043922406416,
+      "near_black_fraction": 0.01196767174386074,
+      "low_saturation_fraction": 0.01856614010794925,
+      "numeric_gate_pass": true
+    }
+  ],
+  "note": "Numerical file/clip evidence. Visual likeness, animation feel and gameplay performance require actual scene checks."
+}

@@ -1,0 +1,1748 @@
+{
+  "project": "Seven District: Break the Chain",
+  "title_zh_tw": "七期：斷鏈行動",
+  "version": "0.1",
+  "status": "planning_only",
+  "date": "2026-10-02",
+  "notes": [
+    "所有公司、人物、園區與任務地點均為虛構。",
+    "數值、時間、尺寸為待試玩設計值，沒有現成可玩遊戲。",
+    "MVP 的 12 主線包含 Slice 的 5 主線。",
+    "MAIN-005 為分支預覽，MAIN-012 才判完整戰役結局。"
+  ],
+  "phase_enum": [
+    "Slice",
+    "MVP",
+    "Future"
+  ],
+  "type_enum": [
+    "main",
+    "side",
+    "activity"
+  ],
+  "state_contract": {
+    "evidence_score": {
+      "type": "integer",
+      "min": 0,
+      "max": 100,
+      "initial": 0
+    },
+    "community_trust": {
+      "type": "integer",
+      "min": 0,
+      "max": 100,
+      "initial": 50
+    },
+    "rescued_count": {
+      "type": "integer",
+      "min": 0,
+      "initial": 0,
+      "unique_by": "npc_id"
+    },
+    "heat_level": {
+      "type": "integer",
+      "min": 0,
+      "max": 5,
+      "initial": 0,
+      "affects": "追逐及撤離，不直接判結局"
+    }
+  },
+  "reward_semantics": {
+    "state_deltas": "任務完成時加算並 clamp；rescued_count 必須以實際到安全點的唯一 npc_id 計算。",
+    "grant_once": "只在 reward_scope 指定的範圍內一次；可重玩不等於同一輪可重複領取。",
+    "fallback": "replacement_state_deltas 取代正常 metrics，不疊加。",
+    "failed_attempt": "未結算獎勵不套用，檢查點回復本次狀態。",
+    "mission_completion": "主支線先聚合 base、選定 branch、已達成 optional 及 fallback 替代成果，完成時按 mission_id 只記一次獎勵帳，不逐個元件先發獎。",
+    "activity_run": "每次明確開始新一輪才建立唯一 activity_run_id；完成該輪發獎一次，retry/load 保留原 run_id 與是否已領取。",
+    "photo_point": "每個唯一 photo_point_id 首次拍攝發獎一次；retry/load 不能清除已拍狀態。",
+    "none": "ACT-003 練習與 ACT-008 重演沒有任何持久獎勵，重演不寫戰役狀態。"
+  },
+  "ending_rules": [
+    {
+      "priority": 1,
+      "id": "END-001",
+      "title": "光下交代",
+      "all_of": {
+        "evidence_score_gte": 70,
+        "community_trust_gte": 60,
+        "rescued_count_gte": 8
+      }
+    },
+    {
+      "priority": 2,
+      "id": "END-003",
+      "title": "孤身反擊",
+      "all_of": {
+        "evidence_score_lt": 40,
+        "community_trust_lt": 35,
+        "rescued_count_lt": 10
+      }
+    },
+    {
+      "priority": 3,
+      "id": "END-002",
+      "title": "未完的清晨",
+      "fallback": true
+    }
+  ],
+  "ending_trigger": "MAIN-012 首次完成，按 priority 排序取第一個命中；MAIN-005 不判戰役結局。",
+  "lines": [
+    {
+      "id": "LINE-A",
+      "title": "拆掉假門面"
+    },
+    {
+      "id": "LINE-B",
+      "title": "留下名字"
+    },
+    {
+      "id": "LINE-C",
+      "title": "帶人出來"
+    },
+    {
+      "id": "LINE-D",
+      "title": "路是大家的"
+    },
+    {
+      "id": "LINE-E",
+      "title": "把生活接回來"
+    }
+  ],
+  "zones": [
+    {
+      "id": "ZONE-001",
+      "title": "舊街生活圈",
+      "category": "生活巷弄",
+      "bounds_m": {
+        "x": [
+          0,
+          260
+        ],
+        "y": [
+          0,
+          400
+        ]
+      }
+    },
+    {
+      "id": "ZONE-002",
+      "title": "中央綠帶與市民廣場",
+      "category": "公園",
+      "bounds_m": {
+        "x": [
+          0,
+          260
+        ],
+        "y": [
+          400,
+          800
+        ]
+      }
+    },
+    {
+      "id": "ZONE-003",
+      "title": "鏡城商辦",
+      "category": "高級商辦",
+      "bounds_m": {
+        "x": [
+          260,
+          540
+        ],
+        "y": [
+          400,
+          800
+        ]
+      }
+    },
+    {
+      "id": "ZONE-004",
+      "title": "名品街與停車塔",
+      "category": "百貨與停車塔",
+      "bounds_m": {
+        "x": [
+          540,
+          800
+        ],
+        "y": [
+          400,
+          800
+        ]
+      }
+    },
+    {
+      "id": "ZONE-005",
+      "title": "臨建與園區前站",
+      "category": "園區",
+      "bounds_m": {
+        "x": [
+          540,
+          800
+        ],
+        "y": [
+          0,
+          400
+        ]
+      }
+    },
+    {
+      "id": "ZONE-006",
+      "title": "服務與轉運中心",
+      "category": "服務與倉儲",
+      "bounds_m": {
+        "x": [
+          260,
+          540
+        ],
+        "y": [
+          0,
+          400
+        ]
+      }
+    }
+  ],
+  "mission_counts": {
+    "main": 12,
+    "side": 12,
+    "activity": 8,
+    "total": 32,
+    "slice_main": 5
+  },
+  "missions": [
+    {
+      "id": "MAIN-001",
+      "type": "main",
+      "title": "賠掉的存款",
+      "line_id": "LINE-A",
+      "phase": "Slice",
+      "location": [
+        "ZONE-001"
+      ],
+      "depends_on": [],
+      "objectives": [
+        "查看虛構平台的失聯訊息。",
+        "與美晴取得接待站線索。",
+        "拾取扳手，完成兩個指定練習目標。",
+        "確認目的地。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。"
+      ],
+      "rewards": {
+        "parts_vouchers": 100,
+        "state_deltas": {
+          "evidence_score": 5,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [
+          "MAIN-002",
+          "WPN-002"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "MAIN-001"
+      },
+      "duration_minutes": 3,
+      "trigger": "新遊戲後在自行車店與美晴交談。",
+      "checkpoint": "車店練習架",
+      "retry": "復原練習工具，略過已觀看的介紹。",
+      "dialogue": [
+        "阿遠：他說今天能領。我現在連那個頁面都打不開。",
+        "美晴：地址還在？先看清楚再去。我的扳手借你，別連路邊的店一起砸。"
+      ]
+    },
+    {
+      "id": "MAIN-002",
+      "type": "main",
+      "title": "假客服的門面",
+      "line_id": "LINE-A",
+      "phase": "Slice",
+      "location": [
+        "ZONE-004"
+      ],
+      "depends_on": [
+        "MAIN-001"
+      ],
+      "objectives": [
+        "抵達恆曜投資教育接待站。",
+        "處理兩名安保或使用替代互動點。",
+        "關閉或破壞假客服招牌。",
+        "取得不會永久丟失的前站通行物。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試；證據損毀不使任務失敗。"
+      ],
+      "rewards": {
+        "parts_vouchers": 140,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [
+          "MAIN-003",
+          "SIDE-001",
+          "SIDE-004"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "MAIN-002"
+      },
+      "duration_minutes": 4,
+      "trigger": "完成 MAIN-001 後進入接待站入口。",
+      "checkpoint": "接待站入口",
+      "retry": "復原本段設備、敵人及未結算的狀態。",
+      "optional_objectives": [
+        {
+          "description": "在紀錄櫃損毀前保存留言摘要。",
+          "rewards": {
+            "parts_vouchers": 0,
+            "state_deltas": {
+              "evidence_score": 8,
+              "community_trust": 0,
+              "rescued_count": 0
+            },
+            "unlocks": [],
+            "grant_once": true,
+            "reward_scope": "mission_completion",
+            "reward_key": "MAIN-002"
+          }
+        }
+      ],
+      "persistent_flags": [
+        "front_desk_disabled"
+      ],
+      "dialogue": [
+        "安保：這裡今天沒營業。",
+        "阿遠：收錢的時候，倒是每天都營業。",
+        "予安：那個櫃子先留著，裡面可能還有別人的名字。"
+      ]
+    },
+    {
+      "id": "MAIN-003",
+      "type": "main",
+      "title": "兩個輪子的捷徑",
+      "line_id": "LINE-D",
+      "phase": "Slice",
+      "location": [
+        "ZONE-004",
+        "ZONE-001"
+      ],
+      "depends_on": [
+        "MAIN-002"
+      ],
+      "objectives": [
+        "騎乘任務自行車。",
+        "通過三個街廓節點。",
+        "把通行物送回車店。",
+        "查看共用小客車及維修點。"
+      ],
+      "fail_conditions": [
+        "玩家倒下。",
+        "自行車失能且玩家選擇重試；可步行牽回或使用任務救援點。"
+      ],
+      "rewards": {
+        "parts_vouchers": 120,
+        "state_deltas": {
+          "evidence_score": 5,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [
+          "MAIN-004",
+          "VEHICLE-COMPACT",
+          "SIDE-010",
+          "SIDE-011"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "MAIN-003"
+      },
+      "duration_minutes": 4,
+      "trigger": "取得通行物後騎上接待站旁的任務自行車。",
+      "checkpoint": "最近有效路段",
+      "retry": "在最近路段重生可騎乘自行車，任務物保持綁定。",
+      "optional_objectives": [
+        {
+          "description": "在寬限時間內通過窄巷。",
+          "rewards": {
+            "parts_vouchers": 40,
+            "state_deltas": {
+              "evidence_score": 0,
+              "community_trust": 0,
+              "rescued_count": 0
+            },
+            "unlocks": [],
+            "grant_once": true,
+            "reward_scope": "mission_completion",
+            "reward_key": "MAIN-003"
+          }
+        }
+      ],
+      "dialogue": [
+        "美晴：大路有人守。你每天送餐那條巷子，現在還認得吧？",
+        "阿遠：認得。這次送的東西比較重。"
+      ]
+    },
+    {
+      "id": "MAIN-004",
+      "type": "main",
+      "title": "玻璃後面的人",
+      "line_id": "LINE-C",
+      "phase": "Slice",
+      "location": [
+        "ZONE-005"
+      ],
+      "depends_on": [
+        "MAIN-003"
+      ],
+      "objectives": [
+        "進入前站的指定辦公室。",
+        "辨認兩名安保與兩名受困者。",
+        "處理或繞過阻擋。",
+        "開啟遊戲內撤離互動點。",
+        "將兩名具唯一 ID 的受困者帶到安全集合點。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 180,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 5,
+          "rescued_count": 2
+        },
+        "unlocks": [
+          "MAIN-005",
+          "SIDE-007"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "MAIN-004"
+      },
+      "duration_minutes": 5,
+      "trigger": "MAIN-003 完成後，抵達前站門口並聽到周成求助。",
+      "checkpoint": "辦公室入口",
+      "retry": "復原門、NPC 與本段未交付的數值。",
+      "rescued_npc_ids": [
+        "NPC-M004-01",
+        "NPC-M004-02"
+      ],
+      "optional_objectives": [
+        {
+          "description": "保存輪班便條。",
+          "rewards": {
+            "parts_vouchers": 0,
+            "state_deltas": {
+              "evidence_score": 8,
+              "community_trust": 0,
+              "rescued_count": 0
+            },
+            "unlocks": [],
+            "grant_once": true,
+            "reward_scope": "mission_completion",
+            "reward_key": "MAIN-004"
+          }
+        }
+      ],
+      "dialogue": [
+        "周成：我只是來上班的。他們說，做完這一批才準走。",
+        "阿遠：先跟我出去。車在樓下，出去再說。"
+      ]
+    },
+    {
+      "id": "MAIN-005",
+      "type": "main",
+      "title": "前站斷電",
+      "line_id": "LINE-A",
+      "phase": "Slice",
+      "location": [
+        "ZONE-005",
+        "ZONE-001"
+      ],
+      "depends_on": [
+        "MAIN-004"
+      ],
+      "objectives": [
+        "到達限定營運室。",
+        "選擇破壞、蒐證或救援解法。",
+        "完成共用的前站營運中止目標。",
+        "離開任務區並返回安全屋。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 240,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [
+          "MAIN-006",
+          "SIDE-012"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "MAIN-005"
+      },
+      "duration_minutes": 8,
+      "trigger": "救出周成後在前站樓下集合點開始。",
+      "checkpoint": "營運室入口",
+      "retry": "復原本次設備、NPC、證據及未結算分支。",
+      "branches": [
+        {
+          "id": "destroy",
+          "title": "破壞",
+          "objectives": [
+            "摧毀三個標記營運設備。",
+            "撤離回到車店。"
+          ],
+          "rewards": {
+            "parts_vouchers": 0,
+            "state_deltas": {
+              "evidence_score": 0,
+              "community_trust": 0,
+              "rescued_count": 0
+            },
+            "unlocks": [],
+            "grant_once": true,
+            "reward_scope": "mission_completion",
+            "reward_key": "MAIN-005"
+          },
+          "flags": [
+            "front_site_disabled"
+          ],
+          "heat_effect": "大型破壞增加警戒。",
+          "evidence_loss": "未先保存的紀錄變為損毀；可經 SIDE-005 補救，不阻擋 MAIN-006。"
+        },
+        {
+          "id": "evidence",
+          "title": "蒐證",
+          "objectives": [
+            "保存兩份虛構紀錄。",
+            "以抽象機關停用營運裝置。",
+            "撤離回到車店。"
+          ],
+          "rewards": {
+            "parts_vouchers": 0,
+            "state_deltas": {
+              "evidence_score": 20,
+              "community_trust": 0,
+              "rescued_count": 0
+            },
+            "unlocks": [],
+            "grant_once": true,
+            "reward_scope": "mission_completion",
+            "reward_key": "MAIN-005"
+          },
+          "flags": [
+            "front_site_disabled",
+            "front_site_records_saved"
+          ]
+        },
+        {
+          "id": "rescue",
+          "title": "救援",
+          "objectives": [
+            "集合兩名額外受困者。",
+            "分段護送至安全點。",
+            "以抽象機關中止營運。"
+          ],
+          "rewards": {
+            "parts_vouchers": 0,
+            "state_deltas": {
+              "evidence_score": 0,
+              "community_trust": 8,
+              "rescued_count": 2
+            },
+            "unlocks": [],
+            "grant_once": true,
+            "reward_scope": "mission_completion",
+            "reward_key": "MAIN-005"
+          },
+          "rescued_npc_ids": [
+            "NPC-M005-01",
+            "NPC-M005-02"
+          ],
+          "flags": [
+            "front_site_disabled"
+          ]
+        }
+      ],
+      "branch_reward_rule": "基礎 rewards 加一個選定分支 rewards；不可以合併三分支獎勵。",
+      "slice_result": "只有分支預覽，不執行完整戰役結局判定。",
+      "dialogue": [
+        "阿遠：我可以把這一層砸到不能用。",
+        "予安：可以。先給我兩分鐘，把名字留下來。",
+        "周成：裡面還有兩個人。他們不知道門已經開了。"
+      ]
+    },
+    {
+      "id": "MAIN-006",
+      "type": "main",
+      "title": "同一張名單",
+      "line_id": "LINE-B",
+      "phase": "MVP",
+      "location": [
+        "ZONE-002",
+        "ZONE-001"
+      ],
+      "depends_on": [
+        "MAIN-005"
+      ],
+      "objectives": [
+        "與予安比對三份虛構紀錄。",
+        "找到第二接待點與核心商辦聯絡人。",
+        "缺失證據時啟用周成口述替代。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試；缺件不造成卡關。"
+      ],
+      "rewards": {
+        "parts_vouchers": 200,
+        "state_deltas": {
+          "evidence_score": 12,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [
+          "MAIN-007",
+          "SIDE-005"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "MAIN-006"
+      },
+      "fallback": {
+        "condition": "前站紀錄損毀",
+        "description": "口述替代可完成必要線索。",
+        "replacement_state_deltas": {
+          "evidence_score": 6,
+          "community_trust": 0,
+          "rescued_count": 0
+        }
+      }
+    },
+    {
+      "id": "MAIN-007",
+      "type": "main",
+      "title": "空殼車隊",
+      "line_id": "LINE-A",
+      "phase": "MVP",
+      "location": [
+        "ZONE-006"
+      ],
+      "depends_on": [
+        "MAIN-006"
+      ],
+      "objectives": [
+        "抵達轉運中心。",
+        "依任務機關阻止標記車隊離開。",
+        "封存或破壞兩台詐團標記車。",
+        "返回交付點。"
+      ],
+      "fail_conditions": [
+        "玩家倒下。",
+        "標記車隊到達任務終點；重試恢復車隊。"
+      ],
+      "rewards": {
+        "parts_vouchers": 220,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [
+          "MAIN-008",
+          "SIDE-002"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "MAIN-007"
+      },
+      "persistent_flags": [
+        "fleet_disabled"
+      ]
+    },
+    {
+      "id": "MAIN-008",
+      "type": "main",
+      "title": "換班之前",
+      "line_id": "LINE-C",
+      "phase": "MVP",
+      "location": [
+        "ZONE-003",
+        "ZONE-005"
+      ],
+      "depends_on": [
+        "MAIN-007"
+      ],
+      "objectives": [
+        "找到三名受困者。",
+        "安排步行或搭乘小客車撤離。",
+        "確保三人到達安全集合點。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 240,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 7,
+          "rescued_count": 3
+        },
+        "unlocks": [
+          "MAIN-009",
+          "SIDE-003",
+          "SIDE-008"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "MAIN-008"
+      },
+      "rescued_npc_ids": [
+        "NPC-M008-01",
+        "NPC-M008-02",
+        "NPC-M008-03"
+      ]
+    },
+    {
+      "id": "MAIN-009",
+      "type": "main",
+      "title": "沒有署名的帳冊",
+      "line_id": "LINE-B",
+      "phase": "MVP",
+      "location": [
+        "ZONE-003"
+      ],
+      "depends_on": [
+        "MAIN-008"
+      ],
+      "objectives": [
+        "找到紙本及架空儲存模組。",
+        "取得可交付的紀錄摘要。",
+        "若主紀錄損毀，改用指定備份分支。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試；紀錄損毀改走備份，不使關卡無法完成。"
+      ],
+      "rewards": {
+        "parts_vouchers": 260,
+        "state_deltas": {
+          "evidence_score": 12,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [
+          "MAIN-010",
+          "SIDE-006"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "MAIN-009"
+      },
+      "fallback": {
+        "condition": "主紀錄損毀",
+        "description": "改取備份摘要，仍可續關。",
+        "replacement_state_deltas": {
+          "evidence_score": 6,
+          "community_trust": 0,
+          "rescued_count": 0
+        }
+      }
+    },
+    {
+      "id": "MAIN-010",
+      "type": "main",
+      "title": "廣告牆倒下",
+      "line_id": "LINE-A",
+      "phase": "MVP",
+      "location": [
+        "ZONE-002"
+      ],
+      "depends_on": [
+        "MAIN-009"
+      ],
+      "objectives": [
+        "抵達廣場假募資展示。",
+        "中斷展示與外圍營運設備。",
+        "以封存或破壞完成三個標記目標。",
+        "離開展區。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 280,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [
+          "MAIN-011"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "MAIN-010"
+      },
+      "persistent_flags": [
+        "advertising_network_disabled"
+      ]
+    },
+    {
+      "id": "MAIN-011",
+      "type": "main",
+      "title": "最後一台車",
+      "line_id": "LINE-C",
+      "phase": "MVP",
+      "location": [
+        "ZONE-006",
+        "ZONE-005"
+      ],
+      "depends_on": [
+        "MAIN-010"
+      ],
+      "objectives": [
+        "安排三名受困者的座位與停靠順序。",
+        "穿過限定撤離路段。",
+        "確認三人抵達安全點。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 300,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 7,
+          "rescued_count": 3
+        },
+        "unlocks": [
+          "MAIN-012",
+          "SIDE-009"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "MAIN-011"
+      },
+      "rescued_npc_ids": [
+        "NPC-M011-01",
+        "NPC-M011-02",
+        "NPC-M011-03"
+      ],
+      "vehicle_recovery": "任務車失能可由標示救援點替換，不永久卡關。"
+    },
+    {
+      "id": "MAIN-012",
+      "type": "main",
+      "title": "斷鏈行動",
+      "line_id": "LINE-A",
+      "phase": "MVP",
+      "location": [
+        "ZONE-003"
+      ],
+      "depends_on": [
+        "MAIN-011"
+      ],
+      "objectives": [
+        "進入虛構核心商辦的限定樓層。",
+        "完成核心營運中斷的共用目標。",
+        "選擇破壞、蒐證或救援重心。",
+        "完成最後撤離。",
+        "依結局優先序播放戰役尾聲。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 400,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [
+          "POSTGAME-FREE-ROAM"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "MAIN-012"
+      },
+      "branches": [
+        {
+          "id": "destroy",
+          "title": "破壞",
+          "objectives": [
+            "使三個標記核心設備失能。"
+          ],
+          "rewards": {
+            "parts_vouchers": 0,
+            "state_deltas": {
+              "evidence_score": 0,
+              "community_trust": 0,
+              "rescued_count": 0
+            },
+            "unlocks": [],
+            "grant_once": true,
+            "reward_scope": "mission_completion",
+            "reward_key": "MAIN-012"
+          },
+          "flags": [
+            "core_site_disabled"
+          ]
+        },
+        {
+          "id": "evidence",
+          "title": "蒐證",
+          "objectives": [
+            "先保存最終紀錄。",
+            "以任務機關中止營運。"
+          ],
+          "rewards": {
+            "parts_vouchers": 0,
+            "state_deltas": {
+              "evidence_score": 20,
+              "community_trust": 0,
+              "rescued_count": 0
+            },
+            "unlocks": [],
+            "grant_once": true,
+            "reward_scope": "mission_completion",
+            "reward_key": "MAIN-012"
+          },
+          "flags": [
+            "core_site_disabled",
+            "final_records_saved"
+          ]
+        },
+        {
+          "id": "rescue",
+          "title": "救援",
+          "objectives": [
+            "救出兩名額外受困者。",
+            "以任務機關中止營運。"
+          ],
+          "rewards": {
+            "parts_vouchers": 0,
+            "state_deltas": {
+              "evidence_score": 0,
+              "community_trust": 8,
+              "rescued_count": 2
+            },
+            "unlocks": [],
+            "grant_once": true,
+            "reward_scope": "mission_completion",
+            "reward_key": "MAIN-012"
+          },
+          "rescued_npc_ids": [
+            "NPC-M012-01",
+            "NPC-M012-02"
+          ],
+          "flags": [
+            "core_site_disabled"
+          ]
+        }
+      ],
+      "branch_reward_rule": "基礎 rewards 加一個選定分支 rewards。",
+      "completion_state_changes": {
+        "heat_level": 0
+      },
+      "ending_resolver": "戰役四欄狀態依 ending_rules；只在此任務首次完成後判定。"
+    },
+    {
+      "id": "SIDE-001",
+      "type": "side",
+      "title": "招牌不會自己倒",
+      "line_id": "LINE-A",
+      "phase": "MVP",
+      "location": [
+        "ZONE-004"
+      ],
+      "depends_on": [
+        "MAIN-002"
+      ],
+      "objectives": [
+        "關閉或拆除三處詐團標記廣告。",
+        "回到車店交付成果。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 120,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [
+          "COSMETIC-SIGN-SHARD"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "SIDE-001"
+      }
+    },
+    {
+      "id": "SIDE-002",
+      "type": "side",
+      "title": "退回去的豪車",
+      "line_id": "LINE-A",
+      "phase": "MVP",
+      "location": [
+        "ZONE-006"
+      ],
+      "depends_on": [
+        "MAIN-007"
+      ],
+      "objectives": [
+        "找到兩台詐團標記車。",
+        "封存車輛或拆除廣告配件。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 150,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [
+          "COSMETIC-CAR-LIVERY"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "SIDE-002"
+      }
+    },
+    {
+      "id": "SIDE-003",
+      "type": "side",
+      "title": "空房間",
+      "line_id": "LINE-A",
+      "phase": "MVP",
+      "location": [
+        "ZONE-005"
+      ],
+      "depends_on": [
+        "MAIN-008"
+      ],
+      "objectives": [
+        "檢查原創廢棄接待點，確認沒有受困者。",
+        "清除三個標記展示設備。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 150,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 3,
+          "rescued_count": 0
+        },
+        "unlocks": [],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "SIDE-003"
+      }
+    },
+    {
+      "id": "SIDE-004",
+      "type": "side",
+      "title": "沒寄出去的信",
+      "line_id": "LINE-B",
+      "phase": "MVP",
+      "location": [
+        "ZONE-004",
+        "ZONE-002"
+      ],
+      "depends_on": [
+        "MAIN-002"
+      ],
+      "objectives": [
+        "找回三封故事信件。",
+        "交給予安。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 130,
+        "state_deltas": {
+          "evidence_score": 8,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "SIDE-004"
+      }
+    },
+    {
+      "id": "SIDE-005",
+      "type": "side",
+      "title": "備份還在",
+      "line_id": "LINE-B",
+      "phase": "MVP",
+      "location": [
+        "ZONE-006"
+      ],
+      "depends_on": [
+        "MAIN-006"
+      ],
+      "objectives": [
+        "找到備份紀錄櫃。",
+        "取得可交付摘要。",
+        "補救已損毀紀錄的敘事支線。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試；必要摘要可恢復。"
+      ],
+      "rewards": {
+        "parts_vouchers": 160,
+        "state_deltas": {
+          "evidence_score": 10,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "SIDE-005"
+      },
+      "anti_farm": "獎勵以任務 ID 去重，不依重複備份發放。"
+    },
+    {
+      "id": "SIDE-006",
+      "type": "side",
+      "title": "誰在借你的名字",
+      "line_id": "LINE-B",
+      "phase": "MVP",
+      "location": [
+        "ZONE-003",
+        "ZONE-002"
+      ],
+      "depends_on": [
+        "MAIN-009"
+      ],
+      "objectives": [
+        "比對四張虛構識別卡與故事人物。",
+        "移除詐團宣傳中的受害者姓名。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 180,
+        "state_deltas": {
+          "evidence_score": 10,
+          "community_trust": 3,
+          "rescued_count": 0
+        },
+        "unlocks": [],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "SIDE-006"
+      }
+    },
+    {
+      "id": "SIDE-007",
+      "type": "side",
+      "title": "沒拿回來的背包",
+      "line_id": "LINE-C",
+      "phase": "MVP",
+      "location": [
+        "ZONE-005"
+      ],
+      "depends_on": [
+        "MAIN-004"
+      ],
+      "objectives": [
+        "找回周成的背包。",
+        "保護同行目擊者到安全點。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 140,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 5,
+          "rescued_count": 0
+        },
+        "unlocks": [],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "SIDE-007"
+      },
+      "rescued_count_policy": "同行者已在 MAIN-004 計數，本支線不重複增加。"
+    },
+    {
+      "id": "SIDE-008",
+      "type": "side",
+      "title": "只剩一個座位",
+      "line_id": "LINE-C",
+      "phase": "MVP",
+      "location": [
+        "ZONE-003",
+        "ZONE-006"
+      ],
+      "depends_on": [
+        "MAIN-008"
+      ],
+      "objectives": [
+        "安排兩次短程接送。",
+        "將三名新的受困者全部送到集合點。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 190,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 8,
+          "rescued_count": 3
+        },
+        "unlocks": [],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "SIDE-008"
+      },
+      "rescued_npc_ids": [
+        "NPC-S008-01",
+        "NPC-S008-02",
+        "NPC-S008-03"
+      ]
+    },
+    {
+      "id": "SIDE-009",
+      "type": "side",
+      "title": "先回家再說",
+      "line_id": "LINE-C",
+      "phase": "MVP",
+      "location": [
+        "ZONE-001"
+      ],
+      "depends_on": [
+        "MAIN-011"
+      ],
+      "objectives": [
+        "陪已獲救者回到社區。",
+        "完成三段低壓力對話。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 150,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 7,
+          "rescued_count": 0
+        },
+        "unlocks": [],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "SIDE-009"
+      },
+      "rescued_count_policy": "回訪既有獲救者，不重複計數。"
+    },
+    {
+      "id": "SIDE-010",
+      "type": "side",
+      "title": "美晴的零件單",
+      "line_id": "LINE-D",
+      "phase": "MVP",
+      "location": [
+        "ZONE-001",
+        "ZONE-004",
+        "ZONE-006"
+      ],
+      "depends_on": [
+        "MAIN-003"
+      ],
+      "objectives": [
+        "使用自行車從三個指定站點取回零件。",
+        "完成維修交付，開放小客車版本的活動便利選項。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 160,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [
+          "UPGRADE-VEHICLE-REPAIR"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "SIDE-010"
+      }
+    },
+    {
+      "id": "SIDE-011",
+      "type": "side",
+      "title": "巷子裡的送達",
+      "line_id": "LINE-D",
+      "phase": "MVP",
+      "location": [
+        "ZONE-001",
+        "ZONE-004"
+      ],
+      "depends_on": [
+        "MAIN-003"
+      ],
+      "objectives": [
+        "以自行車送達兩份遊戲內委託物。",
+        "完成轉彎與停靠挑戰。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或計時耗盡；競速寬限可啟用。"
+      ],
+      "rewards": {
+        "parts_vouchers": 140,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [
+          "COSMETIC-BICYCLE"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "SIDE-011"
+      }
+    },
+    {
+      "id": "SIDE-012",
+      "type": "side",
+      "title": "把早餐店開回來",
+      "line_id": "LINE-E",
+      "phase": "MVP",
+      "location": [
+        "ZONE-001"
+      ],
+      "depends_on": [
+        "MAIN-005"
+      ],
+      "objectives": [
+        "修復素蓉的招牌。",
+        "找回被害者互助箱。",
+        "整理安全屋角落。"
+      ],
+      "fail_conditions": [
+        "玩家倒下或主動重試。",
+        "護送任務的必要 NPC 安全值歸零時視為失散並重試；不呈現死亡畫面。"
+      ],
+      "rewards": {
+        "parts_vouchers": 160,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 15,
+          "rescued_count": 0
+        },
+        "unlocks": [
+          "HUB-REPAIRED"
+        ],
+        "grant_once": true,
+        "reward_scope": "mission_completion",
+        "reward_key": "SIDE-012"
+      }
+    },
+    {
+      "id": "ACT-001",
+      "type": "activity",
+      "title": "自行車路標賽",
+      "line_id": "LINE-D",
+      "phase": "MVP",
+      "location": [
+        "ZONE-001",
+        "ZONE-002"
+      ],
+      "depends_on": [
+        "MAIN-003"
+      ],
+      "objectives": [
+        "在固定路標間完成自行車計時。"
+      ],
+      "fail_conditions": [
+        "活動時間耗盡或玩家主動重試；不影響戰役存檔。"
+      ],
+      "rewards": {
+        "parts_vouchers": 30,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [],
+        "grant_once": true,
+        "reward_scope": "activity_run",
+        "reward_key": "ACT-001:{activity_run_id}"
+      },
+      "repeatable": true,
+      "state_reward_policy": "每次僅給少量零件券，不給結局狀態；避免刷取分數。"
+    },
+    {
+      "id": "ACT-002",
+      "type": "activity",
+      "title": "停車場繞標",
+      "line_id": "LINE-D",
+      "phase": "MVP",
+      "location": [
+        "ZONE-004"
+      ],
+      "depends_on": [
+        "MAIN-003"
+      ],
+      "objectives": [
+        "完成低速繞標與停車。"
+      ],
+      "fail_conditions": [
+        "活動時間耗盡或玩家主動重試；不影響戰役存檔。"
+      ],
+      "rewards": {
+        "parts_vouchers": 30,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [],
+        "grant_once": true,
+        "reward_scope": "activity_run",
+        "reward_key": "ACT-002:{activity_run_id}"
+      },
+      "repeatable": true,
+      "state_reward_policy": "撞倒路標僅扣活動分，不扣社區信任。"
+    },
+    {
+      "id": "ACT-003",
+      "type": "activity",
+      "title": "工具試打",
+      "line_id": "LINE-A",
+      "phase": "MVP",
+      "location": [
+        "ZONE-001"
+      ],
+      "depends_on": [
+        "MAIN-001"
+      ],
+      "objectives": [
+        "在安全屋測試工具、耐久與破壞材質。"
+      ],
+      "fail_conditions": [
+        "活動時間耗盡或玩家主動重試；不影響戰役存檔。"
+      ],
+      "rewards": {
+        "parts_vouchers": 0,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [],
+        "grant_once": false,
+        "reward_scope": "none",
+        "reward_key": null
+      },
+      "repeatable": true,
+      "state_reward_policy": "練習不給戰役狀態，不增加警戒。"
+    },
+    {
+      "id": "ACT-004",
+      "type": "activity",
+      "title": "回收跑腿",
+      "line_id": "LINE-E",
+      "phase": "MVP",
+      "location": [
+        "ZONE-001",
+        "ZONE-006"
+      ],
+      "depends_on": [
+        "MAIN-005"
+      ],
+      "objectives": [
+        "將抽象重量計算的可回收碎片送到指定箱。"
+      ],
+      "fail_conditions": [
+        "活動時間耗盡或玩家主動重試；不影響戰役存檔。"
+      ],
+      "rewards": {
+        "parts_vouchers": 30,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [],
+        "grant_once": true,
+        "reward_scope": "activity_run",
+        "reward_key": "ACT-004:{activity_run_id}"
+      },
+      "repeatable": true
+    },
+    {
+      "id": "ACT-005",
+      "type": "activity",
+      "title": "街景留影",
+      "line_id": "LINE-E",
+      "phase": "MVP",
+      "location": [
+        "ZONE-001",
+        "ZONE-002",
+        "ZONE-003",
+        "ZONE-004",
+        "ZONE-005",
+        "ZONE-006"
+      ],
+      "depends_on": [
+        "MAIN-003"
+      ],
+      "objectives": [
+        "拍攝原創街景的指定遊戲視角。"
+      ],
+      "fail_conditions": [
+        "活動時間耗盡或玩家主動重試；不影響戰役存檔。"
+      ],
+      "rewards": {
+        "parts_vouchers": 20,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [],
+        "grant_once": true,
+        "reward_scope": "photo_point",
+        "reward_key": "ACT-005:{photo_point_id}"
+      },
+      "repeatable": true,
+      "state_reward_policy": "每個首次拍攝點給一次零件券；再拍只更新相簿。"
+    },
+    {
+      "id": "ACT-006",
+      "type": "activity",
+      "title": "社區急送",
+      "line_id": "LINE-D",
+      "phase": "MVP",
+      "location": [
+        "ZONE-001",
+        "ZONE-004"
+      ],
+      "depends_on": [
+        "MAIN-003"
+      ],
+      "objectives": [
+        "選擇自行車或小客車送達餐點或維修物品。"
+      ],
+      "fail_conditions": [
+        "活動時間耗盡或玩家主動重試；不影響戰役存檔。"
+      ],
+      "rewards": {
+        "parts_vouchers": 30,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [],
+        "grant_once": true,
+        "reward_scope": "activity_run",
+        "reward_key": "ACT-006:{activity_run_id}"
+      },
+      "repeatable": true,
+      "accessibility": "可關閉競速計時。"
+    },
+    {
+      "id": "ACT-007",
+      "type": "activity",
+      "title": "巡街互助",
+      "line_id": "LINE-E",
+      "phase": "MVP",
+      "location": [
+        "ZONE-002",
+        "ZONE-004"
+      ],
+      "depends_on": [
+        "MAIN-005"
+      ],
+      "objectives": [
+        "帶遇到困難的路人到標示安全點。"
+      ],
+      "fail_conditions": [
+        "活動時間耗盡或玩家主動重試；不影響戰役存檔。"
+      ],
+      "rewards": {
+        "parts_vouchers": 20,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [],
+        "grant_once": true,
+        "reward_scope": "activity_run",
+        "reward_key": "ACT-007:{activity_run_id}"
+      },
+      "repeatable": true,
+      "state_reward_policy": "路人不是園區受困者，不增加 rescued_count 或可刷取的信任。"
+    },
+    {
+      "id": "ACT-008",
+      "type": "activity",
+      "title": "任務重演",
+      "line_id": "LINE-E",
+      "phase": "MVP",
+      "location": [
+        "ZONE-001"
+      ],
+      "depends_on": [
+        "MAIN-005"
+      ],
+      "objectives": [
+        "在安全屋選已完成任務。",
+        "於獨立狀態沙盒重演。",
+        "離開沙盒返回戰役。"
+      ],
+      "fail_conditions": [
+        "活動時間耗盡或玩家主動重試；不影響戰役存檔。"
+      ],
+      "rewards": {
+        "parts_vouchers": 0,
+        "state_deltas": {
+          "evidence_score": 0,
+          "community_trust": 0,
+          "rescued_count": 0
+        },
+        "unlocks": [],
+        "grant_once": false,
+        "reward_scope": "none",
+        "reward_key": null
+      },
+      "repeatable": true,
+      "state_reward_policy": "不改戰役四欄狀態，不重發任何主線獎勵。"
+    }
+  ],
+  "weapons": [
+    {
+      "role": "melee",
+      "title": "球棒",
+      "id": "WPN-001",
+      "phase": "Slice"
+    },
+    {
+      "role": "melee",
+      "title": "扳手",
+      "id": "WPN-002",
+      "phase": "Slice"
+    },
+    {
+      "role": "ranged",
+      "title": "虛構脈衝器具",
+      "id": "WPN-003",
+      "phase": "Slice"
+    },
+    {
+      "role": "melee",
+      "title": "伸縮棍",
+      "id": "WPN-004",
+      "phase": "MVP"
+    },
+    {
+      "role": "short_range",
+      "title": "幻想電擊器",
+      "id": "WPN-005",
+      "phase": "MVP"
+    },
+    {
+      "role": "ranged_control",
+      "title": "泡沫投射器",
+      "id": "WPN-006",
+      "phase": "MVP"
+    }
+  ],
+  "pickup_rules": {
+    "deduplicate_by": [
+      "spawn_id",
+      "generation"
+    ],
+    "initial_slice_spawn_count_design_range": [
+      16,
+      20
+    ],
+    "advanced_energy": "任務獎勵與限量補給",
+    "delay_player_radius_m": 15,
+    "base_navigation_path_distance_m": 40,
+    "required_tool_recovery": "任務開始與重試補足",
+    "persist": [
+      "generation",
+      "consumed"
+    ],
+    "generation_interval_s": 180,
+    "delay_in_active_objective_zone": true
+  },
+  "sandbox_state_effects": {
+    "first_civilian_hit": {
+      "heat_level": 2,
+      "community_trust": -10
+    },
+    "deduplicate_by": "object_id 或 npc_id；每個事件類型首次",
+    "first_civilian_property_damage": {
+      "community_trust": -2
+    },
+    "large_target_destruction": {
+      "heat_level": 1
+    },
+    "first_enemy_sighting": {
+      "heat_level": 1
+    }
+  },
+  "inventory_contract": {
+    "quest_inventory_independent": true,
+    "melee_slots": 2,
+    "ranged_slots": 1,
+    "throwables_in_slice": false
+  },
+  "ending_persistence": {
+    "trigger": "MAIN-012 first successful completion",
+    "snapshot_fields": [
+      "ending_id",
+      "committed_event_id",
+      "scores",
+      "rescued_npc_ids"
+    ],
+    "read_policy": "Restore committed snapshot; never recalculate after post-ending side missions."
+  }
+}

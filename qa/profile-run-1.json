@@ -1,0 +1,17 @@
+{
+  "frames": 719,
+  "guards": 2,
+  "limitations": "Short alpha scene measurement; does not validate full-MVP stress, mobile, or long-term stability.",
+  "measurement": "monotonic_wall_clock_between_process_callbacks",
+  "p95_ms": 17.2,
+  "p99_ms": 18.701,
+  "renderer": "gl_compatibility",
+  "rescue_people": 4,
+  "resolution": [
+    1366,
+    768
+  ],
+  "scope": "alpha_static_rendered_scene_after_two_second_warmup",
+  "vram_bytes": 60686187,
+  "godot_static_memory_bytes": 69773675.0
+}
