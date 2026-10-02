@@ -5,7 +5,7 @@
 - Godot **4.7.2 stable** standard build. Use the official release and verify the SHA-512 sums.
 - Python 3.12+ for optional validation and sound generation.
 - Blender **5.2.0 LTS** to modify/re-export the source art. Blender is not required to run the game because GLB exports are included.
-- Windows x86_64 is the validated release target. Linux headless checks run in CI; a native Linux playable binary is not yet validated.
+- Windows x86_64 is the validated release target. Linux headless CI configuration is provided as .github/validate.workflow.example.yml. GitHub Actions is not enabled for this release; a native Linux playable binary is not yet validated.
 
 ## Run the source project
 

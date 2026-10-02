@@ -58,7 +58,7 @@ A stylized, original third-person action sandbox made with **Godot 4.7.2** and *
 - 載具採街機控制，自行車手腳 IK 與完整上下車動畫仍需改善。
 - 破壞外觀目前採縮放與姿態變化；預切破損網格、碎片與整套三態美術仍待製作。
 - 完整人群交通、武器密度與刷新、手把／重設鍵位、畫質選單、導航避障與LOD仍需擴充。
-- Linux 可跑 headless CI；尚未驗證原生 Linux 可玩發行包。手機與連線多人尚未支援。
+- 已附Linux headless CI範本；目前尚未啟用GitHub Actions或驗證原生Linux可玩發行包。手機與連線多人尚未支援。
 
 ## 開源、資產與協作
 

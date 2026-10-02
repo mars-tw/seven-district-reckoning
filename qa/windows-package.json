@@ -4,8 +4,8 @@
   "exe_bytes": 117133536,
   "exe_sha256": "6aca4cc22814f88b2fc13ff3c280220be4d39bbdf2d3385f1bb5ec8a07de8c04",
   "archive": "deliverables/SevenDistrict-v0.1.0-Windows-x86_64.zip",
-  "archive_bytes": 45952228,
-  "archive_sha256": "b9dd319cb5cc18db68bac610a9c1f60ee560a00434c7ecd7563a4fc11ce4d17b",
+  "archive_bytes": 45952221,
+  "archive_sha256": "561bf4df3ec9fe64b39688827d7ec80a8ce5e9a244927bd87794f87d91585e18",
   "packaged_screenshot_dimensions": [
     1280,
     720

@@ -14,6 +14,10 @@ image = root / "docs/evidence/alpha-packaged-windows.png"
 assert image.exists() and image.read_bytes()[:8] == b"\x89PNG\r\n\x1a\n", "Packaged executable must produce a real screenshot first"
 for name in ["LICENSE", "LICENSE-ASSETS.md", "CREDITS.md"]:
     shutil.copy2(root / name, directory / name)
+for name in ["LICENSE-ASSETS.md", "CREDITS.md"]:
+    path = directory / name
+    text = path.read_text(encoding="utf-8").replace("assets/provenance/", "licenses/").replace("godot/assets/fonts/OFL.txt", "licenses/NotoSansTC-OFL.txt")
+    path.write_text(text, encoding="utf-8")
 licenses = directory / "licenses"
 licenses.mkdir(exist_ok=True)
 for path in (root / "assets/provenance").glob("*.txt"):
