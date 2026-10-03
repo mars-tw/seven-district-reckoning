@@ -19,6 +19,7 @@ var consumed_hits: Dictionary = {}
 var collision: CollisionShape3D
 var initial_transform: Transform3D
 var damage_gate: Callable
+var non_solid: bool = false
 
 func configure(id: String, text: String, event: String, model: PackedScene, size: Vector3, can_break: bool = false) -> void:
 	object_id = id
@@ -46,8 +47,8 @@ func configure(id: String, text: String, event: String, model: PackedScene, size
 	text_label.position = Vector3(0, size.y + 0.45, 0)
 	text_label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	text_label.no_depth_test = true
-	if ResourceLoader.exists("res://assets/fonts/NotoSansTC-Regular.otf"):
-		text_label.font = load("res://assets/fonts/NotoSansTC-Regular.otf") as Font
+	if ResourceLoader.exists("res://assets/fonts/SevenDistrictSansTC-Regular.otf"):
+		text_label.font = load("res://assets/fonts/SevenDistrictSansTC-Regular.otf") as Font
 	add_child(text_label)
 	add_to_group("interactables")
 	if destructible:
@@ -82,7 +83,7 @@ func set_collected(value: bool) -> void:
 	collected = value
 	visible = not value
 	if collision:
-		collision.set_deferred("disabled", value or broken)
+		collision.set_deferred("disabled", value or broken or non_solid)
 
 func restore(data: Dictionary) -> void:
 	health = float(data.get("health", initial_health))
@@ -90,7 +91,7 @@ func restore(data: Dictionary) -> void:
 	collected = bool(data.get("collected", false))
 	consumed_hits.clear()
 	if collision:
-		collision.set_deferred("disabled", broken or collected)
+		collision.set_deferred("disabled", broken or collected or non_solid)
 	visible = not collected
 	if visual:
 		visual.scale = Vector3.ONE

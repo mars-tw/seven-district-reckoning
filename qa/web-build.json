@@ -1,0 +1,155 @@
+{
+  "version": "0.2.0",
+  "wasm_asset": "game.wasm.br",
+  "wasm_url": "game.wasm",
+  "wasm_original_bytes": 39514754,
+  "wasm_transfer_bytes": 8041529,
+  "wasm_original_sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+  "files": [
+    {
+      "name": "404.html",
+      "bytes": 1257,
+      "sha256": "8e649cb767ce0de2d54db453eebf7198568985d52ef55cd67da39e11b56bcb0f"
+    },
+    {
+      "name": "CREDITS.txt",
+      "bytes": 3034,
+      "sha256": "92e44dbf49b2c9901b3803ad4ff3951c110f75f9ee6cdf1b55518c27b5ecf3d6"
+    },
+    {
+      "name": "favicon.svg",
+      "bytes": 363,
+      "sha256": "0e51fa7be2f99443ab0f2da9aec38960fd8dbd8dbf13187bebd20398b265634a"
+    },
+    {
+      "name": "game.apple-touch-icon.png",
+      "bytes": 10556,
+      "sha256": "8acdd366f18297229792e9b64c2df2383e487ec9010a63068aec28fbc80e923b"
+    },
+    {
+      "name": "game.audio.position.worklet.js",
+      "bytes": 2973,
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+    },
+    {
+      "name": "game.audio.worklet.js",
+      "bytes": 7298,
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    },
+    {
+      "name": "game.html",
+      "bytes": 9022,
+      "sha256": "ba1aa765f8756c12cd84f6b426d88dd5036d6e6b8cf829199977bdaad99258eb"
+    },
+    {
+      "name": "game.icon.png",
+      "bytes": 11423,
+      "sha256": "72ecebec965a3a63c1b0271c153f355004459fdcdd4bee78bcba3eddefa7b6f9"
+    },
+    {
+      "name": "game.js",
+      "bytes": 279815,
+      "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
+    },
+    {
+      "name": "game.pck",
+      "bytes": 3064576,
+      "sha256": "e21ac1e6af2dc4ba9e947daf21e239e1ddf378bf57d284b70e497a04e17d2f2f"
+    },
+    {
+      "name": "game.png",
+      "bytes": 21443,
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+    },
+    {
+      "name": "game.wasm.br",
+      "bytes": 8041529,
+      "sha256": "83938b21406885755b656026518797f26186dafcaa3ddc9eef66ee7551159039"
+    },
+    {
+      "name": "index.html",
+      "bytes": 9022,
+      "sha256": "ba1aa765f8756c12cd84f6b426d88dd5036d6e6b8cf829199977bdaad99258eb"
+    },
+    {
+      "name": "LICENSE-ASSETS.txt",
+      "bytes": 1549,
+      "sha256": "64d592e803f9af237cc0de3d687b87187f7abdc9c50b3afb25657504b4a31f5f"
+    },
+    {
+      "name": "LICENSE.txt",
+      "bytes": 1101,
+      "sha256": "55ef6e46d74aacb1018560c5f305f02e3669006b6e789f64d3d9098859848b52"
+    },
+    {
+      "name": "play-site.css",
+      "bytes": 14603,
+      "sha256": "d674f8e477b242173dd28c3481ec7942e226447f7532a6fe7fd76219bab45e88"
+    },
+    {
+      "name": "play-site.js",
+      "bytes": 16054,
+      "sha256": "a4ee1ca74f79ff5ccfe3b92fbe300681b0cf754efd1a45b0bc4081b371eb7769"
+    },
+    {
+      "name": "robots.txt",
+      "bytes": 23,
+      "sha256": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95"
+    },
+    {
+      "name": "_headers",
+      "bytes": 484,
+      "sha256": "ddf506f3e78c21e7a2cb1892649ef0344388638a96e1716b0470d0bc2a80426c"
+    },
+    {
+      "name": "licenses/car-kit-License.txt",
+      "bytes": 696,
+      "sha256": "c33b7f6453d134deae7b1b8493717d9ccfa754c25ab97f6de89b88f8fda19b00"
+    },
+    {
+      "name": "licenses/CC-BY-3.0.txt",
+      "bytes": 19467,
+      "sha256": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76"
+    },
+    {
+      "name": "licenses/city-kit-commercial-License.txt",
+      "bytes": 708,
+      "sha256": "c38cee408d022e57e44e49f1cd655c2fe0dc881a07b881276b795215cdc0de69"
+    },
+    {
+      "name": "licenses/city-kit-roads-License.txt",
+      "bytes": 703,
+      "sha256": "87b9404aef5dff6162ae1e53a27bc6427fe1cdd2e2dd5ec05fdd25f17da10498"
+    },
+    {
+      "name": "licenses/furniture-kit-License.txt",
+      "bytes": 614,
+      "sha256": "bc0de1a0742cb490f9ed4bae0bd284286ebb27e23149b9917c7d8c0d590b8b29"
+    },
+    {
+      "name": "licenses/Godot-COPYRIGHT.txt",
+      "bytes": 100108,
+      "sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d"
+    },
+    {
+      "name": "licenses/Godot-LICENSE.txt",
+      "bytes": 1149,
+      "sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80"
+    },
+    {
+      "name": "licenses/mini-characters-License.txt",
+      "bytes": 718,
+      "sha256": "28358ae5accc85b572eb42507956afc8beae05acb4648bb9026a5714d421b785"
+    },
+    {
+      "name": "licenses/nature-kit-License.txt",
+      "bytes": 611,
+      "sha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d"
+    },
+    {
+      "name": "licenses/OFL.txt",
+      "bytes": 4301,
+      "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2"
+    }
+  ]
+}

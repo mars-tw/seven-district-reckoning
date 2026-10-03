@@ -155,11 +155,22 @@ func get_seat_hip_offset() -> Vector3:
 	return Vector3(0.0, 0.46, 0.0)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and is_instance_valid(_camera_pivot):
+	var orbit_mouse: bool = Input.mouse_mode == Input.MOUSE_MODE_CAPTURED or (OS.has_feature("web") and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT))
+	if event is InputEventMouseMotion and orbit_mouse and controls_enabled and is_instance_valid(_camera_pivot):
 		var motion: InputEventMouseMotion = event as InputEventMouseMotion
 		_camera_pivot.rotation.y -= motion.relative.x * mouse_sensitivity
 		_pitch = clampf(_pitch - motion.relative.y * mouse_sensitivity, -0.95, 0.30)
 		_spring_arm.rotation.x = _pitch
+	elif event is InputEventScreenDrag and is_instance_valid(_camera_pivot):
+		var drag: InputEventScreenDrag = event as InputEventScreenDrag
+		if drag.position.x > get_viewport().get_visible_rect().size.x * 0.45:
+			_camera_pivot.rotation.y -= drag.relative.x * mouse_sensitivity
+			_pitch = clampf(_pitch - drag.relative.y * mouse_sensitivity, -0.95, 0.30)
+			_spring_arm.rotation.x = _pitch
+
+func nudge_camera(amount: float) -> void:
+	if is_instance_valid(_camera_pivot):
+		_camera_pivot.rotation.y += amount
 
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(_camera):

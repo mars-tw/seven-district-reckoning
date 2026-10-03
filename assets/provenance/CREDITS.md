@@ -6,5 +6,7 @@ Kenney：Mini Characters、City Kit Commercial、City Kit Roads、Car Kit、Furn
 
 本次原創的外送背包、面部細節、制服配件、UV 色盤、膝關節權重、受擊／踩踏動畫及三款工具網格以 CC0 1.0 提供。第三方自行車模型仍依 CC BY 3.0，未改為 CC0；本專案的程式碼許可不取代素材的個別許可。
 
+字型原稿為 **Noto Sans TC Regular**，原著作權 © 2014–2021 Adobe，採 SIL OFL 1.1。取得來源、commit 與 SHA-256 保存在 `font-source.json`，完整授權文字位於 `godot/assets/fonts/OFL.txt`。Alpha 0.2 依遊戲實際文字裁製並重新命名為 **Seven District Sans TC**，由 Seven District contributors 製作子集，大小約 171 KiB，仍採 OFL 1.1 並保留原著作權。完整字型保留在原始碼內，Web 包只使用重新命名的子集；產製工具為 `tools/subset_game_font.py`。
+
 本次未使用 GTA／Rockstar、真實公司的商標、付費模型或來源不明的圖片。
 

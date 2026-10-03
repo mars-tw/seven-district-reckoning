@@ -24,7 +24,26 @@ If Godot is not on PATH, replace `godot` with the path to your installed executa
 python tools/test_game.py --godot godot
 ```
 
-The script checks importer/parser errors and requires explicit integration success. Tests exercise the real scene and physics as well as deterministic mission events. They do not substitute for a human playthrough. Test slots 95–98 are reserved for fixtures; player saves use slot 1. Contract tests refuse to overwrite a pre-existing unrelated fixture.
+The script imports a clean temporary source snapshot, isolates engine user data, checks importer/parser errors and requires each suite's explicit final summary. It runs the original gameplay, mission, controls, guard and release checks, plus optional content, district life and Alpha 0.2 integration checks. Tests exercise the real scene and physics as well as deterministic mission events. They do not substitute for a human playthrough. Test slots 94–98 are reserved for fixtures; player saves use slot 1.
+
+## Web export and preview
+
+Install the official Godot 4.7.2 export templates and Node.js 24+. The single-threaded Web preset uses the custom shell in `web/` and desktop/mobile texture imports. Parallel importing is disabled after a Windows headless font-reimport crash.
+
+```text
+python tools/build_web.py --godot godot
+python tools/serve_web.py --port 8766
+```
+
+Open `http://127.0.0.1:8766` in a WebGL 2 browser. The resulting static package is in `deliverables/web/`. `prepare_web_assets.mjs` Brotli-compresses the official WASM, adds matching `Content-Encoding: br` headers, versions CSS/JS by content hash, and includes attribution and runtime license files. Re-export before invoking that preparation script again; it deliberately refuses to compress an already-compressed WASM.
+
+Serve the compressed `game.wasm.br` at `/game.wasm` with `Content-Type: application/wasm` and `Content-Encoding: br`. Double-clicking HTML or serving the compressed WASM without its Brotli header will fail. The production Cloudflare configuration is `wrangler.jsonc`; `web/worker.mjs` serves this one engine route with manual encoding to prevent double compression. Other files use normal static asset delivery. Forks must use their own account and deployment credentials in environment variables. Credentials are never part of this repository.
+
+```text
+npx wrangler@4.147.0 deploy
+```
+
+The site runs entirely on the client. It has no login, multiplayer server, database or cloud save. Browser saves belong to that browser and origin; use the game's save/load menu.
 
 ## Windows export
 

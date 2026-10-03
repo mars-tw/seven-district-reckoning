@@ -8,6 +8,8 @@ __pycache__/
 *.tmp
 .audit-tmp/
 .tools/
+.wrangler/
+node_modules/
 assets/source/downloads/
 assets/source/archives/
 assets/provenance/*-source-page.html

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "world_bounds": [-150, -150, 150, 150],
+  "traffic_loop": [[137, -137], [137, 137], [-137, 137], [-137, -137]],
+  "districts": [
+    {"id": "old_street", "name": "舊街車店", "bounds": [-136, 12, -84, 66], "marker": [-110, 39], "color": "d39555", "subtitle": "禾沐車行・木石咖啡", "walk_loop": [[-106, 19], [-106, 26], [-102, 26], [-102, 34], [-106, 34], [-106, 63], [-99, 63], [-99, 19]]},
+    {"id": "commercial_core", "name": "商辦核心", "bounds": [82, -94, 134, -12], "marker": [108, -64], "color": "5e92a9", "subtitle": "澄川商務中心", "walk_loop": [[103, -87], [108, -87], [108, -57], [103, -57]]},
+    {"id": "park", "name": "公園步道", "bounds": [-136, 82, -84, 134], "marker": [-112, 103], "color": "83ab70", "subtitle": "青蔭公園・環園步道", "walk_loop": [[-111, 92.5], [-101, 92.5], [-101, 113.5], [-119.5, 113.5], [-119.5, 103.5], [-111, 103.5]]},
+    {"id": "parking_plaza", "name": "停車廣場", "bounds": [82, 82, 134, 134], "marker": [110, 113], "color": "c1ab78", "subtitle": "南苑停車場・行人出口", "walk_loop": [[96, 91], [110, 91], [110, 116], [96, 116]]},
+    {"id": "station_forecourt", "name": "前站廣場", "bounds": [-72, -136, 72, -84], "marker": [-44, -94], "color": "91a7bc", "subtitle": "七期前站・北側入口", "walk_loop": [[-45, -94], [-34, -94], [-34, -90], [-45, -90]]},
+    {"id": "transit", "name": "轉運街區", "bounds": [82, 12, 134, 66], "marker": [109, 34], "color": "b99b81", "subtitle": "東園轉運站・候車廊", "walk_loop": [[97, 19], [105, 19], [105, 53], [97, 53]]}
+  ],
+  "buildings": [
+    {"asset": "office_tower_c", "position": [-122, 0.06, 17], "size": [16, 8, 16], "caption": "禾沐車行", "color": "d39555"},
+    {"asset": "office_tower_a", "position": [-122, 0.06, 39], "size": [16, 10, 16], "caption": "木石咖啡", "color": "d39555"},
+    {"asset": "office_tower_c", "position": [-122, 0.06, 61], "size": [16, 7, 14], "caption": "日常五金", "color": "d39555"},
+    {"asset": "office_tower_a", "position": [123, 0.06, -69], "size": [14, 54, 17], "caption": "澄川商務", "color": "5e92a9"},
+    {"asset": "office_tower_b", "position": [89, 0.06, -75], "size": [12, 34, 14], "caption": "遠山研創", "color": "5e92a9"},
+    {"asset": "office_tower_c", "position": [125, 0.06, 99], "size": [18, 17, 22], "caption": "南苑停車塔", "color": "c1ab78"},
+    {"asset": "office_tower_c", "position": [-39, 0.06, -123], "size": [14, 9, 14], "caption": "七期前站", "color": "91a7bc"},
+    {"asset": "office_tower_a", "position": [41, 0.06, -123], "size": [14, 11, 14], "caption": "北站服務處", "color": "91a7bc"},
+    {"asset": "office_tower_c", "position": [121, 0.06, 34], "size": [18, 10, 32], "caption": "東園轉運站", "color": "b99b81"}
+  ]
+}

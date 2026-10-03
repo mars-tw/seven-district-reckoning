@@ -8,6 +8,10 @@ const RescueScript = preload("res://scripts/world/rescue.gd")
 const MissionScript = preload("res://scripts/missions/mission_manager.gd")
 const HUDScript = preload("res://scripts/ui/game_hud.gd")
 const SaveScript = preload("res://scripts/save/save_manager.gd")
+const OptionalScript = preload("res://scripts/content/optional_content.gd")
+const CityScript = preload("res://scripts/world/district_life.gd")
+const ContentWorldScript = preload("res://scripts/content/content_world.gd")
+const TouchScript = preload("res://scripts/ui/touch_controls.gd")
 
 var player: CharacterBody3D
 var missions: Node
@@ -35,17 +39,29 @@ var freeze_events: bool = false
 var low_quality: bool = false
 var is_test_mode: bool = false
 var last_frame_time_us: int = 0
+var optional: Node
+var city_life: Node3D
+var content_world: Node
+var touch_controls: CanvasLayer
+var _web_callback_ref
+var _web_window
+var _web_clock: float = 0
+var base_obstacle_bounds: Array[AABB] = []
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	low_quality = "--low" in OS.get_cmdline_user_args()
+	low_quality = low_quality or OS.has_feature("web")
 	is_test_mode = "--self-test" in OS.get_cmdline_user_args()
 	_register_inputs()
 	_create_lighting()
 	_create_world()
 	missions = MissionScript.new()
 	add_child(missions)
+	optional = OptionalScript.new()
+	add_child(optional)
 	player = PlayerScript.new()
+	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 	player.name = "Player"
 	add_child(player)
 	player.position = Vector3(-56, 0.2, 52)
@@ -57,9 +73,18 @@ func _ready() -> void:
 	_create_vehicles()
 	_create_guards()
 	_create_rescues()
+	city_life = CityScript.bootstrap(self)
+	city_life.process_mode = Node.PROCESS_MODE_PAUSABLE
+	city_life.setup(player)
+	content_world = ContentWorldScript.new()
+	add_child(content_world)
+	content_world.setup(self, optional, player)
 	hud = HUDScript.new()
 	add_child(hud)
 	hud.bind_missions(missions)
+	hud.bind_optional(optional)
+	hud.optional_selected.connect(_start_optional)
+	hud.optional_cancelled.connect(func() -> void: optional.cancel_task(); hud.show_optional_phone())
 	hud.new_game_requested.connect(_new_game)
 	hud.resume_requested.connect(_resume)
 	hud.save_requested.connect(_save)
@@ -67,6 +92,13 @@ func _ready() -> void:
 	hud.retry_requested.connect(_retry)
 	hud.quit_requested.connect(func() -> void: get_tree().quit())
 	hud.branch_selected.connect(func(branch: String) -> void: _event("select_branch", branch); _resume())
+	touch_controls = TouchScript.new()
+	add_child(touch_controls)
+	touch_controls.camera_step.connect(player.nudge_camera)
+	touch_controls.phone_requested.connect(hud.show_optional_phone)
+	touch_controls.pause_requested.connect(hud.show_pause)
+	optional.notice.connect(_notice)
+	optional.rewarded.connect(func(_reward: Dictionary) -> void: _notice("街坊委託成果已記錄"))
 	missions.updated.connect(_on_mission_updated)
 	missions.mission_completed.connect(_on_mission_completed)
 	missions.chapter_completed.connect(_on_chapter_complete)
@@ -76,6 +108,7 @@ func _ready() -> void:
 		hit_player.stream = load("res://assets/audio/hit.wav")
 		hit_player.volume_db = -10
 	hud.show_title()
+	_setup_web_bridge()
 	if Engine.has_meta("seven_district_autostart"):
 		Engine.remove_meta("seven_district_autostart")
 		_new_game()
@@ -120,10 +153,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		_load()
 
 func _process(delta: float) -> void:
+	_update_web_bridge(delta)
+	if optional:
+		optional.set_paused(get_tree().paused)
 	if not play_started or get_tree().paused:
 		last_frame_time_us = 0
 		return
 	seconds_played += delta
+	optional.advance_time(delta)
+	content_world.step(delta)
 	var now_us: int = Time.get_ticks_usec()
 	if last_frame_time_us > 0:
 		samples.append(float(now_us - last_frame_time_us) / 1000.0)
@@ -136,6 +174,9 @@ func _process(delta: float) -> void:
 		heat = maxf(0.0, heat - 1.0)
 	missions.scores["heat_level"] = int(ceil(heat))
 	var active_target: String = missions.get_target_key()
+	if optional.status == "active":
+		var optional_targets: Array[String] = optional.get_active_target_keys()
+		if not optional_targets.is_empty(): active_target = optional_targets[0]
 	targets["car"] = car.position
 	targets["bicycle"] = bicycle.position
 	for id: String in guards:
@@ -257,12 +298,14 @@ func _create_world() -> void:
 
 func _create_vehicles() -> void:
 	car = VehicleScript.new()
+	car.process_mode = Node.PROCESS_MODE_PAUSABLE
 	car.name = "Car"
 	car.type = "car"
 	car.position = Vector3(-57, 0.12, 35)
 	add_child(car)
 	car.setup_visual(_model("car"))
 	bicycle = VehicleScript.new()
+	bicycle.process_mode = Node.PROCESS_MODE_PAUSABLE
 	bicycle.name = "Bicycle"
 	bicycle.type = "bike"
 	bicycle.position = Vector3(-48, 0.12, 45)
@@ -274,6 +317,7 @@ func _create_vehicles() -> void:
 func _create_guards() -> void:
 	for i: int in range(1, 3):
 		var guard: CharacterBody3D = GuardScript.new()
+		guard.process_mode = Node.PROCESS_MODE_PAUSABLE
 		guard.name = "guard_%d" % i
 		guard.position = Vector3(-33 + i * 4, 0.15, -19)
 		add_child(guard)
@@ -289,6 +333,7 @@ func _create_rescues() -> void:
 	var positions: Dictionary = {"rescue_A": Vector3(25, 0.15, 29), "rescue_B": Vector3(29, 0.15, 34), "extra_A": Vector3(44, 0.15, 31), "extra_B": Vector3(48, 0.15, 31)}
 	for id: String in positions:
 		var person: CharacterBody3D = RescueScript.new()
+		person.process_mode = Node.PROCESS_MODE_PAUSABLE
 		person.configure(id, _model("civilian"))
 		add_child(person)
 		person.position = positions[id]
@@ -356,6 +401,7 @@ func _building(key: String, p: Vector3, size: Vector3) -> void:
 	var collision := CollisionShape3D.new()
 	var shape := BoxShape3D.new()
 	shape.size = size
+	base_obstacle_bounds.append(AABB(p - Vector3(size.x * 0.5, 0, size.z * 0.5), size))
 	collision.shape = shape
 	body.add_child(collision)
 	add_child(body)
@@ -382,8 +428,8 @@ func _marker(text: String, p: Vector3, color: Color) -> void:
 	label.font_size = 32
 	label.pixel_size = 0.013
 	label.modulate = color
-	if ResourceLoader.exists("res://assets/fonts/NotoSansTC-Regular.otf"):
-		label.font = load("res://assets/fonts/NotoSansTC-Regular.otf") as Font
+	if ResourceLoader.exists("res://assets/fonts/SevenDistrictSansTC-Regular.otf"):
+		label.font = load("res://assets/fonts/SevenDistrictSansTC-Regular.otf") as Font
 	add_child(label)
 
 func _new_game() -> void:
@@ -398,6 +444,7 @@ func _new_game() -> void:
 	route_done.clear()
 	for object: StaticBody3D in objects.values():
 		object.restore({})
+	optional.reset()
 	for person: CharacterBody3D in people.values():
 		person.following = false
 		person.arrived = false
@@ -416,7 +463,82 @@ func _resume() -> void:
 	if hud and hud.has_method("hide_menus"):
 		hud.hide_menus()
 	get_tree().paused = false
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if OS.has_feature("web") or (touch_controls and touch_controls.enabled) else Input.MOUSE_MODE_CAPTURED
+
+func _start_optional(id: String) -> void:
+	if not play_started:
+		_notice("先開始新遊戲，再選街坊委託")
+		return
+	if optional.start_task(id):
+		content_world.prepare_task(id)
+		_resume()
+	else:
+		hud.show_optional_phone()
+
+func _setup_web_bridge() -> void:
+	if not OS.has_feature("web"):
+		return
+	_web_window = JavaScriptBridge.get_interface("window")
+	_web_callback_ref = JavaScriptBridge.create_callback(_web_command)
+	_web_window.sevenDistrictCommand = _web_callback_ref
+	_emit_web_state()
+
+func _web_command(arguments: Array) -> void:
+	if arguments.is_empty(): return
+	var command: String = String(arguments[0])
+	match command:
+		"new_game": _new_game()
+		"pause":
+			if play_started: hud.show_pause()
+		"phone":
+			if play_started: hud.show_optional_phone()
+		"resume":
+			if play_started: _resume()
+		"save": _save()
+		"load": _load()
+		"touch_toggle":
+			touch_controls.set_enabled(not touch_controls.enabled)
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		"camera_left": player.nudge_camera(-0.3)
+		"camera_right": player.nudge_camera(0.3)
+	_emit_web_state()
+
+func _update_web_bridge(delta: float) -> void:
+	if not OS.has_feature("web") or _web_window == null: return
+	_web_clock += delta
+	if _web_clock < 0.35: return
+	_web_clock = 0
+	var ratio: float = clampf(float(_web_window.devicePixelRatio), 1.0, 2.0)
+	var logical_size := Vector2i(roundi(get_window().size.x / ratio), roundi(get_window().size.y / ratio))
+	if logical_size.x > 0 and logical_size.y > 0 and get_window().content_scale_size != logical_size:
+		get_window().content_scale_size = logical_size
+	_emit_web_state()
+
+func _emit_web_state() -> void:
+	if _web_window == null or not hud or not optional: return
+	var state = JavaScriptBridge.create_object("Object")
+	state.phase = "title" if not play_started else ("menu" if get_tree().paused else "playing")
+	state.main_title = missions.get_current_title()
+	state.objective = missions.get_objective_text()
+	state.optional_title = optional.get_active_title()
+	state.optional_text = optional.get_active_text()
+	var sides: int = 0
+	var activities: int = 0
+	for entry: Dictionary in optional.get_menu_entries():
+		if entry["completed"]:
+			if entry["type"] == "side": sides += 1
+			else: activities += 1
+	state.completed_sides = sides
+	state.completed_activities = activities
+	state.coins = int(missions.parts_vouchers) + int(optional.wallet)
+	state.touch = touch_controls.enabled
+	state.player_x = player.global_position.x
+	state.player_z = player.global_position.z
+	_web_window.sevenDistrictGame = state
+	var options = JavaScriptBridge.create_object("Object")
+	options.detail = state
+	var event = JavaScriptBridge.create_object("CustomEvent", "seven-district-state", options)
+	_web_window.dispatchEvent(event)
 
 func _update_interaction() -> void:
 	nearest = null
@@ -425,6 +547,8 @@ func _update_interaction() -> void:
 	for object: Node3D in objects.values():
 		if object.collected:
 			continue
+		if String(object.object_id).begins_with("SIDE_") or String(object.object_id).begins_with("ACT_"):
+			if object.object_id not in optional.get_active_target_keys(): continue
 		var distance: float = player.global_position.distance_to(object.global_position)
 		if distance < best and _line_visible(object):
 			best = distance
@@ -479,6 +603,8 @@ func _interact() -> void:
 
 func _use_object(id: String) -> void:
 	var object: StaticBody3D = objects[id]
+	if content_world.use_object(id):
+		return
 	if object.event_name in ["practice_hit", "destroy_target", "sandbox"]:
 		_notice("使用左鍵攻擊這個物件")
 		return
@@ -515,6 +641,8 @@ func _can_damage_object(id: String) -> bool:
 		return false
 	if id.begins_with("sandbox"):
 		return true
+	if id.begins_with("SIDE_") or id.begins_with("ACT_"):
+		return content_world.can_damage(id)
 	var objective: Dictionary = missions.get_current_objective()
 	if id.begins_with("practice"):
 		return missions.mission_index == 0 and "practice_hit" in objective.get("events", [])
@@ -528,6 +656,9 @@ func _can_damage_object(id: String) -> bool:
 
 func _destroyed_object(id: String) -> void:
 	heat = minf(5, heat + 1)
+	if id.begins_with("SIDE_"):
+		content_world.accept("disable_sign", id)
+		return
 	if id == "fake_sign":
 		_event("disable_sign", id)
 	elif id.begins_with("equipment"):
@@ -607,6 +738,8 @@ func _snapshot(include_checkpoint: bool = true) -> Dictionary:
 	var result: Dictionary = {"schema_version": 1, "missions": missions.to_dict(), "player": {"position": _vec(player.position), "health": player.get("health"), "inventory": player.get("inventory"), "weapon": player.get("equipped_weapon"), "pulse_energy": player.get("pulse_energy"), "vehicle": saved_vehicle},
 		"objects": world_objects, "rescues": rescue_states, "vehicles": {"car": _vec(car.position), "bicycle": _vec(bicycle.position)}, "route_done": route_done.duplicate(), "heat": heat, "seconds_played": seconds_played}
 	result["guards"] = guard_states
+	result["optional"] = optional.to_dict()
+	result["city_life"] = city_life.to_dict()
 	if include_checkpoint:
 		result["checkpoint"] = checkpoint_state.duplicate(true)
 	return result
@@ -708,6 +841,15 @@ func _valid_world_save(data: Dictionary) -> bool:
 				return false
 	if not _valid_number(data.get("heat", 0), 0, 5) or not _valid_number(data.get("seconds_played", 0), 0, 10000000):
 		return false
+	if data.has("optional"):
+		if not data["optional"] is Dictionary:
+			return false
+		var probe := OptionalScript.new()
+		var valid: bool = probe.from_dict(data["optional"])
+		probe.free()
+		if not valid: return false
+	if data.has("city_life"):
+		if not data["city_life"] is Dictionary or not _valid_number(data["city_life"].get("clock", 0), 0, 100000000): return false
 	return true
 
 func _valid_number(value: Variant, minimum: float, maximum: float) -> bool:
@@ -770,15 +912,25 @@ func _restore(data: Dictionary) -> bool:
 	route_done = data.get("route_done", {}).duplicate()
 	heat = float(data.get("heat", 0))
 	seconds_played = float(data.get("seconds_played", 0))
+	if data.has("optional"): optional.from_dict(data["optional"])
+	else: optional.reset()
+	if data.has("city_life"): city_life.from_dict(data["city_life"])
 	freeze_events = false
 	return true
 
 func _retry() -> void:
 	_resume()
+	var keep_optional: Dictionary = optional.to_dict()
+	var keep_optional_objects: Dictionary = {}
+	for id: String in objects:
+		if id.begins_with("SIDE_") or id.begins_with("ACT_"):
+			keep_optional_objects[id] = objects[id].state()
 	missions.restart_current()
 	if not checkpoint_state.is_empty():
 		var rollback := checkpoint_state.duplicate(true)
 		rollback["missions"] = missions.to_dict()
+		rollback["optional"] = keep_optional
+		for id: String in keep_optional_objects: rollback["objects"][id] = keep_optional_objects[id]
 		_restore(rollback)
 	car.force_release()
 	bicycle.force_release()
@@ -932,7 +1084,8 @@ func _run_integration_checks() -> void:
 	Input.action_press("brake")
 	await get_tree().create_timer(0.4).timeout
 	Input.action_release("brake")
-	assert(car.exit())
+	var exited_car: bool = car.exit()
+	assert(exited_car, "Car exit failed: %s, speed=%s, position=%s" % [car.last_exit_error, car.speed_mps, car.position])
 	checks.append("car_actual_physics_enter_move_exit")
 	print("INTEGRATION_PASS ", JSON.stringify(checks))
 	get_tree().quit()

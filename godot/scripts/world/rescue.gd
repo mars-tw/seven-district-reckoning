@@ -35,8 +35,8 @@ func configure(id: String, model: PackedScene) -> void:
 	label.pixel_size = 0.01
 	label.modulate = Color(0.55, 1.0, 0.75)
 	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	if ResourceLoader.exists("res://assets/fonts/NotoSansTC-Regular.otf"):
-		label.font = load("res://assets/fonts/NotoSansTC-Regular.otf") as Font
+	if ResourceLoader.exists("res://assets/fonts/SevenDistrictSansTC-Regular.otf"):
+		label.font = load("res://assets/fonts/SevenDistrictSansTC-Regular.otf") as Font
 	add_child(label)
 	add_to_group("rescue_people")
 

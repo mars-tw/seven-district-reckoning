@@ -1,41 +1,156 @@
-"""Run meaningful engine checks and require an explicit integration PASS marker."""
+"""Import a clean isolated project and validate every baseline/Alpha 0.2 suite."""
 import argparse
 import json
 import os
+import re
+import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
-root = Path(__file__).resolve().parents[1]
-parser = argparse.ArgumentParser()
-parser.add_argument("--godot", default=os.environ.get("GODOT_BIN", "godot"))
-parser.add_argument("--import-only", action="store_true")
-args = parser.parse_args()
-commands = [[args.godot, "--headless", "--language", "en", "--path", str(root / "godot"), "--editor", "--import", "--quit"]]
-if not args.import_only:
-    commands.append([args.godot, "--headless", "--language", "en", "--path", str(root / "godot"), "--quit-after", "900", "--", "--self-test"])
-    for name in ["mission_contract.gd", "controls.gd", "guard_persistence.gd", "release_regressions.gd"]:
-        commands.append([args.godot, "--headless", "--language", "en", "--path", str(root / "godot"), "--script", str(root / "tests" / name)])
-results = []
-for i, cmd in enumerate(commands):
-    proc = subprocess.run(cmd, cwd=root, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=180)
-    output = proc.stdout + proc.stderr
-    cleaned = output.replace(str(root), "<repository-root>").replace(str(root).replace("\\", "/"), "<repository-root>")
-    failed = proc.returncode != 0 or "SCRIPT ERROR:" in output or "Parse Error:" in output or "INTEGRATION_FAIL" in output
-    if i == 1 and "INTEGRATION_PASS" not in output:
-        failed = True
-    if i > 1 and ("FAILURES=0" not in output and '"failures":[]' not in output and '"failures": []' not in output):
-        failed = True
-    label = "godot_import_parse" if i == 0 else ("gameplay_integration" if i == 1 else Path(cmd[-1]).stem)
-    entry = {"check": label,
-             "status": "FAIL" if failed else "PASS", "returncode": proc.returncode,
-             "output": cleaned[-16000:]}
-    results.append(entry)
-    print(cleaned[-16000:])
-    if failed:
-        break
-(root / "qa").mkdir(exist_ok=True)
-(root / "qa/engine-checks.json").write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-if len(results) != len(commands) or any(x["status"] != "PASS" for x in results):
-    sys.exit(1)
-print("ENGINE_CHECKS_PASS")
+ROOT = Path(__file__).resolve().parents[1]
+SUITES = [
+    ("mission_contract.gd", "ALPHA_CONTRACT_CHECKS="),
+    ("controls.gd", "CONTROL_CHECKS="),
+    ("guard_persistence.gd", "GUARD_SAVE_CHECKS="),
+    ("release_regressions.gd", "RELEASE_REVIEW_RESULT "),
+    ("optional_content.gd", "Optional content: "),
+    ("district_life.gd", "CITY_LIFE_RESULT "),
+    ("v02_integration.gd", "V02_INTEGRATION_RESULT "),
+]
+
+
+def summary(output, marker):
+    """Require the suite's real final record; never infer PASS from quiet output."""
+    records = [line[len(marker):] for line in output.splitlines() if line.startswith(marker)]
+    if len(records) != 1:
+        raise ValueError(f"Expected exactly one {marker.strip()} summary, received {len(records)}")
+    record = records[0]
+    if marker.endswith("CHECKS="):
+        match = re.fullmatch(r"(\d+) FAILURES=(\d+)", record)
+        if not match:
+            raise ValueError("Malformed numbered suite summary")
+        return int(match[1]), int(match[2])
+    if marker == "Optional content: ":
+        match = re.fullmatch(r"(\d+) checks, (\d+) failures", record)
+        if not match:
+            raise ValueError("Malformed optional-content summary")
+        return int(match[1]), int(match[2])
+    data = json.loads(record)
+    if marker == "INTEGRATION_PASS ":
+        if not isinstance(data, list) or not data:
+            raise ValueError("Missing gameplay integration groups")
+        return len(data), 0
+    if not isinstance(data, dict) or not isinstance(data.get("failures"), list):
+        raise ValueError("Malformed structured suite summary")
+    passed = data.get("passed_count", len(data.get("passed", [])))
+    if not isinstance(passed, int) or isinstance(passed, bool) or passed < 0:
+        raise ValueError("Invalid suite check count")
+    return passed + len(data["failures"]), len(data["failures"])
+
+
+def save_slots(sandbox):
+    """Audit only the isolated run. Never inspect the player's real save directory."""
+    paths = list(sandbox.rglob("save*.json*"))
+    slots = []
+    for path in paths:
+        match = re.fullmatch(r"save(\d+)\.json(?:\.bak|\.tmp)?", path.name)
+        if not match or not 94 <= int(match[1]) <= 98:
+            raise ValueError(f"Unexpected save outside test slots 94-98: {path.name}")
+        slots.append(path.name)
+    return sorted(set(slots))
+
+
+def disable_parallel_import(text):
+    section = re.search(r"(?ms)^\[editor\]\r?\n(?P<body>.*?)(?=^\[|\Z)", text)
+    setting = "import/use_multiple_threads=false"
+    if section:
+        body, found = re.subn(r"(?m)^import/use_multiple_threads\s*=.*$", setting, section["body"])
+        if not found:
+            body = body.rstrip("\r\n") + "\n" + setting + "\n"
+        return text[:section.start("body")] + body + text[section.end("body"):]
+    return text.rstrip("\r\n") + "\n\n[editor]\n" + setting + "\n"
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--godot", default=os.environ.get("GODOT_BIN", "godot"))
+    parser.add_argument("--import-only", action="store_true")
+    args = parser.parse_args()
+    if sys.platform != "win32" and not sys.platform.startswith("linux"):
+        parser.error("Isolated test user-data is supported on Windows and Linux")
+    results = []
+    with tempfile.TemporaryDirectory(prefix="seven-district-tests-") as directory:
+        sandbox = Path(directory)
+        project = sandbox / "godot"
+        # A clean source snapshot avoids racing the working project's editor/export cache.
+        shutil.copytree(ROOT / "godot", project, ignore=shutil.ignore_patterns(".godot"))
+        project_settings = project / "project.godot"
+        project_settings.write_text(disable_parallel_import(project_settings.read_text(encoding="utf-8")), encoding="utf-8")
+        child_env = os.environ.copy()
+        for name in ("APPDATA", "LOCALAPPDATA", "XDG_DATA_HOME", "XDG_CONFIG_HOME", "XDG_CACHE_HOME"):
+            path = sandbox / name.lower()
+            path.mkdir()
+            child_env[name] = str(path)
+        base = [args.godot, "--headless", "--language", "en", "--path", str(project)]
+        commands = [("godot_import_parse", base + ["--editor", "--import", "--quit"], None)]
+        if not args.import_only:
+            commands.append(("gameplay_integration", base + ["--quit-after", "900", "--", "--self-test"], "INTEGRATION_PASS "))
+            commands.extend((Path(name).stem, base + ["--script", str(ROOT / "tests" / name)], marker) for name, marker in SUITES)
+        for label, cmd, marker in commands:
+            errors = []
+            check_count = 0
+            failure_count = 0
+            returncode = None
+            try:
+                proc = subprocess.run(cmd, cwd=ROOT, env=child_env, capture_output=True, text=True,
+                                      encoding="utf-8", errors="replace", timeout=180)
+                output = proc.stdout + proc.stderr
+                returncode = proc.returncode
+                if returncode != 0:
+                    errors.append(f"Godot exited with {returncode}")
+                if re.search(r"SCRIPT ERROR:|Parse Error:|ERROR:|INTEGRATION_FAIL|^FAIL:", output, re.MULTILINE):
+                    errors.append("Engine or test error was reported")
+                if marker:
+                    try:
+                        check_count, failure_count = summary(output, marker)
+                        if failure_count:
+                            errors.append(f"Suite reported {failure_count} failures")
+                    except (ValueError, TypeError) as exc:
+                        errors.append(str(exc))
+            except (subprocess.TimeoutExpired, OSError) as exc:
+                output = f"{type(exc).__name__}: {exc}"
+                errors.append("Godot could not complete this command")
+            try:
+                slots = save_slots(sandbox)
+            except ValueError as exc:
+                slots = []
+                errors.append(str(exc))
+            cleaned = output
+            for path, replacement in ((ROOT, "<repository-root>"), (sandbox, "<isolated-run>")):
+                cleaned = cleaned.replace(str(path), replacement).replace(path.as_posix(), replacement)
+            if Path(args.godot).is_absolute():
+                cleaned = cleaned.replace(args.godot, "<godot>").replace(Path(args.godot).as_posix(), "<godot>")
+            command = ["<godot>"] + [arg.replace(str(ROOT), "<repository-root>").replace(str(sandbox), "<isolated-run>") for arg in cmd[1:]]
+            entry = {"check": label, "status": "FAIL" if errors else "PASS", "returncode": returncode,
+                     "reported_checks": check_count, "reported_failures": failure_count,
+                     "command": command, "test_slot_files": slots, "errors": errors, "output": cleaned[-16000:]}
+            results.append(entry)
+            print(f"{label}: {entry['status']} ({check_count} reported checks, {failure_count} reported failures)", flush=True)
+            if errors:
+                print(cleaned[-16000:], flush=True)
+                print("; ".join(errors), flush=True)
+            if label == "godot_import_parse" and errors:
+                break
+    (ROOT / "qa").mkdir(exist_ok=True)
+    (ROOT / "qa/engine-checks.json").write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if len(results) != len(commands) or any(item["status"] != "PASS" for item in results):
+        return 1
+    total = sum(item["reported_checks"] for item in results)
+    print(f"ENGINE_CHECKS_PASS suites={len(results) - 1} reported_checks={total} failures=0", flush=True)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

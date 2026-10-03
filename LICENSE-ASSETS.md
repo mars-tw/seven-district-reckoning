@@ -4,7 +4,7 @@ The MIT license in LICENSE covers the project's original software and documentat
 
 - Kenney base meshes and their derived alpha assets retain CC0 1.0. Original added character details, textures, rig animations, tool meshes, and icon are offered under CC0 1.0.
 - The original bicycle model and its derived Blender/GLB copies retain CC BY 3.0, with the attribution and modification notice in CREDITS.md.
-- Noto Sans TC Regular is SIL OFL 1.1, with the complete license in godot/assets/fonts/OFL.txt.
+- Noto Sans TC Regular and its renamed Seven District Sans TC game-text subset are SIL OFL 1.1, with the complete license in godot/assets/fonts/OFL.txt. The original remains as source; the Web package includes the renamed subset. Both retain the original font copyright and their own license.
 - Original generated .wav feedback clips are CC BY 4.0, credited to Seven District contributors. Their generator source is MIT.
 - The bundled Godot executable and third-party runtime components retain the licenses in assets/provenance/Godot-LICENSE.txt and Godot-COPYRIGHT.txt.
 

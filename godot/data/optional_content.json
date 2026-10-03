@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "scope": "alpha_0_2_optional_content",
+  "source": "docs/missions.json",
+  "notes": [
+    "本版實作六個支線與四個活動，其餘企劃尚未製作。",
+    "可選內容另存零件券與社區成果，不改第一章主線分數或四人救援上限。",
+    "活動首次完成領一次獎勵；重玩只更新個人最佳。街景每點首次另領一次。",
+    "世界必須先確認交通工具、距離、碰撞與停車條件，才能發出對應事件。"
+  ],
+  "tasks": [
+    {
+      "id": "SIDE-001", "type": "side", "title": "招牌不會自己倒", "repeatable": false,
+      "summary": "把名品街三塊招攬看板關掉，免得又有人照著地址找來。",
+      "dialogue": "美晴：店門上的那塊你處理了，巷口還有三塊。有人連電話都記下來了。\n阿遠：我去把電關掉，收好那幾張廣告。",
+      "completion_dialogue": "美晴：這幾張先留著。我貼張真的修車價目表，別再讓人以為這裡能投資。",
+      "reward": {"parts_vouchers": 120, "evidence_score": 0, "community_trust": 0, "rescued_bonus": 0, "achievement": "signs_off"},
+      "objectives": [
+        {"key": "signs", "text": "關閉三塊支線招攬看板。", "event": "disable_sign", "targets": ["SIDE_001_sign_1", "SIDE_001_sign_2", "SIDE_001_sign_3"], "required": 3, "world_kind": "sign"},
+        {"key": "report", "text": "回到車店旁的美晴委託桌，把廣告交給她。", "event": "deliver_item", "targets": ["SIDE_001_mei"], "required": 1, "world_kind": "contact"}
+      ]
+    },
+    {
+      "id": "SIDE-004", "type": "side", "title": "沒寄出去的信", "repeatable": false,
+      "summary": "找回散在接待站外與綠帶的三封信，交給予安整理。",
+      "dialogue": "予安：信封都沒貼郵票。他們大概只想寫給家裡，卻不知道怎麼寄。\n阿遠：你等我一下。那張長椅底下好像還有一封。",
+      "completion_dialogue": "予安：這封寫到一半就停了。名字我先記下來，其他的，等他願意說。",
+      "reward": {"parts_vouchers": 130, "evidence_score": 8, "community_trust": 0, "rescued_bonus": 0, "achievement": "letters_returned"},
+      "objectives": [
+        {"key": "letters", "text": "找回三封故事信件；每封只算一次。", "event": "collect_evidence", "targets": ["SIDE_004_letter_1", "SIDE_004_letter_2", "SIDE_004_letter_3"], "required": 3, "world_kind": "evidence"},
+        {"key": "deliver", "text": "把信交給綠帶邊的予安。", "event": "deliver_item", "targets": ["SIDE_004_yuan"], "required": 1, "world_kind": "contact"}
+      ]
+    },
+    {
+      "id": "SIDE-007", "type": "side", "title": "沒拿回來的背包", "repeatable": false,
+      "summary": "找回周成的背包，把水與衣物送到集合點；同行者不重複計入主線救援。",
+      "dialogue": "周成：包還在前站旁邊。裡面沒什麼值錢的，只是我媽替我塞了一件外套。\n阿遠：你先坐著。我找到就帶過來，順便把這箱水送去。",
+      "completion_dialogue": "周成：就是這件。她嫌我老是穿太薄……水放旁邊吧，還有人沒喝。",
+      "reward": {"parts_vouchers": 140, "evidence_score": 0, "community_trust": 5, "rescued_bonus": 0, "achievement": "backpack_home"},
+      "objectives": [
+        {"key": "backpack", "text": "到前站外拾回周成的背包。", "event": "collect_item", "targets": ["SIDE_007_backpack"], "required": 1, "world_kind": "item"},
+        {"key": "water", "text": "從轉運站領一箱飲用水。", "event": "collect_item", "targets": ["SIDE_007_water"], "required": 1, "world_kind": "item"},
+        {"key": "supply", "text": "把背包與飲用水送到周成所在的安全集合點。", "event": "deliver_supply", "targets": ["SIDE_007_safe"], "required": 1, "world_kind": "contact"}
+      ]
+    },
+    {
+      "id": "SIDE-010", "type": "side", "title": "美晴的零件單", "repeatable": false,
+      "summary": "騎車向三個維修攤取件，把散掉的車店零件補齊。",
+      "dialogue": "美晴：煞車線在轉運站，軸承在停車場，舊街那攤留了兩顆燈泡。\n阿遠：這張單我收著。別又拿收到一半的車去借人。",
+      "completion_dialogue": "美晴：都有了。那台共用車今晚能修好，你要借，鑰匙還是放老地方。",
+      "reward": {"parts_vouchers": 160, "evidence_score": 0, "community_trust": 0, "rescued_bonus": 0, "achievement": "repair_stock"},
+      "objectives": [
+        {"key": "parts", "text": "騎自行車向三個零件站取件。", "event": "collect_bike_part", "targets": ["SIDE_010_part_1", "SIDE_010_part_2", "SIDE_010_part_3"], "required": 3, "world_kind": "bike_item", "vehicle": "bicycle"},
+        {"key": "repair", "text": "在車店維修檯裝上回收的零件。", "event": "repair_item", "targets": ["SIDE_010_workbench"], "required": 1, "world_kind": "repair"}
+      ]
+    },
+    {
+      "id": "SIDE-011", "type": "side", "title": "巷子裡的送達", "repeatable": false,
+      "summary": "領走素蓉的兩份餐盒，用自行車送給守店與照顧孩子的街坊。",
+      "dialogue": "素蓉：一份給顧停車場的阿伯，一份給綠帶那個帶小孩的小姐。她今天還沒吃。\n阿遠：我走巷子。袋子綁緊一點，不會灑。",
+      "completion_dialogue": "素蓉：都有拿到？好。我再煎兩片，你那份也留著。",
+      "reward": {"parts_vouchers": 140, "evidence_score": 0, "community_trust": 0, "rescued_bonus": 0, "achievement": "alley_delivery"},
+      "objectives": [
+        {"key": "pickup", "text": "到早餐店門邊領兩份餐盒。", "event": "collect_item", "targets": ["SIDE_011_meals"], "required": 1, "world_kind": "item"},
+        {"key": "deliver", "text": "騎自行車把餐盒送到兩個街坊收件點。", "event": "deliver_by_bike", "targets": ["SIDE_011_neighbor_1", "SIDE_011_neighbor_2"], "required": 2, "world_kind": "bike_contact", "vehicle": "bicycle"},
+        {"key": "report", "text": "回早餐店告訴素蓉都已送達。", "event": "deliver_item", "targets": ["SIDE_011_surong"], "required": 1, "world_kind": "contact"}
+      ]
+    },
+    {
+      "id": "SIDE-012", "type": "side", "title": "把早餐店開回來", "repeatable": false,
+      "summary": "補好早餐店招牌，把互助箱搬回去，再整理安全屋角落。",
+      "dialogue": "素蓉：燈不亮，大家就以為沒開。互助箱被搬去綠帶了，你順路拿回來就好。\n阿遠：桌角那堆紙箱也整理一下。明天有人來，至少有地方坐。",
+      "completion_dialogue": "素蓉：好啦，招牌亮了。明早六點，想吃就來，先吃了再說。",
+      "reward": {"parts_vouchers": 160, "evidence_score": 0, "community_trust": 15, "rescued_bonus": 0, "achievement": "breakfast_returns"},
+      "objectives": [
+        {"key": "sign", "text": "修復早餐店門口的燈箱。", "event": "repair_item", "targets": ["SIDE_012_breakfast_sign"], "required": 1, "world_kind": "repair"},
+        {"key": "box", "text": "從綠帶取回互助箱。", "event": "collect_item", "targets": ["SIDE_012_aid_box"], "required": 1, "world_kind": "item"},
+        {"key": "shelf", "text": "把互助箱放好，整理安全屋的桌椅。", "event": "repair_item", "targets": ["SIDE_012_safe_corner"], "required": 1, "world_kind": "repair"}
+      ]
+    },
+    {
+      "id": "ACT-001", "type": "activity", "title": "自行車路標賽", "repeatable": true, "time_limit": 90.0, "timer_after_objective": 0,
+      "summary": "從車店出發，騎過四個路標。第一次完成領獎，以後挑戰自己的紀錄。",
+      "dialogue": "美晴：路標照順序走，別抄到人行道上。九十秒，從這裡算。",
+      "completion_dialogue": "美晴：記下來了。想再騎一圈就來，零件券只有第一次那份喔。",
+      "reward": {"parts_vouchers": 30, "evidence_score": 0, "community_trust": 0, "rescued_bonus": 0, "achievement": "bicycle_lap"},
+      "objectives": [
+        {"key": "start", "text": "騎自行車到車店路標，按 E 出發。", "event": "begin_bike_race", "targets": ["ACT_001_start"], "required": 1, "world_kind": "bike_start", "vehicle": "bicycle"},
+        {"key": "cp1", "text": "騎過第一個自行車路標。", "event": "bike_checkpoint", "targets": ["ACT_001_cp_1"], "required": 1, "world_kind": "bike_checkpoint", "vehicle": "bicycle"},
+        {"key": "cp2", "text": "沿街通過第二個路標。", "event": "bike_checkpoint", "targets": ["ACT_001_cp_2"], "required": 1, "world_kind": "bike_checkpoint", "vehicle": "bicycle"},
+        {"key": "cp3", "text": "穿過綠帶旁的第三個路標。", "event": "bike_checkpoint", "targets": ["ACT_001_cp_3"], "required": 1, "world_kind": "bike_checkpoint", "vehicle": "bicycle"},
+        {"key": "cp4", "text": "騎過第四個路標，完成一圈。", "event": "bike_checkpoint", "targets": ["ACT_001_cp_4"], "required": 1, "world_kind": "bike_checkpoint", "vehicle": "bicycle"}
+      ]
+    },
+    {
+      "id": "ACT-002", "type": "activity", "title": "停車場繞標", "repeatable": true, "time_limit": 120.0, "timer_after_objective": 0,
+      "summary": "開共用車依序繞過三個路標，再把車停進指定車位。",
+      "dialogue": "美晴：先繞那三個標，最後停進黃線裡。要整台停好，踩住煞車才算。",
+      "completion_dialogue": "美晴：這樣停就對了。下回換你去巷口接人，我就不用把車挪三次。",
+      "reward": {"parts_vouchers": 30, "evidence_score": 0, "community_trust": 0, "rescued_bonus": 0, "achievement": "parking_ready"},
+      "objectives": [
+        {"key": "start", "text": "開小客車到停車場出發點，按 E 開始。", "event": "begin_car_course", "targets": ["ACT_002_start"], "required": 1, "world_kind": "car_start", "vehicle": "car"},
+        {"key": "cp1", "text": "開車通過第一個繞標區。", "event": "car_checkpoint", "targets": ["ACT_002_cp_1"], "required": 1, "world_kind": "car_checkpoint", "vehicle": "car"},
+        {"key": "cp2", "text": "繞過第二個路標。", "event": "car_checkpoint", "targets": ["ACT_002_cp_2"], "required": 1, "world_kind": "car_checkpoint", "vehicle": "car"},
+        {"key": "cp3", "text": "通過第三個繞標區。", "event": "car_checkpoint", "targets": ["ACT_002_cp_3"], "required": 1, "world_kind": "car_checkpoint", "vehicle": "car"},
+        {"key": "park", "text": "把整台車停進指定車位並煞停。", "event": "park_car", "targets": ["ACT_002_parking"], "required": 1, "world_kind": "parking", "vehicle": "car"}
+      ]
+    },
+    {
+      "id": "ACT-005", "type": "activity", "title": "街景留影", "repeatable": true, "point_reward": 20,
+      "summary": "替八個街景拍照，每個點第一次給二十零件券，離開活動也保留相簿。",
+      "dialogue": "予安：也拍一點平常的東西吧。車店的門、早餐店的桌子，別全是那些讓人難受的地方。",
+      "completion_dialogue": "予安：八張都在了。原來我們每天繞的路，放在一起是這個樣子。",
+      "reward": {"parts_vouchers": 0, "evidence_score": 0, "community_trust": 0, "rescued_bonus": 0, "achievement": "street_album"},
+      "objectives": [
+        {"key": "photos", "text": "走訪八個街景點，按 E 收進相簿。", "event": "collect_street_view", "targets": ["ACT_005_photo_1", "ACT_005_photo_2", "ACT_005_photo_3", "ACT_005_photo_4", "ACT_005_photo_5", "ACT_005_photo_6", "ACT_005_photo_7", "ACT_005_photo_8"], "required": 8, "world_kind": "photo"}
+      ]
+    },
+    {
+      "id": "ACT-006", "type": "activity", "title": "社區急送", "repeatable": true, "time_limit": 180.0, "timer_after_objective": 0,
+      "summary": "在早餐店領三份社區包裹，三分鐘內送到。步行、自行車或小客車都可以。",
+      "dialogue": "素蓉：這袋是餐盒，這袋是修車線，最後一袋給轉運站。路你熟，三分鐘夠不夠？\n阿遠：先幫我放門口。我從拿走那刻開始算。",
+      "completion_dialogue": "素蓉：三份都收到了。先喝口水，別老是在路上吃飯。",
+      "reward": {"parts_vouchers": 30, "evidence_score": 0, "community_trust": 0, "rescued_bonus": 0, "achievement": "community_courier"},
+      "objectives": [
+        {"key": "start", "text": "到早餐店急送桌領三份包裹，按 E 出發。", "event": "begin_delivery", "targets": ["ACT_006_start"], "required": 1, "world_kind": "delivery_start"},
+        {"key": "drops", "text": "把包裹送到三個收件點，順序自選。", "event": "deliver_parcel", "targets": ["ACT_006_drop_1", "ACT_006_drop_2", "ACT_006_drop_3"], "required": 3, "world_kind": "delivery"}
+      ]
+    }
+  ]
+}

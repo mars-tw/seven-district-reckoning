@@ -9,6 +9,8 @@ signal retry_requested
 signal new_game_requested
 signal quit_requested
 signal branch_selected(branch: String)
+signal optional_selected(id: String)
+signal optional_cancelled
 
 const DARK := Color("14242e")
 const INK := Color("f1f3e9")
@@ -33,6 +35,11 @@ var _map_target := Vector2.ZERO
 var _has_map_target := false
 var _mode: String = ""
 var _cached_notice: String = ""
+var _optional: Node
+var _optional_label: Label
+var _map_panel: Control
+var _modal_panel: Control
+var _controls_hint: Label
 
 
 func _ready() -> void:
@@ -50,6 +57,16 @@ func bind_missions(manager: Node) -> void:
 		_manager.updated.connect(_refresh_mission)
 	_refresh_mission()
 
+func bind_optional(manager: Node) -> void:
+	_optional = manager
+	_optional.updated.connect(_refresh_optional)
+	_refresh_optional()
+
+func _refresh_optional() -> void:
+	if not _optional or not _optional_label: return
+	_optional_label.text = "街坊：" + _optional.get_active_text() if _optional.status == "active" or _optional.status == "failed" else "Tab 任務手機｜6份街坊委託、4種活動與街景相簿"
+	if _scores_label: _scores_label.text = _score_text()
+
 
 func _build_ui() -> void:
 	_root = Control.new()
@@ -57,7 +74,7 @@ func _build_ui() -> void:
 	_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_root)
 	var theme := Theme.new()
-	var font_path := "res://assets/fonts/NotoSansTC-Regular.otf"
+	var font_path := "res://assets/fonts/SevenDistrictSansTC-Regular.otf"
 	if not ResourceLoader.exists(font_path):
 		font_path = "res://assets/fonts/NotoSansTC-Regular.ttf"
 	if ResourceLoader.exists(font_path):
@@ -104,7 +121,10 @@ func _build_ui() -> void:
 	mission_column.add_child(_objective_label)
 	_scores_label = _label("", 16, MUTED)
 	mission_column.add_child(_scores_label)
+	_optional_label = _label("", 15, Color(0.47, 0.90, 0.81))
+	mission_column.add_child(_optional_label)
 	var map_panel := _panel()
+	_map_panel = map_panel
 	map_panel.custom_minimum_size = Vector2(150, 136)
 	top.add_child(map_panel)
 	var map_column := _padded_column(map_panel, 8)
@@ -127,7 +147,10 @@ func _build_ui() -> void:
 	prompt_column.add_child(_prompt_label)
 	_status_label = _label("", 16, MUTED)
 	prompt_column.add_child(_status_label)
-	prompt_column.add_child(_label("WASD 移動　左鍵攻擊　E 互動　F 上下車　Q 換工具　Tab 任務　Esc 暫停", 15, MUTED))
+	_controls_hint = _label("WASD 移動　左鍵攻擊　E 互動　F 上下車　Q 換工具　Tab 任務　Esc 暫停", 15, MUTED)
+	if OS.has_feature("web"):
+		_controls_hint.text = "WASD 移動　右鍵拖曳視角　左鍵攻擊　E 互動　F 上下車　Tab 任務"
+	prompt_column.add_child(_controls_hint)
 	_overlay = Control.new()
 	_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_root.add_child(_overlay)
@@ -143,6 +166,7 @@ func _build_ui() -> void:
 	var center := CenterContainer.new()
 	outer.add_child(center)
 	var modal_panel := _panel()
+	_modal_panel = modal_panel
 	modal_panel.custom_minimum_size = Vector2(700, 0)
 	center.add_child(modal_panel)
 	var modal_margin := MarginContainer.new()
@@ -166,7 +190,16 @@ func _resize_modal() -> void:
 	if _modal_scroll == null:
 		return
 	var screen := get_viewport().get_visible_rect().size
-	_modal_scroll.custom_minimum_size.y = clampf(screen.y - 120.0, 260.0, 460.0)
+	_modal_scroll.custom_minimum_size.y = clampf(screen.y - 150.0, 70.0, 460.0)
+	_modal_scroll.custom_minimum_size.x = clampf(screen.x - 132.0, 180.0, 660.0)
+	_modal_panel.custom_minimum_size.x = clampf(screen.x - 64.0, 230.0, 700.0)
+	var compact: bool = screen.x < 750 or screen.y < 480
+	_map_panel.visible = not compact
+	_controls_hint.visible = not compact
+	_scores_label.visible = not compact
+	_mission_label.add_theme_font_size_override("font_size", 16 if compact else 21)
+	_objective_label.add_theme_font_size_override("font_size", 14 if compact else 18)
+	_optional_label.add_theme_font_size_override("font_size", 13 if compact else 15)
 
 
 func _style(fill: Color, border: Color, radius: int) -> StyleBoxFlat:
@@ -258,7 +291,7 @@ func get_menu_mode() -> String:
 
 
 func show_title() -> void:
-	_open("title", "七期：斷鏈行動", "第一章 Alpha　｜　原創街區，五個主線，三種解法。")
+	_open("title", "七期：斷鏈行動", "Alpha 0.2　｜　五個主線、六份委託、四種街頭活動。")
 	_modal_box.add_child(_label("阿遠失去了存款。從美晴車店借一把扳手，沿著留下的地址，去找玻璃後面的人。", 19))
 	_modal_box.add_child(_label("所有人物、公司與地點均為虛構。這個版本只提供第一章切片，沒有完整戰役結局。", 16, MUTED))
 	_button("開始新遊戲", func() -> void: hide_menus(); new_game_requested.emit())
@@ -274,6 +307,7 @@ func show_pause() -> void:
 	_modal_box.add_child(rows)
 	_button("繼續遊戲", _resume, rows)
 	_button("任務手機", show_phone, rows)
+	_button("街坊委託與活動", show_optional_phone)
 	_button("儲存進度", func() -> void: save_requested.emit())
 	_button("讀取存檔", func() -> void: load_requested.emit())
 	_button("重試目前任務", func() -> void: hide_menus(); retry_requested.emit())
@@ -300,8 +334,44 @@ func show_phone() -> void:
 		_modal_box.add_child(_label(_score_text(), 17, MUTED))
 		if not str(_manager.notice).is_empty():
 			_modal_box.add_child(_label(str(_manager.notice), 16, ACCENT))
+	_button("街坊委託／活動／相簿", show_optional_phone)
 	_button("收起手機，繼續行動", _resume)
 	_focus_first_button()
+
+func show_optional_phone(category: String = "side", page: int = 0) -> void:
+	if not _optional:
+		show_phone()
+		return
+	_open("optional", "街坊委託與街頭活動", _optional.get_active_text())
+	var categories := HBoxContainer.new()
+	categories.add_theme_constant_override("separation", 8)
+	_modal_box.add_child(categories)
+	_button("6份街坊委託", func() -> void: show_optional_phone("side", 0), categories)
+	_button("4種活動／相簿", func() -> void: show_optional_phone("activity", 0), categories)
+	var entries: Array = []
+	for entry: Dictionary in _optional.get_menu_entries():
+		if entry["type"] == category: entries.append(entry)
+	var pages: int = maxi(1, ceili(float(entries.size()) / 2.0))
+	page = clampi(page, 0, pages - 1)
+	for index: int in range(page * 2, mini(page * 2 + 2, entries.size())):
+		var item: Dictionary = entries[index]
+		var title: String = String(item["title"]) + ("｜已完成" if item["completed"] else "")
+		_button(title, _choose_optional.bind(String(item["id"])))
+		_modal_box.add_child(_label(String(item["summary"]), 14, MUTED))
+	var navigation := HBoxContainer.new()
+	navigation.add_theme_constant_override("separation", 8)
+	_modal_box.add_child(navigation)
+	_button("←前頁", func() -> void: show_optional_phone(category, page - 1), navigation)
+	_button("下一頁→", func() -> void: show_optional_phone(category, page + 1), navigation)
+	if _optional.status == "active":
+		_button("先放下目前委託", func() -> void: optional_cancelled.emit())
+	_modal_box.add_child(_label("委託零件券 %d｜相簿 %d／8｜成就 %d" % [_optional.wallet, _optional.collected_points.size(), _optional.achievements.size()], 14, MUTED))
+	_button("主線手機", show_phone)
+	_button("收起手機，繼續行動", _resume)
+	_focus_first_button()
+
+func _choose_optional(id: String) -> void:
+	optional_selected.emit(id)
 
 
 func _select_branch(choice: String) -> void:
@@ -347,7 +417,8 @@ func _score_text() -> String:
 	if not is_instance_valid(_manager):
 		return ""
 	var state: Dictionary = _manager.scores
-	return "證據 %d／100　街坊信任 %d／100　救出 %d 人　零件券 %d" % [int(state.get("evidence_score", 0)), int(state.get("community_trust", 50)), int(state.get("rescued_count", 0)), int(_manager.parts_vouchers)]
+	var optional_wallet: int = int(_optional.wallet) if _optional else 0
+	return "證據 %d／100　街坊信任 %d／100　救出 %d 人　零件券 %d" % [int(state.get("evidence_score", 0)), int(state.get("community_trust", 50)), int(state.get("rescued_count", 0)), int(_manager.parts_vouchers) + optional_wallet]
 
 
 func _refresh_mission() -> void:
