@@ -1,0 +1,494 @@
+{
+  "status": "VERIFIED",
+  "passed": 121,
+  "failed": 0,
+  "runtime_source_bytes": 6472109,
+  "runtime_file_count": 48,
+  "checks": [
+    {
+      "pass": true,
+      "label": "urban_tower_a: real GLB envelope"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a: recorded hash"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a: <=8 materials"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a: <20000 triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a: measured triangle manifest"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a: Blender source exists"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a: no private paths in GLB extras"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a: portable images"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b: real GLB envelope"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b: recorded hash"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b: <=8 materials"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b: <20000 triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b: measured triangle manifest"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b: Blender source exists"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b: no private paths in GLB extras"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b: portable images"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c: real GLB envelope"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c: recorded hash"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c: <=8 materials"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c: <20000 triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c: measured triangle manifest"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c: Blender source exists"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c: no private paths in GLB extras"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c: portable images"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk: real GLB envelope"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk: recorded hash"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk: <=8 materials"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk: <20000 triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk: measured triangle manifest"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk: Blender source exists"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk: no private paths in GLB extras"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk: portable images"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront: real GLB envelope"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront: recorded hash"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront: <=8 materials"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront: <20000 triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront: measured triangle manifest"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront: Blender source exists"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront: no private paths in GLB extras"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront: portable images"
+    },
+    {
+      "pass": true,
+      "label": "urban_bench: real GLB envelope"
+    },
+    {
+      "pass": true,
+      "label": "urban_bench: recorded hash"
+    },
+    {
+      "pass": true,
+      "label": "urban_bench: <=8 materials"
+    },
+    {
+      "pass": true,
+      "label": "urban_bench: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_bench: triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_bench: <20000 triangles"
+    },
+    {
+      "pass": true,
+      "label": "urban_bench: measured triangle manifest"
+    },
+    {
+      "pass": true,
+      "label": "urban_bench: Blender source exists"
+    },
+    {
+      "pass": true,
+      "label": "urban_bench: no private paths in GLB extras"
+    },
+    {
+      "pass": true,
+      "label": "urban_bench: portable images"
+    },
+    {
+      "pass": true,
+      "label": "urban_asphalt_albedo.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_asphalt_normal.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_asphalt_orm.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_glass_albedo.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_glass_normal.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_glass_orm.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_granite_albedo.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_granite_normal.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_granite_orm.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_pavers_albedo.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_pavers_normal.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_pavers_orm.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront_urban_glass_albedo.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront_urban_glass_normal.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront_urban_glass_orm.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront_urban_granite_albedo.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront_urban_granite_normal.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_shopfront_urban_granite_orm.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk_urban_granite_albedo.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk_urban_granite_normal.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk_urban_granite_orm.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk_urban_pavers_albedo.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk_urban_pavers_normal.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_sidewalk_urban_pavers_orm.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a_urban_glass_albedo.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a_urban_glass_normal.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a_urban_glass_orm.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a_urban_granite_albedo.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a_urban_granite_normal.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_a_urban_granite_orm.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b_urban_glass_albedo.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b_urban_glass_normal.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b_urban_glass_orm.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b_urban_granite_albedo.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b_urban_granite_normal.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_b_urban_granite_orm.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c_urban_glass_albedo.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c_urban_glass_normal.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c_urban_glass_orm.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c_urban_granite_albedo.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c_urban_granite_normal.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "urban_tower_c_urban_granite_orm.png: <=256 px"
+    },
+    {
+      "pass": true,
+      "label": "complete urban runtime source including extracted images <8 MiB"
+    },
+    {
+      "pass": true,
+      "label": "six original kit assets"
+    }
+  ],
+  "limitations": "Source Web file budget is measured before Godot PCK compression and GPU upload. This does not measure actual browser frame rate."
+}

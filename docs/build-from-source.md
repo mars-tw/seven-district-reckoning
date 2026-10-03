@@ -24,7 +24,7 @@ If Godot is not on PATH, replace `godot` with the path to your installed executa
 python tools/test_game.py --godot godot
 ```
 
-The script imports a clean temporary source snapshot, isolates engine user data, checks importer/parser errors and requires each suite's explicit final summary. It runs the original gameplay, mission, controls, guard and release checks, plus optional content, district life and Alpha 0.2 integration checks. Tests exercise the real scene and physics as well as deterministic mission events. They do not substitute for a human playthrough. Test slots 94–98 are reserved for fixtures; player saves use slot 1.
+The script imports a clean temporary source snapshot, isolates engine user data, checks importer/parser errors and requires each suite's explicit final summary. Baseline suites cover original gameplay, missions, controls, guards, optional content, district life and Alpha 0.2 integration. Alpha 0.3 adds district-system, character and urban-detail checks; consult the final runner output for the executed suites and total. Tests exercise the real scene and physics as well as deterministic mission events. They do not substitute for a human playthrough. Test slots 94–98 are reserved for fixtures; player saves use slot 1.
 
 ## Web export and preview
 
@@ -57,7 +57,7 @@ The export embeds its PCK. Include CREDITS.md, LICENSE, LICENSE-ASSETS.md, the s
 
 ## Art sources
 
-`assets/source/blender/` contains the 25 current `.blend` authoring files; `godot/assets/models/` contains their GLB exports. Small used source meshes and original license copies are included. Original downloaded ZIP archives remain local and can be fetched again using the exact URL and SHA in `assets/provenance/sources.json`.
+`assets/source/blender/` retains the original 25 `.blend` files, plus six new human characters and six urban assets for Alpha 0.3; `godot/assets/models/` contains the GLB exports. Used source meshes and original license copies are included. Original downloaded ZIP archives remain local and can be fetched again using the exact source URLs and recorded hashes in `assets/provenance/`.
 
 The Blender tools resolve the repository root from their own location. To rebuild the full alpha set after restoring the listed source files:
 
@@ -65,4 +65,11 @@ The Blender tools resolve the repository root from their own location. To rebuil
 blender --background --python tools/blender/build_alpha_assets.py
 ```
 
-Individual repair/export tools and roundtrip validation are in tools/blender/. Re-exported GLB must be reimported by Godot before checking animation, wheel meshes, or bounds. See docs/asset-build-report.md for the alpha's art limitations.
+Rebuild the new Alpha 0.3 art separately:
+
+```text
+blender --background --python tools/blender/build_human_characters.py
+blender --background --python tools/blender/build_urban_assets.py
+```
+
+The human build uses the listed MakeHuman CC0 source meshes. If they are absent, inspect `tools/blender/fetch_human_sources.py` and its recorded provenance before fetching them. Human and urban verification tools are in `tools/blender/`; engine scene checks are in `tests/`. Re-exported GLB must be reimported by Godot before checking animation, wheel meshes or bounds. See `docs/asset-build-report.md` for historical Alpha art limitations and `docs/urban-art-v03.md` for the new street assets.

@@ -23,6 +23,9 @@ for (const name of ['LICENSE','CREDITS.md','LICENSE-ASSETS.md']) fs.copyFileSync
 fs.mkdirSync(path.join(out,'licenses'),{recursive:true});
 for (const name of ['Godot-LICENSE.txt','Godot-COPYRIGHT.txt','CC-BY-3.0.txt','car-kit-License.txt','city-kit-commercial-License.txt','city-kit-roads-License.txt','mini-characters-License.txt','furniture-kit-License.txt','nature-kit-License.txt']) fs.copyFileSync(path.join(root,'assets/provenance',name),path.join(out,'licenses',name));
 fs.copyFileSync(path.join(root,'godot/assets/fonts/OFL.txt'),path.join(out,'licenses/OFL.txt'));
+fs.copyFileSync(path.join(root,'assets/provenance/v03-urban-CC0.txt'),path.join(out,'licenses/urban-CC0.txt'));
+fs.copyFileSync(path.join(root,'assets/source/makehuman/LICENSE.ASSETS.md'),path.join(out,'licenses/MakeHuman-ASSETS-CC0.txt'));
+fs.copyFileSync(path.join(root,'assets/provenance/v03-human-assets.md'),path.join(out,'licenses/MakeHuman-source-notice.txt'));
 fs.writeFileSync(path.join(out,'_headers'),`/*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
@@ -40,7 +43,10 @@ fs.writeFileSync(path.join(out,'_headers'),`/*
   Cache-Control: public, max-age=0, must-revalidate
 `);
 fs.writeFileSync(path.join(out,'robots.txt'),'User-agent: *\nAllow: /\n');
-const manifest = {version:'0.2.0',wasm_asset:'game.wasm.br',wasm_url:'game.wasm',wasm_original_bytes:raw.length,wasm_transfer_bytes:packed.length,wasm_original_sha256:crypto.createHash('sha256').update(raw).digest('hex'), files:[]};
+const project = fs.readFileSync(path.join(root,'godot/project.godot'),'utf8');
+const version = project.match(/^config\/version="([^"]+)"/m)?.[1];
+if (!version) throw new Error('Project version is missing');
+const manifest = {version,wasm_asset:'game.wasm.br',wasm_url:'game.wasm',wasm_original_bytes:raw.length,wasm_transfer_bytes:packed.length,wasm_original_sha256:crypto.createHash('sha256').update(raw).digest('hex'), files:[]};
 for(const name of fs.readdirSync(out,{recursive:true})){
   const p=path.join(out,name); if(!fs.statSync(p).isFile())continue;
   const data=fs.readFileSync(p); if(data.length>25*1024*1024)throw new Error(`Oversized asset: ${name}`);

@@ -1,0 +1,16 @@
+Original urban geometry and procedural textures, 2026, Seven District contributors.
+
+To the extent possible under law, the contributors waive all copyright and related
+or neighboring rights to the original urban assets listed in
+qa/art/urban/urban-manifest.json and their Blender sources and generated textures.
+These assets are dedicated under CC0 1.0 Universal.
+
+https://creativecommons.org/publicdomain/zero/1.0/
+https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
+
+The generation scripts and Godot module retain the repository MIT code license.
+The dedication does not apply to unrelated assets, third-party source imagery,
+trademarks, existing Kenney assets or other contributors' human-character lane.
+
+No reference photographs, map tiles, commercial logos or third-party meshes
+were imported to make this urban kit. Government links are research references.

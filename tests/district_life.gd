@@ -33,7 +33,10 @@ func _run() -> void:
 	check(counts["citizens"] == 8 and life.citizens.size() == 8, "eight_real_citizen_instances")
 	check(counts["moving_vehicles"] == 4 and life.traffic.size() == 4, "four_real_background_vehicle_instances")
 	check(counts["missing_assets"].is_empty(), "all_shipped_GLB_assets_loaded")
-	check(counts["assets"].get("road_straight", 0) >= 90 and counts["assets"].get("office_tower_c", 0) >= 4, "roads_and_buildings_use_real_GLBs")
+	var imported_buildings: int = 0
+	for key: String in ["office_tower_a","office_tower_b","office_tower_c","urban_shopfront"]:
+		imported_buildings += int(counts["assets"].get(key,0))
+	check(counts["assets"].get("road_straight", 0) >= 90 and imported_buildings >= 9, "roads_and_buildings_use_real_GLBs")
 	check(counts["assets"].get("tree", 0) >= 10 and counts["assets"].get("bench", 0) >= 10, "park_and_street_furniture_present")
 	check(Life.bootstrap(world) == life and life.get_counts() == counts, "bootstrap_does_not_duplicate_scene")
 	var districts: Array[Dictionary] = life.get_districts()

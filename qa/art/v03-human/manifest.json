@@ -1,0 +1,151 @@
+{
+  "blender_version": "5.2.0 LTS",
+  "source": "MakeHuman Community MPFB CC0 hm08/Asian targets/game_engine rig and weights",
+  "method": "Original tailored derivative with authored eight skeletal clips, no Mixamo source or code",
+  "characters": [
+    {
+      "bytes": 683180,
+      "triangles": 8046,
+      "materials": 6,
+      "animation_names": [
+        "idle",
+        "walk",
+        "run",
+        "attack",
+        "hit",
+        "drive",
+        "pedal",
+        "knockdown"
+      ],
+      "bones": 53,
+      "sha256": "c957618ce237c25b4936d43b0436bfeeb4df08e001870c90a3aeb82781ba5612",
+      "name": "mei_human",
+      "path": "godot/assets/models/mei_human.glb",
+      "blend": "assets/source/blender/mei_human.blend",
+      "height_m": 1.69,
+      "head_body_ratio": 7.666815848748448,
+      "label": "美晴｜墨綠工作外套、工作證、短髮",
+      "license": "CC0-1.0"
+    },
+    {
+      "bytes": 683716,
+      "triangles": 8015,
+      "materials": 6,
+      "animation_names": [
+        "idle",
+        "walk",
+        "run",
+        "attack",
+        "hit",
+        "drive",
+        "pedal",
+        "knockdown"
+      ],
+      "bones": 53,
+      "sha256": "b1db145da19c63133e220bcbd835110f7a9a125c3b299bb44ded1f44a9ef4cc7",
+      "name": "civilian_human",
+      "path": "godot/assets/models/civilian_human.glb",
+      "blend": "assets/source/blender/civilian_human.blend",
+      "height_m": 1.68,
+      "head_body_ratio": 7.666822314899339,
+      "label": "市民｜陶紅襯衫、深藍長褲、及肩髮",
+      "license": "CC0-1.0"
+    },
+    {
+      "bytes": 682548,
+      "triangles": 7858,
+      "materials": 6,
+      "animation_names": [
+        "idle",
+        "walk",
+        "run",
+        "attack",
+        "hit",
+        "drive",
+        "pedal",
+        "knockdown"
+      ],
+      "bones": 53,
+      "sha256": "fff4d840f488d3c14854792d8b1da8b7f263c175d5347131f6e326001267a089",
+      "name": "zhou_human",
+      "path": "godot/assets/models/zhou_human.glb",
+      "blend": "assets/source/blender/zhou_human.blend",
+      "height_m": 1.77,
+      "head_body_ratio": 7.331272785805773,
+      "label": "周成｜炭灰西裝、暗紅領帶、梳整短髮",
+      "license": "CC0-1.0"
+    },
+    {
+      "bytes": 699472,
+      "triangles": 8257,
+      "materials": 6,
+      "animation_names": [
+        "idle",
+        "walk",
+        "run",
+        "attack",
+        "hit",
+        "drive",
+        "pedal",
+        "knockdown"
+      ],
+      "bones": 53,
+      "sha256": "8d8eaecc2ec1e6b298e9491e4c2b59e29dc9b736e836f0c07c914dfc632fd918",
+      "name": "guard_human",
+      "path": "godot/assets/models/guard_human.glb",
+      "blend": "assets/source/blender/guard_human.blend",
+      "height_m": 1.8,
+      "head_body_ratio": 7.469916205511697,
+      "label": "園區保全｜深色制服、保全帽、識別章",
+      "license": "CC0-1.0"
+    },
+    {
+      "bytes": 703484,
+      "triangles": 8042,
+      "materials": 6,
+      "animation_names": [
+        "idle",
+        "walk",
+        "run",
+        "attack",
+        "hit",
+        "drive",
+        "pedal",
+        "knockdown"
+      ],
+      "bones": 53,
+      "sha256": "fd79f2bd29beb1964178d7e723dd1c20f4b103089a116665f687cc1ef7caada7",
+      "name": "hero_human",
+      "path": "godot/assets/models/hero_human.glb",
+      "blend": "assets/source/blender/hero_human.blend",
+      "height_m": 1.78,
+      "head_body_ratio": 7.469917285085802,
+      "label": "阿遠｜工作夾克、斜背郵差包",
+      "license": "CC0-1.0"
+    },
+    {
+      "bytes": 701144,
+      "triangles": 8047,
+      "materials": 6,
+      "animation_names": [
+        "idle",
+        "walk",
+        "run",
+        "attack",
+        "hit",
+        "drive",
+        "pedal",
+        "knockdown"
+      ],
+      "bones": 53,
+      "sha256": "5baa0ed648fb8b517cb4947f6c3ebd4dc81b8dfc658d196a4ead5d56a8bccc96",
+      "name": "yuan_human",
+      "path": "godot/assets/models/yuan_human.glb",
+      "blend": "assets/source/blender/yuan_human.blend",
+      "height_m": 1.75,
+      "head_body_ratio": 7.469911348618429,
+      "label": "予安｜沙色連帽外套、白球鞋",
+      "license": "CC0-1.0"
+    }
+  ]
+}

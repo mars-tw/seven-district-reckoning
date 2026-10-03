@@ -11,6 +11,7 @@ signal exit_blocked(reason: String)
 var occupied: bool = false
 var driver: SevenPlayer = null
 var speed_mps: float = 0.0
+var acceleration_multiplier: float = 1.0
 var last_exit_error: String = ""
 
 var _visual_scene: PackedScene = null
@@ -84,7 +85,7 @@ func _physics_process(delta: float) -> void:
 		var throttle: float = Input.get_axis("move_back", "move_forward")
 		steer = Input.get_axis("move_left", "move_right")
 		var maximum_speed: float = 25.0 / 3.6 if type == "bike" else 60.0 / 3.6
-		var acceleration: float = 3.0 if type == "bike" else 5.4
+		var acceleration: float = (3.0 if type == "bike" else 5.4) * acceleration_multiplier
 		var braking: bool = (InputMap.has_action("brake") and Input.is_action_pressed("brake")) or Input.is_action_pressed("jump")
 		if braking:
 			speed_mps = move_toward(speed_mps, 0.0, 12.0 * delta)

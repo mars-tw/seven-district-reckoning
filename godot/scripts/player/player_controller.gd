@@ -19,6 +19,12 @@ var health: float = 100.0
 var inventory: Dictionary = {"melee": [], "ranged": []}
 var equipped_weapon: String = ""
 var pulse_energy: int = 12
+var stamina: float = 100.0
+var maximum_stamina: float = 100.0
+var tool_damage_multiplier: float = 1.0
+var incoming_damage_multiplier: float = 1.0
+var stamina_exhausted: bool = false
+var _sprint_cooldown: float = 0.0
 var controls_enabled: bool = true
 var mounted_vehicle: Node3D = null
 var animations_missing: Array[String] = []
@@ -31,6 +37,7 @@ const WEAPONS: Dictionary = {
 	"bat": {"kind": "melee", "damage": 36.0, "reach": 2.8, "duration": 0.82, "start": 0.25, "end": 0.49, "cone": 0.30},
 	"pulse": {"kind": "ranged", "damage": 45.0, "reach": 20.0, "duration": 0.70, "start": 0.23, "end": 0.28, "cone": 0.97}
 }
+const ContactShadowScript = preload("res://scripts/world/contact_shadow.gd")
 
 var _visual_root: Node3D = null
 var _animation_player: AnimationPlayer = null
@@ -54,6 +61,7 @@ var _mounted_seat: Vector3 = Vector3.ZERO
 var _riding: bool = false
 var _gravity: float = 20.0
 var _active_animation: StringName = &""
+var _contact_shadow: MeshInstance3D
 
 func _ready() -> void:
 	health = maximum_health
@@ -94,6 +102,8 @@ func _ready() -> void:
 	if _visual_scene != null:
 		_build_visual()
 	health_changed.emit(health, maximum_health)
+	_contact_shadow = ContactShadowScript.new()
+	add_child(_contact_shadow)
 
 func setup_visual(scene: PackedScene) -> void:
 	if scene == null:
@@ -172,7 +182,19 @@ func nudge_camera(amount: float) -> void:
 	if is_instance_valid(_camera_pivot):
 		_camera_pivot.rotation.y += amount
 
+func reset_view(yaw: float) -> void:
+	if not is_instance_valid(_camera_pivot) or not is_finite(yaw): return
+	_camera_pivot.rotation.y = yaw
+	_facing = -_camera.global_basis.z
+	_facing.y = 0.0
+	_facing = _facing.normalized()
+	if is_instance_valid(_visual_root): _visual_root.rotation.y = atan2(_facing.x,_facing.z)
+
+func get_view_yaw() -> float:
+	return _camera_pivot.rotation.y if is_instance_valid(_camera_pivot) else 0.0
+
 func _physics_process(delta: float) -> void:
+	if _contact_shadow: _contact_shadow.visible = not is_instance_valid(mounted_vehicle)
 	if not is_instance_valid(_camera):
 		return
 	if Input.is_action_just_pressed("interact") and controls_enabled and health > 0.0:
@@ -180,6 +202,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("mount") and controls_enabled and health > 0.0:
 		mount_requested.emit()
 	if is_instance_valid(mounted_vehicle):
+		_recover_stamina(delta)
 		global_position = mounted_vehicle.to_global(_mounted_seat)
 		velocity = Vector3.ZERO
 		if is_instance_valid(_visual_root):
@@ -221,7 +244,14 @@ func _update_movement(delta: float) -> void:
 	camera_right.y = 0.0
 	camera_right = camera_right.normalized()
 	var direction: Vector3 = (camera_right * movement.x - camera_forward * movement.y).normalized()
-	var speed: float = sprint_speed if Input.is_action_pressed("sprint") else walk_speed
+	var sprinting: bool = Input.is_action_pressed("sprint") and direction.length_squared() > 0.01 and not stamina_exhausted and stamina > 0.0
+	var speed: float = sprint_speed if sprinting else walk_speed
+	if sprinting:
+		stamina = maxf(0.0, stamina - 18.0 * delta)
+		_sprint_cooldown = 0.7
+		if stamina <= 0.01: stamina_exhausted = true
+	else:
+		_recover_stamina(delta)
 	if _attack_clock >= 0.0:
 		speed *= 0.35
 	velocity.x = move_toward(velocity.x, direction.x * speed, 22.0 * delta)
@@ -232,6 +262,23 @@ func _update_movement(delta: float) -> void:
 			_visual_root.rotation.y = lerp_angle(_visual_root.rotation.y, atan2(direction.x, direction.z), 14.0 * delta)
 	if Input.is_action_just_pressed("jump") and is_on_floor() and _attack_clock < 0.0:
 		velocity.y = jump_speed
+
+func _recover_stamina(delta: float) -> void:
+	_sprint_cooldown = maxf(0.0, _sprint_cooldown - delta)
+	if _sprint_cooldown <= 0:
+		stamina = minf(maximum_stamina, stamina + 24.0 * delta)
+	if stamina >= maximum_stamina * 0.2:
+		stamina_exhausted = false
+
+func heal(amount: float) -> void:
+	if amount <= 0 or not is_finite(amount): return
+	health = minf(maximum_health, health + amount)
+	health_changed.emit(health, maximum_health)
+
+func set_stamina(value: float) -> void:
+	stamina = clampf(value,0.0,maximum_stamina)
+	stamina_exhausted = stamina <= 0.01
+	_sprint_cooldown = 0.7 if stamina_exhausted else 0.0
 
 func _canonical_weapon(weapon_name: String) -> String:
 	match weapon_name.to_lower():
@@ -411,7 +458,7 @@ func _has_line_of_sight(target_node: Node3D) -> bool:
 func _deliver_hit(target_node: Node3D, damage: float) -> void:
 	_attack_hits[target_node.get_instance_id()] = true
 	var hit_id: String = "%s:%s" % [get_instance_id(), _attack_sequence]
-	target_node.call("apply_hit", hit_id, str(get_instance_id()), damage)
+	target_node.call("apply_hit", hit_id, str(get_instance_id()), damage * tool_damage_multiplier)
 
 func apply_hit(hit_id: String, _source_id: String, damage: float) -> void:
 	if health <= 0.0 or _received_hits.has(hit_id) or damage <= 0.0:
@@ -419,7 +466,7 @@ func apply_hit(hit_id: String, _source_id: String, damage: float) -> void:
 	_received_hits[hit_id] = true
 	if _received_hits.size() > 128:
 		_received_hits.erase(_received_hits.keys()[0])
-	health = maxf(0.0, health - damage)
+	health = maxf(0.0, health - damage * incoming_damage_multiplier)
 	_attack_clock = -1.0
 	if is_instance_valid(_weapon_mount):
 		_weapon_mount.transform = _weapon_rest_transform
@@ -432,6 +479,7 @@ func apply_hit(hit_id: String, _source_id: String, damage: float) -> void:
 
 func restore_health() -> void:
 	health = maximum_health
+	set_stamina(maximum_stamina)
 	_received_hits.clear()
 	controls_enabled = true
 	if is_instance_valid(_visual_root):

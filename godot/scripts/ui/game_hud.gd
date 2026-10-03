@@ -11,6 +11,13 @@ signal quit_requested
 signal branch_selected(branch: String)
 signal optional_selected(id: String)
 signal optional_cancelled
+signal supplies_requested
+signal purchase_requested(id: String)
+signal setting_changed(key: String, value: String)
+signal waypoint_selected(point: Vector2)
+signal waypoint_cleared
+
+const MapScript = preload("res://scripts/ui/district_map.gd")
 
 const DARK := Color("14242e")
 const INK := Color("f1f3e9")
@@ -40,6 +47,17 @@ var _optional_label: Label
 var _map_panel: Control
 var _modal_panel: Control
 var _controls_hint: Label
+var _systems: Node
+var _street: RefCounted
+var _world_regions: Array[Dictionary] = []
+var _world_blocks: Array[AABB] = []
+var _world_points: Dictionary = {}
+var _large_map: Control
+var _stamina_bar: ProgressBar
+var _survival_label: Label
+var _last_survival: String = ""
+var _near_shop: bool = false
+var _settings_return_title: bool = false
 
 
 func _ready() -> void:
@@ -66,6 +84,33 @@ func _refresh_optional() -> void:
 	if not _optional or not _optional_label: return
 	_optional_label.text = "街坊：" + _optional.get_active_text() if _optional.status == "active" or _optional.status == "failed" else "Tab 任務手機｜6份街坊委託、4種活動與街景相簿"
 	if _scores_label: _scores_label.text = _score_text()
+
+func bind_systems(manager: Node, street: RefCounted) -> void:
+	_systems = manager
+	_street = street
+
+func setup_district_map(regions: Array[Dictionary], blocks: Array[AABB], points: Dictionary) -> void:
+	_world_regions = regions.duplicate(true)
+	_world_blocks = blocks.duplicate()
+	_world_points = points.duplicate(true)
+
+func update_world_vehicles(car_position: Vector2, bike_position: Vector2) -> void:
+	_world_points["car"] = car_position
+	_world_points["bicycle"] = bike_position
+
+func update_survival(stamina_value: float, maximum: float, time_value: String, touch_enabled: bool) -> void:
+	if not _systems: return
+	var status: Dictionary = _systems.get_status()
+	var caption: String = "體力 %d／%d　補給金 %d　Lv.%d　%s" % [ceili(stamina_value),int(maximum),status["credits"],status["rank"],time_value]
+	if caption != _last_survival:
+		_last_survival = caption
+		_survival_label.text = caption
+	_stamina_bar.max_value = maximum
+	_stamina_bar.value = stamina_value
+	var compact: bool = get_viewport().get_visible_rect().size.x < 750 or get_viewport().get_visible_rect().size.y < 480
+	_prompt_label.add_theme_font_size_override("font_size", 12 if compact and touch_enabled else 19)
+	_prompt_label.max_lines_visible = 2 if compact and touch_enabled else -1
+	_status_label.add_theme_font_size_override("font_size", 11 if compact and touch_enabled else 16)
 
 
 func _build_ui() -> void:
@@ -123,6 +168,19 @@ func _build_ui() -> void:
 	mission_column.add_child(_scores_label)
 	_optional_label = _label("", 15, Color(0.47, 0.90, 0.81))
 	mission_column.add_child(_optional_label)
+	_survival_label = _label("", 12, MUTED)
+	mission_column.add_child(_survival_label)
+	_stamina_bar = ProgressBar.new()
+	_stamina_bar.custom_minimum_size.y = 6
+	_stamina_bar.show_percentage = false
+	_stamina_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_stamina_bar.add_theme_stylebox_override("background",_style(Color("20363a"),Color.TRANSPARENT,3))
+	_stamina_bar.add_theme_stylebox_override("fill",_style(Color("7ab6a0"),Color.TRANSPARENT,3))
+	for style_name: String in ["background","fill"]:
+		var bar_style: StyleBoxFlat = _stamina_bar.get_theme_stylebox(style_name) as StyleBoxFlat
+		bar_style.content_margin_top = 0
+		bar_style.content_margin_bottom = 0
+	mission_column.add_child(_stamina_bar)
 	var map_panel := _panel()
 	_map_panel = map_panel
 	map_panel.custom_minimum_size = Vector2(150, 136)
@@ -190,7 +248,8 @@ func _resize_modal() -> void:
 	if _modal_scroll == null:
 		return
 	var screen := get_viewport().get_visible_rect().size
-	_modal_scroll.custom_minimum_size.y = clampf(screen.y - 150.0, 70.0, 460.0)
+	var map_layout: bool = _mode=="map" and screen.y>=350
+	_modal_scroll.custom_minimum_size.y = clampf(screen.y - (130.0 if map_layout else 150.0),70.0,650.0 if map_layout else 460.0)
 	_modal_scroll.custom_minimum_size.x = clampf(screen.x - 132.0, 180.0, 660.0)
 	_modal_panel.custom_minimum_size.x = clampf(screen.x - 64.0, 230.0, 700.0)
 	var compact: bool = screen.x < 750 or screen.y < 480
@@ -259,6 +318,7 @@ func _open(mode: String, heading: String, subtitle: String) -> void:
 	if _overlay == null:
 		return
 	_mode = mode
+	_resize_modal()
 	for child: Node in _modal_box.get_children():
 		_modal_box.remove_child(child)
 		child.queue_free()
@@ -291,11 +351,12 @@ func get_menu_mode() -> String:
 
 
 func show_title() -> void:
-	_open("title", "七期：斷鏈行動", "Alpha 0.2　｜　五個主線、六份委託、四種街頭活動。")
+	_open("title", "七期：斷鏈行動", "Alpha 0.3｜街區探索、補給成長與新的角色造型。")
 	_modal_box.add_child(_label("阿遠失去了存款。從美晴車店借一把扳手，沿著留下的地址，去找玻璃後面的人。", 19))
 	_modal_box.add_child(_label("所有人物、公司與地點均為虛構。這個版本只提供第一章切片，沒有完整戰役結局。", 16, MUTED))
 	_button("開始新遊戲", func() -> void: hide_menus(); new_game_requested.emit())
 	_button("讀取存檔", func() -> void: load_requested.emit())
+	_button("畫面與操作設定",show_settings)
 	_button("離開遊戲", func() -> void: quit_requested.emit())
 	_focus_first_button()
 
@@ -308,6 +369,9 @@ func show_pause() -> void:
 	_button("繼續遊戲", _resume, rows)
 	_button("任務手機", show_phone, rows)
 	_button("街坊委託與活動", show_optional_phone)
+	_button("街區地圖",show_district_map)
+	_button("補給與街區挑戰",func() -> void: supplies_requested.emit())
+	_button("畫面與操作設定",show_settings)
 	_button("儲存進度", func() -> void: save_requested.emit())
 	_button("讀取存檔", func() -> void: load_requested.emit())
 	_button("重試目前任務", func() -> void: hide_menus(); retry_requested.emit())
@@ -335,6 +399,8 @@ func show_phone() -> void:
 		if not str(_manager.notice).is_empty():
 			_modal_box.add_child(_label(str(_manager.notice), 16, ACCENT))
 	_button("街坊委託／活動／相簿", show_optional_phone)
+	_button("街區地圖",show_district_map)
+	_button("補給與街區挑戰",func() -> void: supplies_requested.emit())
 	_button("收起手機，繼續行動", _resume)
 	_focus_first_button()
 
@@ -372,6 +438,94 @@ func show_optional_phone(category: String = "side", page: int = 0) -> void:
 
 func _choose_optional(id: String) -> void:
 	optional_selected.emit(id)
+
+func show_systems(near_shop: bool = false) -> void:
+	if not _systems: return
+	_near_shop = near_shop
+	var status: Dictionary = _systems.get_status()
+	_open("systems","街區補給與成長","%s｜Lv.%d　XP %d　補給金 %d" % [status["rank_name"],status["rank"],status["xp"],status["credits"]])
+	_modal_box.add_child(_label("到美晴車店的補給台購買；補給金由街區挑戰取得，與任務零件券分開。" if not near_shop else "已在補給台附近。急救補給會恢復生命，整備可改善體力、工具與自行車。",15,MUTED))
+	if not str(_systems.last_notice).is_empty():
+		_modal_box.add_child(_label(str(_systems.last_notice),15,ACCENT))
+	for offer: Dictionary in _systems.get_offers():
+		var caption: String = "%s｜%d 補給金" % [offer["title"],offer["cost"]]
+		if offer["sold_out"]: caption += "（已領取）"
+		elif not offer["unlocked"]: caption += "（Lv.%d 解鎖）" % offer["unlock_rank"]
+		var item: Button = _button(caption,func() -> void: purchase_requested.emit(str(offer["id"])))
+		item.disabled = not near_shop or not offer["available"]
+		_modal_box.add_child(_label(str(offer["description"]),14,MUTED))
+	_modal_box.add_child(_label("街區挑戰",21,ACCENT))
+	for challenge: Dictionary in _systems.get_challenges():
+		_modal_box.add_child(_label("%s　%d／%d %s%s" % [challenge["title"],floori(float(challenge["progress"])),int(challenge["goal"]),challenge["unit"]," ✓" if challenge["completed"] else ""],16))
+		_modal_box.add_child(_label("%s　獎勵 %d 補給金／%d XP" % [challenge["description"],challenge["reward_credits"],challenge["reward_xp"]],14,MUTED))
+	var journal: Array = _systems.get_journal()
+	if not journal.is_empty():
+		_modal_box.add_child(_label("最近紀錄",18,ACCENT))
+		for index: int in range(maxi(0,journal.size()-4),journal.size()):
+			_modal_box.add_child(_label(str(journal[index].get("text",journal[index].get("message",""))),13,MUTED))
+	if not near_shop:
+		_button("在地圖標示補給台",func() -> void: waypoint_selected.emit(Vector2(-58,57)); show_district_map())
+	_button("繼續行動",_resume)
+	_focus_first_button()
+
+func show_district_map() -> void:
+	_open("map","七期街區地圖","白點是你，黃點是任務。點地圖放置自訂目的地；街區範圍為 300 × 300 公尺。")
+	if get_viewport().get_visible_rect().size.y<480:
+		(_modal_box.get_child(0) as Label).add_theme_font_size_override("font_size",22)
+		(_modal_box.get_child(1) as Label).add_theme_font_size_override("font_size",13)
+	_large_map = MapScript.new()
+	_large_map.custom_minimum_size.y = clampf(get_viewport().get_visible_rect().size.y-320.0,180.0,350.0)
+	_large_map.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_modal_box.add_child(_large_map)
+	_large_map.setup(_world_regions,_world_blocks,_world_points)
+	_large_map.player_position = _map_player
+	_large_map.target_position = _map_target
+	_large_map.has_target = _has_map_target
+	_large_map.has_waypoint = _street.has_waypoint if _street else false
+	_large_map.waypoint_position = _street.waypoint if _street else Vector2.ZERO
+	_large_map.waypoint_selected.connect(func(value: Vector2) -> void:
+		waypoint_selected.emit(value)
+		_large_map.waypoint_position = _street.waypoint
+		_large_map.has_waypoint = _street.has_waypoint
+		_large_map.queue_redraw()
+	)
+	_modal_box.add_child(_label("藍點汽車／綠點自行車／淡黃點車店與安全點。方向線不會自動避開建築。",13,MUTED))
+	var destinations := HBoxContainer.new()
+	_modal_box.add_child(destinations)
+	_button("美晴車店",func() -> void: waypoint_selected.emit(Vector2(-58,57)); show_district_map(),destinations)
+	_button("撤離安全點",func() -> void: waypoint_selected.emit(Vector2(-46,42)); show_district_map(),destinations)
+	_button("清除自訂標記",func() -> void: waypoint_cleared.emit(); show_district_map())
+	_button("收起地圖，繼續行動",_resume)
+	_focus_first_button()
+
+func show_settings() -> void:
+	if not _street: return
+	_settings_return_title = _mode=="title" or (_mode=="settings" and _settings_return_title)
+	_open("settings","畫面與操作","可調整畫質、視角、音效與戰鬥難度；設定會隨進度儲存。")
+	_modal_box.add_child(_label("畫質｜省電保留基本街景；均衡增加材質層次；細緻開啟太陽陰影。",15,MUTED))
+	var quality_row := HBoxContainer.new()
+	_modal_box.add_child(quality_row)
+	for key: String in ["performance","balanced","quality"]:
+		var captions: Dictionary = {"performance":"省電","balanced":"均衡","quality":"細緻"}
+		_button(str(captions[key])+ (" ✓" if _street.quality==key else ""),func() -> void: setting_changed.emit("quality",key); show_settings(),quality_row)
+	var difficulty_row := HBoxContainer.new()
+	_modal_box.add_child(difficulty_row)
+	_button("標準"+(" ✓" if _street.difficulty=="standard" else ""),func() -> void: setting_changed.emit("difficulty","standard"); show_settings(),difficulty_row)
+	_button("輕鬆"+(" ✓" if _street.difficulty=="relaxed" else ""),func() -> void: setting_changed.emit("difficulty","relaxed"); show_settings(),difficulty_row)
+	_modal_box.add_child(_label("輕鬆模式降低受到的傷害與警衛追擊速度，任務獎勵維持相同。",14,MUTED))
+	var sensitivity_row := HBoxContainer.new()
+	_modal_box.add_child(sensitivity_row)
+	for key: String in ["0.7","1.0","1.4"]:
+		_button("視角 "+key+ (" ✓" if is_equal_approx(_street.sensitivity,float(key)) else ""),func() -> void: setting_changed.emit("sensitivity",key); show_settings(),sensitivity_row)
+	_button("音效："+("關閉" if _street.muted else "開啟"),func() -> void: setting_changed.emit("muted","off" if _street.muted else "on"); show_settings())
+	_button("日夜循環："+("開啟" if _street.cycle_enabled else "暫停"),func() -> void: setting_changed.emit("cycle","off" if _street.cycle_enabled else "on"); show_settings())
+	var time_row := HBoxContainer.new()
+	_modal_box.add_child(time_row)
+	for key: String in ["10.0","17.5","21.0"]:
+		var captions: Dictionary = {"10.0":"日間","17.5":"黃昏","21.0":"夜間"}
+		_button(captions[key],func() -> void: setting_changed.emit("hour",key); show_settings(),time_row)
+	_button("返回開頭" if _settings_return_title else "繼續行動",show_title if _settings_return_title else _resume)
+	_focus_first_button()
 
 
 func _select_branch(choice: String) -> void:

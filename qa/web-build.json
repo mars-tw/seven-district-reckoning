@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "wasm_asset": "game.wasm.br",
   "wasm_url": "game.wasm",
   "wasm_original_bytes": 39514754,
@@ -13,8 +13,8 @@
     },
     {
       "name": "CREDITS.txt",
-      "bytes": 3034,
-      "sha256": "92e44dbf49b2c9901b3803ad4ff3951c110f75f9ee6cdf1b55518c27b5ecf3d6"
+      "bytes": 3744,
+      "sha256": "176083369a515b6e29d8ed8d27f8729697fbd1974aecefc7eeb8f8442fe758e3"
     },
     {
       "name": "favicon.svg",
@@ -38,8 +38,8 @@
     },
     {
       "name": "game.html",
-      "bytes": 9022,
-      "sha256": "ba1aa765f8756c12cd84f6b426d88dd5036d6e6b8cf829199977bdaad99258eb"
+      "bytes": 9670,
+      "sha256": "cbd3fd2523da35f7a6442413fdfcb92f24858ec99e9086f0e9b072aeaad8ef0f"
     },
     {
       "name": "game.icon.png",
@@ -53,8 +53,8 @@
     },
     {
       "name": "game.pck",
-      "bytes": 3064576,
-      "sha256": "e21ac1e6af2dc4ba9e947daf21e239e1ddf378bf57d284b70e497a04e17d2f2f"
+      "bytes": 7123364,
+      "sha256": "227f2321f1a2e23d994edf679eb23a06d35e2607e024d3e66708dc7fcb267be2"
     },
     {
       "name": "game.png",
@@ -68,13 +68,13 @@
     },
     {
       "name": "index.html",
-      "bytes": 9022,
-      "sha256": "ba1aa765f8756c12cd84f6b426d88dd5036d6e6b8cf829199977bdaad99258eb"
+      "bytes": 9670,
+      "sha256": "cbd3fd2523da35f7a6442413fdfcb92f24858ec99e9086f0e9b072aeaad8ef0f"
     },
     {
       "name": "LICENSE-ASSETS.txt",
-      "bytes": 1549,
-      "sha256": "64d592e803f9af237cc0de3d687b87187f7abdc9c50b3afb25657504b4a31f5f"
+      "bytes": 2210,
+      "sha256": "4ca34550ddf1ad9bf4176165dacf0fb0c29cdaf55d8d70572b0b7e6a2d590133"
     },
     {
       "name": "LICENSE.txt",
@@ -83,13 +83,13 @@
     },
     {
       "name": "play-site.css",
-      "bytes": 14603,
-      "sha256": "d674f8e477b242173dd28c3481ec7942e226447f7532a6fe7fd76219bab45e88"
+      "bytes": 15012,
+      "sha256": "221e1d04b821ca1a9b4ff1844ede365f08bba799434cae41569dbb72d86d49f3"
     },
     {
       "name": "play-site.js",
-      "bytes": 16054,
-      "sha256": "a4ee1ca74f79ff5ccfe3b92fbe300681b0cf754efd1a45b0bc4081b371eb7769"
+      "bytes": 18464,
+      "sha256": "7401cd9ac2bf4b6d5996a573794694f61087a2f6200c990a943cdba516ae9e45"
     },
     {
       "name": "robots.txt",
@@ -137,6 +137,16 @@
       "sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80"
     },
     {
+      "name": "licenses/MakeHuman-ASSETS-CC0.txt",
+      "bytes": 6962,
+      "sha256": "f6089cba01cb570a24712b41ab8a586ccd3cc5ef53dc266ca50b95c288956d2c"
+    },
+    {
+      "name": "licenses/MakeHuman-source-notice.txt",
+      "bytes": 2610,
+      "sha256": "7f7a7d4a104f6ba94e0f3fb18ef73dfbb9e35bd21b98f374046cbe5a486548c2"
+    },
+    {
       "name": "licenses/mini-characters-License.txt",
       "bytes": 718,
       "sha256": "28358ae5accc85b572eb42507956afc8beae05acb4648bb9026a5714d421b785"
@@ -150,6 +160,11 @@
       "name": "licenses/OFL.txt",
       "bytes": 4301,
       "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2"
+    },
+    {
+      "name": "licenses/urban-CC0.txt",
+      "bytes": 876,
+      "sha256": "9273a5a904014334ea1707d8e74437c4eb92c82a9e23a482989fe94f7c34e49b"
     }
   ]
 }

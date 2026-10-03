@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "scope": "alpha_0_3_district_progression",
+  "starting_credits": 120,
+  "notes": [
+    "街區補給金是單人存檔內的遊戲資源，不涉及真實金錢或交易。",
+    "主線與委託的零件券保留原用途，補給金有自己的收支紀錄。",
+    "街區挑戰各領一次獎勵，沒有伺服器每日刷新。",
+    "世界確認實際步行、首次交付委託與合法工具摧毀後，才送進度事件。"
+  ],
+  "ranks": [
+    {"rank": 1, "xp": 0, "name": "初到街區"},
+    {"rank": 2, "xp": 80, "name": "認得路的人"},
+    {"rank": 3, "xp": 180, "name": "街坊幫手"},
+    {"rank": 4, "xp": 280, "name": "熟面孔"}
+  ],
+  "offers": [
+    {"id": "healing", "title": "急救補給", "description": "恢復 40 點生命。生命已滿時不扣款。", "cost": 35, "unlock_rank": 1, "max_purchases": 12, "effect": {"healing": 40.0}},
+    {"id": "stamina", "title": "體能訓練", "description": "體力上限從 100 提高到 120。只需購買一次。", "cost": 90, "unlock_rank": 2, "max_purchases": 1, "effect": {"max_stamina": 120.0}},
+    {"id": "tool_power", "title": "工具整備", "description": "工具傷害提高 20%。只需購買一次。", "cost": 140, "unlock_rank": 3, "max_purchases": 1, "effect": {"tool_damage_multiplier": 1.2}},
+    {"id": "vehicle_service", "title": "自行車調校", "description": "自行車加速提高 15%。只需購買一次。", "cost": 105, "unlock_rank": 2, "max_purchases": 1, "effect": {"bike_accel_multiplier": 1.15}}
+  ],
+  "challenges": [
+    {"id": "walk", "title": "用雙腳認路", "description": "實際步行累積 400 公尺。搭車、傳送與重生位移不計入。", "goal": 400, "unit": "公尺", "reward_credits": 90, "reward_xp": 80},
+    {"id": "commissions", "title": "三份交代", "description": "完成三份不同的街坊支線委託。重玩活動不計入。", "goal": 3, "unit": "份", "reward_credits": 120, "reward_xp": 110},
+    {"id": "tools", "title": "停用營運設備", "description": "用工具停用八個詐團設備或訓練道具。同一個目標只計一次，路人與證據不計入。", "goal": 8, "unit": "個", "reward_credits": 100, "reward_xp": 90}
+  ],
+  "commission_targets": ["SIDE-001", "SIDE-004", "SIDE-007", "SIDE-010", "SIDE-011", "SIDE-012"],
+  "tool_targets": ["fake_sign", "equipment_1", "equipment_2", "equipment_3", "sandbox_0", "sandbox_1", "sandbox_2", "sandbox_3", "sandbox_4", "sandbox_5", "sandbox_6", "sandbox_7", "SIDE_001_sign_1", "SIDE_001_sign_2", "SIDE_001_sign_3", "SIDE_012_breakfast_sign"]
+}

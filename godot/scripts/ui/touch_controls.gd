@@ -4,6 +4,7 @@ extends CanvasLayer
 signal camera_step(amount: float)
 signal phone_requested
 signal pause_requested
+signal map_requested
 
 var enabled: bool = false
 var controls: Control
@@ -26,7 +27,7 @@ func _ready() -> void:
 	left.add_theme_constant_override("v_separation", 5)
 	controls.add_child(left)
 	panels.append(left)
-	_spacer(left); _action_button(left, "↑", "move_forward"); _spacer(left)
+	_action_button(left,"跑","sprint"); _action_button(left, "↑", "move_forward"); _spacer(left)
 	_action_button(left, "←", "move_left"); _action_button(left, "↓", "move_back"); _action_button(left, "→", "move_right")
 	var right := GridContainer.new()
 	right.columns = 3
@@ -43,6 +44,7 @@ func _ready() -> void:
 	_command_button(top, "視角←", func() -> void: camera_step.emit(-0.25))
 	_command_button(top, "視角→", func() -> void: camera_step.emit(0.25))
 	_command_button(top, "委託", func() -> void: phone_requested.emit())
+	_command_button(top, "地圖", func() -> void: map_requested.emit())
 	_command_button(top, "暫停", func() -> void: pause_requested.emit())
 	get_viewport().size_changed.connect(_layout)
 	small_view_hint = Label.new()
@@ -123,4 +125,4 @@ func _layout() -> void:
 	small_view_hint.position = Vector2(maxf(4, (viewport_size.x - 240) * 0.5), maxf(4, viewport_size.y - 50))
 	panels[0].position = Vector2(10, maxf(140, viewport_size.y - 220))
 	panels[1].position = Vector2(maxf(180, viewport_size.x - 185), maxf(140, viewport_size.y - 220))
-	panels[2].position = Vector2(maxf(8, (viewport_size.x - 250) * 0.5), 155)
+	panels[2].position = Vector2(maxf(8, (viewport_size.x - panels[2].get_combined_minimum_size().x) * 0.5), 155)

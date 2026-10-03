@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "generator": "tools/blender/build_urban_assets.py",
+  "license": "CC0-1.0",
+  "assets": [
+    {
+      "name": "urban_tower_a",
+      "path": "godot/assets/models/urban_tower_a.glb",
+      "source": "assets/source/blender/urban/urban_tower_a.blend",
+      "license": "CC0-1.0",
+      "triangles": 6906,
+      "materials": 6,
+      "bytes": 905212,
+      "sha256": "112b72d77825213a7cbb78e4582f178efcd4abc08423bca1dbc06b0f2caae955",
+      "bounds_blender_min": [
+        -9.0,
+        -9.608499526977539,
+        0.0
+      ],
+      "bounds_blender_max": [
+        9.0,
+        9.5,
+        42.099998474121094
+      ],
+      "nominal_dimensions_m": [
+        18,
+        19,
+        42.1
+      ],
+      "floor_height_m": 3.6,
+      "office_floors": 10,
+      "door_height_m": 3.1,
+      "opaque_glazing": true
+    },
+    {
+      "name": "urban_tower_b",
+      "path": "godot/assets/models/urban_tower_b.glb",
+      "source": "assets/source/blender/urban/urban_tower_b.blend",
+      "license": "CC0-1.0",
+      "triangles": 6466,
+      "materials": 6,
+      "bytes": 874436,
+      "sha256": "09e49d704e1797f38ea22ba1747a39229b23e3dd4cdcc0efcb6256952b73112b",
+      "bounds_blender_min": [
+        -9.0,
+        -9.608499526977539,
+        0.0
+      ],
+      "bounds_blender_max": [
+        9.0,
+        9.5,
+        38.5
+      ],
+      "nominal_dimensions_m": [
+        18,
+        19,
+        38.5
+      ],
+      "floor_height_m": 3.6,
+      "office_floors": 9,
+      "door_height_m": 3.1,
+      "opaque_glazing": true
+    },
+    {
+      "name": "urban_tower_c",
+      "path": "godot/assets/models/urban_tower_c.glb",
+      "source": "assets/source/blender/urban/urban_tower_c.blend",
+      "license": "CC0-1.0",
+      "triangles": 3418,
+      "materials": 6,
+      "bytes": 661072,
+      "sha256": "c505250661aa8da8d91e62ac3558204f4691d8450d14ac857718d83fb0ddc312",
+      "bounds_blender_min": [
+        -12.0,
+        -9.608499526977539,
+        0.0
+      ],
+      "bounds_blender_max": [
+        12.0,
+        9.5,
+        20.5
+      ],
+      "nominal_dimensions_m": [
+        24,
+        19,
+        20.5
+      ],
+      "floor_height_m": 3.6,
+      "office_floors": 4,
+      "door_height_m": 3.1,
+      "opaque_glazing": true
+    },
+    {
+      "name": "urban_sidewalk",
+      "path": "godot/assets/models/urban_sidewalk.glb",
+      "source": "assets/source/blender/urban/urban_sidewalk.blend",
+      "license": "CC0-1.0",
+      "triangles": 1176,
+      "materials": 4,
+      "bytes": 559460,
+      "sha256": "aa90ead6a0bf61e9ad1e872016a0f3a53f414c0bb393c2bb95900a0b3880cc22",
+      "bounds_blender_min": [
+        -1.6050000190734863,
+        -4.0,
+        0.0
+      ],
+      "bounds_blender_max": [
+        1.600000023841858,
+        4.0,
+        0.1054999977350235
+      ],
+      "nominal_dimensions_m": [
+        3.2,
+        8,
+        0.105
+      ],
+      "collisions": false,
+      "role": "flush visual pavement kit"
+    },
+    {
+      "name": "urban_shopfront",
+      "path": "godot/assets/models/urban_shopfront.glb",
+      "source": "assets/source/blender/urban/urban_shopfront.blend",
+      "license": "CC0-1.0",
+      "triangles": 260,
+      "materials": 5,
+      "bytes": 438764,
+      "sha256": "1a22c3f31e2101936700053c38222a8037299e8258468a9bd06c29ae90ead18c",
+      "bounds_blender_min": [
+        -8.0,
+        -7.0995001792907715,
+        0.0
+      ],
+      "bounds_blender_max": [
+        8.0,
+        7.0,
+        8.0
+      ],
+      "nominal_dimensions_m": [
+        16,
+        14,
+        8
+      ],
+      "floor_height_m": 3.6,
+      "door_height_m": 3.1,
+      "role": "low-rise mixed-use frontage, no brand"
+    },
+    {
+      "name": "urban_bench",
+      "path": "godot/assets/models/urban_bench.glb",
+      "source": "assets/source/blender/urban/urban_bench.blend",
+      "license": "CC0-1.0",
+      "triangles": 108,
+      "materials": 2,
+      "bytes": 9976,
+      "sha256": "394eed97cfa7c9e0bf0747144536fd73b2faf4d284b970c41e637ff027749c16",
+      "bounds_blender_min": [
+        -0.8999999761581421,
+        -0.23999999463558197,
+        0.0
+      ],
+      "bounds_blender_max": [
+        0.8999999761581421,
+        0.2849999964237213,
+        0.9350000023841858
+      ],
+      "nominal_dimensions_m": [
+        1.8,
+        0.5,
+        0.93
+      ],
+      "seat_height_m": 0.46,
+      "collisions": false
+    }
+  ],
+  "texture_max": 256,
+  "total_source_web_bytes": 4343626,
+  "note": "Nominal geometry is metric. Current Alpha building envelopes rescale templates; this is not a surveyed Taichung GIS map."
+}

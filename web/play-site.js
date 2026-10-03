@@ -23,10 +23,14 @@
   const gameToolbar = document.getElementById("game-toolbar");
   const gameObjective = document.getElementById("game-objective");
   const gameRecord = document.getElementById("game-record");
+  const gameResources = document.getElementById("game-resources");
   const commandButtons = {
     new_game: document.getElementById("command-start"),
     pause: document.getElementById("command-pause"),
     phone: document.getElementById("command-phone"),
+    map: document.getElementById("command-map"),
+    supplies: document.getElementById("command-supplies"),
+    settings: document.getElementById("command-settings"),
     resume: document.getElementById("command-resume"),
     save: document.getElementById("command-save"),
     load: document.getElementById("command-load"),
@@ -42,6 +46,7 @@
   let config = null;
   let reportedProgressBucket = -1;
   let lastGameState = null;
+  let playStarted = false;
   let expandedFallback = false;
   let previousOverflow = "";
 
@@ -49,8 +54,22 @@
   Object.defineProperty(window, "sevenDistrictStatus", {
     configurable: false,
     enumerable: true,
-    get: () => Object.freeze({ phase, loaded, total, message }),
+    get: () => Object.freeze({ phase, loaded, total, message, ...resourceSnapshot(lastGameState) }),
   });
+
+  function resourceSnapshot(state) {
+    const source = state && typeof state === "object" ? state : {};
+    const finite = (value) => Number.isFinite(value) ? Math.max(0, value) : null;
+    const label = (value) => typeof value === "string" ? value.trim().slice(0, 80) : "";
+    return {
+      stamina: finite(source.stamina),
+      max_stamina: finite(source.max_stamina),
+      credits: finite(source.credits),
+      rank: typeof source.rank === "string" ? label(source.rank) : finite(source.rank),
+      time: label(source.time),
+      navigation: label(source.navigation),
+    };
+  }
 
   function setStatus(nextPhase, nextMessage) {
     phase = nextPhase;
@@ -69,13 +88,14 @@
   function issueGameCommand(command) {
     // The game publishes a fixed command whitelist. This page has no general action/eval API.
     if (phase !== "running" || !Object.hasOwn(commandButtons, command)) return false;
+    if ((command === "map" || command === "supplies") && !playStarted) return false;
     if (typeof window.sevenDistrictCommand !== "function") {
       inputHint.textContent = "遊戲操作列還沒準備好，請直接使用畫面內的遊戲選單。";
       return false;
     }
     try {
       window.sevenDistrictCommand(command);
-      if (command === "new_game" || command === "resume") overlay.hidden = true;
+      if (command === "new_game" || command === "resume" || command === "settings") overlay.hidden = true;
       focusCanvas();
       return true;
     } catch (error) {
@@ -90,25 +110,43 @@
     if (!["title", "playing", "menu"].includes(state.phase)) return;
     const previousGamePhase = lastGameState ? lastGameState.phase : null;
     lastGameState = state;
+    if (typeof state.play_started === "boolean") playStarted = state.play_started;
+    else if (state.phase === "title") playStarted = false;
+    else if (state.phase === "playing") playStarted = true;
     const ready = phase === "running" && typeof window.sevenDistrictCommand === "function";
     gameToolbar.hidden = !ready;
     if (ready && state.phase === "playing") overlay.hidden = true;
     if (phase === "running" && previousGamePhase !== state.phase) {
       setStatus("running", state.phase === "playing" ? "遊戲進行中" : state.phase === "menu" ? "遊戲選單開啟" : "遊戲已載入，等待開始");
     }
-    commandButtons.new_game.hidden = state.phase !== "title";
+    commandButtons.new_game.hidden = playStarted;
     commandButtons.pause.hidden = state.phase !== "playing";
     commandButtons.phone.hidden = state.phase !== "playing";
-    commandButtons.resume.hidden = state.phase !== "menu";
-    commandButtons.save.hidden = state.phase !== "menu";
+    commandButtons.map.hidden = !playStarted;
+    commandButtons.supplies.hidden = !playStarted;
+    commandButtons.settings.hidden = false;
+    commandButtons.resume.hidden = state.phase !== "menu" || !playStarted;
+    commandButtons.save.hidden = state.phase !== "menu" || !playStarted;
     const title = typeof state.main_title === "string" ? state.main_title.trim().slice(0, 100) : "";
     const objective = typeof state.objective === "string" ? state.objective.trim().slice(0, 220) : "";
     gameObjective.textContent = [title, objective].filter(Boolean).join("｜");
-    gameObjective.hidden = !gameObjective.textContent || state.phase === "title";
+    gameObjective.hidden = !playStarted || !gameObjective.textContent;
     const sides = Number.isFinite(state.completed_sides) ? Math.max(0, Math.trunc(state.completed_sides)) : 0;
     const activities = Number.isFinite(state.completed_activities) ? Math.max(0, Math.trunc(state.completed_activities)) : 0;
     gameRecord.textContent = `街區紀錄：委託 ${sides}・活動 ${activities}`;
-    gameRecord.hidden = state.phase === "title";
+    gameRecord.hidden = !playStarted;
+    const resources = resourceSnapshot(state);
+    const resourceLabels = [];
+    if (resources.stamina !== null && resources.max_stamina !== null) {
+      resourceLabels.push(`體力 ${Math.round(resources.stamina)}／${Math.round(resources.max_stamina)}`);
+    }
+    if (resources.credits !== null) resourceLabels.push(`補給金 ${Math.trunc(resources.credits)}`);
+    if (typeof resources.rank === "string" && resources.rank) resourceLabels.push(resources.rank);
+    else if (typeof resources.rank === "number") resourceLabels.push(`街區階段 ${Math.trunc(resources.rank)}`);
+    if (resources.time) resourceLabels.push(resources.time);
+    if (resources.navigation) resourceLabels.push(`前往 ${resources.navigation}`);
+    gameResources.textContent = resourceLabels.join("・");
+    gameResources.hidden = !playStarted || !gameResources.textContent;
     commandButtons.touch_toggle.setAttribute("aria-pressed", String(state.touch === true));
     // Coordinates are machine-readable for UI verification, never presented as player content.
     if (Number.isFinite(state.player_x)) canvas.dataset.playerX = state.player_x.toFixed(3);
@@ -275,16 +313,22 @@
       setExpandedFallback(false);
       return;
     }
-    // Fullscreen is requested directly inside the click gesture, before any await.
-    const action = document.fullscreenElement === frame
-      ? document.exitFullscreen()
-      : frame.requestFullscreen();
-    Promise.resolve(action).then(() => {
-      queueResize();
-      if (phase === "running") focusCanvas();
-    }).catch(() => {
+    if (typeof frame.requestFullscreen !== "function" || typeof document.exitFullscreen !== "function" || document.fullscreenEnabled === false) {
       setExpandedFallback(true);
-    });
+      return;
+    }
+    // Fullscreen is requested directly inside the click gesture, before any await.
+    try {
+      const action = document.fullscreenElement === frame
+        ? document.exitFullscreen()
+        : frame.requestFullscreen();
+      Promise.resolve(action).then(() => {
+        queueResize();
+        if (phase === "running") focusCanvas();
+      }).catch(() => setExpandedFallback(true));
+    } catch (_) {
+      setExpandedFallback(true);
+    }
   }
 
   function setExpandedFallback(active) {
@@ -324,11 +368,9 @@
   canvas.addEventListener("webglcontextlost", () => {
     displayFailure("WebGL context was lost.", "瀏覽器失去圖形連線。請關閉其他耗用圖形的分頁後，重新載入遊戲。");
   });
-  if (typeof frame.requestFullscreen === "function" && typeof document.exitFullscreen === "function") {
-    fullscreenButton.addEventListener("click", toggleFullscreen);
-  } else {
-    fullscreenButton.disabled = true;
-    fullscreenButton.title = "這個瀏覽器未提供網頁全螢幕";
+  fullscreenButton.addEventListener("click", toggleFullscreen);
+  if (typeof frame.requestFullscreen !== "function" || typeof document.exitFullscreen !== "function") {
+    fullscreenButton.title = "放大遊戲區，填滿這個分頁";
   }
   document.addEventListener("fullscreenchange", () => {
     if (expandedFallback) return;

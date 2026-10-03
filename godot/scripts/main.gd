@@ -12,6 +12,10 @@ const OptionalScript = preload("res://scripts/content/optional_content.gd")
 const CityScript = preload("res://scripts/world/district_life.gd")
 const ContentWorldScript = preload("res://scripts/content/content_world.gd")
 const TouchScript = preload("res://scripts/ui/touch_controls.gd")
+const SystemsScript = preload("res://scripts/systems/district_systems.gd")
+const StreetScript = preload("res://scripts/systems/street_state.gd")
+const UrbanScript = preload("res://scripts/world/urban_detail.gd")
+const ContactShadowScript = preload("res://scripts/world/contact_shadow.gd")
 
 var player: CharacterBody3D
 var missions: Node
@@ -47,9 +51,22 @@ var _web_callback_ref
 var _web_window
 var _web_clock: float = 0
 var base_obstacle_bounds: Array[AABB] = []
+var district_systems: Node
+var street_state: RefCounted
+var urban_detail: Node3D
+var district_environment: WorldEnvironment
+var district_sun: DirectionalLight3D
+var _light_clock: float = 0.0
+var contact_people: Array[Node3D] = []
+var _relocated_save: bool = false
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	street_state = StreetScript.new()
+	street_state.reset()
+	if Engine.has_meta("seven_district_preferences"):
+		street_state.from_dict(Engine.get_meta("seven_district_preferences"))
+		Engine.remove_meta("seven_district_preferences")
 	low_quality = "--low" in OS.get_cmdline_user_args()
 	low_quality = low_quality or OS.has_feature("web")
 	is_test_mode = "--self-test" in OS.get_cmdline_user_args()
@@ -60,6 +77,8 @@ func _ready() -> void:
 	add_child(missions)
 	optional = OptionalScript.new()
 	add_child(optional)
+	district_systems = SystemsScript.new()
+	add_child(district_systems)
 	player = PlayerScript.new()
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 	player.name = "Player"
@@ -79,10 +98,22 @@ func _ready() -> void:
 	content_world = ContentWorldScript.new()
 	add_child(content_world)
 	content_world.setup(self, optional, player)
+	urban_detail = UrbanScript.bootstrap(self)
+	urban_detail.setup(player)
+	_create_contact_people()
 	hud = HUDScript.new()
 	add_child(hud)
 	hud.bind_missions(missions)
 	hud.bind_optional(optional)
+	hud.bind_systems(district_systems,street_state)
+	var all_bounds: Array[AABB] = base_obstacle_bounds.duplicate()
+	all_bounds.append_array(city_life.get_obstacle_bounds())
+	hud.setup_district_map(city_life.get_districts(),all_bounds,{"car":Vector2(car.position.x,car.position.z),"bicycle":Vector2(bicycle.position.x,bicycle.position.z),"mei_shop":Vector2(-58,57),"safe_point":Vector2(-46,42)})
+	hud.supplies_requested.connect(_open_supplies)
+	hud.purchase_requested.connect(_purchase_supply)
+	hud.waypoint_selected.connect(_set_waypoint)
+	hud.waypoint_cleared.connect(func() -> void: street_state.has_waypoint = false)
+	hud.setting_changed.connect(_setting_changed)
 	hud.optional_selected.connect(_start_optional)
 	hud.optional_cancelled.connect(func() -> void: optional.cancel_task(); hud.show_optional_phone())
 	hud.new_game_requested.connect(_new_game)
@@ -97,8 +128,11 @@ func _ready() -> void:
 	touch_controls.camera_step.connect(player.nudge_camera)
 	touch_controls.phone_requested.connect(hud.show_optional_phone)
 	touch_controls.pause_requested.connect(hud.show_pause)
+	touch_controls.map_requested.connect(func() -> void: if play_started: hud.show_district_map())
 	optional.notice.connect(_notice)
-	optional.rewarded.connect(func(_reward: Dictionary) -> void: _notice("街坊委託成果已記錄"))
+	optional.rewarded.connect(_optional_rewarded)
+	district_systems.notice.connect(_notice)
+	district_systems.updated.connect(_refresh_system_stats)
 	missions.updated.connect(_on_mission_updated)
 	missions.mission_completed.connect(_on_mission_completed)
 	missions.chapter_completed.connect(_on_chapter_complete)
@@ -108,6 +142,8 @@ func _ready() -> void:
 		hit_player.stream = load("res://assets/audio/hit.wav")
 		hit_player.volume_db = -10
 	hud.show_title()
+	_refresh_system_stats()
+	_apply_preferences()
 	_setup_web_bridge()
 	if Engine.has_meta("seven_district_autostart"):
 		Engine.remove_meta("seven_district_autostart")
@@ -124,7 +160,7 @@ func _register_inputs() -> void:
 	var keys: Dictionary = {"move_forward": KEY_W, "move_back": KEY_S, "move_left": KEY_A, "move_right": KEY_D,
 		"sprint": KEY_SHIFT, "jump": KEY_SPACE, "brake": KEY_SPACE, "interact": KEY_E, "mount": KEY_F,
 		"cycle_weapon": KEY_Q, "reset_vehicle": KEY_R, "pause": KEY_ESCAPE, "phone": KEY_TAB,
-		"quick_save": KEY_F5, "quick_load": KEY_F9}
+		"quick_save": KEY_F5, "quick_load": KEY_F9, "district_map":KEY_M}
 	for action: String in keys:
 		if not InputMap.has_action(action):
 			InputMap.add_action(action)
@@ -147,6 +183,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("phone") and play_started:
 		hud.show_phone()
 		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("district_map") and play_started:
+		if hud.get_menu_mode()=="map": _resume()
+		else: hud.show_district_map()
+		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("quick_save") and play_started:
 		_save()
 	elif event.is_action_pressed("quick_load"):
@@ -156,10 +196,15 @@ func _process(delta: float) -> void:
 	_update_web_bridge(delta)
 	if optional:
 		optional.set_paused(get_tree().paused)
+	if district_systems and district_systems.paused != get_tree().paused:
+		district_systems.set_paused(get_tree().paused)
 	if not play_started or get_tree().paused:
 		last_frame_time_us = 0
 		return
 	seconds_played += delta
+	street_state.advance(delta)
+	_update_daylight(delta)
+	district_systems.record_walk(player.global_position,delta,player.mounted_vehicle==null,player.is_on_floor())
 	optional.advance_time(delta)
 	content_world.step(delta)
 	var now_us: int = Time.get_ticks_usec()
@@ -177,6 +222,12 @@ func _process(delta: float) -> void:
 	if optional.status == "active":
 		var optional_targets: Array[String] = optional.get_active_target_keys()
 		if not optional_targets.is_empty(): active_target = optional_targets[0]
+	if street_state.has_waypoint:
+		targets["custom_waypoint"] = Vector3(street_state.waypoint.x,0.1,street_state.waypoint.y)
+		active_target = "custom_waypoint"
+		if Vector2(player.position.x,player.position.z).distance_to(street_state.waypoint)<3:
+			street_state.has_waypoint = false
+			_notice("已到達自訂目的地，恢復任務導引")
 	targets["car"] = car.position
 	targets["bicycle"] = bicycle.position
 	for id: String in guards:
@@ -206,6 +257,8 @@ func _process(delta: float) -> void:
 	elif player.get("mounted_vehicle") == bicycle:
 		vehicle_caption = "bicycle"
 	hud.update_status(float(health_value if health_value != null else 100), String(weapon_value if weapon_value != null else "none"), int(ceil(heat)), vehicle_caption, prompt)
+	hud.update_survival(player.stamina,player.maximum_stamina,street_state.time_text(),touch_controls.enabled)
+	hud.update_world_vehicles(Vector2(car.position.x,car.position.z),Vector2(bicycle.position.x,bicycle.position.z))
 	if player.global_position.y < -12 or absf(player.global_position.x) > 150 or absf(player.global_position.z) > 150:
 		player.global_position = Vector3(-56, 0.2, 52)
 		player.velocity = Vector3.ZERO
@@ -213,6 +266,7 @@ func _process(delta: float) -> void:
 
 func _create_lighting() -> void:
 	var world := WorldEnvironment.new()
+	district_environment = world
 	var env := Environment.new()
 	env.background_mode = Environment.BG_SKY
 	var sky := Sky.new()
@@ -233,6 +287,7 @@ func _create_lighting() -> void:
 	world.environment = env
 	add_child(world)
 	var sun := DirectionalLight3D.new()
+	district_sun = sun
 	sun.rotation_degrees = Vector3(-37, -32, 0)
 	sun.light_color = Color(1.0, 0.86, 0.69)
 	sun.light_energy = 0.75
@@ -241,6 +296,12 @@ func _create_lighting() -> void:
 
 func _create_world() -> void:
 	_ground(Vector3(0, -0.16, 0), Vector3(300, 0.30, 300), Color(0.45, 0.49, 0.45))
+	var shop_model: Node3D = _building("urban_shopfront",Vector3(-54,0,65),Vector3(16,8,8))
+	if shop_model: shop_model.rotation.y = PI
+	_ground(Vector3(-55,0.034,47),Vector3(28,0.025,30),Color("85877e"),false)
+	for x: float in [-62.0,-58.8,-55.6,-52.4]:
+		_ground(Vector3(x,0.061,35),Vector3(0.10,0.01,5.5),Color("e5d9af"),false)
+	_ground(Vector3(-57.2,0.061,32.25),Vector3(9.6,0.01,0.10),Color("e5d9af"),false)
 	_ground(Vector3(0, 0.005, 0), Vector3(300, 0.06, 15), Color(0.14, 0.17, 0.19))
 	_ground(Vector3(0, 0.005, 0), Vector3(15, 0.06, 300), Color(0.14, 0.17, 0.19))
 	for z: float in [-76.0, 76.0]:
@@ -268,6 +329,7 @@ func _create_world() -> void:
 		_place("planter", p)
 		_place("bench", p + Vector3(3, 0, 1))
 	_add_object("mei", "美晴車店｜交談", "talk_mei", "desk", Vector3(-52, 0.10, 57), Vector3(1.5, 1.0, 0.8))
+	_add_object("supply_shop", "美晴補給台｜補給與整備", "supply_menu", "desk", Vector3(-58,0.10,57),Vector3(1.5,1.0,0.8))
 	_add_object("phone", "查看失聯訊息", "read_phone", "display", Vector3(-54, 0.10, 59), Vector3(0.5, 1.0, 0.4))
 	_add_object("wrench", "借用扳手", "pickup_wrench", "wrench", Vector3(-48, 0.25, 56), Vector3(0.7, 0.5, 0.4))
 	_add_object("practice_1", "練習目標 A", "practice_hit", "barrier", Vector3(-44, 0.05, 53), Vector3(1, 1.1, 0.4), true)
@@ -323,6 +385,7 @@ func _create_guards() -> void:
 		add_child(guard)
 		guard.target = player
 		guard.setup_visual(_model("guard"))
+		guard.add_child(ContactShadowScript.new())
 		var patrol: Array[Vector3] = [guard.position, guard.position + Vector3(6, 0, 4)]
 		guard.patrol_points = patrol
 		guard.defeated.connect(func() -> void: _event("defeat_guard", guard.name))
@@ -334,9 +397,11 @@ func _create_rescues() -> void:
 	for id: String in positions:
 		var person: CharacterBody3D = RescueScript.new()
 		person.process_mode = Node.PROCESS_MODE_PAUSABLE
-		person.configure(id, _model("civilian"))
+		var characters: Dictionary = {"rescue_A":"civilian_human","rescue_B":"zhou_human","extra_A":"yuan_human","extra_B":"civilian_human"}
+		person.configure(id, _model(characters[id]))
 		add_child(person)
 		person.position = positions[id]
+		person.add_child(ContactShadowScript.new())
 		person.target = player
 		person.safe_arrival.connect(_safe_arrival)
 		people[id] = person
@@ -348,6 +413,9 @@ func _add_object(id: String, caption: String, event: String, model_name: String,
 	object.damage_gate = _can_damage_object
 	add_child(object)
 	object.position = p
+	object.text_label.visibility_range_end = 24.0
+	object.text_label.font_size = 26
+	object.text_label.pixel_size = 0.007
 	object.used.connect(_use_object)
 	object.destroyed.connect(_destroyed_object)
 	object.hit_received.connect(_hit_object)
@@ -375,6 +443,9 @@ func _ground(p: Vector3, size: Vector3, color: Color, solid: bool = true) -> voi
 	add_child(body)
 
 func _model(key: String) -> PackedScene:
+	var aliases: Dictionary = {"hero":"hero_human","guard":"guard_human","civilian":"civilian_human","office_tower_a":"urban_tower_a","office_tower_b":"urban_tower_b","office_tower_c":"urban_tower_c"}
+	var upgraded: String = str(aliases.get(key,key))
+	if ResourceLoader.exists("res://assets/models/%s.glb" % upgraded): key = upgraded
 	var path := "res://assets/models/%s.glb" % key
 	if ResourceLoader.exists(path):
 		return load(path) as PackedScene
@@ -389,10 +460,10 @@ func _place(key: String, p: Vector3) -> Node3D:
 	add_child(model)
 	return model
 
-func _building(key: String, p: Vector3, size: Vector3) -> void:
+func _building(key: String, p: Vector3, size: Vector3) -> Node3D:
 	var model := _place(key, p)
 	if not model:
-		return
+		return null
 	var bounds := _visual_bounds(model)
 	if bounds.size.x > 0.01 and bounds.size.y > 0.01 and bounds.size.z > 0.01:
 		model.scale = size / bounds.size
@@ -405,6 +476,7 @@ func _building(key: String, p: Vector3, size: Vector3) -> void:
 	collision.shape = shape
 	body.add_child(collision)
 	add_child(body)
+	return model
 
 func _visual_bounds(root: Node3D) -> AABB:
 	var bounds := AABB()
@@ -426,7 +498,8 @@ func _marker(text: String, p: Vector3, color: Color) -> void:
 	label.position = p + Vector3(0, 2.5, 0)
 	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	label.font_size = 32
-	label.pixel_size = 0.013
+	label.pixel_size = 0.007
+	label.visibility_range_end = 55.0
 	label.modulate = color
 	if ResourceLoader.exists("res://assets/fonts/SevenDistrictSansTC-Regular.otf"):
 		label.font = load("res://assets/fonts/SevenDistrictSansTC-Regular.otf") as Font
@@ -435,6 +508,7 @@ func _marker(text: String, p: Vector3, color: Color) -> void:
 func _new_game() -> void:
 	if play_started and not is_test_mode:
 		Engine.set_meta("seven_district_autostart", true)
+		Engine.set_meta("seven_district_preferences",street_state.to_dict())
 		get_tree().reload_current_scene()
 		return
 	_resume()
@@ -445,6 +519,10 @@ func _new_game() -> void:
 	for object: StaticBody3D in objects.values():
 		object.restore({})
 	optional.reset()
+	district_systems.reset()
+	street_state.hour = 15.5
+	street_state.has_waypoint = false
+	_apply_preferences()
 	for person: CharacterBody3D in people.values():
 		person.following = false
 		person.arrived = false
@@ -456,6 +534,7 @@ func _new_game() -> void:
 	bicycle.reset()
 	missions.start_campaign()
 	player.global_position = Vector3(-56, 0.2, 52)
+	player.reset_view(PI+atan2(4.0,5.0))
 	player.velocity = Vector3.ZERO
 	checkpoint_state = _snapshot(false)
 
@@ -464,6 +543,140 @@ func _resume() -> void:
 		hud.hide_menus()
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if OS.has_feature("web") or (touch_controls and touch_controls.enabled) else Input.MOUSE_MODE_CAPTURED
+
+func _create_contact_people() -> void:
+	var entries: Array = [
+		["mei_human",Vector3(-51,0.06,59),"美晴｜車店主理人"],
+		["yuan_human",Vector3(-99,0.06,98),"予安｜街區整理者"],
+		["zhou_human",Vector3(-48,0.06,40),"周成｜集合點"]
+	]
+	for entry: Array in entries:
+		var model: Node3D = _place(str(entry[0]),entry[1])
+		if not model: continue
+		model.process_mode = Node.PROCESS_MODE_PAUSABLE
+		if str(entry[0])=="mei_human": model.rotation.y = PI
+		model.add_child(ContactShadowScript.new())
+		contact_people.append(model)
+		var animations: Array[Node] = model.find_children("*","AnimationPlayer",true,false)
+		if not animations.is_empty():
+			var animation: AnimationPlayer = animations[0] as AnimationPlayer
+			for name_value: StringName in animation.get_animation_list():
+				if str(name_value)=="idle" or str(name_value).ends_with("/idle"):
+					animation.get_animation(name_value).loop_mode = Animation.LOOP_LINEAR
+					animation.play(name_value)
+					break
+		var label := Label3D.new()
+		label.text = str(entry[2])
+		label.position.y = 1.97
+		label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		label.font = load("res://assets/fonts/SevenDistrictSansTC-Regular.otf") as Font
+		label.font_size = 21
+		label.pixel_size = 0.008
+		label.modulate = Color("dfd4ac")
+		model.add_child(label)
+
+func _is_near_supply_shop() -> bool:
+	return play_started and player.global_position.distance_to(Vector3(-58,0.1,57))<=6.0 and player.mounted_vehicle==null
+
+func _open_supplies() -> void:
+	if play_started: hud.show_systems(_is_near_supply_shop())
+
+func _purchase_supply(id: String) -> void:
+	if not _is_near_supply_shop():
+		_notice("到美晴車店補給台附近，先下車再購買")
+		hud.show_systems(false)
+		return
+	var result: Dictionary = district_systems.purchase(id,player.health)
+	if result.get("ok",false):
+		var effects: Dictionary = result["effects"]
+		if effects.has("health_after"): player.heal(float(effects["health_after"])-player.health)
+		_refresh_system_stats()
+	hud.show_systems(true)
+
+func _refresh_system_stats() -> void:
+	if not district_systems or not player or not bicycle: return
+	var stats: Dictionary = district_systems.get_stats()
+	player.maximum_stamina = float(stats["max_stamina"])
+	player.stamina = minf(player.stamina,player.maximum_stamina)
+	player.tool_damage_multiplier = float(stats["tool_damage_multiplier"])
+	bicycle.acceleration_multiplier = float(stats["bike_accel_multiplier"])
+
+func _optional_rewarded(reward: Dictionary) -> void:
+	if not freeze_events and reward.get("first_completion",false):
+		var task_id: String = str(reward.get("task_id",""))
+		district_systems.record_action("side_completed",task_id,"optional:"+task_id)
+	_notice("街坊委託成果已記錄")
+
+func _set_waypoint(point: Vector2) -> void:
+	if not play_started or not point.is_finite(): return
+	var safe_position: Vector3 = content_world._safe_location(Vector3(point.x,0.12,point.y))
+	if street_state.set_waypoint(Vector2(safe_position.x,safe_position.z)):
+		_notice("已標示目的地；青色方向線提供導引")
+
+func _safe_saved_position(point: Vector3) -> Vector3:
+	var capsule := CapsuleShape3D.new()
+	capsule.radius = 0.4
+	capsule.height = 1.85
+	for offset: Vector3 in [Vector3.ZERO,Vector3(0,0,-6),Vector3(6,0,-6),Vector3(-6,0,-6),Vector3(0,0,6),Vector3(10,0,0),Vector3(-10,0,0)]:
+		var candidate: Vector3 = content_world._safe_location(point+offset)
+		candidate.y = maxf(candidate.y,0.08)
+		var query := PhysicsShapeQueryParameters3D.new()
+		query.shape = capsule
+		query.transform = Transform3D(Basis.IDENTITY,candidate+Vector3.UP*0.98)
+		query.collision_mask = 3
+		query.exclude = [player.get_rid()]
+		if get_world_3d().direct_space_state.intersect_shape(query,4).is_empty(): return candidate
+	return Vector3(-56,0.2,52)
+
+func _setting_changed(key: String, value: String) -> void:
+	match key:
+		"quality":
+			if value in StreetScript.QUALITIES: street_state.quality = value
+		"difficulty":
+			if value in StreetScript.DIFFICULTIES: street_state.difficulty = value
+		"sensitivity":
+			if value in ["0.7","1.0","1.4"]: street_state.sensitivity = float(value)
+		"muted":
+			if value in ["off","on"]: street_state.muted = value=="on"
+		"cycle":
+			if value in ["off","on"]: street_state.cycle_enabled = value=="on"
+		"hour":
+			if value in ["10.0","17.5","21.0"]: street_state.hour = float(value)
+	_apply_preferences()
+
+func _apply_preferences() -> void:
+	if not player or not district_sun: return
+	player.mouse_sensitivity = 0.003 * street_state.sensitivity
+	player.incoming_damage_multiplier = 0.65 if street_state.difficulty=="relaxed" else 1.0
+	for guard: CharacterBody3D in guards.values():
+		guard.detection_range = 11.0 if street_state.difficulty=="relaxed" else 14.0
+		guard.chase_speed = 2.5 if street_state.difficulty=="relaxed" else 3.2
+	district_sun.shadow_enabled = street_state.quality=="quality" and not ("--low" in OS.get_cmdline_user_args())
+	if urban_detail:
+		for material: StandardMaterial3D in urban_detail._materials.values():
+			material.normal_enabled = street_state.quality!="performance" and material.normal_texture!=null
+			material.ao_enabled = street_state.quality!="performance" and material.ao_texture!=null
+	AudioServer.set_bus_mute(0,street_state.muted)
+	_update_daylight(1.0)
+
+func _update_daylight(delta: float) -> void:
+	_light_clock += delta
+	if _light_clock < 0.2 or not district_environment: return
+	_light_clock = 0
+	var daylight: float = street_state.daylight()
+	var dusk: float = 1.0-clampf(absf(street_state.hour-17.5)/1.8,0,1)
+	var env: Environment = district_environment.environment
+	district_sun.rotation_degrees = Vector3(-(street_state.hour-6.0)*15.0,-32,0)
+	if daylight<=0.01: district_sun.rotation_degrees = Vector3(-45,35,0)
+	district_sun.light_energy = lerpf(0.13,1.0,daylight)
+	district_sun.light_color = Color(0.75,0.82,1.0).lerp(Color(1.0,0.96,0.87),daylight).lerp(Color(1.0,0.61,0.35),dusk*0.6)
+	env.ambient_light_energy = lerpf(0.55,0.8,daylight)
+	env.ambient_light_color = Color("9faecb").lerp(Color("c2ccd2"),daylight)
+	env.fog_light_color = Color("2e394e").lerp(Color("b2c3c9"),daylight).lerp(Color("c99b78"),dusk*0.25)
+	env.fog_density = 0.0006 if street_state.quality=="performance" else 0.0010
+	var sky_material: ProceduralSkyMaterial = env.sky.sky_material as ProceduralSkyMaterial
+	sky_material.sky_top_color = Color("121d35").lerp(Color("789db5"),daylight)
+	sky_material.sky_horizon_color = Color("44516a").lerp(Color("d3d8d5"),daylight).lerp(Color("dbb292"),dusk*0.4)
 
 func _start_optional(id: String) -> void:
 	if not play_started:
@@ -492,6 +705,10 @@ func _web_command(arguments: Array) -> void:
 			if play_started: hud.show_pause()
 		"phone":
 			if play_started: hud.show_optional_phone()
+		"map":
+			if play_started: hud.show_district_map()
+		"supplies": _open_supplies()
+		"settings": hud.show_settings()
 		"resume":
 			if play_started: _resume()
 		"save": _save()
@@ -518,6 +735,13 @@ func _emit_web_state() -> void:
 	if _web_window == null or not hud or not optional: return
 	var state = JavaScriptBridge.create_object("Object")
 	state.phase = "title" if not play_started else ("menu" if get_tree().paused else "playing")
+	state.play_started = play_started
+	state.stamina = player.stamina
+	state.max_stamina = player.maximum_stamina
+	state.credits = district_systems.credits
+	state.rank = str(district_systems.get_status()["rank_name"])
+	state.time = street_state.time_text()
+	state.navigation = "自訂目的地" if street_state.has_waypoint else "任務導引"
 	state.main_title = missions.get_current_title()
 	state.objective = missions.get_objective_text()
 	state.optional_title = optional.get_active_title()
@@ -602,6 +826,9 @@ func _interact() -> void:
 				person.label.text = "受困者｜正在跟隨"
 
 func _use_object(id: String) -> void:
+	if id=="supply_shop":
+		_open_supplies()
+		return
 	var object: StaticBody3D = objects[id]
 	if content_world.use_object(id):
 		return
@@ -655,6 +882,8 @@ func _can_damage_object(id: String) -> bool:
 	return true
 
 func _destroyed_object(id: String) -> void:
+	if not freeze_events and not get_tree().paused and objects.has(id) and objects[id].broken:
+		district_systems.record_action("destroy",id,"destroy:"+id)
 	heat = minf(5, heat + 1)
 	if id.begins_with("SIDE_"):
 		content_world.accept("disable_sign", id)
@@ -740,6 +969,10 @@ func _snapshot(include_checkpoint: bool = true) -> Dictionary:
 	result["guards"] = guard_states
 	result["optional"] = optional.to_dict()
 	result["city_life"] = city_life.to_dict()
+	result["district_systems"] = district_systems.to_dict()
+	result["street_state"] = street_state.to_dict()
+	result["player"]["stamina"] = player.stamina
+	result["player"]["camera_yaw"] = player.get_view_yaw()
 	if include_checkpoint:
 		result["checkpoint"] = checkpoint_state.duplicate(true)
 	return result
@@ -782,7 +1015,7 @@ func _load(slot: int = 1) -> void:
 			reset_objects["practice_2"] = {"health": 35.0, "broken": false, "collected": false}
 	play_started = true
 	_resume()
-	_notice("已讀取進度")
+	_notice("已讀取進度；原位置新增店面，已移到附近人行空間" if _relocated_save else "已讀取進度")
 
 func _valid_world_save(data: Dictionary) -> bool:
 	if data.get("schema_version") != 1:
@@ -791,6 +1024,8 @@ func _valid_world_save(data: Dictionary) -> bool:
 		if not data.get(key) is Dictionary:
 			return false
 	var player_data: Dictionary = data["player"]
+	if player_data.has("stamina") and not _valid_number(player_data["stamina"],0,120): return false
+	if player_data.has("camera_yaw") and not _valid_number(player_data["camera_yaw"],-10000,10000): return false
 	if not _valid_vector_data(player_data.get("position")) or not _valid_number(player_data.get("health"), 0, 100):
 		return false
 	if not _valid_number(player_data.get("pulse_energy", 12), 0, 12):
@@ -850,6 +1085,16 @@ func _valid_world_save(data: Dictionary) -> bool:
 		if not valid: return false
 	if data.has("city_life"):
 		if not data["city_life"] is Dictionary or not _valid_number(data["city_life"].get("clock", 0), 0, 100000000): return false
+	if data.has("district_systems"):
+		if not data["district_systems"] is Dictionary: return false
+		var system_probe := SystemsScript.new()
+		var system_valid: bool = system_probe.from_dict(data["district_systems"])
+		system_probe.free()
+		if not system_valid: return false
+	if data.has("street_state"):
+		if not data["street_state"] is Dictionary: return false
+		var street_probe := StreetScript.new()
+		if not street_probe.from_dict(data["street_state"]): return false
 	return true
 
 func _valid_number(value: Variant, minimum: float, maximum: float) -> bool:
@@ -875,7 +1120,13 @@ func _restore(data: Dictionary) -> bool:
 	bicycle.force_release()
 	var p_data: Dictionary = data.get("player", {})
 	player.position = _from_vec(p_data.get("position"), Vector3(-56, 0.2, 52))
+	_relocated_save = false
+	var shop_bounds := AABB(Vector3(-62,0,61),Vector3(16,8,8)).grow(0.5)
+	if p_data.get("vehicle","")=="" and shop_bounds.has_point(player.position+Vector3.UP):
+		player.position = _safe_saved_position(player.position)
+		_relocated_save = true
 	player.velocity = Vector3.ZERO
+	player.reset_view(float(p_data.get("camera_yaw",PI+atan2(4.0,5.0))))
 	player.set("health", float(p_data.get("health", 100)))
 	var inventory_data: Dictionary = p_data.get("inventory", {})
 	player.clear_inventory()
@@ -915,12 +1166,22 @@ func _restore(data: Dictionary) -> bool:
 	if data.has("optional"): optional.from_dict(data["optional"])
 	else: optional.reset()
 	if data.has("city_life"): city_life.from_dict(data["city_life"])
+	if data.has("district_systems"): district_systems.from_dict(data["district_systems"])
+	else: district_systems.reset()
+	if data.has("street_state"): street_state.from_dict(data["street_state"])
+	else: street_state.reset()
+	_refresh_system_stats()
+	player.set_stamina(float(p_data.get("stamina",player.maximum_stamina)))
+	district_systems.reset_walk_sample()
+	_apply_preferences()
 	freeze_events = false
 	return true
 
 func _retry() -> void:
 	_resume()
 	var keep_optional: Dictionary = optional.to_dict()
+	var keep_systems: Dictionary = district_systems.to_dict()
+	var keep_street: Dictionary = street_state.to_dict()
 	var keep_optional_objects: Dictionary = {}
 	for id: String in objects:
 		if id.begins_with("SIDE_") or id.begins_with("ACT_"):
@@ -930,6 +1191,8 @@ func _retry() -> void:
 		var rollback := checkpoint_state.duplicate(true)
 		rollback["missions"] = missions.to_dict()
 		rollback["optional"] = keep_optional
+		rollback["district_systems"] = keep_systems
+		rollback["street_state"] = keep_street
 		for id: String in keep_optional_objects: rollback["objects"][id] = keep_optional_objects[id]
 		_restore(rollback)
 	car.force_release()
@@ -942,6 +1205,7 @@ func _retry() -> void:
 		bicycle.position = retry_position + Vector3(1, 0, 0)
 	player.position = retry_position
 	player.velocity = Vector3.ZERO
+	district_systems.reset_walk_sample()
 	_notice("已回到本段檢查點")
 
 func _capture(path: String) -> void:

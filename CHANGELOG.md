@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.0 — Character, street and gameplay systems update
+
+Published: https://seven-district-reckoning.digimkt.workers.dev.
+
+- Six new human-proportioned characters for the hero, guard, pedestrian, Mei, Yu-an and Zhou. MakeHuman CC0 base meshes, 53-bone rigs and eight movement/action clips are included with editable Blender sources; facial performance and close-up realism remain future work.
+- Six new urban assets: three office towers, a shopfront, sidewalk and bench. Floor modules, entrance details, original PBR street materials, crossings, markings and drainage detail improve the existing fictional 300 × 300 m district. This is not a GIS reconstruction of Taichung.
+- Sprint stamina and four shop offers: healing, a stamina-cap upgrade, tool-damage improvement and bicycle acceleration tuning. Purchases require proximity to the bike shop and use a separate district-credit ledger.
+- Three grant-once district challenges track actual walking distance, distinct side-quest completions and distinct legal tool targets. Vehicle travel, respawn jumps, repeated rewards, civilians and evidence do not count toward the corresponding challenges.
+- A destination map, navigation marker, day/night cycle, quality/difficulty presets, camera sensitivity and sound settings. Map clicks set guidance without teleporting. Settings and district progression are saved, with Alpha 0.1/0.2 save compatibility retained.
+- Website controls for the map, supplies/challenges and settings, plus a read-only resource summary. Browsers without native fullscreen can expand the game within the page; native rejection and synchronous API errors use the same fallback.
+- 1,381 reported engine/gameplay/GUI checks pass, with the complete run and later UI increments documented separately. Character source/GLB validation passes 192 checks, urban assets 121 checks, and public HTTP/package integrity 32 checks. Actual Chrome startup, legacy-save loading, map navigation, night setting, supplies and landscape controls are verified. Real phone hardware and a full human campaign playthrough remain outside this evidence.
+
 ## 0.2.0 — Browser play and district expansion
 
 Published: https://seven-district-reckoning.digimkt.workers.dev.

@@ -1,0 +1,261 @@
+{
+  "version": "0.3.0",
+  "url": "https://seven-district-reckoning.digimkt.workers.dev",
+  "verified_at": "2026-10-03T05:53:51.295Z",
+  "status": "PASS",
+  "checks": [
+    {
+      "file": "404.html",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 1257,
+      "content_type": "text/html",
+      "content_encoding": "br"
+    },
+    {
+      "file": "CREDITS.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 3744,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "favicon.svg",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 363,
+      "content_type": "image/svg+xml",
+      "content_encoding": "br"
+    },
+    {
+      "file": "game.apple-touch-icon.png",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 10556,
+      "content_type": "image/png",
+      "content_encoding": null
+    },
+    {
+      "file": "game.audio.position.worklet.js",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 2973,
+      "content_type": "text/javascript",
+      "content_encoding": "br"
+    },
+    {
+      "file": "game.audio.worklet.js",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 7298,
+      "content_type": "text/javascript",
+      "content_encoding": "br"
+    },
+    {
+      "file": "game.html",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 9670,
+      "content_type": "text/html",
+      "content_encoding": "br"
+    },
+    {
+      "file": "game.icon.png",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 11423,
+      "content_type": "image/png",
+      "content_encoding": null
+    },
+    {
+      "file": "game.js",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 279815,
+      "content_type": "text/javascript",
+      "content_encoding": "br"
+    },
+    {
+      "file": "game.pck",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 7123364,
+      "content_type": "application/octet-stream",
+      "content_encoding": null
+    },
+    {
+      "file": "game.png",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 21443,
+      "content_type": "image/png",
+      "content_encoding": null
+    },
+    {
+      "file": "game.wasm.br",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 39514754,
+      "content_type": "application/wasm",
+      "content_encoding": "br"
+    },
+    {
+      "file": "index.html",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 9670,
+      "content_type": "text/html",
+      "content_encoding": "br"
+    },
+    {
+      "file": "LICENSE-ASSETS.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 2210,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "LICENSE.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 1101,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "play-site.css",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 15012,
+      "content_type": "text/css",
+      "content_encoding": "br"
+    },
+    {
+      "file": "play-site.js",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 18464,
+      "content_type": "text/javascript",
+      "content_encoding": "br"
+    },
+    {
+      "file": "robots.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 23,
+      "content_type": "text/plain",
+      "content_encoding": null
+    },
+    {
+      "file": "licenses/car-kit-License.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 696,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/CC-BY-3.0.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 19467,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/city-kit-commercial-License.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 708,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/city-kit-roads-License.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 703,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/furniture-kit-License.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 614,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/Godot-COPYRIGHT.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 100108,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/Godot-LICENSE.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 1149,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/MakeHuman-ASSETS-CC0.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 6962,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/MakeHuman-source-notice.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 2610,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/mini-characters-License.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 718,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/nature-kit-License.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 611,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/OFL.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 4301,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/urban-CC0.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 876,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "404 route",
+      "status": 404,
+      "passed": true
+    }
+  ]
+}

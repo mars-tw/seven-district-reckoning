@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "release": "Alpha 0.3 urban art lane",
+  "authored_assets_license": "CC0-1.0",
+  "code_license": "MIT",
+  "dedication": "assets/provenance/v03-urban-CC0.txt",
+  "generator": "tools/blender/build_urban_assets.py",
+  "asset_manifest": "qa/art/urban/urban-manifest.json",
+  "source_directory": "assets/source/blender/urban",
+  "runtime_module": "godot/scripts/world/urban_detail.gd",
+  "references": [
+    {
+      "url": "https://www.taichung.gov.tw/107641/post",
+      "publisher": "Taichung City Construction Bureau",
+      "use": "Factual environment research: Qiqi commercial/civic core, connected public green spaces and separated pedestrian/vehicle movement.",
+      "redistributed_media": false
+    },
+    {
+      "url": "https://www.taichung.gov.tw/989607/post",
+      "publisher": "Taichung City Government",
+      "use": "Factual research: connected greenways, bicycle routes and pedestrian space. The authored 3.2 m sidewalk kit is a game design choice, not a site measurement.",
+      "redistributed_media": false
+    },
+    {
+      "url": "https://tcrt.taichung.gov.tw/content/index?Parser=1,7,49",
+      "publisher": "Taichung Mass Rapid Transit Bureau",
+      "use": "Factual research: civic-center station and commercial frontage context. The Alpha station is fictional.",
+      "redistributed_media": false
+    }
+  ],
+  "asset_policy": {
+    "original_geometry": true,
+    "original_deterministic_PBR_pixels": true,
+    "external_images_imported": false,
+    "commercial_brands": false,
+    "GTA_assets": false,
+    "Google_Street_View_assets": false,
+    "surveyed_GIS_map": false
+  },
+  "nominal_metric_scale": {
+    "office_floor_m": 3.6,
+    "lobby_door_height_m": 3.1,
+    "sidewalk_width_m": 3.2,
+    "bench_seat_height_m": 0.46,
+    "note": "Current existing Alpha building envelopes rescale reusable templates. This is an authored environment inspired by Qiqi, not a reproduction of real addresses."
+  }
+}

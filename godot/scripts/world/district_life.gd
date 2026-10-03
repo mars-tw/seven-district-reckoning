@@ -118,7 +118,10 @@ func is_walkable(p: Vector3, radius: float = 0.45) -> bool:
 
 func _scene(key: String) -> PackedScene:
 	if not _scenes.has(key):
-		var path: String = MODEL_DIR + key + ".glb"
+		var aliases: Dictionary = {"civilian":"civilian_human","hero":"hero_human","office_tower_a":"urban_tower_a","office_tower_b":"urban_tower_b","office_tower_c":"urban_tower_c"}
+		var upgraded: String = str(aliases.get(key,key))
+		var path: String = MODEL_DIR + upgraded + ".glb"
+		if not ResourceLoader.exists(path): path = MODEL_DIR + key + ".glb"
 		if not ResourceLoader.exists(path):
 			if not _missing_assets.has(key):
 				_missing_assets.append(key)
@@ -168,6 +171,7 @@ func _create_building(spec: Dictionary) -> void:
 	var p: Vector3 = _v3(spec["position"])
 	var size_value: Vector3 = _v3(spec["size"])
 	var key: String = str(spec["asset"])
+	if size_value.y < 12.0: key = "urban_shopfront"
 	var model: Node3D = _place(key, p, 0.0, Vector3.ONE, 280.0)
 	if model == null:
 		return
@@ -175,6 +179,7 @@ func _create_building(spec: Dictionary) -> void:
 		_bounds_cache[key] = _visual_bounds(model)
 	var bounds: AABB = _bounds_cache[key]
 	model.scale = size_value / bounds.size
+	if key=="urban_shopfront": model.scale.y = 1.0
 	# Ground and centre the imported geometry, including its existing awning.
 	model.position = p - Vector3(bounds.get_center().x * model.scale.x, bounds.position.y * model.scale.y, bounds.get_center().z * model.scale.z)
 	var body := StaticBody3D.new()

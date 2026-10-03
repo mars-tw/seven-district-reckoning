@@ -1,5 +1,6 @@
-"""Import a clean isolated project and validate every baseline/Alpha 0.2 suite."""
+"""Import a clean isolated project and validate every baseline/Alpha 0.3 suite."""
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -18,6 +19,9 @@ SUITES = [
     ("optional_content.gd", "Optional content: "),
     ("district_life.gd", "CITY_LIFE_RESULT "),
     ("v02_integration.gd", "V02_INTEGRATION_RESULT "),
+    ("district_systems.gd", "DISTRICT_SYSTEMS_RESULT "),
+    ("v03_integration.gd", "V03_INTEGRATION_RESULT "),
+    ("urban_detail.gd", "URBAN_SUMMARY "),
 ]
 
 
@@ -42,6 +46,13 @@ def summary(output, marker):
         if not isinstance(data, list) or not data:
             raise ValueError("Missing gameplay integration groups")
         return len(data), 0
+    if marker == "URBAN_SUMMARY ":
+        if not isinstance(data, dict):
+            raise ValueError("Malformed urban-detail summary")
+        passed, failed = data.get("passed"), data.get("failed")
+        if any(not isinstance(value, int) or isinstance(value, bool) or value < 0 for value in (passed, failed)):
+            raise ValueError("Invalid urban-detail check counts")
+        return passed + failed, failed
     if not isinstance(data, dict) or not isinstance(data.get("failures"), list):
         raise ValueError("Malformed structured suite summary")
     passed = data.get("passed_count", len(data.get("passed", [])))
@@ -56,8 +67,8 @@ def save_slots(sandbox):
     slots = []
     for path in paths:
         match = re.fullmatch(r"save(\d+)\.json(?:\.bak|\.tmp)?", path.name)
-        if not match or not 94 <= int(match[1]) <= 98:
-            raise ValueError(f"Unexpected save outside test slots 94-98: {path.name}")
+        if not match or not 93 <= int(match[1]) <= 98:
+            raise ValueError(f"Unexpected save outside test slots 93-98: {path.name}")
         slots.append(path.name)
     return sorted(set(slots))
 
@@ -73,10 +84,29 @@ def disable_parallel_import(text):
     return text.rstrip("\r\n") + "\n\n[editor]\n" + setting + "\n"
 
 
+def source_fingerprint(project):
+    """Identify the tested source/config and fixtures, excluding generated import caches."""
+    files = [("godot/" + path.relative_to(project).as_posix(), path)
+             for path in project.rglob("*")
+             if path.is_file() and ".godot" not in path.relative_to(project).parts
+             and (path.suffix in {".gd", ".gdshader", ".gdshaderinc", ".json", ".tscn", ".cfg"}
+                  or path.name == "project.godot")]
+    files.extend(("tests/" + path.relative_to(ROOT / "tests").as_posix(), path)
+                 for path in (ROOT / "tests").rglob("*.gd"))
+    digest = hashlib.sha256()
+    for label, path in sorted(files):
+        digest.update(label.encode("utf-8") + b"\0")
+        digest.update(hashlib.sha256(path.read_bytes()).digest())
+    return {"algorithm": "sha256", "scope": "Godot source/config and GDScript fixtures; excludes binary art/import caches",
+            "file_count": len(files), "digest": digest.hexdigest()}
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--godot", default=os.environ.get("GODOT_BIN", "godot"))
     parser.add_argument("--import-only", action="store_true")
+    parser.add_argument("--suite", action="append", choices=["gameplay_integration"] + [Path(name).stem for name, _ in SUITES],
+                        help="Run selected suites after a clean import; repeat to select more than one")
     args = parser.parse_args()
     if sys.platform != "win32" and not sys.platform.startswith("linux"):
         parser.error("Isolated test user-data is supported on Windows and Linux")
@@ -86,6 +116,7 @@ def main():
         project = sandbox / "godot"
         # A clean source snapshot avoids racing the working project's editor/export cache.
         shutil.copytree(ROOT / "godot", project, ignore=shutil.ignore_patterns(".godot"))
+        fingerprint = source_fingerprint(project)
         project_settings = project / "project.godot"
         project_settings.write_text(disable_parallel_import(project_settings.read_text(encoding="utf-8")), encoding="utf-8")
         child_env = os.environ.copy()
@@ -96,8 +127,11 @@ def main():
         base = [args.godot, "--headless", "--language", "en", "--path", str(project)]
         commands = [("godot_import_parse", base + ["--editor", "--import", "--quit"], None)]
         if not args.import_only:
-            commands.append(("gameplay_integration", base + ["--quit-after", "900", "--", "--self-test"], "INTEGRATION_PASS "))
-            commands.extend((Path(name).stem, base + ["--script", str(ROOT / "tests" / name)], marker) for name, marker in SUITES)
+            selected = set(args.suite) if args.suite else None
+            if selected is None or "gameplay_integration" in selected:
+                commands.append(("gameplay_integration", base + ["--quit-after", "900", "--", "--self-test"], "INTEGRATION_PASS "))
+            commands.extend((Path(name).stem, base + ["--script", str(ROOT / "tests" / name)], marker)
+                            for name, marker in SUITES if selected is None or Path(name).stem in selected)
         for label, cmd, marker in commands:
             errors = []
             check_count = 0
@@ -134,6 +168,7 @@ def main():
                 cleaned = cleaned.replace(args.godot, "<godot>").replace(Path(args.godot).as_posix(), "<godot>")
             command = ["<godot>"] + [arg.replace(str(ROOT), "<repository-root>").replace(str(sandbox), "<isolated-run>") for arg in cmd[1:]]
             entry = {"check": label, "status": "FAIL" if errors else "PASS", "returncode": returncode,
+                     "source_fingerprint": fingerprint,
                      "reported_checks": check_count, "reported_failures": failure_count,
                      "command": command, "test_slot_files": slots, "errors": errors, "output": cleaned[-16000:]}
             results.append(entry)
@@ -144,7 +179,8 @@ def main():
             if label == "godot_import_parse" and errors:
                 break
     (ROOT / "qa").mkdir(exist_ok=True)
-    (ROOT / "qa/engine-checks.json").write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    report_path = ROOT / ("qa/engine-checks-incremental.json" if args.suite else "qa/engine-checks.json")
+    report_path.write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if len(results) != len(commands) or any(item["status"] != "PASS" for item in results):
         return 1
     total = sum(item["reported_checks"] for item in results)

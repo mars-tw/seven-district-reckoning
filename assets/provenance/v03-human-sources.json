@@ -1,0 +1,79 @@
+{
+  "upstream_revision": "afb9f530a7c2741dedb8df0ebae2e0b183caec21",
+  "license": "CC0-1.0",
+  "license_url": "https://static.makehumancommunity.org/about/license.html",
+  "files": [
+    {
+      "path": "assets/source/makehuman/LICENSE.ASSETS.md",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/mpfb2/afb9f530a7c2741dedb8df0ebae2e0b183caec21/LICENSE.ASSETS.md",
+      "bytes": 6962,
+      "sha256": "f6089cba01cb570a24712b41ab8a586ccd3cc5ef53dc266ca50b95c288956d2c"
+    },
+    {
+      "path": "assets/source/makehuman/LICENSE.md",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/mpfb2/afb9f530a7c2741dedb8df0ebae2e0b183caec21/LICENSE.md",
+      "bytes": 3188,
+      "sha256": "5cefb60680cb9efd4550a2e65d719021cfbec9dad3658481d11d48ae863ce04d"
+    },
+    {
+      "path": "assets/source/makehuman/base.obj",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/mpfb2/afb9f530a7c2741dedb8df0ebae2e0b183caec21/src/mpfb/data/3dobjs/base.obj",
+      "bytes": 1749303,
+      "sha256": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c"
+    },
+    {
+      "path": "assets/source/makehuman/rig.game_engine.json",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/mpfb2/afb9f530a7c2741dedb8df0ebae2e0b183caec21/src/mpfb/data/rigs/standard/rig.game_engine.json",
+      "bytes": 40936,
+      "sha256": "b324ddb4b707721c19630bfadb87c3e3b38eed3b6e4590bb3cead43ea918f799"
+    },
+    {
+      "path": "assets/source/makehuman/weights.game_engine.json",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/mpfb2/afb9f530a7c2741dedb8df0ebae2e0b183caec21/src/mpfb/data/rigs/standard/weights.game_engine.json",
+      "bytes": 3026778,
+      "sha256": "9f4a773e74ce5ba08415b4f30070338e9f75bae5971b5075b10cd6b9caa58473"
+    },
+    {
+      "path": "assets/source/makehuman/asian-male-young.target.gz",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/mpfb2/afb9f530a7c2741dedb8df0ebae2e0b183caec21/src/mpfb/data/targets/macrodetails/asian-male-young.target.gz",
+      "bytes": 130005,
+      "sha256": "0928ed8b9f08f60afb9884cf9e9f33a939ed3a85d7f136de9ccc88a76981d6d7"
+    },
+    {
+      "path": "assets/source/makehuman/asian-female-young.target.gz",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/mpfb2/afb9f530a7c2741dedb8df0ebae2e0b183caec21/src/mpfb/data/targets/macrodetails/asian-female-young.target.gz",
+      "bytes": 135687,
+      "sha256": "ee17da733288434e5b6fa120497f1fa6e72bf7faad5d694b0431d7275139170d"
+    },
+    {
+      "path": "assets/source/makehuman/universal-male-young-averagemuscle-averageweight.target.gz",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/mpfb2/afb9f530a7c2741dedb8df0ebae2e0b183caec21/src/mpfb/data/targets/macrodetails/universal-male-young-averagemuscle-averageweight.target.gz",
+      "bytes": 76,
+      "sha256": "e814651195c53971503d9823d6841216718a561951ef064f81d132297f4fa494"
+    },
+    {
+      "path": "assets/source/makehuman/universal-female-young-averagemuscle-averageweight.target.gz",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/mpfb2/afb9f530a7c2741dedb8df0ebae2e0b183caec21/src/mpfb/data/targets/macrodetails/universal-female-young-averagemuscle-averageweight.target.gz",
+      "bytes": 78,
+      "sha256": "30046c85a461249824548d5319d74c16392842a1ee00ca9a4485ea3eeb06e2e8"
+    },
+    {
+      "path": "assets/source/makehuman/male-young-averagemuscle-averageweight-idealproportions.target.gz",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/mpfb2/afb9f530a7c2741dedb8df0ebae2e0b183caec21/src/mpfb/data/targets/macrodetails/proportions/male-young-averagemuscle-averageweight-idealproportions.target.gz",
+      "bytes": 39334,
+      "sha256": "b6cccc61b5f5af2e7c668b0a18013e5f3fa8ff082bf8513dcb9578c41275baeb"
+    },
+    {
+      "path": "assets/source/makehuman/female-young-averagemuscle-averageweight-idealproportions.target.gz",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/mpfb2/afb9f530a7c2741dedb8df0ebae2e0b183caec21/src/mpfb/data/targets/macrodetails/proportions/female-young-averagemuscle-averageweight-idealproportions.target.gz",
+      "bytes": 90112,
+      "sha256": "e23ce571fde4469264a520c5631f19b8a75f20a2bb0a56d315ca7fbeb683d19f"
+    },
+    {
+      "path": "assets/source/makehuman/asian-male-old.target.gz",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/mpfb2/afb9f530a7c2741dedb8df0ebae2e0b183caec21/src/mpfb/data/targets/macrodetails/asian-male-old.target.gz",
+      "bytes": 130281,
+      "sha256": "8f931e96529904375a442c77be0c31d60ace6c0461645ed7ab1a43a3c378a247"
+    }
+  ]
+}
