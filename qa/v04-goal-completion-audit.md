@@ -2,9 +2,9 @@
 
 日期：2026 年 10 月 5 日。目標為大量台灣文化、街景與活動研究，完成手機／平板／電腦獨立優化，擴建地圖與人物支線，包含美食外送、便利商店與蝦皮取貨送貨。
 
-結論：**目標的內容與原生／公開網頁功能已成立；只剩開源發行狀態待核對。** 先前文化活動只有配送背景、人物只有色變、Root 只測少數工作、短屏控件超出 clip、部分來源日期／摘要欠支持等缺口，均已有實際修改與重驗。不是把目標改成較小的發布快照，也沒有把未做實機 benchmark 當作額外必達條件。
+結論：**完整目標已達成，所有功能及公開／開源發行列均已核對通過。** 先前文化活動只有配送背景、人物只有色變、Root 只測少數工作、短屏控件超出 clip、部分來源日期／摘要欠支持等缺口，均已有實際修改與重驗。不是把目標改成較小的發布快照，也沒有把未做實機 benchmark 當作額外必達條件。
 
-本次獨立上下文實際閱讀來源與凍結程式、檢查結果與 artifact、開啟 Native／公開截圖；沒有代替根工單操作公開瀏覽器，也不把原生測試聲稱為實機或全瀏覽器旅程。[逐項驗收](../docs/goal-taiwan-life-acceptance.md)目前只有 R12b PENDING。
+本次獨立上下文實際閱讀來源與凍結程式、檢查結果與 artifact、開啟 Native／公開截圖；沒有代替根工單操作公開瀏覽器，也不把原生測試聲稱為實機或全瀏覽器旅程。[逐項驗收](../docs/goal-taiwan-life-acceptance.md)已無 PENDING；實機 benchmark 的未測範圍維持明示，不擴大完成宣稱。
 
 ## 台灣來源、街景與活動
 
@@ -74,15 +74,23 @@ Native Root 驗 renderer、LOD、視距、音訊、背景預算、各尺寸版�
 
 正式完整結果為 import 加 17 suite，全 18 筆 PASS、**8,561 項／0 FAIL**，共同來源指紋 63 檔、`29c6c8c86b9c5a5950aac72dead196725defe8d35ccd18dd73892c27c5ef22d8`。先前 6,479／`b55...` 是全路線 fixture 增補前的凍結結果；改的是測試覆蓋，Production／Web PCK／Windows 包沒有更動。二進位／美術另有 hash 與 renderer 證據，不聲稱此文字指紋覆蓋 Blender。
 
-公開 PCK SHA-256 `a344c3b5b9afa1adf99c7120f4bb11b8b51319b16b4a3af614d3823f2355c425`；Windows ZIP SHA-256 `1147f74e08618c7b6d0cc2392ed065607d21cbab11748395044bf89618c08943`。[原生包報告](v04-windows-export.md)有 0.4.0.0 PE、722 resources、授權／CRC 與安靜 5 幀 startup；它不冒稱真人 Windows 遊玩。
+公開 PCK SHA-256 `a344c3b5b9afa1adf99c7120f4bb11b8b51319b16b4a3af614d3823f2355c425`；Windows ZIP SHA-256 `a1d0110f0a277bc880395764b25eba1f75c78a7abcd9dc9609104401f3397c78`。[原生包報告](v04-windows-export.md)有 0.4.0.0 PE、722 resources、授權／CRC 與安靜 5 幀 startup；它不冒稱真人 Windows 遊玩。
 
-Cloudflare 0.4 公開部署識別為 `e36a834c-a2a3-4e74-b36f-e6e16ff670ef`，公開資源與真正瀏覽器證據已成立。目前唯一待核對事項為 GitHub main／v0.4.0 tag／Release、發布掃描與下載包 hash。根工單發布後須讀回真實 URL 與遠端狀態；此前不能以「本機 ZIP 已好」宣告整個 goal 完成。
+Cloudflare 最終 0.4 公開部署記錄為 `f629e2b2-b6eb-4530-836c-cfee990818f6`，最後更新授權告知；PCK 未變。最後公開 96 項檢查 PASS，取用時間 2026-10-05T02:01:52.606Z。三端真正瀏覽器證據與公開資源均已成立。
+
+最後獨立呼叫公開 GitHub API，確認發布當刻 main 與 `refs/tags/v0.4.0` 同指 commit `8e6501acb22461ded8fe65a4082ee83f101cffa9`；[公開 Release](https://github.com/mars-tw/seven-district-reckoning/releases/tag/v0.4.0) 為 draft=false、prerelease=true，發布時間 2026-10-05T02:03:13Z。不是草稿或僅有本機 tag。
+
+Windows ZIP 狀態 uploaded、48,590,332 bytes，GitHub API 的 SHA-256 digest 與本機真正讀檔的 hash 均為 `a1d0110f0a277bc880395764b25eba1f75c78a7abcd9dc9609104401f3397c78`；另實際 HTTP 200 取得公開 .sha256 附件，內容同值。原生 EXE 仍為已驗的 `e89be884b7e5c2cc6eb15566b288bd16b633c467711f91425ed4f01a88a4d814`，最後 ZIP 只更新授權文字，不拿舊 ZIP hash 冒充現行包。
+
+本次另實際執行 `python tools/scan_publication.py` 與忽略的 `qa/local/exact_secret_scan.py`：皆 exit 0，1,168 個 tracked 檔案，generic findings=[]、exact files_with_secret=[]。精確比對的憑證只在程序記憶體，沒有印出或寫進公開產物。GitHub 公開來源、固定 tag、實際下載附件、秘密／授權與源檔交付全部成立；完整目標沒有其他必要實作或外部狀態缺口。
+
+本報告是發布後驗收記錄，根工單將另提交推送此兩份文件至 main；固定發布 tag 不移動，遊戲與二進位無需重製。
 
 ## 繁中編輯 mode 2
 
 | 原句／位置 | 原因 | 改成什麼 |
 | --- | --- | --- |
-| `In progress` 泛稱 | 無法辨識實際缺口 | 逐列證據與 VERIFIED，僅開源發行待核對 |
+| `In progress` 泛稱 | 無法辨識實際缺口 | 逐列證據與 VERIFIED，最後以真公開 API／下載校驗補齊發行 |
 | 人物只有色變／文化活動只有配送背景 | 已被後續真實實作取代 | 八個新模型與四種直接活動、實際驗證 |
 | 日期與摘要直接沿用舊來源 | 可能與現行正文不符 | 全52正文複核、來源與取用日期分開、未確認為null |
 | 三端驗收泛稱 | 可能把桌機尺寸誤當硬體保證 | 明列Native／公開WebGL實際操作、真canvas及未測實機範圍 |

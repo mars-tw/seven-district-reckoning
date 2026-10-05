@@ -17,4 +17,4 @@ Validated on 2026-10-05. Gameplay is a fictional Taiwan-inspired, single-player 
 
 ## Publication gates
 
-Generic and exact credential scans are required on the final staged tree before pushing. The GitHub source commit and Release are recorded in the final goal audit after actual publication; this file does not invent a commit or tag.
+Generic and exact credential scans passed on all 1,168 staged files. Source commit `8e6501acb22461ded8fe65a4082ee83f101cffa9` is pushed to main; `v0.4.0` resolves to that commit. The published Alpha [Release](https://github.com/mars-tw/seven-district-reckoning/releases/tag/v0.4.0) has both uploaded Windows assets; its ZIP digest exactly matches the local artifact. See [actual publication metadata](v04-publication.json). Later documentation-only audit commits do not move the production tag.
