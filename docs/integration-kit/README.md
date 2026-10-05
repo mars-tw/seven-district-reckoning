@@ -15,6 +15,8 @@
 
 ZIP 來自已提交的 Git 來源，不含 `.git`、`.godot`、私人存檔、依賴快取或憑證。來源包保留 `.gd.uid`、資產 `.import`、原始字型與第三方授權；它們與執行時快取不同。下載 ZIP 後會在單一 `SevenDistrict-integration-kit/` 目錄內解壓。
 
+歷史基準有一份 `godot/_checks/v04_rendered_capture.gd` 本機副本，內容與 `tests/v04_rendered_capture.gd` 相同。本包僅排除副本，保留正式測試檔；`INTEGRATION_KIT.json` 明確記錄這項來源排除，其餘基準檔案逐位元組保留。既有 `v0.4.0` 標籤不移動。
+
 ## 在另一台主機開始
 
 1. 解壓縮來源包，保留另一個遊戲的原始工作目錄。

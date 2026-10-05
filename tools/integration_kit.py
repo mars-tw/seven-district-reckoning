@@ -16,6 +16,8 @@ BASELINE = 'f296dbdbee6696778891b7f471665db2a8bdba24'
 PREFIX = 'SevenDistrict-integration-kit/'
 META = 'INTEGRATION_KIT.json'
 INDEX = 'FILES.sha256.json'
+OMITTED_CACHE_COPY = 'godot/_checks/v04_rendered_capture.gd'
+CANONICAL_CAPTURE = 'tests/v04_rendered_capture.gd'
 OVERLAYS = ('docs/integration-kit/', 'plan/process-alternate-game-integration-1.md', 'tools/integration_kit.py', 'qa/integration-kit-review.md')
 BANNED_PARTS = {'.git', '.godot', '_checks', '.secrets', '.audit-tmp', 'node_modules', '__pycache__', '.wrangler', 'deliverables', 'local'}
 REQUIRED = ['AGENTS.md', 'LICENSE', 'LICENSE-ASSETS.md', 'CREDITS.md', 'godot/project.godot', 'docs/integration-kit/README.md', 'docs/integration-kit/OTHER-GPT-PROMPT.md', 'docs/integration-kit/module-contracts.json', 'docs/integration-kit/integration-result.schema.json', 'plan/process-alternate-game-integration-1.md', 'tools/integration_kit.py']
@@ -36,7 +38,7 @@ def safe_path(name: str) -> bool:
     return bool(name) and bool(path.name) and '\\' not in name and ':' not in name and not path.is_absolute() and '..' not in path.parts and str(path)==name and not parts.intersection(BANNED_PARTS) and not (filename.startswith('.env') or filename.startswith(('credentials.','secrets.')) or re.fullmatch(r'save\d+\.json(?:\.(?:bak|tmp))?', filename) or filename.endswith(('.pyc', '.blend1', '.zip', '.7z', '.key', '.pem')))
 
 
-def archive_files(blob: bytes, prefix: str = '') -> dict[str, bytes]:
+def archive_files(blob: bytes, prefix: str = '', trusted_git_omissions: bool = False) -> dict[str, bytes]:
     files: dict[str, bytes] = {}
     seen: set[str] = set()
     with zipfile.ZipFile(io.BytesIO(blob)) as archive:
@@ -45,6 +47,8 @@ def archive_files(blob: bytes, prefix: str = '') -> dict[str, bytes]:
             if not item.filename.startswith(prefix): raise ValueError('ZIP entry lacks the required single root')
             name = item.filename[len(prefix):]
             if stat.S_ISLNK(item.external_attr >> 16): raise ValueError('Symlink source entry is not portable')
+            if trusted_git_omissions and not prefix and (name==OMITTED_CACHE_COPY or (item.is_dir() and name=='godot/_checks/')):
+                continue
             if item.is_dir():
                 if name and not safe_path(name.rstrip('/')): raise ValueError('Unsafe directory entry')
                 continue
@@ -58,7 +62,11 @@ def archive_files(blob: bytes, prefix: str = '') -> dict[str, bytes]:
 def commit_archive(ref: str) -> tuple[str, dict[str, bytes]]:
     commit = git('rev-parse', '--verify', ref+'^{commit}').decode().strip()
     if not re.fullmatch('[0-9a-f]{40}', commit): raise ValueError('Expected a resolved commit')
-    return commit, archive_files(git('archive', '--format=zip', commit))
+    blob = git('archive', '--format=zip', commit)
+    with zipfile.ZipFile(io.BytesIO(blob)) as source:
+        if OMITTED_CACHE_COPY in source.namelist() and source.read(OMITTED_CACHE_COPY)!=source.read(CANONICAL_CAPTURE):
+            raise ValueError('Historical cache copy no longer equals its canonical fixture; review before omission')
+    return commit, archive_files(blob, trusted_git_omissions=True)
 
 
 def compare_baseline(files: dict[str, bytes], baseline: str) -> dict[str, int]:
@@ -69,7 +77,7 @@ def compare_baseline(files: dict[str, bytes], baseline: str) -> dict[str, int]:
     for name in extras:
         if not any(name.startswith(p) if p.endswith('/') else name==p for p in OVERLAYS):
             raise ValueError('Unexpected file outside the handoff overlay: '+name)
-    return {'unchanged_baseline_files':len(original), 'handoff_overlay_files':len(extras)}
+    return {'unchanged_baseline_files':len(original), 'handoff_overlay_files':len(extras), 'excluded_cached_duplicate_files':1}
 
 
 def inspect(files: dict[str, bytes]) -> dict:
@@ -125,7 +133,7 @@ def verify(files: dict[str, bytes], git_compare: bool = False) -> dict:
     if set(expected)!=set(files)-{INDEX}: raise ValueError('Archive contents differ from file index')
     for name,row in expected.items():
         if not safe_path(name) or row['bytes']!=len(files[name]) or row['sha256']!=digest(files[name]): raise ValueError('Hash/size mismatch: '+name)
-    if index.get('excluded_self')!=INDEX or metadata.get('baseline_commit')!=BASELINE: raise ValueError('Wrong hash convention or baseline')
+    if index.get('excluded_self')!=INDEX or metadata.get('baseline_commit')!=BASELINE or metadata.get('excluded_baseline_paths')!=[OMITTED_CACHE_COPY]: raise ValueError('Wrong hash convention, baseline or declared cache omission')
     observed = inspect(files)
     if observed['counts']!=metadata['counts'] or observed['game_version']!=metadata['game_version']: raise ValueError('Manifest inventory mismatch')
     result = {'status':'PASS','verified_payload_files':len(expected),'zip_index_sha256':digest(files[INDEX]),'baseline_commit':metadata['baseline_commit'],'source_snapshot_commit':metadata['source_snapshot_commit'],**observed,'scope':'Source-package path/hash/contracts verification; no incoming-game compatibility or gameplay execution claim.'}
@@ -143,7 +151,7 @@ def build(args) -> None:
     baseline, _ = commit_archive(BASELINE)
     comparison = compare_baseline(files,baseline)
     summary = inspect(files)
-    metadata = {'schema_version':1,'purpose':'Alternate GPT-created game source intake and bounded integration','game_version':summary['game_version'],'created_on':args.date,'baseline_commit':baseline,'source_snapshot_commit':ref,'production_tag':'v0.4.0','repository':'https://github.com/mars-tw/seven-district-reckoning','engine':'Godot 4.7.2 stable','art_tool':'Blender 5.2.0','counts':summary['counts'],'baseline_bytes_preserved':comparison,'read_first':['AGENTS.md','docs/integration-kit/OTHER-GPT-PROMPT.md','docs/integration-kit/module-contracts.json','plan/process-alternate-game-integration-1.md'],'license_authority':['LICENSE','LICENSE-ASSETS.md','CREDITS.md','assets/provenance/'],'incoming_game_status':'not_received_not_merged','entry_project':'godot/project.godot','file_index':INDEX,'file_index_rule':'SHA-256 of all payload files, including this metadata; FILES.sha256.json excludes itself and has its own external ZIP digest.'}
+    metadata = {'schema_version':1,'purpose':'Alternate GPT-created game source intake and bounded integration','game_version':summary['game_version'],'created_on':args.date,'baseline_commit':baseline,'source_snapshot_commit':ref,'production_tag':'v0.4.0','repository':'https://github.com/mars-tw/seven-district-reckoning','engine':'Godot 4.7.2 stable','art_tool':'Blender 5.2.0','counts':summary['counts'],'baseline_bytes_preserved':comparison,'excluded_baseline_paths':[OMITTED_CACHE_COPY],'cache_omission_reason':'Historical local duplicate exactly matches tests/v04_rendered_capture.gd; the canonical fixture is retained. Runtime/exported game files are unchanged.','read_first':['AGENTS.md','docs/integration-kit/OTHER-GPT-PROMPT.md','docs/integration-kit/module-contracts.json','plan/process-alternate-game-integration-1.md'],'license_authority':['LICENSE','LICENSE-ASSETS.md','CREDITS.md','assets/provenance/'],'incoming_game_status':'not_received_not_merged','entry_project':'godot/project.godot','file_index':INDEX,'file_index_rule':'SHA-256 of all payload files, including this metadata; FILES.sha256.json excludes itself and has its own external ZIP digest.'}
     files[META] = (json.dumps(metadata,ensure_ascii=False,indent=2)+'\n').encode('utf-8')
     index = {'schema_version':1,'algorithm':'sha256','excluded_self':INDEX,'files':[{'path':name,'bytes':len(blob),'sha256':digest(blob)} for name,blob in sorted(files.items())]}
     files[INDEX] = (json.dumps(index,indent=2)+'\n').encode('utf-8')
