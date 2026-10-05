@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Alternate game intake result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "status", "receiver_commit", "incoming_source", "modules", "id_mappings", "save_migration", "checks", "unresolved", "delivery"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "status": {"enum": ["prepared", "needs_work", "verified"]},
+    "receiver_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "incoming_source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["engine", "engine_version", "source_reference", "source_revision", "inventory_report"],
+      "properties": {
+        "engine": {"type": "string", "minLength": 1},
+        "engine_version": {"type": "string", "minLength": 1},
+        "source_reference": {"type": "string", "minLength": 1},
+        "source_revision": {"type": "string", "minLength": 1},
+        "inventory_report": {"type": "string", "minLength": 1}
+      }
+    },
+    "modules": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "strategy", "files", "licenses", "evidence"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "strategy": {"enum": ["asset_import", "data_conversion", "godot_adapter", "engine_port", "deferred"]},
+          "files": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "licenses": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "id_mappings": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["kind", "incoming_id", "receiver_id", "existing_preserved"],
+        "properties": {
+          "kind": {"type": "string", "minLength": 1},
+          "incoming_id": {"type": "string", "minLength": 1},
+          "receiver_id": {"type": "string", "minLength": 1},
+          "existing_preserved": {"type": "boolean"}
+        }
+      }
+    },
+    "save_migration": {
+      "type": "object", "additionalProperties": false,
+      "required": ["required", "implemented", "backup_strategy", "tests"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "implemented": {"type": "boolean"},
+        "backup_strategy": {"type": "string", "minLength": 1},
+        "tests": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "checks": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["name", "executed", "returncode", "passed", "evidence"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "executed": {"type": "boolean"},
+          "returncode": {"type": ["integer", "null"]},
+          "passed": {"type": ["boolean", "null"]},
+          "evidence": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "unresolved": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "delivery": {
+      "type": "object", "additionalProperties": false,
+      "required": ["branch", "commit", "pull_request", "patch", "review_report"],
+      "properties": {
+        "branch": {"type": "string", "minLength": 1},
+        "commit": {"type": ["string", "null"]},
+        "pull_request": {"type": ["string", "null"]},
+        "patch": {"type": ["string", "null"]},
+        "review_report": {"type": "string", "minLength": 1}
+      }
+    }
+  },
+  "allOf": [{
+    "if": {"properties": {"status": {"const": "verified"}}},
+    "then": {
+      "properties": {
+        "modules": {"minItems": 1, "contains": {"properties": {"strategy": {"enum": ["asset_import", "data_conversion", "godot_adapter", "engine_port"]}, "files": {"minItems": 1}, "licenses": {"minItems": 1}, "evidence": {"minItems": 1}}}},
+        "unresolved": {"maxItems": 0},
+        "checks": {"minItems": 1, "items": {"properties": {"executed": {"const": true}, "returncode": {"const": 0}, "passed": {"const": true}, "evidence": {"type": "string", "minLength": 1}}}},
+        "save_migration": {"if": {"properties": {"required": {"const": true}}}, "then": {"properties": {"implemented": {"const": true}, "tests": {"minItems": 1}}}},
+        "delivery": {"properties": {"commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"}}, "anyOf": [{"properties": {"pull_request": {"type": "string", "minLength": 1}}}, {"properties": {"patch": {"type": "string", "minLength": 1}}}]}
+      }
+    }
+  }]
+}

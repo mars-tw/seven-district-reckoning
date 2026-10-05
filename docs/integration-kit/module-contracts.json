@@ -1,0 +1,663 @@
+{
+  "schema_version": 1,
+  "purpose": "Observed Alpha 0.4 receiving-project contracts; not a compatibility guarantee for another game.",
+  "baseline": {
+    "commit": "f296dbdbee6696778891b7f471665db2a8bdba24",
+    "release": "0.4.0",
+    "engine": "Godot 4.7.2 stable",
+    "art_tool": "Blender 5.2.0",
+    "inspection": "Source inspected; gameplay suites were not rerun when authoring this inventory.",
+    "historical_validation": {
+      "source": "qa/v04-release.md",
+      "report": "qa/engine-checks.json",
+      "suite_count": 17,
+      "passed_checks": 8561,
+      "failed_checks": 0,
+      "source_fixture_digest": "29c6c8c86b9c5a5950aac72dead196725defe8d35ccd18dd73892c27c5ef22d8"
+    }
+  },
+  "portability": {
+    "shared_candidates": [
+      "JSON definitions after ID/schema/reference validation",
+      "GLB/glTF 2.0 exports after axis/scale/material/rig validation",
+      "Editable Blender sources with portable texture references",
+      "Licensed source/provenance records"
+    ],
+    "godot_dependent": [
+      "GDScript classes and signals",
+      "Node3D/CharacterBody3D/CanvasLayer scene lifecycle",
+      "InputMap, physics, ResourceLoader, FileAccess and user:// storage",
+      "Godot .tscn/.tres resources and imported .godot caches"
+    ],
+    "unknown_game": "Engine, source structure, coordinate system and save schema of the incoming game must be supplied and inspected before choosing ports or adapters.",
+    "merge_policy": [
+      "Keep existing IDs and meanings stable; namespace new IDs and provide a collision map.",
+      "Preserve original content licenses and editable sources.",
+      "Do not replace project.godot, main.gd or existing saves by copying an unrelated whole project.",
+      "Extend loaders, validators and meaningful tests when content expands; do not remove assertions to make new counts pass."
+    ]
+  },
+  "modules": [
+    {
+      "id": "root",
+      "path": "godot/scripts/main.gd",
+      "base": "Node3D",
+      "entry_scene": "godot/scenes/main.tscn",
+      "entry_node": "SevenDistrict",
+      "entrypoints": [
+        "_ready() -> void"
+      ],
+      "internal_integration_points": [
+        "_register_inputs() -> void",
+        "_life_vehicle() -> String",
+        "_activity_vehicle() -> String",
+        "_snapshot(include_checkpoint: bool = true) -> Dictionary",
+        "_valid_world_save(data: Dictionary) -> bool",
+        "_restore(data: Dictionary) -> bool",
+        "_save(show_notice: bool = true) -> void",
+        "_load(slot: int = 1) -> void"
+      ],
+      "note": "Underscore methods are existing host internals, not a separately versioned public plugin API."
+    },
+    {
+      "id": "life",
+      "class_name": "TaiwanLife",
+      "path": "godot/scripts/content/taiwan_life.gd",
+      "base": "Node",
+      "data": [
+        "godot/data/taiwan_life.json"
+      ],
+      "signals": [
+        "updated",
+        "notice(text: String)",
+        "completed(task_id: String, outcome: Dictionary)"
+      ],
+      "entrypoints": [
+        "load_definition() -> bool",
+        "start_task(id: String) -> bool",
+        "choose_route(id: String) -> bool",
+        "handle_action(action: String, target: String, vehicle: String, position_value: Vector3, item: String = \"\", code: String = \"\") -> bool",
+        "discover_station(target: String, position_value: Vector3) -> bool",
+        "cancel_task() -> void",
+        "set_paused(value: bool) -> void",
+        "advance_time(delta: float) -> void",
+        "get_current_step() -> Dictionary",
+        "get_target_key() -> String",
+        "to_dict() -> Dictionary",
+        "from_dict(data: Dictionary) -> bool"
+      ],
+      "actions": [
+        "talk",
+        "pickup",
+        "verify_code",
+        "deliver",
+        "return"
+      ],
+      "statuses": [
+        "idle",
+        "active",
+        "choosing",
+        "failed",
+        "returning",
+        "completed"
+      ],
+      "host_vehicle_tokens": [
+        "on_foot",
+        "bicycle",
+        "car"
+      ],
+      "step_required_vehicle_tokens": [
+        "any",
+        "bicycle",
+        "car"
+      ],
+      "definition_collections": [
+        "stations",
+        "foods",
+        "items",
+        "characters",
+        "missions",
+        "delivery_templates"
+      ],
+      "definition_version": {
+        "key": "schema_version",
+        "value": 1
+      },
+      "baseline_counts": {
+        "stations": 32,
+        "characters": 8,
+        "missions": 16,
+        "delivery_templates": 18,
+        "distinct_routes": 41
+      },
+      "save": {
+        "version": 1,
+        "keys": [
+          "version",
+          "active_id",
+          "route_id",
+          "step_index",
+          "status",
+          "elapsed",
+          "clock",
+          "cooldowns",
+          "cargo",
+          "cargo_origins",
+          "return_station",
+          "cash",
+          "trust",
+          "records",
+          "discovered_stations"
+        ],
+        "constraints": [
+          "from_dict validates state against current task/item/station/character IDs before mutation.",
+          "Cash and trust are recomputed from current rewards; changing historic reward definitions can invalidate old saves.",
+          "Cargo origins, active steps, route records and cooldowns are validated; cancel with cargo enters returning."
+        ]
+      },
+      "tests": [
+        "tests/taiwan_life.gd",
+        "tests/v04_integration.gd"
+      ],
+      "validator": "tools/validate_taiwan_life.py"
+    },
+    {
+      "id": "activities",
+      "class_name": "TaiwanActivities",
+      "path": "godot/scripts/content/taiwan_activities.gd",
+      "base": "Node",
+      "data": [
+        "godot/data/taiwan_activities.json",
+        "godot/data/taiwan_life.json"
+      ],
+      "signals": [
+        "updated",
+        "notice(text: String)",
+        "completed(activity_id: String, outcome: Dictionary)"
+      ],
+      "entrypoints": [
+        "load_definition() -> bool",
+        "start(id: String, position: Vector3, vehicle: String = \"any\") -> bool",
+        "handle_input(action: String) -> bool",
+        "visit_station(station_id: String, position: Vector3, vehicle: String = \"any\") -> bool",
+        "cancel() -> void",
+        "set_paused(value: bool) -> void",
+        "advance_time(delta: float) -> void",
+        "get_session() -> Dictionary",
+        "get_rows() -> Array[Dictionary]",
+        "to_dict() -> Dictionary",
+        "from_dict(data: Dictionary) -> bool"
+      ],
+      "kinds": [
+        "rhythm",
+        "alternating",
+        "craft",
+        "walk"
+      ],
+      "ids": [
+        "TW-ACT-TOP",
+        "TW-ACT-CLOGS",
+        "TW-ACT-CRAFT",
+        "TW-ACT-WALK"
+      ],
+      "input_tokens": [
+        "tap",
+        "left",
+        "right",
+        "red",
+        "blue",
+        "white",
+        "flower",
+        "stripes",
+        "dots"
+      ],
+      "vehicle_tokens": {
+        "walk": [
+          "any",
+          "foot",
+          "bicycle"
+        ],
+        "other": [
+          "any",
+          "foot"
+        ]
+      },
+      "host_normalization": {
+        "path": "godot/scripts/main.gd",
+        "method": "_activity_vehicle()",
+        "mapping": {
+          "on_foot": "foot",
+          "bicycle": "bicycle",
+          "car": "car"
+        }
+      },
+      "proximity": {
+        "horizontal_radius_m": 4.5,
+        "maximum_abs_y_m": 3.5
+      },
+      "time_rule": "Host supplies elapsed delta; paused/inactive/nonfinite/nonpositive/>60 deltas are ignored.",
+      "save": {
+        "version": 1,
+        "keys": [
+          "version",
+          "best",
+          "completion_counts",
+          "attempts",
+          "badges"
+        ],
+        "constraints": [
+          "Exactly five top-level fields.",
+          "All current activity IDs required in best/completion_counts/attempts, with dictionary sizes equal to current activity count.",
+          "Scores, successful counts, attempts and badge membership cross-validated.",
+          "Interrupted activity sessions are discarded after a successful load.",
+          "load_definition currently returns activities.size()==4; content growth requires code and migration review."
+        ]
+      },
+      "reward_policy": "Badges, best scores and completion counts; no delivery cash or character trust.",
+      "tests": [
+        "tests/taiwan_activities.gd",
+        "tests/v04_integration.gd"
+      ]
+    },
+    {
+      "id": "device_profiles",
+      "class_name": "DeviceProfiles",
+      "path": "godot/scripts/systems/device_profiles.gd",
+      "base": "Node",
+      "data": [
+        "godot/data/device_profiles.json"
+      ],
+      "signals": [
+        "profile_changed(settings: Dictionary)"
+      ],
+      "entrypoints": [
+        "classify(viewport: Vector2, pointer_touch: bool, device_hint: String = \"\") -> String [static]",
+        "initialize(viewport: Vector2, pointer_touch: bool, device_hint: String = \"\", load_preferences: bool = true) -> void",
+        "set_profile(value: String, persist: bool = true) -> bool",
+        "set_preference(key: String, value: Variant, persist: bool = true) -> bool",
+        "get_settings() -> Dictionary",
+        "apply_scene(scene: Node, focus: Node3D = null) -> void"
+      ],
+      "profiles": [
+        "phone",
+        "tablet",
+        "desktop"
+      ],
+      "requested_profile_tokens": [
+        "auto",
+        "phone",
+        "tablet",
+        "desktop"
+      ],
+      "preference_keys": [
+        "resolution_scale",
+        "muted",
+        "sensitivity",
+        "sprint_toggle"
+      ],
+      "defaults_resolution_scale": {
+        "phone": 0.7,
+        "tablet": 0.85,
+        "desktop": 1
+      },
+      "storage": "user://device-preferences-v1.cfg",
+      "campaign_save": false,
+      "tests": [
+        "tests/device_profiles.gd",
+        "tests/device_web.mjs"
+      ]
+    },
+    {
+      "id": "save",
+      "class_name": "AlphaSave",
+      "path": "godot/scripts/save/save_manager.gd",
+      "base": "RefCounted",
+      "entrypoints": [
+        "save_state(data: Dictionary, slot: int = 1) -> Error [static]",
+        "load_state(slot: int = 1) -> Dictionary [static]"
+      ],
+      "slot_range": [
+        1,
+        99
+      ],
+      "normal_host_slot": 1,
+      "host_self_test_slot": 98,
+      "storage_pattern": "user://save{slot}.json",
+      "envelope": {
+        "schema": 1,
+        "keys": [
+          "schema",
+          "saved_at",
+          "data"
+        ]
+      },
+      "world_snapshot": {
+        "version_key": "schema_version",
+        "version": 1,
+        "required_dictionary_keys": [
+          "missions",
+          "player",
+          "objects",
+          "rescues",
+          "vehicles",
+          "route_done"
+        ],
+        "additional_keys": [
+          "heat",
+          "seconds_played",
+          "guards",
+          "optional",
+          "city_life",
+          "district_systems",
+          "street_state",
+          "taiwan_life",
+          "taiwan_activities",
+          "checkpoint"
+        ]
+      },
+      "read_limit_bytes": 8388608,
+      "safety": [
+        "Write via .tmp; retain .bak for an existing valid primary.",
+        "Damaged or unsupported primary saves are preserved and not silently repaired or overwritten.",
+        "Load may return a valid backup; envelope validity alone does not imply world validity.",
+        "Root validates module state before restoring world; absent life/activity fields reset those modules for older Alpha saves.",
+        "Do not load arbitrary foreign-game JSON into production slots."
+      ],
+      "tests": [
+        "tests/guard_persistence.gd",
+        "tests/release_regressions.gd",
+        "tests/v04_integration.gd"
+      ]
+    },
+    {
+      "id": "player",
+      "class_name": "SevenPlayer",
+      "path": "godot/scripts/player/player_controller.gd",
+      "base": "CharacterBody3D",
+      "signals": [
+        "health_changed(current: float, maximum: float)",
+        "attacked(weapon_id: String)",
+        "weapon_changed(weapon_id: String)",
+        "interaction_requested",
+        "mount_requested",
+        "defeated"
+      ],
+      "entrypoints": [
+        "setup_visual(scene: PackedScene) -> void",
+        "get_camera() -> Camera3D",
+        "get_seat_hip_offset() -> Vector3",
+        "grant_weapon(weapon_name: String) -> bool",
+        "equip_weapon(weapon_name: String) -> bool",
+        "begin_attack() -> bool",
+        "apply_hit(hit_id: String, _source_id: String, damage: float) -> void",
+        "set_mounted(vehicle: Node3D, seat_position: Vector3, riding: bool = false) -> void",
+        "clear_mounted(exit_position: Vector3) -> void"
+      ],
+      "weapon_ids": [
+        "wrench",
+        "bat",
+        "pulse"
+      ],
+      "tests": [
+        "tests/controls.gd",
+        "tests/v03_integration.gd"
+      ]
+    },
+    {
+      "id": "vehicle",
+      "class_name": "ArcadeVehicle",
+      "path": "godot/scripts/vehicles/arcade_vehicle.gd",
+      "base": "CharacterBody3D",
+      "signals": [
+        "occupancy_changed(is_occupied: bool)",
+        "exit_blocked(reason: String)"
+      ],
+      "entrypoints": [
+        "setup_visual(scene: PackedScene) -> void",
+        "enter(player: SevenPlayer) -> bool",
+        "exit() -> bool",
+        "force_release(exit_position: Vector3 = Vector3(INF, INF, INF)) -> void",
+        "get_speed_kmh() -> float"
+      ],
+      "note": "Runtime vehicle type bike maps to root's bicycle identifier; do not replace one with the other globally.",
+      "tests": [
+        "tests/controls.gd",
+        "tests/release_regressions.gd"
+      ]
+    },
+    {
+      "id": "world",
+      "path": "godot/scripts/world/taiwan_expansion.gd",
+      "base": "Node3D",
+      "data": [
+        "godot/data/taiwan_expansion.json",
+        "godot/data/taiwan_asset_manifest.json"
+      ],
+      "entrypoints": [
+        "setup(optional_player: Node3D = null) -> void",
+        "get_regions() -> Array[Dictionary]",
+        "get_station_positions() -> Dictionary",
+        "get_obstacle_bounds() -> Array[AABB]",
+        "get_navigation_roads() -> Array[Dictionary]",
+        "get_visual_bounds() -> Array[AABB]",
+        "is_walkable(p: Vector3, radius: float = 0.45) -> bool",
+        "apply_profile(profile: Dictionary) -> void",
+        "set_hour(hour: float) -> void"
+      ],
+      "tests": [
+        "tests/taiwan_expansion.gd",
+        "tests/v04_integration.gd"
+      ]
+    },
+    {
+      "id": "world_life_bridge",
+      "path": "godot/scripts/content/taiwan_world.gd",
+      "base": "Node3D",
+      "entrypoints": [
+        "setup(world: Node3D, manager: Node, avatar: CharacterBody3D) -> void",
+        "apply_profile(settings: Dictionary) -> void",
+        "get_counts() -> Dictionary"
+      ],
+      "host_dependencies": [
+        "host._add_object",
+        "host._model",
+        "host.objects",
+        "host.targets",
+        "player._visual_root"
+      ],
+      "station_object_prefix": "TW_station_",
+      "station_event": "life_station",
+      "npc_group": "taiwan_story_people",
+      "carry_models": [
+        "tw_carry_parcel",
+        "tw_carry_food",
+        "tw_carry_shop"
+      ],
+      "note": "Cargo attaches to player._visual_root using local offsets; it is not a generalized socket adapter."
+    },
+    {
+      "id": "ui",
+      "class_name": "GameHUD",
+      "path": "godot/scripts/ui/game_hud.gd",
+      "base": "CanvasLayer",
+      "entrypoints": [
+        "bind_life(manager: Node, callbacks: Dictionary) -> void",
+        "bind_activities(manager: Node) -> void",
+        "set_device_profile(settings: Dictionary) -> void",
+        "setup_district_map(regions: Array[Dictionary], blocks: Array[AABB], points: Dictionary) -> void",
+        "show_life_phone(category: String = \"story\", page: int = 0) -> void",
+        "show_life_station(id: String) -> void"
+      ],
+      "panels": {
+        "life": "godot/scripts/ui/taiwan_life_panel.gd",
+        "activities": "godot/scripts/ui/taiwan_activity_panel.gd",
+        "touch": "godot/scripts/ui/touch_controls.gd"
+      },
+      "life_callback_keys": [
+        "start",
+        "route",
+        "act",
+        "cancel",
+        "mark",
+        "discover",
+        "resume",
+        "activities",
+        "activity_station"
+      ],
+      "activity_callback_keys": [
+        "start",
+        "input",
+        "visit",
+        "cancel",
+        "mark",
+        "resume",
+        "close"
+      ],
+      "activity_panel_setup": "setup(host: CanvasLayer, activity_manager: Node, handlers: Dictionary) -> void",
+      "signals": [
+        "life_requested",
+        "device_selected(profile_name: String)",
+        "save_requested",
+        "load_requested",
+        "resume_requested",
+        "retry_requested"
+      ],
+      "note": "UI forwards callbacks to the root; gameplay managers enforce position/time/state checks."
+    }
+  ],
+  "input_actions": [
+    "move_forward",
+    "move_back",
+    "move_left",
+    "move_right",
+    "sprint",
+    "jump",
+    "brake",
+    "interact",
+    "mount",
+    "cycle_weapon",
+    "reset_vehicle",
+    "pause",
+    "phone",
+    "quick_save",
+    "quick_load",
+    "district_map",
+    "life_jobs",
+    "attack"
+  ],
+  "coordinates": {
+    "unit": "metre",
+    "runtime_up": "+Y",
+    "runtime_ground_axes": [
+      "X",
+      "Z"
+    ],
+    "definition_position_format": [
+      "x",
+      "z"
+    ],
+    "snapshot_position_format": [
+      "x",
+      "y",
+      "z"
+    ],
+    "bounds_format": [
+      "min_x",
+      "min_z",
+      "max_x",
+      "max_z"
+    ],
+    "world_bounds": [
+      -400,
+      -400,
+      400,
+      400
+    ],
+    "preserved_core_bounds": [
+      -150,
+      -150,
+      150,
+      150
+    ],
+    "sector_size_m": 90,
+    "model_front": "+Z",
+    "blender_model_front": "-Y",
+    "camera_forward": "-Z",
+    "geography": "Fictional compressed Taiwan-inspired district; coordinates are not surveyed addresses."
+  },
+  "assets": {
+    "runtime_root": "godot/assets/models",
+    "editable_root": "assets/source/blender",
+    "provenance_root": "assets/provenance",
+    "runtime_manifests": [
+      "godot/data/taiwan_asset_manifest.json",
+      "godot/data/taiwan_people_manifest.json",
+      "godot/data/carry_asset_manifest.json"
+    ],
+    "source_manifests": [
+      "qa/art/taiwan/taiwan-manifest.json",
+      "qa/art/taiwan/people/validation.json",
+      "qa/art/v03-human/manifest.json"
+    ],
+    "licenses": [
+      "LICENSE-ASSETS.md",
+      "CREDITS.md",
+      "assets/provenance/CREDITS.md"
+    ],
+    "rig": {
+      "baseline_taiwan_people_bones": 53,
+      "right_hand_bone": "hand.r",
+      "recognized_right_hand_bones": [
+        "arm-right",
+        "righthand (substring)",
+        "hand.r",
+        "right_hand"
+      ],
+      "character_sockets": [
+        "HandToolSocket",
+        "SeatHipSocket"
+      ],
+      "tool_socket": "GripSocket",
+      "vehicle_sockets": [
+        "RiderSeat",
+        "DriverSeat"
+      ],
+      "vehicle_animated_nodes": [
+        "WheelFront",
+        "WheelRear",
+        "Crank"
+      ],
+      "animation_names": [
+        "idle",
+        "walk",
+        "run",
+        "attack",
+        "hit",
+        "drive",
+        "pedal",
+        "knockdown"
+      ],
+      "animation_lookup": "Exact requested name or suffix /<requested> or _<requested>, case insensitive.",
+      "nonlooping_clips": [
+        "attack",
+        "hit",
+        "knockdown"
+      ],
+      "note": "Socket absence has runtime fallbacks; successful import alone does not prove attachment, animation or seat alignment."
+    },
+    "checks": [
+      "tools/blender/validate_assets.py",
+      "tools/blender/validate_taiwan_assets.py",
+      "tools/blender/verify_taiwan_roundtrip.py",
+      "tools/blender/verify_human_characters.py"
+    ]
+  },
+  "validation": {
+    "runner": "tools/test_game.py",
+    "data_validator": "tools/validate_taiwan_life.py",
+    "publication_scan": "tools/scan_publication.py",
+    "full_runner": "python tools/test_game.py --godot <Godot-4.7.2-executable> --node <Node-executable>",
+    "scope_note": "Historical 17 suites include import/gameplay/JS checks from the runner; the suite file list alone is not the reported aggregate. Incoming work must provide its own new result and source digest.",
+    "required_extension": "If tasks/stations/activities/assets grow, extend coverage for new routes, persistence, corruption/rejection and actual root/UI execution; retain old coverage."
+  }
+}
