@@ -100,7 +100,8 @@ def inspect(files: dict[str, bytes]) -> dict:
         'stations':len(life['stations']), 'story_people':len(life['characters']),
         'story_episodes':len(life['missions']), 'delivery_templates':len(life['delivery_templates']),
         'culture_activities':len(activities['activities']), 'contract_modules':len(contracts['modules']),
-        'contract_entrypoints':sum(len(m.get('entrypoints', []))+len(m.get('internal_integration_points', [])) for m in contracts['modules'])
+        'contract_entrypoints':sum(len(m.get('entrypoints', [])) for m in contracts['modules']),
+        'contract_internal_integration_points':sum(len(m.get('internal_integration_points', [])) for m in contracts['modules'])
     }
     if counts['runtime_glb']!=61 or counts['stations']!=32 or counts['culture_activities']!=4: raise ValueError('Unexpected Alpha 0.4 baseline inventory')
     return {'game_version':version_match[1], 'counts':counts}
