@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "status": "VERIFIED",
+  "verified_at": "2026-10-05T03:40:07.433600+00:00",
+  "scope": "Independent ZIP CRC, exact indexed payload, external SHA-256 and Git blob read-back verification; no alternate-game compatibility, gameplay rerun or publication claim.",
+  "review_context": "Independent agent context",
+  "archive": {
+    "path": "deliverables/SevenDistrict-0.4.0-integration-kit-20261005.zip",
+    "bytes": 85573693,
+    "sha256": "dc208343140fe32c1e8cf178ae1199d6bc8ff15b390e028aa57fe0d4e25c7929",
+    "file_entries": 1178
+  },
+  "checksum_sidecar": {
+    "path": "deliverables/SevenDistrict-0.4.0-integration-kit-20261005.zip.sha256",
+    "matches": true
+  },
+  "file_index": {
+    "path": "FILES.sha256.json",
+    "sha256": "2cbedb8c290562d95184478674bc2e70a773a3c67f2201b019dcbb4d022cc904",
+    "verified_payload_files": 1177,
+    "excluded_self": "FILES.sha256.json"
+  },
+  "baseline_commit": "f296dbdbee6696778891b7f471665db2a8bdba24",
+  "source_snapshot_commit": "7d9a2f63bef73f302c89ff13a673e476cb3420e3",
+  "source_eol_policy": "git_archive_lf",
+  "baseline": {
+    "raw_tracked_files": 1169,
+    "retained_files_verified_byte_for_byte": 1168,
+    "excluded_baseline_paths": [
+      "godot/_checks/v04_rendered_capture.gd"
+    ],
+    "canonical_fixture": "tests/v04_rendered_capture.gd",
+    "canonical_fixture_sha256": "ccd50e30fbb13b8752c351ee691f87b0e2a8d1687041a31730ccc9efb25f322b",
+    "excluded_copy_matches_canonical": true
+  },
+  "handoff_overlay_files": [
+    "docs/integration-kit/OTHER-GPT-PROMPT.md",
+    "docs/integration-kit/README.md",
+    "docs/integration-kit/contracts.md",
+    "docs/integration-kit/integration-result.schema.json",
+    "docs/integration-kit/module-contracts.json",
+    "plan/process-alternate-game-integration-1.md",
+    "qa/integration-kit-review.md",
+    "tools/integration_kit.py"
+  ],
+  "inventory": {
+    "runtime_glb": 61,
+    "editable_blend": 62,
+    "stations": 32,
+    "story_people": 8,
+    "story_episodes": 16,
+    "delivery_templates": 18,
+    "culture_activities": 4,
+    "contract_modules": 10,
+    "contract_entrypoints": 64,
+    "contract_internal_integration_points": 8
+  },
+  "checks": {
+    "zip_crc": true,
+    "single_safe_root": true,
+    "no_symlinks_or_case_collisions": true,
+    "exact_index_paths_sizes_sha256": true,
+    "all_committed_source_bytes_match": true,
+    "all_retained_baseline_bytes_match": true,
+    "declared_single_cache_omission": true,
+    "license_and_original_font_bytes_preserved": true,
+    "postbuild_report_absent_from_package": true
+  },
+  "text_publication_scan": {
+    "files": 593,
+    "findings": [],
+    "scope": "UTF-8 text files; binary media excluded."
+  },
+  "tamper_cases": {
+    "passed": 9,
+    "cases": [
+      "changed_payload_without_rehash",
+      "missing_index_row",
+      "wrong_baseline",
+      "broadened_baseline_exclusion",
+      "wrong_eol_policy",
+      "wrong_committed_snapshot_after_valid_rehash",
+      "canonical_fixture_removed_after_valid_rehash",
+      "untrusted_checks_path",
+      "symlink_directory"
+    ]
+  },
+  "incoming_game": "not_received_not_merged",
+  "runtime_tests_rerun": false
+}
