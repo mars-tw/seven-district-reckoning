@@ -1,0 +1,727 @@
+{
+  "status": "VERIFIED",
+  "passed": 179,
+  "failed": 0,
+  "runtime_source_bytes_including_Godot_extracted_images": 2356463,
+  "asset_count": 13,
+  "texture_max_px": 128,
+  "checks": [
+    {
+      "pass": true,
+      "label": "source and runtime metadata match"
+    },
+    {
+      "pass": true,
+      "label": "13 original authored asset families"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: binary GLTF envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: independently measured SHA256"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: real index triangle budget"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: UV normals and PBR data present"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: <=8 authored material surfaces"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: editable Blender source present"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: original asset dedication retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: no private machine paths in GLTF"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: self-contained embedded PBR image buffers"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: actual Blender Cycles preview file"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: binary GLTF envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: independently measured SHA256"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: real index triangle budget"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: UV normals and PBR data present"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: <=8 authored material surfaces"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: editable Blender source present"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: original asset dedication retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: no private machine paths in GLTF"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: self-contained embedded PBR image buffers"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: actual Blender Cycles preview file"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: binary GLTF envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: independently measured SHA256"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: real index triangle budget"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: UV normals and PBR data present"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: <=8 authored material surfaces"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: editable Blender source present"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: original asset dedication retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: no private machine paths in GLTF"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: self-contained embedded PBR image buffers"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: actual Blender Cycles preview file"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: binary GLTF envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: independently measured SHA256"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: real index triangle budget"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: UV normals and PBR data present"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: <=8 authored material surfaces"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: editable Blender source present"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: original asset dedication retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: no private machine paths in GLTF"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: self-contained embedded PBR image buffers"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: actual Blender Cycles preview file"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: binary GLTF envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: independently measured SHA256"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: real index triangle budget"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: UV normals and PBR data present"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: <=8 authored material surfaces"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: editable Blender source present"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: original asset dedication retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: no private machine paths in GLTF"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: self-contained embedded PBR image buffers"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: actual Blender Cycles preview file"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: binary GLTF envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: independently measured SHA256"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: real index triangle budget"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: UV normals and PBR data present"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: <=8 authored material surfaces"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: editable Blender source present"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: original asset dedication retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: no private machine paths in GLTF"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: self-contained embedded PBR image buffers"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: actual Blender Cycles preview file"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: binary GLTF envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: independently measured SHA256"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: real index triangle budget"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: UV normals and PBR data present"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: <=8 authored material surfaces"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: editable Blender source present"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: original asset dedication retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: no private machine paths in GLTF"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: self-contained embedded PBR image buffers"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: actual Blender Cycles preview file"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: binary GLTF envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: independently measured SHA256"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: real index triangle budget"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: UV normals and PBR data present"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: <=8 authored material surfaces"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: editable Blender source present"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: original asset dedication retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: no private machine paths in GLTF"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: self-contained embedded PBR image buffers"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: actual Blender Cycles preview file"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: binary GLTF envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: independently measured SHA256"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: real index triangle budget"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: UV normals and PBR data present"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: <=8 authored material surfaces"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: editable Blender source present"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: original asset dedication retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: no private machine paths in GLTF"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: self-contained embedded PBR image buffers"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: actual Blender Cycles preview file"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: binary GLTF envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: independently measured SHA256"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: real index triangle budget"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: UV normals and PBR data present"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: <=8 authored material surfaces"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: editable Blender source present"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: original asset dedication retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: no private machine paths in GLTF"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: self-contained embedded PBR image buffers"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: actual Blender Cycles preview file"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: binary GLTF envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: independently measured SHA256"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: real index triangle budget"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: UV normals and PBR data present"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: <=8 authored material surfaces"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: editable Blender source present"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: original asset dedication retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: no private machine paths in GLTF"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: self-contained embedded PBR image buffers"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: actual Blender Cycles preview file"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: binary GLTF envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: independently measured SHA256"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: real index triangle budget"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: UV normals and PBR data present"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: <=8 authored material surfaces"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: editable Blender source present"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: original asset dedication retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: no private machine paths in GLTF"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: self-contained embedded PBR image buffers"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: actual Blender Cycles preview file"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: binary GLTF envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: independently measured SHA256"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: real index triangle budget"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: UV normals and PBR data present"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: <=8 authored material surfaces"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: editable Blender source present"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: original asset dedication retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: no private machine paths in GLTF"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: self-contained embedded PBR image buffers"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: actual Blender Cycles preview file"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: metric authored collision envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_asphalt_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_canvas_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_metal_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_pavers_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_tile_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop_tw_canvas_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop_tw_metal_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop_tw_tile_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall_tw_canvas_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall_tw_metal_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter_tw_metal_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience_tw_canvas_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience_tw_metal_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience_tw_tile_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall_tw_canvas_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall_tw_metal_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate_tw_canvas_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate_tw_metal_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall_tw_metal_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf_tw_canvas_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf_tw_metal_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station_tw_canvas_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station_tw_metal_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station_tw_tile_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station_tw_canvas_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station_tw_metal_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion_tw_metal_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse_tw_canvas_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse_tw_metal_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse_tw_tile_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter_tw_metal_albedo.png: <=128px runtime PBR texture"
+    },
+    {
+      "pass": true,
+      "label": "all GLBs and Godot extracted/source texture copies stay below 10 MiB"
+    }
+  ],
+  "limitations": "Validation measures asset files and topology, not browser frame rate or complete delivery/character game systems."
+}

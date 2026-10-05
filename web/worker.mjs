@@ -3,7 +3,16 @@
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.pathname !== '/game.wasm') return env.ASSETS.fetch(request);
+    if (url.pathname !== '/game.wasm') {
+      const response = await env.ASSETS.fetch(request);
+      if (response.status !== 404) return response;
+      // Assets may infer a missing .pck/.js MIME from the requested suffix,
+      // even while returning our HTML 404 page. Keep the real error readable.
+      const headers = new Headers(response.headers);
+      headers.set('Content-Type', 'text/html; charset=utf-8');
+      headers.set('X-Content-Type-Options', 'nosniff');
+      return new Response(response.body, {status:404,headers});
+    }
     url.pathname = '/game.wasm.br';
     const assetHeaders = new Headers(request.headers);
     assetHeaders.set('Accept-Encoding', 'identity');

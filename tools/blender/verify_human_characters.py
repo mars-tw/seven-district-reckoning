@@ -1,11 +1,16 @@
 """Independent saved-source and GLB contract checks for v0.3 humans."""
-import bpy, json, math, struct
+import bpy, json, math, struct, sys
 from pathlib import Path
 from mathutils import Vector
 
 ROOT=Path(__file__).resolve().parents[2]
 QA=ROOT/'qa/art/v03-human'
-manifest=json.loads((QA/'manifest.json').read_text(encoding='utf-8'))
+manifest_path=QA/'manifest.json'
+report_path=QA/'validation.json'
+for arg in sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else []:
+ if arg.startswith('--manifest='):manifest_path=ROOT/arg.split('=',1)[1]
+ if arg.startswith('--report='):report_path=ROOT/arg.split('=',1)[1]
+manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
 checks=[];rows=[]
 
 def check(name,passed,evidence):
@@ -29,7 +34,7 @@ for row in manifest['characters']:
  check(name+'/no_absolute_images',all(not im.filepath or im.filepath.startswith('//') for im in bpy.data.images),[im.filepath for im in bpy.data.images])
  rig.data.pose_position='REST';bpy.context.view_layer.update();lo,hi=bounds()
  check(name+'/foot_floor',abs(lo[2])<.015,lo[2])
- check(name+'/metre_height',1.66<hi[2]<1.84,hi[2])
+ check(name+'/metre_height',abs(hi[2]-row['height_m'])<.025,{'authored':row['height_m'],'evaluated':hi[2]})
  rig.data.pose_position='POSE'
  actions={clip:bpy.data.actions.get(clip) for clip in ['idle','walk','run','attack','hit','drive','pedal','knockdown']}
  check(name+'/eight_source_actions',all(actions.values()),list(actions))
@@ -75,6 +80,7 @@ for row in manifest['characters']:
  check(name+'/glb_roundtrip_sockets',all(n in bpy.data.objects for n in ['HandToolSocket','SeatHipSocket']),True)
 
 report={'blender_version':bpy.app.version_string,'checks':len(checks),'passed':sum(c['passed'] for c in checks),'failed':sum(not c['passed'] for c in checks),'validation':checks,'characters':rows}
-(QA/'validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+report_path.parent.mkdir(parents=True,exist_ok=True)
+report_path.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
 print('HUMAN_VALIDATION',report['passed'],'PASS',report['failed'],'FAIL',flush=True)
 if report['failed']:raise RuntimeError('Human asset verification failed; inspect validation.json')

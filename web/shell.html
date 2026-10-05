@@ -4,36 +4,48 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#10242e">
-  <meta name="description" content="七期：斷鏈行動。被假投資平台騙走積蓄的外送員，循著街區線索追查玻璃商辦後的前站。原創第三人稱動作遊戲，直接在瀏覽器試玩。">
+  <meta name="description" content="七期：斷鏈行動 Alpha 0.4。探索虛構台灣街區，接美食外送、便利商店與包裹委託，再追查假投資前站。手機、平板與電腦各有操作與畫面設定。">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; base-uri 'self'">
-  <title>$GODOT_PROJECT_NAME｜線上試玩</title>
-  <link rel="stylesheet" href="play-site.css">
+  <title>$GODOT_PROJECT_NAME｜Alpha 0.4 線上遊玩</title>
+  <link rel="stylesheet" href="/play-site.css">
   $GODOT_HEAD_INCLUDE
 </head>
-<body data-godot-threads="$GODOT_THREADS_ENABLED">
+<body data-godot-threads="$GODOT_THREADS_ENABLED" data-entry-profile="auto" data-build-version="0.4.0">
   <a class="skip-link" href="#play">前往遊戲</a>
   <header class="masthead page-width">
-    <a class="wordmark" href="./" aria-label="七期：斷鏈行動，首頁">
+    <a class="wordmark" href="/" aria-label="七期：斷鏈行動，首頁">
       <span class="district-mark" aria-hidden="true">VII</span>
       <span><strong>七期：斷鏈行動</strong><small>SEVEN DISTRICT / BREAK THE CHAIN</small></span>
     </a>
     <nav class="header-links" aria-label="網站導覽">
       <a href="#controls">操作</a>
       <a href="https://github.com/mars-tw/seven-district-reckoning" target="_blank" rel="noopener noreferrer">原始碼 <span aria-hidden="true">↗</span></a>
-      <span class="build-label">ALPHA 0.3</span>
+      <span class="build-label">ALPHA 0.4</span>
     </nav>
   </header>
 
   <main class="page-width">
     <section id="play" class="play-section" aria-labelledby="play-heading">
       <div class="play-heading-row">
-        <h1 id="play-heading"><span class="section-label">線上試玩</span>第一章<span class="heading-divider">／</span>前站追查</h1>
+        <h1 id="play-heading"><span id="device-entry-title" class="section-label">線上遊玩</span>街區生活<span class="heading-divider">／</span>前站追查</h1>
         <div class="play-actions">
           <button id="focus-button" class="quiet-button" type="button" disabled>回到遊戲</button>
           <button id="fullscreen-button" class="quiet-button" type="button" aria-pressed="false">全螢幕 <span aria-hidden="true">⛶</span></button>
         </div>
       </div>
 
+      <div class="device-strip" aria-label="遊玩裝置">
+        <label for="device-profile">操作與畫面</label>
+        <select id="device-profile">
+          <option value="auto">自動選擇</option>
+          <option value="phone">手機</option>
+          <option value="tablet">平板</option>
+          <option value="desktop">電腦</option>
+        </select>
+        <span id="device-profile-note" aria-live="polite"></span>
+        <nav aria-label="裝置版入口"><a href="/phone">手機版</a><a href="/tablet">平板版</a><a href="/desktop">電腦版</a></nav>
+      </div>
+      <p id="device-entry-hint" class="entry-hint">依裝置選擇操作與畫面，也可手動切換手機、平板或電腦。</p>
       <div id="game-frame" class="game-frame" aria-busy="false">
         <div class="office-grid" aria-hidden="true"><span class="street-line"></span></div>
         <canvas id="canvas" width="1366" height="768" tabindex="0" aria-label="七期：斷鏈行動遊戲畫面" aria-describedby="input-hint">你的瀏覽器無法顯示遊戲畫面。可改用下方的 Windows 下載版。</canvas>
@@ -57,7 +69,7 @@
         </div>
 
         <noscript>
-          <div class="noscript-notice"><strong>線上版需要 JavaScript 與 WebGL 2。</strong><p>請啟用 JavaScript 後重新整理，或<a href="https://github.com/mars-tw/seven-district-reckoning/releases/tag/v0.1.0">下載 Windows Alpha 0.1.0</a>。</p></div>
+          <div class="noscript-notice"><strong>線上版需要 JavaScript 與 WebGL 2。</strong><p>請啟用 JavaScript 後重新整理，或<a href="https://github.com/mars-tw/seven-district-reckoning/releases/tag/v0.4.0">下載 Windows Alpha 0.4.0</a>。</p></div>
         </noscript>
       </div>
 
@@ -70,6 +82,7 @@
           <button id="command-start" class="quiet-button" type="button">開始新遊戲</button>
           <button id="command-pause" class="quiet-button" type="button" hidden>暫停</button>
           <button id="command-phone" class="quiet-button" type="button" hidden>任務與委託</button>
+          <button id="command-jobs" class="quiet-button" type="button" hidden>外送與取貨</button>
           <button id="command-map" class="quiet-button" type="button" hidden>地圖</button>
           <button id="command-supplies" class="quiet-button" type="button" hidden>補給與挑戰</button>
           <button id="command-settings" class="quiet-button" type="button">設定</button>
@@ -82,7 +95,7 @@
         <p id="game-record" class="game-record" hidden></p>
         <p id="game-resources" class="game-resources" hidden></p>
       </div>
-      <p id="touch-hint" class="touch-hint" hidden>觸控裝置請橫向遊玩。使用遊戲內的移動與動作按鈕；手機效能與操作仍在測試中。</p>
+      <p id="touch-hint" class="touch-hint" hidden>左下拖曳移動，右側點按動作；右半邊拖曳調整視角。「連跑」可切換持續跑步。直向也可玩，橫向全螢幕能看得更遠。</p>
     </section>
 
     <div class="field-notes">
@@ -90,8 +103,9 @@
         <p class="section-label">行動背景</p>
         <h2 id="story-heading">這筆錢，最後到了哪裡？</h2>
         <p>你是被假投資平台騙走積蓄的外送員。從一則失聯訊息開始，騎車找線索，拆開假客服的門面，再走進高級商辦，把受困的人帶回街上。</p>
-        <p class="muted-note">人物、企業與街區皆為虛構。Alpha 0.3 加入人體比例的角色、商辦街景、補給與街區挑戰。</p>
-        <a class="text-link" href="https://github.com/mars-tw/seven-district-reckoning/releases/tag/v0.1.0" target="_blank" rel="noopener noreferrer">下載 Windows Alpha 0.1.0 <span aria-hidden="true">↗</span></a>
+        <p class="muted-note">Alpha 0.4 將街區擴大到 800 × 800 公尺。到早餐店取餐、走進便利商店、替街坊領送包裹，認識八位新角色與他們的生活。人物、商店與街道皆為虛構。</p>
+        <p class="muted-note">包裹站參考台灣店到店取貨流程，使用虛構商店與模擬驗證。遊戲不連接蝦皮帳號、真實交易或外送平台。</p>
+        <a class="text-link" href="https://github.com/mars-tw/seven-district-reckoning/releases/tag/v0.4.0" target="_blank" rel="noopener noreferrer">下載 Windows Alpha 0.4.0 <span aria-hidden="true">↗</span></a>
       </section>
 
       <section id="controls" class="controls-note" aria-labelledby="controls-heading">
@@ -104,6 +118,7 @@
           <div><dt><kbd>Q</kbd><kbd>R</kbd></dt><dd>換工具／取回載具</dd></div>
           <div><dt><kbd>Tab</kbd><kbd>Esc</kbd></dt><dd>任務手機／暫停</dd></div>
           <div><dt><kbd>M</kbd></dt><dd>街區地圖與導航</dd></div>
+          <div><dt><kbd>J</kbd></dt><dd>外送、取貨與街坊故事</dd></div>
         </dl>
         <p class="muted-note">存讀檔請用暫停選單。瀏覽器可能攔截 F5；Esc 可暫停或離開全螢幕。「設定」可調畫質、難度、視角靈敏度與音效。手機若變慢，先選「省電」畫質。</p>
       </section>
@@ -122,6 +137,6 @@
 
   <script id="godot-config" type="application/json">$GODOT_CONFIG</script>
   <script src="$GODOT_URL" defer></script>
-  <script src="play-site.js" defer></script>
+  <script src="/play-site.js" defer></script>
 </body>
 </html>

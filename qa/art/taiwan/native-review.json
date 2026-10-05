@@ -1,0 +1,43 @@
+{
+	"counts": {
+		"asset_instances": 508,
+		"assets": {
+			"bicycle": 4,
+			"streetlight": 112,
+			"tree": 80,
+			"tw_arcade_shop": 53,
+			"tw_breakfast_stall": 6,
+			"tw_bus_shelter": 2,
+			"tw_convenience": 2,
+			"tw_food_stall": 10,
+			"tw_lantern_gate": 4,
+			"tw_market_stall": 14,
+			"tw_parcel_shelf": 5,
+			"tw_parcel_station": 1,
+			"tw_recycling_station": 1,
+			"tw_river_pavilion": 2,
+			"tw_rowhouse": 100,
+			"tw_scooter": 88,
+			"urban_bench": 24
+		},
+		"citizens": 16,
+		"collider_sectors": 40,
+		"collider_shapes": 485,
+		"draw_groups": 479,
+		"lod_levels": 55,
+		"missing_assets": [],
+		"moving_vehicles": 4,
+		"night_lanterns": true,
+		"prop_distance": 180.0,
+		"regions": 8,
+		"roads": 16,
+		"stations": 32,
+		"surface_instances": 2454,
+		"terrain_area_m2": 550000.0,
+		"terrain_bodies": 4,
+		"view_distance": 440.0
+	},
+	"driver": "opengl3",
+	"note": "Native world-module review; not browser performance proof.",
+	"renderer": "gl_compatibility"
+}

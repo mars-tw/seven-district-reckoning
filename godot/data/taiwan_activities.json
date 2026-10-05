@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "title": "台灣街坊文化活動",
+  "fictional": true,
+  "reward_policy": "只保存徽章、最佳成績及完成次數，不改配送現金與人物信任。",
+  "activities": [
+    {"id":"TW-ACT-TOP","title":"陀螺節奏體驗","kind":"rhythm","station_id":"green_class","badge":"陀螺節奏手","instruction":"游標進入金色區間時，點一下轉動或按空白鍵。八拍至少六拍成功，陀螺才能穩住。","rounds":8,"period":1.20,"tolerance":0.20,"targets":[0.54,0.72,0.48,0.66,0.58,0.78,0.50,0.68],"pass_hits":6,"source_ids":["TW-R22"],"adaptation_note":"節奏按鍵是原創小遊戲，不聲稱模擬陀螺物理。"},
+    {"id":"TW-ACT-CLOGS","title":"木屐協調練習","kind":"alternating","station_id":"arcade_temple","badge":"木屐好隊友","instruction":"按照左、右腳交替踩拍。游標進入金色區間才踏步；連按或踩錯腳會失去一拍。八拍至少六拍成功。","rounds":8,"period":1.30,"tolerance":0.21,"targets":[0.64,0.64,0.64,0.64,0.64,0.64,0.64,0.64],"sequence":["left","right","left","right","left","right","left","right"],"pass_hits":6,"source_ids":["TW-R21","TW-R38"],"adaptation_note":"單人按鍵協調改編，不取用官方器材照片與比賽規則。"},
+    {"id":"TW-ACT-CRAFT","title":"街坊手作配色","kind":"craft","station_id":"creative_workshop","badge":"街坊配色師","instruction":"依委託卡選底色、配色與圖案。完成三張作品；選錯可重選，每次錯選扣十分。","options":["red","blue","white","flower","stripes","dots"],"recipes":[{"title":"廟埕花布","steps":["red","white","flower"]},{"title":"河岸帆布","steps":["blue","white","stripes"]},{"title":"市場點點袋","steps":["white","red","dots"]}],"source_ids":["TW-R37"],"adaptation_note":"三張配色卡及圖案為原創，不複製任何品牌花布設計。"},
+    {"id":"TW-ACT-WALK","title":"街坊集章健走","kind":"walk","station_id":"green_notice","badge":"街坊走透透","instruction":"從公告欄出發，依序到市場、老街、河岸與綠廊現場蓋章。步行或騎自行車皆可，汽車不算；沒有倒數壓力。","route":["market_square","old_arcade","river_checkpoint","community_green"],"source_ids":["TW-R37","TW-R49"],"adaptation_note":"原創四站遊戲路線，不使用真實活動地圖、獎品或健康療效宣稱。"}
+  ]
+}

@@ -12,6 +12,7 @@ var sensitivity: float = 1.0
 var muted: bool = false
 var waypoint: Vector2 = Vector2.ZERO
 var has_waypoint: bool = false
+var world_radius: float = 145.0
 
 func reset() -> void:
 	hour = 15.5
@@ -35,7 +36,7 @@ func daylight() -> float:
 	return clampf(sin((hour - 6.0) * PI / 12.0), 0.0, 1.0)
 
 func set_waypoint(value: Vector2) -> bool:
-	if not value.is_finite() or absf(value.x) > 145 or absf(value.y) > 145:
+	if not value.is_finite() or absf(value.x) > world_radius or absf(value.y) > world_radius:
 		return false
 	waypoint = value
 	has_waypoint = true
@@ -54,7 +55,7 @@ func from_dict(data: Dictionary) -> bool:
 		if not data.get(key) is bool: return false
 	var values: Variant = data.get("waypoint")
 	if not values is Array or values.size() != 2: return false
-	if not _number(values[0],-145,145) or not _number(values[1],-145,145): return false
+	if not _number(values[0],-world_radius,world_radius) or not _number(values[1],-world_radius,world_radius): return false
 	hour = float(data["hour"])
 	cycle_enabled = data["cycle_enabled"]
 	quality = data["quality"]

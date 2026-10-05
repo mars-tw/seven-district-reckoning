@@ -1,20 +1,164 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
+  "canonical_origin": "https://seven-district-reckoning.digimkt.workers.dev",
+  "entrypoints": [
+    {
+      "profile": "auto",
+      "route": "/",
+      "document": "index.html",
+      "label": "自動選擇",
+      "title": "線上遊玩",
+      "hint": "依裝置選擇操作與畫面，也可手動切換手機、平板或電腦。",
+      "settings": null
+    },
+    {
+      "profile": "phone",
+      "route": "/phone/",
+      "document": "phone/index.html",
+      "label": "手機",
+      "title": "手機版",
+      "hint": "左下浮動搖桿移動，右側點按動作。直向可玩，橫向放大可看更遠。",
+      "settings": {
+        "label": "手機",
+        "resolution_scale": 0.7,
+        "pixel_ratio_cap": 1.5,
+        "shadows": false,
+        "prop_distance": 70,
+        "building_distance": 190,
+        "camera_distance": 240,
+        "lod_threshold": 4,
+        "max_citizens": 6,
+        "max_traffic": 2,
+        "ambient_distance": 90,
+        "audio_voices": 4,
+        "audio_distance": 30,
+        "input_mode": "touch",
+        "hud_density": "compact",
+        "touch_button_size": 54,
+        "touch_spacing": 8,
+        "joystick_radius": 56,
+        "modal_columns": 1,
+        "map_fraction": 0.6,
+        "safe_margin": 12,
+        "muted": false,
+        "sensitivity": 1,
+        "sprint_toggle": true
+      }
+    },
+    {
+      "profile": "tablet",
+      "route": "/tablet/",
+      "document": "tablet/index.html",
+      "label": "平板",
+      "title": "平板版",
+      "hint": "較大的觸控鍵、雙欄生活任務與大地圖。可直向查看任務，再橫向騎車。",
+      "settings": {
+        "label": "平板",
+        "resolution_scale": 0.85,
+        "pixel_ratio_cap": 1.75,
+        "shadows": false,
+        "prop_distance": 110,
+        "building_distance": 280,
+        "camera_distance": 360,
+        "lod_threshold": 2,
+        "max_citizens": 12,
+        "max_traffic": 4,
+        "ambient_distance": 140,
+        "audio_voices": 8,
+        "audio_distance": 55,
+        "input_mode": "touch",
+        "hud_density": "split",
+        "touch_button_size": 64,
+        "touch_spacing": 12,
+        "joystick_radius": 72,
+        "modal_columns": 2,
+        "map_fraction": 0.72,
+        "safe_margin": 20,
+        "muted": false,
+        "sensitivity": 1,
+        "sprint_toggle": true
+      }
+    },
+    {
+      "profile": "desktop",
+      "route": "/desktop/",
+      "document": "desktop/index.html",
+      "label": "電腦",
+      "title": "電腦版",
+      "hint": "WASD 移動、右鍵拖曳視角；J 外送與取貨、M 地圖、Tab 委託。",
+      "settings": {
+        "label": "電腦",
+        "resolution_scale": 1,
+        "pixel_ratio_cap": 2,
+        "shadows": true,
+        "prop_distance": 180,
+        "building_distance": 440,
+        "camera_distance": 560,
+        "lod_threshold": 1,
+        "max_citizens": 24,
+        "max_traffic": 8,
+        "ambient_distance": 230,
+        "audio_voices": 16,
+        "audio_distance": 90,
+        "input_mode": "keyboard_mouse",
+        "hud_density": "expanded",
+        "touch_button_size": 54,
+        "touch_spacing": 6,
+        "joystick_radius": 56,
+        "modal_columns": 2,
+        "map_fraction": 0.78,
+        "safe_margin": 10,
+        "muted": false,
+        "sensitivity": 1,
+        "sprint_toggle": true
+      }
+    }
+  ],
+  "asset_hashes": {
+    "play-site.css": "685c676b88af",
+    "play-site.js": "62020d6c48ac",
+    "game.js": "33c94cb3175f"
+  },
   "wasm_asset": "game.wasm.br",
-  "wasm_url": "game.wasm",
+  "wasm_url": "/game.wasm",
   "wasm_original_bytes": 39514754,
   "wasm_transfer_bytes": 8041529,
   "wasm_original_sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
   "files": [
     {
       "name": "404.html",
-      "bytes": 1257,
-      "sha256": "8e649cb767ce0de2d54db453eebf7198568985d52ef55cd67da39e11b56bcb0f"
+      "bytes": 1272,
+      "sha256": "4456e8f991dd2e7f26971d831a012433392998f325c3373ca965727617dae68f"
     },
     {
       "name": "CREDITS.txt",
-      "bytes": 3744,
-      "sha256": "176083369a515b6e29d8ed8d27f8729697fbd1974aecefc7eeb8f8442fe758e3"
+      "bytes": 4294,
+      "sha256": "fb73b940e47091a8ff2bb9833c08f23547a185b57f8baedd45e66db7ef5be2a7"
+    },
+    {
+      "name": "LICENSE-ASSETS.txt",
+      "bytes": 2605,
+      "sha256": "ead08ea286deac595059e4b35f960623d47dc393908c687e237de5d3c9b56a83"
+    },
+    {
+      "name": "LICENSE.txt",
+      "bytes": 1101,
+      "sha256": "55ef6e46d74aacb1018560c5f305f02e3669006b6e789f64d3d9098859848b52"
+    },
+    {
+      "name": "_headers",
+      "bytes": 667,
+      "sha256": "4e4f4cf31126335d6ebae74b30100c71e7495abaa86e80bf7ea4581ff8183e35"
+    },
+    {
+      "name": "_redirects",
+      "bytes": 194,
+      "sha256": "04366378d9f8594bced8c74908b3fb4f0ca5b197d3ac0969bacd42dde3eeb49d"
+    },
+    {
+      "name": "desktop/index.html",
+      "bytes": 11178,
+      "sha256": "0a4306a7d02f0b24becca386bae40a0616b8c363bcaad2cbef3b84896a0e550c"
     },
     {
       "name": "favicon.svg",
@@ -38,8 +182,8 @@
     },
     {
       "name": "game.html",
-      "bytes": 9670,
-      "sha256": "cbd3fd2523da35f7a6442413fdfcb92f24858ec99e9086f0e9b072aeaad8ef0f"
+      "bytes": 11169,
+      "sha256": "be5f7bbe5f37b2bc4fc1b393ba9404c53a13bcf2f5472d4112bd6105a3515f1e"
     },
     {
       "name": "game.icon.png",
@@ -53,8 +197,8 @@
     },
     {
       "name": "game.pck",
-      "bytes": 7123364,
-      "sha256": "227f2321f1a2e23d994edf679eb23a06d35e2607e024d3e66708dc7fcb267be2"
+      "bytes": 10935100,
+      "sha256": "a344c3b5b9afa1adf99c7120f4bb11b8b51319b16b4a3af614d3823f2355c425"
     },
     {
       "name": "game.png",
@@ -68,63 +212,13 @@
     },
     {
       "name": "index.html",
-      "bytes": 9670,
-      "sha256": "cbd3fd2523da35f7a6442413fdfcb92f24858ec99e9086f0e9b072aeaad8ef0f"
-    },
-    {
-      "name": "LICENSE-ASSETS.txt",
-      "bytes": 2210,
-      "sha256": "4ca34550ddf1ad9bf4176165dacf0fb0c29cdaf55d8d70572b0b7e6a2d590133"
-    },
-    {
-      "name": "LICENSE.txt",
-      "bytes": 1101,
-      "sha256": "55ef6e46d74aacb1018560c5f305f02e3669006b6e789f64d3d9098859848b52"
-    },
-    {
-      "name": "play-site.css",
-      "bytes": 15012,
-      "sha256": "221e1d04b821ca1a9b4ff1844ede365f08bba799434cae41569dbb72d86d49f3"
-    },
-    {
-      "name": "play-site.js",
-      "bytes": 18464,
-      "sha256": "7401cd9ac2bf4b6d5996a573794694f61087a2f6200c990a943cdba516ae9e45"
-    },
-    {
-      "name": "robots.txt",
-      "bytes": 23,
-      "sha256": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95"
-    },
-    {
-      "name": "_headers",
-      "bytes": 484,
-      "sha256": "ddf506f3e78c21e7a2cb1892649ef0344388638a96e1716b0470d0bc2a80426c"
-    },
-    {
-      "name": "licenses/car-kit-License.txt",
-      "bytes": 696,
-      "sha256": "c33b7f6453d134deae7b1b8493717d9ccfa754c25ab97f6de89b88f8fda19b00"
+      "bytes": 11169,
+      "sha256": "be5f7bbe5f37b2bc4fc1b393ba9404c53a13bcf2f5472d4112bd6105a3515f1e"
     },
     {
       "name": "licenses/CC-BY-3.0.txt",
       "bytes": 19467,
       "sha256": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76"
-    },
-    {
-      "name": "licenses/city-kit-commercial-License.txt",
-      "bytes": 708,
-      "sha256": "c38cee408d022e57e44e49f1cd655c2fe0dc881a07b881276b795215cdc0de69"
-    },
-    {
-      "name": "licenses/city-kit-roads-License.txt",
-      "bytes": 703,
-      "sha256": "87b9404aef5dff6162ae1e53a27bc6427fe1cdd2e2dd5ec05fdd25f17da10498"
-    },
-    {
-      "name": "licenses/furniture-kit-License.txt",
-      "bytes": 614,
-      "sha256": "bc0de1a0742cb490f9ed4bae0bd284286ebb27e23149b9917c7d8c0d590b8b29"
     },
     {
       "name": "licenses/Godot-COPYRIGHT.txt",
@@ -147,6 +241,31 @@
       "sha256": "7f7a7d4a104f6ba94e0f3fb18ef73dfbb9e35bd21b98f374046cbe5a486548c2"
     },
     {
+      "name": "licenses/OFL.txt",
+      "bytes": 4301,
+      "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2"
+    },
+    {
+      "name": "licenses/car-kit-License.txt",
+      "bytes": 696,
+      "sha256": "c33b7f6453d134deae7b1b8493717d9ccfa754c25ab97f6de89b88f8fda19b00"
+    },
+    {
+      "name": "licenses/city-kit-commercial-License.txt",
+      "bytes": 708,
+      "sha256": "c38cee408d022e57e44e49f1cd655c2fe0dc881a07b881276b795215cdc0de69"
+    },
+    {
+      "name": "licenses/city-kit-roads-License.txt",
+      "bytes": 703,
+      "sha256": "87b9404aef5dff6162ae1e53a27bc6427fe1cdd2e2dd5ec05fdd25f17da10498"
+    },
+    {
+      "name": "licenses/furniture-kit-License.txt",
+      "bytes": 614,
+      "sha256": "bc0de1a0742cb490f9ed4bae0bd284286ebb27e23149b9917c7d8c0d590b8b29"
+    },
+    {
       "name": "licenses/mini-characters-License.txt",
       "bytes": 718,
       "sha256": "28358ae5accc85b572eb42507956afc8beae05acb4648bb9026a5714d421b785"
@@ -157,14 +276,39 @@
       "sha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d"
     },
     {
-      "name": "licenses/OFL.txt",
-      "bytes": 4301,
-      "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2"
+      "name": "licenses/taiwan-CC0.txt",
+      "bytes": 1412,
+      "sha256": "b92581de6d28fb0e06c938aae0d00f367273798f6a03d397218fcdd955f115fe"
     },
     {
       "name": "licenses/urban-CC0.txt",
       "bytes": 876,
       "sha256": "9273a5a904014334ea1707d8e74437c4eb92c82a9e23a482989fe94f7c34e49b"
+    },
+    {
+      "name": "phone/index.html",
+      "bytes": 11183,
+      "sha256": "88e894492bf3927540a1b6de37ca3060397345f0fe1eed101fb08bc24af00586"
+    },
+    {
+      "name": "play-site.css",
+      "bytes": 17942,
+      "sha256": "685c676b88afcd13436f65d743ffce2b88c05cd8bbce26e6c6ccd784413ac0f2"
+    },
+    {
+      "name": "play-site.js",
+      "bytes": 24577,
+      "sha256": "62020d6c48ac3abfe91aa46ca83f484d39e2b2946be22cb0c751f98cfc0d0755"
+    },
+    {
+      "name": "robots.txt",
+      "bytes": 23,
+      "sha256": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95"
+    },
+    {
+      "name": "tablet/index.html",
+      "bytes": 11192,
+      "sha256": "ab9cbeee2819314d03d92d9be8847bc516aff01db65fcf3a265f402923e67e9a"
     }
   ]
 }

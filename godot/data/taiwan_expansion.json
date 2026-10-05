@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "world_bounds": [-400, -400, 400, 400],
+  "preserved_core": [-150, -150, 150, 150],
+  "sector_size_m": 90,
+  "map_note": "以台灣生活街景為題材的虛構街區，保留七期核心；不是實測地址或真實品牌門市。",
+  "regions": [
+    {"id":"market","name":"晨光市場","bounds":[-344,-344,-196,-196],"marker":[-270,-270],"station_id":"market_square","color":"c78e50","kind":"market","culture_tags":["早市","蔬果攤","早餐外送","遮雨鋼棚"]},
+    {"id":"night_market","name":"星燈夜市","bounds":[196,-344,344,-196],"marker":[270,-270],"station_id":"night_market","color":"d4774d","kind":"night_market","culture_tags":["小吃攤","夜市燈籠","飲料","衣飾小店"]},
+    {"id":"convenience","name":"日常便利街","bounds":[196,-74,344,74],"marker":[270,0],"station_id":"daily_store","color":"58999a","kind":"convenience","culture_tags":["便利商店","列印","便當","代收包裹"]},
+    {"id":"parcel_hub","name":"橘盒物流街","bounds":[196,196,344,344],"marker":[270,270],"station_id":"orange_parcel","color":"d89052","kind":"parcel","culture_tags":["店到店取貨","分類貨架","退貨","收件格櫃"]},
+    {"id":"greenway","name":"青蔭里民綠廊","bounds":[-74,196,74,344],"marker":[0,270],"station_id":"community_green","color":"78a466","kind":"community","culture_tags":["綠廊","里民活動","剩食分享","分類回收"]},
+    {"id":"river","name":"澄川河岸","bounds":[-344,196,-196,344],"marker":[-270,270],"station_id":"river_walk","color":"6a9ca0","kind":"river","culture_tags":["河濱步道","自行車","里程牌","休憩涼亭"]},
+    {"id":"heritage","name":"犁光騎樓老街","bounds":[-344,-74,-196,74],"marker":[-270,0],"station_id":"old_arcade","color":"b7876f","kind":"arcade","culture_tags":["騎樓","紅磚街面","鐵捲門","屋頂水塔"]},
+    {"id":"creative","name":"紙光文創聚落","bounds":[-74,-344,74,-196],"marker":[0,-270],"station_id":"creative_lane","color":"ae9b72","kind":"creative","culture_tags":["手作工坊","街角表演","創意市集","老屋店面"]}
+  ],
+  "stations": {
+    "market_square":[-270,-270],"market_breakfast":[-282,-282],"market_produce":[-258,-282],"market_grandma":[-258,-258],
+    "night_market":[270,-270],"night_drinks":[258,-282],"night_stage":[282,-282],"night_rest":[282,-258],
+    "daily_store":[270,0],"store_counter":[258,-12],"store_print":[282,-12],"store_receiver":[282,12],
+    "orange_parcel":[270,270],"parcel_sort":[258,258],"parcel_returns":[282,258],"parcel_receiver":[282,282],
+    "community_green":[0,270],"green_pantry":[-12,258],"green_notice":[12,258],"green_class":[12,282],
+    "river_walk":[-270,270],"river_bike":[-282,258],"river_checkpoint":[-258,258],"river_picnic":[-258,282],
+    "old_arcade":[-270,0],"arcade_bakery":[-282,-12],"arcade_temple":[-258,-12],"arcade_house":[-258,12],
+    "creative_lane":[0,-270],"creative_workshop":[-12,-282],"creative_stage":[12,-282],"creative_receiver":[12,-258]
+  },
+  "asset_manifest": "res://data/taiwan_asset_manifest.json",
+  "references_file": "docs/taiwan-culture-research-v04.md"
+}

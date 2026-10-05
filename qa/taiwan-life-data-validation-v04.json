@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "validation_scope": "Authored JSON relationships and source metadata only; runtime gameplay, device performance and source factual accuracy need separate review.",
+  "checks": 2402,
+  "stations": 32,
+  "foods": 16,
+  "foods_in_routes": 14,
+  "characters": 8,
+  "missions": 16,
+  "choice_missions": 7,
+  "delivery_templates": 18,
+  "categories": {
+    "food": 6,
+    "convenience": 6,
+    "parcel": 6
+  },
+  "route_chains": 41,
+  "parcel_route_chains": 9,
+  "task_target_count": 32,
+  "research_sources": 52,
+  "research_major_themes": 31,
+  "research_topic_tags": 98
+}

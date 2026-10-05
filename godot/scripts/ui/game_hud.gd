@@ -16,8 +16,11 @@ signal purchase_requested(id: String)
 signal setting_changed(key: String, value: String)
 signal waypoint_selected(point: Vector2)
 signal waypoint_cleared
+signal life_requested
+signal device_selected(profile_name: String)
 
 const MapScript = preload("res://scripts/ui/district_map.gd")
+const LifePanelScript = preload("res://scripts/ui/taiwan_life_panel.gd")
 
 const DARK := Color("14242e")
 const INK := Color("f1f3e9")
@@ -43,9 +46,15 @@ var _has_map_target := false
 var _mode: String = ""
 var _cached_notice: String = ""
 var _optional: Node
+var _life: Node
+var _activities: Node
 var _optional_label: Label
 var _map_panel: Control
 var _modal_panel: Control
+var _modal_outer: MarginContainer
+var _modal_margin: MarginContainer
+var _hud_margin: MarginContainer
+var _prompt_panel: PanelContainer
 var _controls_hint: Label
 var _systems: Node
 var _street: RefCounted
@@ -58,6 +67,10 @@ var _survival_label: Label
 var _last_survival: String = ""
 var _near_shop: bool = false
 var _settings_return_title: bool = false
+var life_panel: RefCounted
+var device_profile: String = "desktop"
+var _world_radius: float = 150.0
+var _navigation_roads: Array[Dictionary] = []
 
 
 func _ready() -> void:
@@ -82,7 +95,14 @@ func bind_optional(manager: Node) -> void:
 
 func _refresh_optional() -> void:
 	if not _optional or not _optional_label: return
-	_optional_label.text = "街坊：" + _optional.get_active_text() if _optional.status == "active" or _optional.status == "failed" else "Tab 任務手機｜6份街坊委託、4種活動與街景相簿"
+	if _activities and _activities.status=="active":
+		_optional_label.text = "%s｜%s" % [_activities.get_active_title(),_activities.get_active_text()]
+	elif _life and _life.status in ["active","choosing","returning","failed"]:
+		_optional_label.text = "%s｜%s\n生活金 %d　攜帶 %d 件" % [_life.get_active_title(),_life.get_active_text(),_life.cash,_life.cargo.size()]
+	elif _optional.status in ["active","failed"]:
+		_optional_label.text = "街坊："+_optional.get_active_text()
+	else:
+		_optional_label.text = "%s｜街坊故事、配送與活動　生活金 %d" % ["配送按鈕" if device_profile in ["phone","tablet"] else "J 街坊生活",_life.cash if _life else 0]
 	if _scores_label: _scores_label.text = _score_text()
 
 func bind_systems(manager: Node, street: RefCounted) -> void:
@@ -93,6 +113,35 @@ func setup_district_map(regions: Array[Dictionary], blocks: Array[AABB], points:
 	_world_regions = regions.duplicate(true)
 	_world_blocks = blocks.duplicate()
 	_world_points = points.duplicate(true)
+
+func bind_life(manager: Node, callbacks: Dictionary) -> void:
+	_life = manager
+	_life.updated.connect(_refresh_optional)
+	life_panel = LifePanelScript.new()
+	life_panel.setup(self,manager,callbacks)
+	life_panel.set_profile(device_profile)
+	_refresh_optional()
+
+func bind_activities(manager: Node) -> void:
+	_activities = manager
+	_activities.updated.connect(_refresh_optional)
+	_refresh_optional()
+
+func set_device_profile(settings: Dictionary) -> void:
+	device_profile = str(settings.get("profile","desktop"))
+	if life_panel: life_panel.set_profile(device_profile)
+	_resize_modal()
+	_refresh_optional()
+
+func set_expanded_map(radius: float, roads: Array[Dictionary]) -> void:
+	_world_radius = radius
+	_navigation_roads = roads.duplicate(true)
+
+func show_life_phone(category: String = "story", page: int = 0) -> void:
+	if life_panel: life_panel.show_jobs(category,page)
+
+func show_life_station(id: String) -> void:
+	if life_panel: life_panel.show_station(id)
 
 func update_world_vehicles(car_position: Vector2, bike_position: Vector2) -> void:
 	_world_points["car"] = car_position
@@ -143,6 +192,7 @@ func _build_ui() -> void:
 	_hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_root.add_child(_hud)
 	var margin := MarginContainer.new()
+	_hud_margin = margin
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for side: String in ["left", "right", "top", "bottom"]:
 		margin.add_theme_constant_override("margin_" + side, 16)
@@ -199,6 +249,7 @@ func _build_ui() -> void:
 	_notice_label = _label("", 16, ACCENT)
 	column.add_child(_notice_label)
 	var prompt_panel := _panel()
+	_prompt_panel = prompt_panel
 	column.add_child(prompt_panel)
 	var prompt_column := _padded_column(prompt_panel, 10)
 	_prompt_label = _label("靠近標示物件，按 E 互動。", 19)
@@ -217,6 +268,7 @@ func _build_ui() -> void:
 	dim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_overlay.add_child(dim)
 	var outer := MarginContainer.new()
+	_modal_outer = outer
 	outer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for side: String in ["left", "right", "top", "bottom"]:
 		outer.add_theme_constant_override("margin_" + side, 24)
@@ -228,6 +280,7 @@ func _build_ui() -> void:
 	modal_panel.custom_minimum_size = Vector2(700, 0)
 	center.add_child(modal_panel)
 	var modal_margin := MarginContainer.new()
+	_modal_margin = modal_margin
 	for side: String in ["left", "right", "top", "bottom"]:
 		modal_margin.add_theme_constant_override("margin_" + side, 20)
 	modal_panel.add_child(modal_margin)
@@ -248,11 +301,26 @@ func _resize_modal() -> void:
 	if _modal_scroll == null:
 		return
 	var screen := get_viewport().get_visible_rect().size
+	var phone_layout: bool = device_profile=="phone" or screen.x<600
+	for side: String in ["left","right","top","bottom"]:
+		_modal_outer.add_theme_constant_override("margin_"+side,8 if phone_layout else 24)
+		_modal_margin.add_theme_constant_override("margin_"+side,12 if phone_layout else 20)
 	var map_layout: bool = _mode=="map" and screen.y>=350
 	_modal_scroll.custom_minimum_size.y = clampf(screen.y - (130.0 if map_layout else 150.0),70.0,650.0 if map_layout else 460.0)
 	_modal_scroll.custom_minimum_size.x = clampf(screen.x - 132.0, 180.0, 660.0)
 	_modal_panel.custom_minimum_size.x = clampf(screen.x - 64.0, 230.0, 700.0)
+	if device_profile in ["tablet","desktop"] and _mode in ["life","life_station"]:
+		var width: float = clampf(screen.x-90.0,250.0,980.0 if device_profile=="tablet" else 1100.0)
+		_modal_panel.custom_minimum_size.x = width
+		_modal_scroll.custom_minimum_size.x = maxf(180,width-50)
+	elif device_profile=="phone":
+		_modal_panel.custom_minimum_size.x = clampf(screen.x-16,180,650)
+		_modal_scroll.custom_minimum_size.x = clampf(screen.x-64,132,602)
 	var compact: bool = screen.x < 750 or screen.y < 480
+	var touch_layout: bool = device_profile in ["phone","tablet"]
+	_hud_margin.add_theme_constant_override("margin_bottom",180 if touch_layout and screen.y>screen.x else 16)
+	_prompt_panel.visible = not (touch_layout and screen.y<480)
+	_status_label.visible = not (touch_layout and compact)
 	_map_panel.visible = not compact
 	_controls_hint.visible = not compact
 	_scores_label.visible = not compact
@@ -307,6 +375,9 @@ func _label(text: String, font_size: int = 18, color: Color = INK) -> Label:
 func _button(text: String, callback: Callable, parent: Node = null) -> Button:
 	var button := Button.new()
 	button.text = text
+	button.clip_text = true
+	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	button.tooltip_text = text
 	button.custom_minimum_size = Vector2(0, 48)
 	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	button.pressed.connect(callback)
@@ -351,7 +422,7 @@ func get_menu_mode() -> String:
 
 
 func show_title() -> void:
-	_open("title", "七期：斷鏈行動", "Alpha 0.3｜街區探索、補給成長與新的角色造型。")
+	_open("title", "七期：斷鏈行動", "Alpha 0.4｜台灣街區、人物故事、生活配送與文化活動。")
 	_modal_box.add_child(_label("阿遠失去了存款。從美晴車店借一把扳手，沿著留下的地址，去找玻璃後面的人。", 19))
 	_modal_box.add_child(_label("所有人物、公司與地點均為虛構。這個版本只提供第一章切片，沒有完整戰役結局。", 16, MUTED))
 	_button("開始新遊戲", func() -> void: hide_menus(); new_game_requested.emit())
@@ -369,6 +440,7 @@ func show_pause() -> void:
 	_button("繼續遊戲", _resume, rows)
 	_button("任務手機", show_phone, rows)
 	_button("街坊委託與活動", show_optional_phone)
+	_button("台灣生活／外送／取貨",func() -> void: life_requested.emit())
 	_button("街區地圖",show_district_map)
 	_button("補給與街區挑戰",func() -> void: supplies_requested.emit())
 	_button("畫面與操作設定",show_settings)
@@ -399,6 +471,7 @@ func show_phone() -> void:
 		if not str(_manager.notice).is_empty():
 			_modal_box.add_child(_label(str(_manager.notice), 16, ACCENT))
 	_button("街坊委託／活動／相簿", show_optional_phone)
+	_button("台灣生活／外送／取貨",func() -> void: life_requested.emit())
 	_button("街區地圖",show_district_map)
 	_button("補給與街區挑戰",func() -> void: supplies_requested.emit())
 	_button("收起手機，繼續行動", _resume)
@@ -469,11 +542,13 @@ func show_systems(near_shop: bool = false) -> void:
 	_focus_first_button()
 
 func show_district_map() -> void:
-	_open("map","七期街區地圖","白點是你，黃點是任務。點地圖放置自訂目的地；街區範圍為 300 × 300 公尺。")
+	_open("map","七期街區地圖","白點是你，黃點是任務。點地圖放置自訂目的地；街區範圍為 %d × %d 公尺。" % [int(_world_radius*2),int(_world_radius*2)])
 	if get_viewport().get_visible_rect().size.y<480:
 		(_modal_box.get_child(0) as Label).add_theme_font_size_override("font_size",22)
 		(_modal_box.get_child(1) as Label).add_theme_font_size_override("font_size",13)
 	_large_map = MapScript.new()
+	_large_map.world_radius = _world_radius
+	_large_map.navigation_roads = _navigation_roads.duplicate(true)
 	_large_map.custom_minimum_size.y = clampf(get_viewport().get_visible_rect().size.y-320.0,180.0,350.0)
 	_large_map.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_modal_box.add_child(_large_map)
@@ -502,6 +577,12 @@ func show_settings() -> void:
 	if not _street: return
 	_settings_return_title = _mode=="title" or (_mode=="settings" and _settings_return_title)
 	_open("settings","畫面與操作","可調整畫質、視角、音效與戰鬥難度；設定會隨進度儲存。")
+	var device_row := HFlowContainer.new()
+	_modal_box.add_child(device_row)
+	for profile: String in ["auto","phone","tablet","desktop"]:
+		var names: Dictionary = {"auto":"自動裝置","phone":"手機","tablet":"平板","desktop":"電腦"}
+		_button(str(names[profile])+(" ✓" if device_profile==profile else ""),func() -> void: device_selected.emit(profile); show_settings(),device_row)
+	_modal_box.add_child(_label("裝置設定各自保存：手機搖桿、平板工作雙欄、電腦鍵鼠與遠景預算。",14,MUTED))
 	_modal_box.add_child(_label("畫質｜省電保留基本街景；均衡增加材質層次；細緻開啟太陽陰影。",15,MUTED))
 	var quality_row := HBoxContainer.new()
 	_modal_box.add_child(quality_row)

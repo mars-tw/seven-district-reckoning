@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "release": "Alpha 0.4 Taiwan world asset lane",
+  "authored_assets_license": "CC0-1.0",
+  "code_license": "MIT",
+  "dedication": "assets/provenance/v04-taiwan-CC0.txt",
+  "generator": "tools/blender/build_taiwan_assets.py",
+  "asset_manifest": "qa/art/taiwan/taiwan-manifest.json",
+  "runtime_asset_manifest": "godot/data/taiwan_asset_manifest.json",
+  "source_directory": "assets/source/blender/taiwan",
+  "runtime_module": "godot/scripts/world/taiwan_expansion.gd",
+  "culture_research": "docs/taiwan-culture-research-v04.md",
+  "asset_policy": {
+    "original_geometry": true,
+    "original_deterministic_PBR_pixels": true,
+    "external_photos_imported": false,
+    "trademark_logos": false,
+    "GTA_assets": false,
+    "Google_Street_View_assets": false,
+    "surveyed_GIS_map": false
+  },
+  "metric_design": {
+    "world_metres": 800,
+    "retained_core_metres": 300,
+    "facade_tiles_m": 0.25,
+    "shop_door_m": 2.8,
+    "arcade_column_m": 3.0,
+    "stall_work_surface_m": 1.18,
+    "bench_seat_m": 0.46,
+    "texture_max_px": 128
+  },
+  "limitations": [
+    "Fictional compressed Taiwan culture neighbourhood, not actual street addresses or surveyed Taichung buildings.",
+    "Parked scooters are decorative props; the existing drivable car and bicycle retain their own systems.",
+    "Architecture uses original PBR tiled facades and geometry; browser frame rate must be validated separately."
+  ],
+  "additional_generators": [
+    "tools/blender/build_carry_assets.py",
+    "tools/blender/build_taiwan_people.py"
+  ],
+  "additional_manifests": [
+    "godot/data/carry_asset_manifest.json",
+    "godot/data/taiwan_people_manifest.json"
+  ]
+}

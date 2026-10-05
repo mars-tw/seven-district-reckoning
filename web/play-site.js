@@ -28,6 +28,7 @@
     new_game: document.getElementById("command-start"),
     pause: document.getElementById("command-pause"),
     phone: document.getElementById("command-phone"),
+    jobs: document.getElementById("command-jobs"),
     map: document.getElementById("command-map"),
     supplies: document.getElementById("command-supplies"),
     settings: document.getElementById("command-settings"),
@@ -36,7 +37,36 @@
     load: document.getElementById("command-load"),
     touch_toggle: document.getElementById("command-touch"),
   };
-  const touchDevice = window.matchMedia("(pointer: coarse)").matches || navigator.maxTouchPoints > 0;
+  const profileSelector = document.getElementById("device-profile");
+  const profileNote = document.getElementById("device-profile-note");
+  const entryHint = document.getElementById("device-entry-hint");
+  const PROFILE_SETTINGS = Object.freeze({
+    phone: Object.freeze({ label: "手機", pixelRatioCap: 1.5, input: "touch" }),
+    tablet: Object.freeze({ label: "平板", pixelRatioCap: 1.75, input: "touch" }),
+    desktop: Object.freeze({ label: "電腦", pixelRatioCap: 2, input: "keyboard_mouse" }),
+  });
+  const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+  const agentText = navigator.userAgent || "";
+  const mobileHint = /Android|iPhone|iPad|iPod/.test(agentText)
+    || (/Macintosh/.test(agentText) && navigator.maxTouchPoints > 1 && coarsePointer);
+  // maxTouchPoints alone also matches laptops; those keep desktop controls.
+  const hardwareProfile = mobileHint || coarsePointer
+    ? (Math.min(window.screen?.width || window.innerWidth, window.screen?.height || window.innerHeight) < 600 ? "phone" : "tablet")
+    : "desktop";
+  const pathProfile = window.location.pathname.split("/").filter(Boolean)[0];
+  const entryProfile = document.body.dataset.entryProfile;
+  const queryProfile = new URLSearchParams(window.location.search).get("profile");
+  const preferenceKey = `seven-district-device-v1:${hardwareProfile}`;
+  let requestedProfile = "auto";
+  try {
+    const saved = window.localStorage.getItem(preferenceKey);
+    if (saved === "auto" || Object.hasOwn(PROFILE_SETTINGS, saved)) requestedProfile = saved;
+  } catch (_) { /* Storage can be unavailable in private/restricted browsers. */ }
+  if (Object.hasOwn(PROFILE_SETTINGS, entryProfile)) requestedProfile = entryProfile;
+  if (Object.hasOwn(PROFILE_SETTINGS, pathProfile)) requestedProfile = pathProfile;
+  if (queryProfile === "auto" || Object.hasOwn(PROFILE_SETTINGS, queryProfile)) requestedProfile = queryProfile;
+  let deviceProfile = requestedProfile === "auto" ? hardwareProfile : requestedProfile;
+  let touchDevice = deviceProfile !== "desktop";
   let engine = null;
   let phase = "ready";
   let loaded = 0;
@@ -49,6 +79,17 @@
   let playStarted = false;
   let expandedFallback = false;
   let previousOverflow = "";
+
+  Object.defineProperty(window, "sevenDistrictDevice", {
+    configurable: false,
+    enumerable: true,
+    get: () => Object.freeze({
+      profile: deviceProfile, requested_profile: requestedProfile,
+      device_hint: hardwareProfile, pointer_touch: coarsePointer || mobileHint,
+      pixel_ratio_cap: PROFILE_SETTINGS[deviceProfile].pixelRatioCap,
+      pixel_ratio: Math.min(PROFILE_SETTINGS[deviceProfile].pixelRatioCap, Math.max(1, window.devicePixelRatio || 1)),
+    }),
+  });
 
   // Diagnostics are snapshots only. No callable methods or engine internals are exposed.
   Object.defineProperty(window, "sevenDistrictStatus", {
@@ -87,8 +128,9 @@
 
   function issueGameCommand(command) {
     // The game publishes a fixed command whitelist. This page has no general action/eval API.
-    if (phase !== "running" || !Object.hasOwn(commandButtons, command)) return false;
-    if ((command === "map" || command === "supplies") && !playStarted) return false;
+    const profileCommand = ["profile_auto", "profile_phone", "profile_tablet", "profile_desktop"].includes(command);
+    if (phase !== "running" || (!Object.hasOwn(commandButtons, command) && !profileCommand)) return false;
+    if (["map", "supplies", "jobs"].includes(command) && !playStarted) return false;
     if (typeof window.sevenDistrictCommand !== "function") {
       inputHint.textContent = "遊戲操作列還沒準備好，請直接使用畫面內的遊戲選單。";
       return false;
@@ -119,9 +161,15 @@
     if (phase === "running" && previousGamePhase !== state.phase) {
       setStatus("running", state.phase === "playing" ? "遊戲進行中" : state.phase === "menu" ? "遊戲選單開啟" : "遊戲已載入，等待開始");
     }
+    if (typeof state.device_profile === "string" && Object.hasOwn(PROFILE_SETTINGS, state.device_profile)) {
+      deviceProfile = state.device_profile;
+      touchDevice = deviceProfile !== "desktop";
+      applyDeviceLayout();
+    }
     commandButtons.new_game.hidden = playStarted;
     commandButtons.pause.hidden = state.phase !== "playing";
     commandButtons.phone.hidden = state.phase !== "playing";
+    if (commandButtons.jobs) commandButtons.jobs.hidden = !playStarted;
     commandButtons.map.hidden = !playStarted;
     commandButtons.supplies.hidden = !playStarted;
     commandButtons.settings.hidden = false;
@@ -151,24 +199,65 @@
     // Coordinates are machine-readable for UI verification, never presented as player content.
     if (Number.isFinite(state.player_x)) canvas.dataset.playerX = state.player_x.toFixed(3);
     if (Number.isFinite(state.player_z)) canvas.dataset.playerZ = state.player_z.toFixed(3);
+    // Read-only renderer diagnostics; these never accept gameplay commands.
+    if (typeof state.version === "string") canvas.dataset.runtimeVersion = state.version;
+    if (typeof state.device_profile === "string") canvas.dataset.runtimeProfile = state.device_profile;
+    if (Number.isFinite(state.resolution_scale)) canvas.dataset.renderScale = state.resolution_scale.toFixed(2);
+    if (Number.isFinite(state.camera_distance)) canvas.dataset.cameraDistance = String(state.camera_distance);
+    if (typeof state.touch_controls === "boolean") canvas.dataset.touchControls = String(state.touch_controls);
+    if (Number.isFinite(state.visible_citizens)) canvas.dataset.visibleCitizens = String(state.visible_citizens);
+    if (Number.isFinite(state.visible_traffic)) canvas.dataset.visibleTraffic = String(state.visible_traffic);
+    if (Number.isFinite(state.draw_calls)) canvas.dataset.drawCalls = String(state.draw_calls);
+    if (Number.isFinite(state.frame_fps)) canvas.dataset.frameFps = String(state.frame_fps);
   }
 
   function resizeCanvas() {
     resizeQueued = false;
     const rect = frame.getBoundingClientRect();
-    const availableWidth = Math.max(1, frame.clientWidth || rect.width);
-    const availableHeight = Math.max(1, frame.clientHeight || rect.height);
+    const style = window.getComputedStyle(frame);
+    const availableWidth = Math.max(1, (frame.clientWidth || rect.width) - (parseFloat(style.paddingLeft) || 0) - (parseFloat(style.paddingRight) || 0));
+    const availableHeight = Math.max(1, (frame.clientHeight || rect.height) - (parseFloat(style.paddingTop) || 0) - (parseFloat(style.paddingBottom) || 0));
     // The game's responsive HUD follows the actual frame, including portrait phones.
     const cssWidth = availableWidth;
     const cssHeight = availableHeight;
-    // Policy 0 leaves backing dimensions to the shell. Never allocate above 2x CSS size.
-    const pixelRatio = Math.min(2, Math.max(1, window.devicePixelRatio || 1));
+    // Separate device budgets affect real canvas allocation, including manual modes.
+    const pixelRatio = Math.min(PROFILE_SETTINGS[deviceProfile].pixelRatioCap, Math.max(1, window.devicePixelRatio || 1));
     const width = Math.max(1, Math.round(cssWidth * pixelRatio));
     const height = Math.max(1, Math.round(cssHeight * pixelRatio));
     canvas.style.width = `${cssWidth}px`;
     canvas.style.height = `${cssHeight}px`;
     if (canvas.width !== width) canvas.width = width;
     if (canvas.height !== height) canvas.height = height;
+    canvas.dataset.deviceProfile = deviceProfile;
+    canvas.dataset.pixelRatio = String(pixelRatio);
+  }
+
+  function applyDeviceLayout() {
+    document.body.dataset.deviceProfile = deviceProfile;
+    if (profileSelector) profileSelector.value = requestedProfile;
+    if (profileNote) profileNote.textContent = deviceProfile === "phone"
+      ? "浮動搖桿・省電畫面・直向／橫向"
+      : deviceProfile === "tablet" ? "大觸控鍵・雙欄任務・大地圖" : "鍵盤滑鼠・完整街景・快捷鍵";
+    if (entryHint) entryHint.textContent = deviceProfile === "phone"
+      ? "左下浮動搖桿移動，右側點按動作。直向可玩，橫向放大可看更遠。"
+      : deviceProfile === "tablet"
+        ? "較大的觸控鍵、雙欄生活任務與大地圖。可直向查看任務，再橫向騎車。"
+        : "WASD 移動、右鍵拖曳視角；J 外送與取貨、M 地圖、Tab 委託。";
+    touchHint.hidden = deviceProfile === "desktop";
+    inputHint.textContent = touchDevice
+      ? "左下拖曳移動，右邊點按動作；拖曳右半邊看四周。可按「連跑」切換跑步。"
+      : "WASD 移動，右鍵拖曳看四周；M 地圖、Tab 委託、J 外送與取貨、Esc 暫停。";
+    queueResize();
+  }
+
+  function selectProfile(value) {
+    if (value !== "auto" && !Object.hasOwn(PROFILE_SETTINGS, value)) return;
+    requestedProfile = value;
+    deviceProfile = value === "auto" ? hardwareProfile : value;
+    touchDevice = deviceProfile !== "desktop";
+    try { window.localStorage.setItem(preferenceKey, value); } catch (_) { /* Optional local preference. */ }
+    applyDeviceLayout();
+    issueGameCommand(`profile_${value}`);
   }
 
   function queueResize() {
@@ -297,9 +386,8 @@
           gameToolbar.hidden = false;
         }
         if (lastGameState) updateGameState(lastGameState);
-        inputHint.textContent = touchDevice
-          ? "觸控請橫向並開啟全螢幕；用「觸控按鈕」開啟畫面操作。"
-          : "WASD 移動，按住右鍵拖曳調整視角。按 Esc 暫停。";
+        issueGameCommand(`profile_${requestedProfile}`);
+        applyDeviceLayout();
         resizeCanvas();
         focusCanvas();
       }).catch(displayFailure);
@@ -358,8 +446,9 @@
 
   startButton.addEventListener("click", startGame);
   Object.entries(commandButtons).forEach(([command, button]) => {
-    button.addEventListener("click", () => issueGameCommand(command));
+    if (button) button.addEventListener("click", () => issueGameCommand(command));
   });
+  if (profileSelector) profileSelector.addEventListener("change", () => selectProfile(profileSelector.value));
   window.addEventListener("seven-district-state", (event) => updateGameState(event.detail));
   focusButton.addEventListener("click", focusCanvas);
   canvas.addEventListener("pointerdown", focusCanvas);
@@ -384,11 +473,15 @@
   });
   window.addEventListener("resize", queueResize, { passive: true });
   window.addEventListener("orientationchange", queueResize, { passive: true });
+  // Leaving a mobile tab cannot leave a movement finger or sprint toggle live.
+  window.addEventListener("blur", () => {
+    if (lastGameState?.phase === "playing") issueGameCommand("pause");
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden && lastGameState?.phase === "playing") issueGameCommand("pause");
+  });
   if (window.visualViewport) window.visualViewport.addEventListener("resize", queueResize, { passive: true });
   if (typeof ResizeObserver !== "undefined") new ResizeObserver(queueResize).observe(frame);
-  if (touchDevice) {
-    touchHint.hidden = false;
-    inputHint.textContent = "觸控請橫向遊玩。手機操作與效能仍在測試中。";
-  }
+  applyDeviceLayout();
   resizeCanvas();
 })();

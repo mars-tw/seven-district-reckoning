@@ -1,0 +1,64 @@
+{
+  "driver": "opengl3",
+  "gpu": "NVIDIA GeForce RTX 2060",
+  "profiles": [
+    {
+      "camera_far": 240.0,
+      "citizen_budget": 6.0,
+      "draw_calls_median": 116,
+      "frame_ms_median": 16.654,
+      "frame_ms_p95": 17.782,
+      "lod": 4.0,
+      "profile": "phone",
+      "scale_3d": 0.699999988079071,
+      "touch": true,
+      "traffic_budget": 2.0,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "camera_far": 360.0,
+      "citizen_budget": 12.0,
+      "draw_calls_median": 127,
+      "frame_ms_median": 16.649,
+      "frame_ms_p95": 17.08,
+      "lod": 2.0,
+      "profile": "tablet",
+      "scale_3d": 0.850000023841858,
+      "touch": true,
+      "traffic_budget": 4.0,
+      "viewport": [
+        1024,
+        768
+      ]
+    },
+    {
+      "camera_far": 560.0,
+      "citizen_budget": 24.0,
+      "draw_calls_median": 158,
+      "frame_ms_median": 16.633,
+      "frame_ms_p95": 17.288,
+      "lod": 1.0,
+      "profile": "desktop",
+      "scale_3d": 1.0,
+      "touch": false,
+      "traffic_budget": 8.0,
+      "viewport": [
+        1366,
+        768
+      ]
+    }
+  ],
+  "renderer": "gl_compatibility",
+  "scope": "Native shipping scene art/renderer fixture, 90 frames per profile on development PC; no claim of phone/tablet hardware performance.",
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 63,
+    "digest": "b55be05f732faebe5d3aafda251cdbb886062100e0feed2e1e867e95c6f99973"
+  },
+  "scene_fixture": "tests/v04_rendered_capture.gd",
+  "capture_note": "Shipping Root scene rendered after production freeze; figures were placed for art inspection. No browser teleport or runtime setter was used."
+}

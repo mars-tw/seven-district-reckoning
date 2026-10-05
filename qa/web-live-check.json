@@ -1,0 +1,588 @@
+{
+  "version": "0.4.0",
+  "url": "https://seven-district-reckoning.digimkt.workers.dev",
+  "verified_at": "2026-10-05T02:01:52.606Z",
+  "scope": "static HTTP bytes, MIME, decoded engine, entry configuration and redirects; no browser/FPS claim",
+  "status": "PASS",
+  "checks": [
+    {
+      "file": "404.html",
+      "url": "/404.html",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 1272,
+      "content_type": "text/html",
+      "content_encoding": "br"
+    },
+    {
+      "file": "CREDITS.txt",
+      "url": "/CREDITS.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 4294,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "LICENSE-ASSETS.txt",
+      "url": "/LICENSE-ASSETS.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 2605,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "LICENSE.txt",
+      "url": "/LICENSE.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 1101,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "desktop/index.html",
+      "url": "/desktop/",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 11178,
+      "content_type": "text/html",
+      "content_encoding": "br"
+    },
+    {
+      "file": "favicon.svg",
+      "url": "/favicon.svg",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 363,
+      "content_type": "image/svg+xml",
+      "content_encoding": "br"
+    },
+    {
+      "file": "game.apple-touch-icon.png",
+      "url": "/game.apple-touch-icon.png",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 10556,
+      "content_type": "image/png",
+      "content_encoding": null
+    },
+    {
+      "file": "game.audio.position.worklet.js",
+      "url": "/game.audio.position.worklet.js",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 2973,
+      "content_type": "text/javascript",
+      "content_encoding": "br"
+    },
+    {
+      "file": "game.audio.worklet.js",
+      "url": "/game.audio.worklet.js",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 7298,
+      "content_type": "text/javascript",
+      "content_encoding": "br"
+    },
+    {
+      "file": "game.html",
+      "url": "/game.html",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 11169,
+      "content_type": "text/html",
+      "content_encoding": "br"
+    },
+    {
+      "file": "game.icon.png",
+      "url": "/game.icon.png",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 11423,
+      "content_type": "image/png",
+      "content_encoding": null
+    },
+    {
+      "file": "game.js",
+      "url": "/game.js",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 279815,
+      "content_type": "text/javascript",
+      "content_encoding": "br"
+    },
+    {
+      "file": "game.pck",
+      "url": "/game.pck",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 10935100,
+      "content_type": "application/octet-stream",
+      "content_encoding": null
+    },
+    {
+      "file": "game.png",
+      "url": "/game.png",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 21443,
+      "content_type": "image/png",
+      "content_encoding": null
+    },
+    {
+      "file": "game.wasm.br",
+      "url": "/game.wasm",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 39514754,
+      "content_type": "application/wasm",
+      "content_encoding": "br"
+    },
+    {
+      "file": "index.html",
+      "url": "/",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 11169,
+      "content_type": "text/html",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/CC-BY-3.0.txt",
+      "url": "/licenses/CC-BY-3.0.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 19467,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/Godot-COPYRIGHT.txt",
+      "url": "/licenses/Godot-COPYRIGHT.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 100108,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/Godot-LICENSE.txt",
+      "url": "/licenses/Godot-LICENSE.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 1149,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/MakeHuman-ASSETS-CC0.txt",
+      "url": "/licenses/MakeHuman-ASSETS-CC0.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 6962,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/MakeHuman-source-notice.txt",
+      "url": "/licenses/MakeHuman-source-notice.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 2610,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/OFL.txt",
+      "url": "/licenses/OFL.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 4301,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/car-kit-License.txt",
+      "url": "/licenses/car-kit-License.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 696,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/city-kit-commercial-License.txt",
+      "url": "/licenses/city-kit-commercial-License.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 708,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/city-kit-roads-License.txt",
+      "url": "/licenses/city-kit-roads-License.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 703,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/furniture-kit-License.txt",
+      "url": "/licenses/furniture-kit-License.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 614,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/mini-characters-License.txt",
+      "url": "/licenses/mini-characters-License.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 718,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/nature-kit-License.txt",
+      "url": "/licenses/nature-kit-License.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 611,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/taiwan-CC0.txt",
+      "url": "/licenses/taiwan-CC0.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 1412,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "licenses/urban-CC0.txt",
+      "url": "/licenses/urban-CC0.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 876,
+      "content_type": "text/plain",
+      "content_encoding": "br"
+    },
+    {
+      "file": "phone/index.html",
+      "url": "/phone/",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 11183,
+      "content_type": "text/html",
+      "content_encoding": "br"
+    },
+    {
+      "file": "play-site.css",
+      "url": "/play-site.css",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 17942,
+      "content_type": "text/css",
+      "content_encoding": "br"
+    },
+    {
+      "file": "play-site.js",
+      "url": "/play-site.js",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 24577,
+      "content_type": "text/javascript",
+      "content_encoding": "br"
+    },
+    {
+      "file": "robots.txt",
+      "url": "/robots.txt",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 23,
+      "content_type": "text/plain",
+      "content_encoding": null
+    },
+    {
+      "file": "tablet/index.html",
+      "url": "/tablet/",
+      "status": 200,
+      "passed": true,
+      "decoded_bytes": 11192,
+      "content_type": "text/html",
+      "content_encoding": "br"
+    },
+    {
+      "file": "/ HTML document",
+      "passed": true
+    },
+    {
+      "file": "/ actual project version",
+      "passed": true
+    },
+    {
+      "file": "/ independent profile",
+      "passed": true
+    },
+    {
+      "file": "/ entry title and instructions",
+      "passed": true
+    },
+    {
+      "file": "/ canonical link",
+      "passed": true
+    },
+    {
+      "file": "/ play-site.css root URL and content hash",
+      "passed": true
+    },
+    {
+      "file": "/ play-site.js root URL and content hash",
+      "passed": true
+    },
+    {
+      "file": "/ game.js root URL and content hash",
+      "passed": true
+    },
+    {
+      "file": "/ no route-relative engine/stylesheet/icon resources",
+      "passed": true
+    },
+    {
+      "file": "/ shared executable and pack",
+      "passed": true
+    },
+    {
+      "file": "/ absolute load sizes",
+      "passed": true
+    },
+    {
+      "file": "/ single-threaded page contract",
+      "passed": true
+    },
+    {
+      "file": "/phone/ HTML document",
+      "passed": true
+    },
+    {
+      "file": "/phone/ actual project version",
+      "passed": true
+    },
+    {
+      "file": "/phone/ independent profile",
+      "passed": true
+    },
+    {
+      "file": "/phone/ entry title and instructions",
+      "passed": true
+    },
+    {
+      "file": "/phone/ canonical link",
+      "passed": true
+    },
+    {
+      "file": "/phone/ play-site.css root URL and content hash",
+      "passed": true
+    },
+    {
+      "file": "/phone/ play-site.js root URL and content hash",
+      "passed": true
+    },
+    {
+      "file": "/phone/ game.js root URL and content hash",
+      "passed": true
+    },
+    {
+      "file": "/phone/ no route-relative engine/stylesheet/icon resources",
+      "passed": true
+    },
+    {
+      "file": "/phone/ shared executable and pack",
+      "passed": true
+    },
+    {
+      "file": "/phone/ absolute load sizes",
+      "passed": true
+    },
+    {
+      "file": "/phone/ single-threaded page contract",
+      "passed": true
+    },
+    {
+      "file": "/tablet/ HTML document",
+      "passed": true
+    },
+    {
+      "file": "/tablet/ actual project version",
+      "passed": true
+    },
+    {
+      "file": "/tablet/ independent profile",
+      "passed": true
+    },
+    {
+      "file": "/tablet/ entry title and instructions",
+      "passed": true
+    },
+    {
+      "file": "/tablet/ canonical link",
+      "passed": true
+    },
+    {
+      "file": "/tablet/ play-site.css root URL and content hash",
+      "passed": true
+    },
+    {
+      "file": "/tablet/ play-site.js root URL and content hash",
+      "passed": true
+    },
+    {
+      "file": "/tablet/ game.js root URL and content hash",
+      "passed": true
+    },
+    {
+      "file": "/tablet/ no route-relative engine/stylesheet/icon resources",
+      "passed": true
+    },
+    {
+      "file": "/tablet/ shared executable and pack",
+      "passed": true
+    },
+    {
+      "file": "/tablet/ absolute load sizes",
+      "passed": true
+    },
+    {
+      "file": "/tablet/ single-threaded page contract",
+      "passed": true
+    },
+    {
+      "file": "/desktop/ HTML document",
+      "passed": true
+    },
+    {
+      "file": "/desktop/ actual project version",
+      "passed": true
+    },
+    {
+      "file": "/desktop/ independent profile",
+      "passed": true
+    },
+    {
+      "file": "/desktop/ entry title and instructions",
+      "passed": true
+    },
+    {
+      "file": "/desktop/ canonical link",
+      "passed": true
+    },
+    {
+      "file": "/desktop/ play-site.css root URL and content hash",
+      "passed": true
+    },
+    {
+      "file": "/desktop/ play-site.js root URL and content hash",
+      "passed": true
+    },
+    {
+      "file": "/desktop/ game.js root URL and content hash",
+      "passed": true
+    },
+    {
+      "file": "/desktop/ no route-relative engine/stylesheet/icon resources",
+      "passed": true
+    },
+    {
+      "file": "/desktop/ shared executable and pack",
+      "passed": true
+    },
+    {
+      "file": "/desktop/ absolute load sizes",
+      "passed": true
+    },
+    {
+      "file": "/desktop/ single-threaded page contract",
+      "passed": true
+    },
+    {
+      "file": "independent HTML documents",
+      "passed": true
+    },
+    {
+      "file": "canonical redirect /index.html",
+      "status": 301,
+      "location": "/",
+      "passed": true
+    },
+    {
+      "file": "canonical redirect /game.html",
+      "status": 301,
+      "location": "/",
+      "passed": true
+    },
+    {
+      "file": "canonical redirect /phone",
+      "status": 301,
+      "location": "/phone/",
+      "passed": true
+    },
+    {
+      "file": "canonical redirect /phone/index.html",
+      "status": 301,
+      "location": "/phone/",
+      "passed": true
+    },
+    {
+      "file": "canonical redirect /tablet",
+      "status": 301,
+      "location": "/tablet/",
+      "passed": true
+    },
+    {
+      "file": "canonical redirect /tablet/index.html",
+      "status": 301,
+      "location": "/tablet/",
+      "passed": true
+    },
+    {
+      "file": "canonical redirect /desktop",
+      "status": 301,
+      "location": "/desktop/",
+      "passed": true
+    },
+    {
+      "file": "canonical redirect /desktop/index.html",
+      "status": 301,
+      "location": "/desktop/",
+      "passed": true
+    },
+    {
+      "file": "missing route /missing-web-verification-0.4",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "file": "missing route /phone/game.wasm",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "file": "missing route /tablet/game.pck",
+      "status": 404,
+      "passed": true
+    },
+    {
+      "file": "missing route /desktop/game.js",
+      "status": 404,
+      "passed": true
+    }
+  ]
+}

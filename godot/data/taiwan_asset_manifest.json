@@ -1,0 +1,564 @@
+{
+  "schema_version": 1,
+  "generator": "tools/blender/build_taiwan_assets.py",
+  "license": "CC0-1.0",
+  "texture_max": 128,
+  "runtime_source_bytes": 1718862,
+  "assets": [
+    {
+      "name": "tw_arcade_shop",
+      "path": "godot/assets/models/tw_arcade_shop.glb",
+      "source": "assets/source/blender/taiwan/tw_arcade_shop.blend",
+      "license": "CC0-1.0",
+      "triangles": 1162,
+      "materials": 7,
+      "bytes": 168688,
+      "sha256": "cbe34534b350d9f534669a351f885390352ad14a9a9c469b9393c7d0b2f14462",
+      "bounds_blender_min": [
+        -5.099999904632568,
+        -5.675000190734863,
+        0.0
+      ],
+      "bounds_blender_max": [
+        5.099999904632568,
+        5.074999809265137,
+        8.84000015258789
+      ],
+      "traits": [
+        "covered_arcade",
+        "roller_shutter",
+        "tiled_facade",
+        "external_AC",
+        "roof_water_tank"
+      ],
+      "collision_boxes": [
+        [
+          [
+            0,
+            3.6,
+            -1.2
+          ],
+          [
+            10,
+            7.2,
+            7.6
+          ]
+        ],
+        [
+          [
+            -4.6,
+            1.5,
+            4.62
+          ],
+          [
+            0.42,
+            3,
+            0.42
+          ]
+        ],
+        [
+          [
+            4.6,
+            1.5,
+            4.62
+          ],
+          [
+            0.42,
+            3,
+            0.42
+          ]
+        ]
+      ],
+      "role": "Original low-rise covered arcade; front walkway stays open"
+    },
+    {
+      "name": "tw_convenience",
+      "path": "godot/assets/models/tw_convenience.glb",
+      "source": "assets/source/blender/taiwan/tw_convenience.blend",
+      "license": "CC0-1.0",
+      "triangles": 368,
+      "materials": 7,
+      "bytes": 110092,
+      "sha256": "ec18c6fd4e726ddc5de7813e59a3eeb80894e4eeea5d342b2e992e06f355c557",
+      "bounds_blender_min": [
+        -6.400000095367432,
+        -6.324999809265137,
+        0.0
+      ],
+      "bounds_blender_max": [
+        6.400000095367432,
+        4.074999809265137,
+        3.9000000953674316
+      ],
+      "traits": [
+        "sliding_glass_doors",
+        "ATM_recess",
+        "weather_canopy",
+        "original_cyan_ochre_fascia"
+      ],
+      "collision_boxes": [
+        [
+          [
+            0,
+            1.9,
+            0
+          ],
+          [
+            12,
+            3.8,
+            8
+          ]
+        ]
+      ],
+      "role": "Fictional 日常便利; no real retailer logo or trade dress"
+    },
+    {
+      "name": "tw_parcel_station",
+      "path": "godot/assets/models/tw_parcel_station.glb",
+      "source": "assets/source/blender/taiwan/tw_parcel_station.blend",
+      "license": "CC0-1.0",
+      "triangles": 678,
+      "materials": 7,
+      "bytes": 130788,
+      "sha256": "7a19aff0cd92242604b38bbbe1a4e6063c4a91da60e9cbf77207140fca304be8",
+      "bounds_blender_min": [
+        -5.099999904632568,
+        -4.929999828338623,
+        0.0
+      ],
+      "bounds_blender_max": [
+        5.099999904632568,
+        4.099999904632568,
+        4.239999771118164
+      ],
+      "traits": [
+        "parcel_lockers",
+        "parcel_counter",
+        "labelled_cardboard_parcels",
+        "rain_awning"
+      ],
+      "collision_boxes": [
+        [
+          [
+            0,
+            2,
+            -0.7
+          ],
+          [
+            10,
+            4,
+            6.6
+          ]
+        ]
+      ],
+      "role": "Original 橘盒取貨站; fictional parcel service"
+    },
+    {
+      "name": "tw_breakfast_stall",
+      "path": "godot/assets/models/tw_breakfast_stall.glb",
+      "source": "assets/source/blender/taiwan/tw_breakfast_stall.blend",
+      "license": "CC0-1.0",
+      "triangles": 534,
+      "materials": 6,
+      "bytes": 96620,
+      "sha256": "c09cd343047ebb9826507f6cc2bd812d74155a47371c0101d7cdbd06dedb5e96",
+      "bounds_blender_min": [
+        -1.8125,
+        -1.6299999952316284,
+        0.0
+      ],
+      "bounds_blender_max": [
+        1.8125,
+        1.4529417753219604,
+        2.9700000286102295
+      ],
+      "traits": [
+        "portable_food_cart",
+        "woven_rain_canopy",
+        "working_counter",
+        "breakfast_props"
+      ],
+      "collision_boxes": [
+        [
+          [
+            0,
+            0.65,
+            0.2
+          ],
+          [
+            3.2,
+            1.3,
+            1.8
+          ]
+        ]
+      ],
+      "role": "breakfast stall at life-size 1.18 m working surface"
+    },
+    {
+      "name": "tw_food_stall",
+      "path": "godot/assets/models/tw_food_stall.glb",
+      "source": "assets/source/blender/taiwan/tw_food_stall.blend",
+      "license": "CC0-1.0",
+      "triangles": 590,
+      "materials": 5,
+      "bytes": 103212,
+      "sha256": "7d57c3d85f80793161ada9c4c9724a9afbb296e93c99ee33bfa50b844107227c",
+      "bounds_blender_min": [
+        -1.8125,
+        -1.6299999952316284,
+        0.0
+      ],
+      "bounds_blender_max": [
+        1.8125,
+        1.4529417753219604,
+        2.9700000286102295
+      ],
+      "traits": [
+        "portable_food_cart",
+        "woven_rain_canopy",
+        "working_counter",
+        "hot_food_props"
+      ],
+      "collision_boxes": [
+        [
+          [
+            0,
+            0.65,
+            0.2
+          ],
+          [
+            3.2,
+            1.3,
+            1.8
+          ]
+        ]
+      ],
+      "role": "hot_food stall at life-size 1.18 m working surface"
+    },
+    {
+      "name": "tw_market_stall",
+      "path": "godot/assets/models/tw_market_stall.glb",
+      "source": "assets/source/blender/taiwan/tw_market_stall.blend",
+      "license": "CC0-1.0",
+      "triangles": 2574,
+      "materials": 5,
+      "bytes": 210896,
+      "sha256": "c69adc73040a394adff6d68acf8be7387281175dde5051214650dbb86e1118c7",
+      "bounds_blender_min": [
+        -2.112499952316284,
+        -1.6299999952316284,
+        0.0
+      ],
+      "bounds_blender_max": [
+        2.112499952316284,
+        1.4529417753219604,
+        2.9700000286102295
+      ],
+      "traits": [
+        "portable_food_cart",
+        "woven_rain_canopy",
+        "working_counter",
+        "market_props"
+      ],
+      "collision_boxes": [
+        [
+          [
+            0,
+            0.65,
+            0.2
+          ],
+          [
+            3.8,
+            1.3,
+            1.8
+          ]
+        ]
+      ],
+      "role": "market stall at life-size 1.18 m working surface"
+    },
+    {
+      "name": "tw_scooter",
+      "path": "godot/assets/models/tw_scooter.glb",
+      "source": "assets/source/blender/taiwan/tw_scooter.blend",
+      "license": "CC0-1.0",
+      "triangles": 1436,
+      "materials": 5,
+      "bytes": 135864,
+      "sha256": "cd76575578bcda1f2ba5ddbedb3c26033bfa1d6fde90c9d6e377d75183e0ec30",
+      "bounds_blender_min": [
+        -0.42500001192092896,
+        -0.8899999856948853,
+        0.0
+      ],
+      "bounds_blender_max": [
+        0.42500001192092896,
+        0.9300000071525574,
+        1.2879999876022339
+      ],
+      "traits": [
+        "two_wheels",
+        "step_through_frame",
+        "handlebars_and_mirrors",
+        "blank_licence_plate"
+      ],
+      "collision_boxes": [
+        [
+          [
+            0,
+            0.65,
+            0
+          ],
+          [
+            0.65,
+            1.3,
+            1.9
+          ]
+        ]
+      ],
+      "role": "Original parked scooter; decorative, not a drivable vehicle claim"
+    },
+    {
+      "name": "tw_lantern_gate",
+      "path": "godot/assets/models/tw_lantern_gate.glb",
+      "source": "assets/source/blender/taiwan/tw_lantern_gate.blend",
+      "license": "CC0-1.0",
+      "triangles": 1964,
+      "materials": 5,
+      "bytes": 199756,
+      "sha256": "308efb4b9bd4cda061972e36c0c73a93358a2aed64e33bdea3536b6c504a0544",
+      "bounds_blender_min": [
+        -4.074999809265137,
+        -0.28999999165534973,
+        0.0
+      ],
+      "bounds_blender_max": [
+        4.074999809265137,
+        0.28999999165534973,
+        4.309999942779541
+      ],
+      "traits": [
+        "hanging_paper_lanterns",
+        "night_market_string",
+        "unbranded_signboard"
+      ],
+      "collision_boxes": [
+        [
+          [
+            -4,
+            2.1,
+            0
+          ],
+          [
+            0.15,
+            4.2,
+            0.15
+          ]
+        ],
+        [
+          [
+            4,
+            2.1,
+            0
+          ],
+          [
+            0.15,
+            4.2,
+            0.15
+          ]
+        ]
+      ],
+      "role": "Original evening market entrance; upper decoration leaves passage open"
+    },
+    {
+      "name": "tw_bus_shelter",
+      "path": "godot/assets/models/tw_bus_shelter.glb",
+      "source": "assets/source/blender/taiwan/tw_bus_shelter.blend",
+      "license": "CC0-1.0",
+      "triangles": 252,
+      "materials": 4,
+      "bytes": 45668,
+      "sha256": "2204e11137a3f6e45b9dbda3c8860db8b71905cd52cca7ee534b8901bc7bb4ea",
+      "bounds_blender_min": [
+        -2.700000047683716,
+        -1.0499999523162842,
+        0.0
+      ],
+      "bounds_blender_max": [
+        2.700000047683716,
+        1.0499999523162842,
+        2.880000114440918
+      ],
+      "traits": [
+        "covered_bus_stop",
+        "timetable_board",
+        "public_bench"
+      ],
+      "collision_boxes": [
+        [
+          [
+            0,
+            1.4,
+            -0.78
+          ],
+          [
+            5,
+            2.8,
+            0.1
+          ]
+        ]
+      ],
+      "role": "Original public waiting shelter; front opening clear"
+    },
+    {
+      "name": "tw_river_pavilion",
+      "path": "godot/assets/models/tw_river_pavilion.glb",
+      "source": "assets/source/blender/taiwan/tw_river_pavilion.blend",
+      "license": "CC0-1.0",
+      "triangles": 100,
+      "materials": 3,
+      "bytes": 33980,
+      "sha256": "1a74c17379ed6f7809aadbe388a875bb8e0b2d80974c82b76e9f278a4e78ee65",
+      "bounds_blender_min": [
+        -3.0,
+        -3.0,
+        0.0
+      ],
+      "bounds_blender_max": [
+        3.0,
+        3.0,
+        4.099999904632568
+      ],
+      "traits": [
+        "shaded_river_rest",
+        "open_pavilion",
+        "public_seating"
+      ],
+      "collision_boxes": [],
+      "role": "Open shaded rest pavilion; collision supplied only by supports at integration"
+    },
+    {
+      "name": "tw_recycling_station",
+      "path": "godot/assets/models/tw_recycling_station.glb",
+      "source": "assets/source/blender/taiwan/tw_recycling_station.blend",
+      "license": "CC0-1.0",
+      "triangles": 294,
+      "materials": 6,
+      "bytes": 77728,
+      "sha256": "8074ec79e45b2a5a70e8939fa3bf94f1adc469539af12d6c38cdba03f656ffb9",
+      "bounds_blender_min": [
+        -2.2124998569488525,
+        -1.5800000429153442,
+        0.0
+      ],
+      "bounds_blender_max": [
+        2.2124998569488525,
+        0.8537313938140869,
+        2.819999933242798
+      ],
+      "traits": [
+        "covered_recycling_bins",
+        "sorted_material_slots",
+        "local_collection_point"
+      ],
+      "collision_boxes": [
+        [
+          [
+            0,
+            0.7,
+            0
+          ],
+          [
+            4.0,
+            1.4,
+            1.0
+          ]
+        ]
+      ],
+      "role": "Village recycling collection point; no copied municipal marks"
+    },
+    {
+      "name": "tw_parcel_shelf",
+      "path": "godot/assets/models/tw_parcel_shelf.glb",
+      "source": "assets/source/blender/taiwan/tw_parcel_shelf.blend",
+      "license": "CC0-1.0",
+      "triangles": 528,
+      "materials": 3,
+      "bytes": 89304,
+      "sha256": "34618b7210b0caf4884d36e54db7a61e924a6af71b7ac3195bddefd76e077780",
+      "bounds_blender_min": [
+        -0.8500000238418579,
+        -0.33500000834465027,
+        0.0
+      ],
+      "bounds_blender_max": [
+        0.8500000238418579,
+        0.33500000834465027,
+        2.2074999809265137
+      ],
+      "traits": [
+        "sorted_cardboard_boxes",
+        "metal_rack",
+        "paper_labels"
+      ],
+      "collision_boxes": [
+        [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1.7,
+            2,
+            0.7
+          ]
+        ]
+      ],
+      "role": "Working pickup counter accessory"
+    },
+    {
+      "name": "tw_rowhouse",
+      "path": "godot/assets/models/tw_rowhouse.glb",
+      "source": "assets/source/blender/taiwan/tw_rowhouse.blend",
+      "license": "CC0-1.0",
+      "triangles": 1534,
+      "materials": 6,
+      "bytes": 193924,
+      "sha256": "63aa3c731f3cb8a112d10c9f91073ad66bc2b99ca7987927e9449a90fe51649c",
+      "bounds_blender_min": [
+        -5.074999809265137,
+        -6.300000190734863,
+        0.0
+      ],
+      "bounds_blender_max": [
+        5.074999809265137,
+        5.074999809265137,
+        12.4399995803833
+      ],
+      "traits": [
+        "mixed_use_low_rise",
+        "balcony_guardrails",
+        "corrugated_shutter",
+        "roof_water_tank",
+        "external_AC"
+      ],
+      "collision_boxes": [
+        [
+          [
+            0,
+            5.4,
+            0
+          ],
+          [
+            10,
+            10.8,
+            10
+          ]
+        ]
+      ],
+      "role": "Original older Taiwanese mixed-use building"
+    }
+  ],
+  "authorship": "Original procedural authored geometry and deterministic PBR textures; no map imagery or brand marks copied",
+  "limitations": "Culture-inspired fictional compressed neighbourhood; not a surveyed replica of Taichung"
+}

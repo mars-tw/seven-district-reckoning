@@ -11,6 +11,8 @@ var waypoint_position: Vector2 = Vector2.ZERO
 var has_target: bool = false
 var has_waypoint: bool = false
 var map_font: Font
+var world_radius: float = 150.0
+var navigation_roads: Array[Dictionary] = []
 
 func _ready() -> void:
 	custom_minimum_size = Vector2(maxf(180,custom_minimum_size.x),maxf(180,custom_minimum_size.y))
@@ -30,17 +32,18 @@ func _area() -> Rect2:
 
 func world_to_map(point: Vector2) -> Vector2:
 	var area: Rect2 = _area()
-	return area.position + (point + Vector2(150,150)) / 300.0 * area.size
+	return area.position + (point + Vector2.ONE*world_radius) / (world_radius*2.0) * area.size
 
 func map_to_world(point: Vector2) -> Vector2:
 	var area: Rect2 = _area()
-	return (point-area.position) / area.size * 300.0 - Vector2(150,150)
+	return (point-area.position) / area.size * (world_radius*2.0) - Vector2.ONE*world_radius
 
 func _gui_input(event: InputEvent) -> void:
 	var pressed: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
 	pressed = pressed or (event is InputEventScreenTouch and event.pressed)
 	if pressed and _area().has_point(event.position):
-		var point: Vector2 = map_to_world(event.position).clamp(Vector2(-145,-145),Vector2(145,145))
+		var limit: float = world_radius-5
+		var point: Vector2 = map_to_world(event.position).clamp(Vector2.ONE*-limit,Vector2.ONE*limit)
 		waypoint_selected.emit(point)
 		accept_event()
 
@@ -56,16 +59,20 @@ func _draw() -> void:
 		var b := world_to_map(Vector2(float(bounds[2]),float(bounds[3])))
 		draw_rect(Rect2(a,b-a),colors[index % colors.size()])
 	for street: float in [-137.0,0.0,137.0]:
-		var width: float = area.size.x * (15.0 if street == 0 else 10.0) / 300.0
+		var width: float = area.size.x * (15.0 if street == 0 else 10.0) / (world_radius*2.0)
 		var end_value: float = 147.0 if street == 0 else 137.0
 		draw_line(world_to_map(Vector2(-end_value,street)),world_to_map(Vector2(end_value,street)),Color("728181"),width,true)
 		draw_line(world_to_map(Vector2(street,-end_value)),world_to_map(Vector2(street,end_value)),Color("728181"),width,true)
 	for street: float in [-76.0,76.0]:
-		draw_line(world_to_map(Vector2(-80,street)),world_to_map(Vector2(80,street)),Color("728181"),area.size.x*12/300,true)
-		draw_line(world_to_map(Vector2(street,-80)),world_to_map(Vector2(street,80)),Color("728181"),area.size.x*12/300,true)
+		draw_line(world_to_map(Vector2(-80,street)),world_to_map(Vector2(80,street)),Color("728181"),area.size.x*12/(world_radius*2.0),true)
+		draw_line(world_to_map(Vector2(street,-80)),world_to_map(Vector2(street,80)),Color("728181"),area.size.x*12/(world_radius*2.0),true)
 	for side: float in [-1.0,1.0]:
-		draw_line(world_to_map(Vector2(side*80,76)),world_to_map(Vector2(side*137,76)),Color("728181"),area.size.x*10/300,true)
-		draw_line(world_to_map(Vector2(side*76,80)),world_to_map(Vector2(side*76,137)),Color("728181"),area.size.x*10/300,true)
+		draw_line(world_to_map(Vector2(side*80,76)),world_to_map(Vector2(side*137,76)),Color("728181"),area.size.x*10/(world_radius*2.0),true)
+		draw_line(world_to_map(Vector2(side*76,80)),world_to_map(Vector2(side*76,137)),Color("728181"),area.size.x*10/(world_radius*2.0),true)
+	for road: Dictionary in navigation_roads:
+		var a: Array = road["a"]
+		var b: Array = road["b"]
+		draw_line(world_to_map(Vector2(float(a[0]),float(a[1]))),world_to_map(Vector2(float(b[0]),float(b[1]))),Color("87938b"),maxf(1,area.size.x*float(road.get("width",12))/(world_radius*2)),true)
 	for block: AABB in blocks:
 		var a := world_to_map(Vector2(block.position.x,block.position.z))
 		var b := world_to_map(Vector2(block.end.x,block.end.z))

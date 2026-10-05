@@ -426,9 +426,9 @@ func _physics_process(delta: float) -> void:
 		_think_traffic()
 		_update_signals()
 	for citizen: Dictionary in citizens:
-		_move_citizen(citizen, delta)
+		if bool(citizen["body"].get_meta("device_budget_active",true)): _move_citizen(citizen, delta)
 	for vehicle: Dictionary in traffic:
-		_move_traffic(vehicle, delta)
+		if bool(vehicle["model"].get_meta("device_budget_active",true)): _move_traffic(vehicle, delta)
 
 func _on_player_attack(_weapon_id: String = "") -> void:
 	if is_instance_valid(player):
@@ -437,6 +437,7 @@ func _on_player_attack(_weapon_id: String = "") -> void:
 
 func _think_citizens() -> void:
 	for citizen: Dictionary in citizens:
+		if not bool(citizen["body"].get_meta("device_budget_active",true)): continue
 		var body: CharacterBody3D = citizen["body"]
 		var route: Array = citizen["route"]
 		var new_alarm: bool = clock < _alarm_until and float(citizen["observed_alarm"]) < _alarm_until and body.global_position.distance_to(_last_attack_position) < 12.0
@@ -525,6 +526,7 @@ func _move_citizen(citizen: Dictionary, delta: float) -> void:
 
 func _think_traffic() -> void:
 	for vehicle: Dictionary in traffic:
+		if not bool(vehicle["model"].get_meta("device_budget_active",true)): continue
 		var model: Node3D = vehicle["model"]
 		var area: Area3D = vehicle["sensor"]
 		var stopped: bool = not area.get_overlapping_bodies().is_empty()

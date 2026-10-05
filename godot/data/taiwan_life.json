@@ -1,0 +1,3286 @@
+{
+  "schema_version": 1,
+  "title": "七期街坊生活",
+  "fictional": true,
+  "brand_reference_note": "蝦皮取貨送貨玩法參考：使用官方公開流程作為研究，遊戲採原創橘盒站與虛構工作單；無真實帳號、訂單、個資或付款連線。",
+  "world_bounds": [
+    -400,
+    -400,
+    400,
+    400
+  ],
+  "stations": [
+    {
+      "id": "market_square",
+      "title": "晨光市場",
+      "kind": "market",
+      "region": "market",
+      "position": [
+        -270,
+        -270
+      ],
+      "opening_hours": [
+        5,
+        15
+      ],
+      "npc_id": "LIN"
+    },
+    {
+      "id": "market_breakfast",
+      "title": "阿秀早餐攤",
+      "kind": "food",
+      "region": "market",
+      "position": [
+        -282,
+        -282
+      ],
+      "opening_hours": [
+        5,
+        15
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "market_produce",
+      "title": "阿榮蔬果攤",
+      "kind": "produce",
+      "region": "market",
+      "position": [
+        -258,
+        -282
+      ],
+      "opening_hours": [
+        5,
+        15
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "market_grandma",
+      "title": "市場鄰居門口",
+      "kind": "receiver",
+      "region": "market",
+      "position": [
+        -258,
+        -258
+      ],
+      "opening_hours": [
+        5,
+        15
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "night_market",
+      "title": "星燈夜市",
+      "kind": "night_market",
+      "region": "night_market",
+      "position": [
+        270,
+        -270
+      ],
+      "opening_hours": [
+        16,
+        24
+      ],
+      "npc_id": "YA"
+    },
+    {
+      "id": "night_drinks",
+      "title": "小雅茶攤",
+      "kind": "food",
+      "region": "night_market",
+      "position": [
+        258,
+        -282
+      ],
+      "opening_hours": [
+        16,
+        24
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "night_stage",
+      "title": "夜市小舞臺",
+      "kind": "event",
+      "region": "night_market",
+      "position": [
+        282,
+        -282
+      ],
+      "opening_hours": [
+        16,
+        24
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "night_rest",
+      "title": "夜班休息站",
+      "kind": "receiver",
+      "region": "night_market",
+      "position": [
+        282,
+        -258
+      ],
+      "opening_hours": [
+        16,
+        24
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "daily_store",
+      "title": "日常便利店",
+      "kind": "convenience",
+      "region": "convenience",
+      "position": [
+        270,
+        0
+      ],
+      "opening_hours": [
+        0,
+        24
+      ],
+      "npc_id": "TING"
+    },
+    {
+      "id": "store_counter",
+      "title": "日常店櫃檯",
+      "kind": "counter",
+      "region": "convenience",
+      "position": [
+        258,
+        -12
+      ],
+      "opening_hours": [
+        0,
+        24
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "store_print",
+      "title": "日常店列印機",
+      "kind": "print",
+      "region": "convenience",
+      "position": [
+        282,
+        -12
+      ],
+      "opening_hours": [
+        0,
+        24
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "store_receiver",
+      "title": "街角住戶入口",
+      "kind": "receiver",
+      "region": "convenience",
+      "position": [
+        282,
+        12
+      ],
+      "opening_hours": [
+        0,
+        24
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "orange_parcel",
+      "title": "橘盒店到店",
+      "kind": "parcel",
+      "region": "parcel_hub",
+      "position": [
+        270,
+        270
+      ],
+      "opening_hours": [
+        0,
+        24
+      ],
+      "npc_id": "AN"
+    },
+    {
+      "id": "parcel_sort",
+      "title": "橘盒分揀架",
+      "kind": "sort",
+      "region": "parcel_hub",
+      "position": [
+        258,
+        258
+      ],
+      "opening_hours": [
+        0,
+        24
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "parcel_returns",
+      "title": "橘盒退件櫃",
+      "kind": "return",
+      "region": "parcel_hub",
+      "position": [
+        282,
+        258
+      ],
+      "opening_hours": [
+        0,
+        24
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "parcel_receiver",
+      "title": "南苑收件戶",
+      "kind": "receiver",
+      "region": "parcel_hub",
+      "position": [
+        282,
+        282
+      ],
+      "opening_hours": [
+        0,
+        24
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "community_green",
+      "title": "青蔭里民綠廊",
+      "kind": "community",
+      "region": "greenway",
+      "position": [
+        0,
+        270
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": "JUAN"
+    },
+    {
+      "id": "green_pantry",
+      "title": "里民共餐廚房",
+      "kind": "food",
+      "region": "greenway",
+      "position": [
+        -12,
+        258
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "green_notice",
+      "title": "綠廊公告欄",
+      "kind": "notice",
+      "region": "greenway",
+      "position": [
+        12,
+        258
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "green_class",
+      "title": "里民活動教室",
+      "kind": "event",
+      "region": "greenway",
+      "position": [
+        12,
+        282
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "river_walk",
+      "title": "澄川河岸",
+      "kind": "river",
+      "region": "river",
+      "position": [
+        -270,
+        270
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": "WEI"
+    },
+    {
+      "id": "river_bike",
+      "title": "阿維單車修理站",
+      "kind": "bike",
+      "region": "river",
+      "position": [
+        -282,
+        258
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "river_checkpoint",
+      "title": "河岸里程牌",
+      "kind": "checkpoint",
+      "region": "river",
+      "position": [
+        -258,
+        258
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "river_picnic",
+      "title": "河岸野餐桌",
+      "kind": "receiver",
+      "region": "river",
+      "position": [
+        -258,
+        282
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "old_arcade",
+      "title": "犁光騎樓老街",
+      "kind": "arcade",
+      "region": "heritage",
+      "position": [
+        -270,
+        0
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": "CHUN"
+    },
+    {
+      "id": "arcade_bakery",
+      "title": "春伯糕餅舖",
+      "kind": "food",
+      "region": "heritage",
+      "position": [
+        -282,
+        -12
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "arcade_temple",
+      "title": "犁光廟埕",
+      "kind": "event",
+      "region": "heritage",
+      "position": [
+        -258,
+        -12
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "arcade_house",
+      "title": "老街住戶門口",
+      "kind": "receiver",
+      "region": "heritage",
+      "position": [
+        -258,
+        12
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "creative_lane",
+      "title": "紙光文創聚落",
+      "kind": "creative",
+      "region": "creative",
+      "position": [
+        0,
+        -270
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": "YUN"
+    },
+    {
+      "id": "creative_workshop",
+      "title": "阿芸印刷工作室",
+      "kind": "craft",
+      "region": "creative",
+      "position": [
+        -12,
+        -282
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "creative_stage",
+      "title": "文創戶外舞臺",
+      "kind": "event",
+      "region": "creative",
+      "position": [
+        12,
+        -282
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": ""
+    },
+    {
+      "id": "creative_receiver",
+      "title": "紙光包裝工作桌",
+      "kind": "receiver",
+      "region": "creative",
+      "position": [
+        12,
+        -258
+      ],
+      "opening_hours": [
+        6,
+        22
+      ],
+      "npc_id": ""
+    }
+  ],
+  "foods": [
+    {
+      "id": "fried_noodles",
+      "title": "市場炒麵",
+      "flavor": "油蔥香，醬料另外裝。",
+      "handling": "hot",
+      "fictional_recipe": true
+    },
+    {
+      "id": "rice_ball",
+      "title": "菜脯飯糰",
+      "flavor": "菜脯與油條分層包好。",
+      "handling": "hot",
+      "fictional_recipe": true
+    },
+    {
+      "id": "egg_crepe",
+      "title": "九層塔蛋餅",
+      "flavor": "煎好的蛋餅，醬包與餐盒分開。",
+      "handling": "hot",
+      "fictional_recipe": true
+    },
+    {
+      "id": "soy_milk",
+      "title": "溫豆漿",
+      "flavor": "瓶蓋旋緊，直立攜帶。",
+      "handling": "upright",
+      "fictional_recipe": true
+    },
+    {
+      "id": "lu_rou_fan",
+      "title": "滷肉飯",
+      "flavor": "滷汁香，米飯和配菜裝成一份。",
+      "handling": "hot",
+      "fictional_recipe": true
+    },
+    {
+      "id": "meatball",
+      "title": "台式肉圓",
+      "flavor": "Q 軟外皮，醬汁另外封好。",
+      "handling": "upright",
+      "fictional_recipe": true
+    },
+    {
+      "id": "mianxian",
+      "title": "蚵仔麵線",
+      "flavor": "湯盒扣好，保持直立。",
+      "handling": "upright",
+      "fictional_recipe": true
+    },
+    {
+      "id": "stinky_tofu",
+      "title": "夜市臭豆腐",
+      "flavor": "豆腐、泡菜和醬汁分盒。",
+      "handling": "separate",
+      "fictional_recipe": true
+    },
+    {
+      "id": "bubble_tea",
+      "title": "珍珠奶茶",
+      "flavor": "粉圓奶茶，封口後直立放杯架。",
+      "handling": "cold",
+      "fictional_recipe": true
+    },
+    {
+      "id": "wintermelon_tea",
+      "title": "冬瓜茶",
+      "flavor": "冷熱杯分開標示，不和熱餐混袋。",
+      "handling": "cold",
+      "fictional_recipe": true
+    },
+    {
+      "id": "douhua",
+      "title": "豆花",
+      "flavor": "嫩豆花與糖水分裝。",
+      "handling": "cold",
+      "fictional_recipe": true
+    },
+    {
+      "id": "ma_yi_soup",
+      "title": "麻芛湯",
+      "flavor": "遊戲配方採黃麻嫩葉、地瓜與米湯。",
+      "handling": "upright",
+      "fictional_recipe": true
+    },
+    {
+      "id": "sun_cake",
+      "title": "麥芽太陽餅",
+      "flavor": "酥皮和麥芽餡，使用硬盒。",
+      "handling": "dry",
+      "fictional_recipe": true
+    },
+    {
+      "id": "pineapple_cake",
+      "title": "鳳梨酥",
+      "flavor": "伴手禮小盒，避免重壓。",
+      "handling": "dry",
+      "fictional_recipe": true
+    },
+    {
+      "id": "mochi",
+      "title": "花生麻糬",
+      "flavor": "花生粉另裝，送達再拌。",
+      "handling": "dry",
+      "fictional_recipe": true
+    },
+    {
+      "id": "red_turtle_cake",
+      "title": "紅龜粿",
+      "flavor": "街坊分享的米製點心，盒蓋留透氣空間。",
+      "handling": "dry",
+      "fictional_recipe": true
+    }
+  ],
+  "items": [
+    {
+      "id": "fried_noodles",
+      "title": "市場炒麵",
+      "kind": "food",
+      "handling": "hot"
+    },
+    {
+      "id": "rice_ball",
+      "title": "菜脯飯糰",
+      "kind": "food",
+      "handling": "hot"
+    },
+    {
+      "id": "egg_crepe",
+      "title": "九層塔蛋餅",
+      "kind": "food",
+      "handling": "hot"
+    },
+    {
+      "id": "soy_milk",
+      "title": "溫豆漿",
+      "kind": "food",
+      "handling": "upright"
+    },
+    {
+      "id": "lu_rou_fan",
+      "title": "滷肉飯",
+      "kind": "food",
+      "handling": "hot"
+    },
+    {
+      "id": "meatball",
+      "title": "台式肉圓",
+      "kind": "food",
+      "handling": "upright"
+    },
+    {
+      "id": "mianxian",
+      "title": "蚵仔麵線",
+      "kind": "food",
+      "handling": "upright"
+    },
+    {
+      "id": "stinky_tofu",
+      "title": "夜市臭豆腐",
+      "kind": "food",
+      "handling": "separate"
+    },
+    {
+      "id": "bubble_tea",
+      "title": "珍珠奶茶",
+      "kind": "food",
+      "handling": "cold"
+    },
+    {
+      "id": "wintermelon_tea",
+      "title": "冬瓜茶",
+      "kind": "food",
+      "handling": "cold"
+    },
+    {
+      "id": "douhua",
+      "title": "豆花",
+      "kind": "food",
+      "handling": "cold"
+    },
+    {
+      "id": "ma_yi_soup",
+      "title": "麻芛湯",
+      "kind": "food",
+      "handling": "upright"
+    },
+    {
+      "id": "sun_cake",
+      "title": "麥芽太陽餅",
+      "kind": "food",
+      "handling": "dry"
+    },
+    {
+      "id": "pineapple_cake",
+      "title": "鳳梨酥",
+      "kind": "food",
+      "handling": "dry"
+    },
+    {
+      "id": "mochi",
+      "title": "花生麻糬",
+      "kind": "food",
+      "handling": "dry"
+    },
+    {
+      "id": "red_turtle_cake",
+      "title": "紅龜粿",
+      "kind": "food",
+      "handling": "dry"
+    },
+    {
+      "id": "greens",
+      "title": "共餐蔬菜箱",
+      "kind": "produce",
+      "handling": "dry"
+    },
+    {
+      "id": "thermal_bag",
+      "title": "保溫袋",
+      "kind": "equipment",
+      "handling": "dry"
+    },
+    {
+      "id": "rain_poncho",
+      "title": "雨衣",
+      "kind": "convenience",
+      "handling": "dry"
+    },
+    {
+      "id": "water",
+      "title": "瓶裝水",
+      "kind": "convenience",
+      "handling": "dry"
+    },
+    {
+      "id": "tissues",
+      "title": "面紙",
+      "kind": "convenience",
+      "handling": "dry"
+    },
+    {
+      "id": "print_ticket",
+      "title": "列印活動單",
+      "kind": "document",
+      "handling": "dry"
+    },
+    {
+      "id": "labels",
+      "title": "分揀標籤",
+      "kind": "document",
+      "handling": "dry"
+    },
+    {
+      "id": "paper_bags",
+      "title": "牛皮紙袋",
+      "kind": "convenience",
+      "handling": "dry"
+    },
+    {
+      "id": "cloth_bundle",
+      "title": "常溫衣物包裹",
+      "kind": "parcel",
+      "handling": "dry"
+    },
+    {
+      "id": "book_bundle",
+      "title": "常溫書籍包裹",
+      "kind": "parcel",
+      "handling": "dry"
+    },
+    {
+      "id": "cap_bundle",
+      "title": "帽子包裹",
+      "kind": "parcel",
+      "handling": "dry"
+    },
+    {
+      "id": "stationery_bundle",
+      "title": "文具包裹",
+      "kind": "parcel",
+      "handling": "dry"
+    },
+    {
+      "id": "return_shirt",
+      "title": "尺寸不合的衣物退件",
+      "kind": "parcel",
+      "handling": "dry"
+    },
+    {
+      "id": "return_notebook",
+      "title": "寄錯封面的筆記本退件",
+      "kind": "parcel",
+      "handling": "dry"
+    },
+    {
+      "id": "route_notes",
+      "title": "河岸路線筆記",
+      "kind": "document",
+      "handling": "dry"
+    },
+    {
+      "id": "repair_kit",
+      "title": "單車修理袋",
+      "kind": "equipment",
+      "handling": "dry"
+    },
+    {
+      "id": "wooden_clogs",
+      "title": "長木屐活動器材",
+      "kind": "equipment",
+      "handling": "dry"
+    },
+    {
+      "id": "lantern_cards",
+      "title": "原創燈會導引卡",
+      "kind": "document",
+      "handling": "dry"
+    },
+    {
+      "id": "poster_bundle",
+      "title": "社區表演海報",
+      "kind": "document",
+      "handling": "dry"
+    },
+    {
+      "id": "exhibit_prints",
+      "title": "街坊攝影輸出品",
+      "kind": "document",
+      "handling": "dry"
+    },
+    {
+      "id": "old_recipe",
+      "title": "春伯的手寫餅譜",
+      "kind": "document",
+      "handling": "dry"
+    },
+    {
+      "id": "reusable_cups",
+      "title": "循環杯收回箱",
+      "kind": "equipment",
+      "handling": "dry"
+    },
+    {
+      "id": "top_box",
+      "title": "陀螺體驗箱",
+      "kind": "equipment",
+      "handling": "dry"
+    },
+    {
+      "id": "fabric_kit",
+      "title": "布料手作材料",
+      "kind": "equipment",
+      "handling": "dry"
+    },
+    {
+      "id": "waste_bags",
+      "title": "河岸巡守清潔袋",
+      "kind": "equipment",
+      "handling": "dry"
+    }
+  ],
+  "characters": [
+    {
+      "id": "LIN",
+      "name": "林秀蘭",
+      "age": 54,
+      "role": "市場早餐攤主",
+      "appearance_key": "tw_person_lin",
+      "appearance_variant": "",
+      "home_station": "market_square",
+      "arc_dialogue": [
+        "日出前先把早餐備好，市場開門就忙了。",
+        "你上回把餐送穩了，我才敢接里民的共餐單。",
+        "餐盒可以換，客人等早餐的時間不能一直拖。"
+      ],
+      "mission_ids": [
+        "TW-LIN-01",
+        "TW-LIN-02"
+      ],
+      "fictional": true
+    },
+    {
+      "id": "YA",
+      "name": "高小雅",
+      "age": 26,
+      "role": "夜市茶攤主",
+      "appearance_key": "tw_person_ya",
+      "appearance_variant": "",
+      "home_station": "night_market",
+      "arc_dialogue": [
+        "白天備茶，傍晚才開攤。今晚的演出也要用杯。",
+        "兩袋都交對了，夜班的人可以歇口氣。明晚再一起整理杯子。",
+        "我要把這條街的摺椅排好，別讓人站到車道。"
+      ],
+      "mission_ids": [
+        "TW-YA-01",
+        "TW-YA-02"
+      ],
+      "fictional": true
+    },
+    {
+      "id": "TING",
+      "name": "陳奕廷",
+      "age": 31,
+      "role": "便利店店員",
+      "appearance_key": "tw_person_ting",
+      "appearance_variant": "",
+      "home_station": "daily_store",
+      "arc_dialogue": [
+        "一邊結帳一邊收包裹，夜班最怕把兩張單看成一張。",
+        "上次你幫忙送物資，公告欄現在多了幾個鄰居的名字。",
+        "店裡有水、雨衣和列印機，遇到狀況先停下來看工作單。"
+      ],
+      "mission_ids": [
+        "TW-TING-01",
+        "TW-TING-02"
+      ],
+      "fictional": true
+    },
+    {
+      "id": "AN",
+      "name": "吳安琪",
+      "age": 29,
+      "role": "店到店理貨員",
+      "appearance_key": "tw_person_an",
+      "appearance_variant": "",
+      "home_station": "orange_parcel",
+      "arc_dialogue": [
+        "這裡只核對遊戲工作單，不用真實電話或蝦皮帳號。",
+        "你上回沒拿錯箱，今天可以幫我處理退件架。",
+        "同色箱子也可能是不同人的，先看代碼再搬。"
+      ],
+      "mission_ids": [
+        "TW-AN-01",
+        "TW-AN-02"
+      ],
+      "fictional": true
+    },
+    {
+      "id": "JUAN",
+      "name": "洪麗娟",
+      "age": 63,
+      "role": "里民共餐志工",
+      "appearance_key": "tw_person_juan",
+      "appearance_variant": "",
+      "home_station": "community_green",
+      "arc_dialogue": [
+        "共餐還沒開始，廚房先收菜，教室再收點心。",
+        "你把上一批蔬菜送來，我們才有空準備今晚的活動。",
+        "不是每個長輩都能排隊，送到門口要等人出來接。"
+      ],
+      "mission_ids": [
+        "TW-JUAN-01",
+        "TW-JUAN-02"
+      ],
+      "fictional": true
+    },
+    {
+      "id": "WEI",
+      "name": "張志維",
+      "age": 38,
+      "role": "河岸單車維修員",
+      "appearance_key": "tw_person_wei",
+      "appearance_variant": "",
+      "home_station": "river_walk",
+      "arc_dialogue": [
+        "河岸牌子好找，真正要注意的是交叉路口。",
+        "上次送去的修理袋派上用場了，巡守隊想再借一組。",
+        "車輪不順就停下來，我在這裡等你回來。"
+      ],
+      "mission_ids": [
+        "TW-WEI-01",
+        "TW-WEI-02"
+      ],
+      "fictional": true
+    },
+    {
+      "id": "CHUN",
+      "name": "許春生",
+      "age": 67,
+      "role": "老街糕餅師傅",
+      "appearance_key": "tw_person_chun",
+      "appearance_variant": "",
+      "home_station": "old_arcade",
+      "arc_dialogue": [
+        "餅是酥的，別把紙箱墊在最下面。",
+        "上回送出去的試吃盒有回信，我想留下這張手寫餅譜。",
+        "廟埕要辦木屐體驗，器材搬過去也不能擋住騎樓。"
+      ],
+      "mission_ids": [
+        "TW-CHUN-01",
+        "TW-CHUN-02"
+      ],
+      "fictional": true
+    },
+    {
+      "id": "YUN",
+      "name": "江采芸",
+      "age": 24,
+      "role": "文創印刷工作者",
+      "appearance_key": "tw_person_yun",
+      "appearance_variant": "",
+      "home_station": "creative_lane",
+      "arc_dialogue": [
+        "紙張受潮會捲，裝袋再出發。",
+        "你的路線筆記印好了，這次展覽就讓街坊自己說故事。",
+        "我不要只有大樓的照片，早餐攤和便利店也要留在地圖上。"
+      ],
+      "mission_ids": [
+        "TW-YUN-01",
+        "TW-YUN-02"
+      ],
+      "fictional": true
+    }
+  ],
+  "missions": [
+    {
+      "id": "TW-LIN-01",
+      "npc_id": "LIN",
+      "title": "第一章：早餐別混袋",
+      "dialogue": "里民點了溫豆漿和炒麵。你要一趟保溫送，還是熱餐和飲料分開送？",
+      "prerequisites": [],
+      "reward": {
+        "cash": 70,
+        "trust": 3
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "market_square",
+          "caption": "跟秀蘭確認早餐訂單",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "你上回把餐送穩了，我才敢接里民的共餐單。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R01",
+        "TW-R02",
+        "TW-R33"
+      ],
+      "choices": [
+        {
+          "id": "warm",
+          "label": "保溫袋一趟送",
+          "dialogue": "先拿保溫袋，再裝餐；收件人會在門口等。",
+          "steps": [
+            {
+              "action": "pickup",
+              "target": "market_breakfast",
+              "caption": "領取攤主準備的保溫袋",
+              "required_vehicle": "any",
+              "item_id": "thermal_bag"
+            },
+            {
+              "action": "pickup",
+              "target": "market_breakfast",
+              "caption": "領取市場炒麵",
+              "required_vehicle": "any",
+              "item_id": "fried_noodles"
+            },
+            {
+              "action": "pickup",
+              "target": "market_breakfast",
+              "caption": "領取密封溫豆漿",
+              "required_vehicle": "any",
+              "item_id": "soy_milk"
+            },
+            {
+              "action": "deliver",
+              "target": "market_grandma",
+              "caption": "送炒麵給市場鄰居",
+              "required_vehicle": "any",
+              "item_id": "fried_noodles"
+            },
+            {
+              "action": "deliver",
+              "target": "market_grandma",
+              "caption": "交付豆漿",
+              "required_vehicle": "any",
+              "item_id": "soy_milk"
+            },
+            {
+              "action": "return",
+              "target": "market_breakfast",
+              "caption": "歸還保溫袋",
+              "required_vehicle": "any",
+              "item_id": "thermal_bag"
+            }
+          ],
+          "reward": {
+            "cash": 70,
+            "trust": 3
+          }
+        },
+        {
+          "id": "separate",
+          "label": "熱餐、飲料分兩趟",
+          "dialogue": "路程多一點，餐和飲料各送一趟。",
+          "steps": [
+            {
+              "action": "pickup",
+              "target": "market_breakfast",
+              "caption": "領取炒麵",
+              "required_vehicle": "any",
+              "item_id": "fried_noodles"
+            },
+            {
+              "action": "deliver",
+              "target": "market_grandma",
+              "caption": "先交付熱餐",
+              "required_vehicle": "any",
+              "item_id": "fried_noodles"
+            },
+            {
+              "action": "pickup",
+              "target": "market_breakfast",
+              "caption": "再取密封溫豆漿",
+              "required_vehicle": "any",
+              "item_id": "soy_milk"
+            },
+            {
+              "action": "deliver",
+              "target": "market_grandma",
+              "caption": "交付飲料",
+              "required_vehicle": "any",
+              "item_id": "soy_milk"
+            }
+          ],
+          "reward": {
+            "cash": 55,
+            "trust": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "TW-LIN-02",
+      "npc_id": "LIN",
+      "title": "第二章：接得下共餐單",
+      "dialogue": "上回早餐沒有送錯，里民廚房願意讓秀蘭供應午餐。先取蔬菜，再送兩份主食。",
+      "prerequisites": [
+        "TW-LIN-01"
+      ],
+      "reward": {
+        "cash": 110,
+        "trust": 5
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "market_square",
+          "caption": "聽秀蘭說明共餐單",
+          "required_vehicle": "any",
+          "item_id": ""
+        },
+        {
+          "action": "pickup",
+          "target": "market_produce",
+          "caption": "領取蔬菜箱",
+          "required_vehicle": "car",
+          "item_id": "greens"
+        },
+        {
+          "action": "deliver",
+          "target": "green_pantry",
+          "caption": "將蔬菜送到共餐廚房",
+          "required_vehicle": "car",
+          "item_id": "greens"
+        },
+        {
+          "action": "pickup",
+          "target": "market_breakfast",
+          "caption": "取第一份滷肉飯",
+          "required_vehicle": "any",
+          "item_id": "lu_rou_fan"
+        },
+        {
+          "action": "pickup",
+          "target": "market_breakfast",
+          "caption": "取飯糰餐盒",
+          "required_vehicle": "any",
+          "item_id": "rice_ball"
+        },
+        {
+          "action": "deliver",
+          "target": "green_pantry",
+          "caption": "交付熱餐",
+          "required_vehicle": "any",
+          "item_id": "lu_rou_fan"
+        },
+        {
+          "action": "deliver",
+          "target": "green_class",
+          "caption": "送飯糰到活動教室",
+          "required_vehicle": "any",
+          "item_id": "rice_ball"
+        },
+        {
+          "action": "talk",
+          "target": "market_square",
+          "caption": "回市場告訴秀蘭已送達",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "餐盒可以換，客人等早餐的時間不能一直拖。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R03",
+        "TW-R33"
+      ],
+      "required_trust": {
+        "npc_id": "LIN",
+        "min": 3
+      }
+    },
+    {
+      "id": "TW-YA-01",
+      "npc_id": "YA",
+      "title": "第一章：冷熱杯分開",
+      "dialogue": "小雅的封口機修好了，夜班休息站要冷飲，舞臺工作人員要熱飲。先核對杯上的標籤。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 65,
+        "trust": 3
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "night_market",
+          "caption": "聽小雅分配兩份飲料",
+          "required_vehicle": "any",
+          "item_id": ""
+        },
+        {
+          "action": "pickup",
+          "target": "night_drinks",
+          "caption": "取冷的珍珠奶茶",
+          "required_vehicle": "any",
+          "item_id": "bubble_tea"
+        },
+        {
+          "action": "pickup",
+          "target": "night_drinks",
+          "caption": "取另袋冬瓜茶",
+          "required_vehicle": "any",
+          "item_id": "wintermelon_tea"
+        },
+        {
+          "action": "deliver",
+          "target": "night_rest",
+          "caption": "冷飲交到夜班休息站",
+          "required_vehicle": "any",
+          "item_id": "bubble_tea"
+        },
+        {
+          "action": "deliver",
+          "target": "night_stage",
+          "caption": "另袋飲料送到舞臺",
+          "required_vehicle": "any",
+          "item_id": "wintermelon_tea"
+        },
+        {
+          "action": "talk",
+          "target": "night_market",
+          "caption": "回報兩杯都送到正確地點",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "兩袋都交對了，夜班的人可以歇口氣。明晚再一起整理杯子。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R06",
+        "TW-R07",
+        "TW-R33"
+      ]
+    },
+    {
+      "id": "TW-YA-02",
+      "npc_id": "YA",
+      "title": "第二章：把杯子帶回來",
+      "dialogue": "上次演出用了循環杯。小雅要替下一場準備點心，你可以先送吃的，或先幫忙收杯。",
+      "prerequisites": [
+        "TW-YA-01"
+      ],
+      "reward": {
+        "cash": 85,
+        "trust": 4
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "night_market",
+          "caption": "和小雅決定今晚的順序",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "我要把這條街的摺椅排好，別讓人站到車道。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R20",
+        "TW-R40"
+      ],
+      "required_trust": {
+        "npc_id": "YA",
+        "min": 3
+      },
+      "choices": [
+        {
+          "id": "food_first",
+          "label": "先送點心，再回收",
+          "dialogue": "舞臺先開飯，散場再把杯箱帶回茶攤。",
+          "steps": [
+            {
+              "action": "pickup",
+              "target": "night_drinks",
+              "caption": "領取分裝豆花",
+              "required_vehicle": "any",
+              "item_id": "douhua"
+            },
+            {
+              "action": "deliver",
+              "target": "night_stage",
+              "caption": "送到演出工作桌",
+              "required_vehicle": "any",
+              "item_id": "douhua"
+            },
+            {
+              "action": "pickup",
+              "target": "night_rest",
+              "caption": "拿取洗淨循環杯箱",
+              "required_vehicle": "any",
+              "item_id": "reusable_cups"
+            },
+            {
+              "action": "return",
+              "target": "night_drinks",
+              "caption": "循環杯箱回到茶攤",
+              "required_vehicle": "any",
+              "item_id": "reusable_cups"
+            }
+          ],
+          "reward": {
+            "cash": 85,
+            "trust": 4
+          }
+        },
+        {
+          "id": "cups_first",
+          "label": "先收杯，再送夜班餐",
+          "dialogue": "先把杯子收回來，再送一份夜班餐。",
+          "steps": [
+            {
+              "action": "pickup",
+              "target": "night_stage",
+              "caption": "拿取舞臺循環杯箱",
+              "required_vehicle": "any",
+              "item_id": "reusable_cups"
+            },
+            {
+              "action": "return",
+              "target": "night_drinks",
+              "caption": "交回茶攤",
+              "required_vehicle": "any",
+              "item_id": "reusable_cups"
+            },
+            {
+              "action": "pickup",
+              "target": "market_breakfast",
+              "caption": "取夜班蛋餅",
+              "required_vehicle": "any",
+              "item_id": "egg_crepe"
+            },
+            {
+              "action": "deliver",
+              "target": "night_rest",
+              "caption": "把蛋餅送給休息站",
+              "required_vehicle": "any",
+              "item_id": "egg_crepe"
+            }
+          ],
+          "reward": {
+            "cash": 90,
+            "trust": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "TW-TING-01",
+      "npc_id": "TING",
+      "title": "第一章：夜班補給",
+      "dialogue": "綠廊教室正在辦活動，缺瓶裝水和面紙。店員奕廷請你幫忙送過去。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 60,
+        "trust": 3
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "daily_store",
+          "caption": "和奕廷確認購物清單",
+          "required_vehicle": "any",
+          "item_id": ""
+        },
+        {
+          "action": "pickup",
+          "target": "store_counter",
+          "caption": "取瓶裝水",
+          "required_vehicle": "any",
+          "item_id": "water"
+        },
+        {
+          "action": "pickup",
+          "target": "store_counter",
+          "caption": "取面紙",
+          "required_vehicle": "any",
+          "item_id": "tissues"
+        },
+        {
+          "action": "deliver",
+          "target": "green_class",
+          "caption": "送水到活動教室",
+          "required_vehicle": "any",
+          "item_id": "water"
+        },
+        {
+          "action": "deliver",
+          "target": "green_class",
+          "caption": "交付面紙",
+          "required_vehicle": "any",
+          "item_id": "tissues"
+        },
+        {
+          "action": "talk",
+          "target": "daily_store",
+          "caption": "回便利店確認簽收",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "上次你幫忙送物資，公告欄現在多了幾個鄰居的名字。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R31",
+        "TW-R32"
+      ]
+    },
+    {
+      "id": "TW-TING-02",
+      "npc_id": "TING",
+      "title": "第二章：公告欄有人來",
+      "dialogue": "上次活動結束，里民想辦第二場。你可以送印好的通知，或替戶外志工準備雨衣。",
+      "prerequisites": [
+        "TW-TING-01"
+      ],
+      "reward": {
+        "cash": 90,
+        "trust": 4
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "daily_store",
+          "caption": "和奕廷選一張補給工作單",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "店裡有水、雨衣和列印機，遇到狀況先停下來看工作單。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R31",
+        "TW-R32",
+        "TW-R45"
+      ],
+      "required_trust": {
+        "npc_id": "TING",
+        "min": 3
+      },
+      "choices": [
+        {
+          "id": "notice",
+          "label": "送通知到老街與綠廊",
+          "dialogue": "列印兩批，讓店家與里民教室都看得到。",
+          "steps": [
+            {
+              "action": "pickup",
+              "target": "store_print",
+              "caption": "取第一批列印通知",
+              "required_vehicle": "any",
+              "item_id": "print_ticket"
+            },
+            {
+              "action": "deliver",
+              "target": "green_notice",
+              "caption": "貼到綠廊公告欄",
+              "required_vehicle": "any",
+              "item_id": "print_ticket"
+            },
+            {
+              "action": "pickup",
+              "target": "store_print",
+              "caption": "取老街那一批通知",
+              "required_vehicle": "any",
+              "item_id": "poster_bundle"
+            },
+            {
+              "action": "deliver",
+              "target": "arcade_temple",
+              "caption": "交給廟埕活動窗口",
+              "required_vehicle": "any",
+              "item_id": "poster_bundle"
+            }
+          ],
+          "reward": {
+            "cash": 90,
+            "trust": 4
+          }
+        },
+        {
+          "id": "rain",
+          "label": "替河岸志工送雨衣",
+          "dialogue": "沿河岸送完，回店裡領取第二箱。",
+          "steps": [
+            {
+              "action": "pickup",
+              "target": "store_counter",
+              "caption": "取河岸雨衣",
+              "required_vehicle": "any",
+              "item_id": "rain_poncho"
+            },
+            {
+              "action": "deliver",
+              "target": "river_checkpoint",
+              "caption": "交給河岸巡守點",
+              "required_vehicle": "any",
+              "item_id": "rain_poncho"
+            },
+            {
+              "action": "pickup",
+              "target": "store_counter",
+              "caption": "取補充飲水",
+              "required_vehicle": "any",
+              "item_id": "water"
+            },
+            {
+              "action": "deliver",
+              "target": "river_bike",
+              "caption": "送到單車修理站",
+              "required_vehicle": "any",
+              "item_id": "water"
+            }
+          ],
+          "reward": {
+            "cash": 80,
+            "trust": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "TW-AN-01",
+      "npc_id": "AN",
+      "title": "第一章：同色箱子不同人",
+      "dialogue": "安琪帶你看工作單。核對遊戲代碼 2741 後再取衣物箱，先過分揀架，最後交給南苑住戶。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 90,
+        "trust": 3
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "orange_parcel",
+          "caption": "跟安琪確認取件流程",
+          "required_vehicle": "any",
+          "item_id": ""
+        },
+        {
+          "action": "verify_code",
+          "target": "orange_parcel",
+          "caption": "輸入工作單代碼 2741",
+          "required_vehicle": "any",
+          "item_id": "cloth_bundle",
+          "code": "2741"
+        },
+        {
+          "action": "pickup",
+          "target": "orange_parcel",
+          "caption": "核對後領取衣物包裹",
+          "required_vehicle": "any",
+          "item_id": "cloth_bundle"
+        },
+        {
+          "action": "deliver",
+          "target": "parcel_sort",
+          "caption": "分揀到南苑路線架",
+          "required_vehicle": "any",
+          "item_id": "cloth_bundle"
+        },
+        {
+          "action": "pickup",
+          "target": "parcel_sort",
+          "caption": "領取已分揀的包裹",
+          "required_vehicle": "any",
+          "item_id": "cloth_bundle"
+        },
+        {
+          "action": "deliver",
+          "target": "parcel_receiver",
+          "caption": "送到南苑收件戶",
+          "required_vehicle": "any",
+          "item_id": "cloth_bundle"
+        },
+        {
+          "action": "talk",
+          "target": "orange_parcel",
+          "caption": "向安琪回報已簽收",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "你上回沒拿錯箱，今天可以幫我處理退件架。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R26",
+        "TW-R27",
+        "TW-R30"
+      ]
+    },
+    {
+      "id": "TW-AN-02",
+      "npc_id": "AN",
+      "title": "第二章：尺寸不合怎麼辦",
+      "dialogue": "南苑住戶收到衣物後發現尺寸不合，退件已登記。把退件帶回來，或替他把另一筆書籍訂單送齊。",
+      "prerequisites": [
+        "TW-AN-01"
+      ],
+      "reward": {
+        "cash": 110,
+        "trust": 5
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "orange_parcel",
+          "caption": "查看安琪提供的兩張工作單",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "同色箱子也可能是不同人的，先看代碼再搬。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R26",
+        "TW-R28",
+        "TW-R29"
+      ],
+      "required_trust": {
+        "npc_id": "AN",
+        "min": 3
+      },
+      "choices": [
+        {
+          "id": "return",
+          "label": "處理衣物退件",
+          "dialogue": "用工作單 5816 核對，取走退件後送回退件櫃，不能丟在別的架上。",
+          "steps": [
+            {
+              "action": "verify_code",
+              "target": "parcel_receiver",
+              "caption": "核對退件工作單 5816",
+              "required_vehicle": "any",
+              "item_id": "return_shirt",
+              "code": "5816"
+            },
+            {
+              "action": "pickup",
+              "target": "parcel_receiver",
+              "caption": "領取已包好的衣物退件",
+              "required_vehicle": "any",
+              "item_id": "return_shirt"
+            },
+            {
+              "action": "return",
+              "target": "parcel_returns",
+              "caption": "刷單並交入指定退件櫃",
+              "required_vehicle": "any",
+              "item_id": "return_shirt"
+            },
+            {
+              "action": "talk",
+              "target": "orange_parcel",
+              "caption": "確認退件收據已結清",
+              "required_vehicle": "any",
+              "item_id": ""
+            }
+          ],
+          "reward": {
+            "cash": 110,
+            "trust": 5
+          }
+        },
+        {
+          "id": "complete",
+          "label": "補送書籍訂單",
+          "dialogue": "代碼 8462 的書籍另走文創線，先分揀再配送。",
+          "steps": [
+            {
+              "action": "verify_code",
+              "target": "orange_parcel",
+              "caption": "核對取件工作單 8462",
+              "required_vehicle": "any",
+              "item_id": "book_bundle",
+              "code": "8462"
+            },
+            {
+              "action": "pickup",
+              "target": "orange_parcel",
+              "caption": "領取書籍包裹",
+              "required_vehicle": "any",
+              "item_id": "book_bundle"
+            },
+            {
+              "action": "deliver",
+              "target": "parcel_sort",
+              "caption": "放到文創路線架",
+              "required_vehicle": "any",
+              "item_id": "book_bundle"
+            },
+            {
+              "action": "pickup",
+              "target": "parcel_sort",
+              "caption": "取已分揀書籍",
+              "required_vehicle": "any",
+              "item_id": "book_bundle"
+            },
+            {
+              "action": "deliver",
+              "target": "creative_receiver",
+              "caption": "交付文創收件戶",
+              "required_vehicle": "any",
+              "item_id": "book_bundle"
+            }
+          ],
+          "reward": {
+            "cash": 105,
+            "trust": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "TW-JUAN-01",
+      "npc_id": "JUAN",
+      "title": "第一章：午餐送到門口",
+      "dialogue": "麗娟正在準備共餐。把市場蔬菜送來，再送一份飯糰給無法排隊的老街鄰居。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 95,
+        "trust": 3
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "community_green",
+          "caption": "和麗娟確認共餐安排",
+          "required_vehicle": "any",
+          "item_id": ""
+        },
+        {
+          "action": "pickup",
+          "target": "market_produce",
+          "caption": "取共餐蔬菜",
+          "required_vehicle": "any",
+          "item_id": "greens"
+        },
+        {
+          "action": "deliver",
+          "target": "green_pantry",
+          "caption": "交給共餐廚房",
+          "required_vehicle": "any",
+          "item_id": "greens"
+        },
+        {
+          "action": "pickup",
+          "target": "green_pantry",
+          "caption": "領取鄰居的飯糰",
+          "required_vehicle": "any",
+          "item_id": "rice_ball"
+        },
+        {
+          "action": "deliver",
+          "target": "arcade_house",
+          "caption": "送到老街鄰居門口",
+          "required_vehicle": "any",
+          "item_id": "rice_ball"
+        },
+        {
+          "action": "talk",
+          "target": "community_green",
+          "caption": "向麗娟回報鄰居已收到",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "你把上一批蔬菜送來，我們才有空準備今晚的活動。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R01",
+        "TW-R04"
+      ]
+    },
+    {
+      "id": "TW-JUAN-02",
+      "npc_id": "JUAN",
+      "title": "第二章：三代同桌",
+      "dialogue": "上次飯糰送到後，鄰居願意到教室參加活動。麗娟缺陀螺體驗箱與點心，先把器材送好再開桌。",
+      "prerequisites": [
+        "TW-JUAN-01"
+      ],
+      "reward": {
+        "cash": 120,
+        "trust": 5
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "community_green",
+          "caption": "和麗娟確認活動器材",
+          "required_vehicle": "any",
+          "item_id": ""
+        },
+        {
+          "action": "pickup",
+          "target": "creative_workshop",
+          "caption": "拿取陀螺體驗箱",
+          "required_vehicle": "car",
+          "item_id": "top_box"
+        },
+        {
+          "action": "deliver",
+          "target": "green_class",
+          "caption": "送器材到活動教室",
+          "required_vehicle": "car",
+          "item_id": "top_box"
+        },
+        {
+          "action": "pickup",
+          "target": "arcade_bakery",
+          "caption": "領取分裝麻糬",
+          "required_vehicle": "any",
+          "item_id": "mochi"
+        },
+        {
+          "action": "deliver",
+          "target": "green_class",
+          "caption": "點心送到共桌",
+          "required_vehicle": "any",
+          "item_id": "mochi"
+        },
+        {
+          "action": "talk",
+          "target": "community_green",
+          "caption": "回報器材與點心都到齊",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "不是每個長輩都能排隊，送到門口要等人出來接。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R22",
+        "TW-R24"
+      ],
+      "required_trust": {
+        "npc_id": "JUAN",
+        "min": 3
+      }
+    },
+    {
+      "id": "TW-WEI-01",
+      "npc_id": "WEI",
+      "title": "第一章：輪子先修好",
+      "dialogue": "阿維要把修理袋送到河岸里程牌。沿河岸騎一段，回程把路線筆記交回修理站。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 70,
+        "trust": 3
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "river_walk",
+          "caption": "和阿維核對維修需求",
+          "required_vehicle": "any",
+          "item_id": ""
+        },
+        {
+          "action": "pickup",
+          "target": "river_bike",
+          "caption": "領取單車修理袋",
+          "required_vehicle": "bicycle",
+          "item_id": "repair_kit"
+        },
+        {
+          "action": "deliver",
+          "target": "river_checkpoint",
+          "caption": "騎車送修理袋到里程牌",
+          "required_vehicle": "bicycle",
+          "item_id": "repair_kit"
+        },
+        {
+          "action": "pickup",
+          "target": "river_checkpoint",
+          "caption": "取巡守隊的路線筆記",
+          "required_vehicle": "any",
+          "item_id": "route_notes"
+        },
+        {
+          "action": "deliver",
+          "target": "river_bike",
+          "caption": "將路線筆記帶回修理站",
+          "required_vehicle": "bicycle",
+          "item_id": "route_notes"
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "上次送去的修理袋派上用場了，巡守隊想再借一組。",
+      "limit_seconds": 420,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R16",
+        "TW-R17"
+      ]
+    },
+    {
+      "id": "TW-WEI-02",
+      "npc_id": "WEI",
+      "title": "第二章：河岸有人巡",
+      "dialogue": "上回路線筆記標出了休息點。巡守隊要補水，你可以騎車送小袋，或開車搬整箱清潔物資。",
+      "prerequisites": [
+        "TW-WEI-01"
+      ],
+      "reward": {
+        "cash": 100,
+        "trust": 5
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "river_walk",
+          "caption": "和阿維選這次的巡守補給",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "車輪不順就停下來，我在這裡等你回來。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R16",
+        "TW-R45"
+      ],
+      "required_trust": {
+        "npc_id": "WEI",
+        "min": 3
+      },
+      "choices": [
+        {
+          "id": "bike",
+          "label": "騎車補飲水",
+          "dialogue": "帶小袋水，送到兩個休息點。",
+          "steps": [
+            {
+              "action": "pickup",
+              "target": "store_counter",
+              "caption": "領取第一袋水",
+              "required_vehicle": "bicycle",
+              "item_id": "water"
+            },
+            {
+              "action": "deliver",
+              "target": "river_checkpoint",
+              "caption": "送到河岸巡守點",
+              "required_vehicle": "bicycle",
+              "item_id": "water"
+            },
+            {
+              "action": "pickup",
+              "target": "store_counter",
+              "caption": "再取野餐桌那一袋",
+              "required_vehicle": "any",
+              "item_id": "water"
+            },
+            {
+              "action": "deliver",
+              "target": "river_picnic",
+              "caption": "送到河岸野餐桌",
+              "required_vehicle": "bicycle",
+              "item_id": "water"
+            }
+          ],
+          "reward": {
+            "cash": 100,
+            "trust": 5
+          }
+        },
+        {
+          "id": "cargo",
+          "label": "開車搬清潔物資",
+          "dialogue": "先帶清潔袋，再帶修理箱，分開送到巡守與維修點。",
+          "steps": [
+            {
+              "action": "pickup",
+              "target": "daily_store",
+              "caption": "領取巡守清潔袋",
+              "required_vehicle": "car",
+              "item_id": "waste_bags"
+            },
+            {
+              "action": "deliver",
+              "target": "river_checkpoint",
+              "caption": "送到巡守點",
+              "required_vehicle": "car",
+              "item_id": "waste_bags"
+            },
+            {
+              "action": "pickup",
+              "target": "river_bike",
+              "caption": "搬取修理箱",
+              "required_vehicle": "car",
+              "item_id": "repair_kit"
+            },
+            {
+              "action": "deliver",
+              "target": "river_picnic",
+              "caption": "交給河岸活動窗口",
+              "required_vehicle": "car",
+              "item_id": "repair_kit"
+            }
+          ],
+          "reward": {
+            "cash": 110,
+            "trust": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "TW-CHUN-01",
+      "npc_id": "CHUN",
+      "title": "第一章：酥餅不要壓",
+      "dialogue": "春伯願意讓文創聚落辦糕餅試吃，但盒子要放穩。送完太陽餅，帶回手寫餅譜。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 80,
+        "trust": 3
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "old_arcade",
+          "caption": "和春伯確認糕餅盒數",
+          "required_vehicle": "any",
+          "item_id": ""
+        },
+        {
+          "action": "pickup",
+          "target": "arcade_bakery",
+          "caption": "領取硬盒太陽餅",
+          "required_vehicle": "any",
+          "item_id": "sun_cake"
+        },
+        {
+          "action": "deliver",
+          "target": "creative_receiver",
+          "caption": "送試吃盒到文創工作桌",
+          "required_vehicle": "any",
+          "item_id": "sun_cake"
+        },
+        {
+          "action": "pickup",
+          "target": "creative_receiver",
+          "caption": "取回手寫餅譜",
+          "required_vehicle": "any",
+          "item_id": "old_recipe"
+        },
+        {
+          "action": "return",
+          "target": "arcade_bakery",
+          "caption": "把餅譜交還春伯",
+          "required_vehicle": "any",
+          "item_id": "old_recipe"
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "上回送出去的試吃盒有回信，我想留下這張手寫餅譜。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R34",
+        "TW-R35"
+      ]
+    },
+    {
+      "id": "TW-CHUN-02",
+      "npc_id": "CHUN",
+      "title": "第二章：廟埕的咖咖聲",
+      "dialogue": "試吃會讓街坊認識春伯，這次他要幫廟埕辦木屐體驗。你可以搬器材，或準備活動點心與導引卡。",
+      "prerequisites": [
+        "TW-CHUN-01"
+      ],
+      "reward": {
+        "cash": 120,
+        "trust": 5
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "old_arcade",
+          "caption": "與春伯確認木屐活動要先做哪一件",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "廟埕要辦木屐體驗，器材搬過去也不能擋住騎樓。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R21",
+        "TW-R20",
+        "TW-R38"
+      ],
+      "required_trust": {
+        "npc_id": "CHUN",
+        "min": 3
+      },
+      "choices": [
+        {
+          "id": "clogs",
+          "label": "搬木屐與器材",
+          "dialogue": "長木屐箱要開車運送，送到廟埕再還回收箱。",
+          "steps": [
+            {
+              "action": "pickup",
+              "target": "creative_workshop",
+              "caption": "搬取長木屐箱",
+              "required_vehicle": "car",
+              "item_id": "wooden_clogs"
+            },
+            {
+              "action": "deliver",
+              "target": "arcade_temple",
+              "caption": "器材放在廟埕指定桌",
+              "required_vehicle": "car",
+              "item_id": "wooden_clogs"
+            },
+            {
+              "action": "pickup",
+              "target": "arcade_temple",
+              "caption": "領取活動後回收器材箱",
+              "required_vehicle": "any",
+              "item_id": "top_box"
+            },
+            {
+              "action": "return",
+              "target": "creative_workshop",
+              "caption": "把回收器材交回工作室",
+              "required_vehicle": "any",
+              "item_id": "top_box"
+            }
+          ],
+          "reward": {
+            "cash": 120,
+            "trust": 5
+          }
+        },
+        {
+          "id": "refreshment",
+          "label": "送點心與導引卡",
+          "dialogue": "卡片送到廟埕，點心留給老街休息點。",
+          "steps": [
+            {
+              "action": "pickup",
+              "target": "creative_workshop",
+              "caption": "取原創活動導引卡",
+              "required_vehicle": "any",
+              "item_id": "lantern_cards"
+            },
+            {
+              "action": "deliver",
+              "target": "arcade_temple",
+              "caption": "交給廟埕窗口",
+              "required_vehicle": "any",
+              "item_id": "lantern_cards"
+            },
+            {
+              "action": "pickup",
+              "target": "arcade_bakery",
+              "caption": "取紅龜粿點心",
+              "required_vehicle": "any",
+              "item_id": "red_turtle_cake"
+            },
+            {
+              "action": "deliver",
+              "target": "arcade_house",
+              "caption": "送到老街共桌",
+              "required_vehicle": "any",
+              "item_id": "red_turtle_cake"
+            }
+          ],
+          "reward": {
+            "cash": 110,
+            "trust": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "TW-YUN-01",
+      "npc_id": "YUN",
+      "title": "第一章：把街坊印進地圖",
+      "dialogue": "采芸的展覽想收進早餐攤、騎樓與河岸。先把路線筆記帶來，再送出印好的作品。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 85,
+        "trust": 3
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "creative_lane",
+          "caption": "聽采芸說明街坊地圖",
+          "required_vehicle": "any",
+          "item_id": ""
+        },
+        {
+          "action": "pickup",
+          "target": "river_bike",
+          "caption": "領取阿維的河岸筆記",
+          "required_vehicle": "any",
+          "item_id": "route_notes"
+        },
+        {
+          "action": "deliver",
+          "target": "creative_workshop",
+          "caption": "交給采芸排版",
+          "required_vehicle": "any",
+          "item_id": "route_notes"
+        },
+        {
+          "action": "pickup",
+          "target": "creative_workshop",
+          "caption": "領取街坊攝影輸出品",
+          "required_vehicle": "any",
+          "item_id": "exhibit_prints"
+        },
+        {
+          "action": "deliver",
+          "target": "creative_stage",
+          "caption": "作品送到戶外展桌",
+          "required_vehicle": "any",
+          "item_id": "exhibit_prints"
+        },
+        {
+          "action": "talk",
+          "target": "creative_lane",
+          "caption": "回工作室確認展桌已布好",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "你的路線筆記印好了，這次展覽就讓街坊自己說故事。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R09",
+        "TW-R19",
+        "TW-R37"
+      ]
+    },
+    {
+      "id": "TW-YUN-02",
+      "npc_id": "YUN",
+      "title": "第二章：展覽以後還有生活",
+      "dialogue": "展覽引來了新觀眾，采芸希望他們也走進老街和綠廊。你可以送手作材料，或替兩場表演貼海報。",
+      "prerequisites": [
+        "TW-YUN-01"
+      ],
+      "reward": {
+        "cash": 115,
+        "trust": 5
+      },
+      "steps": [
+        {
+          "action": "talk",
+          "target": "creative_lane",
+          "caption": "和采芸決定展覽之後的路線",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "failure_dialogue": "這趟先結束。人和貨都沒事，再回來重新接單。",
+      "completion_dialogue": "我不要只有大樓的照片，早餐攤和便利店也要留在地圖上。",
+      "limit_seconds": 0,
+      "repeatable": false,
+      "source_ids": [
+        "TW-R13",
+        "TW-R20",
+        "TW-R36",
+        "TW-R37"
+      ],
+      "required_trust": {
+        "npc_id": "YUN",
+        "min": 3
+      },
+      "choices": [
+        {
+          "id": "workshop",
+          "label": "準備里民手作課",
+          "dialogue": "先送布料，再回工作室拿紙袋，兩樣缺一就不能開課。",
+          "steps": [
+            {
+              "action": "pickup",
+              "target": "creative_workshop",
+              "caption": "領取布料手作箱",
+              "required_vehicle": "car",
+              "item_id": "fabric_kit"
+            },
+            {
+              "action": "deliver",
+              "target": "green_class",
+              "caption": "送到里民手作教室",
+              "required_vehicle": "car",
+              "item_id": "fabric_kit"
+            },
+            {
+              "action": "pickup",
+              "target": "store_counter",
+              "caption": "取作品帶回家的紙袋",
+              "required_vehicle": "any",
+              "item_id": "paper_bags"
+            },
+            {
+              "action": "deliver",
+              "target": "green_class",
+              "caption": "交給課程窗口",
+              "required_vehicle": "any",
+              "item_id": "paper_bags"
+            }
+          ],
+          "reward": {
+            "cash": 115,
+            "trust": 5
+          }
+        },
+        {
+          "id": "posters",
+          "label": "送兩場街坊表演海報",
+          "dialogue": "一批給夜市舞臺，一批給老街廟埕，各自確認收到。",
+          "steps": [
+            {
+              "action": "pickup",
+              "target": "creative_workshop",
+              "caption": "領取夜市海報",
+              "required_vehicle": "any",
+              "item_id": "poster_bundle"
+            },
+            {
+              "action": "deliver",
+              "target": "night_stage",
+              "caption": "海報交給夜市舞臺",
+              "required_vehicle": "any",
+              "item_id": "poster_bundle"
+            },
+            {
+              "action": "pickup",
+              "target": "creative_workshop",
+              "caption": "取廟埕表演通知",
+              "required_vehicle": "any",
+              "item_id": "print_ticket"
+            },
+            {
+              "action": "deliver",
+              "target": "arcade_temple",
+              "caption": "交給廟埕活動窗口",
+              "required_vehicle": "any",
+              "item_id": "print_ticket"
+            }
+          ],
+          "reward": {
+            "cash": 105,
+            "trust": 4
+          }
+        }
+      ]
+    }
+  ],
+  "delivery_templates": [
+    {
+      "id": "DEL-FOOD-01",
+      "category": "food",
+      "title": "早餐：炒麵與溫豆漿",
+      "dialogue": "兩件早餐一起送，飲料要和餐盒分開。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 42,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "pickup",
+          "target": "market_breakfast",
+          "caption": "取炒麵",
+          "required_vehicle": "any",
+          "item_id": "fried_noodles"
+        },
+        {
+          "action": "pickup",
+          "target": "market_breakfast",
+          "caption": "取溫豆漿",
+          "required_vehicle": "any",
+          "item_id": "soy_milk"
+        },
+        {
+          "action": "deliver",
+          "target": "market_grandma",
+          "caption": "交付炒麵",
+          "required_vehicle": "any",
+          "item_id": "fried_noodles"
+        },
+        {
+          "action": "deliver",
+          "target": "market_grandma",
+          "caption": "交付豆漿",
+          "required_vehicle": "any",
+          "item_id": "soy_milk"
+        }
+      ],
+      "limit_seconds": 300,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R01",
+        "TW-R02"
+      ]
+    },
+    {
+      "id": "DEL-FOOD-02",
+      "category": "food",
+      "title": "午餐：騎車送飯糰",
+      "dialogue": "騎車經老街到綠廊，把飯糰送到活動教室。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 52,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "pickup",
+          "target": "market_breakfast",
+          "caption": "領取菜脯飯糰",
+          "required_vehicle": "bicycle",
+          "item_id": "rice_ball"
+        },
+        {
+          "action": "deliver",
+          "target": "green_class",
+          "caption": "騎車送到活動教室",
+          "required_vehicle": "bicycle",
+          "item_id": "rice_ball"
+        }
+      ],
+      "limit_seconds": 420,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R16"
+      ]
+    },
+    {
+      "id": "DEL-FOOD-03",
+      "category": "food",
+      "title": "夜市：冷飲送夜班",
+      "dialogue": "珍珠奶茶和冬瓜茶分杯標示，兩個收件點各送一杯。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 55,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "pickup",
+          "target": "night_drinks",
+          "caption": "取珍珠奶茶",
+          "required_vehicle": "any",
+          "item_id": "bubble_tea"
+        },
+        {
+          "action": "deliver",
+          "target": "night_rest",
+          "caption": "送到夜班休息站",
+          "required_vehicle": "any",
+          "item_id": "bubble_tea"
+        },
+        {
+          "action": "pickup",
+          "target": "night_drinks",
+          "caption": "取冬瓜茶",
+          "required_vehicle": "any",
+          "item_id": "wintermelon_tea"
+        },
+        {
+          "action": "deliver",
+          "target": "creative_stage",
+          "caption": "送到文創舞臺",
+          "required_vehicle": "any",
+          "item_id": "wintermelon_tea"
+        }
+      ],
+      "limit_seconds": 420,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R07",
+        "TW-R33"
+      ]
+    },
+    {
+      "id": "DEL-FOOD-04",
+      "category": "food",
+      "title": "麵線：廟埕值班餐",
+      "dialogue": "領取蚵仔麵線，確認湯盒後送廟埕。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 58,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "pickup",
+          "target": "night_market",
+          "caption": "領取密封麵線湯盒",
+          "required_vehicle": "any",
+          "item_id": "mianxian"
+        },
+        {
+          "action": "deliver",
+          "target": "arcade_temple",
+          "caption": "送到廟埕值班桌",
+          "required_vehicle": "any",
+          "item_id": "mianxian"
+        }
+      ],
+      "limit_seconds": 480,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R15"
+      ]
+    },
+    {
+      "id": "DEL-FOOD-05",
+      "category": "food",
+      "title": "伴手禮：糕餅兩站送",
+      "dialogue": "開車將硬盒太陽餅與鳳梨酥分送，兩站都簽收才結清。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 68,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "pickup",
+          "target": "arcade_bakery",
+          "caption": "搬取太陽餅盒",
+          "required_vehicle": "car",
+          "item_id": "sun_cake"
+        },
+        {
+          "action": "pickup",
+          "target": "arcade_bakery",
+          "caption": "搬取鳳梨酥盒",
+          "required_vehicle": "car",
+          "item_id": "pineapple_cake"
+        },
+        {
+          "action": "deliver",
+          "target": "creative_receiver",
+          "caption": "交付太陽餅",
+          "required_vehicle": "car",
+          "item_id": "sun_cake"
+        },
+        {
+          "action": "deliver",
+          "target": "parcel_receiver",
+          "caption": "交付鳳梨酥",
+          "required_vehicle": "car",
+          "item_id": "pineapple_cake"
+        }
+      ],
+      "limit_seconds": 0,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R34"
+      ]
+    },
+    {
+      "id": "DEL-FOOD-06",
+      "category": "food",
+      "title": "共餐：麻芛湯與麻糬",
+      "dialogue": "湯和點心分開裝，到達廚房再交付。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 64,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "pickup",
+          "target": "market_breakfast",
+          "caption": "取密封麻芛湯",
+          "required_vehicle": "any",
+          "item_id": "ma_yi_soup"
+        },
+        {
+          "action": "pickup",
+          "target": "arcade_bakery",
+          "caption": "取分裝麻糬",
+          "required_vehicle": "any",
+          "item_id": "mochi"
+        },
+        {
+          "action": "deliver",
+          "target": "green_pantry",
+          "caption": "將麻芛湯交給廚房",
+          "required_vehicle": "any",
+          "item_id": "ma_yi_soup"
+        },
+        {
+          "action": "deliver",
+          "target": "green_class",
+          "caption": "送麻糬到活動教室",
+          "required_vehicle": "any",
+          "item_id": "mochi"
+        }
+      ],
+      "limit_seconds": 480,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R24",
+        "TW-R35"
+      ]
+    },
+    {
+      "id": "DEL-CONVENIENCE-01",
+      "category": "convenience",
+      "title": "便利店：雨衣送河岸",
+      "dialogue": "先領取雨衣，再送到巡守點。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 36,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "pickup",
+          "target": "store_counter",
+          "caption": "領取遊戲雨衣",
+          "required_vehicle": "any",
+          "item_id": "rain_poncho"
+        },
+        {
+          "action": "deliver",
+          "target": "river_checkpoint",
+          "caption": "雨衣送到巡守點",
+          "required_vehicle": "any",
+          "item_id": "rain_poncho"
+        }
+      ],
+      "limit_seconds": 0,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R32"
+      ]
+    },
+    {
+      "id": "DEL-CONVENIENCE-02",
+      "category": "convenience",
+      "title": "便利店：列印活動單",
+      "dialogue": "使用列印機領紙本通知，送到公告欄。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 32,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "pickup",
+          "target": "store_print",
+          "caption": "領取列印活動單",
+          "required_vehicle": "any",
+          "item_id": "print_ticket"
+        },
+        {
+          "action": "deliver",
+          "target": "green_notice",
+          "caption": "交付綠廊公告欄",
+          "required_vehicle": "any",
+          "item_id": "print_ticket"
+        }
+      ],
+      "limit_seconds": 0,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R31",
+        "TW-R32"
+      ]
+    },
+    {
+      "id": "DEL-CONVENIENCE-03",
+      "category": "convenience",
+      "title": "便利店：水與面紙",
+      "dialogue": "兩樣日用品，兩個不同收件點。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 42,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "pickup",
+          "target": "store_counter",
+          "caption": "領瓶裝水",
+          "required_vehicle": "any",
+          "item_id": "water"
+        },
+        {
+          "action": "pickup",
+          "target": "store_counter",
+          "caption": "領面紙",
+          "required_vehicle": "any",
+          "item_id": "tissues"
+        },
+        {
+          "action": "deliver",
+          "target": "store_receiver",
+          "caption": "水送給街角住戶",
+          "required_vehicle": "any",
+          "item_id": "water"
+        },
+        {
+          "action": "deliver",
+          "target": "night_rest",
+          "caption": "面紙送到夜班休息站",
+          "required_vehicle": "any",
+          "item_id": "tissues"
+        }
+      ],
+      "limit_seconds": 0,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R32"
+      ]
+    },
+    {
+      "id": "DEL-CONVENIENCE-04",
+      "category": "convenience",
+      "title": "便利店：工作室包材",
+      "dialogue": "開車取紙袋箱與標籤，送到包裝桌。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 48,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "pickup",
+          "target": "store_counter",
+          "caption": "搬取紙袋箱",
+          "required_vehicle": "car",
+          "item_id": "paper_bags"
+        },
+        {
+          "action": "pickup",
+          "target": "store_print",
+          "caption": "領取列印標籤",
+          "required_vehicle": "any",
+          "item_id": "labels"
+        },
+        {
+          "action": "deliver",
+          "target": "creative_receiver",
+          "caption": "紙袋送到包裝桌",
+          "required_vehicle": "car",
+          "item_id": "paper_bags"
+        },
+        {
+          "action": "deliver",
+          "target": "creative_receiver",
+          "caption": "交付標籤",
+          "required_vehicle": "any",
+          "item_id": "labels"
+        }
+      ],
+      "limit_seconds": 0,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R32"
+      ]
+    },
+    {
+      "id": "DEL-CONVENIENCE-05",
+      "category": "convenience",
+      "title": "便利店：循環杯回收",
+      "dialogue": "從小舞臺拿回空杯箱，送還櫃檯，不當成一般商品投遞。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 35,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "pickup",
+          "target": "creative_stage",
+          "caption": "領取已洗淨空杯箱",
+          "required_vehicle": "any",
+          "item_id": "reusable_cups"
+        },
+        {
+          "action": "return",
+          "target": "store_counter",
+          "caption": "將循環杯箱歸還櫃檯",
+          "required_vehicle": "any",
+          "item_id": "reusable_cups"
+        }
+      ],
+      "limit_seconds": 0,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R40"
+      ]
+    },
+    {
+      "id": "DEL-CONVENIENCE-06",
+      "category": "convenience",
+      "title": "便利店：兩份戶外補給",
+      "dialogue": "騎車先送水到河岸，再回店拿雨衣送到夜市舞臺。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 56,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "pickup",
+          "target": "store_counter",
+          "caption": "領取河岸飲水",
+          "required_vehicle": "bicycle",
+          "item_id": "water"
+        },
+        {
+          "action": "deliver",
+          "target": "river_picnic",
+          "caption": "騎車送到野餐桌",
+          "required_vehicle": "bicycle",
+          "item_id": "water"
+        },
+        {
+          "action": "pickup",
+          "target": "store_counter",
+          "caption": "領舞臺雨衣",
+          "required_vehicle": "any",
+          "item_id": "rain_poncho"
+        },
+        {
+          "action": "deliver",
+          "target": "night_stage",
+          "caption": "雨衣交給舞臺窗口",
+          "required_vehicle": "bicycle",
+          "item_id": "rain_poncho"
+        }
+      ],
+      "limit_seconds": 480,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R32",
+        "TW-R16"
+      ]
+    },
+    {
+      "id": "DEL-PARCEL-01",
+      "category": "parcel",
+      "title": "店到店：衣物核碼取件",
+      "dialogue": "核對 1328，衣物先入分揀架，再送到南苑。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 50,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "verify_code",
+          "target": "orange_parcel",
+          "caption": "核對代碼 1328",
+          "required_vehicle": "any",
+          "item_id": "cloth_bundle",
+          "code": "1328"
+        },
+        {
+          "action": "pickup",
+          "target": "orange_parcel",
+          "caption": "領取衣物包裹",
+          "required_vehicle": "any",
+          "item_id": "cloth_bundle"
+        },
+        {
+          "action": "deliver",
+          "target": "parcel_sort",
+          "caption": "衣物放南苑路線架",
+          "required_vehicle": "any",
+          "item_id": "cloth_bundle"
+        },
+        {
+          "action": "pickup",
+          "target": "parcel_sort",
+          "caption": "再取已分揀包裹",
+          "required_vehicle": "any",
+          "item_id": "cloth_bundle"
+        },
+        {
+          "action": "deliver",
+          "target": "parcel_receiver",
+          "caption": "交付南苑收件戶",
+          "required_vehicle": "any",
+          "item_id": "cloth_bundle"
+        }
+      ],
+      "limit_seconds": 0,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R26",
+        "TW-R27",
+        "TW-R30"
+      ]
+    },
+    {
+      "id": "DEL-PARCEL-02",
+      "category": "parcel",
+      "title": "店到店：書籍走文創線",
+      "dialogue": "核對 4602 的書籍箱，分揀後送文創工作桌。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 62,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "verify_code",
+          "target": "orange_parcel",
+          "caption": "核對代碼 4602",
+          "required_vehicle": "any",
+          "item_id": "book_bundle",
+          "code": "4602"
+        },
+        {
+          "action": "pickup",
+          "target": "orange_parcel",
+          "caption": "領取書籍包裹",
+          "required_vehicle": "any",
+          "item_id": "book_bundle"
+        },
+        {
+          "action": "deliver",
+          "target": "parcel_sort",
+          "caption": "放入文創路線架",
+          "required_vehicle": "any",
+          "item_id": "book_bundle"
+        },
+        {
+          "action": "pickup",
+          "target": "parcel_sort",
+          "caption": "取已分揀書籍",
+          "required_vehicle": "any",
+          "item_id": "book_bundle"
+        },
+        {
+          "action": "deliver",
+          "target": "creative_receiver",
+          "caption": "交付文創收件戶",
+          "required_vehicle": "any",
+          "item_id": "book_bundle"
+        }
+      ],
+      "limit_seconds": 0,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R26",
+        "TW-R30"
+      ]
+    },
+    {
+      "id": "DEL-PARCEL-03",
+      "category": "parcel",
+      "title": "店到店：帽子送老街",
+      "dialogue": "核對 7094，先分揀才取走，騎車配送到老街。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 68,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "verify_code",
+          "target": "orange_parcel",
+          "caption": "核對代碼 7094",
+          "required_vehicle": "any",
+          "item_id": "cap_bundle",
+          "code": "7094"
+        },
+        {
+          "action": "pickup",
+          "target": "orange_parcel",
+          "caption": "領取帽子包裹",
+          "required_vehicle": "any",
+          "item_id": "cap_bundle"
+        },
+        {
+          "action": "deliver",
+          "target": "parcel_sort",
+          "caption": "帽子放老街路線架",
+          "required_vehicle": "any",
+          "item_id": "cap_bundle"
+        },
+        {
+          "action": "pickup",
+          "target": "parcel_sort",
+          "caption": "取已分揀帽子",
+          "required_vehicle": "bicycle",
+          "item_id": "cap_bundle"
+        },
+        {
+          "action": "deliver",
+          "target": "arcade_house",
+          "caption": "騎車交付老街收件戶",
+          "required_vehicle": "bicycle",
+          "item_id": "cap_bundle"
+        }
+      ],
+      "limit_seconds": 480,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R26",
+        "TW-R27"
+      ]
+    },
+    {
+      "id": "DEL-PARCEL-04",
+      "category": "parcel",
+      "title": "店到店：文具補給單",
+      "dialogue": "核對 8256，開車搬文具箱到里民教室。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 70,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "verify_code",
+          "target": "orange_parcel",
+          "caption": "核對代碼 8256",
+          "required_vehicle": "any",
+          "item_id": "stationery_bundle",
+          "code": "8256"
+        },
+        {
+          "action": "pickup",
+          "target": "orange_parcel",
+          "caption": "搬取文具包裹",
+          "required_vehicle": "car",
+          "item_id": "stationery_bundle"
+        },
+        {
+          "action": "deliver",
+          "target": "parcel_sort",
+          "caption": "文具放綠廊路線架",
+          "required_vehicle": "car",
+          "item_id": "stationery_bundle"
+        },
+        {
+          "action": "pickup",
+          "target": "parcel_sort",
+          "caption": "取已分揀文具",
+          "required_vehicle": "car",
+          "item_id": "stationery_bundle"
+        },
+        {
+          "action": "deliver",
+          "target": "green_class",
+          "caption": "文具交付里民教室",
+          "required_vehicle": "car",
+          "item_id": "stationery_bundle"
+        }
+      ],
+      "limit_seconds": 0,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R26",
+        "TW-R30"
+      ]
+    },
+    {
+      "id": "DEL-PARCEL-05",
+      "category": "parcel",
+      "title": "店到店：衣物退件回站",
+      "dialogue": "用 3917 核對退件工作單，拿走衣物，回退件櫃刷單交件。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 58,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "verify_code",
+          "target": "parcel_receiver",
+          "caption": "核對退件代碼 3917",
+          "required_vehicle": "any",
+          "item_id": "return_shirt",
+          "code": "3917"
+        },
+        {
+          "action": "pickup",
+          "target": "parcel_receiver",
+          "caption": "領取衣物退件",
+          "required_vehicle": "any",
+          "item_id": "return_shirt"
+        },
+        {
+          "action": "return",
+          "target": "parcel_returns",
+          "caption": "刷單後投入指定退件櫃",
+          "required_vehicle": "any",
+          "item_id": "return_shirt"
+        },
+        {
+          "action": "talk",
+          "target": "orange_parcel",
+          "caption": "確認退件收據",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "limit_seconds": 0,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R28",
+        "TW-R29"
+      ]
+    },
+    {
+      "id": "DEL-PARCEL-06",
+      "category": "parcel",
+      "title": "店到店：錯封面退件",
+      "dialogue": "文創住戶的筆記本退件已登記。核對 6043 後取回，完整送回原站結清。",
+      "prerequisites": [],
+      "reward": {
+        "cash": 64,
+        "trust": 0
+      },
+      "steps": [
+        {
+          "action": "verify_code",
+          "target": "creative_receiver",
+          "caption": "核對退件代碼 6043",
+          "required_vehicle": "any",
+          "item_id": "return_notebook",
+          "code": "6043"
+        },
+        {
+          "action": "pickup",
+          "target": "creative_receiver",
+          "caption": "領取筆記本退件",
+          "required_vehicle": "any",
+          "item_id": "return_notebook"
+        },
+        {
+          "action": "return",
+          "target": "parcel_returns",
+          "caption": "交付橘盒退件櫃",
+          "required_vehicle": "any",
+          "item_id": "return_notebook"
+        },
+        {
+          "action": "talk",
+          "target": "orange_parcel",
+          "caption": "回報標籤與數量都正確",
+          "required_vehicle": "any",
+          "item_id": ""
+        }
+      ],
+      "limit_seconds": 0,
+      "repeatable": true,
+      "cooldown_seconds": 45,
+      "failure_dialogue": "訂單暫停，返回工作單重新接單。",
+      "completion_dialogue": "這筆遊戲工作單已簽收。",
+      "source_ids": [
+        "TW-R28",
+        "TW-R29"
+      ]
+    }
+  ],
+  "choice_steps_mode": "suffix_after_prefix",
+  "opening_hours_mode": "ambient_schedule_only_jobs_do_not_lock",
+  "timers_mode": "active_job_seconds_pause_with_game"
+}

@@ -1,0 +1,371 @@
+{
+  "status": "VERIFIED",
+  "passed": 91,
+  "failed": 0,
+  "checks": [
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: editable source triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: editable source metric envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: portable source texture paths resolve"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: source UV editing retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: independent GLB reimport triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: GLB reimport metric envelope matches source"
+    },
+    {
+      "pass": true,
+      "label": "tw_arcade_shop: reimported UVs retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: editable source triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: editable source metric envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: portable source texture paths resolve"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: source UV editing retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: independent GLB reimport triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: GLB reimport metric envelope matches source"
+    },
+    {
+      "pass": true,
+      "label": "tw_convenience: reimported UVs retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: editable source triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: editable source metric envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: portable source texture paths resolve"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: source UV editing retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: independent GLB reimport triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: GLB reimport metric envelope matches source"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_station: reimported UVs retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: editable source triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: editable source metric envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: portable source texture paths resolve"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: source UV editing retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: independent GLB reimport triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: GLB reimport metric envelope matches source"
+    },
+    {
+      "pass": true,
+      "label": "tw_breakfast_stall: reimported UVs retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: editable source triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: editable source metric envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: portable source texture paths resolve"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: source UV editing retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: independent GLB reimport triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: GLB reimport metric envelope matches source"
+    },
+    {
+      "pass": true,
+      "label": "tw_food_stall: reimported UVs retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: editable source triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: editable source metric envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: portable source texture paths resolve"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: source UV editing retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: independent GLB reimport triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: GLB reimport metric envelope matches source"
+    },
+    {
+      "pass": true,
+      "label": "tw_market_stall: reimported UVs retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: editable source triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: editable source metric envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: portable source texture paths resolve"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: source UV editing retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: independent GLB reimport triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: GLB reimport metric envelope matches source"
+    },
+    {
+      "pass": true,
+      "label": "tw_scooter: reimported UVs retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: editable source triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: editable source metric envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: portable source texture paths resolve"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: source UV editing retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: independent GLB reimport triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: GLB reimport metric envelope matches source"
+    },
+    {
+      "pass": true,
+      "label": "tw_lantern_gate: reimported UVs retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: editable source triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: editable source metric envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: portable source texture paths resolve"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: source UV editing retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: independent GLB reimport triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: GLB reimport metric envelope matches source"
+    },
+    {
+      "pass": true,
+      "label": "tw_bus_shelter: reimported UVs retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: editable source triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: editable source metric envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: portable source texture paths resolve"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: source UV editing retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: independent GLB reimport triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: GLB reimport metric envelope matches source"
+    },
+    {
+      "pass": true,
+      "label": "tw_river_pavilion: reimported UVs retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: editable source triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: editable source metric envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: portable source texture paths resolve"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: source UV editing retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: independent GLB reimport triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: GLB reimport metric envelope matches source"
+    },
+    {
+      "pass": true,
+      "label": "tw_recycling_station: reimported UVs retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: editable source triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: editable source metric envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: portable source texture paths resolve"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: source UV editing retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: independent GLB reimport triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: GLB reimport metric envelope matches source"
+    },
+    {
+      "pass": true,
+      "label": "tw_parcel_shelf: reimported UVs retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: editable source triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: editable source metric envelope"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: portable source texture paths resolve"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: source UV editing retained"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: independent GLB reimport triangle count"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: GLB reimport metric envelope matches source"
+    },
+    {
+      "pass": true,
+      "label": "tw_rowhouse: reimported UVs retained"
+    }
+  ]
+}

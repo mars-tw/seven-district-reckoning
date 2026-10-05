@@ -319,9 +319,19 @@ func _check_real_map_GUI() -> void:
 	var map := _find_map(world.hud)
 	check(map != null and map.is_visible_in_tree(),"real_HUD_opens_interactive_district_map")
 	if map:
-		check(map.districts.size() == 6,"production_map_has_six_authored_district_bounds")
+		var old_regions: Array[Dictionary] = world.city_life.get_districts()
+		var new_regions: Array[Dictionary] = world.taiwan_expansion.get_regions()
+		check(old_regions.size()==6 and new_regions.size()==8 and map.districts.size()==14,"production_map_keeps_six_old_and_eight_new_authored_districts")
+		for region: Dictionary in old_regions+new_regions:
+			check(map.districts.has(region),"production_map_retains_complete_authored_region_"+str(region["id"]))
 		check(map._area().size.x>=300 and map._area().size.y>=300 and map.map_font != null,"desktop_map_plot_is_large_enough_to_draw_region_names")
-		check(map.blocks.size() == world.base_obstacle_bounds.size()+world.city_life.get_obstacle_bounds().size(),"production_map_receives_real_building_collision_bounds")
+		var expected_blocks: Array[AABB] = world.base_obstacle_bounds.duplicate()
+		expected_blocks.append_array(world.city_life.get_obstacle_bounds())
+		expected_blocks.append_array(world.taiwan_expansion.get_obstacle_bounds())
+		var complete_blocks: bool = map.blocks.size()==expected_blocks.size()
+		for block: AABB in expected_blocks:
+			if not map.blocks.has(block): complete_blocks = false
+		check(complete_blocks,"production_map_receives_all_old_and_expanded_real_collision_bounds")
 		check(map.blocks.has(AABB(Vector3(-62,0,61),Vector3(16,8,8))),"production_map_contains_new_Mei_shop_real_16x8_collision_footprint")
 		var before_position: Vector3 = world.player.position
 		var destination := Vector2(111,-58)
@@ -622,8 +632,8 @@ func _check_save_migration_and_retry() -> void:
 	world.street_state.cycle_enabled = false
 	world.street_state.quality = "performance"
 	world.street_state.difficulty = "relaxed"
-	world.street_state.sensitivity = 1.4
-	world.street_state.muted = true
+	world._setting_changed("sensitivity","1.4")
+	world._setting_changed("muted","on")
 	world._set_waypoint(Vector2(110,-50))
 	world._apply_preferences()
 	check(is_equal_approx(world.player.incoming_damage_multiplier,0.65),"real_preferences_apply_relaxed_damage_multiplier")
@@ -641,6 +651,14 @@ func _check_save_migration_and_retry() -> void:
 	check(_same_saved_value(world.district_systems.to_dict(),expected_systems) and _same_saved_value(world.street_state.to_dict(),expected_street),"actual_slot93_load_restores_new_gameplay_state")
 	check(world.player.maximum_stamina == 120 and world.player.stamina ==63 and is_equal_approx(world.player.tool_damage_multiplier,1.2) and is_equal_approx(world.bicycle.acceleration_multiplier,1.15),"actual_slot93_load_reapplies_upgrades_and_saved_stamina")
 	check(is_equal_approx(world.player.get_view_yaw(),0.72) and is_equal_approx(float(saved["player"].get("camera_yaw",NAN)),0.72),"actual_slot93_JSON_roundtrip_retains_nondefault_camera_yaw")
+	var old_preferences := saved.duplicate(true)
+	old_preferences["street_state"]["sensitivity"] = .7
+	old_preferences["street_state"]["muted"] = false
+	var device_profile_before: String = world.device_profiles.get_profile()
+	var hardware_before: String = world.device_profiles.get_hardware_profile()
+	check(world._restore(old_preferences) and is_equal_approx(world.street_state.sensitivity,.7) and not world.street_state.muted,"old_saved_street_preferences_remain_parseable_campaign_data")
+	check(world.device_profiles.get_profile()==device_profile_before and world.device_profiles.get_hardware_profile()==hardware_before and is_equal_approx(world.player.mouse_sensitivity,.0042) and AudioServer.is_bus_mute(0),"independent_device_preferences_override_old_save_camera_audio_without_hardware_change")
+	check(world._restore(saved),"current_campaign_snapshot_restores_after_device_precedence_probe")
 	world.hud.show_pause()
 	world._process(0)
 	var atomic_before: Dictionary = world._snapshot(false)

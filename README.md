@@ -1,26 +1,37 @@
 # 七期：斷鏈行動 / Seven District: Break the Chain
 
-**Alpha 0.3.0：人物比例、商辦街景、街區挑戰與補給系統。** 原創第三人稱沙盒動作遊戲，以台中七期的高級商辦與街廓為靈感，使用 Blender 製作資產、Godot 執行遊戲。
+**Alpha 0.4.0 已上線：台灣街坊生活、800 公尺地圖與三端操作。** 原創第三人稱沙盒動作遊戲，以台中七期的高級商辦與台灣街景為靈感，使用 Blender 製作資產、Godot 執行遊戲。
 
-[直接線上遊玩](https://seven-district-reckoning.digimkt.workers.dev) · [網頁操作與存檔說明](docs/web-play.md) · [Windows Alpha 0.1.0](https://github.com/mars-tw/seven-district-reckoning/releases/tag/v0.1.0)
+[手機版](https://seven-district-reckoning.digimkt.workers.dev/phone/) · [平板版](https://seven-district-reckoning.digimkt.workers.dev/tablet/) · [電腦版](https://seven-district-reckoning.digimkt.workers.dev/desktop/) · [Windows Alpha 0.4.0](https://github.com/mars-tw/seven-district-reckoning/releases/tag/v0.4.0) · [操作與存檔說明](docs/newv04-device-entry.md)
 
-Alpha 0.3 已上線。瀏覽器版本免安裝，首次開啟需要下載遊戲資料；這是單人遊戲。已有 Alpha 0.1／0.2 進度可直接讀取。
+Alpha 0.4 瀏覽器版免安裝，首次開啟需要下載遊戲資料；這是單人遊戲。首頁可自動判斷裝置，三個專用入口各有控制、介面與畫面預算。遊戲存檔留在同一個瀏覽器與網站內，切換手機／平板／電腦模式可接續同一份進度。[三端操作與驗收範圍](docs/newv04-device-entry.md)
 
 玩家扮演被虛擬貨幣假投資平台騙走積蓄的外送員。從確認失聯訊息、拆掉假客服門面，到騎自行車帶回線索、救出受困者，最後選擇打砸、蒐證或救援的處理重心。企業、人物、設施和可玩地圖均為虛構；作品使用原創與可再散布的素材。
 
-A stylized, original third-person action sandbox made with **Godot 4.7.2** and **Blender 5.2.0 LTS**. Alpha 0.3 adds human-proportioned rigged characters, detailed office streets, stamina, district challenges, supplies, a navigation map and saved settings. The playable district remains a fictional 300 × 300 m map. The published browser build is playable at the link above.
+A stylized, original third-person action sandbox made with **Godot 4.7.2** and **Blender 5.2.0 LTS**. Alpha 0.4 is live in the browser, with an 800 × 800 m fictional Taiwan-inspired district, food/store/parcel jobs, character stories, four culture activities and distinct phone, tablet and desktop profiles. Windows x64 is available through the release link above.
 
-![Alpha 0.3 live browser build](docs/evidence/web-public-alpha-0.3.jpg)
+![Alpha 0.4 八位街坊角色，原生 Godot 造型檢查場景](qa/art/taiwan/integrated/story_people.png)
 
-上圖為公開 Alpha 0.3 實際畫面，已接續舊版存檔。[六人造型圖](qa/art/v03-human/character-lineup.png) · [商辦與街道製作預覽](qa/art/urban/urban_street_review.png) · [歷史 Alpha 0.2 畫面](docs/evidence/web-public-alpha-0.2.jpg)
+上圖是八位新角色的原生 Godot 造型檢查場景。[公開手機版實際畫面](qa/browser/v04/phone-play-public.png)與[外送選單](qa/browser/v04/phone-jobs-public.png)另有瀏覽器截圖；造型檢查場景不代表公開 Web 畫面。[歷史 Alpha 0.3 畫面](docs/evidence/web-public-alpha-0.3.jpg) · [歷史 Alpha 0.2 畫面](docs/evidence/web-public-alpha-0.2.jpg)
+
+## Alpha 0.4 本輪內容
+
+- 保留第一章主線與原有核心，新增晨光市場、星燈夜市、日常便利街、橘盒物流街、青蔭里民綠廊、澄川河岸、犁光騎樓老街與紙光文創聚落。擴建地圖為 **800 × 800 m**，32 個站點供取餐、交談、取貨與送達。
+- 研究 52 份已讀主來源，涵蓋 31 類台灣文化、街景與活動主題、98 個細分標籤；內容包括早餐與夜市、騎樓、河濱、便利商店、店到店取貨、里民活動、回收與手作。[來源與內容對照](docs/taiwan-culture-research-v04.md)
+- 八位新虛構街坊，各有兩章故事、信任與工作解鎖；七個章節提供不同路線的二選一。八款專用 Blender／GLB 人物造型以授權的人體底模製作個別比例、服裝與工作配件，保留 53 根骨骼與八段動作。
+- 18 種可重玩美食、便利商店與包裹工作；接單後領取正確貨物、依序核碼／交付，貨物、時限、處理狀態與報酬各自記錄。橘盒站取貨／送貨／退件是遊戲模擬，不連接蝦皮帳號或真實訂單。
+- 13 款原創台灣街景 Blender／GLB 資產，包含騎樓、攤車、便利商店、包裹站、棚架與街坊設施；另有餐袋、購物袋與包裹三款貨物模型，保留可編輯源檔、材質與 CC0 來源說明。
+- 生活相簿記錄到訪站點與文化筆記，從早餐、騎樓、河濱與里民活動認識街區。
+- 四個新文化活動：陀螺節奏體驗、木屐協調練習、街坊手作配色、街坊集章健走。到對應站點開始，透過節奏點按、左右交替、配色選擇或實際走訪完成；徽章與最佳成績會存檔。
+- 手機、平板、電腦有各自的控制、HUD、3D 解析度、視距、LOD 與背景人車預算；可手動切換，遊戲存檔不會覆蓋裝置選擇。首頁自動辨識，觸控筆電預設使用鍵盤滑鼠。
+
+三端入口共用同一份引擎與遊戲資料，各自選擇操作與畫面設定；不需要下載三份遊戲。[三端說明](docs/newv04-device-entry.md) · [公開 96 項資源檢查](qa/web-live-check.json)
 
 ## 下載與啟動
 
-網頁版從[發布位置](https://seven-district-reckoning.digimkt.workers.dev)開啟。先按「開始線上遊玩」，等下載與啟動完成後再按「進入街區」。已有進度可使用「讀取存檔」。建議使用支援 WebGL 2、開啟硬體加速的電腦瀏覽器；觸控裝置請用橫向與全螢幕，手機操作及效能仍在測試中。[完整說明](docs/web-play.md)
+網頁版從[發布位置](https://seven-district-reckoning.digimkt.workers.dev)開啟。先按「開始線上遊玩」，等下載與啟動完成後再按「進入街區」。已有進度可使用「讀取存檔」。請使用支援 WebGL 2、開啟硬體加速的瀏覽器；0.4 手機與平板入口會自動開啟各自的觸控操作，直向可用，橫向與放大畫面適合騎車。[三端操作](docs/newv04-device-entry.md) · [既有完整說明](docs/web-play.md)
 
-Windows 下載目前保留已發行的歷史版本：
-
-[Windows Alpha 0.1.0](https://github.com/mars-tw/seven-district-reckoning/releases/tag/v0.1.0)
+[Windows Alpha 0.4.0](https://github.com/mars-tw/seven-district-reckoning/releases/tag/v0.4.0)提供 x64 遊戲包。歷史 [Windows Alpha 0.1.0](https://github.com/mars-tw/seven-district-reckoning/releases/tag/v0.1.0)仍保留。
 
 下載 Windows ZIP、解壓縮後執行 **SevenDistrict.exe**，即可進入遊戲。執行檔已包含遊戲資料，玩家不必另外安裝 Blender 或 Godot。這是尚未簽章的開發版本。
 
@@ -31,10 +42,10 @@ Windows 下載目前保留已發行的歷史版本：
 - 五個第一章主線：賠掉的存款、假客服的門面、兩個輪子的捷徑、玻璃後面的人、前站斷電。
 - 六個支線：招牌不會自己倒、沒寄出去的信、沒拿回來的背包、美晴的零件單、巷子裡的送達、把早餐店開回來。
 - 四個活動：自行車路標賽、停車場繞標、街景留影、社區急送。活動可重玩，首次完成領獎，計時活動保留個人最佳；街景相簿保留已收集的地點。
-- 既有 **300 × 300 m** 地圖內增設六個周邊街區：舊街車店、商辦核心、公園步道、停車廣場、前站廣場、轉運街區。
-- 八位背景行人、四台沿路線行駛的車與六台停放的車；新增街區沿用既有模型。
-- 六個新人體角色模型，包含主角、守衛、行人與美晴、予安、周成；使用 53 根骨骼與八段動作，保留可編輯 Blender 源檔。
-- 六個新城市模型：三種商辦、店面、人行道與長椅；幕牆、門廊、路口、排水溝與地坪材質增添街景細節。道路細節採合批繪製，維持原有任務通道。
+- 保留原 **300 × 300 m** 核心的六個街區：舊街車店、商辦核心、公園步道、停車廣場、前站廣場、轉運街區；0.4 的八個生活區向外擴建。
+- 保留背景行人、行駛與停放車輛；0.4 依裝置限制活動中的背景人車與視距，任務角色與碰撞仍保留。
+- 六個 Alpha 0.3 人體角色模型，包含主角、守衛、行人與美晴、予安、周成；加上八位 Alpha 0.4 街坊，使用 53 根骨骼與八段動作，保留可編輯 Blender 源檔。
+- 六個 Alpha 0.3 城市模型：三種商辦、店面、人行道與長椅；加上 0.4 台灣生活街景模型。幕牆、門廊、路口、排水溝與地坪材質增添細節，道路採合批繪製並保留任務通道。
 - 步行、衝刺、跳躍、第三人稱鏡頭及鏡頭牆面碰撞。
 - 衝刺耗用體力，停止衝刺後恢復；可透過體能訓練提升上限。
 - 三項街區挑戰：步行累積 400 公尺、完成三份不同支線、停用八個不同的合法設備目標。每項只領一次獎勵，進度會存檔。
@@ -50,11 +61,11 @@ Windows 下載目前保留已發行的歷史版本：
 - 網頁單人版、下載進度與失敗重試、全螢幕、網頁操作列，以及遊戲內的觸控移動與動作按鈕。
 - 原子存檔、上一份備份、任務檢查點、道具與能量、守衛及載具狀態還原。
 - 支線成果、活動紀錄、相簿與零件券會存檔。瀏覽器進度限定同一個瀏覽器與網站網址，清除網站資料會遺失；不與 Windows 版同步。
-- Alpha 0.1 的 25 個 GLB 與 Blender 源檔，以及 Alpha 0.3 新增的六個人物與六個城市模型；附源素材、授權與重建工具。
+- Alpha 0.1 的 25 個 GLB、Alpha 0.3 的 12 個模型與 Alpha 0.4 的 24 個模型，合計 61 個 GLB；附 Blender 源檔、源素材、授權與重建工具。
 
 ## 操作
 
-網頁版以**按住滑鼠右鍵拖曳**轉動視角；原生桌面版保留滑鼠捕捉視角。網頁操作列可開啟任務與委託、地圖、補給與挑戰、設定及存讀檔。手機使用畫面內的移動與動作按鈕，並可點「視角←／視角→」；操作區過小時請依提示放大或切換全螢幕。沒有原生全螢幕功能的瀏覽器會改用頁內放大，可按「返回頁面」離開。
+網頁版以**按住滑鼠右鍵拖曳**轉動視角；原生桌面版保留滑鼠捕捉視角。網頁操作列可開啟任務與委託、外送與取貨、地圖、補給與挑戰、設定及存讀檔。0.4 手機與平板使用浮動搖桿、各自尺寸的動作鍵與右半邊視角拖曳；「連跑」切換持續跑步。沒有原生全螢幕功能的瀏覽器會改用頁內放大，可按「返回頁面」離開。
 
 | 操作 | 按鍵 |
 | --- | --- |
@@ -67,6 +78,7 @@ Windows 下載目前保留已發行的歷史版本：
 | 取回目前載具 | R |
 | 任務手機／分支選擇 | Tab |
 | 街區地圖／導航 | M |
+| 外送、取貨與街坊故事 | J |
 | 暫停／返回 | Esc |
 | 快速存檔／讀檔 | F5／F9 |
 
@@ -75,6 +87,8 @@ Windows 下載目前保留已發行的歷史版本：
 開始後先依左上角目標找美晴、查看訊息與取得扳手。需要打砸的物件用左鍵攻擊；E 用於交談、保存紀錄及其他互動。載具速度過快或出口被擋住時，先煞車再下車。卡在本段可從暫停選單重試。
 
 ## 驗證與目前限制
+
+Alpha 0.4 最終凍結來源通過 **17 組、8,561 項檢查**，包含 2,698 項實際 Root 場景／UI 整合檢查、245 項文化活動檢查與 99 項網頁配置檢查。全部 41 條人物／配送／分支路線透過實際遊戲選單與站點互動完成，共執行 321 次站點操作；32 站皆有物理可達路徑。公開包的 96 項資源與入口檢查通過，三個 profile 也在真正公開 IAB／Chromium 中完成啟動、模式預算、生活選單或地圖與存檔接續驗證。[完整整合範圍](qa/v04-integration-review.md) · [引擎結果](qa/engine-checks.json) · [公開資源](qa/web-live-check.json) · [公開三端操作紀錄](qa/browser/v04/public-browser-check.json) · [Windows 包驗證](qa/v04-windows-export.md)
 
 Alpha 0.3 合計 1,381 項引擎、玩法與 GUI 檢查通過，包含 255 項新版整合檢查；完整回歸與最後 UI 增量的範圍分開記錄。六款人物另有 192 項 Blender／GLB 檢查，城市模型有 121 項資產檢查。32 項公開資源檢查通過，Chrome 已實際驗證新版啟動、模型、地圖、日夜、補給介面、手機尺寸操作與存檔接續。[獨立覆核](qa/v03-integration-review.md) · [瀏覽器驗收](qa/web-browser-validation-v03.md) · [本版說明](docs/release-notes-0.3.0.md)
 
@@ -86,18 +100,18 @@ Alpha 0.1 的引擎匯入與解析、主線、存檔、控制與守衛回歸證�
 
 此版仍是 Alpha：
 
-- 800 × 800 m 的完整 MVP 地圖、12 主線／12 支線／8 活動與完整戰役三結局尚未全部製作。Alpha 的六個周邊街區都在現有 300 × 300 m 範圍內。
+- 本輪地圖擴到 800 × 800 m，仍是虛構 Alpha。原企劃的 12 主線／12 支線／8 活動與完整戰役三結局尚未全部完成；新增街坊故事不代表原企劃所有工單已結案。
 - 載具採街機控制，自行車手腳 IK 與完整上下車動畫仍需改善。
 - 破壞外觀目前採縮放與姿態變化；預切破損網格、碎片與整套三態美術仍待製作。
-- 背景行人與交通採固定路線；完整城市交通、武器密度與刷新、手把／重設鍵位、導航避障與 LOD 仍需擴充。
+- 背景行人與交通採固定路線；完整城市交通、武器密度與刷新、手把／重設鍵位與導航避障仍需擴充。
 - 新角色已有人體比例與骨骼動作，表情、服裝布料、手部細節及騎乘貼合仍需改善。地圖取七期商辦街廓為靈感，沒有真實 GIS 道路、街景掃描或整座台中。
-- 已附 Linux headless CI 範本；目前尚未啟用 GitHub Actions 或驗證原生 Linux 可玩發行包。觸控已實作，手機多點觸控及效能仍需實機測試；連線多人尚未製作。
+- 已附 Linux headless CI 範本；目前尚未啟用 GitHub Actions 或驗證原生 Linux 可玩發行包。三端控制、畫面預算與 viewport 檢查不等於所有手機／平板硬體驗收，Safari／Android 實機的幀率、溫度、記憶體與長時間遊玩仍需測試；連線多人尚未製作。
 
 ## 開源、資產與協作
 
 程式與文件為 [MIT](LICENSE)。Kenney 底模及原創模型增量採 CC0；自行車保留 Poly by Google 的 CC BY 3.0；字型為 SIL OFL，原創音效為 CC BY 4.0。[完整署名](CREDITS.md) · [素材授權界線](LICENSE-ASSETS.md) · [來源與雜湊](assets/provenance/sources.json)
 
-遊戲使用由 Noto Sans TC 裁製、重新命名的 **Seven District Sans TC** 字型子集（約 191 KiB），維持 OFL 1.1。原字型保留在原始碼內，Web 發行包只打包子集。[字型來源](assets/provenance/font-source.json)
+遊戲使用由 Noto Sans TC 裁製、重新命名的 **Seven District Sans TC** 字型子集（Alpha 0.4 為 266,184 bytes，約 260 KiB），維持 OFL 1.1。原字型保留在原始碼內，0.4 Web／Windows 發行包只打包子集。[字型來源](assets/provenance/font-source.json)
 
 開源倉庫包含可玩的Godot專案、Blender源檔、GLB、使用到的源模型、字型與音效、測試及製作文件。未包含本機憑證、私人路徑、引擎快取、來源ZIP或其他專案。[協作方式](CONTRIBUTING.md)
 

@@ -16,6 +16,12 @@ const SystemsScript = preload("res://scripts/systems/district_systems.gd")
 const StreetScript = preload("res://scripts/systems/street_state.gd")
 const UrbanScript = preload("res://scripts/world/urban_detail.gd")
 const ContactShadowScript = preload("res://scripts/world/contact_shadow.gd")
+const TaiwanLifeScript = preload("res://scripts/content/taiwan_life.gd")
+const TaiwanActivitiesScript = preload("res://scripts/content/taiwan_activities.gd")
+const TaiwanActivityPanelScript = preload("res://scripts/ui/taiwan_activity_panel.gd")
+const TaiwanWorldScript = preload("res://scripts/content/taiwan_world.gd")
+const TaiwanExpansionScript = preload("res://scripts/world/taiwan_expansion.gd")
+const DeviceScript = preload("res://scripts/systems/device_profiles.gd")
 
 var player: CharacterBody3D
 var missions: Node
@@ -59,10 +65,19 @@ var district_sun: DirectionalLight3D
 var _light_clock: float = 0.0
 var contact_people: Array[Node3D] = []
 var _relocated_save: bool = false
+var taiwan_life: Node
+var taiwan_activities: Node
+var activity_panel: RefCounted
+var taiwan_world: Node3D
+var taiwan_expansion: Node3D
+var device_profiles: Node
+var _device_settings: Dictionary = {}
+const WORLD_RADIUS: float = 400.0
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	street_state = StreetScript.new()
+	street_state.world_radius = WORLD_RADIUS-5.0
 	street_state.reset()
 	if Engine.has_meta("seven_district_preferences"):
 		street_state.from_dict(Engine.get_meta("seven_district_preferences"))
@@ -79,6 +94,10 @@ func _ready() -> void:
 	add_child(optional)
 	district_systems = SystemsScript.new()
 	add_child(district_systems)
+	taiwan_life = TaiwanLifeScript.new()
+	add_child(taiwan_life)
+	taiwan_activities = TaiwanActivitiesScript.new()
+	add_child(taiwan_activities)
 	player = PlayerScript.new()
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 	player.name = "Player"
@@ -101,14 +120,32 @@ func _ready() -> void:
 	urban_detail = UrbanScript.bootstrap(self)
 	urban_detail.setup(player)
 	_create_contact_people()
+	taiwan_expansion = TaiwanExpansionScript.bootstrap(self,player)
+	taiwan_world = TaiwanWorldScript.new()
+	add_child(taiwan_world)
+	taiwan_world.setup(self,taiwan_life,player)
 	hud = HUDScript.new()
 	add_child(hud)
 	hud.bind_missions(missions)
 	hud.bind_optional(optional)
 	hud.bind_systems(district_systems,street_state)
+	hud.bind_life(taiwan_life,{"start":_start_life_task,"route":_choose_life_route,"act":_act_life_station,"cancel":_cancel_life_task,"mark":_mark_life_station,"discover":_discover_life_station,"resume":_resume,"activities":_open_activities,"activity_station":_open_station_activity})
+	activity_panel = TaiwanActivityPanelScript.new()
+	activity_panel.setup(hud,taiwan_activities,{"start":_start_activity,"input":_activity_input,"visit":_visit_activity_station,"cancel":_cancel_activity,"mark":_mark_life_station,"resume":_resume_activity,"close":_open_life})
+	hud.bind_activities(taiwan_activities)
+	hud.life_requested.connect(_open_life)
+	hud.device_selected.connect(_select_device)
 	var all_bounds: Array[AABB] = base_obstacle_bounds.duplicate()
 	all_bounds.append_array(city_life.get_obstacle_bounds())
-	hud.setup_district_map(city_life.get_districts(),all_bounds,{"car":Vector2(car.position.x,car.position.z),"bicycle":Vector2(bicycle.position.x,bicycle.position.z),"mei_shop":Vector2(-58,57),"safe_point":Vector2(-46,42)})
+	all_bounds.append_array(taiwan_expansion.get_obstacle_bounds())
+	var all_regions: Array[Dictionary] = city_life.get_districts()
+	all_regions.append_array(taiwan_expansion.get_regions())
+	var map_points: Dictionary = {"car":Vector2(car.position.x,car.position.z),"bicycle":Vector2(bicycle.position.x,bicycle.position.z),"mei_shop":Vector2(-58,57),"safe_point":Vector2(-46,42)}
+	for id: String in taiwan_life.stations:
+		var p: Array = taiwan_life.stations[id]["position"]
+		map_points[id] = Vector2(float(p[0]),float(p[1]))
+	hud.setup_district_map(all_regions,all_bounds,map_points)
+	hud.set_expanded_map(WORLD_RADIUS,taiwan_expansion.get_navigation_roads())
 	hud.supplies_requested.connect(_open_supplies)
 	hud.purchase_requested.connect(_purchase_supply)
 	hud.waypoint_selected.connect(_set_waypoint)
@@ -129,6 +166,10 @@ func _ready() -> void:
 	touch_controls.phone_requested.connect(hud.show_optional_phone)
 	touch_controls.pause_requested.connect(hud.show_pause)
 	touch_controls.map_requested.connect(func() -> void: if play_started: hud.show_district_map())
+	touch_controls.jobs_requested.connect(_open_life)
+	taiwan_life.notice.connect(_notice)
+	taiwan_activities.notice.connect(_notice)
+	taiwan_life.completed.connect(func(_id: String,_result: Dictionary) -> void: _notice("街坊生活工作已完成，進度可隨存檔保存"))
 	optional.notice.connect(_notice)
 	optional.rewarded.connect(_optional_rewarded)
 	district_systems.notice.connect(_notice)
@@ -142,6 +183,10 @@ func _ready() -> void:
 		hit_player.stream = load("res://assets/audio/hit.wav")
 		hit_player.volume_db = -10
 	hud.show_title()
+	device_profiles = DeviceScript.new()
+	add_child(device_profiles)
+	device_profiles.profile_changed.connect(_device_changed)
+	_initialize_device()
 	_refresh_system_stats()
 	_apply_preferences()
 	_setup_web_bridge()
@@ -160,7 +205,7 @@ func _register_inputs() -> void:
 	var keys: Dictionary = {"move_forward": KEY_W, "move_back": KEY_S, "move_left": KEY_A, "move_right": KEY_D,
 		"sprint": KEY_SHIFT, "jump": KEY_SPACE, "brake": KEY_SPACE, "interact": KEY_E, "mount": KEY_F,
 		"cycle_weapon": KEY_Q, "reset_vehicle": KEY_R, "pause": KEY_ESCAPE, "phone": KEY_TAB,
-		"quick_save": KEY_F5, "quick_load": KEY_F9, "district_map":KEY_M}
+		"quick_save": KEY_F5, "quick_load": KEY_F9, "district_map":KEY_M,"life_jobs":KEY_J}
 	for action: String in keys:
 		if not InputMap.has_action(action):
 			InputMap.add_action(action)
@@ -187,6 +232,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		if hud.get_menu_mode()=="map": _resume()
 		else: hud.show_district_map()
 		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("life_jobs") and play_started:
+		_open_life()
+		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("quick_save") and play_started:
 		_save()
 	elif event.is_action_pressed("quick_load"):
@@ -198,10 +246,17 @@ func _process(delta: float) -> void:
 		optional.set_paused(get_tree().paused)
 	if district_systems and district_systems.paused != get_tree().paused:
 		district_systems.set_paused(get_tree().paused)
+	if taiwan_life: taiwan_life.set_paused(get_tree().paused)
+	if taiwan_activities:
+		var culture_open: bool = play_started and hud._mode=="culture_activity"
+		var walk_active: bool = play_started and not get_tree().paused and taiwan_activities.status=="active" and taiwan_activities.activities[taiwan_activities.active_id]["kind"]=="walk"
+		taiwan_activities.set_paused(not (culture_open or walk_active))
+		if culture_open: taiwan_activities.advance_time(delta)
 	if not play_started or get_tree().paused:
 		last_frame_time_us = 0
 		return
 	seconds_played += delta
+	taiwan_life.advance_time(delta)
 	street_state.advance(delta)
 	_update_daylight(delta)
 	district_systems.record_walk(player.global_position,delta,player.mounted_vehicle==null,player.is_on_floor())
@@ -222,6 +277,8 @@ func _process(delta: float) -> void:
 	if optional.status == "active":
 		var optional_targets: Array[String] = optional.get_active_target_keys()
 		if not optional_targets.is_empty(): active_target = optional_targets[0]
+	if taiwan_life.status in ["active","returning"] and not taiwan_life.get_target_key().is_empty(): active_target = taiwan_life.get_target_key()
+	if taiwan_activities.status=="active" and not taiwan_activities.get_target_key().is_empty(): active_target = taiwan_activities.get_target_key()
 	if street_state.has_waypoint:
 		targets["custom_waypoint"] = Vector3(street_state.waypoint.x,0.1,street_state.waypoint.y)
 		active_target = "custom_waypoint"
@@ -259,7 +316,8 @@ func _process(delta: float) -> void:
 	hud.update_status(float(health_value if health_value != null else 100), String(weapon_value if weapon_value != null else "none"), int(ceil(heat)), vehicle_caption, prompt)
 	hud.update_survival(player.stamina,player.maximum_stamina,street_state.time_text(),touch_controls.enabled)
 	hud.update_world_vehicles(Vector2(car.position.x,car.position.z),Vector2(bicycle.position.x,bicycle.position.z))
-	if player.global_position.y < -12 or absf(player.global_position.x) > 150 or absf(player.global_position.z) > 150:
+	if player.global_position.y < -12 or absf(player.global_position.x) > WORLD_RADIUS or absf(player.global_position.z) > WORLD_RADIUS:
+		if player.mounted_vehicle: player.mounted_vehicle.reset()
 		player.global_position = Vector3(-56, 0.2, 52)
 		player.velocity = Vector3.ZERO
 		_notice("已返回安全街區")
@@ -287,6 +345,7 @@ func _create_lighting() -> void:
 	world.environment = env
 	add_child(world)
 	var sun := DirectionalLight3D.new()
+	sun.set_meta("device_original_shadow",true)
 	district_sun = sun
 	sun.rotation_degrees = Vector3(-37, -32, 0)
 	sun.light_color = Color(1.0, 0.86, 0.69)
@@ -519,6 +578,8 @@ func _new_game() -> void:
 	for object: StaticBody3D in objects.values():
 		object.restore({})
 	optional.reset()
+	taiwan_life.reset()
+	taiwan_activities.reset()
 	district_systems.reset()
 	street_state.hour = 15.5
 	street_state.has_waypoint = false
@@ -543,6 +604,119 @@ func _resume() -> void:
 		hud.hide_menus()
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if OS.has_feature("web") or (touch_controls and touch_controls.enabled) else Input.MOUSE_MODE_CAPTURED
+
+func _initialize_device() -> void:
+	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
+	var touch: bool = DisplayServer.is_touchscreen_available()
+	var hint: String = OS.get_name().to_lower()
+	var requested: String = "auto"
+	if OS.has_feature("web"):
+		var window = JavaScriptBridge.get_interface("window")
+		var device = window.sevenDistrictDevice
+		if device:
+			touch = bool(device.pointer_touch)
+			hint = str(device.device_hint)
+			requested = str(device.requested_profile)
+			viewport_size = Vector2(float(window.innerWidth),float(window.innerHeight))
+	elif OS.has_feature("mobile"):
+		var dpi: float = maxf(160,DisplayServer.screen_get_dpi())
+		viewport_size = Vector2(DisplayServer.screen_get_size())*(160.0/dpi)
+		hint = "phone" if minf(viewport_size.x,viewport_size.y)<600 else "tablet"
+	device_profiles.initialize(viewport_size,touch,hint,not is_test_mode)
+	if requested in ["phone","tablet","desktop"]: device_profiles.set_profile(requested,not is_test_mode)
+	_device_changed(device_profiles.get_settings())
+
+func _select_device(value: String) -> void:
+	if device_profiles: device_profiles.set_profile(value,not is_test_mode)
+
+func _device_changed(settings: Dictionary) -> void:
+	_device_settings = settings.duplicate(true)
+	if not player or not hud or not touch_controls: return
+	touch_controls.set_profile(settings)
+	touch_controls.set_enabled(str(settings.get("input_mode","keyboard_mouse"))=="touch")
+	hud.set_device_profile(settings)
+	taiwan_world.apply_profile(settings)
+	taiwan_expansion.apply_profile(settings)
+	device_profiles.apply_scene(self,player)
+	player.mouse_sensitivity = .003*float(settings.get("sensitivity",1))
+	if settings.has("muted"): AudioServer.set_bus_mute(0,bool(settings["muted"]))
+	_emit_web_state()
+
+func _open_life() -> void:
+	if play_started: hud.show_life_phone()
+
+func _open_activities() -> void:
+	if play_started: activity_panel.show_directory()
+
+func _open_station_activity(id: String) -> void:
+	if play_started and taiwan_activities.activities.has(id): activity_panel.show_activity(id)
+
+func _start_activity(id: String) -> void:
+	if not play_started: return
+	taiwan_activities.set_paused(false)
+	taiwan_activities.start(id,player.global_position,_activity_vehicle())
+	activity_panel.show_activity(id)
+
+func _activity_vehicle() -> String:
+	var vehicle: String = _life_vehicle()
+	return "foot" if vehicle=="on_foot" else vehicle
+
+func _activity_input(action: String) -> void:
+	if not play_started or hud._mode!="culture_activity": return
+	taiwan_activities.set_paused(false)
+	taiwan_activities.handle_input(action)
+
+func _visit_activity_station(id: String) -> void:
+	if not play_started: return
+	taiwan_activities.set_paused(false)
+	taiwan_activities.visit_station(id,player.global_position,_activity_vehicle())
+	if not taiwan_activities.active_id.is_empty(): activity_panel.show_activity(taiwan_activities.active_id)
+
+func _cancel_activity() -> void:
+	taiwan_activities.cancel()
+	activity_panel.show_directory()
+
+func _resume_activity() -> void:
+	if taiwan_activities.status=="active" and taiwan_activities.activities[taiwan_activities.active_id]["kind"]!="walk": taiwan_activities.cancel()
+	_resume()
+
+func _start_life_task(id: String) -> void:
+	if not play_started: return
+	if taiwan_life.start_task(id):
+		_resume()
+	else: hud.show_life_phone()
+
+func _choose_life_route(id: String) -> void:
+	if taiwan_life.choose_route(id): _resume()
+	else: hud.show_life_phone()
+
+func _cancel_life_task() -> void:
+	taiwan_life.cancel_task()
+	hud.show_life_phone()
+
+func _life_vehicle() -> String:
+	return "bicycle" if player.mounted_vehicle==bicycle else "car" if player.mounted_vehicle==car else "on_foot"
+
+func _act_life_station(id: String, item: String = "", code: String = "") -> void:
+	if not play_started: return
+	var step: Dictionary = taiwan_life.get_current_step()
+	var was_paused: bool = taiwan_life.paused
+	taiwan_life.set_paused(false)
+	var accepted: bool = taiwan_life.handle_action(str(step.get("action","")),id,_life_vehicle(),player.global_position,item,code)
+	taiwan_life.set_paused(was_paused)
+	if accepted:
+		if taiwan_life.status=="choosing": hud.show_life_phone()
+		else: _resume()
+	else: hud.show_life_station(id)
+
+func _mark_life_station(id: String) -> void:
+	if not taiwan_life.stations.has(id): return
+	var point: Array = taiwan_life.stations[id]["position"]
+	_set_waypoint(Vector2(float(point[0]),float(point[1])))
+	hud.show_district_map()
+
+func _discover_life_station(id: String) -> void:
+	if play_started: taiwan_life.discover_station(id,player.global_position)
 
 func _create_contact_people() -> void:
 	var entries: Array = [
@@ -609,9 +783,16 @@ func _optional_rewarded(reward: Dictionary) -> void:
 
 func _set_waypoint(point: Vector2) -> void:
 	if not play_started or not point.is_finite(): return
-	var safe_position: Vector3 = content_world._safe_location(Vector3(point.x,0.12,point.y))
+	var desired := Vector3(point.x,0.12,point.y)
+	var safe_position: Vector3 = content_world._safe_location(desired) if absf(point.x)<150 and absf(point.y)<150 else _safe_expansion_point(desired)
 	if street_state.set_waypoint(Vector2(safe_position.x,safe_position.z)):
 		_notice("已標示目的地；青色方向線提供導引")
+
+func _safe_expansion_point(point: Vector3) -> Vector3:
+	for offset: Vector3 in [Vector3.ZERO,Vector3(6,0,0),Vector3(-6,0,0),Vector3(0,0,6),Vector3(0,0,-6),Vector3(12,0,0),Vector3(-12,0,0),Vector3(0,0,12),Vector3(0,0,-12),Vector3(24,0,0),Vector3(-24,0,0)]:
+		var candidate: Vector3 = point+offset
+		if taiwan_expansion.is_walkable(candidate,.8): return candidate
+	return Vector3(clampf(point.x,-395,395),.12,clampf(point.z,-395,395))
 
 func _safe_saved_position(point: Vector3) -> Vector3:
 	var capsule := CapsuleShape3D.new()
@@ -635,9 +816,13 @@ func _setting_changed(key: String, value: String) -> void:
 		"difficulty":
 			if value in StreetScript.DIFFICULTIES: street_state.difficulty = value
 		"sensitivity":
-			if value in ["0.7","1.0","1.4"]: street_state.sensitivity = float(value)
+			if value in ["0.7","1.0","1.4"]:
+				street_state.sensitivity = float(value)
+				if device_profiles: device_profiles.set_preference("sensitivity",float(value),not is_test_mode)
 		"muted":
-			if value in ["off","on"]: street_state.muted = value=="on"
+			if value in ["off","on"]:
+				street_state.muted = value=="on"
+				if device_profiles: device_profiles.set_preference("muted",street_state.muted,not is_test_mode)
 		"cycle":
 			if value in ["off","on"]: street_state.cycle_enabled = value=="on"
 		"hour":
@@ -657,6 +842,12 @@ func _apply_preferences() -> void:
 			material.normal_enabled = street_state.quality!="performance" and material.normal_texture!=null
 			material.ao_enabled = street_state.quality!="performance" and material.ao_texture!=null
 	AudioServer.set_bus_mute(0,street_state.muted)
+	if device_profiles:
+		var settings: Dictionary = device_profiles.get_settings()
+		player.mouse_sensitivity = .003*float(settings.get("sensitivity",1))
+		AudioServer.set_bus_mute(0,bool(settings.get("muted",false)))
+		device_profiles.apply_scene(self,player)
+		district_sun.shadow_enabled = street_state.quality=="quality" and bool(settings.get("shadows",false))
 	_update_daylight(1.0)
 
 func _update_daylight(delta: float) -> void:
@@ -664,6 +855,7 @@ func _update_daylight(delta: float) -> void:
 	if _light_clock < 0.2 or not district_environment: return
 	_light_clock = 0
 	var daylight: float = street_state.daylight()
+	if taiwan_expansion: taiwan_expansion.set_hour(street_state.hour)
 	var dusk: float = 1.0-clampf(absf(street_state.hour-17.5)/1.8,0,1)
 	var env: Environment = district_environment.environment
 	district_sun.rotation_degrees = Vector3(-(street_state.hour-6.0)*15.0,-32,0)
@@ -709,6 +901,11 @@ func _web_command(arguments: Array) -> void:
 			if play_started: hud.show_district_map()
 		"supplies": _open_supplies()
 		"settings": hud.show_settings()
+		"jobs": _open_life()
+		"profile_auto": _select_device("auto")
+		"profile_phone": _select_device("phone")
+		"profile_tablet": _select_device("tablet")
+		"profile_desktop": _select_device("desktop")
 		"resume":
 			if play_started: _resume()
 		"save": _save()
@@ -725,7 +922,9 @@ func _update_web_bridge(delta: float) -> void:
 	_web_clock += delta
 	if _web_clock < 0.35: return
 	_web_clock = 0
-	var ratio: float = clampf(float(_web_window.devicePixelRatio), 1.0, 2.0)
+	var ratio: float = clampf(float(_web_window.devicePixelRatio),1.0,2.0)
+	var device = _web_window.sevenDistrictDevice
+	if device: ratio = clampf(float(device.pixel_ratio),1.0,2.0)
 	var logical_size := Vector2i(roundi(get_window().size.x / ratio), roundi(get_window().size.y / ratio))
 	if logical_size.x > 0 and logical_size.y > 0 and get_window().content_scale_size != logical_size:
 		get_window().content_scale_size = logical_size
@@ -736,6 +935,26 @@ func _emit_web_state() -> void:
 	var state = JavaScriptBridge.create_object("Object")
 	state.phase = "title" if not play_started else ("menu" if get_tree().paused else "playing")
 	state.play_started = play_started
+	state.version = str(ProjectSettings.get_setting("application/config/version",""))
+	state.device_profile = device_profiles.get_profile() if device_profiles else "desktop"
+	state.requested_profile = device_profiles.get_requested_profile() if device_profiles else "auto"
+	state.resolution_scale = get_viewport().scaling_3d_scale
+	state.camera_distance = player.get_camera().far
+	state.touch_controls = touch_controls.enabled
+	state.visible_citizens = 0
+	state.visible_traffic = 0
+	for actor: Node3D in get_tree().get_nodes_in_group("ambient_citizens"):
+		if actor.visible: state.visible_citizens = int(state.visible_citizens)+1
+	for actor: Node3D in get_tree().get_nodes_in_group("ambient_traffic"):
+		if actor.visible: state.visible_traffic = int(state.visible_traffic)+1
+	state.draw_calls = int(Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME))
+	state.frame_fps = int(Performance.get_monitor(Performance.TIME_FPS))
+	state.life_title = taiwan_life.get_active_title() if taiwan_life else ""
+	state.life_objective = taiwan_life.get_active_text() if taiwan_life else ""
+	state.life_cash = taiwan_life.cash if taiwan_life else 0
+	state.cargo_count = taiwan_life.cargo.size() if taiwan_life else 0
+	state.culture_activity = taiwan_activities.active_id if taiwan_activities else ""
+	state.culture_badges = taiwan_activities.badges.size() if taiwan_activities else 0
 	state.stamina = player.stamina
 	state.max_stamina = player.maximum_stamina
 	state.credits = district_systems.credits
@@ -826,6 +1045,9 @@ func _interact() -> void:
 				person.label.text = "受困者｜正在跟隨"
 
 func _use_object(id: String) -> void:
+	if taiwan_world and taiwan_world.station_ids.has(id):
+		hud.show_life_station(str(taiwan_world.station_ids[id]))
+		return
 	if id=="supply_shop":
 		_open_supplies()
 		return
@@ -973,6 +1195,8 @@ func _snapshot(include_checkpoint: bool = true) -> Dictionary:
 	result["street_state"] = street_state.to_dict()
 	result["player"]["stamina"] = player.stamina
 	result["player"]["camera_yaw"] = player.get_view_yaw()
+	result["taiwan_life"] = taiwan_life.to_dict()
+	result["taiwan_activities"] = taiwan_activities.to_dict()
 	if include_checkpoint:
 		result["checkpoint"] = checkpoint_state.duplicate(true)
 	return result
@@ -1094,7 +1318,20 @@ func _valid_world_save(data: Dictionary) -> bool:
 	if data.has("street_state"):
 		if not data["street_state"] is Dictionary: return false
 		var street_probe := StreetScript.new()
+		street_probe.world_radius = WORLD_RADIUS-5.0
 		if not street_probe.from_dict(data["street_state"]): return false
+	if data.has("taiwan_life"):
+		if not data["taiwan_life"] is Dictionary: return false
+		var life_probe := TaiwanLifeScript.new()
+		var life_valid: bool = life_probe.from_dict(data["taiwan_life"])
+		life_probe.free()
+		if not life_valid: return false
+	if data.has("taiwan_activities"):
+		if not data["taiwan_activities"] is Dictionary: return false
+		var activity_probe := TaiwanActivitiesScript.new()
+		var activity_valid: bool = activity_probe.from_dict(data["taiwan_activities"])
+		activity_probe.free()
+		if not activity_valid: return false
 	return true
 
 func _valid_number(value: Variant, minimum: float, maximum: float) -> bool:
@@ -1170,6 +1407,10 @@ func _restore(data: Dictionary) -> bool:
 	else: district_systems.reset()
 	if data.has("street_state"): street_state.from_dict(data["street_state"])
 	else: street_state.reset()
+	if data.has("taiwan_life"): taiwan_life.from_dict(data["taiwan_life"])
+	else: taiwan_life.reset()
+	if data.has("taiwan_activities"): taiwan_activities.from_dict(data["taiwan_activities"])
+	else: taiwan_activities.reset()
 	_refresh_system_stats()
 	player.set_stamina(float(p_data.get("stamina",player.maximum_stamina)))
 	district_systems.reset_walk_sample()
@@ -1182,6 +1423,8 @@ func _retry() -> void:
 	var keep_optional: Dictionary = optional.to_dict()
 	var keep_systems: Dictionary = district_systems.to_dict()
 	var keep_street: Dictionary = street_state.to_dict()
+	var keep_life: Dictionary = taiwan_life.to_dict()
+	var keep_activities: Dictionary = taiwan_activities.to_dict()
 	var keep_optional_objects: Dictionary = {}
 	for id: String in objects:
 		if id.begins_with("SIDE_") or id.begins_with("ACT_"):
@@ -1193,6 +1436,8 @@ func _retry() -> void:
 		rollback["optional"] = keep_optional
 		rollback["district_systems"] = keep_systems
 		rollback["street_state"] = keep_street
+		rollback["taiwan_life"] = keep_life
+		rollback["taiwan_activities"] = keep_activities
 		for id: String in keep_optional_objects: rollback["objects"][id] = keep_optional_objects[id]
 		_restore(rollback)
 	car.force_release()

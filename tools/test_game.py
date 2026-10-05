@@ -1,4 +1,4 @@
-"""Import a clean isolated project and validate every baseline/Alpha 0.3 suite."""
+"""Import a clean isolated project and validate baseline plus Taiwan/device suites."""
 import argparse
 import hashlib
 import json
@@ -22,7 +22,14 @@ SUITES = [
     ("district_systems.gd", "DISTRICT_SYSTEMS_RESULT "),
     ("v03_integration.gd", "V03_INTEGRATION_RESULT "),
     ("urban_detail.gd", "URBAN_SUMMARY "),
+    ("taiwan_life.gd", "TAIWAN_LIFE_RESULT "),
+    ("taiwan_expansion.gd", "TAIWAN_MAP_RESULT "),
+    ("device_profiles.gd", "DEVICE_PROFILE_CHECKS="),
+    ("v04_integration.gd", "V04_INTEGRATION_RESULT "),
+    ("taiwan_activities.gd", "TAIWAN_ACTIVITY_CHECKS="),
 ]
+JS_SUITES = [("device_web.mjs", "DEVICE_WEB_CHECKS=")]
+JS_SUPPORT = ["prepare_web_assets.mjs", "verify_web.mjs"]
 
 
 def summary(output, marker):
@@ -55,7 +62,9 @@ def summary(output, marker):
         return passed + failed, failed
     if not isinstance(data, dict) or not isinstance(data.get("failures"), list):
         raise ValueError("Malformed structured suite summary")
-    passed = data.get("passed_count", len(data.get("passed", [])))
+    passed = data.get("passed_count", data.get("passed", []))
+    if isinstance(passed, list):
+        passed = len(passed)
     if not isinstance(passed, int) or isinstance(passed, bool) or passed < 0:
         raise ValueError("Invalid suite check count")
     return passed + len(data["failures"]), len(data["failures"])
@@ -67,8 +76,8 @@ def save_slots(sandbox):
     slots = []
     for path in paths:
         match = re.fullmatch(r"save(\d+)\.json(?:\.bak|\.tmp)?", path.name)
-        if not match or not 93 <= int(match[1]) <= 98:
-            raise ValueError(f"Unexpected save outside test slots 93-98: {path.name}")
+        if not match or not 91 <= int(match[1]) <= 98:
+            raise ValueError(f"Unexpected save outside test slots 91-98: {path.name}")
         slots.append(path.name)
     return sorted(set(slots))
 
@@ -84,20 +93,26 @@ def disable_parallel_import(text):
     return text.rstrip("\r\n") + "\n\n[editor]\n" + setting + "\n"
 
 
-def source_fingerprint(project):
+def source_fingerprint(project, fixtures=None, web=None, support=None):
     """Identify the tested source/config and fixtures, excluding generated import caches."""
     files = [("godot/" + path.relative_to(project).as_posix(), path)
              for path in project.rglob("*")
-             if path.is_file() and ".godot" not in path.relative_to(project).parts
+             if path.is_file() and not any(part in {".godot", "_checks"} for part in path.relative_to(project).parts)
              and (path.suffix in {".gd", ".gdshader", ".gdshaderinc", ".json", ".tscn", ".cfg"}
                   or path.name == "project.godot")]
-    files.extend(("tests/" + path.relative_to(ROOT / "tests").as_posix(), path)
-                 for path in (ROOT / "tests").rglob("*.gd"))
+    fixtures = fixtures or ROOT / "tests"
+    web = web or ROOT / "web"
+    files.extend(("tests/" + path.relative_to(fixtures).as_posix(), path)
+                 for path in fixtures.rglob("*") if path.is_file() and path.suffix in {".gd", ".mjs"})
+    files.extend(("web/" + path.relative_to(web).as_posix(), path)
+                 for path in web.rglob("*") if path.is_file() and path.suffix in {".html", ".css", ".js"})
+    support = support or ROOT / "tools"
+    files.extend(("tools/" + name, support / name) for name in JS_SUPPORT)
     digest = hashlib.sha256()
     for label, path in sorted(files):
         digest.update(label.encode("utf-8") + b"\0")
         digest.update(hashlib.sha256(path.read_bytes()).digest())
-    return {"algorithm": "sha256", "scope": "Godot source/config and GDScript fixtures; excludes binary art/import caches",
+    return {"algorithm": "sha256", "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
             "file_count": len(files), "digest": digest.hexdigest()}
 
 
@@ -105,7 +120,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--godot", default=os.environ.get("GODOT_BIN", "godot"))
     parser.add_argument("--import-only", action="store_true")
-    parser.add_argument("--suite", action="append", choices=["gameplay_integration"] + [Path(name).stem for name, _ in SUITES],
+    parser.add_argument("--node", default=os.environ.get("NODE_BIN", "node"))
+    parser.add_argument("--suite", action="append", choices=["gameplay_integration"] + [Path(name).stem for name, _ in SUITES + JS_SUITES],
                         help="Run selected suites after a clean import; repeat to select more than one")
     args = parser.parse_args()
     if sys.platform != "win32" and not sys.platform.startswith("linux"):
@@ -115,8 +131,18 @@ def main():
         sandbox = Path(directory)
         project = sandbox / "godot"
         # A clean source snapshot avoids racing the working project's editor/export cache.
-        shutil.copytree(ROOT / "godot", project, ignore=shutil.ignore_patterns(".godot"))
-        fingerprint = source_fingerprint(project)
+        shutil.copytree(ROOT / "godot", project, ignore=shutil.ignore_patterns(".godot", "_checks"))
+        fixtures, web = sandbox / "tests", sandbox / "web"
+        shutil.copytree(ROOT / "tests", fixtures)
+        shutil.copytree(ROOT / "web", web)
+        support = sandbox / "tools"
+        support.mkdir()
+        for name in JS_SUPPORT:
+            shutil.copy2(ROOT / "tools" / name, support / name)
+        # World fixtures may write scoped reports beside res://. Keep these
+        # disposable reports inside the run rather than the checked-out project.
+        (sandbox / "qa").mkdir()
+        fingerprint = source_fingerprint(project, fixtures, web, support)
         project_settings = project / "project.godot"
         project_settings.write_text(disable_parallel_import(project_settings.read_text(encoding="utf-8")), encoding="utf-8")
         child_env = os.environ.copy()
@@ -130,15 +156,17 @@ def main():
             selected = set(args.suite) if args.suite else None
             if selected is None or "gameplay_integration" in selected:
                 commands.append(("gameplay_integration", base + ["--quit-after", "900", "--", "--self-test"], "INTEGRATION_PASS "))
-            commands.extend((Path(name).stem, base + ["--script", str(ROOT / "tests" / name)], marker)
+            commands.extend((Path(name).stem, base + ["--script", str(fixtures / name)], marker)
                             for name, marker in SUITES if selected is None or Path(name).stem in selected)
+            commands.extend((Path(name).stem, [args.node, str(fixtures / name)], marker)
+                            for name, marker in JS_SUITES if selected is None or Path(name).stem in selected)
         for label, cmd, marker in commands:
             errors = []
             check_count = 0
             failure_count = 0
             returncode = None
             try:
-                proc = subprocess.run(cmd, cwd=ROOT, env=child_env, capture_output=True, text=True,
+                proc = subprocess.run(cmd, cwd=sandbox, env=child_env, capture_output=True, text=True,
                                       encoding="utf-8", errors="replace", timeout=180)
                 output = proc.stdout + proc.stderr
                 returncode = proc.returncode
@@ -153,7 +181,16 @@ def main():
                             errors.append(f"Suite reported {failure_count} failures")
                     except (ValueError, TypeError) as exc:
                         errors.append(str(exc))
-            except (subprocess.TimeoutExpired, OSError) as exc:
+            except subprocess.TimeoutExpired as exc:
+                # Preserve the engine evidence preceding a stalled fixture. The
+                # command is already recorded structurally below; repr(cmd) would
+                # obscure path sanitization by doubling Windows backslashes.
+                partials = [exc.stdout or "", exc.stderr or ""]
+                output = "".join(value.decode("utf-8", errors="replace") if isinstance(value, bytes) else value
+                                 for value in partials)
+                output += f"\nTimeoutExpired: command did not finish within {exc.timeout} seconds"
+                errors.append("Godot could not complete this command")
+            except OSError as exc:
                 output = f"{type(exc).__name__}: {exc}"
                 errors.append("Godot could not complete this command")
             try:
@@ -166,7 +203,8 @@ def main():
                 cleaned = cleaned.replace(str(path), replacement).replace(path.as_posix(), replacement)
             if Path(args.godot).is_absolute():
                 cleaned = cleaned.replace(args.godot, "<godot>").replace(Path(args.godot).as_posix(), "<godot>")
-            command = ["<godot>"] + [arg.replace(str(ROOT), "<repository-root>").replace(str(sandbox), "<isolated-run>") for arg in cmd[1:]]
+            executable = "<node>" if label in {Path(name).stem for name, _ in JS_SUITES} else "<godot>"
+            command = [executable] + [arg.replace(str(ROOT), "<repository-root>").replace(str(sandbox), "<isolated-run>") for arg in cmd[1:]]
             entry = {"check": label, "status": "FAIL" if errors else "PASS", "returncode": returncode,
                      "source_fingerprint": fingerprint,
                      "reported_checks": check_count, "reported_failures": failure_count,

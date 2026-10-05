@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.4.0 — Taiwan life expansion and independent device profiles
+
+Published: https://seven-district-reckoning.digimkt.workers.dev. Dedicated browser entries are `/phone/`, `/tablet/` and `/desktop/`; Windows x64 download is in the [0.4.0 release](https://github.com/mars-tw/seven-district-reckoning/releases/tag/v0.4.0).
+
+- Expanded fictional 800 × 800 m map retaining the original core and adding eight Taiwan-inspired areas: morning market, night market, convenience street, parcel hub, community greenway, riverside, arcade heritage street and creative lane. Thirty-two stations support actual world interaction.
+- Research ledger with 52 opened primary sources across 31 major themes and 98 detailed tags. Original adaptation covers street life, local food, markets, community events, recycling, creative activities and store-to-store parcel flows; third-party street photographs are not redistributed.
+- Eight additional named fictional characters, two story episodes each, relationship trust, prerequisite unlocks and seven two-route choices. Eight dedicated Blender/GLB variants use licensed MakeHuman base topology, individualized proportions, clothing and original working accessories, retaining the 53-bone rigs and eight action clips.
+- Eighteen repeatable food, convenience-store and parcel jobs with cargo, pickup, simulated code checking, recipient handover, return handling and rewards. The fictional orange parcel station is inspired by researched Shopee-style services; no real account, order, payment or personal-data integration is present.
+- Thirteen original Taiwan street asset kits plus three food/store/parcel cargo models, with editable Blender sources, exported GLB/PBR materials and CC0 notices, including arcade shops, food stalls, convenience/parcel buildings, shelters, lanterns, recycling and riverside props. A life album records discovered stations and culture notes.
+- Four directly playable culture activities: spinning-top rhythm, alternating clog steps, craft color recipes and a four-station walking/bicycle stamp route. Results, badges and best scores persist without changing delivery cash or character trust.
+- Actual phone/tablet/desktop input, HUD, resolution, view-distance, LOD, audio and ambient-actor budgets. Indexed floating touch controls support independent movement, camera and brake fingers, with releases on cancellation, focus/orientation/profile changes and pause. Device preferences remain outside campaign saves.
+- Four generated launch documents at `/`, `/phone/`, `/tablet/` and `/desktop/`, each with distinct defaults and instructions while sharing one root engine/PCK/WASM. Fixed profile commands and a jobs menu replace arbitrary browser actions; canvas backing ratios cap at 1.50/1.75/2.00 while respecting the actual device ratio and safe margins.
+- Corrected root asset URLs, content-hash cache busting, canonical entry redirects, compressed WASM MIME and unencoded 404 responses. Build/deployment verification rejects stale files, wrong configuration and HTML fallback returned as game resources.
+- Final frozen-source evidence: 17 suites / 8,561 checks pass, including 2,698 actual Root scene/UI checks, 245 culture checks and 99 web-shell contracts. The Root matrix completes all 41 shipping story/order/branch routes through 321 real station actions; all 32 stations have connected physical approaches. Public package/entry integrity passes 96 checks. All three modes boot and apply their actual budgets in hosted desktop Chromium/IAB; canvas life-menu interaction and desktop-save continuation through phone/tablet modes retain both position and device profile. This viewport/profile evidence does not certify physical phone/tablet FPS, heat or long sessions.
+- An unsigned Windows x64 package embeds its one PCK, retains required runtime/asset notices and passes native PE/version, pack integrity, archive CRC and quiet five-frame original-title headless startup. This package check is distinct from rendered gameplay verification.
+- The renamed OFL game font grows to 266,184 bytes (about 260 KiB) for the new text. Alpha 0.3's historical subset was about 191 KiB.
+
 ## 0.3.0 — Character, street and gameplay systems update
 
 Published: https://seven-district-reckoning.digimkt.workers.dev.

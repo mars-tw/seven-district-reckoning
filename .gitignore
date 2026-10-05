@@ -27,3 +27,6 @@ deliverables/
 *.pem
 *CREDENTIALS*
 
+
+# Local native art capture fixtures; canonical sources live in tests/.
+godot/_checks/

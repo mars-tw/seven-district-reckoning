@@ -140,10 +140,14 @@ func _run() -> void:
 	var vehicle: Dictionary = life.traffic[0]
 	player.global_position = first_car.global_position + first_car.basis.z * 5 + Vector3(0, 0.2, 0)
 	player.velocity = Vector3.ZERO
+	# Teleport is fixture placement. Apply the actual device budget at the placed
+	# focus before measuring the original 0.8-second braking interval.
+	world.device_profiles.update_ambient(player)
 	await create_timer(0.8).timeout
 	check(vehicle["stopped"] and float(vehicle["speed"]) < 0.4, "actual_area_sensor_brakes_for_player")
 	player.global_position = Vector3(-56, 0.2, 52)
 	player.velocity = Vector3.ZERO
+	world.device_profiles.update_ambient(player)
 	await create_timer(0.6).timeout
 	check(not vehicle["stopped"] and float(vehicle["speed"]) > 0.4, "traffic_resumes_after_player_clears_sensor")
 	var state: Dictionary = life.to_dict()

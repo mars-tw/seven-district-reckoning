@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-05",
+  "origin": "https://seven-district-reckoning.digimkt.workers.dev",
+  "runtime_version": "0.4.0",
+  "scope": "Actual public WebGL game in desktop Chromium/IAB with viewport overrides; not Safari/Android device benchmarks.",
+  "profiles": {
+    "phone": {
+      "data": {
+        "cameraDistance": "240",
+        "deviceProfile": "phone",
+        "drawCalls": "129",
+        "frameFps": "60",
+        "pixelRatio": "1",
+        "playerX": "-55.976",
+        "playerZ": "52.024",
+        "renderScale": "0.70",
+        "runtimeProfile": "phone",
+        "runtimeVersion": "0.4.0",
+        "touchControls": "true",
+        "visibleCitizens": "3",
+        "visibleTraffic": "0"
+      },
+      "height": 621,
+      "width": 357
+    },
+    "tablet": {
+      "data": {
+        "cameraDistance": "360",
+        "deviceProfile": "tablet",
+        "drawCalls": "249",
+        "frameFps": "58",
+        "pixelRatio": "1",
+        "playerX": "-55.976",
+        "playerZ": "52.024",
+        "renderScale": "0.85",
+        "runtimeProfile": "tablet",
+        "runtimeVersion": "0.4.0",
+        "touchControls": "true",
+        "visibleCitizens": "3",
+        "visibleTraffic": "2"
+      },
+      "height": 536,
+      "width": 967
+    },
+    "desktop": {
+      "data": {
+        "cameraDistance": "560",
+        "deviceProfile": "desktop",
+        "drawCalls": "391",
+        "frameFps": "60",
+        "pixelRatio": "1",
+        "playerX": "-55.976",
+        "playerZ": "52.024",
+        "renderScale": "1.00",
+        "runtimeProfile": "desktop",
+        "runtimeVersion": "0.4.0",
+        "touchControls": "false",
+        "visibleCitizens": "10",
+        "visibleTraffic": "4"
+      },
+      "height": 560,
+      "width": 1278
+    }
+  },
+  "actions": [
+    "desktop: normal startup, new game after no playable save loaded, one keyboard W input, pause and save",
+    "phone: normal startup, load saved game, canvas delivery button opens life menu, resume",
+    "tablet: normal startup, load saved game, toolbar opens actual split life menu",
+    "desktop: reload saved game, physical M key opens 800 x 800 map"
+  ],
+  "shared_save_coordinates": {
+    "x": "-55.976",
+    "z": "52.024"
+  },
+  "console_errors": [],
+  "screenshots": [
+    "phone-play-public.png",
+    "phone-jobs-public.png",
+    "tablet-jobs-public.png",
+    "desktop-map-public.png"
+  ],
+  "limitations": [
+    "Manual forced device profiles on desktop WebGL do not prove physical touch hardware, Safari support, phone/tablet FPS, thermals or long sessions.",
+    "Complete 41 task routes are independently tested through native shipping RootScene UI fixtures; this browser smoke does not repeat all journeys."
+  ]
+}

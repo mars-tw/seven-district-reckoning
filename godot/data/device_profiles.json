@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "phone": {
+    "label": "手機", "resolution_scale": 0.70, "pixel_ratio_cap": 1.5,
+    "shadows": false, "prop_distance": 70.0, "building_distance": 190.0,
+    "camera_distance": 240.0, "lod_threshold": 4.0, "max_citizens": 6,
+    "max_traffic": 2, "ambient_distance": 90.0, "audio_voices": 4,
+    "audio_distance": 30.0, "input_mode": "touch", "hud_density": "compact",
+    "touch_button_size": 54, "touch_spacing": 8, "joystick_radius": 56,
+    "modal_columns": 1, "map_fraction": 0.60, "safe_margin": 12,
+    "muted": false, "sensitivity": 1.0, "sprint_toggle": true
+  },
+  "tablet": {
+    "label": "平板", "resolution_scale": 0.85, "pixel_ratio_cap": 1.75,
+    "shadows": false, "prop_distance": 110.0, "building_distance": 280.0,
+    "camera_distance": 360.0, "lod_threshold": 2.0, "max_citizens": 12,
+    "max_traffic": 4, "ambient_distance": 140.0, "audio_voices": 8,
+    "audio_distance": 55.0, "input_mode": "touch", "hud_density": "split",
+    "touch_button_size": 64, "touch_spacing": 12, "joystick_radius": 72,
+    "modal_columns": 2, "map_fraction": 0.72, "safe_margin": 20,
+    "muted": false, "sensitivity": 1.0, "sprint_toggle": true
+  },
+  "desktop": {
+    "label": "電腦", "resolution_scale": 1.0, "pixel_ratio_cap": 2.0,
+    "shadows": true, "prop_distance": 180.0, "building_distance": 440.0,
+    "camera_distance": 560.0, "lod_threshold": 1.0, "max_citizens": 24,
+    "max_traffic": 8, "ambient_distance": 230.0, "audio_voices": 16,
+    "audio_distance": 90.0, "input_mode": "keyboard_mouse", "hud_density": "expanded",
+    "touch_button_size": 54, "touch_spacing": 6, "joystick_radius": 56,
+    "modal_columns": 2, "map_fraction": 0.78, "safe_margin": 10,
+    "muted": false, "sensitivity": 1.0, "sprint_toggle": true
+  }
+}
