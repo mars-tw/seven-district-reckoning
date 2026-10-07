@@ -9,6 +9,8 @@ const MODEL_DIR := "res://assets/models/"
 const SECTOR_SIZE := 90.0
 const WORLD_LIMIT := 400.0
 var player: Node3D = null
+var _startup_progress: RefCounted
+var _temporary_scene_owner: Node3D
 var _built := false
 var _regions: Array[Dictionary] = []
 var _stations: Dictionary = {}
@@ -39,47 +41,68 @@ var _counts: Dictionary = {"regions":0,"stations":0,"terrain_bodies":0,"terrain_
 static func bootstrap(host: Node3D, optional_player: Node3D = null) -> TaiwanExpansion:
 	var previous := host.get_node_or_null("TaiwanExpansion")
 	if previous is TaiwanExpansion:
-		if optional_player!=null: (previous as TaiwanExpansion).setup(optional_player)
+		if optional_player!=null and not await (previous as TaiwanExpansion).setup(optional_player): return null
 		return previous as TaiwanExpansion
 	var expansion := TaiwanExpansion.new()
 	expansion.name = "TaiwanExpansion"
 	host.add_child(expansion)
-	expansion.setup(optional_player)
+	if not await expansion.setup(optional_player): return null
+	if not is_instance_valid(expansion) or not expansion._built: return null
 	return expansion
 
-func setup(optional_player: Node3D = null) -> void:
+func setup(optional_player: Node3D = null) -> bool:
 	if is_instance_valid(player) and _attack_callback.is_valid() and player.has_signal("attacked") and player.is_connected("attacked",_attack_callback): player.disconnect("attacked",_attack_callback)
 	player = optional_player
 	_attack_callback = Callable(self,"_on_player_attack")
 	if is_instance_valid(player) and player.has_signal("attacked"): player.connect("attacked",_attack_callback)
 	process_mode = Node.PROCESS_MODE_PAUSABLE
-	if _built: return
+	if _built: return true
+	_startup_progress = get_parent().get("_startup_progress")
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA_PATH))
 	if not source is Dictionary:
 		push_error("TaiwanExpansion data missing")
-		return
-	for region: Dictionary in source.get("regions", []): _regions.append(region.duplicate(true))
-	for id: String in source.get("stations", {}): _stations[id] = _v2(source["stations"][id])
+		return false
+	for region: Dictionary in source.get("regions", []):
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return false
+		_regions.append(region.duplicate(true))
+	for id: String in source.get("stations", {}):
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return false
+		_stations[id] = _v2(source["stations"][id])
 	var manifest: Variant = JSON.parse_string(FileAccess.get_file_as_string(str(source["asset_manifest"])))
 	if manifest is Dictionary:
-		for asset: Dictionary in manifest.get("assets", []): _asset_manifest[str(asset["name"])] = asset
+		for asset: Dictionary in manifest.get("assets", []):
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return false
+			_asset_manifest[str(asset["name"])] = asset
 	_font = load("res://assets/fonts/SevenDistrictSansTC-Regular.otf") as Font
-	_build_terrain()
-	_build_roads()
-	for region: Dictionary in _regions: _build_region(region)
-	_build_connecting_frontages()
-	_flush_batches()
-	_create_ambient_actors()
+	await _build_terrain()
+	if not _startup_running(): return false
+	await _build_roads()
+	if not _startup_running(): return false
+	for region: Dictionary in _regions:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return false
+		await _build_region(region)
+		if not _startup_running(): return false
+	await _build_connecting_frontages()
+	if not _startup_running(): return false
+	await _flush_batches()
+	if not _startup_running(): return false
+	await _create_ambient_actors()
+	if not _startup_running(): return false
 	_counts["regions"] = _regions.size()
 	_counts["stations"] = _stations.size()
 	_counts["roads"] = _roads.size()
 	_counts["collider_sectors"] = _sector_bodies.size()
 	_counts["citizens"] = citizens.size()
 	_counts["moving_vehicles"] = traffic.size()
-	_built = true
 	add_to_group("taiwan_expansion")
-	apply_profile({"view_distance":_view_distance,"prop_distance":_prop_distance})
-	set_hour(_hour)
+	await apply_profile({"view_distance":_view_distance,"prop_distance":_prop_distance})
+	if not _startup_running(): return false
+	await set_hour(_hour)
+	if not _startup_running(): return false
+	if not _startup_running(): return false
+	_built = true
+	_startup_progress = null
+	return true
 
 func get_regions() -> Array[Dictionary]: return _regions.duplicate(true)
 func get_station_positions() -> Dictionary: return _stations.duplicate()
@@ -98,6 +121,7 @@ func apply_profile(profile: Dictionary) -> void:
 	_view_distance = clampf(float(profile.get("view_distance", profile.get("viewer_distance",profile.get("building_distance",440.0)))),150.0,600.0)
 	_prop_distance = clampf(float(profile.get("prop_distance",profile.get("prop_budget",180.0))),50.0,300.0)
 	for draw_info: Dictionary in _draws:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		var draw := draw_info["node"] as GeometryInstance3D
 		# Each draw's origin and instance transforms are local to a 90 m sector.
 		# The margin accounts for a sector's corner without showing all 800 m.
@@ -105,6 +129,7 @@ func apply_profile(profile: Dictionary) -> void:
 		draw.visibility_range_end_margin = 20.0
 		draw.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON if bool(draw_info["cast_asset_shadow"]) and bool(profile.get("world_shadows",profile.get("shadows",false))) else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	for label: Label3D in _labels:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		label.visibility_range_end = minf(_prop_distance,140.0)
 		label.visibility_range_end_margin = 12.0
 	_counts["view_distance"] = _view_distance
@@ -115,6 +140,7 @@ func set_hour(hour: float) -> void:
 	_hour = fposmod(hour,24.0)
 	var night := _hour >= 17.5 or _hour < 6.0
 	for material: StandardMaterial3D in _night_materials:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		material.emission_enabled = night
 		material.emission_energy_multiplier = 0.85 if night else 0.0
 	_counts["night_lanterns"] = night
@@ -146,6 +172,7 @@ func _build_terrain() -> void:
 	# Four nonoverlapping plates meet the original 300 m floor at exactly ±150.
 	# Physics uses four bodies, instead of one body per street decoration.
 	for spec: Array in [[Vector3(0,-.16,-275),Vector3(800,.30,250)], [Vector3(0,-.16,275),Vector3(800,.30,250)], [Vector3(-275,-.16,0),Vector3(250,.30,300)], [Vector3(275,-.16,0),Vector3(250,.30,300)]]:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		var body := StaticBody3D.new()
 		body.name = "ExpansionTerrain_%d" % int(_counts["terrain_bodies"])
 		body.position = spec[0]
@@ -191,11 +218,13 @@ func _road(a: Vector3,b: Vector3,width: float,id: String) -> void:
 	var yaw := atan2(direction.x,direction.z)
 	var count := maxi(1,ceili(length/75.0))
 	for i: int in count:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		var segment_length := length/float(count)
 		var p := a+direction*(float(i)+.5)*segment_length
 		p.y = .052
 		_slab("asphalt",p,Vector3(width,.016,segment_length+.03),Color("303638"),"asphalt",yaw)
 		for side: float in [-1,1]:
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
 			_slab("lane_yellow",p+right*.12*side+Vector3(0,.013,0),Vector3(.08,.007,segment_length),Color("d0b861"),"",yaw)
 			_slab("lane_white",p+right*(width*.5-.35)*side+Vector3(0,.013,0),Vector3(.09,.007,segment_length),Color("d6d6c9"),"",yaw)
 			var pavement := p+right*(width*.5+2.1)*side
@@ -203,37 +232,49 @@ func _road(a: Vector3,b: Vector3,width: float,id: String) -> void:
 			_slab("footway",pavement,Vector3(4.0,.035,segment_length+.03),Color("b6ac92"),"pavers",yaw)
 			_slab("red_kerb",p+right*(width*.5+.18)*side+Vector3(0,.012,0),Vector3(.20,.025,segment_length),Color("ae5d4c"),"",yaw)
 		for mark: int in int(segment_length/12.0):
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
 			var q := p+direction*(-segment_length*.5+float(mark)*12+5)
 			_slab("lane_dash",q+right*3.0+Vector3(0,.014,0),Vector3(.08,.007,4),Color("d8d7c8"),"",yaw)
 
 func _crossing(p: Vector3,axis: float) -> void:
 	var right := Basis(Vector3.UP,axis)*Vector3.RIGHT
-	for i: int in 13: _slab("crossing",p+right*(float(i)-6)*.75+Vector3(0,.076,0),Vector3(.4,.006,3.5),Color("dedbca"),"",axis)
+	for i: int in 13:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
+		_slab("crossing",p+right*(float(i)-6)*.75+Vector3(0,.076,0),Vector3(.4,.006,3.5),Color("dedbca"),"",axis)
 
 func _build_roads() -> void:
 	for value: float in [-380,-270,270,380]:
-		_road(Vector3(-396,0,value),Vector3(396,0,value),12,"east_west_%d"%int(value))
-		_road(Vector3(value,0,-396),Vector3(value,0,396),12,"north_south_%d"%int(value))
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
+		await _road(Vector3(-396,0,value),Vector3(396,0,value),12,"east_west_%d"%int(value))
+		await _road(Vector3(value,0,-396),Vector3(value,0,396),12,"north_south_%d"%int(value))
 	# Main's original cardinal roads meet these at ±137, then reach both rings.
 	for side: float in [-1,1]:
-		_road(Vector3(side*137,0,0),Vector3(side*396,0,0),14,"core_east" if side>0 else "core_west")
-		_road(Vector3(0,0,side*137),Vector3(0,0,side*396),14,"core_south" if side>0 else "core_north")
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
+		await _road(Vector3(side*137,0,0),Vector3(side*396,0,0),14,"core_east" if side>0 else "core_west")
+		await _road(Vector3(0,0,side*137),Vector3(0,0,side*396),14,"core_south" if side>0 else "core_north")
 	for region: Dictionary in _regions:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		var p := _v2(region["marker"])
 		for side: float in [-1,1]:
-			_crossing(p+Vector3(side*18,0,0),PI*.5)
-			_crossing(p+Vector3(0,0,side*18),0)
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
+			await _crossing(p+Vector3(side*18,0,0),PI*.5)
+			await _crossing(p+Vector3(0,0,side*18),0)
 	# Four perpendicular inner-ring spurs create a second continuous path to core.
 	for side: float in [-1,1]:
-		_road(Vector3(side*137,0,-137),Vector3(side*270,0,-137),10,"north_spur_%d"%int(side))
-		_road(Vector3(-137,0,side*137),Vector3(-137,0,side*270),10,"west_spur_%d"%int(side))
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
+		await _road(Vector3(side*137,0,-137),Vector3(side*270,0,-137),10,"north_spur_%d"%int(side))
+		await _road(Vector3(-137,0,side*137),Vector3(-137,0,side*270),10,"west_spur_%d"%int(side))
 	for x: float in [-380,-270,270,380]:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		for z: float in [-380,-270,270,380]:
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
 			_slab("asphalt",Vector3(x,.073,z),Vector3(12.2,.012,12.2),Color("303638"),"asphalt")
 	for region: Dictionary in _regions:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		var p := _v2(region["marker"])
 		_slab("asphalt",p+Vector3(0,.073,0),Vector3(14.2,.012,14.2),Color("303638"),"asphalt")
 		for side: float in [-1,1]:
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
 			_slab("stop_line",p+Vector3(side*10,.080,3),Vector3(.25,.006,5.0),Color("dddccc"))
 			_slab("stop_line",p+Vector3(3,.080,side*10),Vector3(5.0,.006,.25),Color("dddccc"))
 
@@ -244,106 +285,138 @@ func _build_region(region: Dictionary) -> void:
 	_slab("district_court",p+Vector3(0,.032,0),Vector3(38,.025,38),Color("b9ab8e"),"pavers")
 	_sign(str(region["name"]),p+Vector3(-17,3.65,17),Color(str(region["color"])),PI*.25)
 	if kind=="community" or kind=="river":
-		_build_green_region(p,kind)
+		await _build_green_region(p,kind)
 		return
 	# Developed blocks have continuous paved ground in front of the stores;
 	# the grassy open land remains in the park/river districts and outer edge.
 	for x: float in [-40,0,40]:
-		for z: float in [-40,0,40]: _slab("district_court",p+Vector3(x,.032,z),Vector3(40,.025,40),Color("b9ab8e"),"pavers")
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
+		for z: float in [-40,0,40]:
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
+			_slab("district_court",p+Vector3(x,.032,z),Vector3(40,.025,40),Color("b9ab8e"),"pavers")
 	for offset: Vector3 in [Vector3(-21,0,-21),Vector3(21,0,-21),Vector3(-21,0,21),Vector3(21,0,21)]:
-		_asset("tree",p+offset,0,false,Vector3.ONE*.90)
-	for offset: Vector3 in [Vector3(-10,0,-23),Vector3(10,0,-23),Vector3(-10,0,23),Vector3(10,0,23),Vector3(-23,0,-10),Vector3(-23,0,10),Vector3(23,0,-10),Vector3(23,0,10)]: _asset("streetlight",p+offset,atan2(-offset.x,-offset.z),false)
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
+		await _asset("tree",p+offset,0,false,Vector3.ONE*.90)
+	for offset: Vector3 in [Vector3(-10,0,-23),Vector3(10,0,-23),Vector3(-10,0,23),Vector3(10,0,23),Vector3(-23,0,-10),Vector3(-23,0,10),Vector3(23,0,-10),Vector3(23,0,10)]:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
+		await _asset("streetlight",p+offset,atan2(-offset.x,-offset.z),false)
 	# Building rows are on opposite sides of a 42 m forecourt; front arcades face
 	# the court. Road intersections and each ±15 m station zone remain clear.
 	for side: float in [-1,1]:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		for offset: float in [-48,-36,-24,24,36,48]:
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
 			var key := "tw_arcade_shop" if kind in ["arcade","creative","market"] else "tw_rowhouse"
-			_asset(key,p+Vector3(offset,0,side*38),0 if side<0 else PI,true)
-			_asset("tw_scooter",p+Vector3(offset-3,0,side*28),side*PI*.5,false)
-			for mark: int in 3: _slab("scooter_bay",p+Vector3(offset-4+mark, .074,side*29),Vector3(.06,.006,2.2),Color("dfdccb"),"",0,false)
+			await _asset(key,p+Vector3(offset,0,side*38),0 if side<0 else PI,true)
+			await _asset("tw_scooter",p+Vector3(offset-3,0,side*28),side*PI*.5,false)
+			for mark: int in 3:
+				if _startup_progress != null and not await _startup_progress.checkpoint(): return
+				_slab("scooter_bay",p+Vector3(offset-4+mark, .074,side*29),Vector3(.06,.006,2.2),Color("dfdccb"),"",0,false)
 		for offset: float in [-44,-30,30,44]:
-			_asset("tw_rowhouse",p+Vector3(side*51,0,offset),side*-PI*.5,true)
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
+			await _asset("tw_rowhouse",p+Vector3(side*51,0,offset),side*-PI*.5,true)
 	if kind=="market":
 		for side: float in [-1,1]:
-			for offset: float in [-24,-18,-12,12,18,24]: _asset("tw_market_stall",p+Vector3(side*26,0,offset),-side*PI*.5,false)
-		_asset("tw_breakfast_stall",p+Vector3(-23,0,-21),PI*.25,false)
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
+			for offset: float in [-24,-18,-12,12,18,24]:
+				if _startup_progress != null and not await _startup_progress.checkpoint(): return
+				await _asset("tw_market_stall",p+Vector3(side*26,0,offset),-side*PI*.5,false)
+		await _asset("tw_breakfast_stall",p+Vector3(-23,0,-21),PI*.25,false)
 		_sign("晨間蔬果・早餐",p+Vector3(-26,2.9,-15),Color("be975e"),-PI*.5)
 	elif kind=="night_market":
 		for side: float in [-1,1]:
-			for offset: float in [-24,-18,-12,12,18,24]: _asset("tw_food_stall" if int(offset)%12==0 else "tw_breakfast_stall",p+Vector3(side*26,0,offset),-side*PI*.5,false)
-		_asset("tw_lantern_gate",p+Vector3(-26,0,-30),0,false)
-		_asset("tw_lantern_gate",p+Vector3(26,0,30),0,false)
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
+			for offset: float in [-24,-18,-12,12,18,24]:
+				if _startup_progress != null and not await _startup_progress.checkpoint(): return
+				await _asset("tw_food_stall" if int(offset)%12==0 else "tw_breakfast_stall",p+Vector3(side*26,0,offset),-side*PI*.5,false)
+		await _asset("tw_lantern_gate",p+Vector3(-26,0,-30),0,false)
+		await _asset("tw_lantern_gate",p+Vector3(26,0,30),0,false)
 		_sign("南星小吃・夜間市集",p+Vector3(-26,4.05,-30),Color("c56a45"))
 	elif kind=="convenience":
-		_asset("tw_convenience",p+Vector3(-26,0,-26),0,true)
-		_asset("tw_bus_shelter",p+Vector3(24,0,24),-PI*.5,false)
-		_asset("tw_parcel_shelf",p+Vector3(-23,0,-20),0,false)
+		await _asset("tw_convenience",p+Vector3(-26,0,-26),0,true)
+		await _asset("tw_bus_shelter",p+Vector3(24,0,24),-PI*.5,false)
+		await _asset("tw_parcel_shelf",p+Vector3(-23,0,-20),0,false)
 		_sign("日常便利\n便當・列印・取件",p+Vector3(-26,3.3,-20),Color("58999a"))
 	elif kind=="parcel":
-		_asset("tw_parcel_station",p+Vector3(-26,0,-26),0,true)
-		for x: float in [-32,-30,-22,-20]: _asset("tw_parcel_shelf",p+Vector3(x,0,-20),0,false)
-		_asset("tw_bus_shelter",p+Vector3(24,0,24),-PI*.5,false)
+		await _asset("tw_parcel_station",p+Vector3(-26,0,-26),0,true)
+		for x: float in [-32,-30,-22,-20]:
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
+			await _asset("tw_parcel_shelf",p+Vector3(x,0,-20),0,false)
+		await _asset("tw_bus_shelter",p+Vector3(24,0,24),-PI*.5,false)
 		_sign("橘盒取貨站\n收件・寄件・退貨",p+Vector3(-26,3.3,-20),Color("d58a4c"))
 	elif kind=="arcade":
-		_asset("tw_breakfast_stall",p+Vector3(-23,0,-21),PI*.25,false)
-		_asset("tw_lantern_gate",p+Vector3(-26,0,-26),0,false)
+		await _asset("tw_breakfast_stall",p+Vector3(-23,0,-21),PI*.25,false)
+		await _asset("tw_lantern_gate",p+Vector3(-26,0,-26),0,false)
 		_slab("brick_lane",p+Vector3(0,.073,21),Vector3(40,.006,3),Color("a47760"))
 		_sign("犁光騎樓老街\n騎樓請留行人通道",p+Vector3(-26,4,-26),Color("ad7866"))
 	elif kind=="creative":
 		for x: float in [-26,26]:
-			_asset("tw_market_stall",p+Vector3(x,0,-10),-signf(x)*PI*.5,false)
-			_asset("tw_food_stall",p+Vector3(x,0,10),-signf(x)*PI*.5,false)
-		_asset("tw_lantern_gate",p+Vector3(-26,0,-25),0,false)
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
+			await _asset("tw_market_stall",p+Vector3(x,0,-10),-signf(x)*PI*.5,false)
+			await _asset("tw_food_stall",p+Vector3(x,0,10),-signf(x)*PI*.5,false)
+		await _asset("tw_lantern_gate",p+Vector3(-26,0,-25),0,false)
 		_sign("紙光文創聚落\n手作・街角演出",p+Vector3(-26,4,-25),Color("ad9a70"))
 
 func _build_green_region(p: Vector3,kind: String) -> void:
 	for side: float in [-1,1]:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		for i: int in 6:
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
 			var z := float(i-2)*12-6
-			_asset("tree",p+Vector3(side*39,0,z),0,false,Vector3.ONE*1.30)
-			_asset("urban_bench",p+Vector3(side*27,0,z),-side*PI*.5,false)
+			await _asset("tree",p+Vector3(side*39,0,z),0,false,Vector3.ONE*1.30)
+			await _asset("urban_bench",p+Vector3(side*27,0,z),-side*PI*.5,false)
 		_slab("green_path",p+Vector3(side*26,.056,0),Vector3(4,.025,100),Color("c2bca0"),"pavers")
-	_asset("tw_river_pavilion",p+Vector3(-25,0,-27),0,true)
+	await _asset("tw_river_pavilion",p+Vector3(-25,0,-27),0,true)
 	for x: float in [-2.5,2.5]:
-		for z: float in [-2.5,2.5]: _collision(p+Vector3(-25+x,1.45,-27+z),Vector3(.20,2.9,.20))
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
+		for z: float in [-2.5,2.5]:
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
+			_collision(p+Vector3(-25+x,1.45,-27+z),Vector3(.20,2.9,.20))
 	if kind=="community":
-		_asset("tw_recycling_station",p+Vector3(25,0,27),PI,false)
-		_asset("tw_arcade_shop",p+Vector3(-53,0,-26),PI*.5,true)
-		_asset("tw_convenience",p+Vector3(53,0,26),-PI*.5,true)
+		await _asset("tw_recycling_station",p+Vector3(25,0,27),PI,false)
+		await _asset("tw_arcade_shop",p+Vector3(-53,0,-26),PI*.5,true)
+		await _asset("tw_convenience",p+Vector3(53,0,26),-PI*.5,true)
 		_sign("青蔭里活動場\n回收・共餐・綠廊散步",p+Vector3(0,3.6,-24),Color("799a66"))
 	else:
 		# Water is a visible side-channel west of the path. The level riverbank
 		# is fenced; it never lies across the stations or the cardinal roads.
 		_slab("river_water",p+Vector3(-67,.01,0),Vector3(10,.022,130),Color("648d8c"))
 		for i: int in 14:
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
 			var z := float(i)*9-58.5
 			_slab("river_rail",p+Vector3(-59,1.05,z),Vector3(.06,.08,9),Color("687877"),"",0,false)
 			_slab("river_rail_low",p+Vector3(-59,.55,z),Vector3(.06,.055,9),Color("687877"),"",0,false)
 			_slab("river_post",p+Vector3(-59,.65,z-4.5),Vector3(.08,1.30,.08),Color("687877"),"",0,false)
 		_collision(p+Vector3(-59,.7,0),Vector3(.20,1.4,131))
 		for i: int in 4:
-			_asset("bicycle",p+Vector3(-24,0,-26+float(i)*2.5),PI*.5,false)
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
+			await _asset("bicycle",p+Vector3(-24,0,-26+float(i)*2.5),PI*.5,false)
 		_sign("澄川河岸\n自行車道・休憩步道",p+Vector3(0,3.6,-24),Color("659294"))
 
 func _build_connecting_frontages() -> void:
 	# The trip between the preserved core and new districts has successive
 	# actual shop fronts, lamps and planting, rather than only distant boxes.
 	for side: float in [-1,1]:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		for value: float in [169,190,211,232]:
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
 			for row: float in [-1,1]:
-				_asset("tw_rowhouse",Vector3(side*value,0,row*25),row*PI if row>0 else 0,true)
-				_asset("tw_arcade_shop",Vector3(row*25,0,side*value),row*-PI*.5,true)
-				_asset("streetlight",Vector3(side*value,0,row*10),side*PI*.5,false)
-				_asset("streetlight",Vector3(row*10,0,side*value),0,false)
-				_asset("tw_scooter",Vector3(side*value+4,0,row*14),PI*.5,false)
+				if _startup_progress != null and not await _startup_progress.checkpoint(): return
+				await _asset("tw_rowhouse",Vector3(side*value,0,row*25),row*PI if row>0 else 0,true)
+				await _asset("tw_arcade_shop",Vector3(row*25,0,side*value),row*-PI*.5,true)
+				await _asset("streetlight",Vector3(side*value,0,row*10),side*PI*.5,false)
+				await _asset("streetlight",Vector3(row*10,0,side*value),0,false)
+				await _asset("tw_scooter",Vector3(side*value+4,0,row*14),PI*.5,false)
 	for region: Dictionary in _regions:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		var p := _v2(region["marker"])
 		for offset: Vector3 in [Vector3(-65,0,-65),Vector3(65,0,-65),Vector3(-65,0,65),Vector3(65,0,65)]:
-			_asset("streetlight",p+offset,0,false)
-			_asset("tree",p+offset+Vector3(3,0,3),0,false)
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
+			await _asset("streetlight",p+offset,0,false)
+			await _asset("tree",p+offset+Vector3(3,0,3),0,false)
 
 func _asset(key: String,p: Vector3,yaw: float = 0.0,large: bool = false,scale_value: Vector3 = Vector3.ONE) -> void:
-	var mesh := _mesh(key)
+	var mesh := await _mesh(key)
 	if mesh==null: return
 	var sector := _sector(p)
 	var group_key := _sector_key(sector)+":"+key
@@ -354,6 +427,7 @@ func _asset(key: String,p: Vector3,yaw: float = 0.0,large: bool = false,scale_va
 	_counts["asset_instances"] += 1
 	_counts["assets"][key] = int(_counts["assets"].get(key,0))+1
 	for box: Array in _asset_manifest.get(key,{}).get("collision_boxes",[]):
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		_collision(p+basis*_v3(box[0]),_v3(box[1])*scale_value,yaw)
 	if key=="tree": _collision(p+Vector3(0,.9,0),Vector3(.55,1.8,.55)*scale_value)
 
@@ -364,39 +438,50 @@ func _mesh(key: String) -> ArrayMesh:
 		if not _counts["missing_assets"].has(key): _counts["missing_assets"].append(key)
 		return null
 	var source := (load(path) as PackedScene).instantiate() as Node3D
+	if not _own_temporary_scene(source): return null
 	# Imported meshes share source space; bake source transforms, retain UVs
 	# and normals, then one MultiMesh per kit per spatial sector.
 	var merged := ArrayMesh.new()
 	var queue: Array[Node] = [source]
 	var transforms: Dictionary = {source.get_instance_id():Transform3D.IDENTITY}
 	while not queue.is_empty():
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return null
 		var node: Node = queue.pop_front()
 		var parent_transform: Transform3D = transforms[node.get_instance_id()]
 		for child: Node in node.get_children():
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return null
 			transforms[child.get_instance_id()] = parent_transform*(child.transform if child is Node3D else Transform3D.IDENTITY)
 			queue.append(child)
 		if not node is MeshInstance3D: continue
 		var part := node as MeshInstance3D
 		if part.mesh==null: continue
 		for surface: int in part.mesh.get_surface_count():
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return null
 			var arrays := part.mesh.surface_get_arrays(surface)
 			var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
-			for i: int in vertices.size(): vertices[i] = parent_transform*vertices[i]
+			for i: int in vertices.size():
+				if _startup_progress != null and not await _startup_progress.checkpoint(): return null
+				vertices[i] = parent_transform*vertices[i]
 			arrays[Mesh.ARRAY_VERTEX] = vertices
 			var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
 			var normal_basis := parent_transform.basis.inverse().transposed()
-			for i: int in normals.size(): normals[i] = (normal_basis*normals[i]).normalized()
+			for i: int in normals.size():
+				if _startup_progress != null and not await _startup_progress.checkpoint(): return null
+				normals[i] = (normal_basis*normals[i]).normalized()
 			arrays[Mesh.ARRAY_NORMAL] = normals
 			# Preserve Godot's imported topology LOD index buffers. Transforming
 			# positions does not change the original vertex/index correspondence.
 			var lods: Dictionary = {}
 			var imported_surface := RenderingServer.mesh_get_surface(part.mesh.get_rid(),surface)
 			for lod: Dictionary in imported_surface.get("lods",[]):
+				if _startup_progress != null and not await _startup_progress.checkpoint(): return null
 				var bytes: PackedByteArray = lod.get("index_data",PackedByteArray())
 				var stride := 2 if vertices.size()<=65536 else 4
 				var indices := PackedInt32Array()
 				indices.resize(bytes.size()/stride)
-				for index: int in indices.size(): indices[index] = bytes.decode_u16(index*stride) if stride==2 else bytes.decode_u32(index*stride)
+				for index: int in indices.size():
+					if _startup_progress != null and not await _startup_progress.checkpoint(): return null
+					indices[index] = bytes.decode_u16(index*stride) if stride==2 else bytes.decode_u32(index*stride)
 				if not indices.is_empty():
 					lods[float(lod["edge_length"])] = indices
 					_counts["lod_levels"] += 1
@@ -438,7 +523,9 @@ func _flush_batches() -> void:
 	var cube := BoxMesh.new()
 	cube.size = Vector3.ONE
 	for groups: Dictionary in [_surface_groups,_asset_groups]:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		for key: String in groups:
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
 			var group: Dictionary = groups[key]
 			var instances := MultiMesh.new()
 			instances.transform_format = MultiMesh.TRANSFORM_3D
@@ -446,6 +533,7 @@ func _flush_batches() -> void:
 			instances.mesh = group.get("mesh",cube)
 			instances.instance_count = group["transforms"].size()
 			for index: int in instances.instance_count:
+				if _startup_progress != null and not await _startup_progress.checkpoint(): return
 				instances.set_instance_transform(index,group["transforms"][index])
 				if instances.use_colors: instances.set_instance_color(index,group["colors"][index])
 			var draw := MultiMeshInstance3D.new()
@@ -481,13 +569,16 @@ func _sign(caption: String,p: Vector3,color: Color,yaw: float = 0.0) -> void:
 func _find_animation(node: Node) -> AnimationPlayer:
 	if node is AnimationPlayer: return node as AnimationPlayer
 	for child: Node in node.get_children():
-		var result := _find_animation(child)
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return null
+		var result := await _find_animation(child)
 		if result!=null: return result
 	return null
 
 func _find_wheels(node: Node,output: Array[Node3D]) -> void:
 	if node is MeshInstance3D and str(node.name).to_lower().contains("wheel"): output.append(node as Node3D)
-	for child: Node in node.get_children(): _find_wheels(child,output)
+	for child: Node in node.get_children():
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
+		await _find_wheels(child,output)
 
 func _actor_model(key: String) -> Node3D:
 	var path := MODEL_DIR+key+".glb"
@@ -499,9 +590,11 @@ func _actor_model(key: String) -> Node3D:
 
 func _create_ambient_actors() -> void:
 	for region: Dictionary in _regions:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		var center := _v2(region["marker"])
 		var route: Array[Vector3] = [center+Vector3(-18,.10,-18),center+Vector3(18,.10,-18),center+Vector3(18,.10,18),center+Vector3(-18,.10,18)]
 		for index: int in 2:
+			if _startup_progress != null and not await _startup_progress.checkpoint(): return
 			var model := _actor_model("civilian_human" if index==0 else "zhou_human")
 			if model==null: continue
 			var body := CharacterBody3D.new()
@@ -520,11 +613,13 @@ func _create_ambient_actors() -> void:
 			body.add_child(collision)
 			body.add_child(model)
 			add_child(body)
-			var animation := _find_animation(model)
+			var animation := await _find_animation(model)
 			var clips: Dictionary = {}
 			if animation!=null:
 				for clip: StringName in animation.get_animation_list():
+					if _startup_progress != null and not await _startup_progress.checkpoint(): return
 					for request: String in ["walk","run"]:
+						if _startup_progress != null and not await _startup_progress.checkpoint(): return
 						if str(clip).to_lower()==request or str(clip).to_lower().ends_with("/"+request): clips[request] = clip
 				if clips.has("walk"):
 					animation.get_animation(clips["walk"]).loop_mode = Animation.LOOP_LINEAR
@@ -534,6 +629,7 @@ func _create_ambient_actors() -> void:
 			citizens.append({"body":body,"model":model,"animation":animation,"clips":clips,"route":route,"waypoint":index*2+1,"step":1,"speed":1.05+float(index)*.15,"flee_until":0.0,"region":region["id"]})
 	var route: Array[Vector3] = [Vector3(-380,.08,-380),Vector3(380,.08,-380),Vector3(380,.08,380),Vector3(-380,.08,380)]
 	for index: int in 4:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		var model := _actor_model("car")
 		if model==null: continue
 		model.name = "TaiwanTraffic_%d"%index
@@ -553,7 +649,7 @@ func _create_ambient_actors() -> void:
 		sensor.add_child(collision)
 		model.add_child(sensor)
 		var wheels: Array[Node3D] = []
-		_find_wheels(model,wheels)
+		await _find_wheels(model,wheels)
 		traffic.append({"model":model,"route":route,"waypoint":(index+1)%4,"sensor":sensor,"wheels":wheels,"speed":0.0,"cruise_speed":7.0+float(index)*.3,"stopped":false})
 
 func _on_player_attack(_weapon: String,_mode: String = "") -> void:
@@ -615,3 +711,21 @@ func _physics_process(delta: float) -> void:
 		model.rotation.y = atan2(direction.x,direction.z)
 		for wheel: Node3D in vehicle["wheels"]: wheel.rotation.x += travel/.31
 		if model.position.distance_to(target)<.1: vehicle["waypoint"] = (int(vehicle["waypoint"])+1)%route.size()
+
+func _startup_running() -> bool:
+	return _startup_progress == null or _startup_progress.running()
+func _own_temporary_scene(source: Node3D) -> bool:
+	if not _startup_running():
+		source.free()
+		return false
+	if not is_instance_valid(_temporary_scene_owner):
+		_temporary_scene_owner = Node3D.new()
+		_temporary_scene_owner.name = "_StartupTemporaryScenes"
+		_temporary_scene_owner.visible = false
+		_temporary_scene_owner.process_mode = Node.PROCESS_MODE_DISABLED
+		add_child(_temporary_scene_owner)
+		if _startup_progress != null: _startup_progress.track_temporary_root(_temporary_scene_owner)
+	source.visible = false
+	source.process_mode = Node.PROCESS_MODE_DISABLED
+	_temporary_scene_owner.add_child(source)
+	return true

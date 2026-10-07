@@ -73,9 +73,21 @@ var taiwan_expansion: Node3D
 var device_profiles: Node
 var _device_settings: Dictionary = {}
 const WORLD_RADIUS: float = 400.0
+const StartupScript = preload("res://scripts/systems/startup_progress.gd")
+var startup_complete := false
+var _startup_started := false
+var _startup_progress: RefCounted
 
 func _ready() -> void:
+	if _startup_started: return
+	_startup_started = true
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	set_process(false)
+	set_physics_process(false)
+	set_process_unhandled_input(false)
+	_startup_progress = StartupScript.new()
+	_startup_progress.setup(self)
+	if not await _startup_progress.first_frame(): return
 	street_state = StreetScript.new()
 	street_state.world_radius = WORLD_RADIUS-5.0
 	street_state.reset()
@@ -87,6 +99,8 @@ func _ready() -> void:
 	is_test_mode = "--self-test" in OS.get_cmdline_user_args()
 	_register_inputs()
 	_create_lighting()
+	if not await _startup_progress.checkpoint(0,true): return
+	_startup_progress.phase("base_world")
 	_create_world()
 	missions = MissionScript.new()
 	add_child(missions)
@@ -98,6 +112,8 @@ func _ready() -> void:
 	add_child(taiwan_life)
 	taiwan_activities = TaiwanActivitiesScript.new()
 	add_child(taiwan_activities)
+	if not await _startup_progress.checkpoint(0,true): return
+	_startup_progress.phase("actors")
 	player = PlayerScript.new()
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 	player.name = "Player"
@@ -111,19 +127,36 @@ func _ready() -> void:
 	_create_vehicles()
 	_create_guards()
 	_create_rescues()
+	if not await _startup_progress.checkpoint(0,true): return
+	_startup_progress.phase("district_life")
 	city_life = CityScript.bootstrap(self)
 	city_life.process_mode = Node.PROCESS_MODE_PAUSABLE
 	city_life.setup(player)
+	if not await _startup_progress.checkpoint(0,true): return
+	_startup_progress.phase("content_world")
 	content_world = ContentWorldScript.new()
 	add_child(content_world)
 	content_world.setup(self, optional, player)
-	urban_detail = UrbanScript.bootstrap(self)
-	urban_detail.setup(player)
+	if not await _startup_progress.checkpoint(0,true): return
+	_startup_progress.phase("urban_detail")
+	urban_detail = await UrbanScript.bootstrap(self)
+	if not _startup_progress.running() or not is_instance_valid(urban_detail): return
+	if not await urban_detail.setup(player): return
+	if not _startup_progress.running(): return
+	if not await _startup_progress.checkpoint(0,true): return
+	_startup_progress.phase("contacts")
 	_create_contact_people()
-	taiwan_expansion = TaiwanExpansionScript.bootstrap(self,player)
+	if not await _startup_progress.checkpoint(0,true): return
+	_startup_progress.phase("expansion")
+	taiwan_expansion = await TaiwanExpansionScript.bootstrap(self,player)
+	if not _startup_progress.running() or not is_instance_valid(taiwan_expansion): return
+	if not await _startup_progress.checkpoint(0,true): return
+	_startup_progress.phase("taiwan_world")
 	taiwan_world = TaiwanWorldScript.new()
 	add_child(taiwan_world)
 	taiwan_world.setup(self,taiwan_life,player)
+	if not await _startup_progress.checkpoint(0,true): return
+	_startup_progress.phase("bindings")
 	hud = HUDScript.new()
 	add_child(hud)
 	hud.bind_missions(missions)
@@ -182,13 +215,19 @@ func _ready() -> void:
 	if ResourceLoader.exists("res://assets/audio/hit.wav"):
 		hit_player.stream = load("res://assets/audio/hit.wav")
 		hit_player.volume_db = -10
-	hud.show_title()
 	device_profiles = DeviceScript.new()
 	add_child(device_profiles)
 	device_profiles.profile_changed.connect(_device_changed)
 	_initialize_device()
 	_refresh_system_stats()
 	_apply_preferences()
+	if not _startup_progress.running(): return
+	if not _startup_progress.finish(): return
+	startup_complete = true
+	hud.show_title()
+	set_process(true)
+	set_physics_process(true)
+	set_process_unhandled_input(true)
 	_setup_web_bridge()
 	if Engine.has_meta("seven_district_autostart"):
 		Engine.remove_meta("seven_district_autostart")
@@ -219,6 +258,7 @@ func _register_inputs() -> void:
 	InputMap.action_add_event("attack", mouse)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not startup_complete: return
 	if event.is_action_pressed("pause") and play_started:
 		if get_tree().paused:
 			_resume()
@@ -241,6 +281,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_load()
 
 func _process(delta: float) -> void:
+	if not startup_complete: return
 	_update_web_bridge(delta)
 	if optional:
 		optional.set_paused(get_tree().paused)
@@ -565,6 +606,7 @@ func _marker(text: String, p: Vector3, color: Color) -> void:
 	add_child(label)
 
 func _new_game() -> void:
+	if not startup_complete: return
 	if play_started and not is_test_mode:
 		Engine.set_meta("seven_district_autostart", true)
 		Engine.set_meta("seven_district_preferences",street_state.to_dict())
@@ -600,6 +642,7 @@ func _new_game() -> void:
 	checkpoint_state = _snapshot(false)
 
 func _resume() -> void:
+	if not startup_complete: return
 	if hud and hud.has_method("hide_menus"):
 		hud.hide_menus()
 	get_tree().paused = false
@@ -1210,6 +1253,7 @@ func _from_vec(data: Variant, fallback: Vector3) -> Vector3:
 	return fallback
 
 func _save(show_notice: bool = true) -> void:
+	if not startup_complete: return
 	if not play_started:
 		return
 	var error: int = SaveScript.save_state(_snapshot(), 98 if is_test_mode else 1)
@@ -1217,6 +1261,7 @@ func _save(show_notice: bool = true) -> void:
 		_notice("進度已儲存" if error == OK else "儲存失敗，舊檔仍保留")
 
 func _load(slot: int = 1) -> void:
+	if not startup_complete: return
 	var data: Dictionary = SaveScript.load_state(slot)
 	if data.is_empty():
 		_notice("尚無可用存檔")
@@ -1419,6 +1464,7 @@ func _restore(data: Dictionary) -> bool:
 	return true
 
 func _retry() -> void:
+	if not startup_complete: return
 	_resume()
 	var keep_optional: Dictionary = optional.to_dict()
 	var keep_systems: Dictionary = district_systems.to_dict()
@@ -1598,3 +1644,6 @@ func _run_integration_checks() -> void:
 	checks.append("car_actual_physics_enter_move_exit")
 	print("INTEGRATION_PASS ", JSON.stringify(checks))
 	get_tree().quit()
+
+func _exit_tree() -> void:
+	if _startup_progress != null: _startup_progress.cancel()
