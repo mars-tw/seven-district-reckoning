@@ -2,6 +2,7 @@
 config_version=5
 
 [application]
+run/flush_stdout_on_print=true
 config/name="七期：斷鏈行動"
 config/description="Original open-source third-person Taiwan neighbourhood action sandbox. Alpha 0.4.0."
 run/main_scene="res://scenes/main.tscn"

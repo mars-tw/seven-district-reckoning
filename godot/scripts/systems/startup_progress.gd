@@ -73,6 +73,7 @@ func checkpoint(units: int = 1, force: bool = false) -> bool:
 	if complete: return true
 	_batch_units += units
 	_total_units += units
+	if _phase == "base_world": mark("phase")
 	if force or _batch_units >= MAX_UNITS or Time.get_ticks_usec()-_batch_started_us >= BUDGET_US:
 		_label.text = str(PHASES[_phase])
 		await _tree.process_frame
