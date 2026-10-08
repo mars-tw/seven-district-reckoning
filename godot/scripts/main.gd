@@ -101,7 +101,7 @@ func _ready() -> void:
 	_create_lighting()
 	if not await _startup_progress.checkpoint(0,true): return
 	_startup_progress.phase("base_world")
-	_create_world()
+	if not await _create_world(): return
 	missions = MissionScript.new()
 	add_child(missions)
 	optional = OptionalScript.new()
@@ -394,69 +394,114 @@ func _create_lighting() -> void:
 	sun.shadow_enabled = not low_quality
 	add_child(sun)
 
-func _create_world() -> void:
+func _create_world() -> bool:
+	if not _startup_progress.running(): return false
 	_ground(Vector3(0, -0.16, 0), Vector3(300, 0.30, 300), Color(0.45, 0.49, 0.45))
+	if not await _startup_progress.checkpoint(): return false
 	var shop_model: Node3D = _building("urban_shopfront",Vector3(-54,0,65),Vector3(16,8,8))
 	if shop_model: shop_model.rotation.y = PI
+	if not await _startup_progress.checkpoint(): return false
 	_ground(Vector3(-55,0.034,47),Vector3(28,0.025,30),Color("85877e"),false)
+	if not await _startup_progress.checkpoint(): return false
 	for x: float in [-62.0,-58.8,-55.6,-52.4]:
 		_ground(Vector3(x,0.061,35),Vector3(0.10,0.01,5.5),Color("e5d9af"),false)
+		if not await _startup_progress.checkpoint(): return false
 	_ground(Vector3(-57.2,0.061,32.25),Vector3(9.6,0.01,0.10),Color("e5d9af"),false)
+	if not await _startup_progress.checkpoint(): return false
 	_ground(Vector3(0, 0.005, 0), Vector3(300, 0.06, 15), Color(0.14, 0.17, 0.19))
+	if not await _startup_progress.checkpoint(): return false
 	_ground(Vector3(0, 0.005, 0), Vector3(15, 0.06, 300), Color(0.14, 0.17, 0.19))
+	if not await _startup_progress.checkpoint(): return false
 	for z: float in [-76.0, 76.0]:
 		_ground(Vector3(0, 0.005, z), Vector3(160, 0.06, 12), Color(0.16, 0.19, 0.20))
+		if not await _startup_progress.checkpoint(): return false
 	for x: float in [-76.0, 76.0]:
 		_ground(Vector3(x, 0.005, 0), Vector3(12, 0.06, 160), Color(0.16, 0.19, 0.20))
+		if not await _startup_progress.checkpoint(): return false
 	for i: int in range(-7, 8):
 		_ground(Vector3(i * 18.0, 0.046, 0), Vector3(7, 0.01, 0.12), Color(0.95, 0.89, 0.65), false)
+		if not await _startup_progress.checkpoint(): return false
 		_ground(Vector3(0, 0.046, i * 18.0), Vector3(0.12, 0.01, 7), Color(0.95, 0.89, 0.65), false)
+		if not await _startup_progress.checkpoint(): return false
 	for x: float in [-20.0, 22.0, 60.0, -58.0, 104.0, -108.0]:
 		for z: float in [-42.0, -112.0]:
 			var which := "office_tower_a" if int(absf(x)) % 3 == 0 else "office_tower_b"
 			_building(which, Vector3(x, 0, z), Vector3(18, 30 + absf(x) * 0.15, 19))
+			if not await _startup_progress.checkpoint(): return false
 	_building("office_tower_c", Vector3(-59, 0, 90), Vector3(24, 14, 19))
+	if not await _startup_progress.checkpoint(): return false
 	_building("office_tower_c", Vector3(58, 0, 95), Vector3(23, 22, 19))
+	if not await _startup_progress.checkpoint(): return false
 	_ground(Vector3(37, 0.055, 32), Vector3(49, 0.1, 43), Color(0.67, 0.67, 0.61))
+	if not await _startup_progress.checkpoint(): return false
 	_place("office_lobby", Vector3(38, 0.1, 28))
+	if not await _startup_progress.checkpoint(): return false
 	for i: int in range(14):
 		var z: float = -115.0 + float(i) * 17.0
 		_place("tree", Vector3(11, 0.04, z))
+		if not await _startup_progress.checkpoint(): return false
 		_place("tree", Vector3(-11, 0.04, z))
+		if not await _startup_progress.checkpoint(): return false
 		if i % 2 == 0:
 			_place("streetlight", Vector3(10, 0.04, z + 5))
+			if not await _startup_progress.checkpoint(): return false
 	for p: Vector3 in [Vector3(-52, 0, 39), Vector3(21, 0, 20), Vector3(59, 0, 21), Vector3(-38, 0, -15)]:
 		_place("planter", p)
+		if not await _startup_progress.checkpoint(): return false
 		_place("bench", p + Vector3(3, 0, 1))
+		if not await _startup_progress.checkpoint(): return false
 	_add_object("mei", "美晴車店｜交談", "talk_mei", "desk", Vector3(-52, 0.10, 57), Vector3(1.5, 1.0, 0.8))
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("supply_shop", "美晴補給台｜補給與整備", "supply_menu", "desk", Vector3(-58,0.10,57),Vector3(1.5,1.0,0.8))
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("phone", "查看失聯訊息", "read_phone", "display", Vector3(-54, 0.10, 59), Vector3(0.5, 1.0, 0.4))
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("wrench", "借用扳手", "pickup_wrench", "wrench", Vector3(-48, 0.25, 56), Vector3(0.7, 0.5, 0.4))
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("practice_1", "練習目標 A", "practice_hit", "barrier", Vector3(-44, 0.05, 53), Vector3(1, 1.1, 0.4), true)
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("practice_2", "練習目標 B", "practice_hit", "barrier", Vector3(-41, 0.05, 53), Vector3(1, 1.1, 0.4), true)
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("service_gate", "替代路線｜側門", "alternate_route", "barrier", Vector3(-21, 0.1, -14), Vector3(1.4, 1.4, 0.3))
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("fake_sign", "恆曜假客服招牌", "disable_sign", "sign", Vector3(-37, 0.1, -21), Vector3(2.6, 1.7, 0.5), true)
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("pass", "前站通行物", "collect_pass", "display", Vector3(-33, 0.15, -26), Vector3(0.6, 0.8, 0.5))
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("summary", "保存留言摘要", "collect_evidence", "display", Vector3(-40, 0.15, -26), Vector3(0.7, 0.8, 0.5))
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("mei_shop", "車店集合點", "return_shop", "sign", Vector3(-56, 0.1, 43), Vector3(1.1, 1.2, 0.3))
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("shift_note", "保存輪班便條", "collect_evidence", "display", Vector3(27, 0.1, 31), Vector3(0.6, 1.0, 0.5))
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("branch_console", "選擇行動重心｜E", "branch_menu", "display", Vector3(32, 0.1, 25), Vector3(0.8, 1.2, 0.5))
+	if not await _startup_progress.checkpoint(): return false
 	for i: int in range(1, 4):
 		_add_object("equipment_%d" % i, "詐團設備 %d" % i, "destroy_target", ["server", "desk", "display"][i - 1], Vector3(37 + i * 3, 0.1, 23), Vector3(1.5, 1.6, 0.8), true)
+		if not await _startup_progress.checkpoint(): return false
 	_add_object("record_1", "保存紀錄 A", "collect_evidence", "display", Vector3(28, 0.15, 19), Vector3(0.6, 0.9, 0.5), true)
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("record_2", "保存紀錄 B", "collect_evidence", "display", Vector3(31, 0.15, 19), Vector3(0.6, 0.9, 0.5), true)
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("console", "中止前站營運", "disable_console", "server", Vector3(47, 0.1, 18), Vector3(1.2, 1.6, 0.8))
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("bat_pickup", "撿取球棒", "pickup_weapon", "bat", Vector3(-22, 0.15, 14), Vector3(0.7, 0.5, 0.4))
+	if not await _startup_progress.checkpoint(): return false
 	_add_object("pulse_pickup", "撿取虛構脈衝器具", "pickup_weapon", "pulse", Vector3(19, 0.15, 22), Vector3(0.7, 0.5, 0.4))
+	if not await _startup_progress.checkpoint(): return false
 	for i: int in range(8):
 		var model_name: String = ["barrier", "glass", "desk", "sign", "server", "display"][i % 6]
 		_add_object("sandbox_%d" % i, "沙盒試打物", "sandbox", model_name, Vector3(80 + (i % 4) * 4, 0.1, 31 + (i / 4) * 6), Vector3(1.0, 1.5, 0.5), true)
+		if not await _startup_progress.checkpoint(): return false
 	var routes: Array[Vector3] = [Vector3(-75, 0.1, 25), Vector3(-75, 0.1, -55), Vector3(-15, 0.1, -75)]
 	for i: int in range(3):
 		targets["route_%d" % (i + 1)] = routes[i]
 		_marker("路標 %d" % (i + 1), routes[i], Color(1.0, 0.67, 0.24))
+		if not await _startup_progress.checkpoint(): return false
 	targets["safe_point"] = Vector3(-46, 0.1, 42)
 	_marker("撤離安全點", targets["safe_point"], Color(0.30, 0.95, 0.65))
+	if not await _startup_progress.checkpoint(): return false
+	return _startup_progress.running()
 
 func _create_vehicles() -> void:
 	car = VehicleScript.new()
