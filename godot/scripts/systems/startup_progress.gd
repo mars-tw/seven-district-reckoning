@@ -34,6 +34,9 @@ func setup(owner: Node) -> void:
 	panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	_layer.add_child(panel)
 	_label = Label.new()
+	mark("font_load_begin")
+	_label.add_theme_font_override("font", load("res://assets/fonts/NotoSansTC-Regular.otf") as Font)
+	mark("font_load_end")
 	_label.text = PHASES[_phase]
 	_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -54,6 +57,7 @@ func phase(value: String) -> void:
 	mark("phase")
 func first_frame() -> bool:
 	if not running(): return false
+	mark("first_frame_wait")
 	if DisplayServer.get_name() == "headless":
 		await _tree.process_frame
 		await _tree.process_frame
