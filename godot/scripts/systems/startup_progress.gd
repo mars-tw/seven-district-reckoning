@@ -16,9 +16,16 @@ var _started_us := 0
 var _batch_started_us := 0
 var _batch_units := 0
 var _total_units := 0
+var _last_batch_mark_us := 0
 var _temporary_roots: Array[WeakRef] = []
+var _owner_visibility_captured := false
+var _owner_previous_visible := false
 func setup(owner: Node) -> void:
 	_owner = weakref(owner)
+	if owner is Node3D:
+		_owner_previous_visible = (owner as Node3D).visible
+		_owner_visibility_captured = true
+		(owner as Node3D).visible = false # CanvasLayer loading UI remains independent.
 	_tree = owner.get_tree()
 	_previous_pause = _tree.paused
 	_tree.paused = true
@@ -49,7 +56,18 @@ func running() -> bool:
 	return active and is_instance_valid(owner) and owner.is_inside_tree()
 func mark(event: String) -> void:
 	# Only static phases, monotonic elapsed time, counts and readiness.
-	print("SEVEN_STARTUP "+JSON.stringify({"event":event,"phase":_phase,"elapsed_ms":(Time.get_ticks_usec()-_started_us)/1000,"items":_total_units,"ready":complete}))
+	var sample := {"event":event,"phase":_phase,"elapsed_ms":(Time.get_ticks_usec()-_started_us)/1000,"items":_total_units,"ready":complete}
+	if DisplayServer.get_name() != "headless":
+		var owner: Node = _owner.get_ref() if _owner != null else null
+		var frames_drawn := Engine.get_frames_drawn()
+		sample["render_frames_drawn"] = frames_drawn
+		sample["draw_counter_available"] = frames_drawn >= 2
+		sample["render_3d_draw_calls"] = RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME) if frames_drawn >= 2 else null
+		sample["owner_3d_visibility_suspended"] = _owner_visibility_captured
+		if is_instance_valid(owner) and owner is Node3D:
+			sample["owner_local_visible"] = (owner as Node3D).visible
+			sample["owner_visible_in_tree"] = (owner as Node3D).is_visible_in_tree()
+	print("SEVEN_STARTUP "+JSON.stringify(sample))
 func phase(value: String) -> void:
 	if not running() or not PHASES.has(value): return
 	_phase = value
@@ -73,7 +91,10 @@ func checkpoint(units: int = 1, force: bool = false) -> bool:
 	if complete: return true
 	_batch_units += units
 	_total_units += units
-	if _phase == "base_world": mark("phase")
+	if _phase == "base_world" or _phase == "actors": mark("phase")
+	elif force or Time.get_ticks_usec()-_last_batch_mark_us >= 500000:
+		_last_batch_mark_us = Time.get_ticks_usec()
+		mark("batch") # Native logs expose real work after phase entry, including expansion.
 	if force or _batch_units >= MAX_UNITS or Time.get_ticks_usec()-_batch_started_us >= BUDGET_US:
 		_label.text = str(PHASES[_phase])
 		await _tree.process_frame
@@ -83,16 +104,24 @@ func checkpoint(units: int = 1, force: bool = false) -> bool:
 	return true
 func finish() -> bool:
 	if not running() or complete: return false
+	_restore_owner_visibility()
 	complete = true
 	_phase = "world_ready"
 	mark("complete")
 	_layer.queue_free()
 	return true
+func _restore_owner_visibility() -> void:
+	if not _owner_visibility_captured: return
+	_owner_visibility_captured = false # Restore once, including cancellation after a finish.
+	var owner: Node = _owner.get_ref() if _owner != null else null
+	if is_instance_valid(owner) and owner is Node3D:
+		(owner as Node3D).visible = _owner_previous_visible
 func track_temporary_root(node: Node) -> void:
 	_temporary_roots.append(weakref(node))
 func cancel() -> void:
 	if not active: return
 	active = false
+	_restore_owner_visibility()
 	# Parenting also frees these when an owner exits while a coroutine is dropped.
 	for reference: WeakRef in _temporary_roots:
 		var node: Node = reference.get_ref()

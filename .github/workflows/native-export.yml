@@ -1,0 +1,53 @@
+name: Build unsigned Godot Android and iOS
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: godot-native-${{ github.repository }}
+  cancel-in-progress: false
+jobs:
+  android:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with: {persist-credentials: false}
+      - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961
+        with: {distribution: temurin, java-version: '21'}
+      - name: Install pinned official tools without credentials
+        run: python3 tools/install_native_toolchain.py --output "$RUNNER_TEMP/godot-native" --android-sdk "$ANDROID_HOME"
+      - name: Export and verify unsigned APK and AAB
+        run: |
+          GODOT_BIN=$(python3 -c 'import json,os;print(json.load(open(os.environ["RUNNER_TEMP"]+"/godot-native/toolchain.json"))["godot"])')
+          python3 tools/export_mobile.py --target android --godot "$GODOT_BIN" --jdk "$JAVA_HOME" --android-sdk "$ANDROID_HOME" --bundletool "$RUNNER_TEMP/godot-native/bundletool-1.18.3.jar"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: godot-android-unsigned
+          path: |
+            deliverables/native/native-unsigned.apk
+            deliverables/native/native-unsigned.aab
+            deliverables/native/android-verification.json
+          if-no-files-found: error
+  ios:
+    runs-on: macos-15
+    timeout-minutes: 45
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with: {persist-credentials: false}
+      - name: Install pinned official tools without credentials
+        run: python3 tools/install_native_toolchain.py --output "$RUNNER_TEMP/godot-native"
+      - name: Export Xcode source and archive without signing
+        run: |
+          GODOT_BIN=$(python3 -c 'import json,os;print(json.load(open(os.environ["RUNNER_TEMP"]+"/godot-native/toolchain.json"))["godot"])')
+          python3 tools/export_mobile.py --target ios --godot "$GODOT_BIN"
+          ditto -c -k --keepParent deliverables/native/ios output-ios-unsigned.zip
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: godot-ios-unsigned-project-and-archive
+          path: |
+            output-ios-unsigned.zip
+            deliverables/native/ios-verification.json
+          if-no-files-found: error
