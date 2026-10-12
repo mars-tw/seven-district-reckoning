@@ -114,20 +114,25 @@ func _ready() -> void:
 	add_child(taiwan_activities)
 	if not await _startup_progress.checkpoint(0,true): return
 	_startup_progress.phase("actors")
+	if not await _startup_progress.checkpoint(0,true): return
 	player = PlayerScript.new()
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 	player.name = "Player"
 	add_child(player)
 	player.position = Vector3(-56, 0.2, 52)
+	if not await _startup_progress.checkpoint(1,true): return
 	player.setup_visual(_model("hero"))
+	if not await _startup_progress.checkpoint(1,true): return
 	player.interaction_requested.connect(_interact)
 	player.mount_requested.connect(_mount)
 	player.health_changed.connect(_on_health)
 	player.attacked.connect(_on_attack)
 	_create_vehicles()
+	if not await _startup_progress.checkpoint(1,true): return
 	_create_guards()
+	if not await _startup_progress.checkpoint(1,true): return
 	_create_rescues()
-	if not await _startup_progress.checkpoint(0,true): return
+	if not await _startup_progress.checkpoint(1,true): return
 	_startup_progress.phase("district_life")
 	city_life = CityScript.bootstrap(self)
 	city_life.process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -710,6 +715,9 @@ func _initialize_device() -> void:
 		var dpi: float = maxf(160,DisplayServer.screen_get_dpi())
 		viewport_size = Vector2(DisplayServer.screen_get_size())*(160.0/dpi)
 		hint = "phone" if minf(viewport_size.x,viewport_size.y)<600 else "tablet"
+		# Keep native UI coordinates in density-independent units, as the Web
+		# profiles already do. Canvas-items stretching preserves the 3D aspect.
+		get_window().content_scale_size = Vector2i(viewport_size)
 	device_profiles.initialize(viewport_size,touch,hint,not is_test_mode)
 	if requested in ["phone","tablet","desktop"]: device_profiles.set_profile(requested,not is_test_mode)
 	_device_changed(device_profiles.get_settings())

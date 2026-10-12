@@ -290,7 +290,7 @@ func release_all() -> void:
 		joystick.queue_redraw()
 
 func _notification(what: int) -> void:
-	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_WM_WINDOW_FOCUS_OUT]: release_all()
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_WM_WINDOW_FOCUS_OUT]: release_all()
 	if what == NOTIFICATION_EXIT_TREE: Input.emulate_mouse_from_touch = _original_mouse_emulation
 
 func _layout() -> void:

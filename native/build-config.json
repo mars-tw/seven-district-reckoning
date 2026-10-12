@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "engine": "Godot",
+  "engineVersion": "4.7.2",
+  "projectPath": "godot",
+  "outputPath": "deliverables/native",
+  "appId": "tw.mars.sevendistrictreckoning",
+  "nativeVersion": "1.0.0",
+  "nativeBuild": 8,
+  "sourceVersion": "0.4.0",
+  "xcodeProjectName": "SevenDistrict"
+}

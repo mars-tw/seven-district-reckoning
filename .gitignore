@@ -30,3 +30,10 @@ deliverables/
 
 # Local native art capture fixtures; canonical sources live in tests/.
 godot/_checks/
+
+# Generated mobile export intermediates; reproducible from official templates.
+godot/android/
+
+# Native release binaries and generated signing reports.
+release/
+output-ios-unsigned.zip

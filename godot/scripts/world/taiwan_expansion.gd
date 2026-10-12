@@ -459,15 +459,18 @@ func _mesh(key: String) -> ArrayMesh:
 			if _startup_progress != null and not await _startup_progress.checkpoint(): return null
 			var arrays := part.mesh.surface_get_arrays(surface)
 			var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
-			for i: int in vertices.size():
-				if _startup_progress != null and not await _startup_progress.checkpoint(): return null
-				vertices[i] = parent_transform*vertices[i]
+			# Transform packed positions in the engine's native array operation.
+			# Account for every vertex, but yield once per buffer rather than per value.
+			vertices = parent_transform*vertices
+			if _startup_progress != null and not await _startup_progress.checkpoint(vertices.size(),true): return null
 			arrays[Mesh.ARRAY_VERTEX] = vertices
 			var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
 			var normal_basis := parent_transform.basis.inverse().transposed()
+			normals = Transform3D(normal_basis,Vector3.ZERO)*normals
 			for i: int in normals.size():
-				if _startup_progress != null and not await _startup_progress.checkpoint(): return null
-				normals[i] = (normal_basis*normals[i]).normalized()
+				normals[i] = normals[i].normalized()
+				if (i+1)%512==0 and _startup_progress != null and not await _startup_progress.checkpoint(512): return null
+			if normals.size()%512!=0 and _startup_progress != null and not await _startup_progress.checkpoint(normals.size()%512,true): return null
 			arrays[Mesh.ARRAY_NORMAL] = normals
 			# Preserve Godot's imported topology LOD index buffers. Transforming
 			# positions does not change the original vertex/index correspondence.
@@ -478,10 +481,15 @@ func _mesh(key: String) -> ArrayMesh:
 				var bytes: PackedByteArray = lod.get("index_data",PackedByteArray())
 				var stride := 2 if vertices.size()<=65536 else 4
 				var indices := PackedInt32Array()
-				indices.resize(bytes.size()/stride)
-				for index: int in indices.size():
-					if _startup_progress != null and not await _startup_progress.checkpoint(): return null
-					indices[index] = bytes.decode_u16(index*stride) if stride==2 else bytes.decode_u32(index*stride)
+				if stride==4:
+					indices = bytes.to_int32_array()
+					if _startup_progress != null and not await _startup_progress.checkpoint(indices.size(),true): return null
+				else:
+					indices.resize(bytes.size()/stride)
+					for index: int in indices.size():
+						indices[index] = bytes.decode_u16(index*stride)
+						if (index+1)%1024==0 and _startup_progress != null and not await _startup_progress.checkpoint(1024): return null
+					if indices.size()%1024!=0 and _startup_progress != null and not await _startup_progress.checkpoint(indices.size()%1024,true): return null
 				if not indices.is_empty():
 					lods[float(lod["edge_length"])] = indices
 					_counts["lod_levels"] += 1
