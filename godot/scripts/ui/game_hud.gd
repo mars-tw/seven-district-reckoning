@@ -39,6 +39,8 @@ var _title_start_button: Button
 var _mission_label: Label
 var _objective_label: Label
 var _status_label: Label
+var _compact_status_label: Label
+var _compact_prompt_label: Label
 var _scores_label: Label
 var _prompt_label: Label
 var _notice_label: Label
@@ -57,6 +59,8 @@ var _modal_panel: Control
 var _modal_outer: MarginContainer
 var _modal_margin: MarginContainer
 var _hud_margin: MarginContainer
+var _mission_padding: MarginContainer
+var _mission_grid: GridContainer
 var _prompt_panel: PanelContainer
 var _controls_hint: Label
 var _systems: Node
@@ -169,7 +173,7 @@ func update_survival(stamina_value: float, maximum: float, time_value: String, t
 		_survival_label.text = caption
 	_stamina_bar.max_value = maximum
 	_stamina_bar.value = stamina_value
-	var compact: bool = get_viewport().get_visible_rect().size.x < 750 or get_viewport().get_visible_rect().size.y < 480
+	var compact: bool = _compact_hud(get_viewport().get_visible_rect().size)
 	_prompt_label.add_theme_font_size_override("font_size", 12 if compact and touch_enabled else 19)
 	_prompt_label.max_lines_visible = 2 if compact and touch_enabled else -1
 	_status_label.add_theme_font_size_override("font_size", 11 if compact and touch_enabled else 16)
@@ -223,16 +227,36 @@ func _build_ui() -> void:
 	mission_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(mission_panel)
 	var mission_column := _padded_column(mission_panel, 12)
+	_mission_padding = mission_column.get_parent() as MarginContainer
+	_mission_grid = GridContainer.new()
+	_mission_grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_mission_grid.add_theme_constant_override("h_separation", 12)
+	_mission_grid.add_theme_constant_override("v_separation", 5)
+	mission_column.add_child(_mission_grid)
+	var mission_primary := VBoxContainer.new()
+	mission_primary.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	mission_primary.add_theme_constant_override("separation", 5)
+	_mission_grid.add_child(mission_primary)
+	var mission_details := VBoxContainer.new()
+	mission_details.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	mission_details.add_theme_constant_override("separation", 5)
+	_mission_grid.add_child(mission_details)
 	_mission_label = _label("", 21, ACCENT)
-	mission_column.add_child(_mission_label)
+	mission_primary.add_child(_mission_label)
 	_objective_label = _label("", 18)
-	mission_column.add_child(_objective_label)
+	mission_primary.add_child(_objective_label)
+	_compact_prompt_label = _label("靠近標示物件，按「互動」。", 11, ACCENT)
+	_compact_prompt_label.visible = false
+	mission_primary.add_child(_compact_prompt_label)
 	_scores_label = _label("", 16, MUTED)
-	mission_column.add_child(_scores_label)
+	mission_details.add_child(_scores_label)
 	_optional_label = _label("", 15, Color(0.47, 0.90, 0.81))
-	mission_column.add_child(_optional_label)
+	mission_details.add_child(_optional_label)
 	_survival_label = _label("", 12, MUTED)
-	mission_column.add_child(_survival_label)
+	mission_details.add_child(_survival_label)
+	_compact_status_label = _label("", 11, MUTED)
+	_compact_status_label.visible = false
+	mission_details.add_child(_compact_status_label)
 	_stamina_bar = ProgressBar.new()
 	_stamina_bar.custom_minimum_size.y = 6
 	_stamina_bar.show_percentage = false
@@ -243,7 +267,7 @@ func _build_ui() -> void:
 		var bar_style: StyleBoxFlat = _stamina_bar.get_theme_stylebox(style_name) as StyleBoxFlat
 		bar_style.content_margin_top = 0
 		bar_style.content_margin_bottom = 0
-	mission_column.add_child(_stamina_bar)
+	mission_details.add_child(_stamina_bar)
 	var map_panel := _panel()
 	_map_panel = map_panel
 	map_panel.custom_minimum_size = Vector2(150, 136)
@@ -342,17 +366,38 @@ func _resize_modal() -> void:
 	elif device_profile=="phone":
 		_modal_panel.custom_minimum_size.x = clampf(screen.x-16,180,650)
 		_modal_scroll.custom_minimum_size.x = clampf(screen.x-64,132,602)
-	var compact: bool = screen.x < 750 or screen.y < 480
+	var phone_landscape: bool = _phone_landscape(screen)
+	var compact: bool = _compact_hud(screen)
 	var touch_layout: bool = device_profile in ["phone","tablet"]
-	_hud_margin.add_theme_constant_override("margin_bottom",180 if touch_layout and screen.y>screen.x else 16)
-	_prompt_panel.visible = not (touch_layout and screen.y<480)
-	_status_label.visible = not (touch_layout and compact)
+	_mission_grid.columns = 2 if phone_landscape and screen.x >= 560 else 1
+	_mission_grid.add_theme_constant_override("h_separation", 8 if phone_landscape else 12)
+	_mission_grid.add_theme_constant_override("v_separation", 3 if phone_landscape else 5)
+	for section: Node in _mission_grid.get_children():
+		(section as VBoxContainer).add_theme_constant_override("separation", 3 if phone_landscape else 5)
+	for side: String in ["left", "right", "top", "bottom"]:
+		_mission_padding.add_theme_constant_override("margin_" + side, 6 if phone_landscape else 12)
+		_hud_margin.add_theme_constant_override("margin_" + side, 8 if phone_landscape else 16)
+	_hud_margin.add_theme_constant_override("margin_bottom",180 if touch_layout and screen.y>screen.x else 8 if phone_landscape else 16)
+	_prompt_panel.visible = not (touch_layout and (screen.y<480 or phone_landscape) and touch_input_enabled)
+	_status_label.visible = not (touch_input_enabled and compact)
+	_compact_status_label.visible = phone_landscape and touch_input_enabled
+	_compact_prompt_label.visible = phone_landscape and touch_input_enabled
 	_map_panel.visible = not compact
-	_controls_hint.visible = not compact and not touch_input_enabled
-	_scores_label.visible = not compact
+	_controls_hint.visible = not touch_input_enabled
+	_scores_label.visible = phone_landscape or not compact
 	_mission_label.add_theme_font_size_override("font_size", 16 if compact else 21)
 	_objective_label.add_theme_font_size_override("font_size", 14 if compact else 18)
 	_optional_label.add_theme_font_size_override("font_size", 13 if compact else 15)
+	_scores_label.add_theme_font_size_override("font_size", 11 if phone_landscape else 16)
+	_survival_label.add_theme_font_size_override("font_size", 11 if phone_landscape else 12)
+
+
+func _phone_landscape(screen: Vector2) -> bool:
+	return device_profile == "phone" and screen.x > screen.y
+
+
+func _compact_hud(screen: Vector2) -> bool:
+	return screen.x < 750 or screen.y < 480 or _phone_landscape(screen)
 
 
 func _style(fill: Color, border: Color, radius: int) -> StyleBoxFlat:
@@ -702,6 +747,8 @@ func update_status(hp: float, weapon: String, heat: int, vehicle: String, prompt
 	_status_label.text = "安全值 %d／100　工具：%s　警戒 %d／5　%s" % [clampi(int(hp), 0, 100), str(weapon_names.get(weapon, weapon)), clampi(heat, 0, 5), str(vehicle_names.get(vehicle, vehicle))]
 	var default_prompt := "沿導航前往任務目標。靠近標示物件，按「互動」。" if touch_input_enabled else "沿導航前往任務目標。靠近標示物件，按 E 互動。"
 	_prompt_label.text = prompt if not prompt.is_empty() else default_prompt
+	_compact_status_label.text = _status_label.text
+	_compact_prompt_label.text = _prompt_label.text
 
 
 func set_map_markers(player_xz: Vector2, target_xz: Vector2) -> void:

@@ -25,6 +25,7 @@ SUITES = [
     ("taiwan_life.gd", "TAIWAN_LIFE_RESULT "),
     ("taiwan_expansion.gd", "TAIWAN_MAP_RESULT "),
     ("device_profiles.gd", "DEVICE_PROFILE_CHECKS="),
+    ("mobile_hud.gd", "MOBILE_HUD_CHECKS="),
     ("v04_integration.gd", "V04_INTEGRATION_RESULT "),
     ("taiwan_activities.gd", "TAIWAN_ACTIVITY_CHECKS="),
 ]
