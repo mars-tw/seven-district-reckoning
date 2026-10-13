@@ -157,7 +157,7 @@ def main():
         report.update(status="needs-tools-or-validation", error=str(error))
     (output / (args.target + "-verification.json")).write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0 if report["status"] in ("toolchain-present-not-exported", "unsigned-android-verified", "unsigned-ios-archive-created") else 2
+    return 0 if report["status"] in ("toolchain-present-not-exported", "unsigned-android-verified", "ios-xcode-source-created-not-compiled", "unsigned-ios-archive-created") else 2
 
 
 if __name__ == "__main__":
