@@ -73,6 +73,7 @@ var taiwan_expansion: Node3D
 var device_profiles: Node
 var _device_settings: Dictionary = {}
 const WORLD_RADIUS: float = 400.0
+const MEI_CONVERSATION_APPROACH := Vector2(-52, 55)
 const StartupScript = preload("res://scripts/systems/startup_progress.gd")
 var startup_complete := false
 var expansion_complete := false
@@ -169,7 +170,7 @@ func _ready() -> void:
 	var all_bounds: Array[AABB] = base_obstacle_bounds.duplicate()
 	all_bounds.append_array(city_life.get_obstacle_bounds())
 	var all_regions: Array[Dictionary] = city_life.get_districts()
-	var map_points: Dictionary = {"car":Vector2(car.position.x,car.position.z),"bicycle":Vector2(bicycle.position.x,bicycle.position.z),"mei_shop":Vector2(-58,57),"safe_point":Vector2(-46,42)}
+	var map_points: Dictionary = {"car":Vector2(car.position.x,car.position.z),"bicycle":Vector2(bicycle.position.x,bicycle.position.z),"mei_shop":MEI_CONVERSATION_APPROACH,"safe_point":Vector2(-46,42)}
 	for id: String in taiwan_life.stations:
 		var p: Array = taiwan_life.stations[id]["position"]
 		map_points[id] = Vector2(float(p[0]),float(p[1]))
@@ -265,7 +266,7 @@ func _complete_expansion_background() -> void:
 	all_bounds.append_array(taiwan_expansion.get_obstacle_bounds())
 	var all_regions: Array[Dictionary] = city_life.get_districts()
 	all_regions.append_array(taiwan_expansion.get_regions())
-	var map_points: Dictionary = {"car":Vector2(car.position.x,car.position.z),"bicycle":Vector2(bicycle.position.x,bicycle.position.z),"mei_shop":Vector2(-58,57),"safe_point":Vector2(-46,42)}
+	var map_points: Dictionary = {"car":Vector2(car.position.x,car.position.z),"bicycle":Vector2(bicycle.position.x,bicycle.position.z),"mei_shop":MEI_CONVERSATION_APPROACH,"safe_point":Vector2(-46,42)}
 	for id: String in taiwan_life.stations:
 		var p: Array = taiwan_life.stations[id]["position"]
 		map_points[id] = Vector2(float(p[0]),float(p[1]))
@@ -394,7 +395,9 @@ func _process(delta: float) -> void:
 	var prompt := ""
 	if nearest:
 		var event_type: Variant = nearest.get("event_name")
-		prompt = ("左鍵｜" if event_type in ["practice_hit", "destroy_target", "sandbox"] else "E｜") + _caption(nearest)
+		var attack_hint := "攻擊｜" if touch_controls.enabled else "左鍵｜"
+		var interact_hint := "互動｜" if touch_controls.enabled else "E｜"
+		prompt = (attack_hint if event_type in ["practice_hit", "destroy_target", "sandbox"] else interact_hint) + _caption(nearest)
 	elif nearest_vehicle:
 		prompt = "F｜騎自行車" if nearest_vehicle == bicycle else "F｜上車"
 	if player.get("mounted_vehicle") != null:
@@ -790,6 +793,7 @@ func _device_changed(settings: Dictionary) -> void:
 	touch_controls.set_profile(settings)
 	touch_controls.set_enabled(str(settings.get("input_mode","keyboard_mouse"))=="touch")
 	hud.set_device_profile(settings)
+	hud.set_touch_input_enabled(touch_controls.enabled)
 	if expansion_complete:
 		taiwan_world.apply_profile(settings)
 		taiwan_expansion.apply_profile(settings)
@@ -1086,6 +1090,7 @@ func _web_command(arguments: Array) -> void:
 		"load": _load()
 		"touch_toggle":
 			touch_controls.set_enabled(not touch_controls.enabled)
+			hud.set_touch_input_enabled(touch_controls.enabled)
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		"camera_left": player.nudge_camera(-0.3)
 		"camera_right": player.nudge_camera(0.3)
@@ -1136,7 +1141,7 @@ func _emit_web_state() -> void:
 	state.time = street_state.time_text()
 	state.navigation = "自訂目的地" if street_state.has_waypoint else "任務導引"
 	state.main_title = missions.get_current_title()
-	state.objective = missions.get_objective_text()
+	state.objective = hud.get_display_objective_text()
 	state.optional_title = optional.get_active_title()
 	state.optional_text = optional.get_active_text()
 	var sides: int = 0
@@ -1229,7 +1234,7 @@ func _use_object(id: String) -> void:
 	if content_world.use_object(id):
 		return
 	if object.event_name in ["practice_hit", "destroy_target", "sandbox"]:
-		_notice("使用左鍵攻擊這個物件")
+		_notice("按「攻擊」打這個物件" if touch_controls.enabled else "使用左鍵攻擊這個物件")
 		return
 	if id == "branch_console":
 		hud.show_phone()

@@ -72,6 +72,7 @@ var _near_shop: bool = false
 var _settings_return_title: bool = false
 var life_panel: RefCounted
 var device_profile: String = "desktop"
+var touch_input_enabled: bool = false
 var _world_radius: float = 150.0
 var _navigation_roads: Array[Dictionary] = []
 
@@ -90,6 +91,14 @@ func bind_missions(manager: Node) -> void:
 	if is_instance_valid(_manager):
 		_manager.updated.connect(_refresh_mission)
 	_refresh_mission()
+
+func set_touch_input_enabled(value: bool) -> void:
+	touch_input_enabled = value
+	_resize_modal()
+	_refresh_mission()
+
+func get_display_objective_text() -> String:
+	return _objective_label.text if _objective_label else ""
 
 func bind_optional(manager: Node) -> void:
 	_optional = manager
@@ -134,6 +143,7 @@ func set_device_profile(settings: Dictionary) -> void:
 	device_profile = str(settings.get("profile","desktop"))
 	if life_panel: life_panel.set_profile(device_profile)
 	_resize_modal()
+	_refresh_mission()
 	_refresh_optional()
 
 func set_expanded_map(radius: float, roads: Array[Dictionary]) -> void:
@@ -338,7 +348,7 @@ func _resize_modal() -> void:
 	_prompt_panel.visible = not (touch_layout and screen.y<480)
 	_status_label.visible = not (touch_layout and compact)
 	_map_panel.visible = not compact
-	_controls_hint.visible = not compact
+	_controls_hint.visible = not compact and not touch_input_enabled
 	_scores_label.visible = not compact
 	_mission_label.add_theme_font_size_override("font_size", 16 if compact else 21)
 	_objective_label.add_theme_font_size_override("font_size", 14 if compact else 18)
@@ -583,7 +593,7 @@ func show_district_map() -> void:
 	_modal_box.add_child(_label("藍點汽車／綠點自行車／淡黃點車店與安全點。方向線不會自動避開建築。",13,MUTED))
 	var destinations := HBoxContainer.new()
 	_modal_box.add_child(destinations)
-	_button("美晴車店",func() -> void: waypoint_selected.emit(Vector2(-58,57)); show_district_map(),destinations)
+	_button("美晴車店｜交談",func() -> void: waypoint_selected.emit(_world_points["mei_shop"]); show_district_map(),destinations)
 	_button("撤離安全點",func() -> void: waypoint_selected.emit(Vector2(-46,42)); show_district_map(),destinations)
 	_button("清除自訂標記",func() -> void: waypoint_cleared.emit(); show_district_map())
 	_button("收起地圖，繼續行動",_resume)
@@ -676,7 +686,10 @@ func _refresh_mission() -> void:
 	if _mission_label == null or not is_instance_valid(_manager):
 		return
 	_mission_label.text = _manager.get_current_title()
-	_objective_label.text = _manager.get_objective_text()
+	var objective_text: String = _manager.get_objective_text()
+	if touch_input_enabled:
+		objective_text = objective_text.replace("按 E 交談", "按「互動」交談")
+	_objective_label.text = objective_text
 	_scores_label.text = _score_text()
 	_notice_label.text = str(_manager.notice) if not str(_manager.notice).is_empty() else _cached_notice
 
@@ -687,7 +700,8 @@ func update_status(hp: float, weapon: String, heat: int, vehicle: String, prompt
 	var weapon_names := {"wrench":"扳手", "bat":"球棒", "pulse":"脈衝器具", "none":"空手", "":"空手"}
 	var vehicle_names := {"bicycle":"自行車", "car":"小客車", "":"步行"}
 	_status_label.text = "安全值 %d／100　工具：%s　警戒 %d／5　%s" % [clampi(int(hp), 0, 100), str(weapon_names.get(weapon, weapon)), clampi(heat, 0, 5), str(vehicle_names.get(vehicle, vehicle))]
-	_prompt_label.text = prompt if not prompt.is_empty() else "沿導航前往任務目標。靠近標示物件，按 E 互動。"
+	var default_prompt := "沿導航前往任務目標。靠近標示物件，按「互動」。" if touch_input_enabled else "沿導航前往任務目標。靠近標示物件，按 E 互動。"
+	_prompt_label.text = prompt if not prompt.is_empty() else default_prompt
 
 
 func set_map_markers(player_xz: Vector2, target_xz: Vector2) -> void:
