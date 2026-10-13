@@ -38,6 +38,7 @@ var _action_owners: Dictionary = {}
 var _floating_sprint: Button
 var _last_size := Vector2.ZERO
 var _original_mouse_emulation := true
+var _layout_joystick_radius := 56.0
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -174,7 +175,7 @@ func _input(event: InputEvent) -> void:
 					return
 			if profile != "desktop" and joystick_index == -1 and joystick_zone.has_point(touch.position):
 				joystick_index = touch.index
-				var radius := float(settings.get("joystick_radius",56))
+				var radius := _layout_joystick_radius
 				joystick_origin = Vector2(clampf(touch.position.x,joystick_zone.position.x+radius,joystick_zone.end.x-radius),clampf(touch.position.y,joystick_zone.position.y+radius,joystick_zone.end.y-radius))
 				joystick.position = joystick_origin - Vector2.ONE * radius
 				_update_joystick(touch.position)
@@ -211,7 +212,7 @@ func _release_touch(index: int) -> void:
 			joystick.queue_redraw()
 
 func _update_joystick(position_value: Vector2) -> void:
-	var radius := float(settings.get("joystick_radius",56))
+	var radius := _layout_joystick_radius
 	var vector := (position_value - joystick_origin) / radius
 	if vector.length() > 1: vector = vector.normalized()
 	if vector.length() < .16: vector = Vector2.ZERO
@@ -301,32 +302,52 @@ func _layout() -> void:
 	var margin := float(settings.get("safe_margin",10))
 	var safe := Rect2(Vector2(maxf(margin,safe_insets.x),maxf(margin,safe_insets.y)),viewport_size-Vector2(maxf(margin,safe_insets.x)+maxf(margin,safe_insets.z),maxf(margin,safe_insets.y)+maxf(margin,safe_insets.w)))
 	too_small = safe.size.y < 280 or safe.size.x < 326
-	if too_small: release_all()
 	var button_size := float(settings.get("touch_button_size",54))
 	var gap := int(settings.get("touch_spacing",6))
 	# A manually selected tablet layout still fits narrow windows after rotation.
 	button_size = minf(button_size,(safe.size.x*.52-float(gap)*2)/3)
 	button_size = maxf(44,button_size)
+	var portrait := viewport_size.y > viewport_size.x
+	var command_top := maxf(safe.position.y,150 if not portrait else 156)
+	# On short landscape screens, the six-command row collides with the
+	# joystick and action grid. Fit the same buttons into three columns in the
+	# lane between them; 44 px remains the minimum touch target.
+	var tight_landscape := profile != "desktop" and not portrait and safe.end.y - (button_size*2+gap) - 32 < command_top + button_size + 4
+	if tight_landscape:
+		button_size = 44
+		gap = 3
 	for panel: Control in panels:
-		panel.visible = not too_small
 		panel.add_theme_constant_override("h_separation",gap)
 		panel.add_theme_constant_override("v_separation",gap)
-	for button: Node in find_children("*","Button",true,false): (button as Button).custom_minimum_size = Vector2(button_size,button_size)
+	for button: Node in find_children("*","Button",true,false):
+		(button as Button).custom_minimum_size = Vector2(button_size,button_size)
+		(button as Button).add_theme_font_size_override("font_size",11 if tight_landscape else 13)
+	_floating_sprint.reset_size()
+	(panels[2] as GridContainer).columns = 3 if portrait or tight_landscape else 6
+	for panel: Control in panels: panel.reset_size()
+	var actions_size := panels[1].get_combined_minimum_size()
+	var command_size := panels[2].get_combined_minimum_size()
+	var radius := 42.0 if tight_landscape else float(settings.get("joystick_radius",56))
+	if tight_landscape:
+		too_small = too_small or safe.size.x < radius*2 + actions_size.x + command_size.x + 16
+	if too_small: release_all()
+	for panel: Control in panels: panel.visible = not too_small
 	panels[0].visible = not too_small and profile == "desktop"
-	var actions_size := Vector2(button_size*3+gap*2,button_size*2+gap)
 	panels[0].position = Vector2(safe.position.x,safe.end.y-actions_size.y-32)
-	panels[1].position = Vector2(safe.end.x-actions_size.x,safe.end.y-actions_size.y-32)
-	var portrait := viewport_size.y > viewport_size.x
-	(panels[2] as GridContainer).columns = 3 if portrait else 6
-	var command_width := button_size*(3 if portrait else 6)+gap*(2 if portrait else 5)
-	panels[2].position = Vector2(safe.position.x+(safe.size.x-command_width)*.5,maxf(safe.position.y,150 if not portrait else 156))
-	var radius := float(settings.get("joystick_radius",56))
+	panels[1].position = Vector2(safe.end.x-actions_size.x-(0 if tight_landscape else 1),safe.end.y-actions_size.y if tight_landscape else safe.end.y-actions_size.y-32)
+	if tight_landscape:
+		var lane_start := safe.position.x + radius*2 + 8
+		var lane_end := panels[1].position.x - 8
+		panels[2].position = Vector2(lane_start+(lane_end-lane_start-command_size.x)*.5,safe.end.y-command_size.y)
+	else:
+		panels[2].position = Vector2(safe.position.x+(safe.size.x-command_size.x)*.5,command_top)
+	_layout_joystick_radius = radius
 	joystick.size = Vector2.ONE * radius*2
-	joystick_origin = Vector2(safe.position.x+radius,safe.end.y-radius-24)
+	joystick_origin = Vector2(safe.position.x+radius,safe.end.y-radius if tight_landscape else safe.end.y-radius-24)
 	joystick.position = joystick_origin-Vector2.ONE*radius
 	joystick.visible = not too_small and profile != "desktop"
-	joystick_zone = Rect2(Vector2(safe.position.x,maxf(280 if portrait else 215,safe.end.y-radius*3)),Vector2(safe.size.x*.45,safe.end.y-maxf(280 if portrait else 215,safe.end.y-radius*3)))
+	joystick_zone = Rect2(joystick.position,joystick.size) if tight_landscape else Rect2(Vector2(safe.position.x,maxf(280 if portrait else 215,safe.end.y-radius*3)),Vector2(safe.size.x*.45,safe.end.y-maxf(280 if portrait else 215,safe.end.y-radius*3)))
 	_floating_sprint.visible = joystick.visible
-	_floating_sprint.position = Vector2(safe.position.x,safe.end.y-radius*2-button_size-36)
+	_floating_sprint.position = Vector2(safe.position.x,panels[2].position.y-_floating_sprint.size.y-4 if tight_landscape else safe.end.y-radius*2-_floating_sprint.size.y-36)
 	small_view_hint.visible = too_small
 	small_view_hint.position = Vector2(maxf(4,(viewport_size.x-240)*.5),maxf(4,viewport_size.y-50))

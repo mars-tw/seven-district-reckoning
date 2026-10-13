@@ -72,6 +72,8 @@ func run() -> void:
 	await physics_frame
 	await physics_frame
 	await _check_layouts()
+	await _check_compact_minimum()
+	await _check_compact_multitouch()
 	await _check_multitouch()
 	print("DEVICE_PROFILE_CHECKS=",checks," FAILURES=",failures)
 	quit(0 if failures == 0 else 1)
@@ -178,7 +180,7 @@ func _check_runtime_budgets() -> void:
 	await process_frame
 
 func _check_layouts() -> void:
-	for pair: Array in [[Vector2i(360,800),"phone"],[Vector2i(390,844),"phone"],[Vector2i(844,390),"phone"],[Vector2i(768,1024),"tablet"],[Vector2i(1024,768),"tablet"],[Vector2i(1280,800),"tablet"],[Vector2i(1366,768),"desktop"],[Vector2i(1920,1080),"desktop"]]:
+	for pair: Array in [[Vector2i(360,800),"phone"],[Vector2i(390,844),"phone"],[Vector2i(400,320),"phone"],[Vector2i(500,320),"phone"],[Vector2i(550,320),"phone"],[Vector2i(568,320),"phone"],[Vector2i(640,360),"phone"],[Vector2i(844,390),"phone"],[Vector2i(853,480),"phone"],[Vector2i(768,1024),"tablet"],[Vector2i(1024,768),"tablet"],[Vector2i(1280,800),"tablet"],[Vector2i(1366,768),"desktop"],[Vector2i(1920,1080),"desktop"]]:
 		root.content_scale_size = pair[0]
 		root.size = pair[0]
 		touches.set_profile(pair[1])
@@ -189,15 +191,61 @@ func _check_layouts() -> void:
 		await process_frame
 		var safe := Rect2(Vector2(12,20),Vector2(pair[0])-Vector2(24,40))
 		var all_fit := true
-		var touch_count := 0
+		var visible_buttons: Array[Button] = []
 		for button: Node in touches.find_children("*","Button",true,false):
 			if (button as Button).is_visible_in_tree():
-				touch_count += 1
-				all_fit = all_fit and safe.grow(.5).encloses((button as Button).get_global_rect()) and (button as Button).size.x>=44 and (button as Button).size.y>=44
-		check(all_fit and touch_count>=12,"real_control_rects_safe_and_44px_targets_"+str(pair[0]))
+				var rect: Rect2 = (button as Button).get_global_rect()
+				var fits: bool = safe.grow(.5).encloses(rect) and rect.size.x>=44 and rect.size.y>=44
+				all_fit = all_fit and fits
+				visible_buttons.append(button as Button)
+				check(fits,"safe_44px_control_"+str(pair[0])+"_"+(button as Button).text)
+		check(all_fit and visible_buttons.size()>=12,"real_control_rects_safe_and_44px_targets_"+str(pair[0]))
+		for first: int in visible_buttons.size():
+			for second: int in range(first+1,visible_buttons.size()):
+				check(not visible_buttons[first].get_global_rect().intersects(visible_buttons[second].get_global_rect()),"distinct_touch_targets_"+str(pair[0])+"_"+visible_buttons[first].text+"_"+visible_buttons[second].text)
 		check(touches.joystick.visible==(pair[1]!="desktop"),"distinct_joystick_vs_keyboard_fallback_"+str(pair[0]))
-		if pair[1]!="desktop": check(safe.encloses(touches.joystick.get_global_rect()) and not touches.joystick.get_global_rect().intersects(touches.panels[1].get_global_rect()),"joystick_does_not_overlap_action_grid_"+str(pair[0]))
-		print("DEVICE_LAYOUT_EVIDENCE ",JSON.stringify({"size":str(pair[0]),"profile":pair[1],"buttons":touch_count,"safe_fit":all_fit,"joystick":str(touches.joystick.get_global_rect())}))
+		if pair[1]!="desktop":
+			check(safe.encloses(touches.joystick.get_global_rect()) and not touches.joystick.get_global_rect().intersects(touches.panels[1].get_global_rect()),"joystick_does_not_overlap_action_grid_"+str(pair[0]))
+			for button: Button in visible_buttons:
+				check(not touches.joystick.get_global_rect().intersects(button.get_global_rect()),"joystick_clear_of_button_"+str(pair[0])+"_"+button.text)
+		print("DEVICE_LAYOUT_EVIDENCE ",JSON.stringify({"size":str(pair[0]),"profile":pair[1],"buttons":visible_buttons.size(),"safe_fit":all_fit,"joystick":str(touches.joystick.get_global_rect()),"command":str(touches.panels[2].get_global_rect()),"action":str(touches.panels[1].get_global_rect())}))
+
+func _check_compact_multitouch() -> void:
+	root.content_scale_size = Vector2i(550,320)
+	root.size = Vector2i(550,320)
+	touches.set_profile("phone")
+	touches.set_safe_insets(Vector4(12,20,12,20))
+	touches.set_enabled(true)
+	await process_frame
+	await process_frame
+	var prior_jobs := jobs
+	var jobs_button := _button("配送")
+	_touch(15,jobs_button.get_global_rect().get_center(),true)
+	_touch(15,jobs_button.get_global_rect().get_center(),false)
+	check(jobs==prior_jobs+1,"compact_command_button_still_triggers_jobs")
+	var interact := _button("互動")
+	_touch(16,interact.get_global_rect().get_center(),true)
+	check(Input.is_action_pressed("interact"),"compact_action_button_still_triggers_interact")
+	_touch(16,interact.get_global_rect().get_center(),false)
+	await _await_touch_release("interact")
+	var origin := touches.joystick_origin
+	_touch(17,origin,true)
+	_drag(17,origin+Vector2(0,-35),Vector2(0,-35))
+	check(touches.joystick_index==17 and Input.get_action_strength("move_forward")>.5,"compact_joystick_uses_its_actual_radius")
+	_touch(17,origin,false)
+
+func _check_compact_minimum() -> void:
+	root.content_scale_size = Vector2i(399,320)
+	root.size = Vector2i(399,320)
+	touches.set_profile("phone")
+	touches.set_safe_insets(Vector4(12,20,12,20))
+	touches.set_enabled(true)
+	await process_frame
+	await process_frame
+	var any_button_visible := false
+	for button: Node in touches.find_children("*","Button",true,false):
+		any_button_visible = any_button_visible or (button as Button).is_visible_in_tree()
+	check(touches.too_small and touches.small_view_hint.is_visible_in_tree() and not any_button_visible and not touches.joystick.visible,"below_376px_safe_width_uses_explicit_small_view_fallback")
 
 func _check_multitouch() -> void:
 	root.content_scale_size = Vector2i(844,390)
@@ -257,9 +305,10 @@ func _check_multitouch() -> void:
 	await _await_touch_release("sprint")
 	check(not Input.is_action_pressed("sprint"),"hold_sprint_releases_without_toggle")
 	var jobs_button := _button("配送")
+	var prior_jobs := jobs
 	_touch(5,jobs_button.get_global_rect().get_center(),true)
 	_touch(5,jobs_button.get_global_rect().get_center(),false)
-	check(jobs==1,"actual_indexed_jobs_button_emits_fixed_signal_once")
+	check(jobs==prior_jobs+1,"actual_indexed_jobs_button_emits_fixed_signal_once")
 	_touch(3,origin,true)
 	_drag(3,origin+Vector2(0,-50),Vector2(0,-50))
 	paused = true
