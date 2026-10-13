@@ -6,7 +6,7 @@
   "outputPath": "deliverables/native",
   "appId": "tw.mars.sevendistrictreckoning",
   "nativeVersion": "1.0.0",
-  "nativeBuild": 13,
+  "nativeBuild": 14,
   "sourceVersion": "0.4.0",
   "xcodeProjectName": "SevenDistrict"
 }
