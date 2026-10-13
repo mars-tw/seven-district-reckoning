@@ -77,11 +77,16 @@ func run() -> void:
 	expect(player.pulse_energy == 9, "repeated pulse pickup does not refill energy")
 	player.equip_weapon("wrench")
 	var guard: SevenGuard = make_guard(Vector3(0.0, 0.0, -1.5))
+	await physics_frame
+	# Drive the first strike at known attack-clock offsets. A wall-clock timer
+	# may resume after a slow physics frame has already crossed the hit window.
+	player.set_physics_process(false)
 	expect(player.begin_attack(), "real animated attack starts")
-	await wait_seconds(0.10)
+	player._update_attack(0.10)
 	expect(is_equal_approx(guard.health, 75.0), "damage waits for strike window")
-	await wait_seconds(0.35)
+	player._update_attack(0.25)
 	expect(is_equal_approx(guard.health, 51.0), "one wrench strike deals exactly 24")
+	player.set_physics_process(true)
 	await wait_seconds(0.30)
 	expect(is_equal_approx(guard.health, 51.0), "same strike is deduplicated across physics frames")
 	guard.position = Vector3(0.0, 0.0, 1.5)
