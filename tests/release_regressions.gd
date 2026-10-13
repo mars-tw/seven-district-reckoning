@@ -17,22 +17,32 @@ func check(condition: bool, name: String) -> void:
 		failures.append(name)
 		push_error("REVIEW_FAIL " + name)
 
-func fresh() -> void:
+func fresh() -> bool:
 	paused = false
 	if is_instance_valid(world):
 		world.free()
 	world = Scene.instantiate()
 	root.add_child(world)
 	current_scene = world
+	var startup_frames := 0
+	while not world.expansion_complete and startup_frames < 30000:
+		await process_frame
+		startup_frames += 1
+	if not world.expansion_complete:
+		check(false, "full_world_ready_for_release_fixture")
+		world.queue_free()
+		return false
 	# The product's _save() normally writes slot 1. Disconnect automatic saves;
 	# this isolated driver only calls AlphaSave with slot 95 explicitly.
 	world.missions.mission_completed.disconnect(world._on_mission_completed)
 	world.missions.chapter_completed.disconnect(world._on_chapter_complete)
 	world.is_test_mode = true
+	return true
 
-func begin() -> void:
-	fresh()
+func begin() -> bool:
+	if not await fresh(): return false
 	world._new_game()
+	return true
 
 func advance_to_practice() -> void:
 	world._use_object("mei")
@@ -61,7 +71,9 @@ func strike(id: String) -> void:
 	await create_timer(0.75).timeout
 
 func _run() -> void:
-	begin()
+	if not await begin():
+		quit(1)
+		return
 	for id: String in ["practice_1", "practice_2", "fake_sign", "equipment_1", "equipment_2", "equipment_3", "record_1", "record_2"]:
 		var object: Node = world.objects[id]
 		object.apply_hit("early:" + id, "review", 100.0)
@@ -74,11 +86,15 @@ func _run() -> void:
 	await strike("practice_2")
 	check(world.missions.mission_index == 1, "actual_player_hits_complete_practice")
 
-	begin()
+	if not await begin():
+		quit(1)
+		return
 	advance_to_practice()
 	var mid_save: Dictionary = world._snapshot()
 	check(Save.save_state(mid_save, 95) == OK, "slot95_mid_mission_save")
-	fresh()
+	if not await fresh():
+		quit(1)
+		return
 	var loaded: Dictionary = Save.load_state(95)
 	world._load(95)
 	check(world.play_started and world.missions.current_objective == 3, "fresh_scene_load_mid_MAIN001")
@@ -105,7 +121,9 @@ func _run() -> void:
 	world._retry()
 	check(world.player.mounted_vehicle == null and not world.bicycle.occupied and not world.car.occupied, "retry_releases_checkpoint_vehicle_occupancy")
 
-	begin()
+	if not await begin():
+		quit(1)
+		return
 	world.player.grant_weapon("pulse")
 	world.player.pulse_energy = 3
 	world._use_object("pulse_pickup")
@@ -141,10 +159,18 @@ func _run() -> void:
 	var old_scene_id: int = world.get_instance_id()
 	world.is_test_mode = false
 	world._new_game()
-	await process_frame
-	await process_frame
-	await process_frame
-	world = current_scene
+	var reload_frames := 0
+	while reload_frames < 30000:
+		var candidate: Node = current_scene
+		if is_instance_valid(candidate) and candidate.get_instance_id() != old_scene_id and bool(candidate.get("expansion_complete")):
+			world = candidate as Node3D
+			break
+		await process_frame
+		reload_frames += 1
+	if not is_instance_valid(world) or world.get_instance_id() == old_scene_id or not world.expansion_complete:
+		check(false, "reloaded_world_reaches_full_ready")
+		quit(1)
+		return
 	check(is_instance_valid(world) and world.get_instance_id() != old_scene_id and world.play_started and world.missions.mission_index == 0 and not world.objects["wrench"].collected, "normal_new_game_reloads_and_autostarts_scene")
 	print("RELEASE_REVIEW_RESULT ", JSON.stringify({"passed": passed, "failures": failures, "slot": 95, "human_playthrough": false}))
 	quit(1 if not failures.is_empty() else 0)

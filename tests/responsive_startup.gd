@@ -30,15 +30,24 @@ func _run() -> void:
 	check(not await canceled.checkpoint(),"canceled_future_batch_rejected")
 	var game: Node = scene.instantiate()
 	root.add_child(game)
-	var frames := 0
-	while not game.startup_complete and frames < 15000:
+	var core_frames := 0
+	while not game.startup_complete and core_frames < 15000:
 		await process_frame
-		frames += 1
-	check(game.startup_complete,"full_original_world_reaches_ready")
+		core_frames += 1
+	check(game.startup_complete and not game.expansion_complete,"core_reaches_title_before_full_outer_world")
 	if game.startup_complete:
-		check(frames > 8,"batches_progress_across_real_process_frames")
-		check(paused,"original_title_still_pauses_gameplay")
+		check(core_frames > 8,"core_batches_progress_across_real_process_frames")
+		check(paused and game.hud.get_menu_mode()=="title","title_still_pauses_gameplay")
 		check(not game._startup_progress.first_frame_drawn,"headless_never_claims_rendered_first_frame")
+		game.is_test_mode = true
+		game._new_game()
+		check(game.play_started and not paused,"original_start_works_before_outer_world_finishes")
+	var full_frames := 0
+	while not game.expansion_complete and full_frames < 30000:
+		await process_frame
+		full_frames += 1
+	check(game.expansion_complete,"full_original_world_reaches_ready")
+	if game.expansion_complete:
 		var expansion: Dictionary = game.taiwan_expansion.get_counts()
 		var district: Dictionary = game.city_life.get_counts()
 		check(expansion["regions"]==8 and expansion["stations"]==32,"all_expansion_regions_stations")
@@ -60,10 +69,9 @@ func _run() -> void:
 		check(Engine.get_process_frames()==frame_before,"runtime_profile_hour_do_not_spawn_frame_tasks")
 		check(await game._startup_progress.checkpoint(),"completed_scheduler_checkpoint_is_immediate")
 		check(Engine.get_process_frames()==frame_before,"completed_scheduler_never_yields_or_touches_freed_label")
-		game.is_test_mode = true
 		game._new_game()
-		check(game.play_started and not paused,"original_new_game_enabled_only_after_full_ready")
+		check(game.play_started and not paused,"new_game_resets_after_full_ready")
 	game.queue_free()
 	await process_frame
-	print("STARTUP_CANDIDATE_TEST "+JSON.stringify({"failures":failures,"fullBuildFrames":frames,"headless":true,"nativeRenderVerified":false}))
+	print("STARTUP_CANDIDATE_TEST "+JSON.stringify({"failures":failures,"coreFrames":core_frames,"fullBuildFrames":full_frames,"headless":true,"nativeRenderVerified":false}))
 	quit(0 if failures.is_empty() else 1)

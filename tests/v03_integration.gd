@@ -194,6 +194,13 @@ func _check_production_world() -> void:
 	world.set_script(ReviewRoot)
 	root.add_child(world)
 	current_scene = world
+	var startup_frames := 0
+	while not world.expansion_complete and startup_frames < 30000:
+		await process_frame
+		startup_frames += 1
+	if not world.expansion_complete:
+		check(false, "full_world_ready_for_v03_fixture")
+		return
 	world.is_test_mode = true
 	world.hud.show_settings()
 	await process_frame

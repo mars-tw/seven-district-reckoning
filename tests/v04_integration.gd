@@ -48,6 +48,15 @@ func _run() -> void:
 	world.set_script(ReviewRoot)
 	root.add_child(world)
 	current_scene = world
+	var startup_frames := 0
+	while not world.expansion_complete and startup_frames < 30000:
+		await process_frame
+		startup_frames += 1
+	if not world.expansion_complete:
+		check(false, "full_world_ready_for_v04_fixture")
+		world.queue_free()
+		quit(1)
+		return
 	world.is_test_mode = true
 	world._new_game()
 	world.set_process(false)

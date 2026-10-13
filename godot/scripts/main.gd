@@ -75,6 +75,8 @@ var _device_settings: Dictionary = {}
 const WORLD_RADIUS: float = 400.0
 const StartupScript = preload("res://scripts/systems/startup_progress.gd")
 var startup_complete := false
+var expansion_complete := false
+var _title_world_hidden := false
 var _startup_started := false
 var _startup_progress: RefCounted
 
@@ -114,20 +116,25 @@ func _ready() -> void:
 	add_child(taiwan_activities)
 	if not await _startup_progress.checkpoint(0,true): return
 	_startup_progress.phase("actors")
+	if not await _startup_progress.checkpoint(0,true): return
 	player = PlayerScript.new()
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 	player.name = "Player"
 	add_child(player)
 	player.position = Vector3(-56, 0.2, 52)
+	if not await _startup_progress.checkpoint(1,true): return
 	player.setup_visual(_model("hero"))
+	if not await _startup_progress.checkpoint(1,true): return
 	player.interaction_requested.connect(_interact)
 	player.mount_requested.connect(_mount)
 	player.health_changed.connect(_on_health)
 	player.attacked.connect(_on_attack)
 	_create_vehicles()
+	if not await _startup_progress.checkpoint(1,true): return
 	_create_guards()
+	if not await _startup_progress.checkpoint(1,true): return
 	_create_rescues()
-	if not await _startup_progress.checkpoint(0,true): return
+	if not await _startup_progress.checkpoint(1,true): return
 	_startup_progress.phase("district_life")
 	city_life = CityScript.bootstrap(self)
 	city_life.process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -138,23 +145,14 @@ func _ready() -> void:
 	add_child(content_world)
 	content_world.setup(self, optional, player)
 	if not await _startup_progress.checkpoint(0,true): return
-	_startup_progress.phase("urban_detail")
-	urban_detail = await UrbanScript.bootstrap(self)
-	if not _startup_progress.running() or not is_instance_valid(urban_detail): return
-	if not await urban_detail.setup(player): return
-	if not _startup_progress.running(): return
-	if not await _startup_progress.checkpoint(0,true): return
 	_startup_progress.phase("contacts")
 	_create_contact_people()
 	if not await _startup_progress.checkpoint(0,true): return
-	_startup_progress.phase("expansion")
-	taiwan_expansion = await TaiwanExpansionScript.bootstrap(self,player)
-	if not _startup_progress.running() or not is_instance_valid(taiwan_expansion): return
-	if not await _startup_progress.checkpoint(0,true): return
-	_startup_progress.phase("taiwan_world")
-	taiwan_world = TaiwanWorldScript.new()
-	add_child(taiwan_world)
-	taiwan_world.setup(self,taiwan_life,player)
+	_startup_progress.phase("expansion_terrain")
+	taiwan_expansion = TaiwanExpansionScript.new()
+	taiwan_expansion.name = "TaiwanExpansion"
+	add_child(taiwan_expansion)
+	if not await taiwan_expansion.prepare_world(player): return
 	if not await _startup_progress.checkpoint(0,true): return
 	_startup_progress.phase("bindings")
 	hud = HUDScript.new()
@@ -170,15 +168,14 @@ func _ready() -> void:
 	hud.device_selected.connect(_select_device)
 	var all_bounds: Array[AABB] = base_obstacle_bounds.duplicate()
 	all_bounds.append_array(city_life.get_obstacle_bounds())
-	all_bounds.append_array(taiwan_expansion.get_obstacle_bounds())
 	var all_regions: Array[Dictionary] = city_life.get_districts()
-	all_regions.append_array(taiwan_expansion.get_regions())
 	var map_points: Dictionary = {"car":Vector2(car.position.x,car.position.z),"bicycle":Vector2(bicycle.position.x,bicycle.position.z),"mei_shop":Vector2(-58,57),"safe_point":Vector2(-46,42)}
 	for id: String in taiwan_life.stations:
 		var p: Array = taiwan_life.stations[id]["position"]
 		map_points[id] = Vector2(float(p[0]),float(p[1]))
 	hud.setup_district_map(all_regions,all_bounds,map_points)
-	hud.set_expanded_map(WORLD_RADIUS,taiwan_expansion.get_navigation_roads())
+	var empty_roads: Array[Dictionary] = []
+	hud.set_expanded_map(WORLD_RADIUS,empty_roads)
 	hud.supplies_requested.connect(_open_supplies)
 	hud.purchase_requested.connect(_purchase_supply)
 	hud.waypoint_selected.connect(_set_waypoint)
@@ -220,18 +217,68 @@ func _ready() -> void:
 	device_profiles.profile_changed.connect(_device_changed)
 	_initialize_device()
 	_refresh_system_stats()
-	_apply_preferences()
+	_apply_preferences(false)
 	if not _startup_progress.running(): return
-	if not _startup_progress.finish(): return
+	if not _startup_progress.release_to_play(): return
 	startup_complete = true
 	hud.show_title()
+	# The title is a CanvasLayer. Suspending its 3D backdrop on mobile keeps
+	# the Start button responsive while the outer neighbourhood is constructed.
+	if OS.has_feature("mobile"): _set_title_world_hidden(true)
+	print("SEVEN_TITLE "+JSON.stringify({"menu":hud.get_menu_mode(),"world_render_suspended":_title_world_hidden,"loading_layer_visible":is_instance_valid(_startup_progress._layer) and _startup_progress._layer.visible}))
 	set_process(true)
 	set_physics_process(true)
 	set_process_unhandled_input(true)
 	_setup_web_bridge()
+	# The title is drawn and its Start button is live before outer kits are baked.
+	# This coroutine keeps the original expansion order and continues through pause.
+	call_deferred("_complete_expansion_background")
 	if Engine.has_meta("seven_district_autostart"):
 		Engine.remove_meta("seven_district_autostart")
 		_new_game()
+
+func _complete_expansion_background() -> void:
+	if not await _startup_progress.playable_frame(): return
+	_startup_progress.phase("urban_detail")
+	urban_detail = await UrbanScript.bootstrap(self)
+	if not _startup_progress.running() or not is_instance_valid(urban_detail): return
+	if not await urban_detail.setup(player): return
+	if not _startup_progress.running(): return
+	_apply_urban_material_quality()
+	# UrbanDetail arrived after the first device-profile pass. Apply the active
+	# visibility/shadow budget before building another streamed district.
+	device_profiles.apply_scene(self,player)
+	district_sun.shadow_enabled = street_state.quality=="quality" and bool(_device_settings.get("shadows",false))
+	_startup_progress.phase("expansion")
+	taiwan_expansion.seed_streaming_profile(_device_settings)
+	if not await taiwan_expansion.build_world():
+		if _startup_progress.running(): push_error("TaiwanExpansion did not complete; core remains playable")
+		return
+	if not _startup_progress.running(): return
+	_startup_progress.phase("taiwan_world")
+	taiwan_world = TaiwanWorldScript.new()
+	add_child(taiwan_world)
+	taiwan_world.setup(self,taiwan_life,player)
+	if not await _startup_progress.checkpoint(0,true): return
+	var all_bounds: Array[AABB] = base_obstacle_bounds.duplicate()
+	all_bounds.append_array(city_life.get_obstacle_bounds())
+	all_bounds.append_array(taiwan_expansion.get_obstacle_bounds())
+	var all_regions: Array[Dictionary] = city_life.get_districts()
+	all_regions.append_array(taiwan_expansion.get_regions())
+	var map_points: Dictionary = {"car":Vector2(car.position.x,car.position.z),"bicycle":Vector2(bicycle.position.x,bicycle.position.z),"mei_shop":Vector2(-58,57),"safe_point":Vector2(-46,42)}
+	for id: String in taiwan_life.stations:
+		var p: Array = taiwan_life.stations[id]["position"]
+		map_points[id] = Vector2(float(p[0]),float(p[1]))
+	hud.setup_district_map(all_regions,all_bounds,map_points)
+	hud.set_expanded_map(WORLD_RADIUS,taiwan_expansion.get_navigation_roads())
+	if not _device_settings.is_empty():
+		taiwan_world.apply_profile(_device_settings)
+		taiwan_expansion.apply_profile(_device_settings)
+		device_profiles.apply_scene(self,player)
+		district_sun.shadow_enabled = street_state.quality=="quality" and bool(_device_settings.get("shadows",false))
+	taiwan_expansion.set_hour(street_state.hour)
+	if not _startup_progress.running() or not _startup_progress.finish(): return
+	expansion_complete = true
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--capture="):
 			_capture(arg.trim_prefix("--capture="))
@@ -296,6 +343,16 @@ func _process(delta: float) -> void:
 	if not play_started or get_tree().paused:
 		last_frame_time_us = 0
 		return
+	if not expansion_complete and (absf(player.global_position.x)>145 or absf(player.global_position.z)>145):
+		# Outer scenery/colliders are committed together, district by district.
+		# Keep the player on known core ground until that full world is ready.
+		if player.mounted_vehicle: player.mounted_vehicle.reset()
+		var boundary_position := _safe_saved_position(Vector3(clampf(player.global_position.x,-130,130),.2,clampf(player.global_position.z,-130,130)))
+		if absf(boundary_position.x)>145 or absf(boundary_position.z)>145:
+			boundary_position = Vector3(-56,.2,52)
+		player.global_position = boundary_position
+		player.velocity = Vector3.ZERO
+		_notice("周邊街區還在準備，先在這一區行動。")
 	seconds_played += delta
 	taiwan_life.advance_time(delta)
 	street_state.advance(delta)
@@ -657,6 +714,7 @@ func _new_game() -> void:
 		Engine.set_meta("seven_district_preferences",street_state.to_dict())
 		get_tree().reload_current_scene()
 		return
+	_set_title_world_hidden(false)
 	_resume()
 	play_started = true
 	seconds_played = 0
@@ -693,6 +751,10 @@ func _resume() -> void:
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if OS.has_feature("web") or (touch_controls and touch_controls.enabled) else Input.MOUSE_MODE_CAPTURED
 
+func _set_title_world_hidden(value: bool) -> void:
+	_title_world_hidden = value
+	visible = not value
+
 func _initialize_device() -> void:
 	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
 	var touch: bool = DisplayServer.is_touchscreen_available()
@@ -710,6 +772,9 @@ func _initialize_device() -> void:
 		var dpi: float = maxf(160,DisplayServer.screen_get_dpi())
 		viewport_size = Vector2(DisplayServer.screen_get_size())*(160.0/dpi)
 		hint = "phone" if minf(viewport_size.x,viewport_size.y)<600 else "tablet"
+		# Keep native UI coordinates in density-independent units, as the Web
+		# profiles already do. Canvas-items stretching preserves the 3D aspect.
+		get_window().content_scale_size = Vector2i(viewport_size)
 	device_profiles.initialize(viewport_size,touch,hint,not is_test_mode)
 	if requested in ["phone","tablet","desktop"]: device_profiles.set_profile(requested,not is_test_mode)
 	_device_changed(device_profiles.get_settings())
@@ -719,16 +784,25 @@ func _select_device(value: String) -> void:
 
 func _device_changed(settings: Dictionary) -> void:
 	_device_settings = settings.duplicate(true)
+	if not expansion_complete and is_instance_valid(taiwan_expansion):
+		taiwan_expansion.seed_streaming_profile(settings)
 	if not player or not hud or not touch_controls: return
 	touch_controls.set_profile(settings)
 	touch_controls.set_enabled(str(settings.get("input_mode","keyboard_mouse"))=="touch")
 	hud.set_device_profile(settings)
-	taiwan_world.apply_profile(settings)
-	taiwan_expansion.apply_profile(settings)
+	if expansion_complete:
+		taiwan_world.apply_profile(settings)
+		taiwan_expansion.apply_profile(settings)
 	device_profiles.apply_scene(self,player)
+	district_sun.shadow_enabled = street_state.quality=="quality" and bool(settings.get("shadows",false))
 	player.mouse_sensitivity = .003*float(settings.get("sensitivity",1))
 	if settings.has("muted"): AudioServer.set_bus_mute(0,bool(settings["muted"]))
 	_emit_web_state()
+
+func _outer_world_loading_notice() -> void:
+	var message := "周邊街區還在準備，稍後就能使用這項功能。"
+	_notice(message)
+	if hud: hud.show_message(message)
 
 func _open_life() -> void:
 	if play_started: hud.show_life_phone()
@@ -741,6 +815,9 @@ func _open_station_activity(id: String) -> void:
 
 func _start_activity(id: String) -> void:
 	if not play_started: return
+	if not expansion_complete:
+		_outer_world_loading_notice()
+		return
 	taiwan_activities.set_paused(false)
 	taiwan_activities.start(id,player.global_position,_activity_vehicle())
 	activity_panel.show_activity(id)
@@ -770,6 +847,9 @@ func _resume_activity() -> void:
 
 func _start_life_task(id: String) -> void:
 	if not play_started: return
+	if not expansion_complete:
+		_outer_world_loading_notice()
+		return
 	if taiwan_life.start_task(id):
 		_resume()
 	else: hud.show_life_phone()
@@ -871,6 +951,9 @@ func _optional_rewarded(reward: Dictionary) -> void:
 
 func _set_waypoint(point: Vector2) -> void:
 	if not play_started or not point.is_finite(): return
+	if not expansion_complete and (absf(point.x)>=150 or absf(point.y)>=150):
+		_outer_world_loading_notice()
+		return
 	var desired := Vector3(point.x,0.12,point.y)
 	var safe_position: Vector3 = content_world._safe_location(desired) if absf(point.x)<150 and absf(point.y)<150 else _safe_expansion_point(desired)
 	if street_state.set_waypoint(Vector2(safe_position.x,safe_position.z)):
@@ -917,7 +1000,7 @@ func _setting_changed(key: String, value: String) -> void:
 			if value in ["10.0","17.5","21.0"]: street_state.hour = float(value)
 	_apply_preferences()
 
-func _apply_preferences() -> void:
+func _apply_preferences(apply_device_scene: bool = true) -> void:
 	if not player or not district_sun: return
 	player.mouse_sensitivity = 0.003 * street_state.sensitivity
 	player.incoming_damage_multiplier = 0.65 if street_state.difficulty=="relaxed" else 1.0
@@ -925,25 +1008,28 @@ func _apply_preferences() -> void:
 		guard.detection_range = 11.0 if street_state.difficulty=="relaxed" else 14.0
 		guard.chase_speed = 2.5 if street_state.difficulty=="relaxed" else 3.2
 	district_sun.shadow_enabled = street_state.quality=="quality" and not ("--low" in OS.get_cmdline_user_args())
-	if urban_detail:
-		for material: StandardMaterial3D in urban_detail._materials.values():
-			material.normal_enabled = street_state.quality!="performance" and material.normal_texture!=null
-			material.ao_enabled = street_state.quality!="performance" and material.ao_texture!=null
+	_apply_urban_material_quality()
 	AudioServer.set_bus_mute(0,street_state.muted)
 	if device_profiles:
 		var settings: Dictionary = device_profiles.get_settings()
 		player.mouse_sensitivity = .003*float(settings.get("sensitivity",1))
 		AudioServer.set_bus_mute(0,bool(settings.get("muted",false)))
-		device_profiles.apply_scene(self,player)
+		if apply_device_scene: device_profiles.apply_scene(self,player)
 		district_sun.shadow_enabled = street_state.quality=="quality" and bool(settings.get("shadows",false))
 	_update_daylight(1.0)
+
+func _apply_urban_material_quality() -> void:
+	if not urban_detail: return
+	for material: StandardMaterial3D in urban_detail._materials.values():
+		material.normal_enabled = street_state.quality!="performance" and material.normal_texture!=null
+		material.ao_enabled = street_state.quality!="performance" and material.ao_texture!=null
 
 func _update_daylight(delta: float) -> void:
 	_light_clock += delta
 	if _light_clock < 0.2 or not district_environment: return
 	_light_clock = 0
 	var daylight: float = street_state.daylight()
-	if taiwan_expansion: taiwan_expansion.set_hour(street_state.hour)
+	if expansion_complete: taiwan_expansion.set_hour(street_state.hour)
 	var dusk: float = 1.0-clampf(absf(street_state.hour-17.5)/1.8,0,1)
 	var env: Environment = district_environment.environment
 	district_sun.rotation_degrees = Vector3(-(street_state.hour-6.0)*15.0,-32,0)
@@ -1301,12 +1387,18 @@ func _save(show_notice: bool = true) -> void:
 	if not startup_complete: return
 	if not play_started:
 		return
+	if not expansion_complete and (absf(player.position.x)>=150 or absf(player.position.z)>=150):
+		_outer_world_loading_notice()
+		return
 	var error: int = SaveScript.save_state(_snapshot(), 98 if is_test_mode else 1)
 	if show_notice:
 		_notice("進度已儲存" if error == OK else "儲存失敗，舊檔仍保留")
 
 func _load(slot: int = 1) -> void:
 	if not startup_complete: return
+	if not expansion_complete:
+		_outer_world_loading_notice()
+		return
 	var data: Dictionary = SaveScript.load_state(slot)
 	if data.is_empty():
 		_notice("尚無可用存檔")
@@ -1328,6 +1420,7 @@ func _load(slot: int = 1) -> void:
 			reset_objects["practice_1"] = {"health": 35.0, "broken": false, "collected": false}
 			reset_objects["practice_2"] = {"health": 35.0, "broken": false, "collected": false}
 	play_started = true
+	_set_title_world_hidden(false)
 	_resume()
 	_notice("已讀取進度；原位置新增店面，已移到附近人行空間" if _relocated_save else "已讀取進度")
 

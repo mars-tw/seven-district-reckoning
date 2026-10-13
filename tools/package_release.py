@@ -147,13 +147,13 @@ def main():
     runtime_version=runtime.stdout.strip()
     if runtime.returncode or not runtime_version.startswith('4.7.2.stable.official.'):
         raise ValueError('The exported runtime is not official Godot 4.7.2 stable')
-    run=[str(executable),'--headless','--quiet','--language','en','--quit-after','5']
+    run=[str(executable),'--headless','--language','en','--quit-after','900']
     startup=subprocess.run(run,cwd=DIRECTORY,capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=90,
                            creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
     output=startup.stdout+startup.stderr
     local=ROOT/'qa/local'; local.mkdir(parents=True,exist_ok=True)
     (local/'v04-windows-startup.log').write_text(output,encoding='utf-8')
-    if startup.returncode or re.search(r'SCRIPT ERROR:|ERROR:|Failed loading resource|Parse Error',output,re.I):
+    if startup.returncode or re.search(r'SCRIPT ERROR:|ERROR:|Failed loading resource|Parse Error',output,re.I) or 'SEVEN_TITLE ' not in output:
         raise ValueError('Quiet original-title startup failed; inspect the ignored startup log')
     sources=notice_files()
     paths=['SevenDistrict.exe']
@@ -189,10 +189,10 @@ def main():
     paths+=['PLAY.txt','runtime-notices.txt']
     spec=importlib.util.spec_from_file_location('release_source_audit',ROOT/'tools/test_game.py')
     source_audit=importlib.util.module_from_spec(spec); spec.loader.exec_module(source_audit)
-    report={'version':version,'status':'VERIFIED','scope':'native x64 embedded-pack integrity, quiet 5-frame original-title headless startup and redistribution package; no rendering/full-playthrough claim',
+    report={'version':version,'status':'VERIFIED','scope':'native x64 embedded-pack integrity, bounded original-title headless startup and redistribution package; no rendering/full-playthrough claim',
             'verified_at':datetime.now(timezone.utc).isoformat(),'exe_bytes':len(data),'exe_sha256':digest(data),**pe,**versions,'runtime_version':runtime_version,'pack':pack,
             'source_fingerprint':source_audit.source_fingerprint(ROOT/'godot'),
-            'excluded_checks_and_source_font':True,'startup':{'frames':5,'headless':True,'returncode':startup.returncode,'output_bytes':len(output.encode()),'custom_scene_or_script':False,'play_or_save_command':False},
+             'excluded_checks_and_source_font':True,'startup':{'frames':900,'title_marker_verified':True,'headless':True,'returncode':startup.returncode,'output_bytes':len(output.encode()),'custom_scene_or_script':False,'play_or_save_command':False},
             'runtime_files':[name for name in paths if name.lower().endswith(('.exe','.dll'))],'license_files':sorted(sources),'pack_reader_reference':PACK_READER}
     archive=ROOT/'deliverables'/f'SevenDistrict-{version}-Windows-x64.zip'
     folder=f'SevenDistrict-{version}-Windows-x64'

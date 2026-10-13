@@ -12,6 +12,7 @@ var player: Node3D = null
 var _startup_progress: RefCounted
 var _temporary_scene_owner: Node3D
 var _built := false
+var _primed := false
 var _regions: Array[Dictionary] = []
 var _stations: Dictionary = {}
 var _roads: Array[Dictionary] = []
@@ -22,7 +23,9 @@ var _mesh_bounds: Dictionary = {}
 var _asset_manifest: Dictionary = {}
 var _asset_groups: Dictionary = {}
 var _surface_groups: Dictionary = {}
+var _committed_groups: Dictionary = {}
 var _sector_bodies: Dictionary = {}
+var _pending_colliders: Array[Dictionary] = []
 var _draws: Array[Dictionary] = []
 var _materials: Dictionary = {}
 var _night_materials: Array[StandardMaterial3D] = []
@@ -30,6 +33,7 @@ var _labels: Array[Label3D] = []
 var _font: Font = null
 var _view_distance := 440.0
 var _prop_distance := 180.0
+var _world_shadows := false
 var _hour := 12.0
 var citizens: Array[Dictionary] = []
 var traffic: Array[Dictionary] = []
@@ -51,12 +55,18 @@ static func bootstrap(host: Node3D, optional_player: Node3D = null) -> TaiwanExp
 	return expansion
 
 func setup(optional_player: Node3D = null) -> bool:
+	if not await prepare_world(optional_player): return false
+	return await build_world()
+
+func prepare_world(optional_player: Node3D = null) -> bool:
+	# The full 800 m terrain is ready before the core opens to play. The much
+	# heavier road/kit/actor work can then stream while the core is playable.
 	if is_instance_valid(player) and _attack_callback.is_valid() and player.has_signal("attacked") and player.is_connected("attacked",_attack_callback): player.disconnect("attacked",_attack_callback)
 	player = optional_player
 	_attack_callback = Callable(self,"_on_player_attack")
 	if is_instance_valid(player) and player.has_signal("attacked"): player.connect("attacked",_attack_callback)
 	process_mode = Node.PROCESS_MODE_PAUSABLE
-	if _built: return true
+	if _primed: return true
 	_startup_progress = get_parent().get("_startup_progress")
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA_PATH))
 	if not source is Dictionary:
@@ -76,6 +86,12 @@ func setup(optional_player: Node3D = null) -> bool:
 	_font = load("res://assets/fonts/SevenDistrictSansTC-Regular.otf") as Font
 	await _build_terrain()
 	if not _startup_running(): return false
+	_primed = true
+	return true
+
+func build_world() -> bool:
+	if _built: return true
+	if not _primed or not _startup_running(): return false
 	await _build_roads()
 	if not _startup_running(): return false
 	for region: Dictionary in _regions:
@@ -84,10 +100,14 @@ func setup(optional_player: Node3D = null) -> bool:
 		if not _startup_running(): return false
 	await _build_connecting_frontages()
 	if not _startup_running(): return false
+	# Collect every sector once. Rebuilding an existing MultiMesh after each
+	# district copies all earlier transforms again on a slow native renderer.
+	# Collider bodies are committed only after their corresponding draws exist.
 	await _flush_batches()
 	if not _startup_running(): return false
 	await _create_ambient_actors()
 	if not _startup_running(): return false
+	_committed_groups.clear()
 	_counts["regions"] = _regions.size()
 	_counts["stations"] = _stations.size()
 	_counts["roads"] = _roads.size()
@@ -95,7 +115,7 @@ func setup(optional_player: Node3D = null) -> bool:
 	_counts["citizens"] = citizens.size()
 	_counts["moving_vehicles"] = traffic.size()
 	add_to_group("taiwan_expansion")
-	await apply_profile({"view_distance":_view_distance,"prop_distance":_prop_distance})
+	await apply_profile({"view_distance":_view_distance,"prop_distance":_prop_distance,"shadows":_world_shadows})
 	if not _startup_running(): return false
 	await set_hour(_hour)
 	if not _startup_running(): return false
@@ -117,9 +137,13 @@ func is_walkable(p: Vector3, radius: float = 0.45) -> bool:
 		if obstacle.grow(radius).has_point(Vector3(p.x,obstacle.position.y+minf(.7,obstacle.size.y*.5),p.z)): return false
 	return true
 
-func apply_profile(profile: Dictionary) -> void:
+func seed_streaming_profile(profile: Dictionary) -> void:
 	_view_distance = clampf(float(profile.get("view_distance", profile.get("viewer_distance",profile.get("building_distance",440.0)))),150.0,600.0)
 	_prop_distance = clampf(float(profile.get("prop_distance",profile.get("prop_budget",180.0))),50.0,300.0)
+	_world_shadows = bool(profile.get("world_shadows",profile.get("shadows",false)))
+
+func apply_profile(profile: Dictionary) -> void:
+	seed_streaming_profile(profile)
 	for draw_info: Dictionary in _draws:
 		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		var draw := draw_info["node"] as GeometryInstance3D
@@ -127,7 +151,7 @@ func apply_profile(profile: Dictionary) -> void:
 		# The margin accounts for a sector's corner without showing all 800 m.
 		draw.visibility_range_end = _view_distance if bool(draw_info["large"]) else _prop_distance+50.0
 		draw.visibility_range_end_margin = 20.0
-		draw.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON if bool(draw_info["cast_asset_shadow"]) and bool(profile.get("world_shadows",profile.get("shadows",false))) else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		draw.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON if bool(draw_info["cast_asset_shadow"]) and _world_shadows else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	for label: Label3D in _labels:
 		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		label.visibility_range_end = minf(_prop_distance,140.0)
@@ -459,15 +483,18 @@ func _mesh(key: String) -> ArrayMesh:
 			if _startup_progress != null and not await _startup_progress.checkpoint(): return null
 			var arrays := part.mesh.surface_get_arrays(surface)
 			var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
-			for i: int in vertices.size():
-				if _startup_progress != null and not await _startup_progress.checkpoint(): return null
-				vertices[i] = parent_transform*vertices[i]
+			# Transform packed positions in the engine's native array operation.
+			# Account for every vertex, but yield once per buffer rather than per value.
+			vertices = parent_transform*vertices
+			if _startup_progress != null and not await _startup_progress.checkpoint(vertices.size(),true): return null
 			arrays[Mesh.ARRAY_VERTEX] = vertices
 			var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
 			var normal_basis := parent_transform.basis.inverse().transposed()
+			normals = Transform3D(normal_basis,Vector3.ZERO)*normals
 			for i: int in normals.size():
-				if _startup_progress != null and not await _startup_progress.checkpoint(): return null
-				normals[i] = (normal_basis*normals[i]).normalized()
+				normals[i] = normals[i].normalized()
+				if (i+1)%512==0 and _startup_progress != null and not await _startup_progress.checkpoint(512): return null
+			if normals.size()%512!=0 and _startup_progress != null and not await _startup_progress.checkpoint(normals.size()%512,true): return null
 			arrays[Mesh.ARRAY_NORMAL] = normals
 			# Preserve Godot's imported topology LOD index buffers. Transforming
 			# positions does not change the original vertex/index correspondence.
@@ -478,10 +505,15 @@ func _mesh(key: String) -> ArrayMesh:
 				var bytes: PackedByteArray = lod.get("index_data",PackedByteArray())
 				var stride := 2 if vertices.size()<=65536 else 4
 				var indices := PackedInt32Array()
-				indices.resize(bytes.size()/stride)
-				for index: int in indices.size():
-					if _startup_progress != null and not await _startup_progress.checkpoint(): return null
-					indices[index] = bytes.decode_u16(index*stride) if stride==2 else bytes.decode_u32(index*stride)
+				if stride==4:
+					indices = bytes.to_int32_array()
+					if _startup_progress != null and not await _startup_progress.checkpoint(indices.size(),true): return null
+				else:
+					indices.resize(bytes.size()/stride)
+					for index: int in indices.size():
+						indices[index] = bytes.decode_u16(index*stride)
+						if (index+1)%1024==0 and _startup_progress != null and not await _startup_progress.checkpoint(1024): return null
+					if indices.size()%1024!=0 and _startup_progress != null and not await _startup_progress.checkpoint(indices.size()%1024,true): return null
 				if not indices.is_empty():
 					lods[float(lod["edge_length"])] = indices
 					_counts["lod_levels"] += 1
@@ -499,6 +531,21 @@ func _mesh(key: String) -> ArrayMesh:
 	return merged
 
 func _collision(p: Vector3,size: Vector3,yaw: float = 0.0) -> void:
+	# Keep the physical obstacle paired with its visible batch. During background
+	# construction a player may enter an unfinished region; it must not contain
+	# invisible walls while the corresponding meshes are still being baked.
+	_pending_colliders.append({"position":p,"size":size,"yaw":yaw})
+
+func _commit_pending_colliders() -> void:
+	for spec: Dictionary in _pending_colliders:
+		if _startup_progress != null and not await _startup_progress.checkpoint(): return
+		var p: Vector3 = spec["position"]
+		var size: Vector3 = spec["size"]
+		var yaw: float = spec["yaw"]
+		_commit_collision(p,size,yaw)
+	_pending_colliders.clear()
+
+func _commit_collision(p: Vector3,size: Vector3,yaw: float = 0.0) -> void:
 	var sector := _sector(p)
 	var key := _sector_key(sector)
 	if not _sector_bodies.has(key):
@@ -527,6 +574,12 @@ func _flush_batches() -> void:
 		for key: String in groups:
 			if _startup_progress != null and not await _startup_progress.checkpoint(): return
 			var group: Dictionary = groups[key]
+			var existing := _committed_groups.has(key)
+			if existing:
+				var previous: Dictionary = _committed_groups[key]
+				(previous["transforms"] as Array).append_array(group["transforms"])
+				if bool(previous.get("use_colors",false)): (previous["colors"] as Array).append_array(group["colors"])
+				group = previous
 			var instances := MultiMesh.new()
 			instances.transform_format = MultiMesh.TRANSFORM_3D
 			instances.use_colors = bool(group.get("use_colors",false))
@@ -536,20 +589,27 @@ func _flush_batches() -> void:
 				if _startup_progress != null and not await _startup_progress.checkpoint(): return
 				instances.set_instance_transform(index,group["transforms"][index])
 				if instances.use_colors: instances.set_instance_color(index,group["colors"][index])
-			var draw := MultiMeshInstance3D.new()
-			draw.name = "TaiwanBatch_"+key.replace(":","_")
-			draw.position = _sector_origin(group["sector"])
+			var draw: MultiMeshInstance3D = group["node"] if existing else MultiMeshInstance3D.new()
+			if not existing:
+				draw.name = "TaiwanBatch_"+key.replace(":","_")
+				draw.position = _sector_origin(group["sector"])
 			draw.multimesh = instances
-			if group.has("material"): draw.material_override = group["material"]
-			draw.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-			draw.set_meta("device_world_sector",true)
-			draw.set_meta("device_geometry_kind","terrain" if group.has("material") and bool(group["large"]) else ("landmark" if bool(group["large"]) else "prop"))
-			add_child(draw)
-			_draws.append({"node":draw,"large":group["large"],"sector":group["sector"],"cast_asset_shadow":bool(group["large"]) and group.has("mesh")})
-			_counts["draw_groups"] += 1
-	# Construction-only lists are no longer needed after CPU bounds are stored.
+			if not existing:
+				if group.has("material"): draw.material_override = group["material"]
+				draw.visibility_range_end = _view_distance if bool(group["large"]) else _prop_distance+50.0
+				draw.visibility_range_end_margin = 20.0
+				draw.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON if _world_shadows and bool(group["large"]) and group.has("mesh") else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+				draw.set_meta("device_world_sector",true)
+				draw.set_meta("device_geometry_kind","terrain" if group.has("material") and bool(group["large"]) else ("landmark" if bool(group["large"]) else "prop"))
+				add_child(draw)
+				_draws.append({"node":draw,"large":group["large"],"sector":group["sector"],"cast_asset_shadow":bool(group["large"]) and group.has("mesh")})
+				_counts["draw_groups"] += 1
+			group["node"] = draw
+			_committed_groups[key] = group
+	# Keep transform lists only until the last streamed batch has been committed.
 	_asset_groups.clear()
 	_surface_groups.clear()
+	await _commit_pending_colliders()
 
 func _sign(caption: String,p: Vector3,color: Color,yaw: float = 0.0) -> void:
 	var label := Label3D.new()
@@ -563,6 +623,8 @@ func _sign(caption: String,p: Vector3,color: Color,yaw: float = 0.0) -> void:
 	label.outline_modulate = color.darkened(.62)
 	label.outline_size = 6
 	label.no_depth_test = false
+	label.visibility_range_end = minf(_prop_distance,140.0)
+	label.visibility_range_end_margin = 12.0
 	add_child(label)
 	_labels.append(label)
 

@@ -17,7 +17,11 @@ func check(condition: bool, label: String) -> void:
 func _run() -> void:
 	var host := Node3D.new()
 	root.add_child(host)
-	var detail := Detail.bootstrap(host)
+	var detail := await Detail.bootstrap(host)
+	if not is_instance_valid(detail):
+		check(false, "urban_detail_bootstrap")
+		quit(1)
+		return
 	await process_frame
 	var counts: Dictionary = detail.get_counts()
 	check(counts["surface_instances"] > 250,"instanced_road_surface_details")
@@ -25,7 +29,7 @@ func _run() -> void:
 	check(counts["crossings"] == 12,"twelve_striped_crossings")
 	check(counts["draw_groups"] <= 20,"surface_and_kit_draw_groups_bounded")
 	check(counts["missing_assets"].is_empty(),"no_missing_urban_assets")
-	check(Detail.bootstrap(host)==detail and detail.get_counts()==counts,"bootstrap_idempotent")
+	check(await Detail.bootstrap(host)==detail and detail.get_counts()==counts,"bootstrap_idempotent")
 	check(detail.get_bounds().is_empty(),"zero_new_blocking_bounds")
 	check(detail.process_mode==Node.PROCESS_MODE_PAUSABLE,"pause_contract")
 	var bodies := 0

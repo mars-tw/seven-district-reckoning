@@ -43,7 +43,7 @@ func _run() -> void:
 	collision.shape = core_shape
 	core.add_child(collision)
 	world.add_child(core)
-	expansion = Expansion.bootstrap(world)
+	expansion = await Expansion.bootstrap(world)
 	capsule = CapsuleShape3D.new()
 	capsule.radius = .45
 	capsule.height = 1.72
@@ -57,7 +57,7 @@ func _run() -> void:
 	check(counts["collider_sectors"]<80 and counts["collider_shapes"]>160,"shared_sector_bodies_keep_furniture_physics_bounded")
 	check(counts["lod_levels"]>=20,"actual_imported_index_LODs_preserved_in_combined_kit_meshes")
 	check(counts["roads"]==16,"12_outer_cardinal_roads_and_four_core_spurs")
-	check(Expansion.bootstrap(world)==expansion and expansion.get_counts()==counts,"bootstrap_idempotent")
+	check(await Expansion.bootstrap(world)==expansion and expansion.get_counts()==counts,"bootstrap_idempotent")
 	check(not expansion.is_walkable(Vector3(INF,0,0)) and not expansion.is_walkable(Vector3(400,0,0)) and not expansion.is_walkable(Vector3(0,0,-400)),"invalid_and_outside_world_points_rejected")
 	var stations := expansion.get_station_positions()
 	for region: Dictionary in expansion.get_regions():

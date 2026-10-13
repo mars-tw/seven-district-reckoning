@@ -18,6 +18,15 @@ func _capture() -> void:
 	world.set_script(CaptureRoot)
 	root.add_child(world)
 	current_scene = world
+	var startup_frames := 0
+	while not world.expansion_complete and startup_frames < 30000:
+		await process_frame
+		startup_frames += 1
+	if not world.expansion_complete:
+		push_error("Rendered capture fixture did not reach the full world")
+		world.queue_free()
+		quit(1)
+		return
 	world.is_test_mode = true
 	world._new_game()
 	world.set_process(false)

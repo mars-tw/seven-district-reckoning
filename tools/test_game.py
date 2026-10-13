@@ -155,7 +155,7 @@ def main():
         if not args.import_only:
             selected = set(args.suite) if args.suite else None
             if selected is None or "gameplay_integration" in selected:
-                commands.append(("gameplay_integration", base + ["--quit-after", "900", "--", "--self-test"], "INTEGRATION_PASS "))
+                commands.append(("gameplay_integration", base + ["--quit-after", "30000", "--", "--self-test"], "INTEGRATION_PASS "))
             commands.extend((Path(name).stem, base + ["--script", str(fixtures / name)], marker)
                             for name, marker in SUITES if selected is None or Path(name).stem in selected)
             commands.extend((Path(name).stem, [args.node, str(fixtures / name)], marker)

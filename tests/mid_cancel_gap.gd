@@ -18,7 +18,7 @@ func _run() -> void:
  var frames := 0
  var first_orphan_units := -1
  var reached := false
- while frames<2000 and is_instance_valid(game) and not game.startup_complete:
+ while frames<2000 and is_instance_valid(game) and not game.expansion_complete:
   await process_frame
   frames+=1
   var orphans := int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))
@@ -38,4 +38,4 @@ func _run() -> void:
  var after := int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))
  var result := {"reachedMidExpansionMesh":reached,"frames":frames,"firstOrphanUnits":first_orphan_units,"canceledUnits":canceled_units,"baselineOrphans":baseline,"beforeCancelOrphans":before,"afterCancelOrphans":after,"ownerFreed":not is_instance_valid(game),"runningAfterCancel":progress.running(),"completeAfterCancel":progress.complete,"pauseRestored":not paused,"readyBeforeCancel":complete_before,"midMeshTrigger":"ownedTemporaryChildProgressesAcrossTwoBatches","headlessOnly":true,"nativeRenderingProven":false}
  print("MID_CANCEL_GAP "+JSON.stringify(result))
- quit(0 if reached and after<=baseline and not progress.running() and not progress.complete and not paused else 1)
+ quit(0 if reached and complete_before and after<=baseline and not progress.running() and not progress.complete and not paused else 1)

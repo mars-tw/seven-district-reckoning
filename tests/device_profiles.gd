@@ -38,6 +38,13 @@ func _button(caption: String) -> Button:
 		if (button as Button).text == caption and (button as Button).is_visible_in_tree(): return button
 	return null
 
+func _await_touch_release(action: String) -> void:
+	# TouchControls holds quick taps by real milliseconds; SceneTree timers use
+	# engine delta and can expire first when headless frames run quickly.
+	var deadline_ms := maxi(Time.get_ticks_msec(),int(touches.minimum_until.get(action,0)))+250
+	while Input.is_action_pressed(action) and Time.get_ticks_msec() <= deadline_ms:
+		await process_frame
+
 func run() -> void:
 	for action: String in ["move_left","move_right","move_forward","move_back","sprint","jump","attack","interact","mount","cycle_weapon","brake","reset_vehicle"]:
 		if not InputMap.has_action(action): InputMap.add_action(action)
@@ -217,7 +224,7 @@ func _check_multitouch() -> void:
 	_touch(11,jump.get_global_rect().get_center(),true)
 	check(Input.is_action_pressed("jump") and Input.is_action_pressed("brake") and touches.joystick_index==3,"third_finger_can_brake_while_joystick_and_camera_are_active")
 	_touch(11,jump.get_global_rect().get_center(),false)
-	await create_timer(.16).timeout
+	await _await_touch_release("jump")
 	check(not Input.is_action_pressed("jump") and not Input.is_action_pressed("brake") and not touches.joystick_vector.is_zero_approx(),"brake_release_does_not_cancel_other_finger")
 	_touch(3,Vector2(700,250),false,true)
 	check(touches.joystick_index==-1 and not Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_forward"),"OS_touch_cancel_releases_owned_joystick")
@@ -228,7 +235,7 @@ func _check_multitouch() -> void:
 	await physics_frame
 	await physics_frame
 	check(interactions==before+1,"indexed_quick_tap_reaches_real_player_interact_once")
-	await create_timer(.16).timeout
+	await _await_touch_release("interact")
 	check(not Input.is_action_pressed("interact"),"quick_tap_minimum_window_expires")
 	var sprint := _button("連跑")
 	_touch(4,sprint.get_global_rect().get_center(),true)
@@ -247,7 +254,7 @@ func _check_multitouch() -> void:
 	_touch(4,held_sprint.get_global_rect().get_center(),true)
 	check(Input.is_action_pressed("sprint") and not touches.sprint_toggle,"phone_can_choose_hold_sprint_with_independent_finger")
 	_touch(4,held_sprint.get_global_rect().get_center(),false)
-	await create_timer(.16).timeout
+	await _await_touch_release("sprint")
 	check(not Input.is_action_pressed("sprint"),"hold_sprint_releases_without_toggle")
 	var jobs_button := _button("配送")
 	_touch(5,jobs_button.get_global_rect().get_center(),true)

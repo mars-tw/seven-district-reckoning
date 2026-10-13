@@ -20,12 +20,20 @@ func _run() -> void:
 	var world: Node3D = Main.instantiate()
 	root.add_child(world)
 	current_scene = world
+	var startup_frames := 0
+	while not world.expansion_complete and startup_frames < 30000:
+		await process_frame
+		startup_frames += 1
+	if not world.expansion_complete:
+		push_error("District life fixture did not reach the full world")
+		world.queue_free()
+		quit(1)
+		return
 	world.set("is_test_mode", true)
 	world.call("_new_game")
 	paused = false
 	var player: CharacterBody3D = world.get("player") as CharacterBody3D
 	var life: DistrictLife = Life.bootstrap(world)
-	life.setup(player)
 	await physics_frame
 	await physics_frame
 	var counts: Dictionary = life.get_counts()

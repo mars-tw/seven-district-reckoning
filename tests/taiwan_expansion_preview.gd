@@ -28,8 +28,12 @@ func _render() -> void:
 	sun.light_color = Color(1.0,.86,.69)
 	sun.shadow_enabled = true
 	world.add_child(sun)
-	var expansion := Expansion.bootstrap(world)
-	expansion.apply_profile({"view_distance":440,"prop_distance":180,"shadows":true})
+	var expansion := await Expansion.bootstrap(world)
+	if not is_instance_valid(expansion):
+		push_error("Taiwan expansion preview could not build the world")
+		quit(1)
+		return
+	await expansion.apply_profile({"view_distance":440,"prop_distance":180,"shadows":true})
 	camera = Camera3D.new()
 	camera.fov = 62
 	camera.far = 550
@@ -47,7 +51,7 @@ func _render() -> void:
 	for view: Dictionary in views:
 		camera.position = view["camera"]
 		camera.look_at(view["target"])
-		expansion.set_hour(20 if str(view["id"]).contains("night") else 12)
+		await expansion.set_hour(20 if str(view["id"]).contains("night") else 12)
 		for index: int in 8: await process_frame
 		await RenderingServer.frame_post_draw
 		var image := root.get_texture().get_image()

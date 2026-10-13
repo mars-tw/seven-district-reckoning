@@ -33,6 +33,9 @@ var _hud: Control
 var _overlay: Control
 var _modal_box: VBoxContainer
 var _modal_scroll: ScrollContainer
+var _modal_content: VBoxContainer
+var _title_footer: HBoxContainer
+var _title_start_button: Button
 var _mission_label: Label
 var _objective_label: Label
 var _status_label: Label
@@ -284,14 +287,26 @@ func _build_ui() -> void:
 	for side: String in ["left", "right", "top", "bottom"]:
 		modal_margin.add_theme_constant_override("margin_" + side, 20)
 	modal_panel.add_child(modal_margin)
+	_modal_content = VBoxContainer.new()
+	_modal_content.add_theme_constant_override("separation", 8)
+	_modal_content.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	modal_margin.add_child(_modal_content)
 	_modal_scroll = ScrollContainer.new()
 	_modal_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_modal_scroll.follow_focus = true
 	_modal_scroll.custom_minimum_size = Vector2(660, 400)
-	modal_margin.add_child(_modal_scroll)
+	_modal_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_modal_content.add_child(_modal_scroll)
 	_modal_box = VBoxContainer.new()
 	_modal_box.add_theme_constant_override("separation", 12)
 	_modal_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_modal_scroll.add_child(_modal_box)
+	_title_footer = HBoxContainer.new()
+	_title_footer.visible = false
+	_title_footer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_modal_content.add_child(_title_footer)
+	_title_start_button = _button("開始新遊戲",func() -> void: hide_menus(); new_game_requested.emit(),_title_footer)
+	_title_start_button.custom_minimum_size.y = 56
 	_overlay.hide()
 	get_viewport().size_changed.connect(_resize_modal)
 	_resize_modal()
@@ -306,7 +321,8 @@ func _resize_modal() -> void:
 		_modal_outer.add_theme_constant_override("margin_"+side,8 if phone_layout else 24)
 		_modal_margin.add_theme_constant_override("margin_"+side,12 if phone_layout else 20)
 	var map_layout: bool = _mode=="map" and screen.y>=350
-	_modal_scroll.custom_minimum_size.y = clampf(screen.y - (130.0 if map_layout else 150.0),70.0,650.0 if map_layout else 460.0)
+	var title_layout: bool = _mode=="title"
+	_modal_scroll.custom_minimum_size.y = clampf(screen.y - (220.0 if title_layout else 130.0 if map_layout else 150.0),80.0,390.0 if title_layout else 650.0 if map_layout else 460.0)
 	_modal_scroll.custom_minimum_size.x = clampf(screen.x - 132.0, 180.0, 660.0)
 	_modal_panel.custom_minimum_size.x = clampf(screen.x - 64.0, 230.0, 700.0)
 	if device_profile in ["tablet","desktop"] and _mode in ["life","life_station"]:
@@ -389,6 +405,7 @@ func _open(mode: String, heading: String, subtitle: String) -> void:
 	if _overlay == null:
 		return
 	_mode = mode
+	_title_footer.visible = mode=="title"
 	_resize_modal()
 	for child: Node in _modal_box.get_children():
 		_modal_box.remove_child(child)
@@ -425,11 +442,10 @@ func show_title() -> void:
 	_open("title", "七期：斷鏈行動", "Alpha 0.4｜台灣街區、人物故事、生活配送與文化活動。")
 	_modal_box.add_child(_label("阿遠失去了存款。從美晴車店借一把扳手，沿著留下的地址，去找玻璃後面的人。", 19))
 	_modal_box.add_child(_label("所有人物、公司與地點均為虛構。這個版本只提供第一章切片，沒有完整戰役結局。", 16, MUTED))
-	_button("開始新遊戲", func() -> void: hide_menus(); new_game_requested.emit())
 	_button("讀取存檔", func() -> void: load_requested.emit())
 	_button("畫面與操作設定",show_settings)
 	_button("離開遊戲", func() -> void: quit_requested.emit())
-	_focus_first_button()
+	_title_start_button.grab_focus()
 
 
 func show_pause() -> void:
