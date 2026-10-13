@@ -49,6 +49,19 @@ func _set_size(value: Vector2i) -> void:
 func _mission_rect() -> Rect2:
 	return (hud._mission_padding.get_parent() as Control).get_global_rect()
 
+func _check_mobile_clearance(size: Vector2i) -> void:
+	var mission := _mission_rect()
+	var primary := (hud._mission_grid.get_child(0) as Control).get_global_rect()
+	var details := (hud._mission_grid.get_child(1) as Control).get_global_rect()
+	check(primary.end.x <= details.position.x and mission.grow(.5).encloses(primary) and mission.grow(.5).encloses(details), "mission_columns_fit_without_overlap_" + str(size))
+	for label: Label in [hud._mission_label, hud._objective_label, hud._compact_prompt_label, hud._scores_label, hud._optional_label, hud._survival_label, hud._compact_status_label]:
+		check(label.get_visible_line_count() == label.get_line_count() and mission.grow(.5).encloses(label.get_global_rect()), "full_visible_label_inside_mission_" + str(size) + "_" + label.text)
+	check(mission.grow(.5).encloses(hud._stamina_bar.get_global_rect()), "stamina_bar_inside_mission_" + str(size))
+	for button: Node in touches.find_children("*", "Button", true, false):
+		if (button as Button).is_visible_in_tree():
+			check(not mission.intersects((button as Button).get_global_rect()), "mission_clear_of_touch_button_" + str(size) + "_" + (button as Button).text)
+	check(not mission.intersects(touches.joystick.get_global_rect()), "mission_clear_of_joystick_" + str(size))
+
 func _run() -> void:
 	await _set_size(Vector2i(853, 480))
 	missions = MissionFixture.new()
@@ -86,6 +99,7 @@ func _run() -> void:
 	check(mission.end.y <= command.position.y - 4 and mission.size.y <= 150, "phone_853x480_world_gap_above_touch_commands")
 	check(hud._objective_label.get_global_rect().end.y <= mission.end.y and hud._compact_status_label.get_global_rect().end.y <= mission.end.y, "all_key_labels_inside_card")
 	check(touches.panels[2].visible and touches.panels[1].visible and touches.joystick.visible, "phone_action_controls_remain_available")
+	_check_mobile_clearance(Vector2i(853, 480))
 	print("HUD_LAYOUT_EVIDENCE ", JSON.stringify({"size": "853x480", "mission": str(mission), "command": str(command)}))
 	hud.set_touch_input_enabled(false)
 	await _settle()
@@ -109,14 +123,19 @@ func _run() -> void:
 	await _settle()
 	check(hud._mission_grid.columns == 2 and hud._compact_status_label.is_visible_in_tree(), "short_landscape_keeps_full_compact_status")
 	check(_mission_rect().end.y <= touches.panels[2].get_global_rect().position.y - 4, "long_objective_and_active_task_clear_short_landscape_commands")
+	_check_mobile_clearance(Vector2i(844, 390))
 	print("HUD_LAYOUT_EVIDENCE ", JSON.stringify({"size": "844x390", "mission": str(_mission_rect()), "command": str(touches.panels[2].get_global_rect())}))
-	for small_size: Vector2i in [Vector2i(640, 360), Vector2i(568, 320)]:
+	for small_size: Vector2i in [Vector2i(640, 360), Vector2i(568, 320), Vector2i(550, 320), Vector2i(540, 320), Vector2i(520, 320), Vector2i(500, 320), Vector2i(480, 320), Vector2i(450, 320), Vector2i(400, 320)]:
 		await _set_size(small_size)
+		hud.update_status(84.0, "wrench", 2, "", "靠近美晴，按「互動」交談。")
+		hud.update_survival(72.0, 100.0, "18:13", true)
 		touches._layout()
 		await _settle()
 		check(hud._mission_grid.columns == 2 and _mission_rect().end.y <= touches.panels[2].get_global_rect().position.y - 4, "small_phone_landscape_keeps_mission_above_commands_" + str(small_size))
 		check(hud.get_display_objective_text() == long_objective and hud._compact_status_label.is_visible_in_tree(), "small_phone_landscape_keeps_objective_and_status_" + str(small_size))
-		print("HUD_LAYOUT_EVIDENCE ", JSON.stringify({"size": str(small_size), "mission": str(_mission_rect()), "command": str(touches.panels[2].get_global_rect())}))
+		check(hud._scores_label.text.contains("8") and hud._scores_label.text.contains("55") and hud._survival_label.text.contains("72") and hud._compact_status_label.text.contains("84") and hud._compact_status_label.text.contains("2"), "small_phone_landscape_keeps_all_numeric_status_" + str(small_size))
+		_check_mobile_clearance(small_size)
+		print("HUD_LAYOUT_EVIDENCE ", JSON.stringify({"size": str(small_size), "mission": str(_mission_rect()), "command": str(touches.panels[2].get_global_rect()), "action": str(touches.panels[1].get_global_rect())}))
 
 	await _set_size(Vector2i(390, 844))
 	hud.set_device_profile({"profile": "phone"})

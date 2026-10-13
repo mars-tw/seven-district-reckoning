@@ -119,7 +119,7 @@ func _refresh_optional() -> void:
 		_optional_label.text = "街坊："+_optional.get_active_text()
 	else:
 		_optional_label.text = "%s｜街坊故事、配送與活動　生活金 %d" % ["配送按鈕" if device_profile in ["phone","tablet"] else "J 街坊生活",_life.cash if _life else 0]
-	if _scores_label: _scores_label.text = _score_text()
+	if _scores_label: _scores_label.text = _hud_score_text()
 
 func bind_systems(manager: Node, street: RefCounted) -> void:
 	_systems = manager
@@ -167,7 +167,8 @@ func update_world_vehicles(car_position: Vector2, bike_position: Vector2) -> voi
 func update_survival(stamina_value: float, maximum: float, time_value: String, touch_enabled: bool) -> void:
 	if not _systems: return
 	var status: Dictionary = _systems.get_status()
-	var caption: String = "體力 %d／%d　補給金 %d　Lv.%d　%s" % [ceili(stamina_value),int(maximum),status["credits"],status["rank"],time_value]
+	var narrow: bool = _narrow_phone_landscape(get_viewport().get_visible_rect().size)
+	var caption: String = "體力%d／%d　補給金%d　Lv.%d　%s" % [ceili(stamina_value),int(maximum),status["credits"],status["rank"],time_value] if narrow else "體力 %d／%d　補給金 %d　Lv.%d　%s" % [ceili(stamina_value),int(maximum),status["credits"],status["rank"],time_value]
 	if caption != _last_survival:
 		_last_survival = caption
 		_survival_label.text = caption
@@ -367,16 +368,20 @@ func _resize_modal() -> void:
 		_modal_panel.custom_minimum_size.x = clampf(screen.x-16,180,650)
 		_modal_scroll.custom_minimum_size.x = clampf(screen.x-64,132,602)
 	var phone_landscape: bool = _phone_landscape(screen)
+	var narrow_phone_landscape: bool = _narrow_phone_landscape(screen)
 	var compact: bool = _compact_hud(screen)
 	var touch_layout: bool = device_profile in ["phone","tablet"]
-	_mission_grid.columns = 2 if phone_landscape and screen.x >= 560 else 1
+	_mission_grid.columns = 2 if phone_landscape else 1
 	_mission_grid.add_theme_constant_override("h_separation", 8 if phone_landscape else 12)
 	_mission_grid.add_theme_constant_override("v_separation", 3 if phone_landscape else 5)
 	for section: Node in _mission_grid.get_children():
-		(section as VBoxContainer).add_theme_constant_override("separation", 3 if phone_landscape else 5)
+		(section as VBoxContainer).add_theme_constant_override("separation", 2 if narrow_phone_landscape else 3 if phone_landscape else 5)
 	for side: String in ["left", "right", "top", "bottom"]:
-		_mission_padding.add_theme_constant_override("margin_" + side, 6 if phone_landscape else 12)
+		_mission_padding.add_theme_constant_override("margin_" + side, 4 if narrow_phone_landscape else 6 if phone_landscape else 12)
 		_hud_margin.add_theme_constant_override("margin_" + side, 8 if phone_landscape else 16)
+	if narrow_phone_landscape:
+		_mission_padding.add_theme_constant_override("margin_top", 0)
+		_mission_padding.add_theme_constant_override("margin_bottom", 0)
 	_hud_margin.add_theme_constant_override("margin_bottom",180 if touch_layout and screen.y>screen.x else 8 if phone_landscape else 16)
 	_prompt_panel.visible = not (touch_layout and (screen.y<480 or phone_landscape) and touch_input_enabled)
 	_status_label.visible = not (touch_input_enabled and compact)
@@ -385,15 +390,22 @@ func _resize_modal() -> void:
 	_map_panel.visible = not compact
 	_controls_hint.visible = not touch_input_enabled
 	_scores_label.visible = phone_landscape or not compact
-	_mission_label.add_theme_font_size_override("font_size", 16 if compact else 21)
-	_objective_label.add_theme_font_size_override("font_size", 14 if compact else 18)
-	_optional_label.add_theme_font_size_override("font_size", 13 if compact else 15)
-	_scores_label.add_theme_font_size_override("font_size", 11 if phone_landscape else 16)
-	_survival_label.add_theme_font_size_override("font_size", 11 if phone_landscape else 12)
+	_mission_label.add_theme_font_size_override("font_size", 14 if narrow_phone_landscape else 16 if compact else 21)
+	_objective_label.add_theme_font_size_override("font_size", 12 if narrow_phone_landscape else 14 if compact else 18)
+	_optional_label.add_theme_font_size_override("font_size", 11 if narrow_phone_landscape else 13 if compact else 15)
+	_scores_label.add_theme_font_size_override("font_size", 10 if narrow_phone_landscape else 11 if phone_landscape else 16)
+	_survival_label.add_theme_font_size_override("font_size", 10 if narrow_phone_landscape else 11 if phone_landscape else 12)
+	_compact_status_label.add_theme_font_size_override("font_size", 10 if narrow_phone_landscape else 11)
+	_compact_prompt_label.add_theme_font_size_override("font_size", 10 if narrow_phone_landscape else 11)
+	if is_instance_valid(_manager): _scores_label.text = _hud_score_text()
 
 
 func _phone_landscape(screen: Vector2) -> bool:
 	return device_profile == "phone" and screen.x > screen.y
+
+
+func _narrow_phone_landscape(screen: Vector2) -> bool:
+	return _phone_landscape(screen) and screen.x < 600
 
 
 func _compact_hud(screen: Vector2) -> bool:
@@ -727,6 +739,14 @@ func _score_text() -> String:
 	return "證據 %d／100　街坊信任 %d／100　救出 %d 人　零件券 %d" % [int(state.get("evidence_score", 0)), int(state.get("community_trust", 50)), int(state.get("rescued_count", 0)), int(_manager.parts_vouchers) + optional_wallet]
 
 
+func _hud_score_text() -> String:
+	if not is_instance_valid(_manager): return ""
+	if not _narrow_phone_landscape(get_viewport().get_visible_rect().size): return _score_text()
+	var state: Dictionary = _manager.scores
+	var optional_wallet: int = int(_optional.wallet) if _optional else 0
+	return "證據%d　信任%d　救出%d　零件券%d" % [int(state.get("evidence_score", 0)), int(state.get("community_trust", 50)), int(state.get("rescued_count", 0)), int(_manager.parts_vouchers) + optional_wallet]
+
+
 func _refresh_mission() -> void:
 	if _mission_label == null or not is_instance_valid(_manager):
 		return
@@ -735,7 +755,7 @@ func _refresh_mission() -> void:
 	if touch_input_enabled:
 		objective_text = objective_text.replace("按 E 交談", "按「互動」交談")
 	_objective_label.text = objective_text
-	_scores_label.text = _score_text()
+	_scores_label.text = _hud_score_text()
 	_notice_label.text = str(_manager.notice) if not str(_manager.notice).is_empty() else _cached_notice
 
 
@@ -747,7 +767,7 @@ func update_status(hp: float, weapon: String, heat: int, vehicle: String, prompt
 	_status_label.text = "安全值 %d／100　工具：%s　警戒 %d／5　%s" % [clampi(int(hp), 0, 100), str(weapon_names.get(weapon, weapon)), clampi(heat, 0, 5), str(vehicle_names.get(vehicle, vehicle))]
 	var default_prompt := "沿導航前往任務目標。靠近標示物件，按「互動」。" if touch_input_enabled else "沿導航前往任務目標。靠近標示物件，按 E 互動。"
 	_prompt_label.text = prompt if not prompt.is_empty() else default_prompt
-	_compact_status_label.text = _status_label.text
+	_compact_status_label.text = "安全%d　工具%s　警戒%d／5　%s" % [clampi(int(hp), 0, 100), str(weapon_names.get(weapon, weapon)), clampi(heat, 0, 5), str(vehicle_names.get(vehicle, vehicle))] if _narrow_phone_landscape(get_viewport().get_visible_rect().size) else _status_label.text
 	_compact_prompt_label.text = _prompt_label.text
 
 
