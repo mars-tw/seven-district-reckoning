@@ -1,0 +1,102 @@
+{
+  "status": "VERIFIED",
+  "meaning": "Incorrect choice, contradictory source phrase, or missing reference only. No neutral/success/archive titles.",
+  "occurrences": [
+    {
+      "file": "phone-second_help-action-payment-retry.png",
+      "text": "錯因：甲：「本案協助不收任何預付費。」乙：「本案須先付代辦費，才受理協助。」最新補充未撤回甲，付款仍有矛盾。"
+    },
+    {
+      "file": "phone-second_help-action-latest-only-retry.png",
+      "text": "錯因：甲：「本案協助不收任何預付費。」乙：「本案須先付代辦費，才受理協助。」乙要求一併核對，只留乙會失去甲的依據。"
+    },
+    {
+      "file": "phone-before_night-relations-one.png",
+      "text": "錯因：你選的：交接摘要 → 車店收據；原文『附件：車店收據』表示摘要引用收據，應為：車店收據 → 交接摘要。"
+    },
+    {
+      "file": "phone-before_night-relation-retry.png",
+      "text": "錯因：你選的：交接摘要 → 車店收據；原文『附件：車店收據』表示摘要引用收據，應為：車店收據 → 交接摘要。"
+    },
+    {
+      "file": "phone-before_night-relations-a-options.png",
+      "text": "錯因：你選的：交接摘要 → 車店收據；原文『附件：車店收據』表示摘要引用收據，應為：車店收據 → 交接摘要。"
+    },
+    {
+      "file": "phone-before_night-relation-b-retry.png",
+      "text": "錯因：你選的：輪值資料 → 交接摘要；原文『接班依據：已簽收的交接摘要』表示輪值沿用摘要，應為：交接摘要 → 輪值資料。"
+    },
+    {
+      "file": "phone-three_voices-retry.png",
+      "text": "這份文件還不能支持這個判斷。核對時間與『全部』兩字，可直接重配，不扣分。"
+    },
+    {
+      "file": "phone-three_voices-statement-0.png",
+      "text": "這份文件還不能支持這個判斷。核對時間與『全部』兩字，可直接重配，不扣分。"
+    },
+    {
+      "file": "phone-three_voices-wrong-pin.png",
+      "text": "你選的｜\n反駁林秀蘭\n『全在前』"
+    },
+    {
+      "file": "phone-three_voices-wrong-pin.png",
+      "text": "錯釘：17：50 在分界前 → 應反駁陳奕廷『全在後』。"
+    },
+    {
+      "file": "phone-three_voices-support-insufficient.png",
+      "text": "尚未引用原件。請分別引用首筆、末筆。"
+    },
+    {
+      "file": "phone-three_voices-support-one-side.png",
+      "text": "已引用 17：50，只有分界前；還缺末筆 18：10。"
+    },
+    {
+      "file": "phone-three_voices-support-last-only.png",
+      "text": "已引用 18：10，只有分界後；還缺首筆 17：50。"
+    },
+    {
+      "file": "phone-three_voices-wrong-pin-with-two-preserved.png",
+      "text": "你選的｜\n反駁林秀蘭\n『全在前』"
+    },
+    {
+      "file": "phone-three_voices-wrong-pin-with-two-preserved.png",
+      "text": "錯釘：17：50 在分界前 → 應反駁陳奕廷『全在後』。"
+    },
+    {
+      "file": "phone-second_help-history-reloaded.png",
+      "text": "甲：「本案協助不收任何預付費。」乙：「本案須先付代辦費，才受理協助。」最新補充未撤回甲，付款仍有矛盾。"
+    },
+    {
+      "file": "phone-before_night-history-reloaded.png",
+      "text": "錯因：你選的：交接摘要 → 車店收據；原文『附件：車店收據』表示摘要引用收據，應為：車店收據 → 交接摘要。"
+    },
+    {
+      "file": "phone-three_voices-history-reloaded.png",
+      "text": "錯釘：17：50 在分界前 → 應反駁陳奕廷『全在後』。"
+    },
+    {
+      "file": "phone-before_night-relation-retry-320x568.png",
+      "text": "錯因：你選的：交接摘要 → 車店收據；原文『附件：車店收據』表示摘要引用收據，應為：車店收據 → 交接摘要。"
+    },
+    {
+      "file": "phone-three_voices-wrong-pin-320x568.png",
+      "text": "你選的｜\n反駁林秀蘭\n『全在前』"
+    },
+    {
+      "file": "phone-three_voices-wrong-pin-320x568.png",
+      "text": "錯釘：17：50 在分界前 → 應反駁陳奕廷『全在後』。"
+    },
+    {
+      "file": "phone-three_voices-support-insufficient-320x568.png",
+      "text": "尚未引用原件。請分別引用首筆、末筆。"
+    },
+    {
+      "file": "phone-three_voices-support-one-side-320x568.png",
+      "text": "已引用 17：50，只有分界前；還缺末筆 18：10。"
+    },
+    {
+      "file": "phone-three_voices-support-last-only-320x568.png",
+      "text": "已引用 18：10，只有分界後；還缺首筆 17：50。"
+    }
+  ]
+}

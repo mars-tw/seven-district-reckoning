@@ -1,0 +1,13 @@
+{
+  "status": "VERIFIED",
+  "thumbnail_width": 64,
+  "amber_pixels": {
+    "receipt": 334,
+    "target": 70
+  },
+  "mask_dark_pixels": [
+    13599,
+    6758
+  ],
+  "raw_review_images_resized": false
+}

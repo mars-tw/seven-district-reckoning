@@ -62,7 +62,7 @@ func run() -> void:
 		press_text("17：42\n點選拿起收據"); await settle(); layout("r11_after_pickup"); check_ink(panel)
 		var text := JSON.stringify(panel.diagnostics().buttons+panel.diagnostics().labels)
 		check(text.contains("已拿起・點右側貼入") and not text.contains("點選拿起收據") and not game.investigations.entry().complete,"r11_pickup_state_consistent_and_unsealed")
-		press_text("18：00\n貼入收據 →"); await settle()
+		press_text("18：00\n點此貼入"); await settle()
 		check(game.investigations.entry().complete,"r11_attachment_completes"); persisted("r11_receipt")
 		ready("three_voices"); game.investigations.begin_pin_review()
 		panel.pin_index = 1; panel.page = "judgement"; panel.show_page(); await settle(); layout("r11_index"); check_ink(panel)

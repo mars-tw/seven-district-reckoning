@@ -1,0 +1,413 @@
+{
+  "status": "VERIFIED",
+  "all_case_header_y": {
+    "390x844": {
+      "second_help": [
+        {
+          "name": "second_help-paper-a-marked",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        },
+        {
+          "name": "second_help-action-payment-retry",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        },
+        {
+          "name": "second_help-action-latest-only-retry",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        },
+        {
+          "name": "second_help-sealed",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        }
+      ],
+      "before_night": [
+        {
+          "name": "before_night-shuffled",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        },
+        {
+          "name": "before_night-relation-retry",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        },
+        {
+          "name": "before_night-revealing-1",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        },
+        {
+          "name": "before_night-revealing-2",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        },
+        {
+          "name": "before_night-revealed",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        },
+        {
+          "name": "before_night-attachment-picked",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        },
+        {
+          "name": "before_night-sealed",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        }
+      ],
+      "three_voices": [
+        {
+          "name": "three_voices-support-one-side",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        },
+        {
+          "name": "three_voices-support-both-sides",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        },
+        {
+          "name": "three_voices-wrong-pin-with-two-preserved",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        },
+        {
+          "name": "three_voices-sealed",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        },
+        {
+          "name": "three_voices-chain-reloaded",
+          "y": [
+            8,
+            30,
+            73
+          ]
+        }
+      ]
+    },
+    "320x568": {
+      "second_help": [
+        {
+          "name": "second_help-paper-a-marked",
+          "y": [
+            8,
+            11,
+            34
+          ]
+        },
+        {
+          "name": "second_help-sealed",
+          "y": [
+            8,
+            11,
+            34
+          ]
+        },
+        {
+          "name": "second_help-action-options",
+          "y": [
+            8,
+            11,
+            34
+          ],
+          "method": "PNG pixel alignment",
+          "baseline": "phone-second_help-paper-a-marked-320x568.png"
+        },
+        {
+          "name": "second_help-action-payment-retry",
+          "y": [
+            8,
+            11,
+            34
+          ],
+          "method": "PNG pixel alignment",
+          "baseline": "phone-second_help-paper-a-marked-320x568.png"
+        },
+        {
+          "name": "second_help-action-latest-only-retry",
+          "y": [
+            8,
+            11,
+            34
+          ],
+          "method": "PNG pixel alignment",
+          "baseline": "phone-second_help-paper-a-marked-320x568.png"
+        }
+      ],
+      "before_night": [
+        {
+          "name": "before_night-shuffled",
+          "y": [
+            8,
+            11,
+            34
+          ]
+        },
+        {
+          "name": "before_night-relation-retry",
+          "y": [
+            8,
+            11,
+            34
+          ]
+        },
+        {
+          "name": "before_night-attachment-picked",
+          "y": [
+            8,
+            11,
+            34
+          ]
+        },
+        {
+          "name": "before_night-sealed",
+          "y": [
+            8,
+            11,
+            34
+          ]
+        }
+      ],
+      "three_voices": [
+        {
+          "name": "three_voices-support-one-side",
+          "y": [
+            8,
+            11,
+            34
+          ]
+        },
+        {
+          "name": "three_voices-support-both-sides",
+          "y": [
+            8,
+            11,
+            34
+          ]
+        },
+        {
+          "name": "three_voices-sealed",
+          "y": [
+            8,
+            11,
+            34
+          ]
+        },
+        {
+          "name": "three_voices-chain-reloaded",
+          "y": [
+            8,
+            11,
+            34
+          ]
+        }
+      ]
+    }
+  },
+  "exact_y_delta_px": 0,
+  "footer_gaps": [
+    {
+      "view": "390x844",
+      "measured": [
+        {
+          "name": "before_night-shuffled",
+          "gap": 8,
+          "limit": 168.8
+        },
+        {
+          "name": "before_night-relation-retry",
+          "gap": 8,
+          "limit": 168.8
+        },
+        {
+          "name": "before_night-revealing-1",
+          "gap": 8,
+          "limit": 168.8
+        },
+        {
+          "name": "before_night-revealing-2",
+          "gap": 8,
+          "limit": 168.8
+        },
+        {
+          "name": "before_night-revealed",
+          "gap": 8,
+          "limit": 168.8
+        },
+        {
+          "name": "before_night-attachment-picked",
+          "gap": 8,
+          "limit": 168.8
+        },
+        {
+          "name": "before_night-sealed",
+          "gap": 8,
+          "limit": 168.8
+        },
+        {
+          "name": "three_voices-support-one-side",
+          "gap": 8,
+          "limit": 168.8
+        },
+        {
+          "name": "three_voices-support-both-sides",
+          "gap": 8,
+          "limit": 168.8
+        },
+        {
+          "name": "three_voices-wrong-pin-with-two-preserved",
+          "gap": 8,
+          "limit": 168.8
+        },
+        {
+          "name": "three_voices-sealed",
+          "gap": 8,
+          "limit": 168.8
+        },
+        {
+          "name": "three_voices-chain-reloaded",
+          "gap": 8,
+          "limit": 168.8
+        }
+      ]
+    },
+    {
+      "view": "320x568",
+      "measured": [
+        {
+          "name": "before_night-shuffled",
+          "gap": 1,
+          "limit": 113.60000000000001
+        },
+        {
+          "name": "before_night-relation-retry",
+          "gap": 1,
+          "limit": 113.60000000000001
+        },
+        {
+          "name": "before_night-attachment-picked",
+          "gap": 1,
+          "limit": 113.60000000000001
+        },
+        {
+          "name": "before_night-sealed",
+          "gap": 1,
+          "limit": 113.60000000000001
+        },
+        {
+          "name": "three_voices-support-one-side",
+          "gap": 1,
+          "limit": 113.60000000000001
+        },
+        {
+          "name": "three_voices-support-both-sides",
+          "gap": 1,
+          "limit": 113.60000000000001
+        },
+        {
+          "name": "three_voices-sealed",
+          "gap": 1,
+          "limit": 113.60000000000001
+        },
+        {
+          "name": "three_voices-chain-reloaded",
+          "gap": 1,
+          "limit": 113.60000000000001
+        }
+      ]
+    },
+    {
+      "view": "1290x2796",
+      "measured": [
+        {
+          "name": "before_night-attachment-picked",
+          "gap": 8,
+          "limit": 186.4
+        },
+        {
+          "name": "before_night-sealed",
+          "gap": 8,
+          "limit": 186.4
+        },
+        {
+          "name": "three_voices-support-both-sides",
+          "gap": 8,
+          "limit": 186.4
+        },
+        {
+          "name": "three_voices-sealed",
+          "gap": 8,
+          "limit": 186.4
+        }
+      ]
+    },
+    {
+      "view": "2064x2752",
+      "measured": []
+    },
+    {
+      "view": "844x390",
+      "measured": []
+    },
+    {
+      "view": "1024x768",
+      "measured": []
+    }
+  ],
+  "wrong_direction_red_prefix": true,
+  "distinct_wrong_pin_and_original_content": true,
+  "physical_device_test": "BLOCKED",
+  "muse_actual_rescore": "BLOCKED"
+}

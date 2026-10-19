@@ -51,6 +51,7 @@ SUITES = [
     ("content_r9.gd", "CONTENT_R9_CHECKS="),
     ("content_r10.gd", "CONTENT_R10_CHECKS="),
     ("content_r11.gd", "CONTENT_R11_CHECKS="),
+    ("content_r12.gd", "CONTENT_R12_CHECKS="),
 ]
 JS_SUITES = [("device_web.mjs", "DEVICE_WEB_CHECKS=")]
 JS_SUPPORT = ["prepare_web_assets.mjs", "verify_web.mjs"]

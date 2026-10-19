@@ -138,7 +138,7 @@ func run() -> void:
 			check(not game.investigations.entry().complete,"panel_requires_second_decision")
 			click("暫停付款，留存甲乙兩份原件")
 		elif spec.mode == "timeline":
-			for text: String in ["丙 輪值資料","甲 車店收據","乙 交接摘要","核對關係","車店收據 → 交接摘要","乙與丙","交接摘要 → 輪值資料","揭時核對","回排序改排","撤回末張","撤回末張","撤回末張","甲 17：42","乙 17：55","丙 18：00","核對關係","車店收據 → 交接摘要","乙與丙","交接摘要 → 輪值資料","揭時核對","17：42\n點選拿起收據","18：00\n貼入收據 →"]:
+			for text: String in ["丙 輪值資料","甲 車店收據","乙 交接摘要","核對關係","車店收據 → 交接摘要","乙與丙","交接摘要 → 輪值資料","揭時核對","回排序改排","撤回末張","撤回末張","撤回末張","甲 17：42","乙 17：55","丙 18：00","核對關係","車店收據 → 交接摘要","乙與丙","交接摘要 → 輪值資料","揭時核對","17：42\n點選拿起收據","18：00\n點此貼入"]:
 				click(text)
 				if text == "揭時核對" and game.investigations.entry().time_checked:
 					check(game.investigation_panel.reveal_count == 0,"time_masks_begin_closed")

@@ -1,7 +1,7 @@
 extends RefCounted
 ## Real typeset document surface; hit targets are the ink lines on the paper.
 const Art = preload("res://scripts/ui/art_theme.gd")
-const PHRASES = "車店收據|輪值資料|交接摘要|反查依據|工作天|原件影本|前後合看|玩家推論|甲先發|乙後補|林秀蘭|陳奕廷|吳安琪|預付費|代辦費|摘要|原件|首筆|末筆|犯罪"
+const PHRASES = "車店收據|輪值資料|交接摘要|反查依據|工作天|原件影本|前後合看|玩家推論|甲先發|乙後補|林秀蘭|陳奕廷|吳安琪|預付費|代辦費|點此貼入|已拿起|右側|摘要|原件|首筆|末筆|犯罪"
 
 static func wrap_ink(value) -> void:
 	# Web's fallback text server may ignore CJK punctuation rules. Insert measured

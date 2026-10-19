@@ -8,6 +8,7 @@ var record_mode := false
 var highlights: Array = []
 var pinned: Array = []
 var sealed := false
+var errors: Array = []
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -32,12 +33,13 @@ func _draw() -> void:
 			if i == 1:
 				draw_colored_polygon(PackedVector2Array([Vector2(x,29),Vector2(x+12,42),Vector2(x,55),Vector2(x-12,42)]),Art.CHARCOAL)
 				draw_line(Vector2(x-4,42),Vector2(x+4,42),Art.PAPER,2,true)
+				draw_line(Vector2(x,38),Vector2(x,46),Art.PAPER,2,true)
 			else:
 				draw_circle(Vector2(x,42),6,Art.PAPER)
 				draw_arc(Vector2(x,42),6,0,TAU,32,Art.CHARCOAL,2 if active else 1,true)
 			if i in pinned or sealed:
-				draw_circle(Vector2(x,7),4,Art.CHARCOAL)
-				draw_line(Vector2(x,9),Vector2(x,15),Art.CHARCOAL,2,true)
+				draw_circle(Vector2(x,7),4,Art.RED if i in errors else Art.CHARCOAL)
+				draw_line(Vector2(x,9),Vector2(x,15),Art.RED if i in errors else Art.CHARCOAL,2,true)
 	else:
 		for i: int in 3:
 			var r := Rect2(i*width+2,2,width-4,size.y-4)

@@ -1,0 +1,28 @@
+{
+  "checks": 18,
+  "status": "VERIFIED",
+  "styles": {
+    "correct": {
+      "background": "f1e8d5ff",
+      "border": "16181dff",
+      "left": 6,
+      "right": 3,
+      "text_color": "16181dff"
+    },
+    "selected": {
+      "background": "f1e8d5ff",
+      "border": "16181dff",
+      "left": 3,
+      "right": 3,
+      "text_color": "16181dff"
+    },
+    "wrong": {
+      "background": "f1e8d5ff",
+      "border": "c4271cff",
+      "left": 3,
+      "right": 3,
+      "text_color": "c4271cff"
+    }
+  },
+  "script_sha256": "d87d29032bbd032fe9cd101f295e278c928ec8f91d52c2560316cc95fc659e17"
+}

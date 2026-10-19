@@ -643,8 +643,9 @@ func set_target_distance(meters: float) -> void:
 	# Short landscape phones rely on the 3D beacon; the card stays clear of 連跑.
 	_distance_label.visible = not text.is_empty() and not _compact_landscape_touch
 	if device_profile in ["phone","tablet"]:
-		_distance_label.visible = false
-		_objective_label.text = objective_text() + ("・%d 公尺" % int(round(meters)) if is_finite(meters) and meters >= 4 else "")
+		var at_result: bool = investigations and investigations.street_at_source and not investigations.street_result().is_empty()
+		_distance_label.visible = not at_result and not _compact_landscape_touch and not text.is_empty()
+		_objective_label.text = objective_text()
 
 
 func set_controls_hint_visible(value: bool) -> void:
@@ -1262,6 +1263,8 @@ func update_status(hp: float, weapon: String, heat: int, vehicle: String, prompt
 	if _health_bar: _health_bar.value = clampf(hp, 0.0, 100.0)
 	_status_label.text = "安全值 %d／100　工具：%s　警戒 %d／5　%s" % [clampi(int(hp), 0, 100), str(weapon_names.get(weapon, weapon)), clampi(heat, 0, 5), str(vehicle_names.get(vehicle, vehicle))]
 	_prompt_label.text = prompt if not prompt.is_empty() else "沿光柱前往目標，靠近後點右下黃鍵互動。" if device_profile in ["phone","tablet"] else "沿導航前往任務目標。靠近標示物件，按 E 互動。"
+	if investigations and investigations.street_at_source and not investigations.street_result().is_empty():
+		_prompt_label.text = ("點互動｜" if device_profile in ["phone","tablet"] else "E｜")+investigations.street_result().place+"｜交談"
 	if device_profile in ["phone","tablet"]: _prompt_panel.visible = not prompt.is_empty() and get_viewport().get_visible_rect().size.y >= 480
 
 

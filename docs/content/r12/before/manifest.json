@@ -1,0 +1,46 @@
+{
+  "status": "VERIFIED",
+  "meaning": "R11 historical before images, not R12 runtime proof",
+  "images": [
+    {
+      "file": "phone-second_help-paper-a-marked.png",
+      "source": "docs/content/r11/phone-second_help-paper-a-marked.png",
+      "sha256": "8fec9725245395cc89530df86fe8b94f6c22809b9c8896843c693d1b93b713b3"
+    },
+    {
+      "file": "phone-second_help-action-payment-retry.png",
+      "source": "docs/content/r11/phone-second_help-action-payment-retry.png",
+      "sha256": "5f7159789b0fc6323899a0ef5c11efbc49abffd9d15836abc5af0b075b24578a"
+    },
+    {
+      "file": "phone-before_night-relation-retry.png",
+      "source": "docs/content/r11/phone-before_night-relation-retry.png",
+      "sha256": "fba01bf6db0b9ce7a2f38df0e5fedea392f45312343d0b09848d8f957d308a98"
+    },
+    {
+      "file": "phone-before_night-revealing-2.png",
+      "source": "docs/content/r11/phone-before_night-revealing-2.png",
+      "sha256": "e1ec813c7064534fd223d7cf8073037f864e0bb3ce540473801ab16b70e4edeb"
+    },
+    {
+      "file": "phone-before_night-attachment-picked.png",
+      "source": "docs/content/r11/phone-before_night-attachment-picked.png",
+      "sha256": "c5ccc5810bdb9015a13eed05b6bf9c84696961b1e09781b4e2618e17c116d29a"
+    },
+    {
+      "file": "phone-three_voices-wrong-pin-with-two-preserved.png",
+      "source": "docs/content/r11/phone-three_voices-wrong-pin-with-two-preserved.png",
+      "sha256": "f9cef31d83d913dadb19f8f4ba83fd16a4c75f6693218ce04f657f39c2b3a653"
+    },
+    {
+      "file": "phone-three_voices-chain-reloaded.png",
+      "source": "docs/content/r11/phone-three_voices-chain-reloaded.png",
+      "sha256": "deb3779fa63a0fac664e88f5c5e4aa5fd78703f43a6aeb5d4cac1e34a6388744"
+    },
+    {
+      "file": "phone-three_voices-street-result.png",
+      "source": "docs/content/r11/phone-three_voices-street-result.png",
+      "sha256": "d5ae1b14d4298f53ba83071e6a987b9be63a910874916c7ced46f54d9e9d258a"
+    }
+  ]
+}

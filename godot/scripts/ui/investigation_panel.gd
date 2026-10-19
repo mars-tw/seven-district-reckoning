@@ -35,6 +35,7 @@ var reveal_clock := 0.0
 const Paper = preload("res://scripts/ui/investigation_paper.gd")
 const Rail = preload("res://scripts/ui/investigation_rail.gd")
 const Links = preload("res://scripts/ui/investigation_links.gd")
+const TimeMask = preload("res://scripts/ui/investigation_time_mask.gd")
 
 func _process(delta: float) -> void:
 	if reveal_count < 0 or reveal_count >= 3 or not is_instance_valid(surface): return
@@ -227,6 +228,7 @@ func button(text: String, callback: Callable, parent: Node = null, primary: bool
 
 func selected(b: Button, value: bool) -> void:
 	b.set_meta("selected",value)
+	b.set_meta("choice_state","selected" if value else "idle")
 	if not value: return
 	var style := StyleBoxFlat.new()
 	style.bg_color = Art.PAPER
@@ -249,6 +251,7 @@ func current_tab(b: Button, value: bool) -> void:
 func wrong_choice(b: Button, value: bool) -> void:
 	b.set_meta("wrong_choice",value)
 	if not value: return
+	b.set_meta("choice_state","wrong")
 	b.text = "你選的｜"+b.text
 	b.set_meta("original_text",b.text)
 	var style := StyleBoxFlat.new()
@@ -258,6 +261,13 @@ func wrong_choice(b: Button, value: bool) -> void:
 	style.content_margin_top = 2; style.content_margin_bottom = 2
 	for key: String in ["normal","hover","pressed","focus"]: b.add_theme_stylebox_override(key,style)
 	for key: String in ["font_color","font_hover_color","font_pressed_color","font_focus_color"]: b.add_theme_color_override(key,Art.RED)
+
+func checked_choice(b: Button, value: bool) -> void:
+	if not value: return
+	b.set_meta("choice_state","correct")
+	var style: StyleBoxFlat = b.get_theme_stylebox("normal").duplicate()
+	style.border_width_left = 6
+	for key: String in ["normal","hover","pressed","focus"]: b.add_theme_stylebox_override(key,style)
 
 func feedback_line(size_value: int = 14, explicit_error: String = "") -> void:
 	if explicit_error.is_empty() and manager.feedback.begins_with("已封存") and not manager.entry().complete: return
@@ -303,6 +313,8 @@ func record_strip(sealed: bool = false, pinning: bool = false) -> void:
 	strip.record_mode = true
 	strip.sealed = sealed
 	strip.pinned = manager.entry().pins
+	for i: int in 3:
+		if not manager.pin_error(i).is_empty(): strip.errors.append(i)
 	strip.highlights = ([0] if selected_document == 0 else [2] if selected_document == 1 else [0,1,2]) if selected_document >= 0 else [[2],[0],[0,1,2]][statement]
 	strip.custom_minimum_size.y = (184 if compact else 214) if sealed or pinning else 150
 	body.add_child(strip)
@@ -332,10 +344,14 @@ func record_strip(sealed: bool = false, pinning: bool = false) -> void:
 		if sealed or i in manager.entry().pins:
 			var result := Label.new()
 			var choice: int = int(manager.entry().pin_choices.get(str(i),[1,2,0][i]))
-			result.text = ("↓錯釘\n" if not manager.pin_error(i).is_empty() else "↓已核對\n")+["反駁林秀蘭\n『全在前』","反駁陳奕廷\n『全在後』","支持吳安琪\n『前後都有』"][choice]
+			var wrong: bool = not manager.pin_error(i).is_empty()
+			result.text = "你選的｜\n"+["反駁林秀蘭\n『全在前』","反駁陳奕廷\n『全在後』","支持吳安琪\n『前後都有』"][choice] if wrong else ["已核對\n17：50 在前\n反駁全在後","已核對\n支持吳安琪\n『前後都有』","已核對\n18：10 在後\n反駁全在前"][i]
 			result.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 			result.add_theme_font_size_override("font_size",12)
 			result.add_theme_color_override("font_color",Art.RED if not manager.pin_error(i).is_empty() else Art.CHARCOAL)
+			if wrong:
+				var frame := StyleBoxFlat.new(); frame.bg_color = Art.PAPER; frame.border_color = Art.RED; frame.set_border_width_all(3)
+				result.add_theme_stylebox_override("normal",frame)
 			cell.add_child(result)
 	if sealed and not compact:
 		label("兩筆原始紀錄 → 玩家推論",18)
@@ -430,34 +446,33 @@ func show_page() -> void:
 	back.color = Art.CHARCOAL
 	back.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	surface.add_child(back)
-	var center: Container = MarginContainer.new() if manager.entry().get("complete",false) or timeline_page else CenterContainer.new()
+	var center: Container = MarginContainer.new()
 	center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	center.add_theme_constant_override("margin_top",8 if screen.y >= 400 else 0)
 	surface.add_child(center)
 	var sheet := PanelContainer.new()
 	sheet.name = "CaseSheet"
 	sheet.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	sheet.size_flags_vertical = Control.SIZE_EXPAND_FILL if manager.entry().get("complete",false) or timeline_page else Control.SIZE_SHRINK_BEGIN
+	sheet.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	sheet.custom_minimum_size.x = minf(screen.x-16,760)
 	var paper := Art.paper(true)
-	if manager.active == "second_help" and page in ["inspect","solve"] and not manager.entry().complete and screen.y >= 700:
-		sheet.custom_minimum_size.y = 680
-	paper.content_margin_left = 12 if compact else 20
-	paper.content_margin_right = 12
+	paper.content_margin_left = 6 if compact else 20
+	paper.content_margin_right = 6 if compact else 12
 	if timeline_portrait and compact:
 		paper.content_margin_left = 6; paper.content_margin_right = 6
 	if compact:
-		paper.content_margin_top = 0 if screen.y < 400 else 3
-		paper.content_margin_bottom = 0 if screen.y < 400 else 3
+		paper.content_margin_top = 0 if screen.y < 400 else 1
+		paper.content_margin_bottom = 0 if screen.y < 400 else 1
 	sheet.add_theme_stylebox_override("panel",paper)
 	center.add_child(sheet)
 	var margin := MarginContainer.new()
 	sheet.add_child(margin)
 	for side: String in ["left","right","top","bottom"]:
-		margin.add_theme_constant_override("margin_"+side,2 if screen.y < 400 and side in ["top","bottom"] else 4 if screen.y < 400 or compact and side in ["top","bottom"] else 8 if compact else 14)
+		margin.add_theme_constant_override("margin_"+side,2 if (screen.y < 400 or compact) and side in ["top","bottom"] else 4 if screen.y < 400 else 8 if compact else 14)
 	body = VBoxContainer.new()
-	body.add_theme_constant_override("separation",0 if screen.y < 400 else 2 if compact else 8)
+	body.add_theme_constant_override("separation",0 if screen.y < 400 else 1 if compact else 8)
 	margin.add_child(body)
-	if page == "hub" or timeline_portrait or (screen.y >= 400 and not (compact and (page in ["solve","inspect","relations"] or manager.entry().get("complete",false)))): label("街坊查證簿" if page == "hub" else manager.definition().title,24)
+	if page == "hub" or screen.y >= 400: label("街坊查證簿" if page == "hub" else manager.definition().title,24)
 	if page == "hub":
 		banner()
 		label("走訪取證，再回案卷比對。進度會自動保存。",16)
@@ -489,7 +504,6 @@ func show_page() -> void:
 		elif page == "relations": _relations()
 		else: _solve()
 	if manager.entry().get("complete",false) and screen.y >= 700:
-		var fill := Control.new(); fill.size_flags_vertical = Control.SIZE_EXPAND_FILL; body.add_child(fill)
 		label("案卷物件｜原件已留存，街區可回看處置。",14)
 		if manager.active == "second_help":
 			var replay := row()
@@ -747,7 +761,11 @@ func _relations() -> void:
 	var choices: Array = [["車店收據 → 交接摘要","交接摘要 → 車店收據"],["輪值資料 → 交接摘要","交接摘要 → 輪值資料"]][relation_index]
 	var directions := row()
 	for i: int in 2:
-		selected(button(choices[i],func() -> void: manager.choose_relation(relation_index,i); show_page(),directions),manager.entry().relations.get(str(relation_index),-1) == i)
+		var direction := button(choices[i],func() -> void: manager.choose_relation(relation_index,i); show_page(),directions)
+		var chosen: bool = manager.entry().relations.get(str(relation_index),-1) == i
+		selected(direction,chosen)
+		wrong_choice(direction,chosen and i != [0,1][relation_index])
+		checked_choice(direction,chosen and i == [0,1][relation_index])
 	var correct: bool = manager.relations_correct(manager.entry().relations)
 	if not compact or correct or manager.entry().relations.size() < 2: label("方向已核對，可以揭時。" if correct else "待修正：紅虛線方向。" if manager.entry().relations.size() == 2 else "待補：兩段引用方向都要核對。",14)
 	var actions := row()
@@ -796,7 +814,10 @@ func _pinning() -> void:
 	label("三筆判定相符，可以封存。" if ready else "已釘 %d／3；可拔釘重選。" % manager.entry().pins.size(),14)
 	for i: int in 3:
 		var error: String = manager.pin_error(i)
-		if not error.is_empty(): label(error,14,Art.RED)
+		if not error.is_empty():
+			var ink := label(error,14,Art.RED)
+			var marker := StyleBoxFlat.new(); marker.bg_color = Color.TRANSPARENT; marker.border_color = Art.RED; marker.border_width_left = 3; marker.content_margin_left = 6
+			ink.add_theme_stylebox_override("normal",marker)
 	var seal := button("封存三筆判定",func() -> void: manager.seal_records(); show_page(),null,true)
 	seal.disabled = not ready
 	label(manager.definition().boundary,14,Color("65502c"))
@@ -830,6 +851,8 @@ func _judgement() -> void:
 	for i: int in 3:
 		var decision := button(["反駁林秀蘭：\n全在前","反駁陳奕廷：\n全在後","支持吳安琪：\n前後都有"][i],func() -> void: manager.choose_pin(pin_index,i); show_page(),choices)
 		selected(decision,manager.entry().pin_choices.get(str(pin_index),-1) == i)
+		wrong_choice(decision,manager.entry().pin_choices.get(str(pin_index),-1) == i and i != [1,2,0][pin_index])
+		checked_choice(decision,manager.entry().pin_choices.get(str(pin_index),-1) == i and i == [1,2,0][pin_index])
 		decision.disabled = pin_index == 1 and manager.entry().support_refs.size() < 2
 	var selected: int = manager.entry().pin_choices.get(str(pin_index),-1)
 	label("尚未選擇判定。" if selected < 0 else ["17：50（分界前）","首筆＋末筆（玩家合看）","18：10（分界後）"][pin_index]+" → "+["反駁林秀蘭『全在前』","反駁陳奕廷『全在後』","支持吳安琪『前後都有』"][selected],16)
@@ -850,16 +873,28 @@ func _attachment() -> void:
 		body.add_child(diagram)
 	if reveal_count >= 0 and reveal_count < 3:
 		label("正在揭開第 %d／3 張時間遮罩。" % (reveal_count+1),16)
+		var mask := TimeMask.new()
+		mask.name = "VisibleTimeMask"
+		mask.panel = self
+		mask.custom_minimum_size.y = 118 if compact else 180
+		body.add_child(mask)
+		label("遮罩逐張移開，核對文件上的原始時間。",14)
+		var locked := button("貼回收據｜揭時後開放",func() -> void: pass)
+		locked.disabled = true
 		return
 	label("17：42 收據 → 17：55 摘要 → 18：00 輪值",16)
 	if get_viewport().get_visible_rect().size.y >= 400: label("收據早於晚班；貼在輪值單旁，留下反查依據。",16)
 	var desk := row()
 	var receipt := Paper.make({"title":"甲｜車店收據"},["17：42\n"+("已拿起・點右側貼入" if selected_document == 0 else "點選拿起收據")],0 if selected_document == 0 else -1,[],compact,func(_field: int) -> void: selected_document = 0; show_page())
 	desk.add_child(receipt)
-	var target := Paper.make({"title":"丙｜輪值資料"},["18：00\n貼入收據 →"],-1,[],compact,func(_field: int) -> void:
+	var target := Paper.make({"title":"丙｜輪值資料"},["18：00\n點此貼入"],-1,[],compact,func(_field: int) -> void:
 		if selected_document == 0: manager.seal_time(0); show_page()
 	)
 	desk.add_child(target)
+	if selected_document == 0:
+		var frame := Panel.new(); frame.name = "AttachmentTarget"; frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		var box := StyleBoxFlat.new(); box.bg_color = Color.TRANSPARENT; box.border_color = Art.AMBER; box.set_border_width_all(4)
+		frame.add_theme_stylebox_override("panel",box); target.add_child(frame); frame.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for paper: PanelContainer in [receipt,target]:
 		for b: Button in paper.find_children("*","Button",true,false): b.custom_minimum_size.y = 76
 	label("已拿起收據，再點右邊的貼件位置。" if selected_document == 0 else "先拿起左邊收據，再貼到右邊。",14)

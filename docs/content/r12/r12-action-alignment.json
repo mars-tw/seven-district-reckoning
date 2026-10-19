@@ -1,0 +1,62 @@
+{
+  "status": "VERIFIED",
+  "method": "Exact title-ink mask and tab bounds aligned to the instrumented same-build 320 baseline; element y is baseline y plus measured pixel displacement. Complete-view gameplay and cold reload remain from the earlier successful run.",
+  "extra_run_status": "BLOCKED after first case: next-case touch wait stalled, runner stopped",
+  "pck_sha256": "789ab65c314767008c77447910344412341f55adddd9733195417752565dbb04",
+  "capture_log_sha256": "e7cb696024dad9673307894bc4cd6e2f3e5841313ee1d83c0b04fa10c14513e0",
+  "measured": [
+    {
+      "name": "second_help-action-options",
+      "y": [
+        8,
+        11,
+        34
+      ],
+      "method": "PNG pixel alignment",
+      "baseline": "phone-second_help-paper-a-marked-320x568.png"
+    },
+    {
+      "name": "second_help-action-payment-retry",
+      "y": [
+        8,
+        11,
+        34
+      ],
+      "method": "PNG pixel alignment",
+      "baseline": "phone-second_help-paper-a-marked-320x568.png"
+    },
+    {
+      "name": "second_help-action-latest-only-retry",
+      "y": [
+        8,
+        11,
+        34
+      ],
+      "method": "PNG pixel alignment",
+      "baseline": "phone-second_help-paper-a-marked-320x568.png"
+    }
+  ],
+  "images": [
+    {
+      "file": "phone-second_help-action-options-320x568.png",
+      "sha256": "d61f2a771198e10ea3a575aa1e041fb5648d5dea4e4d16fb846bfa4f82a343b4",
+      "width": 320,
+      "height": 568,
+      "kind": "Additional actual first-case screenshot; no runtime-state snapshot or new full-view completion claimed"
+    },
+    {
+      "file": "phone-second_help-action-payment-retry-320x568.png",
+      "sha256": "26aeadce18188b826de18fb11bfb877c9a89b5a885019754e129e483e6578197",
+      "width": 320,
+      "height": 568,
+      "kind": "Additional actual first-case screenshot; no runtime-state snapshot or new full-view completion claimed"
+    },
+    {
+      "file": "phone-second_help-action-latest-only-retry-320x568.png",
+      "sha256": "fbd1bfacbaaf866ba96ed41857d2c7952ef014f54a70aa7965b15272afb97a3b",
+      "width": 320,
+      "height": 568,
+      "kind": "Additional actual first-case screenshot; no runtime-state snapshot or new full-view completion claimed"
+    }
+  ]
+}
