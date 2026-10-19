@@ -1,0 +1,1458 @@
+{
+  "status": "VERIFIED",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "7f5c082e4c062384dfb3634d3af3d9b6dc10d4506a9f172fcc5b6eb1598a4180",
+      "unchanged": true
+    },
+    {
+      "path": "godot/export_presets.cfg",
+      "sha256": "ba7299ab57f5331dea2c764cc73ecd920d68ab4336df0210a4dc6dec6e86e630",
+      "unchanged": true
+    },
+    {
+      "path": "godot/scripts/ui/touch_controls.gd",
+      "sha256": "472d149d1c2b23273afed77642f7c8b6611ead8971963cb4b06cba26d8a06c0e",
+      "unchanged": true
+    },
+    {
+      "path": "qa/city-life-worker.md",
+      "sha256": "66cd039256ed2ec9421a2ef1b484dd6f9d57dce3914a07a2a80dc41192c7c7d8",
+      "unchanged": true
+    },
+    {
+      "path": "qa/control-worker.md",
+      "sha256": "8d59eb1764c7cae1ce5385d697c77a4769b338c639b688ccc007d67fbfecd176",
+      "unchanged": true
+    },
+    {
+      "path": "qa/engine-checks-incremental.json",
+      "sha256": "c696d471ab77d6fe3d23a76ee4387083761e49f994c073f09d62d742daea1f7e",
+      "unchanged": true
+    },
+    {
+      "path": "qa/engine-checks.json",
+      "sha256": "413ee4bb8c8ce25a04c8fba3b22365d1f606b78d9cd0f5beb72be1bb5c179d05",
+      "unchanged": true
+    },
+    {
+      "path": "qa/integration-kit-artifact.json",
+      "sha256": "f0bf9efe4dd25877422c705597729eed8be91801734038ac91b6fbd71828a3b6",
+      "unchanged": true
+    },
+    {
+      "path": "qa/integration-kit-review.md",
+      "sha256": "d4344bf61e86b16f7998cc20eebde9b79a8bc0b10bca5d6cfe4a0032ce64d7e8",
+      "unchanged": true
+    },
+    {
+      "path": "qa/mission-worker.md",
+      "sha256": "37722c14e6c474d4127bc7981e1d6abbde68cea2ca097f7f6adf7446e8aa540c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/optional-content-worker.md",
+      "sha256": "602c474b181487fc2ba65081a0fade0f2c6f24491e00994d470b3648c25fb249",
+      "unchanged": true
+    },
+    {
+      "path": "qa/profile-run-1.json",
+      "sha256": "9790a98fe64835d090c2a5a4adcb0655bd0a0877bb945fec0c9e43e0485fb601",
+      "unchanged": true
+    },
+    {
+      "path": "qa/profile-run-2.json",
+      "sha256": "de242b6930117a98498fba43df1e5e61dc69f60f1fa1ca392be53522f3df74cd",
+      "unchanged": true
+    },
+    {
+      "path": "qa/profile-run-3.json",
+      "sha256": "bede6fa10a7ba881ac889d42e3636d5c8fa2be5dc5d29b44e56b0fa6d835064a",
+      "unchanged": true
+    },
+    {
+      "path": "qa/release-review.md",
+      "sha256": "559431bd69091066a5b4991cc878ac02a65644f90be2afc9c2f1af47777d66f3",
+      "unchanged": true
+    },
+    {
+      "path": "qa/taiwan-expansion-result.json",
+      "sha256": "56da77bec54bef7e9730e2bc5d9fdb744ba1e73c5f244190a0ac9efe4613cee0",
+      "unchanged": true
+    },
+    {
+      "path": "qa/taiwan-life-data-validation-v04.json",
+      "sha256": "11977304ac56ad628d3c45a0204e055b052d2f804023e7e679d24d8c1d6496f5",
+      "unchanged": true
+    },
+    {
+      "path": "qa/urban-art-worker.md",
+      "sha256": "0dead2841ddd3cabf1a03badf08fd81f4d56ad1cf9417af6d5dd6fcef47f8387",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v02-integration-review.md",
+      "sha256": "dfca08dad05b98d29ff029fccadee7cfac3b59c83dc6304d6654107edc637c6a",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v03-character-assets.md",
+      "sha256": "67b8229fa17a5920b03e6187a40726808d08d18757ba01bc02de0d61b436673b",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v03-integration-review.md",
+      "sha256": "8405c0459a65d2b5c4481c89633e00e1cfaeb901f52b6b138a58f2a84e3100d0",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v03-systems.md",
+      "sha256": "a0d1f2d5be42eea937bdc31b23e66e6398333906d0752f9b1f49399046164fa7",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v03-web-copy.md",
+      "sha256": "77d4229fd5e49777548afef01516921688c2d9a41bacdc73e73e479ee93aa0c5",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v04-activities-worker.md",
+      "sha256": "5f7701231693f3f4989ec4a92623a7f70b8faae4fb85b4e701bc41c522cc0661",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v04-content-research.md",
+      "sha256": "c0805ce9b75b49556dc8671a2070128c0492f4da3cf80c4c447ea873b456b798",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v04-device-profiles.md",
+      "sha256": "8a79b2b403af02ad9f6c7422954820c95ad3f715914ff823b2ff52aa9918f811",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v04-entry-check.md",
+      "sha256": "d7c8b878da28b34627b5357cf34b4a27d9024cf4f0b70cff59e4a53080114a24",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v04-goal-completion-audit.md",
+      "sha256": "52b77ba20292d9d50ef107c68dbb4eb83faacb37d948d9b09d027d647a7129dc",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v04-integration-review.md",
+      "sha256": "ff28be08aed693bc2f0ef6fe3b5876cc40127582537f3739fc0a8fdf74004e29",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v04-map-assets-worker.md",
+      "sha256": "4201d12a19cfc75fa755780a67bdf46e7fe40a0a1803bc34f55659cd93105e5f",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v04-publication.json",
+      "sha256": "ecee0dab9edfb8c620465a95db6aa33391535c37a471d52d0f239fe5b69b8e74",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v04-release.md",
+      "sha256": "d2f183836d1f3d8419150c1e443d20b44ed575aad8a3bfd36e4a556af0c6e4fb",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v04-runtime-review.md",
+      "sha256": "d51479911cb23f41084be373b7d99559dd3b67545e16fa57b518b384a4c6b5a5",
+      "unchanged": true
+    },
+    {
+      "path": "qa/v04-windows-export.md",
+      "sha256": "9074646384c26c3e17187ec4f9194fbf291cee337ac01ea415dfc0839f07a841",
+      "unchanged": true
+    },
+    {
+      "path": "qa/web-browser-validation-v03.md",
+      "sha256": "7c2cb82a1cf2158d24bed63adcdb670ff562fd658fa89b4c50dcceb619609506",
+      "unchanged": true
+    },
+    {
+      "path": "qa/web-browser-validation.md",
+      "sha256": "6f284ae7383cb2d84a97554aa7749d2358cdc4f5366b48f2239fb794096c2ad9",
+      "unchanged": true
+    },
+    {
+      "path": "qa/web-build.json",
+      "sha256": "6ef10a68d623d82d3fbeb273108211d7f1860d631276fda52de08e60358f92aa",
+      "unchanged": true
+    },
+    {
+      "path": "qa/web-deployment-v03.json",
+      "sha256": "e7bbf43e6dd42645ec627899c66d1c715ac21c92aad79615fb0a1cad036639d9",
+      "unchanged": true
+    },
+    {
+      "path": "qa/web-deployment.json",
+      "sha256": "a412c0f8f8d0df9672cd166fca50c6f3e6445ab36d8c480b2532e037f96d2133",
+      "unchanged": true
+    },
+    {
+      "path": "qa/web-live-check.json",
+      "sha256": "404d10f13bf0fd51fa70560cdf9e781da282ee72106d40a594d66c6d877f529b",
+      "unchanged": true
+    },
+    {
+      "path": "qa/web-shell-worker.md",
+      "sha256": "21479b20466c2a804958b10b4a3cd39588804806b0beb98447d6da9e9d574a32",
+      "unchanged": true
+    },
+    {
+      "path": "qa/windows-package.json",
+      "sha256": "d12bcaf0d64fb124b8bab9f99ac42a2242c7c41a1bf0c9937f0a403853345bd8",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/asset-manifest.json",
+      "sha256": "ee776ffab769390b0093298bc6d3a91515d8b09f87f27095a46b8f264d2da40c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/asset-validation.json",
+      "sha256": "9e6ecae208355005e0e729bbb1943227888bb6e62ea2b9d7535d5d3b54a7d862",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/barrier_preview.png",
+      "sha256": "d74e7bb2dc309fcdad2a4af930c7f34167a9c45d06e1c04cf154b3a0521e733b",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/bat_preview.png",
+      "sha256": "8156452d1e53e5d07cf07365838e42913280be406f277d10321ba1b14e1f68fc",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/bench_preview.png",
+      "sha256": "4fd5b839b34bf0f689df4ae0798704aa4e1e6fac51e00c491881942d726b33f9",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/bicycle_preview.png",
+      "sha256": "22315be39e608cf68e6c02acd762c0f5c5cb679402cb7d3316cf881da724a6f9",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/bike-inspection.log",
+      "sha256": "7f161366fe2c8866d9afa88e093e637c6d920659fa62653ac086beaf1cb62788",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/bike-islands.json",
+      "sha256": "62600d8092a2974224660cb44226472034703467b4fe18d32110c1f2c4072d68",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/blender-bicycle.log",
+      "sha256": "d17b3246bf9304bd85a83460beb410e309b8cbd15e694cdc83e4ab1dadf88e89",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/blender-build.log",
+      "sha256": "ce471d136008f4b37c43df2e70fe1e197dba81a8756c5eaf7996ceef93a52a9d",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/blender-characters.log",
+      "sha256": "33f79ccc6d82828da5e24bbdc5bd32db2a8e7a7a6190d70f1f969aef8ccc2272",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/blender-mcp-status.json",
+      "sha256": "05496ef961c3c4be5c1daaac6339adf4582623ba455f25bc983177e30c4a069e",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/blender-portable.log",
+      "sha256": "c7db94a5b76495c1ad3388fe25c50d4bae341b1793b998f26f1cb61aa01b1c10",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/blender-refine.log",
+      "sha256": "3b7f42fd2b09ffc365442d9614782eb35313e19898f43f5ce0a573891d2e664c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/blender-roundtrip.json",
+      "sha256": "0f366ba1c8020b14e3346062a9b95bfc12d8d27d940907ff2ebfb19ac4a13f7a",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/blender-roundtrip.log",
+      "sha256": "52d6b79117e7b2671bb37772acb89658807ee83ab9295b4e775db1fa0db2042c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/blender-run.json",
+      "sha256": "a900739f80d06984429f1f445fe13da0de13cb146849b3db857ef37af3e235f1",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/car_preview.png",
+      "sha256": "4fee97b0fbc95a44102914481906af21cc7b7945bf9e2f8232c82dbceea3bbd6",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/civilian_64.png",
+      "sha256": "0792c2b990efdd94a0ae4ae3cd27cc1c8ec8e83efbf87547ac8350d07fc9b205",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/civilian_back.png",
+      "sha256": "1c1312cd25430a81ffcb8f82eae2947940762218db834dd4645eca632e2ec646",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/civilian_front.png",
+      "sha256": "be9554954f5974669fa87f6c9bc8e502dc7bbc33a1e215f4968e6a5d29a32a50",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/civilian_preview.png",
+      "sha256": "4d03351e72fc39b7ae59f63d44ad8c3653f9111bc21796e54a3a771b2bce10a9",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/civilian_side.png",
+      "sha256": "5e0f82b5ebe0e84d493b366c4a4fe7c3cd9762ebec923920442dc063fb12f04c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/desk_preview.png",
+      "sha256": "88f8d0557fed8775ea28e33a4e870e362a48bb66b7e3ddedb0d8e55aa165b726",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/display_preview.png",
+      "sha256": "c6a611c1c082a6bc80688001e7d9fec23405734bf214fcbff2b6b526ffd141a3",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/geometry-inspection.json",
+      "sha256": "c000f099752ff8ca602dd1a604779334a5bcac5e8422c8bfe7132d5866054db7",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/glass_preview.png",
+      "sha256": "87389c26058802e798eee0e9bb07513919d583dc373c7f388896b6788bee5122",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/guard_64.png",
+      "sha256": "a47361391a84edb79cf28c63744fa823cc4b9a6d27e8cc12750c9cd69cd5ce55",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/guard_back.png",
+      "sha256": "ffe1361eaf8c7638f9faf12a94f73d38aa40bf6f723f91ed47b5f1c4811d7ae6",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/guard_front.png",
+      "sha256": "9b6fba3c6b3e01fb5a4f8fabd3f7e2697f316e0eca2f96d65124c4b4901a315e",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/guard_preview.png",
+      "sha256": "fc964b802c5f10956d600c312c4c406bed92529cc1a9f1b887f4623b38614417",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/guard_side.png",
+      "sha256": "219341e95f6dfd40b72d2c9355448aeca82bdcaa10ed50dd06d37bc87e6147de",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_64.png",
+      "sha256": "3dc2b43b6df924a107ad318864e8b377ed80ea1fc05c3ee90b99f32ec15e3adb",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_attack_00.png",
+      "sha256": "ac298eae0dfd6eda34540adc58f7f1b0c2e5974bbfe285dbb6f2b8d91bf5f50c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_attack_03.png",
+      "sha256": "f06fd98350b9048ff646c6b6291086d06d513f4b6b055f395d6c1fd3680449ca",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_attack_06.png",
+      "sha256": "f81772f92fc01bdaab9c1c283276c9566cce4a8a705fae43bf1cc7a56318a186",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_attack_10.png",
+      "sha256": "37db943955d240c31a5cd4a5af900394b590886d83f366e7d430785223c74103",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_attack_contact.png",
+      "sha256": "edfc80598c2038f7deb0cbd1a2af18724962b88195d5c745b506e6726eaa6ff2",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_back.png",
+      "sha256": "b5617c29e5ef029a18cf779f54e62c8543ff902d24571b1a97fa78db9c4a25ca",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_front.png",
+      "sha256": "983a1df24d1954ed692958248783929c6106fbcde37f79f9e75e857327c98681",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_pedal_00.png",
+      "sha256": "83f69e3c237d89d8edd116ec3d7dcfb80ea1a9dd6c866ab0f2e8590bda3facf2",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_pedal_08.png",
+      "sha256": "5778b1285c99571d111a9f6ca7b0a325efaf71f8600dfef8fa35d15317408e35",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_pedal_16.png",
+      "sha256": "21832ff167918e1608a2fc705a9f654dce47e58366272d91c29f3acf61716b79",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_pedal_24.png",
+      "sha256": "cab45c48842c88ac4b37ee665d63b9ba76ba1226024047ca35e5738ec84f704d",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_pedal_contact.png",
+      "sha256": "8b7a7c8e2fafa422289431589c1d0f97a476d5c2e809c995d760730932c54e33",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_preview.png",
+      "sha256": "df0ed93c63429a3982fe468b55cb4be196125754799730f039617ae73696aac2",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_side.png",
+      "sha256": "cf62118bf357ddb72c5fb63275624dd3449503265d6afd00412fdc937497de13",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_walk_00.png",
+      "sha256": "436eedf82da90b4217f7a2c1c98f7ee2cb1a962551fe7c48fd00d130a6d750dd",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_walk_04.png",
+      "sha256": "eb0b168f30e6401e08fc9623fc8c055d93ca34124e6fe23f0e1b79ffd20f378c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_walk_08.png",
+      "sha256": "37c2e4a41d25fdc3de052eb6ee8114ebc3429adf20cfb70a21537cbd0f5b67f9",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_walk_12.png",
+      "sha256": "5fa64bdd1d367cde367a9d6cb01b5369a1922809a40b1c00987960d863acdb02",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/hero_walk_contact.png",
+      "sha256": "e108e915aa967d11965e4c9d830d6091aeed0a2dbf61387569d2e400bbf6bbe6",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/office_lobby_preview.png",
+      "sha256": "4cd3f66701018c63f23683c4719ed51e6ddd793b9bb1f4055186e259f82b4afd",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/office_tower_a_preview.png",
+      "sha256": "bf188bf0260825f3c7c24645590894230a8a712d06dc0d2bc12c42abfdff4fb2",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/office_tower_b_preview.png",
+      "sha256": "f843fcab94b23f3aec6ddd6eb7600258cc31227875682ddf0957e8e3b79a0980",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/office_tower_c_preview.png",
+      "sha256": "429a1ae67181622bd8583053b276971bb26c92e9f2ed26edab0c1af1427b3237",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/planter_preview.png",
+      "sha256": "7777a8d9d72bb0bc6ae13993e734a577504c2aa78e9c1cb56938f7cc836701fb",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/portable-blend-check.json",
+      "sha256": "5e25ff3a13301f8e2d37953541246a353fcad3ee59ac3077abd8793028438605",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/pulse_preview.png",
+      "sha256": "e78cad4f675628695ce1afd9309ddd4fa6d3c96f7679d26db4aff4526b27f927",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/road_crossing_preview.png",
+      "sha256": "f3cbe07c6687fb76f010f4c5d5cc4d740e2e78c2c18de6e1ca766f5273aa2578",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/road_straight_preview.png",
+      "sha256": "99c3f3c0d72c1f9f70a03fb6ca37c160b90d3b1991407dbf26ee0137f5367cdb",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/server_preview.png",
+      "sha256": "6f3650c816d6fc713c1256fd41d9cc362f8a90fed094cbe604d43369fff3d5f6",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/sign_preview.png",
+      "sha256": "4b5eb5306083ba2e92e9a48607b28aed963626a3d0145e545fe708df835244bb",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/source-inspection.json",
+      "sha256": "65f86325642a8f33522672e5705c8e61f32b2a1b79a7b03c8216dcc7416cca39",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/streetlight_preview.png",
+      "sha256": "919cad645f9384d5c1c9972f97ad98650a5c1f2b6fc885a2cbc0d68a8c04acbe",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/traffic_light_preview.png",
+      "sha256": "e851b77e9a23abf884c436ecd326070bbc929b8e32b64c7d5d5c8efe19c69a93",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/tree_preview.png",
+      "sha256": "500c17fb62ba28d08e39bf3f641cf417d54dbc2600637179da7864a8f47954f5",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/urban-build.log",
+      "sha256": "68a7efae41e180ce6b770b913cd854c66a3350f71e9e807a4421dd9db774f0fa",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/urban-import.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/urban-test.log",
+      "sha256": "141e5a11e1711677fda11cc7040105118d3bb228d2146afca0a70a605e1865a4",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/wording-check.md",
+      "sha256": "d6434d2e72b14a678817f21d082ecb960a127db074a8bff4dd95fe6f947c3a22",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/wrench_preview.png",
+      "sha256": "07af5c23da0b83358ea5920662d9b0fe0c1c06445b8780367ab04635a4960f79",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/cf-auth-result.json",
+      "sha256": "eecc454de9b2da7895bd7a67098988d014ca0c6f74a53e10062ce8fbac05716a",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/engine-checks-before-final-supply-ui.json",
+      "sha256": "06e3c88eea0efc6a68bb836d64e161cdcd09f999f3a52b669d4eee9a48667bfb",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/exact_secret_scan.py",
+      "sha256": "8594df98e096f8e67e00f9090e6ce124f449b1c09c485d9d9e49eceb41cfc55b",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/integration-kit-build.json",
+      "sha256": "dab7ba3e9c4d2d02691bccd25c620ee97cfd97ac17edddb0229e82cf29dce886",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/r4-sources.json",
+      "sha256": "85bb591f3102d55d6b47546b8e38717ca9aa887972d99fb800b6762b1cc4f421",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/release-0.2.md",
+      "sha256": "b6aebe2f8f6fb959fac12693e998fdd0d7a2c8e313063d766466a182f9f42910",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/release-0.3.md",
+      "sha256": "2b7ca3be1bec073905c36b4d671354e643a72d804c6d66b5b0ca4c081e1558c2",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/start_mcp.py",
+      "sha256": "7e708c68d8c937d224e3f3c97a30d992bd002264d3be233bd1694754cd727e0a",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/taiwan-read-fallback-v04.json",
+      "sha256": "dfef91a2ecb84c116fc8685b3686bf2a5a1c597cb7c1295dbdec95058be02e8a",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v03-human-build.log",
+      "sha256": "56a9c6cf343a222c0f4d827a3c992b5c3a816f4e36ac11898d6cf26f6855540b",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v03-human-guard-build.log",
+      "sha256": "e593a4a92e9478e2afb59cd054a907b927087316a6e5eb814c070dfd9b3d8541",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v03-human-name-build.log",
+      "sha256": "bd597516816ea49763cf9b93f78b3eb1dabfafab6a0135c76a0abc4ebcb253e4",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v03-human-validation.log",
+      "sha256": "081012b028fbb714ed5332542dba2ed1772fa0c3aebe0bdbb4b74409d8de51a8",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v03-local-integrity.json",
+      "sha256": "e236006f1c479a5daba2bb80750223ac246879158802c3242f1c6b1326e28b9f",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v03-mobile-final.jpg",
+      "sha256": "240b54b188a32a2388d3fa510eca323070638e55ae4e22133834266df66baf5a",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v03-mobile-landscape.jpg",
+      "sha256": "fc5e855bd4c0a702b43ba8842a1596e8b378f8187266a6f2221ead19db69abbe",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v03-native-final.png",
+      "sha256": "21968972b7157eeed7e7d399a4d64fa2d9acb99d143cd2ec2a3a2364ab36d259",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v03-native.png",
+      "sha256": "a2b1f9883bdeacbe09602424ae4f0fe6daae909021ce04a9476e2d3d6f094389",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v03-review-first-run.json",
+      "sha256": "4b52998451412f103925b00ab68bca59fd7e271f51acd31b53eb656fb77dc98f",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v03-web-night.jpg",
+      "sha256": "3f126adb8fdc37e28ce3e10e6dbfb69c6f8aa971eda75b992698740c939e679b",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-device-baseline-regressions.json",
+      "sha256": "5fbd0ab293641d1fd792fb301cd920cf40ef40e40d66f352efccab225edc2366",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke-http.json",
+      "sha256": "628f316a8e54f931d823c0fb666d305e49ea0d46f69799edbdb4aba8984f1272",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke-manifest.json",
+      "sha256": "cfd207bf7d3db86d0a7ebd799d1013136436d5f28873cea001020a15a20757ba",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-local-network-final.json",
+      "sha256": "97875cc995279ea05259f4df979588f72329f9755edccdb166cc24ea87ea5138",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-local-network.json",
+      "sha256": "77c83805da31d6a9744d87e0f851c070222d9c7ee98081d9d87c6ded86969bb0",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-release-body.md",
+      "sha256": "378d4854ea6569d9839b282468ccfa85e7dd23ecb13d23e3c8fd0f3072055a17",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-windows-package.json",
+      "sha256": "0748cffbd3e9ea8be539b59599cbc164a2836b624c5ec6bcae0daa716b5c1958",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-windows-startup.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/web-local.jpg",
+      "sha256": "926b76bdd36eb7ddaabbd89609661da7330199708e352f81c84149a909206c96",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/web-mobile-landscape.jpg",
+      "sha256": "fe58e123282e93c35af46f936fbb9d40bbd988c22fc54eb56570f4e7790d019d",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/web-preview-integrity.json",
+      "sha256": "4f59a520aff4a83a9b3badad1be7f7dcda1160f215e79b9d24a1f926a32595c5",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/web-public-portrait.jpg",
+      "sha256": "5c4ce96e94e6b997230e6aaa9a5d132923abf45d9fe7be9d142fe575d3704aa8",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/convenience_native.png",
+      "sha256": "fc03672e6fb8c9074d214982689ac95043ee04e74e9e5595bb4c40b5d394e93c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/market_native.png",
+      "sha256": "1a8cb3821059c78a89853927528cff7998261c75b84a6cc98a5b8959bd6d455a",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/native-review.json",
+      "sha256": "aac6a1a4ef9f8d2050b3ef4f626f6c7ffa94dcf75f05de40c071f8110cb67b52",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/night_market_native.png",
+      "sha256": "24e1a34bf047ebc02c3ffa718ae8fcc9a57fc2fd2338b903532c7f32c769b2e3",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/parcel_native.png",
+      "sha256": "962c948160503323160c8fec6caaa3764ed7c090b50daab585cc414323c45dc7",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/river_native.png",
+      "sha256": "b39bf7ffffbe649d62b9255300f7d0db58c60996dda9cd20c89b09705ac8826b",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/taiwan-kit-contact.jpg",
+      "sha256": "37e421a628625a77034f956da063cf0f4d66f38f63af62f11d3b58b37b845458",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/taiwan-manifest.json",
+      "sha256": "b80b5f488f4b188355bce9e4d5769fc1797398b56ec32124fc43104cbd2f569a",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/taiwan-roundtrip.json",
+      "sha256": "ace9057920eeecb238ec982deb55f783025293b640823f6f96c532fd548dd4c2",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/taiwan-validation.json",
+      "sha256": "8b85dea1ca18727a7be8add633ae185c5a97806bc812ccc9930602da95532416",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_arcade_shop_preview.png",
+      "sha256": "9bd462406f0b46271737a5be364ab6b873732ff16054b11dcd7952980ddda99c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_breakfast_stall_preview.png",
+      "sha256": "65e60dc65bca1cff18a8ee77787828e9b4afc40ee55d793386ef08ab675b26a0",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_bus_shelter_preview.png",
+      "sha256": "5b37fbe1a7e801f87391eef7163abc4045e675c0ec2760c2268cce0ef76a6eac",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_carry_food_preview.png",
+      "sha256": "8ee642d8ae2fdfefad04d3b823ef346fdd9ac5110778fab3cce60b2a75d91a5e",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_carry_parcel_preview.png",
+      "sha256": "ae53aa6d8f4bab7b2a1bf0b9c9766334529f085f69234ea41dcdc8d1b35fc809",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_carry_shop_preview.png",
+      "sha256": "867a6487e6138ef619354c6369404d28fd3aa4ee6515ec519dca3e1364526451",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_convenience_preview.png",
+      "sha256": "2c144461c81cfddd55d6e0a0be99cf422fe9aeab940b7bdf80d093d2226718df",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_food_stall_preview.png",
+      "sha256": "1cee1fc55950d866394267d31201298ad1d4046c05ecd74c4b7b7c25df5127c9",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_lantern_gate_preview.png",
+      "sha256": "5b1ad9869d434ef38f34c18b1d883e3f9f2af82a8413fc5b0ade9b7faee026f0",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_market_stall_preview.png",
+      "sha256": "21e16d6f106faf4705c84526eeef70e36f1247a11ccea3c49f56eb33b1c25709",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_parcel_shelf_preview.png",
+      "sha256": "01e287e9a7f97d600f1fa388d4bb77076ab1fe2269d29b05730046c6dfd05362",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_parcel_station_preview.png",
+      "sha256": "4741e35c9e6e728aff5c3e8e1da81d9a008ced4cb8e492ad9df39f778726b5d5",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_recycling_station_preview.png",
+      "sha256": "91adf602b929d0aa9e3d35a34b947f0a669e0bcb647b2335174fe1311eb25089",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_river_pavilion_preview.png",
+      "sha256": "8a6feec9631d3faf0f05e11e35b90689539600b88997d2aea71a4c55ef28a6a4",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_rowhouse_preview.png",
+      "sha256": "b4827d1ebf69b5dbfd3fbe7da44f888e89f32fe5a7a5fc42cf7c09506edfaf89",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/tw_scooter_preview.png",
+      "sha256": "c344556c6922b54045cf96ececd16c84feb368c65d04d0823a0f59024a51317c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/urban/urban-manifest.json",
+      "sha256": "ab2e7cc6702b57ba7a1dbd158f05e9fa99c0b93a639d4d63e575cf7291b51023",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/urban/urban-validation.json",
+      "sha256": "93a2ec98da735d05ee77fa914c5ac65de3c442c71383daf380af96020a2e4065",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/urban/urban_bench_preview.png",
+      "sha256": "61425dfa073f093cc74dd583eeaafae7caf70c6cda28d76412cc99999653ba78",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/urban/urban_shopfront_preview.png",
+      "sha256": "93a128abd3eca66092c876d22a1a4ddc0dfacf7373ba4583bffb08d4863d000e",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/urban/urban_sidewalk_preview.png",
+      "sha256": "54f4e361ee85f66c60315cb919fc956d055aced4539daa581b817ea6e94499a7",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/urban/urban_street_review.png",
+      "sha256": "bfe4e98fae60d917a9b5df3d2cfd0ead5dd673cc6fecae0af4ac1ee3f1d6224f",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/urban/urban_tower_a_preview.png",
+      "sha256": "798ed4dfc8cb0dc0fb0480418d15692fa283b468de20ce5aadd88d9c9267534e",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/urban/urban_tower_b_preview.png",
+      "sha256": "d1509001a37aec7f86dd436992434607d6c78c70257e9278560b453cc4a67499",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/urban/urban_tower_c_preview.png",
+      "sha256": "bb6757fb703e1a362c568376d6bb1deef10197d857f7ce389edc7e958ec2badc",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/character-lineup.png",
+      "sha256": "03cb003256f04e997e283cd1c3f455f78d53bb81bb66116a7251dda5673bd13a",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/civilian_human_back.png",
+      "sha256": "6dfeb93425a2baaf1f6cb87170a13eeb94761bf181db306defbf3cef492594e7",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/civilian_human_face.png",
+      "sha256": "809556120f7dd517ffd623cbe70ba669aa9060a0906e4d3f7d176fc160f626e1",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/civilian_human_front.png",
+      "sha256": "55be8870821a019e91d1f45f1ed2bc9f1fc083a0e4ac3ecd6d5990044a9cc4be",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/civilian_human_side.png",
+      "sha256": "496095d61a1a34e1656b55c0f667eae1f165fdb662b89b1055d302bd5b528609",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/guard_human_back.png",
+      "sha256": "e90df8d623790985b1cedb9cea0ddf91b6a7bbf2308f01aef9e33f32313c3c0f",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/guard_human_face.png",
+      "sha256": "0274c2ff98a3163fee01e9a755b04ba6e0d881f440096ae814fefb3c4c9b9908",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/guard_human_front.png",
+      "sha256": "45021d97660c0cb9cc579d4373a976a99d3dc2816c861161177b8f3d7d17906f",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/guard_human_side.png",
+      "sha256": "61ea19bdb3fcd9cad8e46ea0135b00f0637fb855e02e90e15a767408339ba0aa",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/hero-actions.png",
+      "sha256": "b74d9c7c64c8e5b37d3a8574f213937163a290550a7c2e288c8a270d0cb69508",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/hero_human_attack.png",
+      "sha256": "98befe496186678f335689f1a19a2c88de7159742eefa520a1dc4d1e34f7136e",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/hero_human_back.png",
+      "sha256": "ecc1d48373f527478b3ff262b45ef0e9b00e5c2dcb1d8156c6e3df07a5ef02dd",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/hero_human_drive.png",
+      "sha256": "584fde474542ad345f748dbd650aacce33840da349ab1f6334bf71fc029e597b",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/hero_human_face.png",
+      "sha256": "7cc0e3e588639f5528e15953a77011568915e3bb612b6eb3fd6dd4c9b3b30fe6",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/hero_human_front.png",
+      "sha256": "6d63d5664ed3313066dd6646ea103df452819267975f8d04962297bf0475c062",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/hero_human_hit.png",
+      "sha256": "d5ce01095711c0d68fecbde62683c0cdcd91d2dbbd1eeee5e0a0187e38f07d2a",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/hero_human_knockdown.png",
+      "sha256": "e37897a121d196ea37a12007850c33ad2d047e45d6fc139578fe6c2dc6e8baaa",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/hero_human_pedal.png",
+      "sha256": "69d92c6e1d096a83c40a08890e3090ec503c449a63d9b3ba464e6e705284f25b",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/hero_human_run.png",
+      "sha256": "ced80e56f8e17bcf90f81017daa2a5bcd6af02895fa785e3faeb24e8b9b0fe10",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/hero_human_side.png",
+      "sha256": "0da055a8865106ae0dfd17d12e06eddb0a7940e0057dc3f7129f3c9c7bf40d77",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/hero_human_walk.png",
+      "sha256": "8fc14ac54c42f95dcd85e86dfe0f225b10f0db146fa0bbd0b1eccf125c993b95",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/human-turnarounds.png",
+      "sha256": "dafa5adf02ba692cac732515547bae27601d78309c2876f9c2250b12a52f9143",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/manifest.json",
+      "sha256": "ddad4c3577340f8d5017ca0f59d0ddf385b546ec2145df45703d465fa272d128",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/mei_human_back.png",
+      "sha256": "b973ec054a1eccba9cd546b2572c12f82b3d056f1458024153bc2df41df7633e",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/mei_human_face.png",
+      "sha256": "566873d03600bbb5112ec1270491c8fdf0d740e3c84e9c591d644fd4fbcc5087",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/mei_human_front.png",
+      "sha256": "82e60a7089cd791501a12b5fb96a7cec3b2f24a3155780e64a6315a94ebc25f3",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/mei_human_side.png",
+      "sha256": "739bfffb097337f1d3a6a968ef16181171ac2d2071f97d9bd4c4d3edb92d7ef2",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/validation.json",
+      "sha256": "7b8addb21f33f9f80b611207a6d2c29e5efc024661b02d216687bfac78621bfd",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/yuan_human_back.png",
+      "sha256": "c041a9ad493b12cca6ecd1aa889da59dc1466b882f834bd496cc03cf60a62f47",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/yuan_human_face.png",
+      "sha256": "d13c8f196e2cf467c385b1c9768e10bc85ca331f2080e1a2e3bc2bbaec1440f5",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/yuan_human_front.png",
+      "sha256": "50898d2d666caaf2221fba34c1709911c4a2c74706546284e34caed9ba542850",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/yuan_human_side.png",
+      "sha256": "2d4779bd1303721879c5b77eb3c9ac8e0c3185bce6adade615e65d3350341722",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/zhou_human_back.png",
+      "sha256": "3cb452e2df1ecb37559dbb28519f7c1ac8cbf53b3ba26b4e9ae296420052a2f8",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/zhou_human_face.png",
+      "sha256": "1645ac319282385af5b6e5158a2478901d0ada0cae050d0c14f1196b3cfedf77",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/zhou_human_front.png",
+      "sha256": "c35b26314f141f75a66b82a5cfa324b68fbd9a9436497198c6477d6e783d23ba",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/v03-human/zhou_human_side.png",
+      "sha256": "1b795f842af5c46aa2a03f80a3f6de691f2c0512df8c6a20ca8ee72d41411deb",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/integrated/desktop_jobs.png",
+      "sha256": "c4006b4d69a620d6b65f87ab37fa4fe05818ab03572fd15fb341d25f37883f86",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/integrated/desktop_street.png",
+      "sha256": "474163044be79fe33cfbab5787d722a0560d6ea46d07c99b10a8551a9e935684",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/integrated/phone_jobs.png",
+      "sha256": "19079ad76e4502e62c2c79cca3f5d6cc8346fdbc60da3daf9fb461c04f9b7955",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/integrated/phone_street.png",
+      "sha256": "a8caeb58884b70fa0605fc0fd2c67ed57f9c16ef67d30f9da28e77e30271ca08",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/integrated/rendered-review.json",
+      "sha256": "6b3f86475c007514de0f9d6d5c3bbb41deeb82dd3832d477075a70033de36683",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/integrated/story_people.png",
+      "sha256": "e4ccad9aa3b6c1be42e1e708f257030243f17c3493dc98f20c43afdef2320c9a",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/integrated/tablet_jobs.png",
+      "sha256": "986a9e54ef54c73b05c994449df9f60f38ed921670ed669bd48f2bd4959e30c3",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/integrated/tablet_street.png",
+      "sha256": "78fb93aa2cd99f4cdbb35e10cbb2470b51bf192721a8ab78a2b45179d75be945",
+      "unchanged": true
+    },
+    {
+      "path": "qa/art/taiwan/people/validation.json",
+      "sha256": "ab89de03ae2908a70d85eb723218d6e76f6b4942da2cf621d86eb3f1c9839794",
+      "unchanged": true
+    },
+    {
+      "path": "qa/browser/v04/desktop-map-public.png",
+      "sha256": "072a6e4a5d6fd2ecfe773442baee5862b50b0eea0227cd46da600e557c016ecc",
+      "unchanged": true
+    },
+    {
+      "path": "qa/browser/v04/phone-jobs-public.png",
+      "sha256": "2c61947fc63e5aa72386b0a81909f2f0c54662534fec0676edd36a23c45431bb",
+      "unchanged": true
+    },
+    {
+      "path": "qa/browser/v04/phone-play-public.png",
+      "sha256": "04b260229ce43328e0ba0d222fbf30c16b2c7be0cc50ca408fffba1351d2b78c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/browser/v04/public-browser-check.json",
+      "sha256": "5906aa3e1c1140fa15150a682e46d911d465604a7b69dbaf6b8040f6107d96e3",
+      "unchanged": true
+    },
+    {
+      "path": "qa/browser/v04/tablet-jobs-public.png",
+      "sha256": "2abf049694ac2278114f41c758e447900001a634c95a0f206bdbe98f968b8ec1",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/404.html",
+      "sha256": "4456e8f991dd2e7f26971d831a012433392998f325c3373ca965727617dae68f",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/CREDITS.txt",
+      "sha256": "176083369a515b6e29d8ed8d27f8729697fbd1974aecefc7eeb8f8442fe758e3",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/favicon.svg",
+      "sha256": "0e51fa7be2f99443ab0f2da9aec38960fd8dbd8dbf13187bebd20398b265634a",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/game.apple-touch-icon.png",
+      "sha256": "8acdd366f18297229792e9b64c2df2383e487ec9010a63068aec28fbc80e923b",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/game.audio.position.worklet.js",
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/game.audio.worklet.js",
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/game.html",
+      "sha256": "d08f05678b5541c7e7dab55bc44bab876908942e0a5d53bebe62b0c2cc821a9d",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/game.icon.png",
+      "sha256": "72ecebec965a3a63c1b0271c153f355004459fdcdd4bee78bcba3eddefa7b6f9",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/game.js",
+      "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/game.pck",
+      "sha256": "f2dbcefed076de0140a9737a175362abd8ff083f792bb76db867ef5f1b401c7c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/game.png",
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/game.wasm.br",
+      "sha256": "83938b21406885755b656026518797f26186dafcaa3ddc9eef66ee7551159039",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/index.html",
+      "sha256": "d08f05678b5541c7e7dab55bc44bab876908942e0a5d53bebe62b0c2cc821a9d",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/LICENSE-ASSETS.txt",
+      "sha256": "4ca34550ddf1ad9bf4176165dacf0fb0c29cdaf55d8d70572b0b7e6a2d590133",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/LICENSE.txt",
+      "sha256": "55ef6e46d74aacb1018560c5f305f02e3669006b6e789f64d3d9098859848b52",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/play-site.css",
+      "sha256": "685c676b88afcd13436f65d743ffce2b88c05cd8bbce26e6c6ccd784413ac0f2",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/play-site.js",
+      "sha256": "d2abaf8a59f71aeaab16f02a4494a364918315a89535537e3bb38648a69fb42e",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/robots.txt",
+      "sha256": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/_headers",
+      "sha256": "4e4f4cf31126335d6ebae74b30100c71e7495abaa86e80bf7ea4581ff8183e35",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/_redirects",
+      "sha256": "04366378d9f8594bced8c74908b3fb4f0ca5b197d3ac0969bacd42dde3eeb49d",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/logs/godot.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/logs/godot2026-10-03T13.11.00.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/CanvasShaderGLES3/e2b1b2374a7375c5182f05b4bc039e2f47d69d92e8a2e146a0b524229aad7f29/6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache",
+      "sha256": "4fb1ccdab30139bc9a16af11355da2803fb58f1796383a8e51e24b615ea68542",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/CopyShaderGLES3/68bcca82739b631d61d1135684eda81cb680954666e2fb5a27267f2b53bc7c96/6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache",
+      "sha256": "5ecac6af6ea5b35ec29f69e8460cb42276ba2604f443466846e52e29bd566324",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/CubemapFilterShaderGLES3/490fc65dc14f1f89b9e0f1bdd464434ae6f860830e8d4495b3885117a49658c4/6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache",
+      "sha256": "80c64faa9f2699bda04b2b996cddc6c3f2dc440966d523adb4a8e61f96b2403b",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/FeedShaderGLES3/9c5fbddcf03458aaa9246d92025589248eb1ad8a7e17ae0bdc324a10fecaa372/6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache",
+      "sha256": "970e106f6eaaf6c64772d71dd62b9ba578e5daaa16879939543f2d41fd752403",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/PostShaderGLES3/43dd7550512b8fa95e4a3d3a0dbaa9b6b7f4f4a602dce6df83b680e78d52c52b/6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache",
+      "sha256": "e6d212e480241aed2c6cac8017c75c5238f46c22b3e1d8a1604ed170a7376384",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/SceneShaderGLES3/a37df0ba12d8af6f4e03e3d2ebe6b744c2498f5a4951d21661fbe056429d8e33/2115c615c01c3a0177be29c6ddcef01907dcf654.cache",
+      "sha256": "abaf76e0786ce36323c22f08bc1f16717292fae352702511d8a01de7614edfd7",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/SceneShaderGLES3/a37df0ba12d8af6f4e03e3d2ebe6b744c2498f5a4951d21661fbe056429d8e33/6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache",
+      "sha256": "e4ffecfef513b3bbb014ab2d49661bfb2e5877a320ef09e6dae9db7e9dc548e8",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/SceneShaderGLES3/a37df0ba12d8af6f4e03e3d2ebe6b744c2498f5a4951d21661fbe056429d8e33/75dbda390b4d6b8d1bba67e8943ace8a4f64f756.cache",
+      "sha256": "6fc0b29ceac6f1fa2a945f2219a19465e514c432b9715ca9363ecdbb9ae489c6",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/SceneShaderGLES3/a37df0ba12d8af6f4e03e3d2ebe6b744c2498f5a4951d21661fbe056429d8e33/77047cd41f429f33ceff24e890e174f5465e755e.cache",
+      "sha256": "1f2064f58304e8471d44f843beb7cf38dcc2aca5c8be999809b683506fa0fc5f",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/SceneShaderGLES3/a37df0ba12d8af6f4e03e3d2ebe6b744c2498f5a4951d21661fbe056429d8e33/84366ed46520476083c6b869fefb772ed1a067ee.cache",
+      "sha256": "81c7c077e128fbfdbfd7e0d1430aeda32cd57a258aa7125039d5b058de9e3627",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/SceneShaderGLES3/a37df0ba12d8af6f4e03e3d2ebe6b744c2498f5a4951d21661fbe056429d8e33/93741a436c219b42782e592d3fd82328349d94f2.cache",
+      "sha256": "0597200eb34c649465d086b79aa0e713e7cc49a02d64d397d3af1b477d9bb09e",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/SceneShaderGLES3/a37df0ba12d8af6f4e03e3d2ebe6b744c2498f5a4951d21661fbe056429d8e33/95b9c3e1a5f3b26e9a87a680b216c8a691c24d2e.cache",
+      "sha256": "c030e35d2c232979d738e6ca2c3b3968e2970d803f8ca88d304e9c2596681c48",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/SceneShaderGLES3/a37df0ba12d8af6f4e03e3d2ebe6b744c2498f5a4951d21661fbe056429d8e33/f2e328ac8a780a17a0c65e242b0c8bc4fc063f03.cache",
+      "sha256": "fbcb4ccef18c3d09a67ce2ffe7334a80f9984cc60c9c7fe388bade1fef820e37",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/SkeletonShaderGLES3/817a4613f02986d53dd90a7339d39992c595b10cd418b4ba49a82aae07f14013/6bb7c9a2fd1c4a8fa77cb96555b9b4a720209981.cache",
+      "sha256": "389d3645e90aeeabe6bdc0d4f23682341300581be6f0d7f0b3c370df1cff876f",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/native-capture/appdata/Godot/app_userdata/七期：斷鏈行動/shader_cache/SkyShaderGLES3/1ad765cc14cf78ca6c48efb07bfd3c24a377d8dec09237b9c2dbe897c415fa5e/2c82eb5fea9b549e20c9f41e308abf9a4fc5d76f.cache",
+      "sha256": "92803de072282440d128409b37f489e938472078675488cdc76504bc26d4056f",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/desktop/index.html",
+      "sha256": "7f82990243c5114b4538eb1233c95aa75b79b6955fc9ecfb4ab2385ddf075ace",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/licenses/car-kit-License.txt",
+      "sha256": "c33b7f6453d134deae7b1b8493717d9ccfa754c25ab97f6de89b88f8fda19b00",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/licenses/CC-BY-3.0.txt",
+      "sha256": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/licenses/city-kit-commercial-License.txt",
+      "sha256": "c38cee408d022e57e44e49f1cd655c2fe0dc881a07b881276b795215cdc0de69",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/licenses/city-kit-roads-License.txt",
+      "sha256": "87b9404aef5dff6162ae1e53a27bc6427fe1cdd2e2dd5ec05fdd25f17da10498",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/licenses/furniture-kit-License.txt",
+      "sha256": "bc0de1a0742cb490f9ed4bae0bd284286ebb27e23149b9917c7d8c0d590b8b29",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/licenses/Godot-COPYRIGHT.txt",
+      "sha256": "cb1980c88089573bcacd7221d777c689bb8bbd778799f24c27fca0fe5f774d6d",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/licenses/Godot-LICENSE.txt",
+      "sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/licenses/MakeHuman-ASSETS-CC0.txt",
+      "sha256": "f6089cba01cb570a24712b41ab8a586ccd3cc5ef53dc266ca50b95c288956d2c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/licenses/MakeHuman-source-notice.txt",
+      "sha256": "7f7a7d4a104f6ba94e0f3fb18ef73dfbb9e35bd21b98f374046cbe5a486548c2",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/licenses/mini-characters-License.txt",
+      "sha256": "28358ae5accc85b572eb42507956afc8beae05acb4648bb9026a5714d421b785",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/licenses/nature-kit-License.txt",
+      "sha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/licenses/OFL.txt",
+      "sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/licenses/taiwan-CC0.txt",
+      "sha256": "98ccf7aa102f262252204c9ee69c27fffe9ad8a0f745f62f197b1bc8c32f095c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/licenses/urban-CC0.txt",
+      "sha256": "9273a5a904014334ea1707d8e74437c4eb92c82a9e23a482989fe94f7c34e49b",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/phone/index.html",
+      "sha256": "81c216e671d744e75d9749c64f6a2ba6afc3034801d9e181d11ab05e02524a5c",
+      "unchanged": true
+    },
+    {
+      "path": "qa/local/v04-entry-smoke/tablet/index.html",
+      "sha256": "d3cf9096a2eb6db6c613dc68319cf11b556d25f4aa3ee6554ea581d3b94bd6ca",
+      "unchanged": true
+    },
+    {
+      "path": "native/build-config.json",
+      "sha256": "a913c26fe8a838ad00f2febf8a96a9a4d548e3162e5a6318f6340ce3ffcc5e8b",
+      "unchanged": true
+    },
+    {
+      "path": "native/README.md",
+      "sha256": "f8d6a23f8bcd278941ff748756c4ef13689f78caa981373cb164d80d8cb61f86",
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/native-export.yml",
+      "sha256": "bd9b8381e5d1e0b29ff668ee81dbc09c589d0dbede29eb87e1a04c556ea23e26",
+      "unchanged": true
+    },
+    {
+      "path": "tools/export_mobile.py",
+      "sha256": "a4fe3a07bf29ea006e14d232f7f8a260b86ae597f3930c55cdf352d1015df658",
+      "unchanged": true
+    },
+    {
+      "path": "tools/install_native_toolchain.py",
+      "sha256": "9f0cb530748a21e86fb45c8b72ae436fa770be49d1ab4ba316eb74886077d6c5",
+      "unchanged": true
+    }
+  ],
+  "checked_files": 290,
+  "changed": [],
+  "preexisting_screenshots_backed_up_locally": true
+}

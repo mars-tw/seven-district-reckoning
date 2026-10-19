@@ -1,0 +1,3249 @@
+{
+  "status": "VERIFIED",
+  "version": "0.11.0",
+  "base_commit": "R9-local-candidate",
+  "environment": "並發載量測，僅供參考",
+  "method": "Unedited screenshots of the actual Godot 4.7 stable Web export; headless Chromium, ANGLE D3D11 hardware WebGL. No compositing, generated substitute or screenshot resizing. These are browser captures, not native iOS device captures.",
+  "chromium_args": [
+    "--use-angle=d3d11",
+    "--enable-gpu",
+    "--ignore-gpu-blocklist",
+    "--force_high_performance_gpu"
+  ],
+  "image_model_slug": null,
+  "pck_sha256": "9bfa3255321c53f78a65c9ce8684a7c115f3c10daebbc31b29820baa0aae8c81",
+  "views": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "pixels": {
+        "width": 390,
+        "height": 844
+      },
+      "profile": "phone",
+      "logs": [],
+      "blocked_remote_origins": [],
+      "shots": [
+        {
+          "file": "390x844-title.png",
+          "sha256": "b9d366f60aba5d5b737f473ae536e28b483d2de586bcdc0568d35858f59e7dc0",
+          "state": {
+            "phase": "title",
+            "play_started": false,
+            "version": "0.11.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 1,
+            "draw_calls": 144,
+            "frame_fps": 51,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "15:30",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 0,
+            "layout": {
+              "case_gutter_reserved": false,
+              "container_sorts": 7,
+              "panel": [
+                8,
+                158,
+                374,
+                528
+              ],
+              "peak_sorts_per_frame": 0,
+              "resize_calls": 9
+            },
+            "menu": "title",
+            "world_ready": false,
+            "art": {
+              "details": {
+                "hour": 15.5,
+                "inspection": false,
+                "photos": [],
+                "seal": {},
+                "touch": []
+              },
+              "hero_feet": [
+                115.407356262207,
+                579.700622558594
+              ],
+              "hero_head": [
+                110.658363342285,
+                383.967864990234
+              ],
+              "hero_height_px": 195.732757568359,
+              "hud_coverage": 0,
+              "mei_feet": [
+                4696.27294921875,
+                4587.11279296875
+              ],
+              "mei_head": [
+                22812.650390625,
+                7512.9189453125
+              ],
+              "mei_height_px": 2925.80615234375,
+              "seal_visible": false
+            },
+            "notice": "",
+            "objective": "到車店找美晴，點互動交談。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -56,
+            "player_z": 52
+          }
+        },
+        {
+          "file": "390x844-dialogue.png",
+          "sha256": "ca5e0cd968b73fa318f3b0ab2fd185129081d4eebba84567861db33b559501e2",
+          "state": {
+            "phase": "menu",
+            "play_started": true,
+            "version": "0.11.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 1,
+            "draw_calls": 149,
+            "frame_fps": 51,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:15",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 0,
+            "layout": {
+              "case_gutter_reserved": false,
+              "container_sorts": 7,
+              "panel": [
+                8,
+                158,
+                374,
+                528
+              ],
+              "peak_sorts_per_frame": 0,
+              "resize_calls": 9
+            },
+            "menu": "",
+            "world_ready": false,
+            "art": {
+              "details": {
+                "hour": 17.25,
+                "inspection": false,
+                "photos": [],
+                "seal": {},
+                "touch": []
+              },
+              "hero_feet": [
+                115.40803527832,
+                579.700378417969
+              ],
+              "hero_head": [
+                110.659072875977,
+                383.9677734375
+              ],
+              "hero_height_px": 195.732604980469,
+              "hud_coverage": 1.2039919795844,
+              "mei_feet": [
+                157.412719726562,
+                443.819488525391
+              ],
+              "mei_head": [
+                156.433288574219,
+                354.798400878906
+              ],
+              "mei_height_px": 89.0210876464844,
+              "seal_visible": false
+            },
+            "notice": "",
+            "objective": "到車店找美晴，點互動交談。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -56,
+            "player_z": 52
+          }
+        },
+        {
+          "file": "390x844-dialogue-meiqing.png",
+          "sha256": "854beb741a1b72dbad8b46a6a4551973cffef70d71b5a473bd0e6afad5b4f955",
+          "state": {
+            "phase": "menu",
+            "play_started": true,
+            "version": "0.11.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 1,
+            "draw_calls": 153,
+            "frame_fps": 57,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:15",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 0,
+            "layout": {
+              "case_gutter_reserved": false,
+              "container_sorts": 8,
+              "panel": [
+                8,
+                158,
+                374,
+                528
+              ],
+              "peak_sorts_per_frame": 0,
+              "resize_calls": 9
+            },
+            "menu": "",
+            "world_ready": false,
+            "art": {
+              "details": {
+                "hour": 17.25,
+                "inspection": false,
+                "photos": [],
+                "seal": {},
+                "touch": []
+              },
+              "hero_feet": [
+                115.407775878906,
+                579.700378417969
+              ],
+              "hero_head": [
+                110.658782958984,
+                383.967834472656
+              ],
+              "hero_height_px": 195.732543945312,
+              "hud_coverage": 0.227311945558391,
+              "mei_feet": [
+                157.412567138672,
+                443.819488525391
+              ],
+              "mei_head": [
+                156.433120727539,
+                354.798431396484
+              ],
+              "mei_height_px": 89.0210571289062,
+              "seal_visible": false
+            },
+            "notice": "",
+            "objective": "到車店找美晴，點互動交談。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -56,
+            "player_z": 52
+          }
+        },
+        {
+          "file": "390x844-street.png",
+          "sha256": "b1f06b78e42adfab3b909d6121c9fbec1cd73861032f8ffa224504aea10ba4cd",
+          "state": {
+            "phase": "playing",
+            "play_started": true,
+            "version": "0.11.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 0,
+            "draw_calls": 174,
+            "frame_fps": 60,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:29",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 1,
+            "layout": {
+              "case_gutter_reserved": false,
+              "container_sorts": 8,
+              "panel": [
+                8,
+                158,
+                374,
+                528
+              ],
+              "peak_sorts_per_frame": 0,
+              "resize_calls": 9
+            },
+            "menu": "",
+            "world_ready": true,
+            "art": {
+              "details": {
+                "hour": 17.4836246666669,
+                "inspection": false,
+                "photos": [],
+                "seal": {},
+                "touch": [
+                  {
+                    "action": "interact",
+                    "text": "互動"
+                  },
+                  {
+                    "action": "mount",
+                    "text": "上下車"
+                  }
+                ]
+              },
+              "hero_feet": [
+                115.407775878906,
+                579.700500488281
+              ],
+              "hero_head": [
+                110.658782958984,
+                383.967926025391
+              ],
+              "hero_height_px": 195.732574462891,
+              "hud_coverage": 0.140302588406854,
+              "mei_feet": [
+                157.294616699219,
+                433.099945068359
+              ],
+              "mei_head": [
+                156.308944702148,
+                343.512054443359
+              ],
+              "mei_height_px": 89.587890625,
+              "seal_visible": false
+            },
+            "notice": "反詐案卷已開啟｜沿光柱找美晴，靠近後交談",
+            "objective": "到車店找美晴，點互動交談。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -56,
+            "player_z": 52
+          }
+        }
+      ],
+      "reopen_checks": [],
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844
+      },
+      "game_renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 2060 (0x00001F03) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "last_layout": {
+        "case_gutter_reserved": false,
+        "container_sorts": 8,
+        "panel": [
+          8,
+          158,
+          374,
+          528
+        ],
+        "peak_sorts_per_frame": 0,
+        "resize_calls": 9
+      },
+      "frame_pacing": {
+        "method": "browser requestAnimationFrame presentation intervals, not native GPU timer; concurrent host load",
+        "runs": [
+          {
+            "p50": 16.69999999999709,
+            "p95": 16.799999999995634,
+            "max": 16.80000000000291,
+            "frames": 180,
+            "counters": [
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              }
+            ]
+          },
+          {
+            "p50": 16.69999999999709,
+            "p95": 16.700000000004366,
+            "max": 16.80000000000291,
+            "frames": 180,
+            "counters": [
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              }
+            ]
+          },
+          {
+            "p50": 16.69999999999709,
+            "p95": 16.700000000004366,
+            "max": 16.80000000000291,
+            "frames": 180,
+            "counters": [
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "draw_calls": 174,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              }
+            ]
+          }
+        ],
+        "p95_median": 16.700000000004366
+      },
+      "final_state": {
+        "phase": "playing",
+        "play_started": true,
+        "version": "0.11.0",
+        "device_profile": "phone",
+        "requested_profile": "phone",
+        "resolution_scale": 0.699999988079071,
+        "camera_distance": 240,
+        "touch_controls": true,
+        "visible_citizens": 3,
+        "visible_traffic": 0,
+        "draw_calls": 174,
+        "frame_fps": 60,
+        "life_title": "台灣街區生活",
+        "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+        "life_cash": 0,
+        "cargo_count": 0,
+        "culture_activity": "",
+        "culture_badges": 0,
+        "stamina": 100,
+        "max_stamina": 100,
+        "credits": 120,
+        "rank": "初到街區",
+        "time": "17:39",
+        "navigation": "任務導引",
+        "main_title": "第 1 環｜賠掉的存款",
+        "revisit": "",
+        "notebook_pages": 0,
+        "case_stage": 1,
+        "layout": {
+          "case_gutter_reserved": false,
+          "container_sorts": 8,
+          "panel": [
+            8,
+            158,
+            374,
+            528
+          ],
+          "peak_sorts_per_frame": 0,
+          "resize_calls": 9
+        },
+        "menu": "",
+        "world_ready": true,
+        "art": {
+          "details": {
+            "hour": 17.6656246666671,
+            "inspection": false,
+            "photos": [],
+            "seal": {},
+            "touch": [
+              {
+                "action": "interact",
+                "text": "互動"
+              },
+              {
+                "action": "mount",
+                "text": "上下車"
+              }
+            ]
+          },
+          "hero_feet": [
+            115.407775878906,
+            579.700500488281
+          ],
+          "hero_head": [
+            110.658782958984,
+            383.967926025391
+          ],
+          "hero_height_px": 195.732574462891,
+          "hud_coverage": 0.140302588406854,
+          "mei_feet": [
+            157.294616699219,
+            433.099945068359
+          ],
+          "mei_head": [
+            156.308944702148,
+            343.512054443359
+          ],
+          "mei_height_px": 89.587890625,
+          "seal_visible": false
+        },
+        "notice": "反詐案卷已開啟｜沿光柱找美晴，靠近後交談",
+        "objective": "到車店找美晴，點互動交談。",
+        "optional_title": "街坊委託",
+        "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+        "completed_sides": 0,
+        "completed_activities": 0,
+        "coins": 0,
+        "touch": true,
+        "player_x": -56,
+        "player_z": 52
+      }
+    }
+  ],
+  "failures": [],
+  "chromium_version": "147.0.7727.15"
+}

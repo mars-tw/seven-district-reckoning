@@ -1,0 +1,8 @@
+{
+  "status": "VERIFIED",
+  "issues": [],
+  "runtime_capture": "BLOCKED",
+  "store_recapture": "BLOCKED",
+  "p95_shipping_gate": "BLOCKED",
+  "native_test": "See final-tests.json; screenshot blocker does not imply native input blocker"
+}

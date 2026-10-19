@@ -1,0 +1,64 @@
+{
+  "status": "BLOCKED",
+  "threshold_ms": 18,
+  "environment": "並發載量測，僅供參考",
+  "method": "Three browser RAF runs; not native GPU timing or clean machine measurements",
+  "runs": [
+    {
+      "pixels": [
+        390,
+        844
+      ],
+      "method": "browser requestAnimationFrame presentation intervals, not native GPU timer; concurrent host load",
+      "runs": [
+        {
+          "p50": 16.69999999999709,
+          "p95": 33.30000000000291,
+          "max": 33.400000000001455,
+          "frames": 180
+        },
+        {
+          "p50": 16.69999999999709,
+          "p95": 16.799999999995634,
+          "max": 33.400000000001455,
+          "frames": 180
+        },
+        {
+          "p50": 16.69999999999709,
+          "p95": 33.299999999995634,
+          "max": 33.400000000001455,
+          "frames": 180
+        }
+      ],
+      "p95_median": 33.299999999995634
+    },
+    {
+      "pixels": [
+        1366,
+        768
+      ],
+      "method": "browser requestAnimationFrame presentation intervals, not native GPU timer; concurrent host load",
+      "runs": [
+        {
+          "p50": 16.700000000000728,
+          "p95": 33.400000000001455,
+          "max": 33.400000000001455,
+          "frames": 180
+        },
+        {
+          "p50": 16.700000000000728,
+          "p95": 33.400000000001455,
+          "max": 49.900000000001455,
+          "frames": 180
+        },
+        {
+          "p50": 16.700000000000728,
+          "p95": 33.400000000001455,
+          "max": 49.89999999999782,
+          "frames": 180
+        }
+      ],
+      "p95_median": 33.400000000001455
+    }
+  ]
+}

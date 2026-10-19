@@ -1,0 +1,19 @@
+{
+  "status": "BLOCKED",
+  "version": "0.7.0",
+  "pck_sha256": "a2c5d50cea39636a2cb60b7dae7494763a15527f136486be3d504efe9c4592a9",
+  "environment": "\u4e26\u767c\u8f09\u91cf\u6e2c\uff0c\u50c5\u4f9b\u53c3\u8003",
+  "scope": "Supplemental Web lifecycle probe before final presentation text/font polish; not final iOS/Android build",
+  "phone": {
+    "status": "VERIFIED",
+    "reload_preserved_sealed_case": true
+  },
+  "tablet": {
+    "status": "BLOCKED",
+    "timeout_seconds": 240,
+    "operation": "waitForFunction state.world_ready before invoking load",
+    "read_attempted": false,
+    "error": "page.waitForFunction: Timeout 240000ms exceeded."
+  },
+  "note": "Final screenshot capture manifests use lifecycle_enabled=false. Native cross-OS-process persistence is independently verified by r3_store_restart."
+}

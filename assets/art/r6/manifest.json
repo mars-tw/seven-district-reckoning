@@ -1,0 +1,121 @@
+{
+  "status": "VERIFIED",
+  "version": "0.10.0",
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "model_note": "Actual model slug is not exposed. No model name inferred from planning files.",
+  "generated_master_count": 4,
+  "runtime_image_count": 4,
+  "outputs": [
+    {
+      "id": "ayuan-portrait",
+      "generated_png_sha256": "380d68a4c984b3f74b20707cc2fe976d672b3a52b36de81cd9168dfa82c0ed45",
+      "master": "assets/art/r6/ayuan-portrait.webp",
+      "master_sha256": "0d542ee4ba5435bef1d71fb4414509e80a465f28a0fdac1bccfd23a87d9337a2",
+      "size": [
+        512,
+        768
+      ],
+      "reference": "godot/assets/art/r4/ayuan-portrait.png",
+      "reference_sha256": "59a207c3d784bd4971e73aaab7da758ecd620d66e8b85cd9c9a7b3863c17019f",
+      "character_gate": {
+        "value_mean": 0.33140527703537914,
+        "near_black": 0.2313919210689911,
+        "saturation_mean": 0.4232991701707329,
+        "low_saturation": 0.06544161391453152,
+        "pass": true
+      },
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.4034983317057292,
+        "mask": "assets/art/r6/ayuan-portrait-mask.png",
+        "mask_sha256": "d6825cfb89dfe5c5c4fa7a771f245feb791969ab1beb166d4e9f68f90a553d7c",
+        "transparent_rgb_zero": true
+      },
+      "path": "godot/assets/art/r6/ayuan-portrait.png",
+      "sha256": "9e8c6348a033523980d1b3a6dfc807a0738aa73ad61e7e2253254214eee5aa02",
+      "bytes": 382426,
+      "decoded_rgba_bytes": 1572864
+    },
+    {
+      "id": "meiqing-portrait",
+      "generated_png_sha256": "828582c29578f4d35a810c69930e39e53a8e5c85748082608a6195c3f1ced364",
+      "master": "assets/art/r6/meiqing-portrait.webp",
+      "master_sha256": "0f3553ac36062a56051c2ac58ed12db7ff9db4c67ed8619be1f615087d096ba3",
+      "size": [
+        512,
+        768
+      ],
+      "reference": "godot/assets/art/r4/meiqing-portrait.png",
+      "reference_sha256": "ca841bd40a322eae05f82b872a9439602fe30df4d3c1a2cac2e2f4ba65a40956",
+      "character_gate": {
+        "value_mean": 0.43175092734436044,
+        "near_black": 0.07694920889621326,
+        "saturation_mean": 0.574251829392985,
+        "low_saturation": 0.017477286033349956,
+        "pass": true
+      },
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.3780364990234375,
+        "mask": "assets/art/r6/meiqing-portrait-mask.png",
+        "mask_sha256": "085f846244d8dc80bdb034074b375142f7502d890c7228157fcef7e951d7f4fa",
+        "transparent_rgb_zero": true
+      },
+      "path": "godot/assets/art/r6/meiqing-portrait.png",
+      "sha256": "9eb551ec907317e337c916b8866161034b9a2cf2278e484aa5fd35d312754530",
+      "bytes": 366572,
+      "decoded_rgba_bytes": 1572864
+    },
+    {
+      "id": "title-street",
+      "generated_png_sha256": "ba9935ab88708627e4f45e581187bce16f10062b62e2f8f7c7fbd6a60f60b86c",
+      "master": "assets/art/r6/title-street.webp",
+      "master_sha256": "8270b9dd59b4f9cdaf6f7f1a94ce19a6c682ba83db6e72fd15403d08223d40ae",
+      "size": [
+        1536,
+        1024
+      ],
+      "reference": "godot/assets/art/r5/title-street.webp",
+      "reference_sha256": "e50a7bbb809db8f59a4a46b066900f57b1ce57dd62ee7e1a22908e93ec6b842e",
+      "path": "godot/assets/art/r6/title-street.webp",
+      "sha256": "f08f251928358f39004138601ba8f8972519c6fbe6be61b809f4a2e8ddd26297",
+      "bytes": 365006,
+      "decoded_rgba_bytes": 6291456
+    },
+    {
+      "id": "receipt-paper",
+      "generated_png_sha256": "7f2f759f5ddab6e5d6aa489291ad1e0c3f498fb43893b9ae8b0f0ed6f355753d",
+      "master": "assets/art/r6/receipt-paper.webp",
+      "master_sha256": "c033864a1fe68237589bb9769466562c33a7faece95969dfeb6f06690ff844db",
+      "size": [
+        512,
+        768
+      ],
+      "source_crop_pixels": [
+        100,
+        150,
+        900,
+        1400
+      ],
+      "path": "godot/assets/art/r6/receipt-paper.webp",
+      "sha256": "8203e514b82f411304605e118db96805cb137f114f9379dd8fb77257fe659bc9",
+      "bytes": 19428,
+      "decoded_rgba_bytes": 1572864
+    }
+  ],
+  "license": "CC BY 4.0 to the extent applicable; prior character and backdrop are original project AI art.",
+  "postprocess": "Original alpha retained, LANCZOS resize, transparent RGB zeroed. Runtime shader fades bottom 10 percent. WebP quality 85 for opaque art. No invented PBR maps.",
+  "runtime_bytes": 1133432,
+  "decoded_rgba_bytes": 11010048
+}

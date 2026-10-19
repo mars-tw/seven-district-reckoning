@@ -1,0 +1,36 @@
+{
+  "status": "VERIFIED",
+  "phase": "All benchmark browser and Godot child processes closed; other owner workloads left running",
+  "samples": [
+    {
+      "utc": "2026-10-18T06:18:41.045381+00:00",
+      "cpu_percent": 20.2,
+      "memory_available_mib": 11072,
+      "gpu_raw": "97, 8, 11440, 12288",
+      "gpu_percent": 97,
+      "gpu_memory_percent": 8,
+      "gpu_used_mib": 11440,
+      "gpu_total_mib": 12288
+    },
+    {
+      "utc": "2026-10-18T06:18:41.200424+00:00",
+      "cpu_percent": 12.7,
+      "memory_available_mib": 11064,
+      "gpu_raw": "97, 8, 11440, 12288",
+      "gpu_percent": 97,
+      "gpu_memory_percent": 8,
+      "gpu_used_mib": 11440,
+      "gpu_total_mib": 12288
+    },
+    {
+      "utc": "2026-10-18T06:18:41.341357+00:00",
+      "cpu_percent": 26.5,
+      "memory_available_mib": 11061,
+      "gpu_raw": "97, 8, 11440, 12288",
+      "gpu_percent": 97,
+      "gpu_memory_percent": 8,
+      "gpu_used_mib": 11440,
+      "gpu_total_mib": 12288
+    }
+  ]
+}

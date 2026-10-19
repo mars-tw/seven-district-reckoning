@@ -1,0 +1,15 @@
+{
+  "status": "VERIFIED",
+  "version": "0.9.0",
+  "scope": "Actual Web captures; overall Blender/native release still incomplete",
+  "new_screenshots_written": 14,
+  "comparison_screenshots_written": 49,
+  "manifest": "docs/store/screenshots/manifest.json",
+  "comparison_manifest": "docs/art/compare/r5-after/manifest.json",
+  "before": "docs/art/compare/r5-before/",
+  "report": "docs/CODEX_RESPONSE_R5_ART.md",
+  "remaining_3d_assets": "docs/art/R5_MISSING_3D.md",
+  "native_export_presets": "Preserved unchanged; no native package built.",
+  "model_slug": null,
+  "image_tool": "image_gen.imagegen"
+}

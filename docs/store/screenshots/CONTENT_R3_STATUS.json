@@ -1,0 +1,56 @@
+{
+  "status": "VERIFIED",
+  "version": "0.17.0",
+  "new_screenshots": [
+    {
+      "path": "docs/store/screenshots/1290x2796-content-r3-three_voices-field-0.png",
+      "pixels": [
+        1290,
+        2796
+      ],
+      "sha256": "3c41bad4a256aa827b1ce7f48862c5753c443ee0cdd7f09a659251f9283956cf"
+    },
+    {
+      "path": "docs/store/screenshots/1290x2796-content-r3-before_night-revealed.png",
+      "pixels": [
+        1290,
+        2796
+      ],
+      "sha256": "abf760a16a7c2b2cc505c3a4da7f39512747f6e84e856af1184df957ca280537"
+    },
+    {
+      "path": "docs/store/screenshots/1290x2796-content-r3-three_voices-sealed.png",
+      "pixels": [
+        1290,
+        2796
+      ],
+      "sha256": "4a50609d3b75f35b12b7d360a62715f865c653b458240628a606ee8553dff789"
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-content-r3-three_voices-field-0.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "sha256": "849c12eee9ac4336f3a4e7e04de329845e19d5a1f6829f0539b4d98178a29350"
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-content-r3-before_night-revealed.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "sha256": "e72b0f47455bf0f8f123c4e86b703498489f7c841c013b507dac6e78f4d43349"
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-content-r3-three_voices-sealed.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "sha256": "dd17798c2a4a5f9ea09ce683691f48b91cf04c035ebb45cd2259359478ca947f"
+    }
+  ],
+  "method": "Unedited native-size PNGs of actual local Godot Web export, headless Chromium with hardware NVIDIA ANGLE D3D11. Engine.copyToFS imports unmodified native headless-world saves; the target case is always unfinished, while earlier cases may retain native completion. Visible UI performs target collection, retry, sorting, pairing and completion. Long travel resumes from near-source saves, not a continuous walked route. No target-case completion injection, compositing, screenshot scaling or native-device claim.",
+  "existing_screenshots_deleted": false
+}

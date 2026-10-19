@@ -1,0 +1,84 @@
+{
+  "status": "VERIFIED",
+  "models": [
+    {
+      "path": "godot/assets/models/mei_human.glb",
+      "bytes": 683180,
+      "triangles": 8046,
+      "material_batches": 6,
+      "animations": 8
+    },
+    {
+      "path": "godot/assets/models/r7/hero_human.glb",
+      "bytes": 851216,
+      "triangles": 9346,
+      "material_batches": 17,
+      "animations": 8
+    },
+    {
+      "path": "godot/assets/models/r7/mei-workbench.glb",
+      "bytes": 1685524,
+      "triangles": 27536,
+      "material_batches": 5,
+      "animations": 0
+    },
+    {
+      "path": "godot/assets/models/r8/garage-life.glb",
+      "bytes": 379528,
+      "triangles": 6038,
+      "material_batches": 5,
+      "animations": 0
+    },
+    {
+      "path": "godot/assets/models/r9/mei_human.glb",
+      "bytes": 669112,
+      "triangles": 7867,
+      "material_batches": 10,
+      "animations": 8
+    },
+    {
+      "path": "godot/assets/models/r9/hero_human.glb",
+      "bytes": 816884,
+      "triangles": 9402,
+      "material_batches": 19,
+      "animations": 8
+    },
+    {
+      "path": "godot/assets/models/r9/mei-workbench.glb",
+      "bytes": 1134612,
+      "triangles": 18320,
+      "material_batches": 5,
+      "animations": 0
+    }
+  ],
+  "unchanged_render_contract": {
+    "profile_resolution_scale": "phone .70 / tablet .85 / desktop 1.0 unchanged",
+    "shadow_policy": "Web starts performance; sun shadow disabled, original profile shadow preferences retained",
+    "postprocess": "Existing ACES, adjustment, fog and glow configuration retained",
+    "texture_quality": "Existing sky and street textures unchanged; native screenshot sizes and DPR unchanged"
+  },
+  "gpu_samples": [
+    {
+      "phase": "our browser and Godot closed, before final captures",
+      "gpu_utilization_percent": 96,
+      "memory_used_mib": 11472
+    },
+    {
+      "phase": "during earlier preview startup",
+      "gpu_utilization_percent": 97,
+      "memory_used_mib": 11599
+    }
+  ],
+  "gpu_sample_note": "Transcribed from actual nvidia-smi output in this run; observation does not isolate historical R8 cause or identify another owner workload.",
+  "timestamp_utc": "2026-10-18T05:35:23.085981+00:00",
+  "wrench_alignment": {
+    "old_long_axis_y": -0.803155,
+    "new_long_axis_y": 0.993397,
+    "method": "Godot headless, actual R9 idle at .2 sec and the actual wrench local UP axis, no screenshot manipulation"
+  },
+  "safe_update_changes": [
+    "Repeated day/night emission writes are skipped while state and material count are unchanged",
+    "Sky/light setters skip exact fixed-hour repeats; the default day/night cycle retains its 5 Hz updates"
+  ],
+  "historical_regression_root_cause": "BLOCKED: the specific historical 16.7 to 33 ms transition cannot be isolated from retained runs under changing shared GPU load"
+}

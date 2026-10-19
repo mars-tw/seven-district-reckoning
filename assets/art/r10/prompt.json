@@ -1,0 +1,7 @@
+{
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "asset_id": "forecourt-asphalt",
+  "style_prefix": "Seven District: Break the Chain, Taiwanese dusk case-file realism, warm upper-left light, restrained charcoal and warm stone, tactile worn material, no blue teal sci-fi, no text, no logos.",
+  "prompt": "Seven District: Break the Chain, Taiwanese dusk case-file realism, warm upper-left light, restrained charcoal and warm stone, tactile worn material, no blue teal sci-fi, no text, no logos. Use case: stylized-concept. Asset type: game 3D ground diffuse texture, top-down orthographic flat scan. Create a square seamless large-scale Taiwan scooter garage forecourt asphalt texture. Fine compact dark warm-gray asphalt aggregate ONLY VERY SUBTLE, broad smooth worn patches, two large irregular shallow damp water stains, faint tire arcs, small sparse repaired cracks, water runoff dirt collecting toward one edge. No raised objects, no road paint, no checker pattern, no hard illumination baked in, no deep blacks. Quiet low contrast, most detail broad enough to read from a third-person camera; avoid the pebbly repeated noise seen in cheap prototype grounds. Diffuse/albedo material only, fill full canvas, 1536 square if possible."
+}

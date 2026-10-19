@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "path": ".gitignore",
+      "preserved": true,
+      "verification": "byte_identical"
+    },
+    {
+      "path": "godot/export_presets.cfg",
+      "preserved": true,
+      "verification": "only_this_round_version_bump"
+    },
+    {
+      "path": "godot/scripts/ui/touch_controls.gd",
+      "preserved": true,
+      "verification": "byte_identical"
+    },
+    {
+      "path": "qa/engine-checks.json",
+      "preserved": true,
+      "verification": "byte_identical"
+    },
+    {
+      "path": "qa/engine-checks-incremental.json",
+      "preserved": true,
+      "verification": "byte_identical"
+    },
+    {
+      "path": ".github/workflows/native-export.yml",
+      "preserved": true,
+      "verification": "byte_identical"
+    },
+    {
+      "path": "native/README.md",
+      "preserved": true,
+      "verification": "byte_identical"
+    },
+    {
+      "path": "native/build-config.json",
+      "preserved": true,
+      "verification": "byte_identical"
+    },
+    {
+      "path": "tests/native_touch.gd",
+      "preserved": true,
+      "verification": "byte_identical"
+    },
+    {
+      "path": "tools/export_mobile.py",
+      "preserved": true,
+      "verification": "byte_identical"
+    },
+    {
+      "path": "tools/install_native_toolchain.py",
+      "preserved": true,
+      "verification": "byte_identical"
+    }
+  ]
+}

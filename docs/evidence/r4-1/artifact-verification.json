@@ -1,0 +1,403 @@
+{
+  "status": "VERIFIED",
+  "issues": [],
+  "version": "0.8.1",
+  "pck_sha256": [
+    "e34933c4520b302e8b2e42ac8abbb95264075d245f38d277da925436483f0709"
+  ],
+  "checked_png_copies": 49,
+  "files": [
+    {
+      "path": "docs/store/screenshots/1290x2796-title.png",
+      "sha256": "b4cb6c70ea29e08a794c77e3306d976aed3a174f2d580af281f7307b588542ab",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/1290x2796-dialogue.png",
+      "sha256": "50fdb88b8bf99ce776d953b40a947fe3c7c73188f1caac0ee561401be30d2bcb",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/1290x2796-dialogue-meiqing.png",
+      "sha256": "2e718fb8d59696814ed19854c798f16c664f16be74ea4be22b930d66c77b2060",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/1290x2796-street.png",
+      "sha256": "43ad07caccec14509aca47987081cc7273c03038c4e9b737fe54f820d9ac66d6",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/1290x2796-evidence.png",
+      "sha256": "4246784421a40438c920c6e2b7de3bb337f9d6512815fcfca90c125160a244ee",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/1290x2796-link.png",
+      "sha256": "cb13b70467e95d3f67097135e1a4b2176441d8ac0b4f4dd1b0b1044784394ee9",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/1290x2796-sealed.png",
+      "sha256": "7d49df06a29157b2ca3519924254b4ba657570d3ae252452ac3e3386d34f418f",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-title.png",
+      "sha256": "55e4ce3f937e4813d9ab666b1598006d1e9238a85a054ebe1970edf69901cb96",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-dialogue.png",
+      "sha256": "0534394c3f64d9eae1954bd38924853e8890c10bd05f42f4d696cf4ac974ea99",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-dialogue-meiqing.png",
+      "sha256": "8933323eff339c1c8692373b376355d6cbe01755d7beaad609bac77b8f27d6f7",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-street.png",
+      "sha256": "5861b3f6301b7ca6956d983c44ae836323f4150fd570ae5d540f99129d98d2db",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-evidence.png",
+      "sha256": "9d7a9cd5e4196bf4ebbcf6eedb381bd9f30dbfdba42e67c9e29b0e9bc176ecb1",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-link.png",
+      "sha256": "fd7b850703f0883dece5744789c886905d89f6615491ca6c283ac4a9cc5dde71",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-sealed.png",
+      "sha256": "1c15452b778842b3bd4938fe42f10e81e6c4494a467227e580dc3a04e3d8d58e",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/1290x2796-title.png",
+      "sha256": "b4cb6c70ea29e08a794c77e3306d976aed3a174f2d580af281f7307b588542ab",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/1290x2796-dialogue.png",
+      "sha256": "50fdb88b8bf99ce776d953b40a947fe3c7c73188f1caac0ee561401be30d2bcb",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/1290x2796-dialogue-meiqing.png",
+      "sha256": "2e718fb8d59696814ed19854c798f16c664f16be74ea4be22b930d66c77b2060",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/1290x2796-street.png",
+      "sha256": "43ad07caccec14509aca47987081cc7273c03038c4e9b737fe54f820d9ac66d6",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/1290x2796-evidence.png",
+      "sha256": "4246784421a40438c920c6e2b7de3bb337f9d6512815fcfca90c125160a244ee",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/1290x2796-link.png",
+      "sha256": "cb13b70467e95d3f67097135e1a4b2176441d8ac0b4f4dd1b0b1044784394ee9",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/1290x2796-sealed.png",
+      "sha256": "7d49df06a29157b2ca3519924254b4ba657570d3ae252452ac3e3386d34f418f",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/2064x2752-title.png",
+      "sha256": "55e4ce3f937e4813d9ab666b1598006d1e9238a85a054ebe1970edf69901cb96",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/2064x2752-dialogue.png",
+      "sha256": "0534394c3f64d9eae1954bd38924853e8890c10bd05f42f4d696cf4ac974ea99",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/2064x2752-dialogue-meiqing.png",
+      "sha256": "8933323eff339c1c8692373b376355d6cbe01755d7beaad609bac77b8f27d6f7",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/2064x2752-street.png",
+      "sha256": "5861b3f6301b7ca6956d983c44ae836323f4150fd570ae5d540f99129d98d2db",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/2064x2752-evidence.png",
+      "sha256": "9d7a9cd5e4196bf4ebbcf6eedb381bd9f30dbfdba42e67c9e29b0e9bc176ecb1",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/2064x2752-link.png",
+      "sha256": "fd7b850703f0883dece5744789c886905d89f6615491ca6c283ac4a9cc5dde71",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/2064x2752-sealed.png",
+      "sha256": "1c15452b778842b3bd4938fe42f10e81e6c4494a467227e580dc3a04e3d8d58e",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/430x932-title.png",
+      "sha256": "f2b1d363387057b250e660de1bbb1e49f06936d90c3e080954eafe9947873b1c",
+      "size": [
+        430,
+        932
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/430x932-dialogue.png",
+      "sha256": "3afcd22a5fc458f0e1154c02af5c10e2e43caa3941c1053cf7f6221b8f859928",
+      "size": [
+        430,
+        932
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/430x932-dialogue-meiqing.png",
+      "sha256": "d0c2609170528e91beb32e1d7251de0d22b85f15bd174354942e927ce16d313e",
+      "size": [
+        430,
+        932
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/430x932-street.png",
+      "sha256": "5e5dc9b81c1ca2a419c6b1f65d3347bc5549741abdaa56961b4445529443473f",
+      "size": [
+        430,
+        932
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/430x932-evidence.png",
+      "sha256": "0308ca0f0e06aae2eee9294cd48212a880a2f480e4fac4cee5d5204e983104bd",
+      "size": [
+        430,
+        932
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/430x932-link.png",
+      "sha256": "355e05df88aded34e788613418667c380e5cc515ced59268fea22f9a2fa30463",
+      "size": [
+        430,
+        932
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/430x932-sealed.png",
+      "sha256": "2835a7f270f4929427831e594cd74a24f8d8d879c111d5d1b59ab0dfc087db0e",
+      "size": [
+        430,
+        932
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/390x844-title.png",
+      "sha256": "147462085efb847a44934ce3adbf079c9c9537a3dcd3e53b241f05f9d211b24b",
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/390x844-dialogue.png",
+      "sha256": "91420dbf112c60b7b2ec87a9606871732668d16511a038b1651a31ed12bc428e",
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/390x844-dialogue-meiqing.png",
+      "sha256": "ab7ed7aa229fb45790fb362d0e992444f00bf948b1d4567d51871678257cbb66",
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/390x844-street.png",
+      "sha256": "f6f3625ec709f34c8260c1bb59e97a0aa8a2b14025c24f64b3f9586b7d3fcdb2",
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/390x844-evidence.png",
+      "sha256": "7f682e65d28df62cda4b06695a2b1744051d02679223d3d7efbaf34a91a46dad",
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/390x844-link.png",
+      "sha256": "5dd23b6dc138e6062fe32f4751925d2757e7f8ee4c126d263b7dfef8baa966fd",
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/390x844-sealed.png",
+      "sha256": "ca49d2e233f6269dc9eb2fb24465eec13d60bb37213cd6817c068e4f63197bcc",
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/1376x1032-title.png",
+      "sha256": "2fc7cac42c57cfbfeb207d7ac7dcedfdb084894ebf9e0cf1fd3ea7b2710d90f3",
+      "size": [
+        1376,
+        1032
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/1376x1032-dialogue.png",
+      "sha256": "5c8979c1297d2ce76f54888ca58e6869240bcb93ebbab94db9a2fcced5136863",
+      "size": [
+        1376,
+        1032
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/1376x1032-dialogue-meiqing.png",
+      "sha256": "84c16892530cec32f3711d1f20ad0fbf3b6b683b9515bc38e4de005512be185c",
+      "size": [
+        1376,
+        1032
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/1376x1032-street.png",
+      "sha256": "251eb076940c3ef070f689df3e091c8998e3ae173e81ad872437b59f9938422a",
+      "size": [
+        1376,
+        1032
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/1376x1032-evidence.png",
+      "sha256": "1c4f38b9ef9901eb7fef4e7eee31e98cb9a28664466fc2e4e0982d57cee2e687",
+      "size": [
+        1376,
+        1032
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/1376x1032-link.png",
+      "sha256": "c1bbf78764217319c39d8f9436c70f5cb34e58cb61afa7942190d692dbc1a9c6",
+      "size": [
+        1376,
+        1032
+      ]
+    },
+    {
+      "path": "docs/art/compare/after/1376x1032-sealed.png",
+      "sha256": "42961a54225a2e7746465557e723017ad680fed0460ac4eb8a602121088c76e4",
+      "size": [
+        1376,
+        1032
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "status": "VERIFIED",
+  "version": "0.14.0",
+  "store_screenshots": 22,
+  "geometry_checks": 411,
+  "tests": {
+    "suites": 30,
+    "checks": 16790,
+    "failures": 0
+  },
+  "protected_files_unchanged": 169,
+  "secret_scan": {
+    "indexed_text_files": 1066,
+    "findings": []
+  },
+  "models": [
+    {
+      "id": "hero_human",
+      "triangles": 9602,
+      "material_batches": 16,
+      "animations": 8,
+      "bytes": 761224
+    },
+    {
+      "id": "mei-workbench",
+      "triangles": 9144,
+      "material_batches": 7,
+      "animations": 0,
+      "bytes": 592824
+    },
+    {
+      "id": "forecourt-detail",
+      "triangles": 2744,
+      "material_batches": 2,
+      "animations": 0,
+      "bytes": 108208
+    }
+  ],
+  "runtime_index_matches_export": true,
+  "pck_sha256": "a7c009723355572f3726403e25306589b72a6302b622e8162e966b85438b2b43",
+  "release_status": "BLOCKED",
+  "limitations": [
+    "Independent 8/10 rescore outstanding",
+    "Concurrent phone and desktop p95 above18ms; clean machine/native validation outstanding",
+    "3D runtime per-object masks outstanding"
+  ]
+}

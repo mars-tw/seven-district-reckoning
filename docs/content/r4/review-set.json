@@ -1,0 +1,156 @@
+{
+  "status": "VERIFIED",
+  "method": "Byte-identical copies of unedited original phone PNGs; five per case. 07 and 08 are consecutive real touch-drag frames. 11-13 show actual scenes plus original statements; 14 shows the live index and accepted counterexamples; 15 seals all three.",
+  "images": [
+    {
+      "case": "second_help",
+      "source": "docs/content/r4/phone-second_help-inspect-a.png",
+      "file": "docs/content/r4/review-set/01-second_help-inspect-a.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "4596d5c12a43995e68413e66739addbc09d2ef6fca17a997e744c28eeb32c38c"
+    },
+    {
+      "case": "second_help",
+      "source": "docs/content/r4/phone-second_help-inspect-b.png",
+      "file": "docs/content/r4/review-set/02-second_help-inspect-b.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "05d7b656e03bdd78d9c96c7097b09ee5be28ca438538f406c1ab591a4c55c7b7"
+    },
+    {
+      "case": "second_help",
+      "source": "docs/content/r4/phone-second_help-retry.png",
+      "file": "docs/content/r4/review-set/03-second_help-retry.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "54cd435faa2aed17647c397ff73d687dabc7492744cd5e51365caec14b6e5416"
+    },
+    {
+      "case": "second_help",
+      "source": "docs/content/r4/phone-second_help-action-retry-320x568.png",
+      "file": "docs/content/r4/review-set/04-second_help-action-retry-320x568.png",
+      "dimensions": [
+        320,
+        568
+      ],
+      "sha256": "8ca635eba19f4b4b3c12f23b8343579fd356d90299f064b7a937d106bd96887e"
+    },
+    {
+      "case": "second_help",
+      "source": "docs/content/r4/phone-second_help-sealed.png",
+      "file": "docs/content/r4/review-set/05-second_help-sealed.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "9f6c7e93772efc81f10cbe4da1eef3e0fe8c442a9afdc7d0f23cf4ed370501fd"
+    },
+    {
+      "case": "before_night",
+      "source": "docs/content/r4/phone-before_night-unsorted.png",
+      "file": "docs/content/r4/review-set/06-before_night-unsorted.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "0ae5f528fcc949da28a25a84cfa21291345b24761dcd3d9aa3faf9d398dfcd2a"
+    },
+    {
+      "case": "before_night",
+      "source": "docs/content/r4/phone-before_night-dragging-1.png",
+      "file": "docs/content/r4/review-set/07-before_night-dragging-1.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "501d007867674c8f1458d57dfb15870089b89fd77aa43872ede0afd19839a826"
+    },
+    {
+      "case": "before_night",
+      "source": "docs/content/r4/phone-before_night-dragging-2.png",
+      "file": "docs/content/r4/review-set/08-before_night-dragging-2.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "0fbcce9b18d3043e7ca570554a9a7d3f8c5c0946f93d580424fe133d16482a0a"
+    },
+    {
+      "case": "before_night",
+      "source": "docs/content/r4/phone-before_night-revealed.png",
+      "file": "docs/content/r4/review-set/09-before_night-revealed.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "805699f333d1f4069ddce7a9a5bace4501466dcb279663f5edb96d49b869bbe0"
+    },
+    {
+      "case": "before_night",
+      "source": "docs/content/r4/phone-before_night-sealed.png",
+      "file": "docs/content/r4/review-set/10-before_night-sealed.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "37dee1160958d66b546ed746b14184009c970111aec0cc5eb0f85f8b50a80064"
+    },
+    {
+      "case": "three_voices",
+      "source": "docs/content/r4/phone-three_voices-original-0.png",
+      "file": "docs/content/r4/review-set/11-three_voices-original-0.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "083ad471fcc906ac7fff82cb49dbbbd1e28c312bd75a1a41fb55c4dcd8ec6e42"
+    },
+    {
+      "case": "three_voices",
+      "source": "docs/content/r4/phone-three_voices-original-1.png",
+      "file": "docs/content/r4/review-set/12-three_voices-original-1.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "9352128262a624dc8a3efe703406b9a3c68d1eab046202c5f644db77861a685d"
+    },
+    {
+      "case": "three_voices",
+      "source": "docs/content/r4/phone-three_voices-original-2.png",
+      "file": "docs/content/r4/review-set/13-three_voices-original-2.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "b2a0d26c37ae4eb03a0af2da9e859a294cd8cc1d8b05155953c47049f23d56da"
+    },
+    {
+      "case": "three_voices",
+      "source": "docs/content/r4/phone-three_voices-statement-2.png",
+      "file": "docs/content/r4/review-set/14-three_voices-statement-2.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "9d0d9c1d72a7faa4cc959ff9bba48a1bcbcb8e41ad4ab7b11599da3d39212825"
+    },
+    {
+      "case": "three_voices",
+      "source": "docs/content/r4/phone-three_voices-sealed.png",
+      "file": "docs/content/r4/review-set/15-three_voices-sealed.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "sha256": "2daf651e9be774d3136780337480736c4980c3a24fddf38fe1c28f4297367d37"
+    }
+  ]
+}

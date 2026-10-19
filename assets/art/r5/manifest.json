@@ -1,0 +1,260 @@
+{
+  "status": "VERIFIED",
+  "version": "0.9.0",
+  "date": "2026-10-16",
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "model_note": "Actual model slug is not exposed by the built-in tool; no gpt-image model inferred.",
+  "generated_master_count": 7,
+  "runtime_image_count": 12,
+  "license": "CC BY 4.0 to the extent applicable; AI-assisted original project art, no third-party inputs.",
+  "postprocess": "Pillow LANCZOS resize and WebP Q84. Original alpha preserved; zero RGB under transparent pixels. No painted substitute, no invented PBR maps.",
+  "outputs": [
+    {
+      "id": "ceramic-tile",
+      "master": "assets/art/r5/ceramic-tile.webp",
+      "master_sha256": "ae9020adcae2cd1b31113ee6027e916ed149a664d409c31f295336cdd9519b80",
+      "generated_png_sha256": "fcf05bdeab841e364983713717698a6a497cb04d7f18d6607ee939982d415a6b",
+      "path": "godot/assets/art/r5/ceramic-tile.webp",
+      "sha256": "4f07143332cf4820bb4acb06252d8739e0895150afc1dc89f52ecfca645d398d",
+      "size": [
+        768,
+        768
+      ],
+      "bytes": 67706,
+      "decoded_rgba_bytes": 2359296
+    },
+    {
+      "id": "rolling-shutter",
+      "master": "assets/art/r5/rolling-shutter.webp",
+      "master_sha256": "76a139eb7bbaa9ae28ed8774e2a8e17a57fc28d028f9197df86086e21f0ef207",
+      "generated_png_sha256": "221fddecfa35cd4e5bd05e7ad42ce5e867f061ac0be338bc88de364b2ccc704d",
+      "path": "godot/assets/art/r5/rolling-shutter.webp",
+      "sha256": "128b83b35744914f2846efd1ac697751c6b838a4852cd7e870880a6e9c6737f3",
+      "size": [
+        768,
+        768
+      ],
+      "bytes": 115440,
+      "decoded_rgba_bytes": 2359296
+    },
+    {
+      "id": "workshop-window",
+      "master": "assets/art/r5/workshop-window.webp",
+      "master_sha256": "62504906a9a979ce6a80ee9f3a215cf51a3cb3e0d153f80f0b4f516e56b6bb74",
+      "generated_png_sha256": "8471e79c9283161c1c8c55634a9c29e9af32cf664e73ba642d3ae74c18f454fd",
+      "path": "godot/assets/art/r5/workshop-window.webp",
+      "sha256": "2123c789291757619493d4cc158f9238b5f08207340574515e0a06e940dfddf4",
+      "size": [
+        768,
+        1152
+      ],
+      "bytes": 178570,
+      "decoded_rgba_bytes": 3538944
+    },
+    {
+      "id": "shop-sign",
+      "master": "assets/art/r5/shop-sign.webp",
+      "master_sha256": "dec7cae31dfb738492395b34ad16f56676fb868577c1a957cdfab32e8ccc0ccf",
+      "generated_png_sha256": "cacf91a3d79efc797767e047007710e26e7717c9ec3b0bbad1c546a59c56e837",
+      "path": "godot/assets/art/r5/shop-sign.webp",
+      "sha256": "fb1c7317ca552d9866bcff42d1585af358bf981e35d03ead0e431739b8bbdfba",
+      "size": [
+        1536,
+        512
+      ],
+      "bytes": 164662,
+      "decoded_rgba_bytes": 3145728
+    },
+    {
+      "id": "title-street",
+      "master": "assets/art/r5/title-street.webp",
+      "master_sha256": "896de437f83d89e825729b87b11c45f3a5ce2b9e209fdc60efde18a85a10728e",
+      "generated_png_sha256": "aac3f64bb0cfe56caa7c74a4a7dbc8af37b2cb0a10db44654cca3c0273586881",
+      "path": "godot/assets/art/r5/title-street.webp",
+      "sha256": "e50a7bbb809db8f59a4a46b066900f57b1ce57dd62ee7e1a22908e93ec6b842e",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 378142,
+      "decoded_rgba_bytes": 6291456
+    },
+    {
+      "id": "archive-seal",
+      "master": "assets/art/r5/archive-seal.webp",
+      "master_sha256": "ef6e11e2c07b4891a472def40c4a7b55706d32732d3db0e661cda38381d39a36",
+      "generated_png_sha256": "ec294af5e066239cf6fac21c728da8773d6822137ca8acf8c85c8e81dbd7107a",
+      "path": "godot/assets/art/r5/archive-seal.png",
+      "sha256": "25a1ba18264e8e4a9bdcd24d9150424e7113562ed6970aecf002b6cb4aa555aa",
+      "size": [
+        512,
+        512
+      ],
+      "bytes": 275597,
+      "decoded_rgba_bytes": 1048576,
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.3767204284667969,
+        "transparent_rgb_zero": true
+      }
+    },
+    {
+      "id": "toolbar-0",
+      "master": "assets/art/r5/toolbar-atlas.webp",
+      "master_sha256": "32ae1d6bbde4a61dac453d1ce4dae211443a4c256e1fa67ebe82bd15244780f3",
+      "generated_png_sha256": "7933dd2680294c93284851a7f654e2b7d01ee7b78ac6208e9c3f0d706f355dee",
+      "source_cell": 0,
+      "path": "godot/assets/art/r5/toolbar-0.png",
+      "sha256": "9da0d76ca308be147e0fb66c53c0b138b17a0511b080101f12aa812484cd7348",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 17050,
+      "decoded_rgba_bytes": 36864,
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.5995008680555556,
+        "transparent_rgb_zero": true
+      }
+    },
+    {
+      "id": "toolbar-1",
+      "master": "assets/art/r5/toolbar-atlas.webp",
+      "master_sha256": "32ae1d6bbde4a61dac453d1ce4dae211443a4c256e1fa67ebe82bd15244780f3",
+      "generated_png_sha256": "7933dd2680294c93284851a7f654e2b7d01ee7b78ac6208e9c3f0d706f355dee",
+      "source_cell": 1,
+      "path": "godot/assets/art/r5/toolbar-1.png",
+      "sha256": "f2aa7f6912c2e06742a283ec5d15604cdc1037a436c7cbda4cd25411152ce726",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 16775,
+      "decoded_rgba_bytes": 36864,
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.5872395833333334,
+        "transparent_rgb_zero": true
+      }
+    },
+    {
+      "id": "toolbar-2",
+      "master": "assets/art/r5/toolbar-atlas.webp",
+      "master_sha256": "32ae1d6bbde4a61dac453d1ce4dae211443a4c256e1fa67ebe82bd15244780f3",
+      "generated_png_sha256": "7933dd2680294c93284851a7f654e2b7d01ee7b78ac6208e9c3f0d706f355dee",
+      "source_cell": 2,
+      "path": "godot/assets/art/r5/toolbar-2.png",
+      "sha256": "cb6a5495eae8e11cd90727b03949a9595fa9fd34963794790e88862bd6dc7d5c",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 18696,
+      "decoded_rgba_bytes": 36864,
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.7492404513888888,
+        "transparent_rgb_zero": true
+      }
+    },
+    {
+      "id": "toolbar-3",
+      "master": "assets/art/r5/toolbar-atlas.webp",
+      "master_sha256": "32ae1d6bbde4a61dac453d1ce4dae211443a4c256e1fa67ebe82bd15244780f3",
+      "generated_png_sha256": "7933dd2680294c93284851a7f654e2b7d01ee7b78ac6208e9c3f0d706f355dee",
+      "source_cell": 3,
+      "path": "godot/assets/art/r5/toolbar-3.png",
+      "sha256": "cb1fc6764efea5ca575153d2b0f14000c636f193fe0d84ba2f3b87e9e7a292b9",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 18269,
+      "decoded_rgba_bytes": 36864,
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.6382378472222222,
+        "transparent_rgb_zero": true
+      }
+    },
+    {
+      "id": "toolbar-4",
+      "master": "assets/art/r5/toolbar-atlas.webp",
+      "master_sha256": "32ae1d6bbde4a61dac453d1ce4dae211443a4c256e1fa67ebe82bd15244780f3",
+      "generated_png_sha256": "7933dd2680294c93284851a7f654e2b7d01ee7b78ac6208e9c3f0d706f355dee",
+      "source_cell": 4,
+      "path": "godot/assets/art/r5/toolbar-4.png",
+      "sha256": "c84a0d9e981d3a5d1eb1762e41080aa238d86e2afa9edaa62f1ae4a60c553bf7",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 16559,
+      "decoded_rgba_bytes": 36864,
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.48828125,
+        "transparent_rgb_zero": true
+      }
+    },
+    {
+      "id": "toolbar-5",
+      "master": "assets/art/r5/toolbar-atlas.webp",
+      "master_sha256": "32ae1d6bbde4a61dac453d1ce4dae211443a4c256e1fa67ebe82bd15244780f3",
+      "generated_png_sha256": "7933dd2680294c93284851a7f654e2b7d01ee7b78ac6208e9c3f0d706f355dee",
+      "source_cell": 5,
+      "path": "godot/assets/art/r5/toolbar-5.png",
+      "sha256": "e036982fab031c203e9c2dc1f1585816fbc1e6f1bf56dc92031b6024ac0752e8",
+      "size": [
+        96,
+        96
+      ],
+      "bytes": 19252,
+      "decoded_rgba_bytes": 36864,
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.7598741319444444,
+        "transparent_rgb_zero": true
+      }
+    }
+  ],
+  "runtime_bytes": 1286718,
+  "decoded_rgba_bytes": 18964480
+}

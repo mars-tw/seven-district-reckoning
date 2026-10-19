@@ -1,0 +1,16 @@
+{
+  "ayuan-portrait": {
+    "value_mean": 0.34883008590208703,
+    "near_black_fraction": 0.2526148108226698,
+    "saturation_mean": 0.4779520969406692,
+    "low_saturation_fraction": 0.03818839992178222,
+    "pass": true
+  },
+  "meiqing-portrait": {
+    "value_mean": 0.48733393162107097,
+    "near_black_fraction": 0.06302478556577135,
+    "saturation_mean": 0.594087399015484,
+    "low_saturation_fraction": 0.02155243468596619,
+    "pass": true
+  }
+}

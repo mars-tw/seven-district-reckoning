@@ -1,0 +1,39 @@
+{
+  "status": "VERIFIED",
+  "version": "0.16.0",
+  "test_suites": 32,
+  "test_checks": 28371,
+  "test_failures": 0,
+  "protected_files_unchanged": 229,
+  "source_digest": "294a8da64c55016235734464e8f22ce7104a7eab87358200ca33c2a337d9aba8",
+  "pck_sha256": "c0f65159c7616f7df0564d164f7cbf806d3a55c2fd5352e9469543a3cb3d2975",
+  "pck_bytes": 26186368,
+  "browser_views": 9,
+  "screenshots": 264,
+  "compiled_data_swap_screenshots": 2,
+  "new_store_screenshots": 8,
+  "art_generated_masters": 3,
+  "art_runtime_images": 3,
+  "shipping_gate": "BLOCKED",
+  "limitations": "Native devices, clean-host performance, human usability and independent Muse >=8 review are not verified.",
+  "secret_scan": {
+    "status": "VERIFIED",
+    "actual_secret_count": 0,
+    "required_pattern_hits": 0,
+    "unchanged_head_cache_false_positives": [
+      {
+        "file": "godot/assets/art/r8/dusk-sky.webp.import",
+        "line": 6,
+        "type": "api_token"
+      },
+      {
+        "file": "godot/assets/art/r8/dusk-sky.webp.import",
+        "line": 14,
+        "type": "api_token"
+      }
+    ],
+    "raw_scanner_status": "FAIL",
+    "tracked_files": 3296,
+    "scope": "Prospective tracked files only. No credential directories read."
+  }
+}

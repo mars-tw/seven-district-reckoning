@@ -1,0 +1,13 @@
+{
+  "status": "BLOCKED",
+  "fixture": "tests/native_touch.gd",
+  "fixture_sha256": "00068340c2437e6f3e113d794bcf6a6040b2aa82909ba67cd70f8c23951ed5f9",
+  "timeout_seconds": 15,
+  "timed_out": true,
+  "result_lines": [
+    "SCRIPT ERROR: Invalid call. Nonexistent function 'initialize' in base 'Nil'.",
+    "   at: run_checks (<repository-root>/tests/native_touch.gd:23)",
+    "       [0] run_checks (<repository-root>/tests/native_touch.gd:23)"
+  ],
+  "root_cause": "Two process frames do not satisfy asynchronous startup; device_profiles is null at line 23. is_test_mode is also reset by main._ready, so fixture must set it after startup. Original preserved; R3 supplements wait for expansion_complete and test actual native joystick/physics/background/resume."
+}

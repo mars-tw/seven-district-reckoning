@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED",
+  "new_generated_images": 0,
+  "generation_tool": null,
+  "reason": "Reused existing approved art; arrows, double circles and lock are native UI information graphics. Retained paper props reuse the existing paper material.",
+  "reused": [
+    {
+      "file": "godot/assets/art/r4/case-paper.webp",
+      "sha256": "891a71299d33606462b51aff9d914d60e384da2080000e41ad0324c5b26d4115"
+    },
+    {
+      "file": "godot/assets/art/content-r2/second_help.webp",
+      "sha256": "0951b4a69b9a9c436a2627523d6dd46fefec1c5041d1f54e85578237e31e4bfe"
+    },
+    {
+      "file": "godot/assets/art/content-r2/before_night.webp",
+      "sha256": "aa1a5b8bd871d6c41cf89e1730f1d67fae89dc914f8343c9a8860d7fc66dc544"
+    },
+    {
+      "file": "godot/assets/art/content-r2/three_voices.webp",
+      "sha256": "a118825c6963d06d0549d25e65a76cb8f33e0d9b042f3dd082cdedb0fe0362b6"
+    },
+    {
+      "file": "godot/assets/art/content-r4/street-fronts.webp",
+      "sha256": "d5bc26563f5dccf0d85ac45945b1cb21b3a2190e118a13f6beb4ef5518df2cda"
+    }
+  ]
+}

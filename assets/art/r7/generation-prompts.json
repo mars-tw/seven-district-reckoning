@@ -1,0 +1,61 @@
+{
+  "style_prefix": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark.",
+  "assets": [
+    {
+      "id": "cast-turnaround",
+      "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. Create ONE production character turnaround reference sheet, light warm ivory background, two clearly separated horizontal rows. TOP ROW: same original fictional Taiwanese male courier A-Yuan as the supplied reference, early 30s tousled short black hair, navy work jacket with mustard upper-arm bands, white shirt, dark cargo trousers, white sneakers, thick worn burnt-orange cross-body messenger bag WITH stitched flap, buckles, gusset thickness and diagonal strap, phone. Three full-body standing views FRONT SIDE BACK at identical scale plus two small expression heads concerned/determined. BOTTOM ROW: same original Taiwanese female bicycle mechanic Mei as supplied reference, chin-length asymmetric dark bob, olive rolled-sleeve shirt, rust-red long work apron, mustard cloth, brown work trousers, work boots, wrench in right hand. Three full-body FRONT SIDE BACK at identical scale, plus warm smile/focused expression heads. Normal appealing adult proportions, realistic faces, both same height scale, crisp hands and feet, no missing limbs. Label only AYUAN and MEI. This is a design sheet not gameplay or advertising; all six full figures entirely within canvas. Reference images define identities.",
+      "tool": "image_gen.imagegen",
+      "model_slug": null,
+      "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+    },
+    {
+      "id": "ayuan-portrait",
+      "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. Create the final A-Yuan dialogue portrait based exactly on TOP ROW of the supplied original cast turnaround. ONLY one male courier, identical face, tousled hair, navy jacket, mustard upper arm band, orange messenger bag with substantial gusset/flap/buckle and diagonal strap, phone held visibly. Framing is from top of hair to just ABOVE knees, no lower legs or feet, intentional knee-up editorial crop, warm amber environmental light from upper left, warm soft reflected light from below. Body angled slightly right, concerned but determined expression, detailed face/hands. Isolated on genuinely transparent background, no scenery/shadow/ground/panel/text. Leave 5 percent safe margins around head, arms and bag. Crisp opaque torso, bottommost 4 percent may taper into soft paint edge but absolutely NO translucent legs. Asset for actual in-game visual novel dialogue, no typography.",
+      "tool": "image_gen.imagegen",
+      "model_slug": null,
+      "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+    },
+    {
+      "id": "meiqing-portrait",
+      "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. Production game cutout of Mei, exactly BOTTOM ROW of supplied cast turnaround: same Taiwanese woman, short asymmetric black bob, olive shirt sleeves, rust-red apron, ochre cloth, metal adjustable wrench in right hand, left hand on hip. One single figure, above-knee crop at lower apron/thigh only, no shins/feet. Warm upper-left lighting painted ON HER, no halo or volumetric light. GENUINELY TRANSPARENT alpha background, hard clean silhouette, zero colored pixels outside figure, absolutely NO backdrop gradient, glow, shadow, haze, vignette or scenery. Opaque clothing and skin. 5% safe margin. Expressive face and clear wrench, detailed stitched apron. No text.",
+      "tool": "image_gen.imagegen",
+      "model_slug": null,
+      "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+    },
+    {
+      "id": "title-street",
+      "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. Final illustrated backdrop for existing title and dialogue of a Taiwan neighborhood anti-scam investigation game. View from street toward a modest bicycle repair shop arcade at dusk, human eye height, restrained 35mm perspective. Narrow asphalt foreground with drain grate and faded road marking, sidewalk occupies only a small strip, beige plaster and limited ceramic tile pilasters, partially open weathered steel shutter at left, two parked scooters, workshop behind amber glass, wooden repair workbench with metal drawers and hanging bicycle tools, two bicycles. Amber light from upper left, warm interior, soft smoky blue gray distant buildings, natural readable materials, no large blank tiled wall. Center-right clear architectural breathing room for character cutouts; top third calm for logo. NO people, no letters, no logos, no UI. Wide cinematic illustration, authored painted textures compatible with cast turnaround; no photorealistic photo montage.",
+      "tool": "image_gen.imagegen",
+      "model_slug": null,
+      "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+    },
+    {
+      "id": "case-atlas",
+      "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. Production 2D game UI material atlas on a flat opaque warm ivory background, precise 2 by 2 equal cells, no gutters except 32px safe padding per cell. Top left: one single charcoal ink broken chain link evidence icon with tiny amber glint. Top right: one dark smartphone with readable silhouette, amber evidence tag, no screen text. Bottom left: a worn cream receipt with vermilion circled field and mustard highlight marks, no legible text. Bottom right: rectangular charcoal case-file panel surface with narrow ochre left binding seam, subtly scuffed paper edge, tiny vermilion corner tab, calm mostly flat dark center suitable to place mission UI text on it. Each artwork centered entirely within its quadrant, no touching other cells, no characters, no words, no emoji, no 3D perspective panel. Actual in-game evidence and HUD textures; bold silhouettes readable at 48px.",
+      "tool": "image_gen.imagegen",
+      "model_slug": null,
+      "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+    },
+    {
+      "id": "title-logo",
+      "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. Original title logo for Taiwanese narrative investigation game. Exact Traditional Chinese title only: 「七期：斷鏈行動」. Heavy confident brush-cut black Chinese lettering with subtle distressed ink, visually readable all characters, a small broken-chain seal integrated beside title, single vermilion archive seal accent, narrow mustard underline, strong horizontal composition 3:1 on clean warm ivory paper ground. No subtitle, no other words, no sci-fi, no rounded card UI, no mockup, no advertising claim. Logo to sit inside existing paper title plate.",
+      "tool": "image_gen.imagegen",
+      "model_slug": null,
+      "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+    },
+    {
+      "id": "app-icon",
+      "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. Square original mobile game app icon proposal, edge to edge without rounded corners. Large single broken black steel chain in foreground, snapped link opening shaped like a bold numeral seven only subtly, vermilion evidence seal tag tied to one link. Behind it a warm amber-lit Taiwanese bicycle repair shop doorway with wrench silhouette and dusty glass, painterly charcoal background. Strong center silhouette, 3 color structure charcoal/ochre/vermilion, bright separation, simple readable at 64px. No text, no letters, no title, no extra icons, no UI, no border. This depicts the game's investigation and bicycle workshop, not combat weapons.",
+      "tool": "image_gen.imagegen",
+      "model_slug": null,
+      "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+    },
+    {
+      "id": "street-material-atlas",
+      "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. One game material atlas of TWO equal square surface panels arranged horizontally, seamless within each cell, orthographic directly facing surfaces. LEFT square: Taiwanese fine-grain dark warm gray asphalt, subtle tiny aggregate at real scale, a little dusty wear, extremely restrained diffuse contrast, NO tiles, stones, bricks, road markings, potholes or objects. RIGHT square: aged cream-ochre lime plaster facade, tiny hairline cracks, slightly darker dirt along irregular patches, gentle warm gray discoloration, no brick grid, no tiles, no large motifs. Flat diffuse albedo painting, NO cast shadows, no baked directional light or strong highlight, no text, no frame, no diagram. Material base colors for actual existing 3D neighborhood meshes; tactile authored detail and controlled visual noise.",
+      "tool": "image_gen.imagegen",
+      "model_slug": null,
+      "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+    }
+  ]
+}

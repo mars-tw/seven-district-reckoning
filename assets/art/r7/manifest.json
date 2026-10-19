@@ -1,0 +1,303 @@
+{
+  "status": "VERIFIED",
+  "version": "0.11.0",
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "model_note": "Actual model slug not exposed; not inferred.",
+  "generated_master_count": 8,
+  "runtime_image_count": 11,
+  "masters": [
+    {
+      "id": "cast-turnaround",
+      "path": "assets/art/r7/cast-turnaround.webp",
+      "sha256": "6df9bcac2bf9a3e68624c64471506784a37ff4d8e00d9d41ecac1d23f08bdce0",
+      "generated_png_sha256": "8895d6edfe94d7830a024d17bedd6cccf40fe37492b8fed65c08d19f3ac34e22",
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "id": "ayuan-portrait",
+      "path": "assets/art/r7/ayuan-portrait.webp",
+      "sha256": "6f692af1c381a80df55dd48cfe48711c7f6a8df7248703300c9d51c5daa43f4d",
+      "generated_png_sha256": "a880b91c2d14aa2d80a3d0e512f59148c4ec5c4f8a9f528aeeb5afc98ba356c1",
+      "size": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "meiqing-portrait",
+      "path": "assets/art/r7/meiqing-portrait.webp",
+      "sha256": "68fbd3da682f51c8c1b858832a5cea42a2753fde0d893310329281a03a932258",
+      "generated_png_sha256": "379a127ad398e048e36c6ed226a21ff9795ee448aaa017bf5cc5d952a08390eb",
+      "size": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "title-street",
+      "path": "assets/art/r7/title-street.webp",
+      "sha256": "754d7ed27fba9b7a613c82c28648652c1004efc1add663d05f9e698572a2ceeb",
+      "generated_png_sha256": "026ee59a57dafad8602407ad4a73e88625ead4220f9070966f5e70438dbb545c",
+      "size": [
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "case-atlas",
+      "path": "assets/art/r7/case-atlas.webp",
+      "sha256": "825e45b06d95b78ce0f7f7584dcfbcde895d7485be3dc111aaac23d9056e993b",
+      "generated_png_sha256": "8dafd6d42d9eda19e9b60f38e6c458a0a342d5a5bfdfb1123d03ee2e0ea71155",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "id": "title-logo",
+      "path": "assets/art/r7/title-logo.webp",
+      "sha256": "78e572eb0f7f31a6b22c3cf419155a0bce429052e659f5e611df6daeaed4119e",
+      "generated_png_sha256": "b970b5adceb1cbab80a4435ebcec55c075591822136ea1642f01c4858c5ed300",
+      "size": [
+        2172,
+        724
+      ]
+    },
+    {
+      "id": "app-icon",
+      "path": "assets/art/r7/app-icon.webp",
+      "sha256": "f0a7243a7cf5ab508310dc4e55b71188968eb45309be85d3581886c1e0606536",
+      "generated_png_sha256": "360854759dcc4a48b96e949ab6370fb2dd665a426ef30e420b105653d4c2bbff",
+      "size": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "id": "street-material-atlas",
+      "path": "assets/art/r7/street-material-atlas.webp",
+      "sha256": "540ae15bdd06d93ff7689221d59ab81bd2cc85239d6dc758a89404464ff5b956",
+      "generated_png_sha256": "aa26f885d935dec7926237e9e535b5bf4e9f70cb52d1c6a12ce263c2a9cd270b",
+      "size": [
+        1774,
+        887
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "ayuan-portrait",
+      "source_id": "ayuan-portrait",
+      "path": "godot/assets/art/r7/ayuan-portrait.png",
+      "size": [
+        512,
+        768
+      ],
+      "sha256": "71b5369cdfbc2c39c459ded8dd0b1904eece5190e6b86aafcaa55513f9ab49a7",
+      "bytes": 592499,
+      "decoded_rgba_bytes": 1572864,
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.5953623453776041,
+        "transparent_rgb_zero": true
+      },
+      "character_gate": {
+        "value_mean": 0.3574194562108031,
+        "near_black": 0.2343938216021802,
+        "saturation_mean": 0.4384568810178174,
+        "low_saturation": 0.04373232638206624,
+        "pass": true
+      }
+    },
+    {
+      "id": "meiqing-portrait",
+      "source_id": "meiqing-portrait",
+      "path": "godot/assets/art/r7/meiqing-portrait.png",
+      "size": [
+        512,
+        768
+      ],
+      "sha256": "b1612670e53b982da4d9760b8d93773c75fa9a013bc98f21d20d94decd593de8",
+      "bytes": 604174,
+      "decoded_rgba_bytes": 1572864,
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.5925318400065104,
+        "transparent_rgb_zero": true
+      },
+      "character_gate": {
+        "value_mean": 0.4960238896346545,
+        "near_black": 0.10211465580511002,
+        "saturation_mean": 0.6572723473628095,
+        "low_saturation": 0.01405192430673883,
+        "pass": true
+      }
+    },
+    {
+      "id": "title-street",
+      "source_id": "title-street",
+      "path": "godot/assets/art/r7/title-street.webp",
+      "size": [
+        1536,
+        864
+      ],
+      "sha256": "9748c33cc1cab949a7baffd4792b273c94442d146e17f36d0078e8a845b27efd",
+      "bytes": 246584,
+      "decoded_rgba_bytes": 5308416
+    },
+    {
+      "id": "icon-chain",
+      "source_id": "case-atlas",
+      "path": "godot/assets/art/r7/icon-chain.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "6b330bbe16a0edabdb8c21873f86d9360f9aa4b0470d57e9e7791b650f8696ab",
+      "bytes": 14724,
+      "decoded_rgba_bytes": 65536,
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.2247314453125,
+        "transparent_rgb_zero": true
+      }
+    },
+    {
+      "id": "icon-phone",
+      "source_id": "case-atlas",
+      "path": "godot/assets/art/r7/icon-phone.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "d9a0379034bf915619a249fe29274f2a8289f62bc2eaa2c250c957069e6808ab",
+      "bytes": 19906,
+      "decoded_rgba_bytes": 65536,
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.421142578125,
+        "transparent_rgb_zero": true
+      }
+    },
+    {
+      "id": "icon-receipt",
+      "source_id": "case-atlas",
+      "path": "godot/assets/art/r7/icon-receipt.png",
+      "size": [
+        128,
+        128
+      ],
+      "sha256": "b3bbedab404a9f6f288c86ada5d8b31c98ae5ff82e8138b65ec05dedfc2aa9db",
+      "bytes": 25024,
+      "decoded_rgba_bytes": 65536,
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.49151611328125,
+        "transparent_rgb_zero": true
+      }
+    },
+    {
+      "id": "case-panel",
+      "source_id": "case-atlas",
+      "path": "godot/assets/art/r7/case-panel.png",
+      "size": [
+        640,
+        320
+      ],
+      "sha256": "af7e480689377b894f96548200900cb82b94f7d2d1d6749cb7ea61761467b3cf",
+      "bytes": 393897,
+      "decoded_rgba_bytes": 819200,
+      "alpha": {
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "occupancy": 0.9498193359375,
+        "transparent_rgb_zero": true
+      }
+    },
+    {
+      "id": "title-logo",
+      "source_id": "title-logo",
+      "path": "godot/assets/art/r7/title-logo.webp",
+      "size": [
+        1024,
+        342
+      ],
+      "sha256": "b9240052ad6f7715f11f3c2c02e595cdc60bb8eb9906ab88d31e609dbecebad9",
+      "bytes": 52744,
+      "decoded_rgba_bytes": 1400832
+    },
+    {
+      "id": "app-icon",
+      "source_id": "app-icon",
+      "path": "godot/assets/art/r7/app-icon.webp",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "3bcfbfb991a18975992e357a9c5887fa612a1be003649fbf8d3ef06826859847",
+      "bytes": 71868,
+      "decoded_rgba_bytes": 1048576
+    },
+    {
+      "id": "street-asphalt",
+      "source_id": "street-material-atlas",
+      "path": "godot/assets/art/r7/street-asphalt.webp",
+      "size": [
+        768,
+        768
+      ],
+      "sha256": "79c84885321202b2006986966f960c9851e2cd8d1158e89e6332d3c3e6468b8a",
+      "bytes": 215286,
+      "decoded_rgba_bytes": 2359296
+    },
+    {
+      "id": "warm-plaster",
+      "source_id": "street-material-atlas",
+      "path": "godot/assets/art/r7/warm-plaster.webp",
+      "size": [
+        768,
+        768
+      ],
+      "sha256": "e197bdbd7cc76a29375a8b746d8e3c5cc21526985950c428d6edd56412809663",
+      "bytes": 125872,
+      "decoded_rgba_bytes": 2359296
+    }
+  ],
+  "license": "CC BY 4.0 to the extent applicable; project original generated art",
+  "postprocess": "CPU isnet-general-use rembg alpha matting; transparent RGB zero; retained mask and cutout; LANCZOS; WebP Q84 for opaque artwork. No invented normal or ORM maps.",
+  "runtime_bytes": 2362578,
+  "decoded_rgba_bytes": 16637952
+}

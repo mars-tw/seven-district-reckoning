@@ -1,0 +1,68 @@
+[
+  {
+    "path": ".gitignore",
+    "unchanged": true,
+    "before_sha256": "7f5c082e4c062384dfb3634d3af3d9b6dc10d4506a9f172fcc5b6eb1598a4180",
+    "after_sha256": "7f5c082e4c062384dfb3634d3af3d9b6dc10d4506a9f172fcc5b6eb1598a4180"
+  },
+  {
+    "path": "godot/export_presets.cfg",
+    "unchanged": false,
+    "before_sha256": "f0cbb9ab49efd1e2680bb5ad390d06ecfbc7915a4e00daec5ff8ad0f20682c01",
+    "after_sha256": "2be5949c84ad40b024e332b8c36721d5fd6379e3ab9fc75efe07eeea370c7702"
+  },
+  {
+    "path": "godot/scripts/ui/touch_controls.gd",
+    "unchanged": true,
+    "before_sha256": "472d149d1c2b23273afed77642f7c8b6611ead8971963cb4b06cba26d8a06c0e",
+    "after_sha256": "472d149d1c2b23273afed77642f7c8b6611ead8971963cb4b06cba26d8a06c0e"
+  },
+  {
+    "path": "qa/engine-checks-incremental.json",
+    "unchanged": true,
+    "before_sha256": "c696d471ab77d6fe3d23a76ee4387083761e49f994c073f09d62d742daea1f7e",
+    "after_sha256": "c696d471ab77d6fe3d23a76ee4387083761e49f994c073f09d62d742daea1f7e"
+  },
+  {
+    "path": "qa/engine-checks.json",
+    "unchanged": true,
+    "before_sha256": "7561c919a0cc5ac3f733480c08ed7fbd8aa626b6c3b535929992e738e08e5e09",
+    "after_sha256": "7561c919a0cc5ac3f733480c08ed7fbd8aa626b6c3b535929992e738e08e5e09"
+  },
+  {
+    "path": ".github/workflows/native-export.yml",
+    "unchanged": true,
+    "before_sha256": "bd9b8381e5d1e0b29ff668ee81dbc09c589d0dbede29eb87e1a04c556ea23e26",
+    "after_sha256": "bd9b8381e5d1e0b29ff668ee81dbc09c589d0dbede29eb87e1a04c556ea23e26"
+  },
+  {
+    "path": "native/README.md",
+    "unchanged": true,
+    "before_sha256": "f8d6a23f8bcd278941ff748756c4ef13689f78caa981373cb164d80d8cb61f86",
+    "after_sha256": "f8d6a23f8bcd278941ff748756c4ef13689f78caa981373cb164d80d8cb61f86"
+  },
+  {
+    "path": "native/build-config.json",
+    "unchanged": true,
+    "before_sha256": "a913c26fe8a838ad00f2febf8a96a9a4d548e3162e5a6318f6340ce3ffcc5e8b",
+    "after_sha256": "a913c26fe8a838ad00f2febf8a96a9a4d548e3162e5a6318f6340ce3ffcc5e8b"
+  },
+  {
+    "path": "tests/native_touch.gd",
+    "unchanged": true,
+    "before_sha256": "00068340c2437e6f3e113d794bcf6a6040b2aa82909ba67cd70f8c23951ed5f9",
+    "after_sha256": "00068340c2437e6f3e113d794bcf6a6040b2aa82909ba67cd70f8c23951ed5f9"
+  },
+  {
+    "path": "tools/export_mobile.py",
+    "unchanged": true,
+    "before_sha256": "a4fe3a07bf29ea006e14d232f7f8a260b86ae597f3930c55cdf352d1015df658",
+    "after_sha256": "a4fe3a07bf29ea006e14d232f7f8a260b86ae597f3930c55cdf352d1015df658"
+  },
+  {
+    "path": "tools/install_native_toolchain.py",
+    "unchanged": true,
+    "before_sha256": "9f0cb530748a21e86fb45c8b72ae436fa770be49d1ab4ba316eb74886077d6c5",
+    "after_sha256": "9f0cb530748a21e86fb45c8b72ae436fa770be49d1ab4ba316eb74886077d6c5"
+  }
+]

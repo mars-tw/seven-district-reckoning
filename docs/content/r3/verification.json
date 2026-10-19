@@ -1,0 +1,131 @@
+{
+  "status": "VERIFIED",
+  "version": "0.17.0",
+  "test_suites": 33,
+  "reported_checks": 28610,
+  "failures": 0,
+  "scanner_regressions": 10,
+  "protected_files_unchanged": 230,
+  "browser_views": 9,
+  "screenshots": 306,
+  "store_screenshots": 6,
+  "generated_art": 0,
+  "source_digest": "0f35e80df8b6b1a2aa607a6094afe6b060da840ad44f2fd5757ec4cd71035753",
+  "pck_sha256": "5401f7fba67216da341eddb8f058b23e7b07edcda4f3ca769b4cd0c47c640e24",
+  "pck_bytes": 26192032,
+  "shipping_gate": "BLOCKED",
+  "limitations": "Independent Muse rescore, native devices, human trials and clean-host p95 remain unverified.",
+  "displayed_glyphs_checked": 331,
+  "font_subset_sha256": "23b6b6d01ac69ff525b99d26f011190ef650c56ea49132b78c1425e0b0772e77",
+  "reference_performance": {
+    "status": "VERIFIED",
+    "scope": "Concurrent browser RAF reference only, not a clean-host or native-device result",
+    "threshold_ms": 18,
+    "all_measured_views_under_threshold": false,
+    "views": [
+      {
+        "viewport": "390x844",
+        "runs": [
+          {
+            "frames": 180,
+            "p50": 16.700000000000728,
+            "p95": 16.700000000000728,
+            "max": 16.80000000000291
+          },
+          {
+            "frames": 180,
+            "p50": 16.69999999999709,
+            "p95": 16.799999999999272,
+            "max": 16.80000000000291
+          },
+          {
+            "frames": 180,
+            "p50": 16.69999999999709,
+            "p95": 16.700000000004366,
+            "max": 16.80000000000291
+          }
+        ],
+        "p95_median_ms": 16.700000000004366
+      },
+      {
+        "viewport": "1290x2796",
+        "runs": [
+          {
+            "frames": 180,
+            "p50": 16.700000000000728,
+            "p95": 16.700000000000728,
+            "max": 33.39999999999782
+          },
+          {
+            "frames": 180,
+            "p50": 16.69999999999709,
+            "p95": 16.799999999999272,
+            "max": 33.29999999999927
+          },
+          {
+            "frames": 180,
+            "p50": 16.700000000000728,
+            "p95": 16.799999999999272,
+            "max": 33.29999999999927
+          }
+        ],
+        "p95_median_ms": 16.799999999999272
+      },
+      {
+        "viewport": "2064x2752",
+        "runs": [
+          {
+            "frames": 180,
+            "p50": 50,
+            "p95": 66.70000000000437,
+            "max": 100
+          },
+          {
+            "frames": 180,
+            "p50": 50,
+            "p95": 66.69999999999709,
+            "max": 83.29999999999563
+          },
+          {
+            "frames": 180,
+            "p50": 33.30000000000291,
+            "p95": 66.69999999999709,
+            "max": 100
+          }
+        ],
+        "p95_median_ms": 66.69999999999709
+      },
+      {
+        "viewport": "1366x768",
+        "runs": [
+          {
+            "frames": 180,
+            "p50": 33.400000000001455,
+            "p95": 50.099999999998545,
+            "max": 66.70000000000073
+          },
+          {
+            "frames": 180,
+            "p50": 33.400000000001455,
+            "p95": 50.099999999998545,
+            "max": 66.59999999999854
+          },
+          {
+            "frames": 180,
+            "p50": 33.400000000001455,
+            "p95": 50.099999999998545,
+            "max": 66.79999999999563
+          }
+        ],
+        "p95_median_ms": 50.099999999998545
+      }
+    ]
+  },
+  "secret_scan": {
+    "status": "VERIFIED",
+    "findings": [],
+    "required_pattern_hits": 0,
+    "tracked_files": 3626,
+    "scope": "Prospective tracked files only. No credential directory access."
+  }
+}

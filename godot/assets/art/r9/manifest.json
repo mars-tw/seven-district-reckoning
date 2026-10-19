@@ -1,0 +1,71 @@
+{
+  "status": "VERIFIED",
+  "version": "0.13.0",
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "model_note": "Actual model slug not exposed.",
+  "generated_masters": 1,
+  "runtime_images": 2,
+  "outputs": [
+    {
+      "id": "meiqing-waist",
+      "path": "godot/assets/art/r9/meiqing-waist.png",
+      "sha256": "37293bc83ac9c56f6bc3a8b34c737461103fcd7266032c1066d564666824c9b1",
+      "size": [
+        693,
+        768
+      ],
+      "bytes": 773924,
+      "source": "assets/art/r9/meiqing-waist.webp",
+      "source_sha256": "db0bb0384cf2e98de230416dabe0999a7018ee4383321eb24ddb240cd911cf68",
+      "character_gate": {
+        "value_mean": 0.5288353190104915,
+        "near_black": 0.08907274409874741,
+        "saturation_mean": 0.6333012913495389,
+        "low_saturation": 0.02222012226118012,
+        "pass": true
+      },
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "alpha_occupancy": 0.5766068422318422,
+      "transparent_rgb_zero": false,
+      "decoded_rgba_bytes": 2128896
+    },
+    {
+      "id": "ayuan-waist",
+      "path": "godot/assets/art/r9/ayuan-waist.png",
+      "sha256": "2be75b6e34e83c2bbb829ffdde596a9d4b25c49e4df4ec98aa6d333f09b18a24",
+      "size": [
+        512,
+        468
+      ],
+      "bytes": 352451,
+      "source": "godot/assets/art/r7/ayuan-portrait.png",
+      "source_sha256": "71b5369cdfbc2c39c459ded8dd0b1904eece5190e6b86aafcaa55513f9ab49a7",
+      "character_gate": {
+        "value_mean": 0.3784000634651223,
+        "near_black": 0.22973809626653996,
+        "saturation_mean": 0.45414174328362295,
+        "low_saturation": 0.030912991519444804,
+        "pass": true
+      },
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "alpha_occupancy": 0.5797025240384616,
+      "transparent_rgb_zero": true,
+      "decoded_rgba_bytes": 958464
+    }
+  ],
+  "postprocess": "Actual tool alpha retained; near-zero alpha and transparent RGB cleaned; crop to visible waist with side margin; LANCZOS to maximum 768 px; optimized PNG. Ayuan is a declared crop of the retained R7 portrait, not a new generation.",
+  "runtime_bytes": 1126375,
+  "decoded_rgba_bytes": 3087360,
+  "license": "CC BY 4.0 to the extent applicable; retained project-generated art policy"
+}

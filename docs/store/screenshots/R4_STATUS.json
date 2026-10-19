@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED",
+  "scope": "R4.1 crash fix, responsive UI and actual screenshot recapture; overall 3D art remains incomplete",
+  "requested_version": "0.8.1",
+  "existing_png_version": "0.8.1",
+  "requested_sizes": [
+    [
+      1290,
+      2796
+    ],
+    [
+      2064,
+      2752
+    ]
+  ],
+  "new_screenshots_written": 14,
+  "comparison_screenshots_written": 35,
+  "method": "Godot --headless Web export plus headless Chromium hardware NVIDIA ANGLE D3D11",
+  "manifest": "docs/store/screenshots/manifest.json",
+  "comparison_manifest": "docs/art/compare/after/manifest.json",
+  "regression": "tests/r4_1_resize.gd",
+  "report": "docs/CODEX_RESPONSE_R4_1_FIX.md",
+  "remaining_3d_assets": "docs/art/R4_1_MISSING_3D.md",
+  "native_export_presets": "Preserved exactly as requested; native packages were not built. Project/Web version is 0.8.1.",
+  "historical_record": true,
+  "superseded_by": "docs/store/screenshots/R5_STATUS.json",
+  "historical_png_copy": "docs/art/compare/r5-before/"
+}

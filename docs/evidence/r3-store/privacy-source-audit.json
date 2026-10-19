@@ -1,0 +1,32 @@
+{
+  "status": "VERIFIED",
+  "scope": "Historical unsigned source manifest, not R3 signed build",
+  "path": "deliverables/native/ios/PrivacyInfo.xcprivacy",
+  "sha256": "4b61978794a0d6042d6fb5751bf9474cded649ab89956a1304667a1f0260ab2e",
+  "manifest": {
+    "NSPrivacyAccessedAPITypes": [
+      {
+        "NSPrivacyAccessedAPITypeReasons": [
+          "DDA9.1",
+          "C617.1"
+        ],
+        "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryFileTimestamp"
+      },
+      {
+        "NSPrivacyAccessedAPITypeReasons": [
+          "35F9.1"
+        ],
+        "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategorySystemBootTime"
+      },
+      {
+        "NSPrivacyAccessedAPITypeReasons": [
+          "E174.1",
+          "85F4.1"
+        ],
+        "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryDiskSpace"
+      }
+    ],
+    "NSPrivacyTracking": false
+  },
+  "native_kit_app_directory_present": false
+}

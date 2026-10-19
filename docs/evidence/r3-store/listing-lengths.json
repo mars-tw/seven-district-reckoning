@@ -1,0 +1,12 @@
+{
+  "status": "VERIFIED",
+  "name_characters": 7,
+  "subtitle_characters": 16,
+  "keywords_characters": 38,
+  "limits": {
+    "name": 30,
+    "subtitle": 30,
+    "keywords": 100
+  },
+  "pass": true
+}

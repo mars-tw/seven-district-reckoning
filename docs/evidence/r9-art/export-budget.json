@@ -1,0 +1,38 @@
+{
+  "status": "EXECUTED",
+  "version": "0.13.0",
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 233,
+    "digest": "56f1eb23e6ae7f262683a8ab8143021ab10ff3fb01cf47e5bfb010c43718a036"
+  },
+  "pck_bytes": 25391532,
+  "pck_sha256": "6704c0645a78aca2fdabc8e3dacc3d296f4fd105fb6faf9816c84e5601fa8343",
+  "historical_images_excluded": [
+    "assets/art/r4/app-icon.png",
+    "assets/art/r4/ayuan-portrait.png",
+    "assets/art/r4/meiqing-portrait.png",
+    "assets/art/r4/title-logo.png",
+    "assets/art/r4/title-street.webp",
+    "assets/models/r7/hero_human.glb",
+    "assets/models/r7/mei-workbench.glb",
+    "assets/art/r5/title-street.webp",
+    "assets/art/r6/ayuan-portrait.png",
+    "assets/art/r6/meiqing-portrait.png",
+    "assets/art/r6/title-street.webp",
+    "assets/models/r7/ayuan-tailored.glb",
+    "assets/art/r7/case-panel.webp",
+    "assets/models/r7/ayuan-tailored_hero_human_Details.png",
+    "assets/models/r7/ayuan-tailored_hero_human_Fabric.png",
+    "assets/models/r7/ayuan-tailored_hero_human_Hair.png",
+    "assets/models/r7/ayuan-tailored_hero_human_Shoes.png",
+    "assets/models/r7/ayuan-tailored_hero_human_Skin.png",
+    "assets/models/r7/ayuan-tailored_hero_human_Trousers.png"
+  ],
+  "protected_files_from": "HEAD versions copied into isolated export only",
+  "working_protected_files_modified": false,
+  "baseline_pck_bytes": 24480432,
+  "increase_bytes": 911100,
+  "increase_percent": 3.721748047583474
+}

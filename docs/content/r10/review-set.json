@@ -1,0 +1,86 @@
+{
+  "status": "VERIFIED",
+  "images": [
+    {
+      "file": "docs/content/r10/review-set/01-second_help-paper-b-marked.png",
+      "original": "docs/content/r10/phone-second_help-paper-b-marked.png",
+      "sha256": "541307817aa73f996f8ef19aafefb81d33bb6e66ba8ec01373d6834d3f438c25"
+    },
+    {
+      "file": "docs/content/r10/review-set/02-second_help-action-payment-retry.png",
+      "original": "docs/content/r10/phone-second_help-action-payment-retry.png",
+      "sha256": "35d76c6956c27640c03164299e209eb90be2dcdfc5799d07a69ad675643aa143"
+    },
+    {
+      "file": "docs/content/r10/review-set/03-second_help-action-latest-only-retry.png",
+      "original": "docs/content/r10/phone-second_help-action-latest-only-retry.png",
+      "sha256": "2040a23199527f83ac0bf689adee9e9652e9cc9e87bcac31ef88fba96594e2d6"
+    },
+    {
+      "file": "docs/content/r10/review-set/04-second_help-street-payment-replay.png",
+      "original": "docs/content/r10/phone-second_help-street-payment-replay.png",
+      "sha256": "ae776dd82ab727c9983dd0568c909e3dd2d38aca1b2e736e1c463e2989783727"
+    },
+    {
+      "file": "docs/content/r10/review-set/05-second_help-street-actual.png",
+      "original": "docs/content/r10/phone-second_help-street-actual.png",
+      "sha256": "3dfa0cc6f85484bde147c3408562d53b6b90a3159dc86e1e4cc6f8e2eb3f7019"
+    },
+    {
+      "file": "docs/content/r10/review-set/06-before_night-drag-preview-1.png",
+      "original": "docs/content/r10/phone-before_night-drag-preview-1.png",
+      "sha256": "4fd651fb32f7b48970bd23b2f0df2dbe2b698b70e52d6de154c3e8000d69eb78"
+    },
+    {
+      "file": "docs/content/r10/review-set/07-before_night-drag-preview-3.png",
+      "original": "docs/content/r10/phone-before_night-drag-preview-3.png",
+      "sha256": "fd193cae85a48ac83fa5bb212bfca0cd29aa6a9f242bf02979208c289eda2abd"
+    },
+    {
+      "file": "docs/content/r10/review-set/08-before_night-relation-retry.png",
+      "original": "docs/content/r10/phone-before_night-relation-retry.png",
+      "sha256": "ce72925553e83783e33397fbe6c660bff319f441e609e4045dcd9423735d6d1f"
+    },
+    {
+      "file": "docs/content/r10/review-set/09-before_night-relations-chosen.png",
+      "original": "docs/content/r10/phone-before_night-relations-chosen.png",
+      "sha256": "60d836594db19f2e495f386876bcfec579b95754862cafd8e1248735ded401e3"
+    },
+    {
+      "file": "docs/content/r10/review-set/10-before_night-attachment-picked.png",
+      "original": "docs/content/r10/phone-before_night-attachment-picked.png",
+      "sha256": "47687bf1efc76136cd78aaa74f50933968aa062aa91ba260028ecbb8555f20dd"
+    },
+    {
+      "file": "docs/content/r10/review-set/11-three_voices-support-one-side.png",
+      "original": "docs/content/r10/phone-three_voices-support-one-side.png",
+      "sha256": "a70e4d47475158973a46602722aaef239cfa84520c02af317ca9c4f0b121fb27"
+    },
+    {
+      "file": "docs/content/r10/review-set/12-three_voices-support-last-only.png",
+      "original": "docs/content/r10/phone-three_voices-support-last-only.png",
+      "sha256": "ad8680624e839a3fc0aa4614967411e94c85cffdaa08f0e7b105cd2b0a162aff"
+    },
+    {
+      "file": "docs/content/r10/review-set/13-three_voices-support-both-sides.png",
+      "original": "docs/content/r10/phone-three_voices-support-both-sides.png",
+      "sha256": "9568561765634110c292cdc0c2a56562755b9fca3c9d2a7a75f7e016ab315767"
+    },
+    {
+      "file": "docs/content/r10/review-set/14-three_voices-local-pin-unpinned.png",
+      "original": "docs/content/r10/phone-three_voices-local-pin-unpinned.png",
+      "sha256": "ac997e70893949071d1a0f71ab2cc8d435cd40612eb18b2c9221dd813500999e"
+    },
+    {
+      "file": "docs/content/r10/review-set/15-three_voices-chain-reloaded.png",
+      "original": "docs/content/r10/phone-three_voices-chain-reloaded.png",
+      "sha256": "deb3779fa63a0fac664e88f5c5e4aa5fd78703f43a6aeb5d4cac1e34a6388744"
+    }
+  ],
+  "counts": {
+    "second_help": 5,
+    "before_night": 5,
+    "three_voices": 5
+  },
+  "resized_or_composited": false
+}

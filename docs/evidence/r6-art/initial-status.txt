@@ -1,0 +1,21 @@
+ M .gitignore
+ M godot/export_presets.cfg
+ M godot/scripts/ui/touch_controls.gd
+ M qa/engine-checks-incremental.json
+ M qa/engine-checks.json
+?? .github/workflows/
+?? docs/art/ART_RESCORE2_MUSE.md
+?? docs/art/ART_RESCORE_MUSE.md
+?? docs/art/ART_REVIEW_MUSE.md
+?? docs/art/compare/after/1290x2796-case-open-crash.png
+?? docs/art/compare/before/1290x2796-link.png
+?? docs/art/compare/before/1290x2796-sealed.png
+?? docs/art/compare/before/2064x2752-evidence.png
+?? docs/art/compare/before/2064x2752-link.png
+?? docs/art/compare/before/2064x2752-sealed.png
+?? docs/art/compare/before/2064x2752-street.png
+?? docs/art/compare/before/manifest-0.7.0.json
+?? docs/evidence/r6-art/
+?? native/
+?? tools/export_mobile.py
+?? tools/install_native_toolchain.py

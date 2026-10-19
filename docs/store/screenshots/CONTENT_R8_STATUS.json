@@ -1,0 +1,27 @@
+{
+  "status": "VERIFIED",
+  "version": "0.22.0",
+  "new_screenshots": [
+    {
+      "file": "docs/store/screenshots/1290x2796-content-r8-before_night-relations-chosen.png",
+      "source": "docs/content/r8/phone-before_night-relations-chosen-1290x2796.png",
+      "sha256": "d4115605962bbf16157d5fea33cbcd466ef8663df26571b5e5dab2edcfa359d6"
+    },
+    {
+      "file": "docs/store/screenshots/1290x2796-content-r8-three_voices-support-both-sides.png",
+      "source": "docs/content/r8/phone-three_voices-support-both-sides-1290x2796.png",
+      "sha256": "4889dde5cb95ab19b6a7e67cf065cc449c058694b109275805fec0af4fd13cb5"
+    },
+    {
+      "file": "docs/store/screenshots/2064x2752-content-r8-before_night-relations-chosen.png",
+      "source": "docs/content/r8/2064x2752-before_night-relations-chosen.png",
+      "sha256": "d95035c01220d0c361ff8ad0e1669e5d3babf31be4e7da9d2298c6ab81044841"
+    },
+    {
+      "file": "docs/store/screenshots/2064x2752-content-r8-three_voices-support-both-sides.png",
+      "source": "docs/content/r8/2064x2752-three_voices-support-both-sides.png",
+      "sha256": "1a809cc69f5f69b2d994aec82f0984e6bb4c8a8a1272dfb2ea98e7306c92186a"
+    }
+  ],
+  "existing_screenshots_deleted": false
+}

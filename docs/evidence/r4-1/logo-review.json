@@ -1,0 +1,19 @@
+{
+  "status": "VERIFIED",
+  "method": "Crop the actual unedited title screenshot at the logo backing, then downsample only this QA derivative to 64px wide. Original store PNG is unchanged.",
+  "source": "docs/store/screenshots/1290x2796-title.png",
+  "source_sha256": "b4cb6c70ea29e08a794c77e3306d976aed3a174f2d580af281f7307b588542ab",
+  "crop_pixels": [
+    96,
+    666,
+    1194,
+    1062
+  ],
+  "thumbnail": "docs/evidence/r4-1/logo-64px.png",
+  "thumbnail_size": [
+    64,
+    23
+  ],
+  "median_ink_to_light_paper_contrast": 13.31,
+  "note": "Sampled median contrast is a diagnostic, not a whole-image accessibility certification. Small English subtitle is not claimed readable at 64px. No human blind test is claimed."
+}

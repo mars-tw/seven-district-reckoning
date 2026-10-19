@@ -1,0 +1,100 @@
+{
+  "status": "VERIFIED",
+  "method": "Native Godot headless content_r4 fixture generation during the final full regression run. The real world interact() collects one source after the player is placed within its allowed on-foot radius. Only travel is shortened. Browser completes the target case via visible touch input and preserves actually completed earlier case records. No target completion injection.",
+  "test_source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 123,
+    "digest": "e4f5c1a260af57479dc77e6d85cc855b0c2edbb06bddd3682b74a8f6ed4ce65f"
+  },
+  "fixtures": [
+    {
+      "fixture": "before_night-field-0.json",
+      "sha256": "11e17dc736976f496bb9895185e05bd9cf2aedc7b55f4cbe0488701dfbe67857",
+      "target_case": "before_night",
+      "collected": 0,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "fixture": "before_night-field-1.json",
+      "sha256": "a601b0a20a3fe7a8a4381450bec46e54a310ff167497cc2c67a1bb712931bc40",
+      "target_case": "before_night",
+      "collected": 1,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "fixture": "before_night-field-2.json",
+      "sha256": "fcc19021a3ffc4bcf15c8017426533fedc6088bf9effc704bad8b71a5dbd6c8f",
+      "target_case": "before_night",
+      "collected": 2,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "fixture": "before_night-ready.json",
+      "sha256": "2b617510c7d8cfb1aba9ac9b890559553f6a8af660d176018f64f45fd070d7a5",
+      "target_case": "before_night",
+      "collected": 3,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "fixture": "second_help-field-0.json",
+      "sha256": "fe2e718868f75e16a5e8c009ad7c02932da06b74a0488991f6ebb1eab47ed034",
+      "target_case": "second_help",
+      "collected": 0,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "fixture": "second_help-field-1.json",
+      "sha256": "9c4b57a61489eb408b3f23c44d601835c4bbf318def32c96de8f9c31a52cfbde",
+      "target_case": "second_help",
+      "collected": 1,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "fixture": "second_help-ready.json",
+      "sha256": "67130c6d93244a9cc0605b8d1fbfbc9df585897f7229409af6673f1b0e9efb12",
+      "target_case": "second_help",
+      "collected": 2,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "fixture": "three_voices-field-0.json",
+      "sha256": "53a1c82b87295fde5b3f1d4b9b6c32f85365754b1d92ef0402fa7b769fc5d1ae",
+      "target_case": "three_voices",
+      "collected": 0,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "fixture": "three_voices-field-1.json",
+      "sha256": "4fb345b63cdb98a4d498b75a7c78d7cb00b2f0e1c202ab71350850edf56ad447",
+      "target_case": "three_voices",
+      "collected": 1,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "fixture": "three_voices-field-2.json",
+      "sha256": "95640547b89cc32b8464630cf40c8e109ec049757d0f210877abc7b0d130fbf8",
+      "target_case": "three_voices",
+      "collected": 2,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "fixture": "three_voices-ready.json",
+      "sha256": "f2caf10f23a8f1a5bc892acb4ab0b6ad45b9d421b6f69dbe4b576b636fd146ba",
+      "target_case": "three_voices",
+      "collected": 3,
+      "complete": false,
+      "on_foot": true
+    }
+  ]
+}

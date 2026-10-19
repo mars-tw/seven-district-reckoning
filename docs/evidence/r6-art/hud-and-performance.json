@@ -1,0 +1,32 @@
+{
+  "status": "VERIFIED",
+  "before_panel_coverage": 0.189245351804594,
+  "after_panel_coverage": 0.1316016526917,
+  "scope": "Only HUD panels counted; virtual touch buttons are separately counted as 12 to 5 plus retained sprint toggle.",
+  "phone_frame_pacing": {
+    "method": "browser requestAnimationFrame presentation intervals, not native GPU timer; concurrent host load",
+    "runs": [
+      {
+        "p50": 16.69999999999709,
+        "p95": 16.799999999995634,
+        "max": 16.80000000000291,
+        "frames": 180
+      },
+      {
+        "p50": 16.69999999999709,
+        "p95": 16.700000000004366,
+        "max": 16.80000000000291,
+        "frames": 180
+      },
+      {
+        "p50": 16.69999999999709,
+        "p95": 16.700000000004366,
+        "max": 16.80000000000291,
+        "frames": 180
+      }
+    ],
+    "p95_median": 16.700000000004366
+  },
+  "native_gpu_performance_verified": false,
+  "concurrent_load_reference_only": true
+}

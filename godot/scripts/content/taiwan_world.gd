@@ -57,16 +57,32 @@ func setup(world: Node3D, manager: Node, avatar: CharacterBody3D) -> void:
 		actor.add_to_group("taiwan_story_people")
 		add_child(actor)
 		actor.add_child(ContactShadow.new())
+		# Keep the player outside the actor's silhouette during close interviews.
+		var personal_space := StaticBody3D.new()
+		personal_space.name = "PersonalSpace"
+		personal_space.collision_layer = 1
+		var capsule := CapsuleShape3D.new()
+		capsule.radius = .48
+		capsule.height = 1.8
+		var collision := CollisionShape3D.new()
+		collision.name = "CollisionShape3D"
+		collision.shape = capsule
+		collision.position.y = .9
+		personal_space.add_child(collision)
+		actor.add_child(personal_space)
 		var tint: Color = Color.from_string(str(spec.get("appearance_variant","b1b8a0")),Color.WHITE)
 		for mesh_node: Node in actor.find_children("*","MeshInstance3D",true,false):
 			var instance: MeshInstance3D = mesh_node as MeshInstance3D
 			instance.set_meta("device_geometry_kind","character")
 			for surface: int in instance.mesh.get_surface_count():
 				var original: Material = instance.get_active_material(surface)
-				if not str(spec.get("appearance_variant","")).is_empty() and original is StandardMaterial3D and original.resource_name.to_lower().contains("fabric"):
-					var clothing: StandardMaterial3D = original.duplicate() as StandardMaterial3D
-					clothing.albedo_color = tint
-					instance.set_surface_override_material(surface,clothing)
+				if original is StandardMaterial3D:
+					var finish: StandardMaterial3D = original.duplicate() as StandardMaterial3D
+					finish.roughness = maxf(finish.roughness,.88)
+					finish.metallic_specular = minf(finish.metallic_specular,.18)
+					if not str(spec.get("appearance_variant","")).is_empty() and original.resource_name.to_lower().contains("fabric"):
+						finish.albedo_color = tint
+					instance.set_surface_override_material(surface,finish)
 		var animation: AnimationPlayer
 		var animations: Array[Node] = actor.find_children("*","AnimationPlayer",true,false)
 		if not animations.is_empty():
@@ -85,9 +101,17 @@ func setup(world: Node3D, manager: Node, avatar: CharacterBody3D) -> void:
 		label.pixel_size = .006
 		label.visibility_range_end = 24
 		actor.add_child(label)
+		# Identity is shown once in the fixed investigation HUD while collecting.
+		label.set_meta("investigation_nameplate",true)
 		actors.append({"id":id,"node":actor,"animation":animation,"station":spec["home_station"]})
 	life.updated.connect(_sync_cargo)
 	_sync_cargo()
+
+func set_investigation_focus(active: bool) -> void:
+	for actor: Dictionary in actors:
+		for child: Node in actor.node.get_children():
+			if child is Label3D and child.has_meta("investigation_nameplate"):
+				child.visible = not active
 
 func apply_profile(settings: Dictionary) -> void:
 	_character_distance = float(settings.get("building_distance",180))

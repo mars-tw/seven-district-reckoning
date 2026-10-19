@@ -1,0 +1,47 @@
+{
+  "status": "VERIFIED",
+  "version": "0.22.0",
+  "test_suites": 38,
+  "reported_checks": 94552,
+  "failures": 0,
+  "protected_files_unchanged": 242,
+  "browser_views": 4,
+  "screenshots": 125,
+  "review_images": 15,
+  "store_images": 4,
+  "generated_art_images": 0,
+  "displayed_glyphs_checked": 391,
+  "pck_sha256": "82ec4cd8d0128490977b33d52c27d5df7500c4ae7d7a64f0b4b742890adc5424",
+  "performance": {
+    "method": "3 x 180 browser RAF presentation intervals; concurrent host load; reference only, not native GPU timings",
+    "runs": [
+      {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.700000000004366,
+        "max": 16.80000000000291
+      },
+      {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.799999999995634,
+        "max": 16.80000000000291
+      },
+      {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.799999999995634,
+        "max": 16.80000000000291
+      }
+    ],
+    "p95_median": 16.799999999995634
+  },
+  "external_acceptance": "BLOCKED: actual Muse rescore >=8, physical devices and human testing require external reviewer/devices/testers.",
+  "secret_scan": {
+    "status": "VERIFIED",
+    "scope": "Prospective Git index blobs only",
+    "text_files": 1234,
+    "findings": 0,
+    "required_pattern_hits": 0
+  }
+}

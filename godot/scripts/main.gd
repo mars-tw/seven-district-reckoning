@@ -11,7 +11,8 @@ const SaveScript = preload("res://scripts/save/save_manager.gd")
 const OptionalScript = preload("res://scripts/content/optional_content.gd")
 const CityScript = preload("res://scripts/world/district_life.gd")
 const ContentWorldScript = preload("res://scripts/content/content_world.gd")
-const TouchScript = preload("res://scripts/ui/touch_controls.gd")
+const TouchScript = preload("res://scripts/ui/mobile_touch_controls.gd")
+const RevisitScript = preload("res://scripts/content/chapter_revisits.gd")
 const SystemsScript = preload("res://scripts/systems/district_systems.gd")
 const StreetScript = preload("res://scripts/systems/street_state.gd")
 const UrbanScript = preload("res://scripts/world/urban_detail.gd")
@@ -22,6 +23,15 @@ const TaiwanActivityPanelScript = preload("res://scripts/ui/taiwan_activity_pane
 const TaiwanWorldScript = preload("res://scripts/content/taiwan_world.gd")
 const TaiwanExpansionScript = preload("res://scripts/world/taiwan_expansion.gd")
 const DeviceScript = preload("res://scripts/systems/device_profiles.gd")
+const HitFeedbackScript = preload("res://scripts/systems/hit_feedback.gd")
+const BeaconScript = preload("res://scripts/world/objective_beacon.gd")
+const EvidenceInspectorScript = preload("res://scripts/ui/evidence_inspector.gd")
+const RunRecordsScript = preload("res://scripts/systems/run_records.gd")
+const StoryIntroScript = preload("res://scripts/ui/story_intro.gd")
+const MusicScript = preload("res://scripts/systems/music_director.gd")
+const FraudCaseScript = preload("res://scripts/content/fraud_case.gd")
+const InvestigationScript = preload("res://scripts/content/content_investigations.gd")
+const InvestigationPanel = preload("res://scripts/ui/investigation_panel.gd")
 
 var player: CharacterBody3D
 var missions: Node
@@ -73,13 +83,26 @@ var taiwan_expansion: Node3D
 var device_profiles: Node
 var _device_settings: Dictionary = {}
 const WORLD_RADIUS: float = 400.0
-const MEI_CONVERSATION_APPROACH := Vector2(-52, 55)
 const StartupScript = preload("res://scripts/systems/startup_progress.gd")
 var startup_complete := false
 var expansion_complete := false
 var _title_world_hidden := false
 var _startup_started := false
 var _startup_progress: RefCounted
+# R1 fun/polish layer.
+var hit_feedback: Node3D
+var objective_beacon: Node3D
+var run_records: RefCounted
+var music: Node
+var story_intro: CanvasLayer
+var _sfx: Dictionary = {}
+var _feedback_mission: int = -1
+var _feedback_objective: int = -1
+var _ground_texture: NoiseTexture2D
+var revisits: Node
+var fraud_case: RefCounted
+var investigations: RefCounted
+var investigation_panel: CanvasLayer
 
 func _ready() -> void:
 	if _startup_started: return
@@ -136,6 +159,7 @@ func _ready() -> void:
 	if not await _startup_progress.checkpoint(1,true): return
 	_create_rescues()
 	if not await _startup_progress.checkpoint(1,true): return
+	_polish_characters()
 	_startup_progress.phase("district_life")
 	city_life = CityScript.bootstrap(self)
 	city_life.process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -148,6 +172,7 @@ func _ready() -> void:
 	if not await _startup_progress.checkpoint(0,true): return
 	_startup_progress.phase("contacts")
 	_create_contact_people()
+	for model: Node3D in contact_people: _apply_character_rim(model)
 	if not await _startup_progress.checkpoint(0,true): return
 	_startup_progress.phase("expansion_terrain")
 	taiwan_expansion = TaiwanExpansionScript.new()
@@ -170,7 +195,7 @@ func _ready() -> void:
 	var all_bounds: Array[AABB] = base_obstacle_bounds.duplicate()
 	all_bounds.append_array(city_life.get_obstacle_bounds())
 	var all_regions: Array[Dictionary] = city_life.get_districts()
-	var map_points: Dictionary = {"car":Vector2(car.position.x,car.position.z),"bicycle":Vector2(bicycle.position.x,bicycle.position.z),"mei_shop":MEI_CONVERSATION_APPROACH,"safe_point":Vector2(-46,42)}
+	var map_points: Dictionary = {"car":Vector2(car.position.x,car.position.z),"bicycle":Vector2(bicycle.position.x,bicycle.position.z),"mei_shop":Vector2(-58,57),"safe_point":Vector2(-46,42)}
 	for id: String in taiwan_life.stations:
 		var p: Array = taiwan_life.stations[id]["position"]
 		map_points[id] = Vector2(float(p[0]),float(p[1]))
@@ -193,7 +218,9 @@ func _ready() -> void:
 	hud.branch_selected.connect(func(branch: String) -> void: _event("select_branch", branch); _resume())
 	touch_controls = TouchScript.new()
 	add_child(touch_controls)
+	hud.menu_opened.connect(touch_controls.release_all)
 	touch_controls.camera_step.connect(player.nudge_camera)
+	hud.camera_requested.connect(player.nudge_camera)
 	touch_controls.phone_requested.connect(hud.show_optional_phone)
 	touch_controls.pause_requested.connect(hud.show_pause)
 	touch_controls.map_requested.connect(func() -> void: if play_started: hud.show_district_map())
@@ -213,6 +240,26 @@ func _ready() -> void:
 	if ResourceLoader.exists("res://assets/audio/hit.wav"):
 		hit_player.stream = load("res://assets/audio/hit.wav")
 		hit_player.volume_db = -10
+	_setup_fun_layer()
+	revisits = RevisitScript.new()
+	revisits.persist = not is_test_mode and not Engine.has_meta("seven_district_no_records")
+	add_child(revisits)
+	revisits.notice.connect(func(text: String) -> void: hud.show_toast(text); _notice(text))
+	revisits.completed.connect(func(_id: String) -> void: _play_sfx("mission"); hud.show_revisits())
+	hud.bind_revisits(revisits,_start_revisit)
+	fraud_case = FraudCaseScript.new()
+	fraud_case.changed.connect(_case_changed)
+	hud.bind_fraud_case(fraud_case)
+	investigations = InvestigationScript.new()
+	investigations.changed.connect(func() -> void: _save(false); hud._refresh_mission())
+	investigation_panel = InvestigationPanel.new()
+	add_child(investigation_panel)
+	investigation_panel.setup(hud,investigations)
+	var investigation_field := preload("res://scripts/content/investigation_field.gd").new()
+	add_child(investigation_field)
+	investigation_field.setup(self,investigations)
+	hud.investigations = investigations
+	hud.investigation_panel = investigation_panel
 	device_profiles = DeviceScript.new()
 	add_child(device_profiles)
 	device_profiles.profile_changed.connect(_device_changed)
@@ -223,6 +270,7 @@ func _ready() -> void:
 	if not _startup_progress.release_to_play(): return
 	startup_complete = true
 	hud.show_title()
+	if music: music.play("title")
 	# The title is a CanvasLayer. Suspending its 3D backdrop on mobile keeps
 	# the Start button responsive while the outer neighbourhood is constructed.
 	if OS.has_feature("mobile"): _set_title_world_hidden(true)
@@ -266,7 +314,7 @@ func _complete_expansion_background() -> void:
 	all_bounds.append_array(taiwan_expansion.get_obstacle_bounds())
 	var all_regions: Array[Dictionary] = city_life.get_districts()
 	all_regions.append_array(taiwan_expansion.get_regions())
-	var map_points: Dictionary = {"car":Vector2(car.position.x,car.position.z),"bicycle":Vector2(bicycle.position.x,bicycle.position.z),"mei_shop":MEI_CONVERSATION_APPROACH,"safe_point":Vector2(-46,42)}
+	var map_points: Dictionary = {"car":Vector2(car.position.x,car.position.z),"bicycle":Vector2(bicycle.position.x,bicycle.position.z),"mei_shop":Vector2(-58,57),"safe_point":Vector2(-46,42)}
 	for id: String in taiwan_life.stations:
 		var p: Array = taiwan_life.stations[id]["position"]
 		map_points[id] = Vector2(float(p[0]),float(p[1]))
@@ -331,6 +379,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if not startup_complete: return
 	_update_web_bridge(delta)
+	if music: music.set_ducked(play_started and hud.is_menu_open())
+	# R1: a slow orbit gives the title screen a living street backdrop.
+	if not play_started and hud.get_menu_mode() == "title" and player: player.nudge_camera(delta * 0.06)
 	if optional:
 		optional.set_paused(get_tree().paused)
 	if district_systems and district_systems.paused != get_tree().paused:
@@ -355,6 +406,7 @@ func _process(delta: float) -> void:
 		player.velocity = Vector3.ZERO
 		_notice("周邊街區還在準備，先在這一區行動。")
 	seconds_played += delta
+	if revisits: revisits.advance(delta)
 	taiwan_life.advance_time(delta)
 	street_state.advance(delta)
 	_update_daylight(delta)
@@ -378,26 +430,34 @@ func _process(delta: float) -> void:
 		if not optional_targets.is_empty(): active_target = optional_targets[0]
 	if taiwan_life.status in ["active","returning"] and not taiwan_life.get_target_key().is_empty(): active_target = taiwan_life.get_target_key()
 	if taiwan_activities.status=="active" and not taiwan_activities.get_target_key().is_empty(): active_target = taiwan_activities.get_target_key()
+	if revisits and revisits.active >= 0:
+		targets["chapter_revisit"] = revisits.target_position()
+		active_target = "chapter_revisit"
 	if street_state.has_waypoint:
 		targets["custom_waypoint"] = Vector3(street_state.waypoint.x,0.1,street_state.waypoint.y)
 		active_target = "custom_waypoint"
 		if Vector2(player.position.x,player.position.z).distance_to(street_state.waypoint)<3:
 			street_state.has_waypoint = false
 			_notice("已到達自訂目的地，恢復任務導引")
+	if investigations and investigations.pending() >= 0:
+		targets["investigation"] = investigations.target_position()
+		active_target = "investigation"
+	elif investigations and not investigations.street_result().is_empty() and not investigations.street_at_source:
+		targets["investigation"] = investigations.result_position()
+		active_target = "investigation"
 	targets["car"] = car.position
 	targets["bicycle"] = bicycle.position
 	for id: String in guards:
 		targets[id] = guards[id].position
 	if targets.has(active_target):
 		hud.set_map_markers(Vector2(player.global_position.x, player.global_position.z), Vector2(targets[active_target].x, targets[active_target].z))
+	_update_guidance(active_target)
 	_update_interaction()
 	_update_routes()
 	var prompt := ""
 	if nearest:
 		var event_type: Variant = nearest.get("event_name")
-		var attack_hint := "攻擊｜" if touch_controls.enabled else "左鍵｜"
-		var interact_hint := "互動｜" if touch_controls.enabled else "E｜"
-		prompt = (attack_hint if event_type in ["practice_hit", "destroy_target", "sandbox"] else interact_hint) + _caption(nearest)
+		prompt = ("左鍵｜" if event_type in ["practice_hit", "destroy_target", "sandbox"] else "E｜") + _caption(nearest)
 	elif nearest_vehicle:
 		prompt = "F｜騎自行車" if nearest_vehicle == bicycle else "F｜上車"
 	if player.get("mounted_vehicle") != null:
@@ -405,6 +465,21 @@ func _process(delta: float) -> void:
 	if info_time > 0:
 		info_time -= delta
 		prompt = info_text
+	if touch_controls.enabled:
+		prompt = prompt.replace("左鍵｜","點攻擊｜").replace("E｜","點互動｜").replace("F｜","點上下車｜")
+		if player.mounted_vehicle: prompt = "點上下車可下車｜跳／煞可煞車｜取回可重置"
+		var verb := ""
+		if nearest: verb = "攻擊" if nearest.get("event_name") in ["practice_hit","destroy_target","sandbox"] else "交談" if nearest.get("event_name") == "talk_mei" else "互動"
+		if nearest and not player.mounted_vehicle:
+			prompt = ("點攻擊｜" if verb == "攻擊" else "點互動｜")+_caption(nearest)
+		if revisits and revisits.is_near(player.global_position,player.mounted_vehicle == null):
+			verb = "核對" if revisits.step == 1 else "記錄"
+			prompt = "點右下綠鍵｜"+revisits.active_text()
+		touch_controls.set_interaction_context(verb if verb != "攻擊" else "")
+		touch_controls.set_action_context((nearest != null and nearest.get("event_name") in ["practice_hit","destroy_target","sandbox"]) or not guards.values().filter(func(g: Node3D) -> bool: return g.global_position.distance_to(player.global_position) < 8.0).is_empty(),player.mounted_vehicle != null)
+	if investigations and investigations.nearby(player.global_position,player.mounted_vehicle == null):
+		prompt = "點互動留證｜"+investigations.definition().documents[investigations.pending()].place if touch_controls.enabled else "E｜核對新案件原件"
+		touch_controls.set_interaction_context("留證")
 	var weapon_value: Variant = player.get("weapon_id")
 	if weapon_value == null:
 		weapon_value = player.get("equipped_weapon")
@@ -429,17 +504,25 @@ func _create_lighting() -> void:
 	var env := Environment.new()
 	env.background_mode = Environment.BG_SKY
 	var sky := Sky.new()
-	var sky_material := ProceduralSkyMaterial.new()
-	sky_material.sky_top_color = Color(0.30, 0.49, 0.66)
-	sky_material.sky_horizon_color = Color(0.87, 0.81, 0.68)
-	sky_material.ground_bottom_color = Color(0.25, 0.29, 0.30)
-	sky_material.ground_horizon_color = Color(0.80, 0.80, 0.72)
+	var sky_material := PanoramaSkyMaterial.new()
+	sky_material.panorama = load("res://assets/art/r8/dusk-sky.webp")
 	sky.sky_material = sky_material
 	env.sky = sky
+	# R1: sky-tinted ambient (mixed with a warm fill colour) instead of a flat
+	# grey fill, mild glow for the guidance beacon/sparks and a gentle grade.
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	env.ambient_light_sky_contribution = 0.30
 	env.ambient_light_color = Color(0.69, 0.78, 0.86)
 	env.ambient_light_energy = 0.25
 	env.tonemap_mode = Environment.TONE_MAPPER_ACES
+	env.tonemap_exposure = 1.10
+	env.glow_enabled = true
+	env.glow_intensity = 0.55
+	env.glow_bloom = 0.04
+	env.glow_hdr_threshold = 0.95
+	env.adjustment_enabled = true
+	env.adjustment_saturation = 0.96
+	env.adjustment_contrast = 1.02
 	env.fog_enabled = true
 	env.fog_light_color = Color(0.68, 0.76, 0.80)
 	env.fog_density = 0.0014
@@ -456,12 +539,14 @@ func _create_lighting() -> void:
 
 func _create_world() -> bool:
 	if not _startup_progress.running(): return false
-	_ground(Vector3(0, -0.16, 0), Vector3(300, 0.30, 300), Color(0.45, 0.49, 0.45))
+	_ground(Vector3(0, -0.16, 0), Vector3(300, 0.30, 300), Color(0.50, 0.50, 0.45))
 	if not await _startup_progress.checkpoint(): return false
 	var shop_model: Node3D = _building("urban_shopfront",Vector3(-54,0,65),Vector3(16,8,8))
 	if shop_model: shop_model.rotation.y = PI
+	if not await preload("res://scripts/world/opening_street.gd").dress(self): return false
 	if not await _startup_progress.checkpoint(): return false
-	_ground(Vector3(-55,0.034,47),Vector3(28,0.025,30),Color("85877e"),false)
+	# Narrow arcade paving and asphalt forecourt have distinct materials.
+	_ground(Vector3(-55,0.034,47),Vector3(28,0.025,30),Color("57514a"),false)
 	if not await _startup_progress.checkpoint(): return false
 	for x: float in [-62.0,-58.8,-55.6,-52.4]:
 		_ground(Vector3(x,0.061,35),Vector3(0.10,0.01,5.5),Color("e5d9af"),false)
@@ -615,12 +700,17 @@ func _create_rescues() -> void:
 func _add_object(id: String, caption: String, event: String, model_name: String, p: Vector3, size: Vector3, can_break: bool = false) -> void:
 	var object: StaticBody3D = ObjectScript.new()
 	object.configure(id, caption, event, _model(model_name), size, can_break)
+	if id in ["mei","supply_shop"] and object.visual:
+		preload("res://scripts/world/street_art.gd").dress_counter(object.visual)
+		object.visual.visible = false
 	object.damage_gate = _can_damage_object
 	add_child(object)
 	object.position = p
 	object.text_label.visibility_range_end = 24.0
 	object.text_label.font_size = 26
 	object.text_label.pixel_size = 0.007
+	object.text_label.visible = false
+	if id == "wrench" and object.visual: object.visual.visible = false
 	object.used.connect(_use_object)
 	object.destroyed.connect(_destroyed_object)
 	object.hit_received.connect(_hit_object)
@@ -637,6 +727,13 @@ func _ground(p: Vector3, size: Vector3, color: Color, solid: bool = true) -> voi
 	var material := StandardMaterial3D.new()
 	material.albedo_color = color
 	material.roughness = 0.95
+	# R1: large surfaces get a subtle world-space paving/asphalt grain instead
+	# of a flat fill; thin road markings stay crisp.
+	if size.x * size.z >= 40.0:
+		material.albedo_texture = _ground_grain()
+		material.uv1_triplanar = true
+		material.uv1_world_triplanar = true
+		material.uv1_scale = Vector3.ONE * 0.6
 	render.material_override = material
 	body.add_child(render)
 	if solid:
@@ -647,7 +744,27 @@ func _ground(p: Vector3, size: Vector3, color: Color, solid: bool = true) -> voi
 		body.add_child(collision)
 	add_child(body)
 
+func _ground_grain() -> NoiseTexture2D:
+	if _ground_texture: return _ground_texture
+	var noise := FastNoiseLite.new()
+	noise.seed = 77
+	noise.frequency = 0.09
+	noise.fractal_octaves = 4
+	var ramp := Gradient.new()
+	ramp.set_color(0, Color(0.86, 0.86, 0.84))
+	ramp.set_color(1, Color(1.0, 1.0, 0.98))
+	_ground_texture = NoiseTexture2D.new()
+	_ground_texture.width = 256
+	_ground_texture.height = 256
+	_ground_texture.seamless = true
+	_ground_texture.noise = noise
+	_ground_texture.color_ramp = ramp
+	_ground_texture.generate_mipmaps = true
+	return _ground_texture
+
 func _model(key: String) -> PackedScene:
+	if key == "hero": return load("res://assets/models/r10/hero_human.glb") as PackedScene
+	if key == "mei_human": return load("res://assets/models/r9/mei_human.glb") as PackedScene
 	var aliases: Dictionary = {"hero":"hero_human","guard":"guard_human","civilian":"civilian_human","office_tower_a":"urban_tower_a","office_tower_b":"urban_tower_b","office_tower_c":"urban_tower_c"}
 	var upgraded: String = str(aliases.get(key,key))
 	if ResourceLoader.exists("res://assets/models/%s.glb" % upgraded): key = upgraded
@@ -672,6 +789,8 @@ func _building(key: String, p: Vector3, size: Vector3) -> Node3D:
 	var bounds := _visual_bounds(model)
 	if bounds.size.x > 0.01 and bounds.size.y > 0.01 and bounds.size.z > 0.01:
 		model.scale = size / bounds.size
+	preload("res://scripts/world/street_art.gd").dress_building(model, key == "urban_shopfront")
+	if key == "urban_shopfront": preload("res://scripts/world/street_art.gd").dress_shop(self)
 	var body := StaticBody3D.new()
 	body.position = p + Vector3(0, size.y * 0.5, 0)
 	var collision := CollisionShape3D.new()
@@ -726,10 +845,13 @@ func _new_game() -> void:
 	for object: StaticBody3D in objects.values():
 		object.restore({})
 	optional.reset()
+	if revisits: revisits.cancel()
+	if fraud_case: fraud_case.reset()
+	if investigations: investigations.reset()
 	taiwan_life.reset()
 	taiwan_activities.reset()
 	district_systems.reset()
-	street_state.hour = 15.5
+	street_state.hour = 17.25
 	street_state.has_waypoint = false
 	_apply_preferences()
 	for person: CharacterBody3D in people.values():
@@ -741,14 +863,25 @@ func _new_game() -> void:
 	bicycle.force_release()
 	car.reset()
 	bicycle.reset()
+	_feedback_mission = 0
+	_feedback_objective = 0
 	missions.start_campaign()
+	if hud: hud.set_chain_progress(0)
+	if hit_feedback: hit_feedback.reset_combo()
+	if music: music.play("street")
 	player.global_position = Vector3(-56, 0.2, 52)
 	player.reset_view(PI+atan2(4.0,5.0))
 	player.velocity = Vector3.ZERO
 	checkpoint_state = _snapshot(false)
+	_announce_mission()
+
+func _case_changed() -> void:
+	_save(false)
+	if hud and fraud_case.stage == 4: _play_sfx("objective")
 
 func _resume() -> void:
 	if not startup_complete: return
+	if investigation_panel: investigation_panel.dismiss()
 	if hud and hud.has_method("hide_menus"):
 		hud.hide_menus()
 	get_tree().paused = false
@@ -793,7 +926,6 @@ func _device_changed(settings: Dictionary) -> void:
 	touch_controls.set_profile(settings)
 	touch_controls.set_enabled(str(settings.get("input_mode","keyboard_mouse"))=="touch")
 	hud.set_device_profile(settings)
-	hud.set_touch_input_enabled(touch_controls.enabled)
 	if expansion_complete:
 		taiwan_world.apply_profile(settings)
 		taiwan_expansion.apply_profile(settings)
@@ -892,7 +1024,7 @@ func _discover_life_station(id: String) -> void:
 
 func _create_contact_people() -> void:
 	var entries: Array = [
-		["mei_human",Vector3(-51,0.06,59),"美晴｜車店主理人"],
+		["mei_human",Vector3(-52,0.12,57),"美晴｜車店主理人"],
 		["yuan_human",Vector3(-99,0.06,98),"予安｜街區整理者"],
 		["zhou_human",Vector3(-48,0.06,40),"周成｜集合點"]
 	]
@@ -900,7 +1032,11 @@ func _create_contact_people() -> void:
 		var model: Node3D = _place(str(entry[0]),entry[1])
 		if not model: continue
 		model.process_mode = Node.PROCESS_MODE_PAUSABLE
-		if str(entry[0])=="mei_human": model.rotation.y = PI
+		if str(entry[0])=="mei_human":
+			model.rotation.y = PI + atan2(4.0,5.0)
+			model.scale = Vector3.ONE*1.15
+			targets["mei"] = model.global_position
+			preload("res://scripts/world/opening_street.gd").dress_mei(model)
 		model.add_child(ContactShadowScript.new())
 		contact_people.append(model)
 		var animations: Array[Node] = model.find_children("*","AnimationPlayer",true,false)
@@ -916,8 +1052,9 @@ func _create_contact_people() -> void:
 		label.position.y = 1.97
 		label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		label.font = load("res://assets/fonts/SevenDistrictSansTC-Regular.otf") as Font
-		label.font_size = 21
-		label.pixel_size = 0.008
+		label.font_size = 28
+		label.pixel_size = 0.012
+		label.visible = false
 		label.modulate = Color("dfd4ac")
 		model.add_child(label)
 
@@ -1028,25 +1165,34 @@ func _apply_urban_material_quality() -> void:
 		material.normal_enabled = street_state.quality!="performance" and material.normal_texture!=null
 		material.ao_enabled = street_state.quality!="performance" and material.ao_texture!=null
 
+var _last_lit_hour := INF
+var _last_lit_quality := ""
+
 func _update_daylight(delta: float) -> void:
 	_light_clock += delta
 	if _light_clock < 0.2 or not district_environment: return
 	_light_clock = 0
 	var daylight: float = street_state.daylight()
 	if expansion_complete: taiwan_expansion.set_hour(street_state.hour)
-	var dusk: float = 1.0-clampf(absf(street_state.hour-17.5)/1.8,0,1)
+	# A paused clock or fixed-hour setting should not resend identical sky and
+	# lighting resources. The normal day/night cycle still updates at 5 Hz.
+	if is_equal_approx(_last_lit_hour,street_state.hour) and _last_lit_quality == street_state.quality: return
+	_last_lit_hour = street_state.hour
+	_last_lit_quality = street_state.quality
+	var dusk: float = 1.0-clampf(absf(street_state.hour-17.5)/3.8,0,1)
 	var env: Environment = district_environment.environment
-	district_sun.rotation_degrees = Vector3(-(street_state.hour-6.0)*15.0,-32,0)
+	# Civil clock time maps to a sun still above the horizon at dusk.
+	district_sun.rotation_degrees = Vector3(-maxf(8.0,sin((street_state.hour-6.0)*PI/12.0)*65.0),-55,0)
 	if daylight<=0.01: district_sun.rotation_degrees = Vector3(-45,35,0)
 	district_sun.light_energy = lerpf(0.13,1.0,daylight)
 	district_sun.light_color = Color(0.75,0.82,1.0).lerp(Color(1.0,0.96,0.87),daylight).lerp(Color(1.0,0.61,0.35),dusk*0.6)
-	env.ambient_light_energy = lerpf(0.55,0.8,daylight)
-	env.ambient_light_color = Color("9faecb").lerp(Color("c2ccd2"),daylight)
-	env.fog_light_color = Color("2e394e").lerp(Color("b2c3c9"),daylight).lerp(Color("c99b78"),dusk*0.25)
-	env.fog_density = 0.0006 if street_state.quality=="performance" else 0.0010
-	var sky_material: ProceduralSkyMaterial = env.sky.sky_material as ProceduralSkyMaterial
-	sky_material.sky_top_color = Color("121d35").lerp(Color("789db5"),daylight)
-	sky_material.sky_horizon_color = Color("44516a").lerp(Color("d3d8d5"),daylight).lerp(Color("dbb292"),dusk*0.4)
+	env.ambient_light_energy = lerpf(0.30,0.62,daylight) + dusk*0.16
+	env.ambient_light_color = Color("667792").lerp(Color("d8d2c4"),daylight).lerp(Color("e0b48c"),dusk*0.3)
+	env.fog_light_color = Color("2e394e").lerp(Color("bcc9cc"),daylight).lerp(Color("d49d72"),dusk*0.3)
+	env.fog_density = 0.0030 if street_state.quality=="performance" else 0.0036
+	var sky_material := env.sky.sky_material as PanoramaSkyMaterial
+	sky_material.energy_multiplier = lerpf(0.20,2.1,daylight)
+	env.fog_sky_affect = 0.0
 
 func _start_optional(id: String) -> void:
 	if not play_started:
@@ -1070,11 +1216,17 @@ func _web_command(arguments: Array) -> void:
 	if arguments.is_empty(): return
 	var command: String = String(arguments[0])
 	match command:
-		"new_game": _new_game()
+		"new_game": _start_story()
 		"pause":
 			if play_started: hud.show_pause()
 		"phone":
 			if play_started: hud.show_optional_phone()
+		"revisits":
+			if play_started: hud.show_revisits()
+		"case":
+			if play_started: hud.show_fraud_case()
+		"investigations":
+			if play_started: hud.show_investigations()
 		"map":
 			if play_started: hud.show_district_map()
 		"supplies": _open_supplies()
@@ -1090,7 +1242,6 @@ func _web_command(arguments: Array) -> void:
 		"load": _load()
 		"touch_toggle":
 			touch_controls.set_enabled(not touch_controls.enabled)
-			hud.set_touch_input_enabled(touch_controls.enabled)
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		"camera_left": player.nudge_camera(-0.3)
 		"camera_right": player.nudge_camera(0.3)
@@ -1127,6 +1278,9 @@ func _emit_web_state() -> void:
 	for actor: Node3D in get_tree().get_nodes_in_group("ambient_traffic"):
 		if actor.visible: state.visible_traffic = int(state.visible_traffic)+1
 	state.draw_calls = int(Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME))
+	state.render_primitives = int(Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME))
+	state.process_ms = float(Performance.get_monitor(Performance.TIME_PROCESS))*1000.0
+	state.physics_ms = float(Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS))*1000.0
 	state.frame_fps = int(Performance.get_monitor(Performance.TIME_FPS))
 	state.life_title = taiwan_life.get_active_title() if taiwan_life else ""
 	state.life_objective = taiwan_life.get_active_text() if taiwan_life else ""
@@ -1140,8 +1294,42 @@ func _emit_web_state() -> void:
 	state.rank = str(district_systems.get_status()["rank_name"])
 	state.time = street_state.time_text()
 	state.navigation = "自訂目的地" if street_state.has_waypoint else "任務導引"
-	state.main_title = missions.get_current_title()
-	state.objective = hud.get_display_objective_text()
+	state.main_title = hud._player_mission_title()
+	state.revisit = revisits.active_text() if revisits else ""
+	state.notebook_pages = revisits.records.size() if revisits else 0
+	state.case_stage = fraud_case.stage if fraud_case else 0
+	if investigations:
+		var actions: Array = []
+		for button: Button in touch_controls._action_buttons:
+			if not button.is_visible_in_tree(): continue
+			var rect: Rect2 = button.get_global_rect()
+			actions.append({"action":touch_controls._action_buttons[button],"text":button.text,"rect":[rect.position.x,rect.position.y,rect.size.x,rect.size.y]})
+		var menu_buttons: Array = []
+		for button: Node in hud._modal_box.find_children("*","Button",true,false):
+			if not button.is_visible_in_tree(): continue
+			var rect: Rect2 = button.get_global_rect()
+			menu_buttons.append({"text":button.text,"rect":[rect.position.x,rect.position.y,rect.size.x,rect.size.y]})
+		var stick: Rect2 = touch_controls.joystick.get_global_rect()
+		state.investigations = JavaScriptBridge.get_interface("JSON").parse(JSON.stringify({"progress":investigations.to_dict(),"ui":investigation_panel.diagnostics(),"field":{"nearby":investigations.nearby(player.global_position,player.mounted_vehicle == null),"source":investigations.definition().documents[investigations.pending()].place if investigations.pending() >= 0 else "","actions":actions,"joystick_rect":[stick.position.x,stick.position.y,stick.size.x,stick.size.y],"objective":hud.objective_text()},"hud_buttons":menu_buttons,"save_path":ProjectSettings.globalize_path("user://save1.json")}))
+		state.investigations.street_result = JavaScriptBridge.get_interface("JSON").parse(JSON.stringify(investigations.street_result()))
+		state.investigations.street_objects = JavaScriptBridge.get_interface("JSON").parse(JSON.stringify(get_node("InvestigationField").result_diagnostics()))
+	state.layout = JavaScriptBridge.get_interface("JSON").parse(JSON.stringify(hud.layout_diagnostics()))
+	state.menu = hud.get_menu_mode()
+	state.world_ready = expansion_complete
+	var camera: Camera3D = player.get_camera()
+	var hero_feet: Vector2 = camera.unproject_position(player.global_position)
+	var hero_head: Vector2 = camera.unproject_position(player.global_position + Vector3.UP * 1.78)
+	var mei_position: Vector3 = contact_people[0].global_position if not contact_people.is_empty() else Vector3(-50.3,0.06,56.4)
+	var mei_feet: Vector2 = camera.unproject_position(mei_position)
+	var mei_head: Vector2 = camera.unproject_position(mei_position + Vector3.UP * 1.70)
+	state.art = JavaScriptBridge.get_interface("JSON").parse(JSON.stringify({
+		"hero_height_px":absf(hero_feet.y-hero_head.y),"mei_height_px":absf(mei_feet.y-mei_head.y),
+		"hud_coverage":hud.hud_coverage(),"hero_feet":[hero_feet.x,hero_feet.y],"hero_head":[hero_head.x,hero_head.y],
+		"mei_feet":[mei_feet.x,mei_feet.y],"mei_head":[mei_head.x,mei_head.y],
+		"seal_visible":hud._mode == "case" and fraud_case.stage == 4,
+		"details":_art_details()}))
+	state.notice = info_text
+	state.objective = hud.objective_text()
 	state.optional_title = optional.get_active_title()
 	state.optional_text = optional.get_active_text()
 	var sides: int = 0
@@ -1185,6 +1373,13 @@ func _update_interaction() -> void:
 	for vehicle: CharacterBody3D in [car, bicycle]:
 		if player.global_position.distance_to(vehicle.global_position) < 4.0:
 			nearest_vehicle = vehicle
+	# A legible nearby caption replaces distant overlapping yellow text.
+	for object: Node3D in objects.values():
+		object.text_label.visible = object == nearest and not object.collected and object.object_id != "mei" and investigations.pending() < 0
+	for person: Node3D in contact_people:
+		for child: Node in person.get_children():
+			# The fixed interaction caption already carries the person's identity.
+			if child is Label3D: child.visible = false
 
 func _caption(node: Node3D) -> String:
 	if node.get("caption") != null:
@@ -1207,8 +1402,23 @@ func _safe_arrival(id: String) -> void:
 		people[id].label.text = "受困者｜在集合點等候"
 
 func _interact() -> void:
+	if play_started and not get_tree().paused and investigations:
+		var found: int = investigations.collect(player.global_position,player.mounted_vehicle == null)
+		if found >= 0:
+			touch_controls.confirm_interaction()
+			_play_sfx("objective")
+			investigation_panel.collected(found)
+			return
+	if play_started and not get_tree().paused and revisits and revisits.is_near(player.global_position,player.mounted_vehicle == null):
+		var result: String = revisits.interact_at(player.global_position)
+		if not result.is_empty():
+			touch_controls.confirm_interaction()
+			_play_sfx("objective")
+			if result == "question": hud.show_revisit_question()
+			return
 	if not nearest or not play_started:
 		return
+	touch_controls.confirm_interaction()
 	if nearest.has_method("interact"):
 		nearest.interact()
 	elif nearest.get("person_id") != null:
@@ -1234,7 +1444,7 @@ func _use_object(id: String) -> void:
 	if content_world.use_object(id):
 		return
 	if object.event_name in ["practice_hit", "destroy_target", "sandbox"]:
-		_notice("按「攻擊」打這個物件" if touch_controls.enabled else "使用左鍵攻擊這個物件")
+		_notice("點右下「攻擊」敲擊這個物件" if touch_controls.enabled else "使用左鍵攻擊這個物件")
 		return
 	if id == "branch_console":
 		hud.show_phone()
@@ -1244,7 +1454,7 @@ func _use_object(id: String) -> void:
 		if player.grant_weapon(weapon):
 			player.equip_weapon(weapon)
 			object.set_collected(true)
-			_notice("取得器具｜Q 切換")
+			_notice("取得器具｜點「換工具」切換" if touch_controls.enabled else "取得器具｜Q 切換")
 		return
 	if id == "wrench":
 		if _event("pickup_wrench", id):
@@ -1257,10 +1467,19 @@ func _use_object(id: String) -> void:
 			object.set_collected(true)
 	else:
 		_notice("先完成目前的任務目標")
+	# A receipt is available only after preserving the message and meeting Mei
+	# on foot at the actual desk. The original mission event remains unchanged.
+	if id == "mei" and play_started and fraud_case.stage == 1 and player.mounted_vehicle == null and player.global_position.distance_to(object.global_position) < 3.0:
+		if fraud_case.meet_witness(): hud.show_fraud_case()
+
+func _start_revisit(index: int) -> void:
+	if not play_started or not revisits.start(index): return
+	street_state.has_waypoint = false
+	_resume()
+	_notice("回訪已接下｜跟隨光柱，靠近後互動")
 
 func _hit_object(id: String) -> void:
-	if hit_player and hit_player.stream:
-		hit_player.play()
+	# Impact audio/FX come from HitFeedback via SevenPlayer.hit_landed.
 	if id.begins_with("practice"):
 		_event("practice_hit", id)
 
@@ -1327,6 +1546,7 @@ func _event(event_name: String, target_id: String) -> bool:
 func _on_mission_updated() -> void:
 	if freeze_events:
 		return
+	_mission_feedback()
 	if missions.mission_index != mission_state:
 		mission_state = missions.mission_index
 		checkpoint_state = _snapshot(false)
@@ -1338,7 +1558,9 @@ func _on_mission_completed(_id: String) -> void:
 	_save(false)
 
 func _on_chapter_complete(branch: String) -> void:
-	hud.show_chapter_complete(branch)
+	hud.set_chain_progress(5)
+	_play_sfx("mission")
+	hud.show_chapter_complete(branch, _record_run(branch))
 	_save(false)
 
 func _on_health(current: float, _maximum: float) -> void:
@@ -1348,6 +1570,7 @@ func _on_health(current: float, _maximum: float) -> void:
 
 func _on_attack(_weapon: String) -> void:
 	heat_clock = 0
+	_play_sfx("swing", randf_range(0.92, 1.1))
 
 func _notice(text: String) -> void:
 	info_text = text
@@ -1376,6 +1599,8 @@ func _snapshot(include_checkpoint: bool = true) -> Dictionary:
 	result["player"]["camera_yaw"] = player.get_view_yaw()
 	result["taiwan_life"] = taiwan_life.to_dict()
 	result["taiwan_activities"] = taiwan_activities.to_dict()
+	if fraud_case: result["fraud_case"] = fraud_case.to_dict()
+	if investigations: result["investigations"] = investigations.to_dict()
 	if include_checkpoint:
 		result["checkpoint"] = checkpoint_state.duplicate(true)
 	return result
@@ -1430,6 +1655,8 @@ func _load(slot: int = 1) -> void:
 	_notice("已讀取進度；原位置新增店面，已移到附近人行空間" if _relocated_save else "已讀取進度")
 
 func _valid_world_save(data: Dictionary) -> bool:
+	if data.has("investigations") and not investigations.valid(data["investigations"]): return false
+	if data.has("fraud_case") and not FraudCaseScript.valid(data["fraud_case"]): return false
 	if data.get("schema_version") != 1:
 		return false
 	for key: String in ["missions", "player", "objects", "rescues", "vehicles", "route_done"]:
@@ -1540,6 +1767,12 @@ func _restore(data: Dictionary) -> bool:
 	if not missions.from_dict(data.get("missions", {})):
 		freeze_events = false
 		return false
+	if fraud_case:
+		if data.has("fraud_case"): fraud_case.from_dict(data["fraud_case"])
+		else: fraud_case.reset()
+	if investigations:
+		if data.has("investigations"): investigations.from_dict(data["investigations"])
+		else: investigations.reset()
 	mission_state = missions.mission_index
 	car.force_release()
 	bicycle.force_release()
@@ -1604,6 +1837,10 @@ func _restore(data: Dictionary) -> bool:
 	district_systems.reset_walk_sample()
 	_apply_preferences()
 	freeze_events = false
+	# Loaded/rolled-back progress is not a fresh completion: resync R1 feedback.
+	_feedback_mission = missions.mission_index
+	_feedback_objective = missions.current_objective
+	if hud: hud.set_chain_progress(5 if missions.chapter_complete else missions.mission_index)
 	return true
 
 func _retry() -> void:
@@ -1642,6 +1879,130 @@ func _retry() -> void:
 	district_systems.reset_walk_sample()
 	_notice("已回到本段檢查點")
 
+# ---------------------------------------------------------------- R1 fun/polish
+func _setup_fun_layer() -> void:
+	hit_feedback = HitFeedbackScript.new()
+	hit_feedback.name = "HitFeedback"
+	add_child(hit_feedback)
+	hit_feedback.setup(player, hit_player)
+	player.hit_landed.connect(hit_feedback.on_hit)
+	hit_feedback.combo_changed.connect(hud.set_combo)
+	objective_beacon = BeaconScript.new()
+	add_child(objective_beacon)
+	objective_beacon.setup(player)
+	run_records = RunRecordsScript.new()
+	music = MusicScript.new()
+	music.name = "MusicDirector"
+	add_child(music)
+	for key: String in ["swing", "objective", "mission", "chain", "ui"]:
+		var path := "res://assets/audio/%s.wav" % key
+		if not ResourceLoader.exists(path): continue
+		var sfx := AudioStreamPlayer.new()
+		sfx.name = "Sfx_" + key
+		sfx.stream = load(path)
+		sfx.volume_db = -12.0 if key == "swing" else -8.0
+		add_child(sfx)
+		_sfx[key] = sfx
+	hud.story_start_requested.connect(_start_story)
+
+func _play_sfx(key: String, pitch: float = 1.0) -> void:
+	var sfx: AudioStreamPlayer = _sfx.get(key)
+	if sfx == null or not MusicScript.audio_live(): return
+	sfx.pitch_scale = pitch
+	sfx.play()
+
+## Title CTA: start the campaign, then play the cold-open story over it.
+func _start_story() -> void:
+	if not startup_complete: return
+	if play_started:
+		_new_game()
+		return
+	_new_game()
+	if is_test_mode or not is_inside_tree():
+		_announce_mission()
+		return
+	story_intro = StoryIntroScript.new()
+	story_intro.finished.connect(_on_story_finished)
+	add_child(story_intro)
+	get_tree().paused = true
+
+func _on_story_finished(_skipped: bool) -> void:
+	story_intro = null
+	_resume()
+	_announce_mission()
+	if fraud_case.preserve_message():
+		hud.show_toast("客服訊息已留存｜到美晴車店核對收據")
+		_notice("反詐案卷已開啟｜沿光柱找美晴，靠近後交談")
+
+func _announce_mission() -> void:
+	if not hud or not missions or missions.chapter_complete: return
+	var mission: Dictionary = missions.get_current_mission()
+	if mission.is_empty(): return
+	hud.set_chain_progress(missions.mission_index)
+	hud.show_banner("斷鏈行動｜第 %d／5 環" % [missions.mission_index + 1], str(mission.get("title", "")), str(mission.get("dialogue", "")))
+
+## Objective/mission completion feedback driven by the mission manager state.
+func _mission_feedback() -> void:
+	if not hud or not missions.started: return
+	var index: int = missions.mission_index
+	var objective: int = missions.current_objective
+	if missions.chapter_complete:
+		_feedback_mission = index
+		_feedback_objective = objective
+		return
+	if index == _feedback_mission + 1:
+		var finished: Dictionary = missions.missions[_feedback_mission] if _feedback_mission >= 0 and _feedback_mission < missions.missions.size() else {}
+		hud.show_toast("✓ 任務完成｜+%d 零件券" % int(finished.get("parts_vouchers", 0)), Color("ffd36b"))
+		_play_sfx("chain")
+		_announce_mission()
+	elif index == _feedback_mission and objective == _feedback_objective + 1:
+		hud.show_toast("✓ 目標完成")
+		_play_sfx("objective")
+	_feedback_mission = index
+	_feedback_objective = objective
+
+func _update_guidance(active_target: String) -> void:
+	if not objective_beacon: return
+	if targets.has(active_target) and (not missions.chapter_complete or active_target == "investigation"):
+		var point: Vector3 = targets[active_target]
+		if active_target == "mei" and not contact_people.is_empty(): point = contact_people[0].global_position
+		objective_beacon.set_target(point)
+		hud.set_target_distance(Vector2(player.global_position.x - point.x, player.global_position.z - point.z).length())
+	else:
+		objective_beacon.clear_target()
+		hud.set_target_distance(-1.0)
+	hud.set_controls_hint_visible(seconds_played < 45.0)
+
+func _record_run(branch: String) -> Dictionary:
+	var result: Dictionary = missions.scores.duplicate(true)
+	result["seconds"] = seconds_played
+	result["branch"] = branch
+	if run_records == null: return {}
+	run_records.persist = not is_test_mode
+	var outcome: Dictionary = run_records.record(branch, result)
+	outcome["time_text"] = "%d:%02d" % [floori(seconds_played / 60.0), int(seconds_played) % 60]
+	outcome["progress"] = run_records.progress_text(branch)
+	return outcome
+
+func _polish_characters() -> void:
+	if player: _apply_character_rim(player)
+	for guard: Node in guards.values(): _apply_character_rim(guard)
+	for person: Node in people.values(): _apply_character_rim(person)
+
+## Rim light lifts dark clothing off the street and makes 64px silhouettes read.
+func _apply_character_rim(root: Node) -> void:
+	for node: Node in root.find_children("*", "MeshInstance3D", true, false):
+		var mesh_node := node as MeshInstance3D
+		if mesh_node.mesh == null or mesh_node.get_script() != null: continue
+		for surface: int in mesh_node.mesh.get_surface_count():
+			var material := mesh_node.get_active_material(surface) as BaseMaterial3D
+			if material == null or material.rim_enabled: continue
+			var polished := material.duplicate() as BaseMaterial3D
+			polished.rim_enabled = true
+			polished.rim = 0.55
+			polished.rim_tint = 0.35
+			mesh_node.set_surface_override_material(surface, polished)
+
 func _capture(path: String) -> void:
 	var mode: String = "gameplay"
 	for arg: String in OS.get_cmdline_user_args():
@@ -1653,9 +2014,21 @@ func _capture(path: String) -> void:
 				get_window().content_scale_size = size_value
 		if arg.begins_with("--capture-view="):
 			mode = arg.trim_prefix("--capture-view=")
+		# Evidence captures can force a device profile so phone/tablet layouts
+		# are reproducible on a desktop GPU without a touchscreen.
+		if arg.begins_with("--capture-profile=") and device_profiles:
+			device_profiles.set_profile(arg.trim_prefix("--capture-profile="),false)
 	await get_tree().process_frame
 	_new_game()
-	player.position = Vector3(-54, 0.2, 44)
+	if mode not in ["start", "combat", "title"]:
+		player.position = Vector3(-54, 0.2, 44)
+	if mode == "combat":
+		# Wrench in hand facing the first practice target, captured mid-swing.
+		_event("talk_mei", "mei")
+		_event("read_phone", "phone")
+		_use_object("wrench")
+		player.position = Vector3(-44, 0.2, 55.4)
+		player.reset_view(0.0)
 	if mode == "bike":
 		player.position = bicycle.position + Vector3(1.5, 0, 0)
 		bicycle.enter(player)
@@ -1667,6 +2040,15 @@ func _capture(path: String) -> void:
 	elif mode == "title":
 		hud.show_title()
 	await get_tree().create_timer(2.0).timeout
+	if "--capture-no-overlay" in OS.get_cmdline_user_args():
+		hud._overlay.visible = false
+	if "--capture-hide-hud" in OS.get_cmdline_user_args():
+		hud._hud.visible = false
+		objective_beacon.visible = false
+		objective_beacon.set_process(false)
+	if mode == "combat":
+		player.begin_attack()
+		await get_tree().create_timer(0.24).timeout
 	await RenderingServer.frame_post_draw
 	var image: Image = get_viewport().get_texture().get_image()
 	var error: Error = image.save_png(path)
@@ -1790,3 +2172,44 @@ func _run_integration_checks() -> void:
 
 func _exit_tree() -> void:
 	if _startup_progress != null: _startup_progress.cancel()
+	# Stop R1 audio so no playback object outlives the scene at shutdown.
+	for sfx: AudioStreamPlayer in _sfx.values():
+		if is_instance_valid(sfx): sfx.stop()
+	if is_instance_valid(hit_player): hit_player.stop()
+
+
+func _art_details() -> Dictionary:
+	var result := {"hour":street_state.hour,"photos":[],"touch":[],"inspection":false,"seal":{},"case_labels":[]}
+	if hud._mode == "case":
+		for label: Node in hud._modal_box.find_children("*","Label",true,false):
+			if not label.is_visible_in_tree(): continue
+			var label_rect: Rect2 = label.get_global_rect()
+			result.case_labels.append({"text":label.text,"rect":[label_rect.position.x,label_rect.position.y,label_rect.size.x,label_rect.size.y]})
+	for name_value: String in ["InspectMessage","InspectReceipt"]:
+		var b := hud._modal_box.find_child(name_value,true,false) as Button
+		if b and b.is_visible_in_tree():
+			var rect := b.get_global_rect()
+			result.photos.append({"name":name_value,"rect":[rect.position.x,rect.position.y,rect.size.x,rect.size.y]})
+	var inspector: Node = hud._root.get_node_or_null("EvidenceInspector")
+	if inspector:
+		var rect: Rect2 = inspector._close.get_global_rect()
+		var labels: Array = []
+		for label: Node in inspector.find_children("*","Label",true,false):
+			if not label.is_visible_in_tree(): continue
+			var r: Rect2 = label.get_global_rect()
+			labels.append({"text":label.text,"rect":[r.position.x,r.position.y,r.size.x,r.size.y]})
+		var paper_rect: Rect2 = inspector._paper.get_global_rect()
+		var marks: Array = []
+		for marker: Node in inspector.find_children("*","PanelContainer",true,false):
+			if marker is EvidenceInspectorScript.MarkedField:
+				var marker_rect: Rect2 = marker.get_global_rect()
+				marks.append({"text":marker.get_child(0).text,"circled":marker.circled,"rect":[marker_rect.position.x,marker_rect.position.y,marker_rect.size.x,marker_rect.size.y]})
+		result.inspection = {"receipt":inspector.receipt,"close":[rect.position.x,rect.position.y,rect.size.x,rect.size.y],"paper":[paper_rect.position.x,paper_rect.position.y,paper_rect.size.x,paper_rect.size.y],"labels":labels,"marks":marks}
+	for b: Button in touch_controls._action_buttons:
+		if b.is_visible_in_tree(): result.touch.append({"action":touch_controls._action_buttons[b],"text":b.text})
+	var seal := hud._modal_box.get_node_or_null("ArchiveSeal") as TextureRect
+	if seal:
+		var tape := hud._modal_box.get_node_or_null("ArchiveAdhesive") as Control
+		var paper := hud._modal_panel.get_node_or_null("PaperImpact") as Control
+		result.seal = {"scale":seal.scale.x,"paper_rotation":paper.rotation if paper else 0.0,"tape_alpha":tape.modulate.a if tape else 0.0,"applicator":seal.has_node("StampApplicator")}
+	return result

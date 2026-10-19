@@ -1,0 +1,69 @@
+{
+  "status": "VERIFIED",
+  "method": "SHA-256 on runtime source/assets; exact byte duplicates only; standard frameworks and semantic similarity require manual review",
+  "scope": "Owned godot/ and web/ versus explicit sibling roots, excluding generated/cache/private/report/vendor directories",
+  "own_files": 393,
+  "siblings": {
+    "rift-survivors": {
+      "files_considered": 5239,
+      "size_matched_files_hashed": 22
+    },
+    "storm-apocalypse": {
+      "files_considered": 2689,
+      "size_matched_files_hashed": 14
+    },
+    "doomsday-shooter": {
+      "files_considered": 1080,
+      "size_matched_files_hashed": 7
+    },
+    "tower-defense": {
+      "files_considered": 453,
+      "size_matched_files_hashed": 1
+    },
+    "skill": {
+      "files_considered": 158,
+      "size_matched_files_hashed": 0
+    },
+    "pixel-idle-farm-skill": {
+      "files_considered": 440,
+      "size_matched_files_hashed": 0
+    },
+    "village-siege": {
+      "files_considered": 333,
+      "size_matched_files_hashed": 2
+    },
+    "rift-forge-3d": {
+      "files_considered": 77,
+      "size_matched_files_hashed": 1
+    },
+    "taiwan-island-drive": {
+      "files_considered": 336,
+      "size_matched_files_hashed": 0
+    },
+    "taiwan-train-math": {
+      "files_considered": 574,
+      "size_matched_files_hashed": 3
+    },
+    "island-flight-school": {
+      "files_considered": 25,
+      "size_matched_files_hashed": 0
+    },
+    "taiwan-train-school": {
+      "files_considered": 21,
+      "size_matched_files_hashed": 0
+    },
+    "夜行列車_重製企劃_20261002": {
+      "files_considered": 13,
+      "size_matched_files_hashed": 0
+    }
+  },
+  "unavailable": [],
+  "matches": [
+    {
+      "file": "godot/assets/fonts/NotoSansTC-Regular.otf",
+      "other_game": "rift-forge-3d",
+      "other_file": "Assets/_Project/Resources/Fonts/NotoSansTC-Regular.otf",
+      "sha256": "5bab0cb3c1cf89dde07c4a95a4054b195afbcfe784d69d75c340780712237537"
+    }
+  ]
+}

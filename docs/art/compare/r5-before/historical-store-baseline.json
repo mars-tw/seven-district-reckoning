@@ -1,0 +1,100 @@
+[
+  {
+    "file": "1290x2796-title.png",
+    "sha256": "b4cb6c70ea29e08a794c77e3306d976aed3a174f2d580af281f7307b588542ab",
+    "source": "docs/art/compare/after/1290x2796-title.png",
+    "version": "0.8.1",
+    "base_commit": "d1e7fae"
+  },
+  {
+    "file": "1290x2796-dialogue.png",
+    "sha256": "50fdb88b8bf99ce776d953b40a947fe3c7c73188f1caac0ee561401be30d2bcb",
+    "source": "docs/art/compare/after/1290x2796-dialogue.png",
+    "version": "0.8.1",
+    "base_commit": "d1e7fae"
+  },
+  {
+    "file": "1290x2796-dialogue-meiqing.png",
+    "sha256": "2e718fb8d59696814ed19854c798f16c664f16be74ea4be22b930d66c77b2060",
+    "source": "docs/art/compare/after/1290x2796-dialogue-meiqing.png",
+    "version": "0.8.1",
+    "base_commit": "d1e7fae"
+  },
+  {
+    "file": "1290x2796-street.png",
+    "sha256": "43ad07caccec14509aca47987081cc7273c03038c4e9b737fe54f820d9ac66d6",
+    "source": "docs/art/compare/after/1290x2796-street.png",
+    "version": "0.8.1",
+    "base_commit": "d1e7fae"
+  },
+  {
+    "file": "1290x2796-evidence.png",
+    "sha256": "4246784421a40438c920c6e2b7de3bb337f9d6512815fcfca90c125160a244ee",
+    "source": "docs/art/compare/after/1290x2796-evidence.png",
+    "version": "0.8.1",
+    "base_commit": "d1e7fae"
+  },
+  {
+    "file": "1290x2796-link.png",
+    "sha256": "cb13b70467e95d3f67097135e1a4b2176441d8ac0b4f4dd1b0b1044784394ee9",
+    "source": "docs/art/compare/after/1290x2796-link.png",
+    "version": "0.8.1",
+    "base_commit": "d1e7fae"
+  },
+  {
+    "file": "1290x2796-sealed.png",
+    "sha256": "7d49df06a29157b2ca3519924254b4ba657570d3ae252452ac3e3386d34f418f",
+    "source": "docs/art/compare/after/1290x2796-sealed.png",
+    "version": "0.8.1",
+    "base_commit": "d1e7fae"
+  },
+  {
+    "file": "2064x2752-title.png",
+    "sha256": "55e4ce3f937e4813d9ab666b1598006d1e9238a85a054ebe1970edf69901cb96",
+    "source": "docs/art/compare/after/2064x2752-title.png",
+    "version": "0.8.1",
+    "base_commit": "d1e7fae"
+  },
+  {
+    "file": "2064x2752-dialogue.png",
+    "sha256": "0534394c3f64d9eae1954bd38924853e8890c10bd05f42f4d696cf4ac974ea99",
+    "source": "docs/art/compare/after/2064x2752-dialogue.png",
+    "version": "0.8.1",
+    "base_commit": "d1e7fae"
+  },
+  {
+    "file": "2064x2752-dialogue-meiqing.png",
+    "sha256": "8933323eff339c1c8692373b376355d6cbe01755d7beaad609bac77b8f27d6f7",
+    "source": "docs/art/compare/after/2064x2752-dialogue-meiqing.png",
+    "version": "0.8.1",
+    "base_commit": "d1e7fae"
+  },
+  {
+    "file": "2064x2752-street.png",
+    "sha256": "5861b3f6301b7ca6956d983c44ae836323f4150fd570ae5d540f99129d98d2db",
+    "source": "docs/art/compare/after/2064x2752-street.png",
+    "version": "0.8.1",
+    "base_commit": "d1e7fae"
+  },
+  {
+    "file": "2064x2752-evidence.png",
+    "sha256": "9d7a9cd5e4196bf4ebbcf6eedb381bd9f30dbfdba42e67c9e29b0e9bc176ecb1",
+    "source": "docs/art/compare/after/2064x2752-evidence.png",
+    "version": "0.8.1",
+    "base_commit": "d1e7fae"
+  },
+  {
+    "file": "2064x2752-link.png",
+    "sha256": "fd7b850703f0883dece5744789c886905d89f6615491ca6c283ac4a9cc5dde71",
+    "source": "docs/art/compare/after/2064x2752-link.png",
+    "version": "0.8.1",
+    "base_commit": "d1e7fae"
+  },
+  {
+    "file": "2064x2752-sealed.png",
+    "sha256": "1c15452b778842b3bd4938fe42f10e81e6c4494a467227e580dc3a04e3d8d58e",
+    "source": "docs/art/compare/after/2064x2752-sealed.png",
+    "version": "0.8.1",
+    "base_commit": "d1e7fae"
+  }
+]

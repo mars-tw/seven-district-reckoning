@@ -1,0 +1,15 @@
+{
+  "status": "VERIFIED",
+  "version": "0.10.0",
+  "image_tool": "image_gen.imagegen",
+  "model_slug": null,
+  "new_runtime_art": 4,
+  "new_screenshots_written": 14,
+  "comparison_screenshots_written": 49,
+  "inspection_screenshots": 14,
+  "comparison_manifest": "docs/art/compare/r6-after/manifest.json",
+  "before": "docs/art/compare/r6-before/",
+  "report": "docs/CODEX_RESPONSE_R6_ART.md",
+  "remaining_3d_assets": "docs/art/R6_MISSING_3D.md",
+  "scope": "Actual Godot Web export. Overall 8/10 score and native hardware release not verified."
+}

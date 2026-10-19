@@ -1,0 +1,8 @@
+{
+  "status": "BLOCKED",
+  "p95_ms": null,
+  "rendered_frame_samples": 0,
+  "shipping_gate_ms": 18,
+  "environment": "Concurrent work on the same machine; any timings would be reference only.",
+  "reason": "Godot headless uses dummy rendering. No real GPU/mobile frames, no valid rendered-frame p95. No false passing result is derived from test CPU time."
+}

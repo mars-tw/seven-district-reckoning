@@ -1,0 +1,25 @@
+{
+  "status": "EXECUTED",
+  "blender": "5.2.0 LTS",
+  "license": "CC0-1.0; original workshop geometry and CC0 MakeHuman courier derivative",
+  "outputs": [
+    {
+      "id": "mei-workbench",
+      "source": "assets/source/blender/r7/mei-workbench.blend",
+      "path": "godot/assets/models/r7/mei-workbench.glb",
+      "triangles": 27536,
+      "objects": 1,
+      "bytes": 1685524,
+      "sha256": "096b7c09d9426cd44701415c71d3cc0055ba3f2a9310a963c01d7514a500615c"
+    },
+    {
+      "id": "ayuan-tailored",
+      "source": "assets/source/blender/r7/ayuan-tailored.blend",
+      "path": "godot/assets/models/r7/hero_human.glb",
+      "triangles": 9346,
+      "objects": 15,
+      "bytes": 851216,
+      "sha256": "c816955255b0e2f78fdbf25d3c8a22f44d0248db1912fff06c2dcd460c6f6cd8"
+    }
+  ]
+}

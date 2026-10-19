@@ -1,0 +1,14 @@
+{
+  "status": "VERIFIED",
+  "source": "docs/art/compare/r9-after/390x844-street.png",
+  "source_sha256": "209f163b0463e8d1f0656b131dbc3cd0d71c4fd7e678a54121cd738371444915",
+  "bounds": [
+    106,
+    344,
+    191,
+    486
+  ],
+  "output": "docs/evidence/r9-art/mei-without-marker.png",
+  "sha256": "8cbf114674b9d278d7a5abd954078e19861e050cb040b993b8e237d640bc5739",
+  "scope": "Unedited crop below the objective triangle; no name or marker painted out. Self-review evidence, not a blind user test."
+}

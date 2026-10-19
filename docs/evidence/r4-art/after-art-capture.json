@@ -1,0 +1,9 @@
+{
+  "status": "BLOCKED",
+  "version": "0.8.0",
+  "engine": "Godot 4.7.2 stable",
+  "returncode": 0,
+  "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nART_CAPTURE_RESULT {\"display\":\"headless\",\"driver\":\"opengl3\",\"reason\":\"Godot headless dummy renderer does not render pixels. Browser and windowed capture are outside this task's authorization.\",\"requested_sizes\":[[1290,2796],[2064,2752]],\"screenshots_written\":0,\"status\":\"BLOCKED\"}\r\n",
+  "rendered_screenshots_written": 0,
+  "note": "Capability probe is intentionally BLOCKED. No image is fabricated."
+}

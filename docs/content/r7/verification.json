@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED",
+  "version": "0.21.0",
+  "test_suites": 37,
+  "reported_checks": 83834,
+  "failures": 0,
+  "protected_files_unchanged": 236,
+  "browser_views": 6,
+  "screenshots": 115,
+  "review_images": 15,
+  "store_images": 4,
+  "generated_art_images": 0,
+  "displayed_glyphs_checked": 387,
+  "source_digest": "42d6f895d293f9a5676eab410b458e6cedb61465dbfb4471d971e02ee6044392",
+  "pck_sha256": "4d0ea6d434b485851990b60049b85d66f6baaea24a7df60011f20e763cfeeb60",
+  "external_acceptance": "BLOCKED: Muse >=8 rescore, physical devices and human testing require actual reviewer/devices/testers.",
+  "performance": "Separate task per current line instruction; no p95 claim.",
+  "secret_scan": {
+    "status": "VERIFIED",
+    "scope": "Prospective index only; no credential-directory access.",
+    "tracked_files": 4333,
+    "findings": [],
+    "required_pattern_hits": 0
+  }
+}

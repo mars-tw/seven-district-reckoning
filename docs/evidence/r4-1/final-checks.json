@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "version": "0.8.1",
+  "engine_tests": {
+    "groups": 24,
+    "checks": 14210,
+    "failures": 0,
+    "report": "docs/evidence/r4-1/final-tests.json"
+  },
+  "mutation_test_detected_reversion": true,
+  "png_copies_verified": 49,
+  "new_import_files": 13,
+  "new_art_script_uid": true,
+  "protected_file_hashes_unchanged": 290,
+  "protected_files_staged": 0,
+  "browser_and_server_cleanup": "Capture process exited 0 after awaiting browser.close() and server.close(); no task-owned Node/Godot processes remained.",
+  "published_or_pushed": false,
+  "native_export_presets_unchanged": true,
+  "remaining": "docs/art/R4_1_MISSING_3D.md"
+}

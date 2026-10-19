@@ -1,0 +1,39 @@
+{
+  "status": "VERIFIED",
+  "version": "0.9.0",
+  "assets": [
+    "ceramic-tile",
+    "rolling-shutter",
+    "workshop-window",
+    "shop-sign",
+    "title-street",
+    "archive-seal",
+    "toolbar-0",
+    "toolbar-1",
+    "toolbar-2",
+    "toolbar-3",
+    "toolbar-4",
+    "toolbar-5"
+  ],
+  "store_screenshots": [
+    "1290x2796-title.png",
+    "1290x2796-dialogue.png",
+    "1290x2796-dialogue-meiqing.png",
+    "1290x2796-street.png",
+    "1290x2796-evidence.png",
+    "1290x2796-link.png",
+    "1290x2796-sealed.png",
+    "2064x2752-title.png",
+    "2064x2752-dialogue.png",
+    "2064x2752-dialogue-meiqing.png",
+    "2064x2752-street.png",
+    "2064x2752-evidence.png",
+    "2064x2752-link.png",
+    "2064x2752-sealed.png"
+  ],
+  "protected_files": 292,
+  "protected_mismatches": [],
+  "scanned_index_text_files": 808,
+  "secret_findings": [],
+  "captures_sha256": "e4f3bb1b6583c2a62e46bf757ceb24aa01994c8068ad623901a10b8f43db26f5"
+}

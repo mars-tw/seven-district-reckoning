@@ -1,0 +1,531 @@
+{
+  "status": "VERIFIED",
+  "version": "0.16.0",
+  "scope": "Isolated compiled-data replacement proof only; not a fourth shipping case or a store screenshot. No UI strings or answers are injected by the browser.",
+  "changed_literals": {
+    "澄岸協助所": "晴橋協助所",
+    "岸七": "橋七"
+  },
+  "original_json_sha256": "2b04768c5402c43d2a25cbfa8feeead437415d3d33a0eac0aa509aafc8bb1aaa",
+  "variant_json_sha256": "67ece3f9b7b8f748332730848926a28f27e32211d53a8ef39af12c685b09d844",
+  "variant_pck_sha256": "b03dff8a1c68e614cc1af5742779c2a2d8026a41dce0cc1261285aa21debb8fa",
+  "font_subset_sha256": "31aa721f19fd7f1415a7b40c8077d50937c5869871508ac420e12aad6dd289f2",
+  "replacement_glyphs_verified": true,
+  "original_export_source_restored": true,
+  "source_digest": "294a8da64c55016235734464e8f22ce7104a7eab87358200ca33c2a337d9aba8",
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 2060 (0x00001F03) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "shots": [
+    {
+      "file": "phone-second_help-data-swap-original.png",
+      "sha256": "22d8c6bd628d5900ad8de883cad2d1dc5ecb6479578fb6765a91ff4495ab9d34",
+      "state": {
+        "phase": "menu",
+        "play_started": true,
+        "version": "0.16.0",
+        "device_profile": "phone",
+        "requested_profile": "phone",
+        "resolution_scale": 0.699999988079071,
+        "camera_distance": 240,
+        "touch_controls": true,
+        "visible_citizens": 3,
+        "visible_traffic": 0,
+        "draw_calls": 177,
+        "render_primitives": 351608,
+        "process_ms": 15.100000381469727,
+        "physics_ms": 2.0999999046325684,
+        "frame_fps": 58,
+        "life_title": "台灣街區生活",
+        "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+        "life_cash": 0,
+        "cargo_count": 0,
+        "culture_activity": "",
+        "culture_badges": 0,
+        "stamina": 100,
+        "max_stamina": 100,
+        "credits": 120,
+        "rank": "初到街區",
+        "time": "17:16",
+        "navigation": "任務導引",
+        "main_title": "第 1 環｜賠掉的存款",
+        "revisit": "",
+        "notebook_pages": 0,
+        "case_stage": 0,
+        "investigations": {
+          "field": {
+            "actions": [],
+            "nearby": false,
+            "source": ""
+          },
+          "hud_buttons": [],
+          "progress": {
+            "active": "second_help",
+            "records": {
+              "before_night": {
+                "collected": [],
+                "compared": false,
+                "complete": false,
+                "order": [],
+                "pairs": {}
+              },
+              "second_help": {
+                "collected": [
+                  0,
+                  1
+                ],
+                "compared": false,
+                "complete": false,
+                "order": [],
+                "pairs": {}
+              },
+              "three_voices": {
+                "collected": [],
+                "compared": false,
+                "complete": false,
+                "order": [],
+                "pairs": {}
+              }
+            },
+            "schema": 1
+          },
+          "save_path": "/userfs/godot/app_userdata/七期：斷鏈行動/save1.json",
+          "ui": {
+            "art": "res://assets/art/content-r2/second_help.webp",
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  134,
+                  154,
+                  48
+                ],
+                "text": "證物"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  202,
+                  134,
+                  154,
+                  48
+                ],
+                "text": "推論"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  220,
+                  154,
+                  48
+                ],
+                "text": "甲 已留存"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  202,
+                  220,
+                  154,
+                  48
+                ],
+                "text": "乙 已留存"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  648,
+                  314,
+                  48
+                ],
+                "text": "證物已齊，開始推論"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  704,
+                  154,
+                  48
+                ],
+                "text": "案件清單"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  202,
+                  704,
+                  154,
+                  48
+                ],
+                "text": "返回街區"
+              }
+            ],
+            "document": 0,
+            "labels": [
+              {
+                "rect": [
+                  42,
+                  91,
+                  314,
+                  35
+                ],
+                "text": "第二次求助，第二次收費"
+              },
+              {
+                "rect": [
+                  42,
+                  190,
+                  314,
+                  22
+                ],
+                "text": "待訪來源 → 到現場 → 取得證物 → 推論"
+              },
+              {
+                "rect": [
+                  42,
+                  276,
+                  314,
+                  32
+                ],
+                "text": "甲｜服務承諾"
+              },
+              {
+                "rect": [
+                  42,
+                  493,
+                  314,
+                  117
+                ],
+                "text": "虛構機構：晴橋協助所。\n案號：橋七。\n『本案協助不收任何預付費。』\n美晴保留的第一份說明。"
+              },
+              {
+                "rect": [
+                  42,
+                  618,
+                  314,
+                  22
+                ],
+                "text": "來源：美晴車店｜同案原文已留存"
+              }
+            ],
+            "page": "evidence",
+            "statement": 0,
+            "visible": true
+          }
+        },
+        "layout": {
+          "case_gutter_reserved": false,
+          "container_sorts": 14,
+          "panel": [
+            8,
+            234,
+            374,
+            376
+          ],
+          "peak_sorts_per_frame": 0,
+          "resize_calls": 11
+        },
+        "menu": "",
+        "world_ready": true,
+        "art": {
+          "details": {
+            "case_labels": [],
+            "hour": 17.2682431111111,
+            "inspection": false,
+            "photos": [],
+            "seal": {},
+            "touch": []
+          },
+          "hero_feet": [
+            95.1296005249023,
+            622.822204589844
+          ],
+          "hero_head": [
+            93.1477813720703,
+            375.388000488281
+          ],
+          "hero_height_px": 247.434204101562,
+          "hud_coverage": 0.15987969376595,
+          "mei_feet": [
+            -151.258941650391,
+            481.375396728516
+          ],
+          "mei_head": [
+            -154.243347167969,
+            372.664764404297
+          ],
+          "mei_height_px": 108.710632324219,
+          "seal_visible": false
+        },
+        "notice": "已讀取進度",
+        "objective": "到車店找美晴，點互動交談。",
+        "optional_title": "街坊委託",
+        "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+        "completed_sides": 0,
+        "completed_activities": 0,
+        "coins": 0,
+        "touch": true,
+        "player_x": -59.70000076293945,
+        "player_z": 54.849998474121094
+      }
+    },
+    {
+      "file": "phone-second_help-data-swap.png",
+      "sha256": "852828aa466bdb31df547fdcbf6899850bef86266a850e618d1ed1a74a07d873",
+      "state": {
+        "phase": "menu",
+        "play_started": true,
+        "version": "0.16.0",
+        "device_profile": "phone",
+        "requested_profile": "phone",
+        "resolution_scale": 0.699999988079071,
+        "camera_distance": 240,
+        "touch_controls": true,
+        "visible_citizens": 3,
+        "visible_traffic": 0,
+        "draw_calls": 185,
+        "render_primitives": 351648,
+        "process_ms": 21,
+        "physics_ms": 2.200000047683716,
+        "frame_fps": 60,
+        "life_title": "台灣街區生活",
+        "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+        "life_cash": 0,
+        "cargo_count": 0,
+        "culture_activity": "",
+        "culture_badges": 0,
+        "stamina": 100,
+        "max_stamina": 100,
+        "credits": 120,
+        "rank": "初到街區",
+        "time": "17:16",
+        "navigation": "任務導引",
+        "main_title": "第 1 環｜賠掉的存款",
+        "revisit": "",
+        "notebook_pages": 0,
+        "case_stage": 0,
+        "investigations": {
+          "field": {
+            "actions": [],
+            "nearby": false,
+            "source": ""
+          },
+          "hud_buttons": [],
+          "progress": {
+            "active": "second_help",
+            "records": {
+              "before_night": {
+                "collected": [],
+                "compared": false,
+                "complete": false,
+                "order": [],
+                "pairs": {}
+              },
+              "second_help": {
+                "collected": [
+                  0,
+                  1
+                ],
+                "compared": false,
+                "complete": false,
+                "order": [],
+                "pairs": {}
+              },
+              "three_voices": {
+                "collected": [],
+                "compared": false,
+                "complete": false,
+                "order": [],
+                "pairs": {}
+              }
+            },
+            "schema": 1
+          },
+          "save_path": "/userfs/godot/app_userdata/七期：斷鏈行動/save1.json",
+          "ui": {
+            "art": "res://assets/art/content-r2/second_help.webp",
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  125,
+                  154,
+                  48
+                ],
+                "text": "證物"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  202,
+                  125,
+                  154,
+                  48
+                ],
+                "text": "推論"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  490,
+                  314,
+                  48
+                ],
+                "text": "不收預付費／先付代辦費"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  546,
+                  314,
+                  48
+                ],
+                "text": "補充通知較晚，已取代原承諾"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  602,
+                  314,
+                  48
+                ],
+                "text": "兩份案號相同，足以確認身分"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  713,
+                  154,
+                  48
+                ],
+                "text": "案件清單"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  202,
+                  713,
+                  154,
+                  48
+                ],
+                "text": "返回街區"
+              }
+            ],
+            "document": 0,
+            "labels": [
+              {
+                "rect": [
+                  42,
+                  82,
+                  314,
+                  35
+                ],
+                "text": "第二次求助，第二次收費"
+              },
+              {
+                "rect": [
+                  42,
+                  358,
+                  314,
+                  24
+                ],
+                "text": "橋七｜同機構、同案號・兩份原文"
+              },
+              {
+                "rect": [
+                  42,
+                  390,
+                  314,
+                  57
+                ],
+                "text": "甲：不收任何預付費。\n乙：先付代辦費，才受理同案。"
+              },
+              {
+                "rect": [
+                  42,
+                  455,
+                  314,
+                  27
+                ],
+                "text": "第一步：哪兩段承諾矛盾？"
+              },
+              {
+                "rect": [
+                  42,
+                  658,
+                  314,
+                  47
+                ],
+                "text": "✓ 甲｜服務承諾・美晴車店\n✓ 乙｜同案補充通知・車店旁留證桌"
+              }
+            ],
+            "page": "solve",
+            "statement": 0,
+            "visible": true
+          }
+        },
+        "layout": {
+          "case_gutter_reserved": false,
+          "container_sorts": 14,
+          "panel": [
+            8,
+            234,
+            374,
+            376
+          ],
+          "peak_sorts_per_frame": 0,
+          "resize_calls": 11
+        },
+        "menu": "",
+        "world_ready": true,
+        "art": {
+          "details": {
+            "case_labels": [],
+            "hour": 17.2682431111111,
+            "inspection": false,
+            "photos": [],
+            "seal": {},
+            "touch": []
+          },
+          "hero_feet": [
+            95.1295700073242,
+            622.822143554688
+          ],
+          "hero_head": [
+            93.1477813720703,
+            375.387939453125
+          ],
+          "hero_height_px": 247.434204101562,
+          "hud_coverage": 0.15987969376595,
+          "mei_feet": [
+            -151.258941650391,
+            481.375305175781
+          ],
+          "mei_head": [
+            -154.243347167969,
+            372.664703369141
+          ],
+          "mei_height_px": 108.710601806641,
+          "seal_visible": false
+        },
+        "notice": "已讀取進度",
+        "objective": "到車店找美晴，點互動交談。",
+        "optional_title": "街坊委託",
+        "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+        "completed_sides": 0,
+        "completed_activities": 0,
+        "coins": 0,
+        "touch": true,
+        "player_x": -59.70000076293945,
+        "player_z": 54.849998474121094
+      }
+    }
+  ]
+}

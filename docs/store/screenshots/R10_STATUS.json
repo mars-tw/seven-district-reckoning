@@ -1,0 +1,62 @@
+{
+  "status": "VERIFIED",
+  "release_status": "BLOCKED",
+  "version": "0.14.0",
+  "round": 7,
+  "repo_round": 10,
+  "generated_masters": 1,
+  "runtime_images": 1,
+  "new_glb": 3,
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "model_note": "Actual model slug not exposed by tool",
+  "store_screenshots": [
+    "1290x2796-title.png",
+    "1290x2796-dialogue.png",
+    "1290x2796-dialogue-meiqing.png",
+    "1290x2796-street.png",
+    "1290x2796-evidence.png",
+    "1290x2796-link.png",
+    "1290x2796-linked.png",
+    "1290x2796-sealed.png",
+    "1290x2796-message-inspection.png",
+    "1290x2796-receipt-inspection.png",
+    "1290x2796-seal-action.png",
+    "2064x2752-title.png",
+    "2064x2752-dialogue.png",
+    "2064x2752-dialogue-meiqing.png",
+    "2064x2752-street.png",
+    "2064x2752-evidence.png",
+    "2064x2752-link.png",
+    "2064x2752-linked.png",
+    "2064x2752-sealed.png",
+    "2064x2752-message-inspection.png",
+    "2064x2752-receipt-inspection.png",
+    "2064x2752-seal-action.png"
+  ],
+  "action_captures": [
+    {
+      "file": "1290x2796-seal-action.png",
+      "source": "docs/art/compare/r10-after/1290x2796-seal-controlled-1.png",
+      "elapsed_ms": 50,
+      "sha256": "c6aade5e62ee8e3ea016de4f4f257c8e520718404af6cde8d0b357c765840a71",
+      "method": "Actual Godot frame with browser clock stepped and paused; no image editing, injected art or game-state modification."
+    },
+    {
+      "file": "2064x2752-seal-action.png",
+      "source": "docs/art/compare/r10-after/2064x2752-seal-controlled-1.png",
+      "elapsed_ms": 50,
+      "sha256": "078d6277edc03db265ec2f55b2b5fc45fd544aa2db614ce96ce6db5fde075257",
+      "method": "Actual Godot frame with browser clock stepped and paused; no image editing, injected art or game-state modification."
+    }
+  ],
+  "pck_sha256": "a7c009723355572f3726403e25306589b72a6302b622e8162e966b85438b2b43",
+  "comparison_manifest": "docs/art/compare/r10-after/manifest.json",
+  "report": "docs/CODEX_RESPONSE_R10_ART.md",
+  "scope": "Actual original-size Godot Web frames, no native iOS or independent score claim",
+  "release_blockers": [
+    "Independent 8/10 rescore outstanding",
+    "Clean-machine p95 and native hardware validation outstanding",
+    "Runtime 3D per-object colour masks outstanding"
+  ]
+}

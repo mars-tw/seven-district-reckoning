@@ -1,0 +1,10 @@
+{
+  "status": "VERIFIED",
+  "before_pck_bytes": 22181804,
+  "candidate_pck_bytes": 24781816,
+  "increase_bytes": 2600012,
+  "candidate_pck_sha256": "8187bb513d8a16b4cb3cb1165ff9f2129219e5ccb04a7557bd5e5f4da7bb9d07",
+  "runtime_compressed_art_bytes": 1133432,
+  "decoded_new_art_rgba_bytes": 11010048,
+  "scope": "Actual Web package; not an IPA or APK."
+}

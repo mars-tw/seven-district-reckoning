@@ -1,0 +1,27 @@
+{
+  "status": "EXECUTED",
+  "version": "0.11.0",
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 229,
+    "digest": "18ed23f75270dd29726e4c5cf35e66fd396dd79377a1bad9f9fae62b19c4f01b"
+  },
+  "pck_bytes": 22838880,
+  "pck_sha256": "e40921d70368989868085b2f341d92a9f8f5dbd19934a04ad993d19a1b94a911",
+  "historical_images_excluded": [
+    "assets/art/r4/app-icon.png",
+    "assets/art/r4/ayuan-portrait.png",
+    "assets/art/r4/meiqing-portrait.png",
+    "assets/art/r4/title-logo.png",
+    "assets/art/r4/title-street.webp",
+    "assets/art/r5/title-street.webp",
+    "assets/art/r6/ayuan-portrait.png",
+    "assets/art/r6/meiqing-portrait.png",
+    "assets/art/r6/title-street.webp",
+    "assets/models/r7/ayuan-tailored.glb",
+    "assets/art/r7/case-panel.webp"
+  ],
+  "protected_files_from": "HEAD versions copied into isolated export only",
+  "working_protected_files_modified": false
+}

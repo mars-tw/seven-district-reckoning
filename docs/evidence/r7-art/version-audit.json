@@ -1,0 +1,12 @@
+{
+  "status": "VERIFIED",
+  "version": "0.11.0",
+  "active_files": [
+    "godot/project.godot",
+    "web/shell.html",
+    "README.md",
+    "godot/assets/art/r7/manifest.json"
+  ],
+  "old_version_hits": [],
+  "exclusions": "Historical R4/R5/R6 reports and art manifests retained; owner native export presets unchanged."
+}

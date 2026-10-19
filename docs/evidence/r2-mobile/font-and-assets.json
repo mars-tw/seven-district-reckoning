@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "font": {
+    "path": "godot/assets/fonts/SevenDistrictSansTC-Regular.otf",
+    "bytes": 279588,
+    "sha256": "404a4cf99a70caf969922db7c237058cc032e0d2dbcd2c911404f0ae8bb70641",
+    "missing_cjk_glyphs": 0,
+    "license": "OFL-1.1; derived from the existing Noto Sans TC source"
+  },
+  "new_2d_art": [],
+  "new_3d_models": [],
+  "new_audio": [],
+  "image_model_slug": null,
+  "note": "No image or audio generation this round. Existing licensed world models, character rigs, objective beacon and cues are reused. UI and font changes are source-based, not new artwork."
+}

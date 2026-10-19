@@ -1,0 +1,39 @@
+{
+  "status": "BLOCKED",
+  "pairs": [
+    {
+      "state": "title",
+      "before": "docs/art/compare/before/1290x2796-title.png",
+      "before_sha256": "f8ed9877b819c998513aebf882dfb75ece8ef1da7f580a10d299406677b0d8b1",
+      "before_version": "0.7.0",
+      "after": null,
+      "after_status": "BLOCKED"
+    },
+    {
+      "state": "street",
+      "before": "docs/art/compare/before/1290x2796-street.png",
+      "before_sha256": "ce48f15e1294fd250fa728b7e52c16874d2fdefb8bc47e11f491f2c86f198d59",
+      "before_version": "0.7.0",
+      "after": null,
+      "after_status": "BLOCKED"
+    },
+    {
+      "state": "evidence",
+      "before": "docs/art/compare/before/1290x2796-evidence.png",
+      "before_sha256": "954e40c3583b448b73937147da3afe6699e1538364d4e683ccae3301d80e3504",
+      "before_version": "0.7.0",
+      "after": null,
+      "after_status": "BLOCKED"
+    },
+    {
+      "state": "title",
+      "before": "docs/art/compare/before/2064x2752-title.png",
+      "before_sha256": "7de1fe988359245d9038685fcdffef5e29ff06cf5e2313dd3803bbbf3f001e10",
+      "before_version": "0.7.0",
+      "after": null,
+      "after_status": "BLOCKED"
+    }
+  ],
+  "requested_version": "0.8.0",
+  "reason": "No rendered pixels from the authorized Godot headless backend; source thumbnails are not screenshots."
+}

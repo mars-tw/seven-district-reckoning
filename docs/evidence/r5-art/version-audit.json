@@ -1,0 +1,19 @@
+{
+  "status": "VERIFIED",
+  "version": "0.9.0",
+  "active": {
+    "godot/project.godot": {
+      "new_version_present": true,
+      "old_version_present": false
+    },
+    "web/shell.html": {
+      "new_version_present": true,
+      "old_version_present": false
+    },
+    "README.md": {
+      "new_version_present": true,
+      "old_version_present": false
+    }
+  },
+  "excluded": "Protected native export presets and immutable historical reports/manifests retain original versions."
+}

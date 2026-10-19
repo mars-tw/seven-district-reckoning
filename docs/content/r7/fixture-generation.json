@@ -1,0 +1,100 @@
+{
+  "status": "VERIFIED",
+  "method": "Actual final headless content_r4 world interactions; only travel shortened. Browser finishes each uncompleted target using visible controls. Prior browser-completed cases retained.",
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 124,
+    "digest": "42d6f895d293f9a5676eab410b458e6cedb61465dbfb4471d971e02ee6044392"
+  },
+  "fixtures": [
+    {
+      "file": "before_night-field-0.json",
+      "sha256": "86626dabaf729fb6cbd5184376267d4ae89741e416388ed92b5e732e12224e2b",
+      "case": "before_night",
+      "collected": 0,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "file": "before_night-field-1.json",
+      "sha256": "8d71ae8984f13cbf3d53dd6cf45940e02ea318ab719db7adf47711577006731a",
+      "case": "before_night",
+      "collected": 1,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "file": "before_night-field-2.json",
+      "sha256": "b1cbf67eea48311d64ab658821e97f1e70283904a94c5f7c5fb315bfb508a5e1",
+      "case": "before_night",
+      "collected": 2,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "file": "before_night-ready.json",
+      "sha256": "bd9d595b639ee2bacf47fd32c0edc258d82e7d21b3cce5b3284b3f2d92b2e486",
+      "case": "before_night",
+      "collected": 3,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "file": "second_help-field-0.json",
+      "sha256": "6be07ce77cd68646d216de92937d0035bd281807f6d3d87dcf642440f832ebb3",
+      "case": "second_help",
+      "collected": 0,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "file": "second_help-field-1.json",
+      "sha256": "23b7477734fafb479e435bd8dc963695c1cd4605be89f4a9c8d657dcb8beaeab",
+      "case": "second_help",
+      "collected": 1,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "file": "second_help-ready.json",
+      "sha256": "c6b6142f08b038d44490c02834dd224e2f2c71e18d9613fcfca2337d093be050",
+      "case": "second_help",
+      "collected": 2,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "file": "three_voices-field-0.json",
+      "sha256": "4b1bc730457905e4cde0d115c97a89fc88851ad603b2e45c8dd6e50c12592581",
+      "case": "three_voices",
+      "collected": 0,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "file": "three_voices-field-1.json",
+      "sha256": "c3ce600f036bab34bbec94c5c309c0dc1cb927f981e93238057c8382c350ab9e",
+      "case": "three_voices",
+      "collected": 1,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "file": "three_voices-field-2.json",
+      "sha256": "b3763a995fbbf163bf2934859d92b5570c830fb5f68382a9a89cf0847d67b0ff",
+      "case": "three_voices",
+      "collected": 2,
+      "complete": false,
+      "on_foot": true
+    },
+    {
+      "file": "three_voices-ready.json",
+      "sha256": "1dfd496500e8f8e2daecc9dc9fae2dffb6780eb9bccfb2bf72b7857930411285",
+      "case": "three_voices",
+      "collected": 3,
+      "complete": false,
+      "on_foot": true
+    }
+  ]
+}

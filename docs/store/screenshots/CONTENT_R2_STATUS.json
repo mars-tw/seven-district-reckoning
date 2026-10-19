@@ -1,0 +1,72 @@
+{
+  "status": "VERIFIED",
+  "version": "0.16.0",
+  "new_screenshots": [
+    {
+      "path": "docs/store/screenshots/1290x2796-content-r2-second_help-field-0.png",
+      "pixels": [
+        1290,
+        2796
+      ],
+      "sha256": "3f99d459b2456c45a5f33c8193150340b804044097bddee79012530fa52bc77e"
+    },
+    {
+      "path": "docs/store/screenshots/1290x2796-content-r2-second_help-action.png",
+      "pixels": [
+        1290,
+        2796
+      ],
+      "sha256": "6641d9d8af028fc8bb11829b9d18fff03a6df0eb77de7753ecf91db9df371933"
+    },
+    {
+      "path": "docs/store/screenshots/1290x2796-content-r2-before_night-unsorted.png",
+      "pixels": [
+        1290,
+        2796
+      ],
+      "sha256": "8b248540f44fcf5a2b82286c3c967d89a46160339f05e7a0b2f05eca88703b13"
+    },
+    {
+      "path": "docs/store/screenshots/1290x2796-content-r2-three_voices-sealed.png",
+      "pixels": [
+        1290,
+        2796
+      ],
+      "sha256": "682466ac479c353bc47709d9f45f4183d8614cdb5fe6175a1acd349ca9f92679"
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-content-r2-second_help-field-0.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "sha256": "5df486f38710f6ebceb57a57519f852251f31dc55f69388e296ae390d4d34cc2"
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-content-r2-second_help-action.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "sha256": "5c2bdcff9a2a1756486d800f8cdb7f45a31ef2ab5018bbcafcac712ae1aba1ba"
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-content-r2-before_night-unsorted.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "sha256": "f4c2f6077dc5dc13249ba61cae20edd15e8306ea074d62529ecfc5ab2f93decc"
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-content-r2-three_voices-sealed.png",
+      "pixels": [
+        2064,
+        2752
+      ],
+      "sha256": "72f60dcc3e84a572a50ee298c8169da1ae944da32f2484e2826b21792572f1fd"
+    }
+  ],
+  "method": "Unedited native-size PNGs of actual local Godot Web export, headless Chromium with hardware NVIDIA ANGLE D3D11. Engine.copyToFS imports unmodified native headless-world saves; the target case is always unfinished, while earlier cases may retain native completion. Visible UI performs target collection, retry, sorting, pairing and completion. Long travel resumes from near-source saves, not a continuous walked route. No target-case completion injection, compositing, screenshot scaling or native-device claim.",
+  "existing_screenshots_deleted": false
+}

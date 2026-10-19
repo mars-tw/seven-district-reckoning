@@ -1,0 +1,30 @@
+{
+  "status": "EXECUTED",
+  "version": "0.8.0",
+  "code_and_asset_integrity": "VERIFIED",
+  "headless_layout_and_regressions": "VERIFIED",
+  "tests_per_engine": {
+    "Godot_4_7": {
+      "suites": 23,
+      "checks": 13308,
+      "failures": 0
+    },
+    "Godot_4_7_2_index_checkout": {
+      "suites": 23,
+      "checks": 13308,
+      "failures": 0
+    }
+  },
+  "native_fixture": "VERIFIED; original readiness bug reproduced and repaired with all prior assertions retained",
+  "source_index_comparison": "VERIFIED; no mismatches beyond Git CRLF/LF checkout conversion",
+  "preexisting_files": "VERIFIED; no deletion, only native fixture readiness and two Windows version lines intentionally changed",
+  "secret_hits": 0,
+  "generated_masters": 10,
+  "runtime_images": 13,
+  "runtime_image_bytes": 2540189,
+  "runtime_pixels": "BLOCKED",
+  "new_comparison_and_store_screenshots": "BLOCKED",
+  "shipping_p95": "BLOCKED",
+  "apple_4_3_risk": "HIGH",
+  "publication": "Local commit only; no push or deployment"
+}

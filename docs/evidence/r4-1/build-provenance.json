@@ -1,0 +1,155 @@
+{
+  "status": "VERIFIED",
+  "base_commit": "41c78c4",
+  "version": "0.8.1",
+  "engine": "4.7.stable.official.5b4e0cb0f",
+  "candidate_matches_index_runtime": true,
+  "normalization": "Text CRLF/LF normalized for index comparison; source art binaries unchanged.",
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 90,
+    "digest": "5d3df5eb665d0d264576ecf0e905508c2af7fb04ef47c6b8c9fa4b485ea376d3"
+  },
+  "pck_sha256": "e34933c4520b302e8b2e42ac8abbb95264075d245f38d277da925436483f0709",
+  "capture_manifest": "docs/art/compare/after/manifest.json",
+  "runtime_snapshot_files": [
+    {
+      "path": "README.md",
+      "index_blob_sha256": "ec41aa9490f585558b07735c6a76839ff2e7a6cdc4abd8f62eebd7c703506cf3",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/assets/art/r4/app-icon.png.import",
+      "index_blob_sha256": "4667cc5e675597596617340e1e51a9eacc0c54f1ed6cae4b5ec14d9e3250e18f",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/assets/art/r4/arcade-tile.webp.import",
+      "index_blob_sha256": "3986dc06a8a91b0dc36f6a4ae31981aeb828c92beca6b6d206fd7dcfb80d96a3",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/assets/art/r4/ayuan-portrait.png.import",
+      "index_blob_sha256": "7ee51731506af463d557c209213b338939663dd6d8fb5fc0da29c9f9f040633b",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/assets/art/r4/case-paper.webp.import",
+      "index_blob_sha256": "f03adfe3b388388f1280850c81ab4792eb7ae01af296ef54cd7dfb1b23a1e05f",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/assets/art/r4/evidence-still.webp.import",
+      "index_blob_sha256": "25d78eab2b76bcc76a9d3718d4c859183b1e70d43966ca1605cad053af60880f",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/assets/art/r4/icon-chain.png.import",
+      "index_blob_sha256": "c2cedd0729fca218be691056de7948c8369bd5e5ef1fb6b1f81a905a7a769d6a",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/assets/art/r4/icon-folder.png.import",
+      "index_blob_sha256": "ac97dc6a683d7799a8716f41f3ff9d053d36f0602bc502b8433eb588f156e811",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/assets/art/r4/icon-phone.png.import",
+      "index_blob_sha256": "de596c08012ad6cc0f0d20c2082a62314da268ba30be4b4fed177f4ab4869e22",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/assets/art/r4/icon-receipt.png.import",
+      "index_blob_sha256": "332e2dc6c831fac78b7c404d24fc7a6789867180aeea6208fee4e4ccc73bcc55",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/assets/art/r4/meiqing-portrait.png.import",
+      "index_blob_sha256": "aea46ca477567262968b6371379b7e6cf34ba5ba8f413be074457752c0b79bb0",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/assets/art/r4/street-asphalt.webp.import",
+      "index_blob_sha256": "97578b77220abcbffc44e516aaaf2c5c5322c5f60af79705aaae025ab4a1581a",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/assets/art/r4/title-logo.png.import",
+      "index_blob_sha256": "fe15055d9a398c78264dd2879891d3f0b96960388eda05ed8d977b1070f3c9f7",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/assets/art/r4/title-street.webp.import",
+      "index_blob_sha256": "114442b1e8a6c7f88fccdc63b8c60a6fd1d36d1fbab201ba76de457aecfbc54d",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/project.godot",
+      "index_blob_sha256": "e3738ab876d96e59b34128a84169d60390ec3f2caa1d7ae24b96a16f323282ea",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/scripts/main.gd",
+      "index_blob_sha256": "7371f7145d38de1a2e1b09fbde0fa8e1b072aff5de976037272d0355cd767880",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/scripts/ui/art_theme.gd.uid",
+      "index_blob_sha256": "45fcd495eb4e69f57b7aadfeec6477134a6932520f4a79d5fa90ea7a237ed424",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/scripts/ui/fraud_case_panel.gd",
+      "index_blob_sha256": "7c06db18ae7820485384992aafa90e4f98cdc4ebda6733df577fb0e97ffc9cc8",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/scripts/ui/game_hud.gd",
+      "index_blob_sha256": "927fba7c22d3f118847e11daa7fef23e42dc065594e9bab7d4ce1066732cb033",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/scripts/ui/story_intro.gd",
+      "index_blob_sha256": "b10ec1ae06299c91c0938470928a40f7b0a374f3ed86f9616388e5b1da182ca5",
+      "matches_candidate": true
+    },
+    {
+      "path": "godot/scripts/world/urban_detail.gd",
+      "index_blob_sha256": "54958910e9b52de81d440bd33cd38c061b5b7d5ab44e0e1d510bf6d3017f9705",
+      "matches_candidate": true
+    },
+    {
+      "path": "tests/r4_1_resize.gd",
+      "index_blob_sha256": "a6d5f354be592a764c03ee064b23c4aefde9b9d6395d9d47abcf1545d43e1948",
+      "matches_candidate": true
+    },
+    {
+      "path": "tools/r4_1_store_evidence.mjs",
+      "index_blob_sha256": "61cf1d153b1ef746b4a66684d1d3fe8d1ec51e5fd109a557f0156c6ae16c28bb",
+      "matches_candidate": true
+    },
+    {
+      "path": "tools/test_game.py",
+      "index_blob_sha256": "3ccc659819e6cb1db77d6d8c33eb4eb1c1a85fee946cd788cc4fd1f4834e698e",
+      "matches_candidate": true
+    },
+    {
+      "path": "web/shell.html",
+      "index_blob_sha256": "64f50206dd6d33af8cb6753e41dfd7e56a26059d7bff218843bc090c76e61ef7",
+      "matches_candidate": true
+    }
+  ],
+  "new_runtime_imports": 13,
+  "new_art_script_uid": 1,
+  "screenshots": 35,
+  "store_pngs": 14,
+  "browser_errors": 0,
+  "case_peak_sorts": [
+    3,
+    3,
+    2,
+    3,
+    3
+  ]
+}

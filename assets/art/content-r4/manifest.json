@@ -1,0 +1,26 @@
+{
+  "status": "VERIFIED",
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "generated_images": 1,
+  "texture_cells": 3,
+  "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nCreate a SINGLE environment material texture atlas, wide 3:1 canvas, three equal SQUARE cells side by side with no gutters. Each cell is a front elevation of a DIFFERENT small Taiwanese shop facade, no perspective, no people, no pavement, no sky, fills its square, for mounting on real 3D storefront walls. LEFT cell: traditional covered produce market stall, aged kraft cream awning, rows of wicker baskets full of green leafy vegetables and pale radishes, rolling shutters and warm hanging lamps, charcoal metal framing; leave a clean cream header sign strip for game-rendered Chinese name. MIDDLE cell: modest neighborhood convenience store, charcoal dark frames, bright paper cream light-box header, glass double doors, shelves of groceries behind the glass, a tiny vermilion stripe and amber porch lamp, no real logos; clean cream header for game text. RIGHT cell: parcel collection shop, orange-kraft cubby shelves and shipping cartons, dark slate doors, chunky three-dimensional parcel locker compartments, clean cream header for game-rendered name. Realistic painterly grain and material depth, confident simple silhouettes readable on mobile, continuous dusk warmth, more material detail than low-poly flat boxes, no baked labels, no letters, no numbers, no UI, no badges.",
+  "original_dimensions": [
+    2172,
+    724
+  ],
+  "runtime_dimensions": [
+    2172,
+    724
+  ],
+  "processing": "Lossless WebP encoding only; no resize, retouching or compositing. UV thirds selected at runtime.",
+  "file": "godot/assets/art/content-r4/street-fronts.webp",
+  "sha256": "d5bc26563f5dccf0d85ac45945b1cb21b3a2190e118a13f6beb4ef5518df2cda",
+  "bytes": 1987562,
+  "usage": "Painted facade surfaces in existing 3D streets, not complete 3D shop models or new characters.",
+  "license": "Project-generated original art; project MIT terms. No third-party inputs.",
+  "source": "assets/art/content-r4/street-fronts-master.png",
+  "source_sha256": "d947409c99bcd26aede681b6c6b784f32042348dcd5cca0d3aef4a9a8075681f",
+  "source_bytes": 2739783,
+  "prompt_file": "docs/content/r4/ART_PROMPT.txt"
+}

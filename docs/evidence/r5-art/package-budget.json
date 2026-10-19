@@ -1,0 +1,13 @@
+{
+  "status": "VERIFIED",
+  "version": "0.9.0",
+  "generated_masters": 7,
+  "runtime_images": 12,
+  "runtime_bytes": 1286718,
+  "decoded_rgba_bytes": 18964480,
+  "retained_lossless_source_bytes": 13442977,
+  "baseline_pck_bytes": 16976100,
+  "candidate_pck_bytes": 22181804,
+  "pck_delta_bytes": 5205704,
+  "candidate_pck_sha256": "9382891b26b8ad7108d164410b003c8d8d04724e8b524df96e11c1a2ebc976c5"
+}

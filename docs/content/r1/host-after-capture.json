@@ -1,0 +1,9 @@
+{
+  "status": "VERIFIED",
+  "at_utc": "2026-10-18T16:13:53.149119+00:00",
+  "own_capture_process_completed": true,
+  "gpu_percent": 98.0,
+  "gpu_memory_used_mib": 11467.0,
+  "gpu_memory_total_mib": 12288.0,
+  "note": "Read-only host snapshot after this capture browser and server exited. Other sessions were not interrupted. This does not prove the sole cause of any historical frame-time change."
+}

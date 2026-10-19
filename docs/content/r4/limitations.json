@@ -1,0 +1,10 @@
+{
+  "status": "BLOCKED",
+  "items": [
+    "Muse independent rescore >=8 requires the reviewer; no score invented.",
+    "Three randomly selected internal people must explain the time order; real users must explain a document-only comparison.",
+    "Native iPhone/iPad/Android testing requires the physical devices.",
+    "Performance deferred to the separate task per the current instruction."
+  ],
+  "scope": "Local implementation and automated evidence are verified separately from these unmet acceptance steps."
+}

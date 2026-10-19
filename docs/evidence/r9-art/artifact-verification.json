@@ -1,0 +1,29 @@
+{
+  "status": "VERIFIED",
+  "version": "0.13.0",
+  "store_screenshots": 20,
+  "geometry_checks": 265,
+  "subject_height_css_px": {
+    "hero_height_px": 247.433959960938,
+    "mei_height_px": 109.253112792969
+  },
+  "tests": {
+    "suites": 29,
+    "checks": 16611,
+    "failures": 0
+  },
+  "protected_files_unchanged": 103,
+  "staged_paths": 267,
+  "secret_scan": {
+    "indexed_text_files": 988,
+    "findings": []
+  },
+  "runtime_index_matches_export": true,
+  "pck_sha256": "6704c0645a78aca2fdabc8e3dacc3d296f4fd105fb6faf9816c84e5601fa8343",
+  "release_status": "BLOCKED",
+  "limitations": [
+    "Independent 8/10 rescore outstanding",
+    "Desktop concurrent-load p95 and clean native/device GPU validation outstanding",
+    "3D runtime per-object color masks not verified"
+  ]
+}

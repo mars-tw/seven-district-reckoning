@@ -9,6 +9,9 @@ output = font_dir / "SevenDistrictSansTC-Regular.otf"
 text = "".join(chr(i) for i in range(32, 127)) + "←↑→↓⏸▶⛶✓／｜，。！？：；（）「」『』…％／★☆●○"
 for pattern in ["*.gd", "*.json"]:
     for path in (root / "godot").rglob(pattern):
+        # Generated caches and local mobile export trees are not game text.
+        if any(part in {".godot", "_checks", "android"} for part in path.relative_to(root / "godot").parts):
+            continue
         text += path.read_text(encoding="utf-8")
 options = subset.Options()
 options.name_IDs = [0, 1, 2, 3, 4, 5, 6, 13, 14]

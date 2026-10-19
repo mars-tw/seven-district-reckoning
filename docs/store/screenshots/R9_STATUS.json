@@ -1,0 +1,60 @@
+{
+  "status": "VERIFIED",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "Independent 8/10 rescore and native hardware validation outstanding",
+    "3D per-object luminance and saturation mask validation outstanding",
+    "Concurrent-load RAF p95 exceeds 18 ms"
+  ],
+  "version": "0.13.0",
+  "generated_masters": 1,
+  "runtime_images": 2,
+  "new_glb": 3,
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "model_note": "Actual model slug not exposed.",
+  "store_screenshots": [
+    "1290x2796-title.png",
+    "1290x2796-dialogue.png",
+    "1290x2796-dialogue-meiqing.png",
+    "1290x2796-street.png",
+    "1290x2796-evidence.png",
+    "1290x2796-link.png",
+    "1290x2796-sealed.png",
+    "1290x2796-message-inspection.png",
+    "1290x2796-receipt-inspection.png",
+    "1290x2796-seal-action.png",
+    "2064x2752-title.png",
+    "2064x2752-dialogue.png",
+    "2064x2752-dialogue-meiqing.png",
+    "2064x2752-street.png",
+    "2064x2752-evidence.png",
+    "2064x2752-link.png",
+    "2064x2752-sealed.png",
+    "2064x2752-message-inspection.png",
+    "2064x2752-receipt-inspection.png",
+    "2064x2752-seal-action.png"
+  ],
+  "action_captures": [
+    {
+      "file": "1290x2796-seal-action.png",
+      "source": "docs/art/compare/r9-after/1290x2796-seal-controlled-3.png",
+      "sha256": "d77e08e1fbad83f9305dc5bd5ab08e284e95002e8773bda5992ff1e36d1a1d63",
+      "elapsed_ms": 320,
+      "method": "Actual Godot frame with browser clock stepped and paused; no image editing, injected art or game-state modification."
+    },
+    {
+      "file": "2064x2752-seal-action.png",
+      "source": "docs/art/compare/r9-after/2064x2752-seal-controlled-3.png",
+      "sha256": "5a27e78651cea92a0a94161ddca34eaa342316ae3e81212a61e90fe2511f8c56",
+      "elapsed_ms": 320,
+      "method": "Actual Godot frame with browser clock stepped and paused; no image editing, injected art or game-state modification."
+    }
+  ],
+  "comparison_manifest": "docs/art/compare/r9-after/manifest.json",
+  "before": "docs/art/compare/r9-before/",
+  "report": "docs/CODEX_RESPONSE_R9_ART.md",
+  "remaining": "docs/art/R9_MISSING_3D.md",
+  "pck_sha256": "6704c0645a78aca2fdabc8e3dacc3d296f4fd105fb6faf9816c84e5601fa8343",
+  "scope": "Actual Godot Web captures; no native iOS device or independent score claim"
+}

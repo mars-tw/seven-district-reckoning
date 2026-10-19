@@ -1,0 +1,23 @@
+{
+  "status": "VERIFIED",
+  "source_version": "0.7.0",
+  "active": {
+    "godot/project.godot": {
+      "old_semantic_version": false,
+      "placeholder_run": false
+    },
+    "godot/export_presets.cfg": {
+      "old_semantic_version": false,
+      "placeholder_run": false
+    },
+    "godot/scripts/ui/game_hud.gd": {
+      "old_semantic_version": false,
+      "placeholder_run": false
+    },
+    "web/shell.html": {
+      "old_semantic_version": false,
+      "placeholder_run": false
+    }
+  },
+  "historical_versions_retained": "Historical documentation and already-published downloads remain accurately versioned; existing uncommitted native build-config still references its historical source and is a missing release integration item."
+}

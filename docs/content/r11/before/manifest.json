@@ -1,0 +1,36 @@
+{
+  "status": "VERIFIED",
+  "source_commit": "d22cf84fca41358723facbd06b1f5937843fc1fd",
+  "images": [
+    {
+      "file": "docs/content/r11/before/phone-before_night-attachment-picked.png",
+      "source": "docs/content/r10/phone-before_night-attachment-picked.png",
+      "sha256": "47687bf1efc76136cd78aaa74f50933968aa062aa91ba260028ecbb8555f20dd",
+      "status": "VERIFIED historical R10 baseline; not a current screenshot"
+    },
+    {
+      "file": "docs/content/r11/before/phone-before_night-relation-retry.png",
+      "source": "docs/content/r10/phone-before_night-relation-retry.png",
+      "sha256": "ce72925553e83783e33397fbe6c660bff319f441e609e4045dcd9423735d6d1f",
+      "status": "VERIFIED historical R10 baseline; not a current screenshot"
+    },
+    {
+      "file": "docs/content/r11/before/phone-second_help-action-payment-retry.png",
+      "source": "docs/content/r10/phone-second_help-action-payment-retry.png",
+      "sha256": "35d76c6956c27640c03164299e209eb90be2dcdfc5799d07a69ad675643aa143",
+      "status": "VERIFIED historical R10 baseline; not a current screenshot"
+    },
+    {
+      "file": "docs/content/r11/before/phone-second_help-action-latest-only-retry.png",
+      "source": "docs/content/r10/phone-second_help-action-latest-only-retry.png",
+      "sha256": "2040a23199527f83ac0bf689adee9e9652e9cc9e87bcac31ef88fba96594e2d6",
+      "status": "VERIFIED historical R10 baseline; not a current screenshot"
+    },
+    {
+      "file": "docs/content/r11/before/phone-three_voices-support-one-side.png",
+      "source": "docs/content/r10/phone-three_voices-support-one-side.png",
+      "sha256": "a70e4d47475158973a46602722aaef239cfa84520c02af317ca9c4f0b121fb27",
+      "status": "VERIFIED historical R10 baseline; not a current screenshot"
+    }
+  ]
+}

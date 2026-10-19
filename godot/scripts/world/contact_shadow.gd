@@ -8,14 +8,14 @@ func _ready() -> void:
 		for y: int in 32:
 			for x: int in 32:
 				var radius: float = Vector2((float(x)-15.5)/15.5,(float(y)-15.5)/15.5).length()
-				image_value.set_pixel(x,y,Color(0.02,0.03,0.035,pow(maxf(0,1-radius),1.4)*0.26))
+				image_value.set_pixel(x,y,Color(0.06,0.025,0.015,pow(maxf(0,1-radius),0.8)*0.72))
 		_material = StandardMaterial3D.new()
 		_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		_material.albedo_texture = ImageTexture.create_from_image(image_value)
 	var plane := PlaneMesh.new()
-	plane.size = Vector2(1.0,0.75)
+	plane.size = Vector2(1.25,0.85)
 	mesh = plane
 	material_override = _material
-	position.y = 0.08
+	position.y = 0.15
 	cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF

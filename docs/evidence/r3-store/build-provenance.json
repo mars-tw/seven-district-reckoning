@@ -1,0 +1,39 @@
+{
+  "status": "VERIFIED",
+  "version": "0.7.0",
+  "baseline_commit": "ca53fcdf035c49f98a66731c9359921ea24c5bd6",
+  "candidate_matches_git_index": true,
+  "files_checked": 19,
+  "checked_paths": [
+    "CHANGELOG.md",
+    "README.md",
+    "godot/assets/fonts/SevenDistrictSansTC-Regular.otf",
+    "godot/export_presets.cfg",
+    "godot/project.godot",
+    "godot/scripts/content/fraud_case.gd",
+    "godot/scripts/content/fraud_case.gd.uid",
+    "godot/scripts/main.gd",
+    "godot/scripts/ui/fraud_case_panel.gd",
+    "godot/scripts/ui/fraud_case_panel.gd.uid",
+    "godot/scripts/ui/game_hud.gd",
+    "godot/scripts/ui/story_intro.gd",
+    "tests/r3_store.gd",
+    "tests/r3_store_restart.gd",
+    "tools/audit_store.py",
+    "tools/r3_store_evidence.mjs",
+    "tools/test_game.py",
+    "tools/verify_store_evidence.py",
+    "web/shell.html"
+  ],
+  "mismatches": [],
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "web_pck_sha256": "5735f3e3d954fc40b32335dfe5fd245d5532cac21eda819ce812db32557cae49",
+  "wasm_sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+  "method": "Git index baseline snapshot; all staged runtime deltas compared after text EOL normalization; original unstaged native work excluded; temporary template overrides restored",
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 84,
+    "digest": "46af8c1b7d6eb6d522ffe13b99040bec900387673ad7b1ec9b48fab52db90c2e"
+  }
+}

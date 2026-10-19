@@ -1,0 +1,12 @@
+{
+  "status": "VERIFIED",
+  "issues": [],
+  "generated_masters": 10,
+  "runtime_images": 13,
+  "runtime_bytes": 2540189,
+  "estimated_decoded_rgba_bytes": 18055168,
+  "source_master_bytes": 17482984,
+  "source_masters_excluded_from_runtime": true,
+  "pixel_runtime_review": "BLOCKED",
+  "character_thumbnail_review": "Two portraits visually inspected at 64px; no human blind test or 3D three-view validation"
+}

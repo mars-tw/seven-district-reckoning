@@ -1,0 +1,35 @@
+{
+  "status": "EXECUTED",
+  "blender": "5.2.0 LTS",
+  "license": "CC0-1.0, original project tailoring and workshop; retained MakeHuman CC0 rig attribution",
+  "outputs": [
+    {
+      "id": "hero_human",
+      "path": "godot/assets/models/r10/hero_human.glb",
+      "source": "assets/source/blender/r10/hero_human.blend",
+      "sha256": "7061a361d30ad3242e40face8935d1df943508eaa2368f2e8edee898e9540d03",
+      "source_sha256": "214a598780885382bcb8f9a5503e38d43eb32655ec4512687f3b46a90a75a00b",
+      "bytes": 761224,
+      "triangles": 9602
+    },
+    {
+      "id": "mei-workbench",
+      "source": "assets/source/blender/r10/mei-workbench.blend",
+      "path": "godot/assets/models/r10/mei-workbench.glb",
+      "triangles": 9144,
+      "objects": 1,
+      "bytes": 592824,
+      "sha256": "db04005480fe0607a9dd92ca38e8049506d254c3495cb98f614bb991f4c7b684",
+      "source_sha256": "a14d0907265464b78a8838d1f992e1e15453c84dc4de898297ee9b2cf34c9347"
+    },
+    {
+      "id": "forecourt-detail",
+      "path": "godot/assets/models/r10/forecourt-detail.glb",
+      "source": "assets/source/blender/r10/forecourt-detail.blend",
+      "sha256": "d03a6d688dd029dd98a2dd1dddccc52159f110859233f3aba3a8b40d2d9874a3",
+      "source_sha256": "68d3268a177d5d2ca3a5326bc624949d0d979c049abb2844e11d889b04eb7d8e",
+      "bytes": 108208,
+      "triangles": 2744
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "status": "VERIFIED",
+  "method": "Native headless current-source world, on-foot proximity, actual _interact collection. Each target-case snapshot is unfinished. Dedicated final fixture directory is separate from the full-suite output to prevent concurrent writes.",
+  "world_fixture_suite": "content_r4",
+  "result": "CONTENT_R4_CHECKS=10153 FAILURES=0",
+  "source_digest": "b5b4cb56ab0a42eca53665eae23bb306dcfaa6974aecba09000ce6db3cfd43f0"
+}

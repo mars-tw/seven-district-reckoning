@@ -1,0 +1,17 @@
+[
+  {
+    "path": "docs/evidence/r2-mobile/after/390x844-gameplay.png",
+    "sha256": "ef44703bf26e189ef7d2e29708025a4c58dd97b286687cea5ab4863fc4b4aad4",
+    "scope": "Existing R2 0.6.0 after-capture used as historical R3 baseline, not recaptured this round"
+  },
+  {
+    "path": "docs/evidence/r2-mobile/after/844x390-gameplay.png",
+    "sha256": "d29f269d5f446bd466b76ae4b6a260729e31f4f189f6e6cc95655511aaaf9ee7",
+    "scope": "Existing R2 0.6.0 after-capture used as historical R3 baseline, not recaptured this round"
+  },
+  {
+    "path": "docs/evidence/r2-mobile/after/1366x600-pause.png",
+    "sha256": "30306cada7b7303f14cba7c87e588eb4dba1b07d28cc8ca34d5de25fa9e6010a",
+    "scope": "Existing R2 0.6.0 after-capture used as historical R3 baseline, not recaptured this round"
+  }
+]

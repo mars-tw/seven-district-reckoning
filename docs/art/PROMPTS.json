@@ -1,0 +1,282 @@
+{
+  "version": "r4.1",
+  "date": "2026-10-16",
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "model_note": "Tool does not expose the actual model slug. Do not infer gpt-image-2 from a planning document.",
+  "style_prefix": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.",
+  "assets": [
+    {
+      "id": "title-street",
+      "transparent": false,
+      "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: stylized-concept. Asset: portrait 2:3 title-screen illustration, not gameplay footage. A contemporary Taichung Taiwan street at dusk, detailed tiled arcade, corrugated repair-shop shutter, one parked scooter, power cables and layered glass towers distant. A Taiwanese delivery investigator seen three-quarter back in navy jacket with orange messenger tool bag and small amber sleeve band, looking at a phone, approaches a warmly lit modest repair shop. Composition: protagonist lower-right, illuminated shop at middle-right; upper-left calm warm gray architecture for separately composited title. Strong diagonal street perspective, weathered pavement, subtle film grain. Polished painterly realism, warm not muddy, upper half bright enough for charcoal lettering. No lettering, no UI, no frames, no combat. Generate 1024x1536."
+    },
+    {
+      "id": "ayuan-portrait",
+      "transparent": true,
+      "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: illustration-story. Asset: true transparent-background dialogue portrait. One Taiwanese man aged around 35, short slightly tousled black hair, tired but alert expressive brown eyes and visible face, navy delivery jacket, bright amber sleeve band, orange canvas messenger tool bag strap across chest, white undershirt, holding a dark smartphone at chest height. Bust to waist, body turned slightly right, face toward viewer, entire silhouette safely inside canvas, no cropped hair or hands. Warm dusk key, colored blue rim shadows, strongly saturated navy and orange material colors, natural warm skin. No background, no text. 1024 square."
+    },
+    {
+      "id": "meiqing-portrait",
+      "transparent": true,
+      "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: illustration-story. Asset: true transparent-background dialogue portrait. One Taiwanese woman aged around 35, short dark bob tucked behind ear, alert kind expressive face, moss-green work shirt and brick vermilion mechanic apron with ochre stitching, holding a well-used silver wrench, small amber rag in pocket. Bust to waist, body slightly left, looking toward viewer, entire silhouette safely inside canvas, hair and hands complete. Strong warm dusk key, blue rim, vivid but believable skin and clothing. Independent repair shop owner, practical and confident, no glamour styling. No background or text. 1024 square."
+    },
+    {
+      "id": "evidence-still",
+      "transparent": false,
+      "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: stylized-concept. Asset: wide 3:2 in-game evidence illustration. Top-down close still life: a black smartphone at left with blank pale conversation strips (no legible text), a creased bank-transfer receipt at right with blank ruled columns, a torn vermilion evidence seal and small brass binder clip on warm gray desk. Keep both main objects large and separated, leave the central receipt fields empty for real game text overlays. Hand-painted forensic object photography, raking amber light, detailed paper fibers, grounded shadows. No real bank logos, no QR codes, no numbers or lettering, no invented account names. 1536x1024."
+    },
+    {
+      "id": "case-paper",
+      "transparent": false,
+      "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: stylized-concept. Asset: square seamless UI panel paper surface for nine-slice use. Warm case-paper #F1E8D5, very subtle fine recycled fibers, lightly aged edge, a narrow kraft binding margin at left with two small punched holes, tiny red thread remnant at top-left, crisp straight edges. Center 80 percent almost clean luminous paper, no writing, no objects, no typography, no symbols. Low-noise physically tactile archival dossier page. 1024 square."
+    },
+    {
+      "id": "evidence-icons",
+      "transparent": true,
+      "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: logo-brand. Asset: true transparent 2x2 icon atlas, four distinct square cells with wide empty gutters, no frames. Top-left a broken chain link; top-right a smartphone with two simple conversation bars; bottom-left a folded receipt with three lines; bottom-right a closed evidence folder with a torn seal. Bold charcoal ink outline with angular cut ends and one amber marker each, subtle engraved print texture, simple centered silhouettes readable at 32px, exactly four icons only, equal sizes, no text, no shadows outside icons. 1024 square."
+    },
+    {
+      "id": "title-logo",
+      "transparent": true,
+      "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: logo-brand. Asset: transparent title logo. EXACT Traditional Chinese text only: 「七期」 on a large first line and 「斷鏈行動」 below, plus small English subtitle \"BREAK THE CHAIN\". Heavy condensed black Gothic sans serif, sharply cut stencilled strokes with subtle offset breaks, not calligraphy. Charcoal letter faces with a thin warm paper-white keyline for dark surfaces. A short vermilion torn seal slash between lines. Strong compact 3:2 lockup with all typography comfortably within edges, no solid background, no extra symbols, no misspellings."
+    },
+    {
+      "id": "app-icon",
+      "transparent": false,
+      "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: logo-brand. Asset: square 1024x1024 app icon proposal, full bleed, no rounded outer corners. A single very bold broken vermilion chain link split diagonally by an amber evidence seal, on warm archival case-paper with faint paper fibers. Two unmistakable interlocking links, the central gap visibly broken. Charcoal hard offset print shadow, flat iconic silhouette, striking at 48px, no text, no lettering, no additional objects, no border."
+    },
+    {
+      "id": "street-asphalt",
+      "transparent": false,
+      "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: stylized-concept. Asset: square seamless tileable game albedo material, top-down orthographic scan of a Taiwan neighborhood asphalt road. Fine varied aggregate, warm charcoal-gray asphalt, narrow weathered cracks, old subtle oil patches, small specks of amber mineral. Uniform diffuse lighting only, no directional cast shadows, no road markings, no objects, no perspective, no text, no puddle reflections. Hand-painted believable game surface, medium contrast, tileable at all edges. 1024 square."
+    },
+    {
+      "id": "arcade-tile",
+      "transparent": false,
+      "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: stylized-concept. Asset: square seamless tileable game albedo material, top-down orthographic Taiwan arcade sidewalk ceramic tile surface. Warm gray and ochre small square tiles with darker grout, aged glaze, subtle grime at joints, understated repaired fragments. Uniform diffuse lighting, no cast shadows, no objects, no text, no perspective. Hand-painted believable game surface, tasteful warm gray, not colorful mosaic. Tileable at all edges. 1024 square."
+    }
+  ],
+  "round5": {
+    "version": "r5",
+    "date": "2026-10-16",
+    "tool": "image_gen.imagegen",
+    "model_slug": null,
+    "model_note": "Built-in image generation tool does not expose its actual model slug.",
+    "style_prefix": "Seven District Break the Chain, Taiwanese dusk investigation, hand-painted semi-realistic urban concept art, charcoal ink #16181D, warm paper #F1E8D5, restrained amber #FFB800 accents, warm upper-left key light and steel-blue shaded edges, controlled brush texture, no photographic gloss, no vector shapes. ",
+    "assets": [
+      {
+        "id": "ceramic-tile",
+        "transparent": false,
+        "prompt": "Use case: stylized-concept. Asset type: seamless 3D game material albedo texture, square 1024x1024. Shared style prefix: Seven District Break the Chain, Taiwanese dusk investigation, hand-painted semi-realistic urban concept art, charcoal ink #16181D, warm paper #F1E8D5, restrained amber #FFB800 accents, warm upper-left key light and steel-blue shaded edges, controlled brush texture, no photographic gloss, no vector shapes. Primary request: a straight-on perfectly orthographic sheet of aged small ivory ceramic exterior wall tiles from a Taichung neighborhood bicycle repair shop. Subtle glaze variation, thin grey grout, restrained rain streaks and a few repaired chips, warm grey not yellow, quiet medium-scale tile pattern. Must tile seamlessly on every edge. Flat diffuse illumination, no cast shadows, no perspective, no objects, no text, no border, no watermark. This is a real texture to wrap existing 3D walls, not a scene illustration."
+      },
+      {
+        "id": "rolling-shutter",
+        "transparent": false,
+        "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless albedo texture for an existing 3D shop metal door. Seven District Break the Chain, Taiwanese dusk investigation, hand-painted semi-realistic urban concept art, charcoal ink #16181D, warm paper #F1E8D5, restrained amber #FFB800 accents, warm upper-left key light and steel-blue shaded edges, controlled brush texture, no photographic gloss, no vector shapes. An orthographic flat diffuse view of closed aged Taiwanese galvanized rolling shutter. Thin horizontal corrugations, graphite grey with desaturated steel blue paint, warm rust only at small scratches, scuffs and oil marks near base. No perspective, no wall, no door frame, no handle, no cast shadows, no text, no watermark. Seamless edges, medium scale ridges, subtle surface response, not heavy grunge."
+      },
+      {
+        "id": "workshop-window",
+        "transparent": false,
+        "prompt": "Use case: stylized-concept. Asset type: rectangular 1024x1536 3D shop window albedo texture. Seven District Break the Chain, Taiwanese dusk investigation, hand-painted semi-realistic urban concept art, charcoal ink #16181D, warm paper #F1E8D5, restrained amber #FFB800 accents, warm upper-left key light and steel-blue shaded edges, controlled brush texture, no photographic gloss, no vector shapes. Perfectly straight-on orthographic elevation of a warm neighborhood bicycle repair workshop seen through a single large glass shop window. A real workbench, orderly hanging bicycle wheels, pegboard with repair tools, warm tungsten fixtures inside. Steel blue upper glass reflections faintly show opposite Taiwanese buildings, warm amber lower interior. Glass fills every edge; no window frame, no outside foreground, no people, no text, no logo, no perspective convergence. Detailed enough at mobile distance with bold clear silhouettes, not a flat blue square. A material surface for the EXISTING game shop model, not a gameplay screenshot."
+      },
+      {
+        "id": "shop-sign",
+        "transparent": false,
+        "prompt": "Use case: stylized-concept. Asset type: wide 1536x512 bicycle repair shop sign texture for real 3D in-world signage. Seven District Break the Chain, Taiwanese dusk investigation, hand-painted semi-realistic urban concept art, charcoal ink #16181D, warm paper #F1E8D5, restrained amber #FFB800 accents, warm upper-left key light and steel-blue shaded edges, controlled brush texture, no photographic gloss, no vector shapes. A single exquisitely painted Taiwanese neighborhood bicycle workshop enamel sign. Charcoal black enamel with thin cream border, slightly chipped corners, on the left an ivory bicycle emblem with one amber wheel accent; large beautiful hand-lettered Traditional Chinese text exactly '美晴車店' filling the center. Small line below exactly '單車維修 · 街坊相伴'. Orthographic front-facing rectangle occupying entire image. Upper-left soft warm edge light. No surrounding wall, no perspective, no extra words, no people, no mockup, no watermark."
+      },
+      {
+        "id": "title-street",
+        "transparent": false,
+        "prompt": "Use case: stylized-concept. Asset type: 1536x1024 landscape title and story background painting for the existing 3D investigation game. Seven District Break the Chain, Taiwanese dusk investigation, hand-painted semi-realistic urban concept art, charcoal ink #16181D, warm paper #F1E8D5, restrained amber #FFB800 accents, warm upper-left key light and steel-blue shaded edges, controlled brush texture, no photographic gloss, no vector shapes. A warm Taichung neighborhood bicycle repair shop at late afternoon, three quarter eye-level street view. Ivory small tile columns, charcoal enamel bicycle sign, metal rolling shutters, steel blue glass reflecting dusk, visible amber-lit workbench and hanging bicycle wheel inside. Foreground has real fine grey asphalt and subdued red arcade bricks; overhead utility cables, parked scooters, distant modern apartment skyline softened by atmospheric haze. No hero or prominent people so that existing character portraits and logo can overlay. Composition clean central area for interface, shop sits right of center, diagonals guide towards its doorway. Cohesive visible painted brush strokes and ink edge accents, grounded illustrated 3D art direction, not a photo and not pixel art. Quiet golden sunset upper left, physically consistent long shadows, no neon cyberpunk, no English letters, no legible text, no watermark."
+      },
+      {
+        "id": "archive-seal",
+        "transparent": true,
+        "prompt": "Use case: logo-brand. Asset type: transparent RGBA archive seal illustration for investigation UI. Seven District Break the Chain, Taiwanese dusk investigation, hand-painted semi-realistic urban concept art, charcoal ink #16181D, warm paper #F1E8D5, restrained amber #FFB800 accents, warm upper-left key light and steel-blue shaded edges, controlled brush texture, no photographic gloss, no vector shapes. One large circular vermilion red ink archival stamp, pure genuine transparent background, empty outside and inner gaps. Thick distressed double circular outline with controlled ink grain. Center has bold Traditional Chinese characters exactly '封存' on two lines, small '案卷 01' underneath, a tiny broken chain emblem at top. Narrow amber-black evidence tape runs behind the bottom third of the circle, text exactly 'SEALED'. Graphic printmaking, not photorealistic, very legible at 120 pixels, centered square 1024x1024 with 10 percent transparent margins. No paper sheet, no floor, no shadows, no white backdrop, no watermark."
+      },
+      {
+        "id": "toolbar-atlas",
+        "transparent": true,
+        "prompt": "Use case: stylized-concept. Asset type: one UI toolbar icon atlas, 1536x1024 transparent PNG. Shared style prefix: Seven District Break the Chain, Taiwanese dusk investigation, hand-painted semi-realistic urban concept art, charcoal ink #16181D, warm paper #F1E8D5, restrained amber #FFB800 accents, warm upper-left key light and steel-blue shaded edges, controlled brush texture, no photographic gloss, no vector shapes. Six clearly separated independent icons, exact regular 3 columns by 2 rows, each cell 512x512, every icon centered in its cell and within central 65 percent, generous fully transparent gutters, no frames or labels. Ivory thick broken ink contour with small amber highlight, simple readable silhouettes at 24px, tactile stamped evidence-file style, 2.5px equivalent line weight at 64px. Top row left to right: camera with left-curving arrow; camera with right-curving arrow; investigation case folder with paperclip. Bottom row left to right: folded street map with location pin; bicycle parcel delivery; two pause bars with a small broken chain notch. No lettering, no emoji, no colored backplates, no white or black background, genuine alpha.",
+        "edit_prompt": "Edit target: the supplied six-icon toolbar atlas. Change ONLY the background: remove every brown/grey vignette and all background outside the six cream-edged cutout icon silhouettes, including holes inside bicycle wheels and under the arrows, to genuine alpha transparency. Keep all six icons, their positions, 3x2 grid, exact colors, dimensions, contour, detailed paper texture and identity unchanged. Do not draw checkerboard, white, black or colored background. The output must be actual transparent RGBA. These are cutout sprites for a game toolbar.",
+        "postprocess": "Read back genuine alpha; preserve original and edit master. 3x2 alpha-bbox crops, padding, LANCZOS to 96px; clear RGB only where alpha=0."
+      }
+    ]
+  },
+  "round6": {
+    "style_prefix": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light from upper left and restrained slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.",
+    "assets": [
+      {
+        "id": "ayuan-portrait",
+        "transparent": true,
+        "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light from upper left and restrained slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: identity-preserve. Edit target: referenced A-Yuan transparent dialogue portrait. Preserve exactly the same man's face, hair, age, navy delivery jacket, yellow upper sleeve band, phone and orange shoulder bag identity. Extend framing from head to below both knees, complete natural body and hands, dark navy trousers. One figure only with 8% safe transparent padding around head and knees; character must not be cut at the waist. Orange canvas bag large enough to read. Painterly dusk bounce light and a warm amber left edge match the existing rendering, no cold electric rim. Three-quarter front facing slightly right, alert but tired. Bottom trouser edge has natural soft 6% alpha fade into transparency, no floor, no shadow, no scenery, no text. High-quality game dialogue cutout on truly transparent background, portrait 2:3."
+      },
+      {
+        "id": "meiqing-portrait",
+        "transparent": true,
+        "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light from upper left and restrained slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: identity-preserve. Edit target: referenced Mei-Qing transparent dialogue portrait. Preserve exactly the same Taiwanese woman face, short dark bob, age, moss-green work shirt, brick vermilion mechanic apron with ochre stitching, wrench held upright, yellow rag and confident grounded expression. Extend view from head to below both knees, dark practical trousers under apron. One figure only, portrait 2:3 with entire head and knees inside canvas, 6% safe padding. Dusk amber light from upper left and soft desaturated slate fill to match warm shop. No glow or aura outside silhouette. No background wash, no floor or shadow. At the very bottom 5% of trousers only gently fade the figure alpha to transparency; do not cut at waist. Truly transparent background with clean alpha. No text, frames, furniture, additional people."
+      },
+      {
+        "id": "title-street",
+        "transparent": false,
+        "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light from upper left and restrained slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: lighting-weather. Edit target: existing illustrated Taiwan bicycle workshop street, preserve architecture, shop bicycle symbol, tiled arcade, shutter, parked scooters, cables and warm left sunset. This will be an actual title and dialogue illustration behind knee-up character cutouts, landscape 3:2. Remove distant pedestrians, calm the central ground plane, paint the right shop facade in lower-contrast amber-slate midtones, keep warm practical lamps and a readable daylight dusk rather than night. Reduce tiny high frequency detail and photographic look, use same subtle hand-painted brushwork as character portraits. Keep realistic materials and no new buildings. Subject placement: left street vista and warm sky; centre-right uncluttered shop entrance for portrait overlays. No new UI, no text, no frames, no foreground people."
+      },
+      {
+        "id": "receipt-paper",
+        "transparent": false,
+        "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light from upper left and restrained slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: illustration-story. Asset: forensic evidence photograph / UI document surface, top-down flat lay of ONE fictional bank-transfer receipt sheet, upright portrait 2:3 filling 95% of image. Warm cream thermal paper with realistic faded ink rule separators, torn bottom edge, subtle creases, staple impressions, one small amber evidence tab on top right, two thin vermilion hand drawn annotation ellipses at 35% and 63% vertical height. Sheet lies on charcoal desk, lit from upper left in warm late daylight. The central 80% must be LIGHT nearly uniform paper for legible runtime text overlays. Leave all fields blank and clean; there must be NO letters, NO numbers, NO brand logos, NO pseudo-text, NO bank names, no watermark. This receipt will have the game's exact fictional account holder, time and amount rendered by real UI text, so never invent details. Painterly editorial realism consistent with the other assets. No phone, hands, extra papers, interface, decorations or text."
+      }
+    ],
+    "tool": "image_gen.imagegen",
+    "model_slug": null,
+    "model_note": "Built-in image tool did not expose actual model slug."
+  },
+  "round7": {
+    "style_prefix": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark.",
+    "assets": [
+      {
+        "id": "cast-turnaround",
+        "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. Create ONE production character turnaround reference sheet, light warm ivory background, two clearly separated horizontal rows. TOP ROW: same original fictional Taiwanese male courier A-Yuan as the supplied reference, early 30s tousled short black hair, navy work jacket with mustard upper-arm bands, white shirt, dark cargo trousers, white sneakers, thick worn burnt-orange cross-body messenger bag WITH stitched flap, buckles, gusset thickness and diagonal strap, phone. Three full-body standing views FRONT SIDE BACK at identical scale plus two small expression heads concerned/determined. BOTTOM ROW: same original Taiwanese female bicycle mechanic Mei as supplied reference, chin-length asymmetric dark bob, olive rolled-sleeve shirt, rust-red long work apron, mustard cloth, brown work trousers, work boots, wrench in right hand. Three full-body FRONT SIDE BACK at identical scale, plus warm smile/focused expression heads. Normal appealing adult proportions, realistic faces, both same height scale, crisp hands and feet, no missing limbs. Label only AYUAN and MEI. This is a design sheet not gameplay or advertising; all six full figures entirely within canvas. Reference images define identities.",
+        "tool": "image_gen.imagegen",
+        "model_slug": null,
+        "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+      },
+      {
+        "id": "ayuan-portrait",
+        "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. Create the final A-Yuan dialogue portrait based exactly on TOP ROW of the supplied original cast turnaround. ONLY one male courier, identical face, tousled hair, navy jacket, mustard upper arm band, orange messenger bag with substantial gusset/flap/buckle and diagonal strap, phone held visibly. Framing is from top of hair to just ABOVE knees, no lower legs or feet, intentional knee-up editorial crop, warm amber environmental light from upper left, warm soft reflected light from below. Body angled slightly right, concerned but determined expression, detailed face/hands. Isolated on genuinely transparent background, no scenery/shadow/ground/panel/text. Leave 5 percent safe margins around head, arms and bag. Crisp opaque torso, bottommost 4 percent may taper into soft paint edge but absolutely NO translucent legs. Asset for actual in-game visual novel dialogue, no typography.",
+        "tool": "image_gen.imagegen",
+        "model_slug": null,
+        "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+      },
+      {
+        "id": "meiqing-portrait",
+        "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. Production game cutout of Mei, exactly BOTTOM ROW of supplied cast turnaround: same Taiwanese woman, short asymmetric black bob, olive shirt sleeves, rust-red apron, ochre cloth, metal adjustable wrench in right hand, left hand on hip. One single figure, above-knee crop at lower apron/thigh only, no shins/feet. Warm upper-left lighting painted ON HER, no halo or volumetric light. GENUINELY TRANSPARENT alpha background, hard clean silhouette, zero colored pixels outside figure, absolutely NO backdrop gradient, glow, shadow, haze, vignette or scenery. Opaque clothing and skin. 5% safe margin. Expressive face and clear wrench, detailed stitched apron. No text.",
+        "tool": "image_gen.imagegen",
+        "model_slug": null,
+        "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+      },
+      {
+        "id": "title-street",
+        "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. Final illustrated backdrop for existing title and dialogue of a Taiwan neighborhood anti-scam investigation game. View from street toward a modest bicycle repair shop arcade at dusk, human eye height, restrained 35mm perspective. Narrow asphalt foreground with drain grate and faded road marking, sidewalk occupies only a small strip, beige plaster and limited ceramic tile pilasters, partially open weathered steel shutter at left, two parked scooters, workshop behind amber glass, wooden repair workbench with metal drawers and hanging bicycle tools, two bicycles. Amber light from upper left, warm interior, soft smoky blue gray distant buildings, natural readable materials, no large blank tiled wall. Center-right clear architectural breathing room for character cutouts; top third calm for logo. NO people, no letters, no logos, no UI. Wide cinematic illustration, authored painted textures compatible with cast turnaround; no photorealistic photo montage.",
+        "tool": "image_gen.imagegen",
+        "model_slug": null,
+        "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+      },
+      {
+        "id": "case-atlas",
+        "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. Production 2D game UI material atlas on a flat opaque warm ivory background, precise 2 by 2 equal cells, no gutters except 32px safe padding per cell. Top left: one single charcoal ink broken chain link evidence icon with tiny amber glint. Top right: one dark smartphone with readable silhouette, amber evidence tag, no screen text. Bottom left: a worn cream receipt with vermilion circled field and mustard highlight marks, no legible text. Bottom right: rectangular charcoal case-file panel surface with narrow ochre left binding seam, subtly scuffed paper edge, tiny vermilion corner tab, calm mostly flat dark center suitable to place mission UI text on it. Each artwork centered entirely within its quadrant, no touching other cells, no characters, no words, no emoji, no 3D perspective panel. Actual in-game evidence and HUD textures; bold silhouettes readable at 48px.",
+        "tool": "image_gen.imagegen",
+        "model_slug": null,
+        "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+      },
+      {
+        "id": "title-logo",
+        "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. Original title logo for Taiwanese narrative investigation game. Exact Traditional Chinese title only: 「七期：斷鏈行動」. Heavy confident brush-cut black Chinese lettering with subtle distressed ink, visually readable all characters, a small broken-chain seal integrated beside title, single vermilion archive seal accent, narrow mustard underline, strong horizontal composition 3:1 on clean warm ivory paper ground. No subtitle, no other words, no sci-fi, no rounded card UI, no mockup, no advertising claim. Logo to sit inside existing paper title plate.",
+        "tool": "image_gen.imagegen",
+        "model_slug": null,
+        "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+      },
+      {
+        "id": "app-icon",
+        "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. Square original mobile game app icon proposal, edge to edge without rounded corners. Large single broken black steel chain in foreground, snapped link opening shaped like a bold numeral seven only subtly, vermilion evidence seal tag tied to one link. Behind it a warm amber-lit Taiwanese bicycle repair shop doorway with wrench silhouette and dusty glass, painterly charcoal background. Strong center silhouette, 3 color structure charcoal/ochre/vermilion, bright separation, simple readable at 64px. No text, no letters, no title, no extra icons, no UI, no border. This depicts the game's investigation and bicycle workshop, not combat weapons.",
+        "tool": "image_gen.imagegen",
+        "model_slug": null,
+        "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+      },
+      {
+        "id": "street-material-atlas",
+        "prompt": "Seven District: Break the Chain — warm Taiwanese dusk investigative drama, authored semi-realistic game concept painting, controlled charcoal navy, ochre amber, rust vermilion, warm upper-left key light, thin dark contour, tactile fabric, no glossy anime, no teal panels, no watermark. One game material atlas of TWO equal square surface panels arranged horizontally, seamless within each cell, orthographic directly facing surfaces. LEFT square: Taiwanese fine-grain dark warm gray asphalt, subtle tiny aggregate at real scale, a little dusty wear, extremely restrained diffuse contrast, NO tiles, stones, bricks, road markings, potholes or objects. RIGHT square: aged cream-ochre lime plaster facade, tiny hairline cracks, slightly darker dirt along irregular patches, gentle warm gray discoloration, no brick grid, no tiles, no large motifs. Flat diffuse albedo painting, NO cast shadows, no baked directional light or strong highlight, no text, no frame, no diagram. Material base colors for actual existing 3D neighborhood meshes; tactile authored detail and controlled visual noise.",
+        "tool": "image_gen.imagegen",
+        "model_slug": null,
+        "model_note": "The actual model slug is not exposed by the tool. No slug inferred."
+      }
+    ]
+  },
+  "round8": {
+    "version": "0.12.0",
+    "round": 8,
+    "tool": "image_gen.imagegen",
+    "model_slug": null,
+    "model_note": "Actual model slug is not exposed by the tool.",
+    "style_prefix": "Seven District: Break the Chain, Taiwanese urban investigation dossier art direction, tactile archival materials, charcoal #16181D, warm ivory #F1E8D5, evidence amber #FFB800 and sparing vermilion #C4271C, warm upper-left light, restrained realistic material detail",
+    "items": [
+      {
+        "id": "paper",
+        "prompt": "Seven District: Break the Chain, Taiwanese urban investigation dossier art direction, tactile archival materials, charcoal #16181D, warm ivory #F1E8D5, evidence amber #FFB800 and sparing vermilion #C4271C, warm upper-left light, restrained realistic material detail, no generic game UI. Generate a single 1024x1536 portrait archival paper surface texture for actual readable game documents. Cream warm ivory cellulose paper, subtle realistic fibers and slight warm edge wear, flat orthographic evenly lit, central 90 percent very quiet uniform readable ivory. Absolutely NO text, NO symbols, NO red circles, NO lines, NO grids, NO holes, NO stitching, NO borders, NO objects, NO stains across center, NO mockup or perspective. Full bleed opaque paper only. This replaces a faulty document background so annotations will be rendered in code aligned to actual evidence text."
+      },
+      {
+        "id": "sky",
+        "prompt": "Seven District: Break the Chain, Taiwanese urban investigation dossier art direction, restrained charcoal and warm ivory with amber dusk light, realistic illustrated material detail, warm upper-left light. Generate a 2048x1024 full spherical equirectangular 360-degree SKY ENVIRONMENT MAP for a 3D game, 2:1 aspect, horizon exactly through image center, smooth seamless left and right edges. A beautiful humid Taichung golden-hour sky at 17:30, soft peach apricot clouds, pale warm blue zenith, subtle illuminated cloud edges, warm amber horizon. Lower hemisphere a uniform dark muted warm gray ground bounce. No buildings, no skyline, no people, no objects, no sun disc, no text, no UI, no landscape, no dramatic fantasy. This will be an actual Godot PanoramaSkyMaterial above real modeled Taiwanese garage roof silhouettes; this is sky only, never a fake street background. Keep natural readable contrast, gentle detail and clearly warmer sunset near the horizon than gray daylight."
+      },
+      {
+        "id": "stamp",
+        "prompt": "Seven District: Break the Chain, Taiwanese urban investigation dossier art direction, tactile archival materials, charcoal #16181D, warm ivory #F1E8D5, evidence amber #FFB800 and sparing vermilion #C4271C, warm upper-left light, restrained realistic material detail, fine dark ink contours. A single original illustration of a physical archival RUBBER STAMP APPLICATOR, rounded turned walnut wood knob on a heavy vermilion and dark rubber square base, angled in three-quarter view from above, to animate pressing a red sealed impression in a detective game. No letters, no text, no logos, no hands, no paper, no background objects, no cast shadow, no glow. Object fully visible with generous transparent padding, base in lower half and wood handle upper half; readable silhouette at 64px. Transparent background true alpha. This is one real key object asset, not a mockup or screenshot."
+      }
+    ]
+  },
+  "round9": {
+    "version": "0.13.0",
+    "round": 9,
+    "user_round": 6,
+    "tool": "image_gen.imagegen",
+    "model_slug": null,
+    "model_note": "The actual model slug was not exposed by the built-in tool.",
+    "style_prefix": "Seven District: Break the Chain, Taiwanese urban investigation dossier art direction, tactile archival materials, charcoal #16181D, warm ivory #F1E8D5, evidence amber #FFB800 and sparing vermilion #C4271C, warm upper-left light, restrained realistic painterly material detail, fine dark ink contours",
+    "items": [
+      {
+        "id": "meiqing-waist",
+        "prompt": "Seven District: Break the Chain, Taiwanese urban investigation dossier art direction, tactile archival materials, charcoal #16181D, warm ivory #F1E8D5, evidence amber #FFB800 and sparing vermilion #C4271C, warm upper-left light, restrained realistic painterly material detail, fine dark ink contours. Edit target is the isolated woman portrait; the two-character turnaround is identity reference only. Deliver one refined WAIST-UP game dialogue portrait of the same Taiwanese mechanic Mei: same face, asymmetrical chin-length black bob, olive rolled-sleeve shirt, vermilion worn canvas apron, brass buckles, yellow rag, same right hand holding adjustable wrench upright near shoulder and left hand on hip. Preserve face identity and realistic painterly rendering. Crop cleanly and decisively straight across below the waist at apron pocket, with completely opaque fabric all the way to the lower canvas edge. No thighs, no legs, no shoes, NO fade, NO dissolving lower body, NO translucent clothes. Whole head and both elbows visible, 6% generous top/side transparent margin, isolated on true transparent background. No background objects, no text, no shadow floating on background. Portrait 1024x1024, full appealing character silhouette, warm upper-left light.",
+        "references": [
+          "godot/assets/art/r7/meiqing-portrait.png",
+          "docs/art/character-sheets/r7-cast-turnaround.png"
+        ],
+        "reference_sha256": {
+          "godot/assets/art/r7/meiqing-portrait.png": "b1612670e53b982da4d9760b8d93773c75fa9a013bc98f21d20d94decd593de8",
+          "docs/art/character-sheets/r7-cast-turnaround.png": "2ba584f63d0769e3dc352713d6b1807569d23974ac5ce03c769636569840f333"
+        }
+      }
+    ]
+  },
+  "round10": {
+    "tool": "image_gen.imagegen",
+    "model_slug": null,
+    "asset_id": "forecourt-asphalt",
+    "style_prefix": "Seven District: Break the Chain, Taiwanese dusk case-file realism, warm upper-left light, restrained charcoal and warm stone, tactile worn material, no blue teal sci-fi, no text, no logos.",
+    "prompt": "Seven District: Break the Chain, Taiwanese dusk case-file realism, warm upper-left light, restrained charcoal and warm stone, tactile worn material, no blue teal sci-fi, no text, no logos. Use case: stylized-concept. Asset type: game 3D ground diffuse texture, top-down orthographic flat scan. Create a square seamless large-scale Taiwan scooter garage forecourt asphalt texture. Fine compact dark warm-gray asphalt aggregate ONLY VERY SUBTLE, broad smooth worn patches, two large irregular shallow damp water stains, faint tire arcs, small sparse repaired cracks, water runoff dirt collecting toward one edge. No raised objects, no road paint, no checker pattern, no hard illumination baked in, no deep blacks. Quiet low contrast, most detail broad enough to read from a third-person camera; avoid the pebbly repeated noise seen in cheap prototype grounds. Diffuse/albedo material only, fill full canvas, 1536 square if possible."
+  },
+  "content_round_1": {
+    "date": "2026-10-18",
+    "tool": "image_gen.imagegen",
+    "model_slug": null,
+    "assets": [
+      {
+        "id": "investigation-desk",
+        "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: stylized-concept. Asset: wide 3:2 in-game dossier investigation still life for three new fictional cases. Top down, tightly composed wooden mechanic's workbench: three distinct overlapping time receipts across the center, a blank archival interview slip clipped at right, a black phone with two empty pale message bubbles at left. One thin vermilion evidence thread links papers, brass paper clips and a short well-used pencil. Warm raking dusk light, grounded fine shadows, paper fibers, subtle ink impression lines. Authentic worn Taiwanese repair-shop atmosphere matching a restrained adult detective game. All document fields empty for real game text, no readable writing, no numbers, no logos, no QR code, no account information, no payment instructions. Paper and phone fully visible, leave breathing space at image edges. Rich tactile editorial painting, not flat geometric placeholders. 1536x1024.",
+        "manifest": "assets/art/content-r1/manifest.json"
+      }
+    ]
+  },
+  "content_round_2": {
+    "date": "2026-10-19",
+    "tool": "image_gen.imagegen",
+    "model_slug": null,
+    "assets": [
+      {
+        "id": "second_help",
+        "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: stylized-concept. Asset: landscape 3:2 in-game case-specific evidence still life, 1536x1024. Top-down close view of exactly TWO distinct official-looking fictional assistance documents side by side on a weathered mechanic's workbench: left a folded cream service promise with brass clip; right a later narrow pale supplement with torn red thread seal. Both share the SAME prominent blank rectangular case-reference tab, connected by red cotton string, conveying same file, conflicting promises. A mechanic's moss green sleeve and brick red apron edge at far upper corner only. Large clearly separated document silhouettes, strong raking warm dusk light, detailed paper fibers, no phone, no money, no banking logos. All document lines abstract illegible ink, NO letters, NO numbers, no UI. Main papers occupy 85% of picture; a focused composition recognizable as paired same-case paperwork at thumbnail scale.",
+        "manifest": "assets/art/content-r2/manifest.json"
+      },
+      {
+        "id": "before_night",
+        "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: stylized-concept. Asset: landscape 3:2 in-game case-specific still life, 1536x1024. Exactly THREE receipt documents laid in a staggered left-to-right reconstruction across a warm gray desktop. Left: small cream mechanic receipt with brass binder clip and faint oil thumb smudge; center: broad kraft shift-handover summary; right: pale blue side-door night-shift roster, its folded corner showing two ruled rows. A thin cotton line links their lower edges in sequence, small amber evidence tabs; worn analog wall clock partly seen at top edge (no numerals). Strong different paper silhouettes and tactile fibers, warm amber dusk key light, slate blue shadows. Papers occupy 85% of frame and all three are clearly separated. Abstract illegible ink rules only, absolutely NO numbers, no legible writing, no UI, no phone, no bank emblems, no payment instructions, no hands. New still-life composition distinct from paired-document case.",
+        "manifest": "assets/art/content-r2/manifest.json"
+      },
+      {
+        "id": "three_voices",
+        "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: stylized-concept. Asset: landscape 3:2 in-game case-specific evidence still life, 1536x1024. An OPEN large bound neighborhood receiving ledger dominates a warm gray archive table, with thick kraft spine, cream ruled pages and exactly THREE original slips clipped across its lower edge: first small pale cream slip at left, last pale blue slip at right, central wider full index page. Three different brass clips, red cotton bookmark along spine, a restrained vermilion archive impression near lower right. Each page shows abstract ruled entries and ink but NO legible writing, NO numbers, NO letters. No phone, no money, no clock, no people. Slight three-quarter top-down perspective, tactile paper and real binding shadows, golden dusk light from left and slate shadows, clean focused composition legible at thumbnail size. Clearly recognizable as one open record book with three source originals, distinct from loose two-document or three-receipt art. No UI.",
+        "manifest": "assets/art/content-r2/manifest.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "status": "VERIFIED",
+  "version": "0.10.0",
+  "assets": 4,
+  "store_screenshots": [
+    "1290x2796-title.png",
+    "1290x2796-dialogue.png",
+    "1290x2796-dialogue-meiqing.png",
+    "1290x2796-street.png",
+    "1290x2796-evidence.png",
+    "1290x2796-link.png",
+    "1290x2796-sealed.png",
+    "2064x2752-title.png",
+    "2064x2752-dialogue.png",
+    "2064x2752-dialogue-meiqing.png",
+    "2064x2752-street.png",
+    "2064x2752-evidence.png",
+    "2064x2752-link.png",
+    "2064x2752-sealed.png"
+  ],
+  "protected_files": 293,
+  "protected_mismatches": [],
+  "missing_initial_untracked": [],
+  "test_suites": 26,
+  "reported_checks": 15972,
+  "scanned_index_text_files": 845,
+  "secret_findings": [],
+  "captures_sha256": "34ce20c7b1ada6fe43797cc98852ea4b1f834c2d1c77755d3d38061e5c9ea1c2",
+  "pck_sha256": "8187bb513d8a16b4cb3cb1165ff9f2129219e5ccb04a7557bd5e5f4da7bb9d07"
+}

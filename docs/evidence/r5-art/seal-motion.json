@@ -1,0 +1,295 @@
+{
+  "status": "VERIFIED",
+  "pck_sha256": "9382891b26b8ad7108d164410b003c8d8d04724e8b524df96e11c1a2ebc976c5",
+  "raw_cdp_size": [
+    800,
+    600
+  ],
+  "frame_count": 47,
+  "source_frames": [
+    {
+      "file": "390x844-stamp-frame-000.png",
+      "timestamp": 1792156432.619888,
+      "sha256": "4a59491ffa29a9ca245ec1ab422569746451ff35fa638a3d23191ae41fd6d324"
+    },
+    {
+      "file": "390x844-stamp-frame-001.png",
+      "timestamp": 1792156432.635218,
+      "sha256": "d1da4a461b3bf96e3a9487a9f5d54e0379f1ccb2178ac517ad830cafd41c2606"
+    },
+    {
+      "file": "390x844-stamp-frame-002.png",
+      "timestamp": 1792156432.651869,
+      "sha256": "4a59491ffa29a9ca245ec1ab422569746451ff35fa638a3d23191ae41fd6d324"
+    },
+    {
+      "file": "390x844-stamp-frame-003.png",
+      "timestamp": 1792156432.667654,
+      "sha256": "d1da4a461b3bf96e3a9487a9f5d54e0379f1ccb2178ac517ad830cafd41c2606"
+    },
+    {
+      "file": "390x844-stamp-frame-004.png",
+      "timestamp": 1792156432.684771,
+      "sha256": "4a59491ffa29a9ca245ec1ab422569746451ff35fa638a3d23191ae41fd6d324"
+    },
+    {
+      "file": "390x844-stamp-frame-005.png",
+      "timestamp": 1792156432.702938,
+      "sha256": "d1da4a461b3bf96e3a9487a9f5d54e0379f1ccb2178ac517ad830cafd41c2606"
+    },
+    {
+      "file": "390x844-stamp-frame-006.png",
+      "timestamp": 1792156432.739196,
+      "sha256": "2979978f21f025ab3a046cbd0e096c455a80c9a0d053cc5ce4f97414ca23a4d1"
+    },
+    {
+      "file": "390x844-stamp-frame-007.png",
+      "timestamp": 1792156432.750749,
+      "sha256": "2c79d3f3ac0cb6e21c558873c61e60100092ff6068e3f1697a31161f4bfb13d7"
+    },
+    {
+      "file": "390x844-stamp-frame-008.png",
+      "timestamp": 1792156432.76789,
+      "sha256": "ee49d4762786958c27bf372969b4e269a03e32ff401ee98542d3882465b5d746"
+    },
+    {
+      "file": "390x844-stamp-frame-009.png",
+      "timestamp": 1792156432.784302,
+      "sha256": "1a19d98b284bedf41542f843d5bf1ea777c78d2b5560f08f3f4e74e0a78f5134"
+    },
+    {
+      "file": "390x844-stamp-frame-010.png",
+      "timestamp": 1792156432.800628,
+      "sha256": "fa1488b9244964077e81147d598e99e741a665cf91e6c57a35c9df016371d57b"
+    },
+    {
+      "file": "390x844-stamp-frame-011.png",
+      "timestamp": 1792156432.81881,
+      "sha256": "79d721eaa9d46f922c789e8529eff9d24e0cae78e5676c6e8e7182cb2035daca"
+    },
+    {
+      "file": "390x844-stamp-frame-012.png",
+      "timestamp": 1792156432.835343,
+      "sha256": "c8e0a4ef0993dddadb95847798be65b10e27ba81669e3d10fe0a1bfaa6e2b0a6"
+    },
+    {
+      "file": "390x844-stamp-frame-013.png",
+      "timestamp": 1792156432.850688,
+      "sha256": "f53beb3b84bcd1db0087ee6e8e64ebc29e1d47a1d09b9c151d6946871777e708"
+    },
+    {
+      "file": "390x844-stamp-frame-014.png",
+      "timestamp": 1792156432.863583,
+      "sha256": "4238dbe7f9178473e7835b37da3a799a4d4a626f3c518624d1ec456e8931f0dc"
+    },
+    {
+      "file": "390x844-stamp-frame-015.png",
+      "timestamp": 1792156432.884062,
+      "sha256": "30cc637592c03fe1e754b34c740e21cb2d8193c38648435f836ff40ec89dd31f"
+    },
+    {
+      "file": "390x844-stamp-frame-016.png",
+      "timestamp": 1792156432.900705,
+      "sha256": "172c4c2b673c93637c6f8f92ab46eda9633ace079f6fb18399427a83603844c5"
+    },
+    {
+      "file": "390x844-stamp-frame-017.png",
+      "timestamp": 1792156432.916855,
+      "sha256": "6175dfaeddb83f46270ddbbdac9ecdce6eb37994a9d2696a737953b893b94b12"
+    },
+    {
+      "file": "390x844-stamp-frame-018.png",
+      "timestamp": 1792156432.933432,
+      "sha256": "bc0f5195f50347ebb061af6031bf90118a9ae5acee1e53762b6cfd1e35d3242c"
+    },
+    {
+      "file": "390x844-stamp-frame-019.png",
+      "timestamp": 1792156432.952437,
+      "sha256": "692931856431706e56222bc85113e9e94e20aa85b52a1c0338924399dac7f5da"
+    },
+    {
+      "file": "390x844-stamp-frame-020.png",
+      "timestamp": 1792156432.968704,
+      "sha256": "9945556aa8ea14137e6c0e6d9c57403eaf8fc632b69e9ae7513ba111dd64b75c"
+    },
+    {
+      "file": "390x844-stamp-frame-021.png",
+      "timestamp": 1792156432.984647,
+      "sha256": "5ce1e8a74b8c94a6af293905693cdb19518eeccc8a858d8e6dd16955273b6ad5"
+    },
+    {
+      "file": "390x844-stamp-frame-022.png",
+      "timestamp": 1792156433.00074,
+      "sha256": "d5a1c53c879f165e39ed61e14aa209330fd78b52ca5569be3bf891e80855ba89"
+    },
+    {
+      "file": "390x844-stamp-frame-023.png",
+      "timestamp": 1792156433.017474,
+      "sha256": "d7e6388268c0de993baf969fb9012ef9976cc664ee40f9160d2702b5f454a2e1"
+    },
+    {
+      "file": "390x844-stamp-frame-024.png",
+      "timestamp": 1792156433.035746,
+      "sha256": "0ba58d7d6fd116a4e566600262f8e9fbacd3f92e10ef5d8efb19ad26655992e1"
+    },
+    {
+      "file": "390x844-stamp-frame-025.png",
+      "timestamp": 1792156433.058272,
+      "sha256": "d7e6388268c0de993baf969fb9012ef9976cc664ee40f9160d2702b5f454a2e1"
+    },
+    {
+      "file": "390x844-stamp-frame-026.png",
+      "timestamp": 1792156433.069621,
+      "sha256": "0ba58d7d6fd116a4e566600262f8e9fbacd3f92e10ef5d8efb19ad26655992e1"
+    },
+    {
+      "file": "390x844-stamp-frame-027.png",
+      "timestamp": 1792156433.085002,
+      "sha256": "d7e6388268c0de993baf969fb9012ef9976cc664ee40f9160d2702b5f454a2e1"
+    },
+    {
+      "file": "390x844-stamp-frame-028.png",
+      "timestamp": 1792156433.101006,
+      "sha256": "0ba58d7d6fd116a4e566600262f8e9fbacd3f92e10ef5d8efb19ad26655992e1"
+    },
+    {
+      "file": "390x844-stamp-frame-029.png",
+      "timestamp": 1792156433.118854,
+      "sha256": "d7e6388268c0de993baf969fb9012ef9976cc664ee40f9160d2702b5f454a2e1"
+    },
+    {
+      "file": "390x844-stamp-frame-030.png",
+      "timestamp": 1792156433.134963,
+      "sha256": "0ba58d7d6fd116a4e566600262f8e9fbacd3f92e10ef5d8efb19ad26655992e1"
+    },
+    {
+      "file": "390x844-stamp-frame-031.png",
+      "timestamp": 1792156433.151236,
+      "sha256": "d7e6388268c0de993baf969fb9012ef9976cc664ee40f9160d2702b5f454a2e1"
+    },
+    {
+      "file": "390x844-stamp-frame-032.png",
+      "timestamp": 1792156433.167441,
+      "sha256": "0ba58d7d6fd116a4e566600262f8e9fbacd3f92e10ef5d8efb19ad26655992e1"
+    },
+    {
+      "file": "390x844-stamp-frame-033.png",
+      "timestamp": 1792156433.183337,
+      "sha256": "d7e6388268c0de993baf969fb9012ef9976cc664ee40f9160d2702b5f454a2e1"
+    },
+    {
+      "file": "390x844-stamp-frame-034.png",
+      "timestamp": 1792156433.201321,
+      "sha256": "0ba58d7d6fd116a4e566600262f8e9fbacd3f92e10ef5d8efb19ad26655992e1"
+    },
+    {
+      "file": "390x844-stamp-frame-035.png",
+      "timestamp": 1792156433.217185,
+      "sha256": "d7e6388268c0de993baf969fb9012ef9976cc664ee40f9160d2702b5f454a2e1"
+    },
+    {
+      "file": "390x844-stamp-frame-036.png",
+      "timestamp": 1792156433.234481,
+      "sha256": "0ba58d7d6fd116a4e566600262f8e9fbacd3f92e10ef5d8efb19ad26655992e1"
+    },
+    {
+      "file": "390x844-stamp-frame-037.png",
+      "timestamp": 1792156433.25082,
+      "sha256": "d7e6388268c0de993baf969fb9012ef9976cc664ee40f9160d2702b5f454a2e1"
+    },
+    {
+      "file": "390x844-stamp-frame-038.png",
+      "timestamp": 1792156433.267308,
+      "sha256": "0ba58d7d6fd116a4e566600262f8e9fbacd3f92e10ef5d8efb19ad26655992e1"
+    },
+    {
+      "file": "390x844-stamp-frame-039.png",
+      "timestamp": 1792156433.287365,
+      "sha256": "d7e6388268c0de993baf969fb9012ef9976cc664ee40f9160d2702b5f454a2e1"
+    },
+    {
+      "file": "390x844-stamp-frame-040.png",
+      "timestamp": 1792156433.301603,
+      "sha256": "0ba58d7d6fd116a4e566600262f8e9fbacd3f92e10ef5d8efb19ad26655992e1"
+    },
+    {
+      "file": "390x844-stamp-frame-041.png",
+      "timestamp": 1792156433.317186,
+      "sha256": "d7e6388268c0de993baf969fb9012ef9976cc664ee40f9160d2702b5f454a2e1"
+    },
+    {
+      "file": "390x844-stamp-frame-042.png",
+      "timestamp": 1792156433.333304,
+      "sha256": "0ba58d7d6fd116a4e566600262f8e9fbacd3f92e10ef5d8efb19ad26655992e1"
+    },
+    {
+      "file": "390x844-stamp-frame-043.png",
+      "timestamp": 1792156433.353351,
+      "sha256": "d7e6388268c0de993baf969fb9012ef9976cc664ee40f9160d2702b5f454a2e1"
+    },
+    {
+      "file": "390x844-stamp-frame-044.png",
+      "timestamp": 1792156433.367856,
+      "sha256": "0ba58d7d6fd116a4e566600262f8e9fbacd3f92e10ef5d8efb19ad26655992e1"
+    },
+    {
+      "file": "390x844-stamp-frame-045.png",
+      "timestamp": 1792156433.384324,
+      "sha256": "d7e6388268c0de993baf969fb9012ef9976cc664ee40f9160d2702b5f454a2e1"
+    },
+    {
+      "file": "390x844-stamp-frame-046.png",
+      "timestamp": 1792156433.393822,
+      "sha256": "0ba58d7d6fd116a4e566600262f8e9fbacd3f92e10ef5d8efb19ad26655992e1"
+    }
+  ],
+  "consecutive_changed_pixel_fractions": [
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.21715833333333334,
+    0.04206875,
+    0.03719375,
+    0.03271458333333333,
+    0.028658333333333334,
+    0.025291666666666667,
+    0.022660416666666666,
+    0.020504166666666667,
+    0.018720833333333332,
+    0.0171125,
+    0.013402083333333334,
+    0.016820833333333333,
+    0.017714583333333332,
+    0.01835,
+    0.01880625,
+    0.018833333333333334,
+    0.018635416666666668,
+    0.0176125,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668,
+    0.00017291666666666668
+  ],
+  "note": "Raw headless Chromium CDP visible-surface PNG sequence; 800x600 browser backing surface clips lower phone content. Used only for upper-panel stamp motion, not store screenshots. Static phone/store PNGs retain their requested full sizes."
+}

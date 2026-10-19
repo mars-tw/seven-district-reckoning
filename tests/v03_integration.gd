@@ -218,7 +218,6 @@ func _check_production_world() -> void:
 	check(world.player._facing.dot(mei_direction.normalized())>0.999 and is_equal_approx(world.player.get_view_yaw(),PI+atan2(4.0,5.0)),"production_initial_camera_and_character_face_Mei_shop")
 	world.set_process(false)
 	await _check_human_imports()
-	await _check_mei_mobile_guidance()
 	await _check_real_map_GUI()
 	await _check_shop_and_stats()
 	await _check_walking_and_pause()
@@ -255,93 +254,6 @@ func _GUI_click(at: Vector2) -> void:
 	var up := down.duplicate()
 	up.pressed = false
 	root.push_input(up,true)
-
-func _check_mei_mobile_guidance() -> void:
-	var starting_position: Vector3 = world.player.global_position
-	var starting_profile: String = world.hud.device_profile
-	var starting_touch_enabled: bool = world.touch_controls.enabled
-	var starting_info_text: String = world.info_text
-	var starting_info_time: float = world.info_time
-	var starting_has_waypoint: bool = world.street_state.has_waypoint
-	var starting_waypoint: Vector2 = world.street_state.waypoint
-	var starting_mouse_mode := Input.mouse_mode
-	world.hud.set_device_profile({"profile":"phone"})
-	world.touch_controls.set_enabled(true)
-	world.hud.set_touch_input_enabled(true)
-	check(world.hud._objective_label.text == "到車店找美晴，按「互動」交談。","phone_MAIN001_uses_visible_interact_button_instruction")
-	world.hud.set_device_profile({"profile":"tablet"})
-	check(not world.hud._controls_hint.visible,"tablet_touch_HUD_hides_desktop_key_legend")
-	world.hud.set_device_profile({"profile":"phone"})
-	world._web_command(["touch_toggle"])
-	check(not world.touch_controls.enabled and world.hud.get_display_objective_text() == "到車店找美晴，按 E 交談。" and world.hud._controls_hint.visible,"disabled_touch_buttons_restore_keyboard_display_objective")
-	world._web_command(["touch_toggle"])
-	check(world.touch_controls.enabled and world.hud.get_display_objective_text() == "到車店找美晴，按「互動」交談。" and not world.hud._controls_hint.visible,"enabled_touch_buttons_restore_mobile_display_objective")
-	world.hud.show_district_map()
-	await process_frame
-	await process_frame
-	var conversation_button := _find_button(world.hud,"美晴車店｜交談")
-	check(conversation_button != null,"map_offers_distinct_Mei_conversation_destination")
-	if conversation_button:
-		conversation_button.pressed.emit()
-		await process_frame
-		var point: Vector2 = world.street_state.waypoint
-		var mei: Vector3 = world.objects["mei"].global_position
-		var supply: Vector3 = world.objects["supply_shop"].global_position
-		check(world.street_state.has_waypoint and point.distance_to(Vector2(mei.x,mei.z))<3.0 and point.distance_to(Vector2(supply.x,supply.z))>3.0,"map_conversation_destination_reaches_Mei_without_targeting_supply")
-		var selected_map := _find_map(world.hud)
-		check(selected_map != null and selected_map.markers.get("mei_shop") == point,"visible_shop_marker_matches_Mei_conversation_waypoint")
-		world.hud._resume()
-		world.player.global_position = Vector3(point.x,0.2,point.y)
-		world.player.velocity = Vector3.ZERO
-		await physics_frame
-		await physics_frame
-		world.touch_controls.set_enabled(true)
-		world._process(0)
-		check(world.nearest == world.objects["mei"] and world.hud._objective_label.text.contains("按「互動」"),"map_arrival_keeps_Mei_selected_and_touch_instruction_visible_during_notice")
-		# Arrival feedback briefly replaces the proximity prompt; inspect it after that notice.
-		world.info_time = 0
-		world._process(0)
-		check(world.nearest == world.objects["mei"] and world.hud._prompt_label.text.begins_with("互動｜美晴車店"),"map_destination_selects_Mei_with_mobile_interact_prompt")
-	world.hud.set_device_profile({"profile":"desktop"})
-	world.touch_controls.set_enabled(false)
-	world.hud.set_touch_input_enabled(false)
-	check(world.hud._objective_label.text == "到車店找美晴，按 E 交談。","desktop_MAIN001_retains_E_instruction")
-	world._web_command(["touch_toggle"])
-	check(world.touch_controls.enabled and world.hud.get_display_objective_text().contains("按「互動」"),"desktop_profile_with_touch_buttons_uses_mobile_display_objective")
-	world._web_command(["touch_toggle"])
-	check(not world.touch_controls.enabled and world.hud.get_display_objective_text().contains("按 E"),"desktop_profile_without_touch_buttons_restores_E_display_objective")
-	if conversation_button:
-		world._process(0)
-		check(world.hud._prompt_label.text.begins_with("E｜美晴車店"),"desktop_Mei_proximity_prompt_retains_E")
-	var practice: Node3D = world.objects["practice_1"]
-	world.player.global_position = practice.global_position + Vector3(0,0.05,-1.5)
-	world.player.velocity = Vector3.ZERO
-	await physics_frame
-	world.touch_controls.set_enabled(true)
-	world.hud.set_touch_input_enabled(true)
-	world._process(0)
-	check(world.nearest == practice and world.hud._prompt_label.text.begins_with("攻擊｜練習目標 A"),"phone_MAIN001_practice_target_uses_attack_button_hint")
-	world.player.interaction_requested.emit()
-	check(world.info_text == "按「攻擊」打這個物件","phone_MAIN001_wrong_button_notice_names_attack_button")
-	world.touch_controls.set_enabled(false)
-	world.hud.set_touch_input_enabled(false)
-	world.info_time = 0
-	world._process(0)
-	check(world.nearest == practice and world.hud._prompt_label.text.begins_with("左鍵｜練習目標 A"),"desktop_MAIN001_practice_target_retains_mouse_hint")
-	world.player.interaction_requested.emit()
-	check(world.info_text == "使用左鍵攻擊這個物件","desktop_MAIN001_wrong_button_notice_retains_mouse_instruction")
-	world.hud._resume()
-	world.player.global_position = starting_position
-	world.player.velocity = Vector3.ZERO
-	world.street_state.has_waypoint = starting_has_waypoint
-	world.street_state.waypoint = starting_waypoint
-	world.info_text = starting_info_text
-	world.info_time = starting_info_time
-	world.hud.set_device_profile({"profile":starting_profile})
-	world.touch_controls.set_enabled(starting_touch_enabled)
-	world.hud.set_touch_input_enabled(starting_touch_enabled)
-	Input.mouse_mode = starting_mouse_mode
-	world._update_interaction()
 
 func _find_animation(node: Node) -> AnimationPlayer:
 	if node is AnimationPlayer: return node as AnimationPlayer

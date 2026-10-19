@@ -1,0 +1,18 @@
+[
+  ".github/workflows/native-export.yml",
+  "docs/art/ART_RESCORE2_MUSE.md",
+  "docs/art/ART_RESCORE_MUSE.md",
+  "docs/art/ART_REVIEW_MUSE.md",
+  "docs/art/compare/after/1290x2796-case-open-crash.png",
+  "docs/art/compare/before/1290x2796-link.png",
+  "docs/art/compare/before/1290x2796-sealed.png",
+  "docs/art/compare/before/2064x2752-evidence.png",
+  "docs/art/compare/before/2064x2752-link.png",
+  "docs/art/compare/before/2064x2752-sealed.png",
+  "docs/art/compare/before/2064x2752-street.png",
+  "docs/art/compare/before/manifest-0.7.0.json",
+  "native/README.md",
+  "native/build-config.json",
+  "tools/export_mobile.py",
+  "tools/install_native_toolchain.py"
+]

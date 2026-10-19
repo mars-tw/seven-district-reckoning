@@ -1,0 +1,1204 @@
+{
+  "status": "VERIFIED",
+  "pck_sha256": "cd4ee8dee8982fb7c63eea4aeb375c4e2c00f5b2e6347599466dd53b4a57f49f",
+  "method": "One additional headless phone touch session of the identical PCK. Arrange three, undo to two, then tap the returned original to restore three. All three screenshots belong to this same action sequence; no compositing or target completion injection.",
+  "source_manifest_sha256": "7b1f1c415a78a6bd1b9589a0467fc9db0c289cd56a64660a5970273e0593075f",
+  "images": [
+    {
+      "file": "phone-before_night-arranged.png",
+      "sha256": "3f0641102c9a043b96d75ae1051420d321b8ba716da48a9cca10ea50d33ca0f2",
+      "state": {
+        "phase": "menu",
+        "play_started": true,
+        "version": "0.20.0",
+        "device_profile": "phone",
+        "requested_profile": "phone",
+        "resolution_scale": 0.699999988079071,
+        "camera_distance": 240,
+        "touch_controls": true,
+        "visible_citizens": 1,
+        "visible_traffic": 0,
+        "draw_calls": 186,
+        "render_primitives": 345354,
+        "process_ms": 13.600000381469727,
+        "physics_ms": 3.0999999046325684,
+        "frame_fps": 60,
+        "life_title": "台灣街區生活",
+        "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+        "life_cash": 0,
+        "cargo_count": 0,
+        "culture_activity": "",
+        "culture_badges": 0,
+        "stamina": 100,
+        "max_stamina": 100,
+        "credits": 120,
+        "rank": "初到街區",
+        "time": "17:16",
+        "navigation": "任務導引",
+        "main_title": "第 1 環｜賠掉的存款",
+        "revisit": "",
+        "notebook_pages": 0,
+        "case_stage": 0,
+        "investigations": {
+          "field": {
+            "actions": [],
+            "joystick_rect": [
+              12,
+              696,
+              112,
+              112
+            ],
+            "nearby": false,
+            "objective": "到車店找美晴，點互動交談。",
+            "source": ""
+          },
+          "hud_buttons": [],
+          "progress": {
+            "active": "before_night",
+            "records": {
+              "before_night": {
+                "citations": {},
+                "collected": [
+                  0,
+                  1,
+                  2
+                ],
+                "compared": false,
+                "complete": false,
+                "judging": false,
+                "order": [
+                  0,
+                  1,
+                  2
+                ],
+                "pairs": {},
+                "pin_choices": {},
+                "pins": [],
+                "time_checked": false,
+                "time_revealed": false,
+                "viewed_fields": {}
+              },
+              "second_help": {
+                "citations": {
+                  "0": 2,
+                  "1": 2
+                },
+                "collected": [
+                  0,
+                  1
+                ],
+                "compared": true,
+                "complete": true,
+                "judging": false,
+                "order": [],
+                "pairs": {},
+                "pin_choices": {},
+                "pins": [],
+                "time_checked": false,
+                "time_revealed": false,
+                "viewed_fields": {
+                  "0": [
+                    1,
+                    3,
+                    2
+                  ],
+                  "1": [
+                    4,
+                    2
+                  ]
+                }
+              },
+              "three_voices": {
+                "citations": {},
+                "collected": [],
+                "compared": false,
+                "complete": false,
+                "judging": false,
+                "order": [],
+                "pairs": {},
+                "pin_choices": {},
+                "pins": [],
+                "time_checked": false,
+                "time_revealed": false,
+                "viewed_fields": {}
+              }
+            },
+            "schema": 1
+          },
+          "save_path": "/userfs/godot/app_userdata/七期：斷鏈行動/save1.json",
+          "ui": {
+            "art": "",
+            "art_rect": [],
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  219,
+                  100,
+                  48
+                ],
+                "text": "證物"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  148,
+                  219,
+                  101,
+                  48
+                ],
+                "text": "推論"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  255,
+                  219,
+                  101,
+                  48
+                ],
+                "text": "放大"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  47,
+                  395,
+                  96,
+                  48
+                ],
+                "text": "甲 車店收據"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  151,
+                  395,
+                  96,
+                  48
+                ],
+                "text": "乙 交接摘要"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  255,
+                  395,
+                  96,
+                  48
+                ],
+                "text": "丙 輪值資料"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  549,
+                  100,
+                  62
+                ],
+                "text": "撤回最後一張"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  148,
+                  549,
+                  101,
+                  62
+                ],
+                "text": "打亂牌位"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  255,
+                  549,
+                  101,
+                  62
+                ],
+                "text": "確認時間線"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  619,
+                  154,
+                  48
+                ],
+                "text": "案件清單"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  202,
+                  619,
+                  154,
+                  48
+                ],
+                "text": "返回街區"
+              }
+            ],
+            "document": 0,
+            "dragging": false,
+            "drop_zone": [
+              42,
+              343,
+              314,
+              166
+            ],
+            "ghost_rect": [],
+            "labels": [
+              {
+                "rect": [
+                  42,
+                  176,
+                  314,
+                  35
+                ],
+                "text": "晚班之前的收據"
+              },
+              {
+                "rect": [
+                  42,
+                  275,
+                  314,
+                  22
+                ],
+                "text": "待放原件｜拖入下方；也可點選"
+              },
+              {
+                "rect": [
+                  42,
+                  313,
+                  314,
+                  22
+                ],
+                "text": "原件已全放入，下方可拖回改排。"
+              },
+              {
+                "rect": [
+                  47,
+                  347,
+                  96,
+                  44
+                ],
+                "text": "第 1 格"
+              },
+              {
+                "rect": [
+                  47,
+                  447,
+                  96,
+                  49
+                ],
+                "text": "這張收據供摘要引用"
+              },
+              {
+                "rect": [
+                  151,
+                  347,
+                  96,
+                  44
+                ],
+                "text": "第 2 格"
+              },
+              {
+                "rect": [
+                  151,
+                  447,
+                  96,
+                  49
+                ],
+                "text": "這張摘要附有收據"
+              },
+              {
+                "rect": [
+                  255,
+                  347,
+                  96,
+                  44
+                ],
+                "text": "第 3 格"
+              },
+              {
+                "rect": [
+                  255,
+                  447,
+                  96,
+                  49
+                ],
+                "text": "這張輪值資料沿用摘要"
+              },
+              {
+                "rect": [
+                  42,
+                  517,
+                  314,
+                  24
+                ],
+                "text": "目前：甲 → 乙 → 丙"
+              }
+            ],
+            "marked_field": 2,
+            "page": "solve",
+            "pin_choices": {},
+            "preview_slot": -1,
+            "statement": 0,
+            "visible": true
+          }
+        },
+        "layout": {
+          "case_gutter_reserved": false,
+          "container_sorts": 8,
+          "panel": [
+            8,
+            158,
+            374,
+            528
+          ],
+          "peak_sorts_per_frame": 0,
+          "resize_calls": 9
+        },
+        "menu": "",
+        "world_ready": true,
+        "art": {
+          "details": {
+            "case_labels": [],
+            "hour": 17.2692355866667,
+            "inspection": false,
+            "photos": [],
+            "seal": {},
+            "touch": []
+          },
+          "hero_feet": [
+            95.1011581420898,
+            622.823974609375
+          ],
+          "hero_head": [
+            93.119270324707,
+            375.388519287109
+          ],
+          "hero_height_px": 247.435455322266,
+          "hud_coverage": 0.15987969376595,
+          "mei_feet": [
+            3877.12719726562,
+            455.087951660156
+          ],
+          "mei_head": [
+            3900.87329101562,
+            373.570953369141
+          ],
+          "mei_height_px": 81.5169982910156,
+          "seal_visible": false
+        },
+        "notice": "已讀取進度",
+        "objective": "到車店找美晴，點互動交談。",
+        "optional_title": "街坊委託",
+        "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+        "completed_sides": 0,
+        "completed_activities": 0,
+        "coins": 0,
+        "touch": true,
+        "player_x": -23,
+        "player_z": -15.800000190734863
+      }
+    },
+    {
+      "file": "phone-before_night-undo.png",
+      "sha256": "9b70dd762ee4877ad2cd954f6c084aae809d07fb5cdf98caa0d416f11a813707",
+      "state": {
+        "phase": "menu",
+        "play_started": true,
+        "version": "0.20.0",
+        "device_profile": "phone",
+        "requested_profile": "phone",
+        "resolution_scale": 0.699999988079071,
+        "camera_distance": 240,
+        "touch_controls": true,
+        "visible_citizens": 1,
+        "visible_traffic": 0,
+        "draw_calls": 180,
+        "render_primitives": 345320,
+        "process_ms": 13.300000190734863,
+        "physics_ms": 6.699999809265137,
+        "frame_fps": 60,
+        "life_title": "台灣街區生活",
+        "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+        "life_cash": 0,
+        "cargo_count": 0,
+        "culture_activity": "",
+        "culture_badges": 0,
+        "stamina": 100,
+        "max_stamina": 100,
+        "credits": 120,
+        "rank": "初到街區",
+        "time": "17:16",
+        "navigation": "任務導引",
+        "main_title": "第 1 環｜賠掉的存款",
+        "revisit": "",
+        "notebook_pages": 0,
+        "case_stage": 0,
+        "investigations": {
+          "field": {
+            "actions": [],
+            "joystick_rect": [
+              12,
+              696,
+              112,
+              112
+            ],
+            "nearby": false,
+            "objective": "到車店找美晴，點互動交談。",
+            "source": ""
+          },
+          "hud_buttons": [],
+          "progress": {
+            "active": "before_night",
+            "records": {
+              "before_night": {
+                "citations": {},
+                "collected": [
+                  0,
+                  1,
+                  2
+                ],
+                "compared": false,
+                "complete": false,
+                "judging": false,
+                "order": [
+                  0,
+                  1
+                ],
+                "pairs": {},
+                "pin_choices": {},
+                "pins": [],
+                "time_checked": false,
+                "time_revealed": false,
+                "viewed_fields": {}
+              },
+              "second_help": {
+                "citations": {
+                  "0": 2,
+                  "1": 2
+                },
+                "collected": [
+                  0,
+                  1
+                ],
+                "compared": true,
+                "complete": true,
+                "judging": false,
+                "order": [],
+                "pairs": {},
+                "pin_choices": {},
+                "pins": [],
+                "time_checked": false,
+                "time_revealed": false,
+                "viewed_fields": {
+                  "0": [
+                    1,
+                    3,
+                    2
+                  ],
+                  "1": [
+                    4,
+                    2
+                  ]
+                }
+              },
+              "three_voices": {
+                "citations": {},
+                "collected": [],
+                "compared": false,
+                "complete": false,
+                "judging": false,
+                "order": [],
+                "pairs": {},
+                "pin_choices": {},
+                "pins": [],
+                "time_checked": false,
+                "time_revealed": false,
+                "viewed_fields": {}
+              }
+            },
+            "schema": 1
+          },
+          "save_path": "/userfs/godot/app_userdata/七期：斷鏈行動/save1.json",
+          "ui": {
+            "art": "",
+            "art_rect": [],
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  197,
+                  100,
+                  48
+                ],
+                "text": "證物"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  148,
+                  197,
+                  101,
+                  48
+                ],
+                "text": "推論"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  255,
+                  197,
+                  101,
+                  48
+                ],
+                "text": "放大"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  283,
+                  314,
+                  48
+                ],
+                "text": "丙 輪值資料"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  47,
+                  418,
+                  96,
+                  48
+                ],
+                "text": "甲 車店收據"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  151,
+                  418,
+                  96,
+                  48
+                ],
+                "text": "乙 交接摘要"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  572,
+                  100,
+                  62
+                ],
+                "text": "撤回最後一張"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  148,
+                  572,
+                  101,
+                  62
+                ],
+                "text": "打亂牌位"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  255,
+                  572,
+                  101,
+                  62
+                ],
+                "text": "確認時間線"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  642,
+                  154,
+                  48
+                ],
+                "text": "案件清單"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  202,
+                  642,
+                  154,
+                  48
+                ],
+                "text": "返回街區"
+              }
+            ],
+            "document": 0,
+            "dragging": false,
+            "drop_zone": [
+              42,
+              366,
+              314,
+              166
+            ],
+            "ghost_rect": [],
+            "labels": [
+              {
+                "rect": [
+                  42,
+                  154,
+                  314,
+                  35
+                ],
+                "text": "晚班之前的收據"
+              },
+              {
+                "rect": [
+                  42,
+                  253,
+                  314,
+                  22
+                ],
+                "text": "待放原件｜拖入下方；也可點選"
+              },
+              {
+                "rect": [
+                  42,
+                  335,
+                  314,
+                  23
+                ],
+                "text": "這張輪值資料沿用摘要"
+              },
+              {
+                "rect": [
+                  47,
+                  370,
+                  96,
+                  44
+                ],
+                "text": "第 1 格"
+              },
+              {
+                "rect": [
+                  47,
+                  470,
+                  96,
+                  49
+                ],
+                "text": "這張收據供摘要引用"
+              },
+              {
+                "rect": [
+                  151,
+                  370,
+                  96,
+                  44
+                ],
+                "text": "第 2 格"
+              },
+              {
+                "rect": [
+                  151,
+                  470,
+                  96,
+                  49
+                ],
+                "text": "這張摘要附有收據"
+              },
+              {
+                "rect": [
+                  255,
+                  370,
+                  96,
+                  44
+                ],
+                "text": "第 3 格"
+              },
+              {
+                "rect": [
+                  42,
+                  540,
+                  314,
+                  24
+                ],
+                "text": "目前：甲 → 乙"
+              }
+            ],
+            "marked_field": 2,
+            "page": "solve",
+            "pin_choices": {},
+            "preview_slot": -1,
+            "statement": 0,
+            "visible": true
+          }
+        },
+        "layout": {
+          "case_gutter_reserved": false,
+          "container_sorts": 8,
+          "panel": [
+            8,
+            158,
+            374,
+            528
+          ],
+          "peak_sorts_per_frame": 0,
+          "resize_calls": 9
+        },
+        "menu": "",
+        "world_ready": true,
+        "art": {
+          "details": {
+            "case_labels": [],
+            "hour": 17.2692355866667,
+            "inspection": false,
+            "photos": [],
+            "seal": {},
+            "touch": []
+          },
+          "hero_feet": [
+            95.1011581420898,
+            622.823974609375
+          ],
+          "hero_head": [
+            93.119270324707,
+            375.388519287109
+          ],
+          "hero_height_px": 247.435455322266,
+          "hud_coverage": 0.15987969376595,
+          "mei_feet": [
+            3877.12719726562,
+            455.087951660156
+          ],
+          "mei_head": [
+            3900.87329101562,
+            373.570953369141
+          ],
+          "mei_height_px": 81.5169982910156,
+          "seal_visible": false
+        },
+        "notice": "已讀取進度",
+        "objective": "到車店找美晴，點互動交談。",
+        "optional_title": "街坊委託",
+        "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+        "completed_sides": 0,
+        "completed_activities": 0,
+        "coins": 0,
+        "touch": true,
+        "player_x": -23,
+        "player_z": -15.800000190734863
+      }
+    },
+    {
+      "file": "phone-before_night-tap-alternative.png",
+      "sha256": "3f0641102c9a043b96d75ae1051420d321b8ba716da48a9cca10ea50d33ca0f2",
+      "state": {
+        "phase": "menu",
+        "play_started": true,
+        "version": "0.20.0",
+        "device_profile": "phone",
+        "requested_profile": "phone",
+        "resolution_scale": 0.699999988079071,
+        "camera_distance": 240,
+        "touch_controls": true,
+        "visible_citizens": 1,
+        "visible_traffic": 0,
+        "draw_calls": 186,
+        "render_primitives": 345354,
+        "process_ms": 13,
+        "physics_ms": 2.5999999046325684,
+        "frame_fps": 60,
+        "life_title": "台灣街區生活",
+        "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+        "life_cash": 0,
+        "cargo_count": 0,
+        "culture_activity": "",
+        "culture_badges": 0,
+        "stamina": 100,
+        "max_stamina": 100,
+        "credits": 120,
+        "rank": "初到街區",
+        "time": "17:16",
+        "navigation": "任務導引",
+        "main_title": "第 1 環｜賠掉的存款",
+        "revisit": "",
+        "notebook_pages": 0,
+        "case_stage": 0,
+        "investigations": {
+          "field": {
+            "actions": [],
+            "joystick_rect": [
+              12,
+              696,
+              112,
+              112
+            ],
+            "nearby": false,
+            "objective": "到車店找美晴，點互動交談。",
+            "source": ""
+          },
+          "hud_buttons": [],
+          "progress": {
+            "active": "before_night",
+            "records": {
+              "before_night": {
+                "citations": {},
+                "collected": [
+                  0,
+                  1,
+                  2
+                ],
+                "compared": false,
+                "complete": false,
+                "judging": false,
+                "order": [
+                  0,
+                  1,
+                  2
+                ],
+                "pairs": {},
+                "pin_choices": {},
+                "pins": [],
+                "time_checked": false,
+                "time_revealed": false,
+                "viewed_fields": {}
+              },
+              "second_help": {
+                "citations": {
+                  "0": 2,
+                  "1": 2
+                },
+                "collected": [
+                  0,
+                  1
+                ],
+                "compared": true,
+                "complete": true,
+                "judging": false,
+                "order": [],
+                "pairs": {},
+                "pin_choices": {},
+                "pins": [],
+                "time_checked": false,
+                "time_revealed": false,
+                "viewed_fields": {
+                  "0": [
+                    1,
+                    3,
+                    2
+                  ],
+                  "1": [
+                    4,
+                    2
+                  ]
+                }
+              },
+              "three_voices": {
+                "citations": {},
+                "collected": [],
+                "compared": false,
+                "complete": false,
+                "judging": false,
+                "order": [],
+                "pairs": {},
+                "pin_choices": {},
+                "pins": [],
+                "time_checked": false,
+                "time_revealed": false,
+                "viewed_fields": {}
+              }
+            },
+            "schema": 1
+          },
+          "save_path": "/userfs/godot/app_userdata/七期：斷鏈行動/save1.json",
+          "ui": {
+            "art": "",
+            "art_rect": [],
+            "buttons": [
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  219,
+                  100,
+                  48
+                ],
+                "text": "證物"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  148,
+                  219,
+                  101,
+                  48
+                ],
+                "text": "推論"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  255,
+                  219,
+                  101,
+                  48
+                ],
+                "text": "放大"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  47,
+                  395,
+                  96,
+                  48
+                ],
+                "text": "甲 車店收據"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  151,
+                  395,
+                  96,
+                  48
+                ],
+                "text": "乙 交接摘要"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  255,
+                  395,
+                  96,
+                  48
+                ],
+                "text": "丙 輪值資料"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  549,
+                  100,
+                  62
+                ],
+                "text": "撤回最後一張"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  148,
+                  549,
+                  101,
+                  62
+                ],
+                "text": "打亂牌位"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  255,
+                  549,
+                  101,
+                  62
+                ],
+                "text": "確認時間線"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  42,
+                  619,
+                  154,
+                  48
+                ],
+                "text": "案件清單"
+              },
+              {
+                "disabled": false,
+                "rect": [
+                  202,
+                  619,
+                  154,
+                  48
+                ],
+                "text": "返回街區"
+              }
+            ],
+            "document": 0,
+            "dragging": false,
+            "drop_zone": [
+              42,
+              343,
+              314,
+              166
+            ],
+            "ghost_rect": [],
+            "labels": [
+              {
+                "rect": [
+                  42,
+                  176,
+                  314,
+                  35
+                ],
+                "text": "晚班之前的收據"
+              },
+              {
+                "rect": [
+                  42,
+                  275,
+                  314,
+                  22
+                ],
+                "text": "待放原件｜拖入下方；也可點選"
+              },
+              {
+                "rect": [
+                  42,
+                  313,
+                  314,
+                  22
+                ],
+                "text": "原件已全放入，下方可拖回改排。"
+              },
+              {
+                "rect": [
+                  47,
+                  347,
+                  96,
+                  44
+                ],
+                "text": "第 1 格"
+              },
+              {
+                "rect": [
+                  47,
+                  447,
+                  96,
+                  49
+                ],
+                "text": "這張收據供摘要引用"
+              },
+              {
+                "rect": [
+                  151,
+                  347,
+                  96,
+                  44
+                ],
+                "text": "第 2 格"
+              },
+              {
+                "rect": [
+                  151,
+                  447,
+                  96,
+                  49
+                ],
+                "text": "這張摘要附有收據"
+              },
+              {
+                "rect": [
+                  255,
+                  347,
+                  96,
+                  44
+                ],
+                "text": "第 3 格"
+              },
+              {
+                "rect": [
+                  255,
+                  447,
+                  96,
+                  49
+                ],
+                "text": "這張輪值資料沿用摘要"
+              },
+              {
+                "rect": [
+                  42,
+                  517,
+                  314,
+                  24
+                ],
+                "text": "目前：甲 → 乙 → 丙"
+              }
+            ],
+            "marked_field": 2,
+            "page": "solve",
+            "pin_choices": {},
+            "preview_slot": -1,
+            "statement": 0,
+            "visible": true
+          }
+        },
+        "layout": {
+          "case_gutter_reserved": false,
+          "container_sorts": 8,
+          "panel": [
+            8,
+            158,
+            374,
+            528
+          ],
+          "peak_sorts_per_frame": 0,
+          "resize_calls": 9
+        },
+        "menu": "",
+        "world_ready": true,
+        "art": {
+          "details": {
+            "case_labels": [],
+            "hour": 17.2692355866667,
+            "inspection": false,
+            "photos": [],
+            "seal": {},
+            "touch": []
+          },
+          "hero_feet": [
+            95.1011581420898,
+            622.823974609375
+          ],
+          "hero_head": [
+            93.119270324707,
+            375.388519287109
+          ],
+          "hero_height_px": 247.435455322266,
+          "hud_coverage": 0.15987969376595,
+          "mei_feet": [
+            3877.12719726562,
+            455.087951660156
+          ],
+          "mei_head": [
+            3900.87329101562,
+            373.570953369141
+          ],
+          "mei_height_px": 81.5169982910156,
+          "seal_visible": false
+        },
+        "notice": "已讀取進度",
+        "objective": "到車店找美晴，點互動交談。",
+        "optional_title": "街坊委託",
+        "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+        "completed_sides": 0,
+        "completed_activities": 0,
+        "coins": 0,
+        "touch": true,
+        "player_x": -23,
+        "player_z": -15.800000190734863
+      }
+    }
+  ]
+}

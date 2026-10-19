@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "scope": "Actual R9 waist portrait alpha only; not a 3D per-object mask measurement",
+  "characters": {
+    "ayuan-waist": {
+      "value_mean": 0.3784000634651223,
+      "near_black": 0.22973809626653996,
+      "saturation_mean": 0.45414174328362295,
+      "low_saturation": 0.030912991519444804,
+      "pass": true
+    },
+    "meiqing-waist": {
+      "value_mean": 0.5288353190104915,
+      "near_black": 0.08907274409874741,
+      "saturation_mean": 0.6333012913495389,
+      "low_saturation": 0.02222012226118012,
+      "pass": true
+    }
+  }
+}

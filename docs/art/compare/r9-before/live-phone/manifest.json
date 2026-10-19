@@ -1,0 +1,2238 @@
+{
+  "status": "VERIFIED",
+  "version": "0.12.0",
+  "base_commit": "95d73c020300b0b6e6767b59828574ed0d5298a4",
+  "environment": "並發載量測，僅供參考",
+  "method": "Unedited screenshots of the actual Godot 4.7 stable Web export; headless Chromium, ANGLE D3D11 hardware WebGL. No compositing, generated substitute or screenshot resizing. These are browser captures, not native iOS device captures.",
+  "chromium_args": [
+    "--use-angle=d3d11",
+    "--enable-gpu",
+    "--ignore-gpu-blocklist",
+    "--force_high_performance_gpu"
+  ],
+  "image_model_slug": null,
+  "pck_sha256": "aacdc4e8411d94adaec242ea1c24ce8140aba9c9d77a62d6342978ad0feeee2a",
+  "views": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "pixels": {
+        "width": 390,
+        "height": 844
+      },
+      "profile": "phone",
+      "logs": [],
+      "blocked_remote_origins": [],
+      "shots": [
+        {
+          "file": "390x844-title.png",
+          "sha256": "ca30e018456625cd578037c828f3e23bd2ff723a0d58bc9cc1cdb1482ff91189",
+          "state": {
+            "phase": "title",
+            "play_started": false,
+            "version": "0.12.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 1,
+            "draw_calls": 147,
+            "frame_fps": 55,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "15:30",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 0,
+            "layout": {
+              "case_gutter_reserved": false,
+              "container_sorts": 5,
+              "panel": [
+                8,
+                158,
+                374,
+                528
+              ],
+              "peak_sorts_per_frame": 0,
+              "resize_calls": 8
+            },
+            "menu": "title",
+            "world_ready": false,
+            "art": {
+              "details": {
+                "case_labels": [],
+                "hour": 15.5,
+                "inspection": false,
+                "photos": [],
+                "seal": {},
+                "touch": []
+              },
+              "hero_feet": [
+                106.381050109863,
+                600.146911621094
+              ],
+              "hero_head": [
+                104.62296295166,
+                380.651824951172
+              ],
+              "hero_height_px": 219.495086669922,
+              "hud_coverage": 0,
+              "mei_feet": [
+                -8222.58203125,
+                -6617.1806640625
+              ],
+              "mei_head": [
+                -5170.515625,
+                11.3098163604736
+              ],
+              "mei_height_px": 6628.49048042297,
+              "seal_visible": false
+            },
+            "notice": "",
+            "objective": "到車店找美晴，點互動交談。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -56,
+            "player_z": 52
+          }
+        },
+        {
+          "file": "390x844-dialogue.png",
+          "sha256": "b0889467a829ddaff2b27f3c52f917f4fc41b3d62c08018618740b895c532ffd",
+          "state": {
+            "phase": "menu",
+            "play_started": true,
+            "version": "0.12.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 1,
+            "draw_calls": 151,
+            "frame_fps": 22,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:15",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 0,
+            "layout": {
+              "case_gutter_reserved": false,
+              "container_sorts": 6,
+              "panel": [
+                8,
+                158,
+                374,
+                528
+              ],
+              "peak_sorts_per_frame": 0,
+              "resize_calls": 8
+            },
+            "menu": "",
+            "world_ready": false,
+            "art": {
+              "details": {
+                "case_labels": [],
+                "hour": 17.25,
+                "inspection": false,
+                "photos": [],
+                "seal": {},
+                "touch": []
+              },
+              "hero_feet": [
+                106.383163452148,
+                600.146545410156
+              ],
+              "hero_head": [
+                104.625091552734,
+                380.651763916016
+              ],
+              "hero_height_px": 219.494781494141,
+              "hud_coverage": 0.227311945558391,
+              "mei_feet": [
+                154.08332824707,
+                486.973999023438
+              ],
+              "mei_head": [
+                153.729263305664,
+                390.263122558594
+              ],
+              "mei_height_px": 96.7108764648438,
+              "seal_visible": false
+            },
+            "notice": "",
+            "objective": "到車店找美晴，點互動交談。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -56,
+            "player_z": 52
+          }
+        },
+        {
+          "file": "390x844-dialogue-meiqing.png",
+          "sha256": "854beb741a1b72dbad8b46a6a4551973cffef70d71b5a473bd0e6afad5b4f955",
+          "state": {
+            "phase": "menu",
+            "play_started": true,
+            "version": "0.12.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 1,
+            "draw_calls": 151,
+            "frame_fps": 60,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:15",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 0,
+            "layout": {
+              "case_gutter_reserved": false,
+              "container_sorts": 6,
+              "panel": [
+                8,
+                158,
+                374,
+                528
+              ],
+              "peak_sorts_per_frame": 0,
+              "resize_calls": 8
+            },
+            "menu": "",
+            "world_ready": false,
+            "art": {
+              "details": {
+                "case_labels": [],
+                "hour": 17.25,
+                "inspection": false,
+                "photos": [],
+                "seal": {},
+                "touch": []
+              },
+              "hero_feet": [
+                106.391105651855,
+                600.146179199219
+              ],
+              "hero_head": [
+                104.63304901123,
+                380.651672363281
+              ],
+              "hero_height_px": 219.494506835938,
+              "hud_coverage": 0.227311945558391,
+              "mei_feet": [
+                154.09114074707,
+                486.973815917969
+              ],
+              "mei_head": [
+                153.737091064453,
+                390.263000488281
+              ],
+              "mei_height_px": 96.7108154296875,
+              "seal_visible": false
+            },
+            "notice": "",
+            "objective": "到車店找美晴，點互動交談。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -56,
+            "player_z": 52
+          }
+        },
+        {
+          "file": "390x844-street.png",
+          "sha256": "67f32fe65bd8e72416a08b7f1a961cfb78e175705c07db1df0b59cb6e55cc3bd",
+          "state": {
+            "phase": "playing",
+            "play_started": true,
+            "version": "0.12.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 0,
+            "draw_calls": 173,
+            "frame_fps": 60,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:25",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 1,
+            "layout": {
+              "case_gutter_reserved": false,
+              "container_sorts": 6,
+              "panel": [
+                8,
+                158,
+                374,
+                528
+              ],
+              "peak_sorts_per_frame": 0,
+              "resize_calls": 8
+            },
+            "menu": "",
+            "world_ready": true,
+            "art": {
+              "details": {
+                "case_labels": [],
+                "hour": 17.4199933333335,
+                "inspection": false,
+                "photos": [],
+                "seal": {},
+                "touch": [
+                  {
+                    "action": "interact",
+                    "text": "互動"
+                  },
+                  {
+                    "action": "mount",
+                    "text": "上下車"
+                  }
+                ]
+              },
+              "hero_feet": [
+                106.408271789551,
+                600.14501953125
+              ],
+              "hero_head": [
+                104.650199890137,
+                380.651306152344
+              ],
+              "hero_height_px": 219.493713378906,
+              "hud_coverage": 0.140302588406854,
+              "mei_feet": [
+                154.06477355957,
+                475.151306152344
+              ],
+              "mei_head": [
+                153.709991455078,
+                378.235046386719
+              ],
+              "mei_height_px": 96.916259765625,
+              "seal_visible": false
+            },
+            "notice": "反詐案卷已開啟｜沿光柱找美晴，靠近後交談",
+            "objective": "到車店找美晴，點互動交談。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -56,
+            "player_z": 52
+          }
+        },
+        {
+          "file": "390x844-evidence.png",
+          "sha256": "f5494171ec925fb89295b113e5ee2fd592515c22903bcf36132a9cc3f7fc462f",
+          "state": {
+            "phase": "menu",
+            "play_started": true,
+            "version": "0.12.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 0,
+            "draw_calls": 165,
+            "frame_fps": 59,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:38",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 2,
+            "layout": {
+              "case_gutter_reserved": true,
+              "container_sorts": 9,
+              "panel": [
+                8,
+                49,
+                374,
+                746
+              ],
+              "peak_sorts_per_frame": 3,
+              "resize_calls": 10
+            },
+            "menu": "case",
+            "world_ready": true,
+            "art": {
+              "details": {
+                "case_labels": [
+                  {
+                    "rect": [
+                      60,
+                      69,
+                      286,
+                      25
+                    ],
+                    "text": "七期留證簿｜案卷 01・出金保證金"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      190,
+                      286,
+                      25
+                    ],
+                    "text": "甲｜客服聲稱「公司專戶」"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      225,
+                      286,
+                      25
+                    ],
+                    "text": "乙｜戶名記載「林○翔（個人）」"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      260,
+                      286,
+                      25
+                    ],
+                    "text": "先選一句要核對的說詞"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      469,
+                      286,
+                      20
+                    ],
+                    "text": "美晴：先比對戶名，別把客服的保證當證據。"
+                  },
+                  {
+                    "rect": [
+                      116,
+                      507,
+                      218,
+                      47
+                    ],
+                    "text": "甲乙留證 2／2\n點按證物放大核對"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      572,
+                      286,
+                      25
+                    ],
+                    "text": "留證 → 核對 → 連結 → 封存"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      607,
+                      286,
+                      20
+                    ],
+                    "text": "全部證物均為虛構；未連接銀行或通訊軟體。"
+                  }
+                ],
+                "hour": 17.6373246666671,
+                "inspection": false,
+                "photos": [
+                  {
+                    "name": "InspectMessage",
+                    "rect": [
+                      60,
+                      104,
+                      139,
+                      76
+                    ]
+                  },
+                  {
+                    "name": "InspectReceipt",
+                    "rect": [
+                      207,
+                      104,
+                      139,
+                      76
+                    ]
+                  }
+                ],
+                "seal": {},
+                "touch": []
+              },
+              "hero_feet": [
+                106.40796661377,
+                600.145080566406
+              ],
+              "hero_head": [
+                104.649887084961,
+                380.651275634766
+              ],
+              "hero_height_px": 219.493804931641,
+              "hud_coverage": 0,
+              "mei_feet": [
+                130.492401123047,
+                556.702514648438
+              ],
+              "mei_head": [
+                129.439300537109,
+                375.442138671875
+              ],
+              "mei_height_px": 181.260375976562,
+              "seal_visible": false
+            },
+            "notice": "反詐案卷已開啟｜沿光柱找美晴，靠近後交談",
+            "objective": "查看車店手機上的失聯訊息與接待站地址。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -52.45560073852539,
+            "player_z": 56.24906539916992
+          }
+        },
+        {
+          "file": "390x844-link.png",
+          "sha256": "c01b406359b20913f0d8019c40a4f3b545e52b8ed32aa8bf660f8ffcd8b81bbd",
+          "state": {
+            "phase": "menu",
+            "play_started": true,
+            "version": "0.12.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 0,
+            "draw_calls": 180,
+            "frame_fps": 60,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:38",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 2,
+            "layout": {
+              "case_gutter_reserved": true,
+              "container_sorts": 22,
+              "panel": [
+                8,
+                49,
+                374,
+                746
+              ],
+              "peak_sorts_per_frame": 3,
+              "resize_calls": 18
+            },
+            "menu": "case",
+            "world_ready": true,
+            "art": {
+              "details": {
+                "case_labels": [
+                  {
+                    "rect": [
+                      60,
+                      69,
+                      286,
+                      25
+                    ],
+                    "text": "七期留證簿｜案卷 01・出金保證金"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      190,
+                      286,
+                      25
+                    ],
+                    "text": "甲｜客服聲稱「公司專戶」"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      225,
+                      286,
+                      25
+                    ],
+                    "text": "乙｜戶名記載「林○翔（個人）」"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      260,
+                      286,
+                      53
+                    ],
+                    "text": "核對說詞：「受款帳戶是恆曜公司專戶」"
+                  },
+                  {
+                    "rect": [
+                      72,
+                      331,
+                      107,
+                      51
+                    ],
+                    "text": "選取證據\n公司專戶"
+                  },
+                  {
+                    "rect": [
+                      227,
+                      331,
+                      107,
+                      51
+                    ],
+                    "text": "矛盾結論\n個人戶名"
+                  },
+                  {
+                    "rect": [
+                      116,
+                      582,
+                      218,
+                      47
+                    ],
+                    "text": "甲乙留證 2／2\n點按證物放大核對"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      647,
+                      286,
+                      25
+                    ],
+                    "text": "留證 → 核對 → 連結 → 封存"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      682,
+                      286,
+                      20
+                    ],
+                    "text": "全部證物均為虛構；未連接銀行或通訊軟體。"
+                  }
+                ],
+                "hour": 17.6383246666671,
+                "inspection": false,
+                "photos": [
+                  {
+                    "name": "InspectMessage",
+                    "rect": [
+                      60,
+                      104,
+                      139,
+                      76
+                    ]
+                  },
+                  {
+                    "name": "InspectReceipt",
+                    "rect": [
+                      207,
+                      104,
+                      139,
+                      76
+                    ]
+                  }
+                ],
+                "seal": {},
+                "touch": []
+              },
+              "hero_feet": [
+                106.40796661377,
+                600.145080566406
+              ],
+              "hero_head": [
+                104.649887084961,
+                380.651275634766
+              ],
+              "hero_height_px": 219.493804931641,
+              "hud_coverage": 0,
+              "mei_feet": [
+                130.492401123047,
+                556.702514648438
+              ],
+              "mei_head": [
+                129.439300537109,
+                375.442138671875
+              ],
+              "mei_height_px": 181.260375976562,
+              "seal_visible": false
+            },
+            "notice": "反詐案卷已開啟｜沿光柱找美晴，靠近後交談",
+            "objective": "查看車店手機上的失聯訊息與接待站地址。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -52.45560073852539,
+            "player_z": 56.24906539916992
+          }
+        },
+        {
+          "file": "390x844-sealed.png",
+          "sha256": "b1811b8d904ea4f552fefc763bc48e178be7c01164f1deb296a16d00f384fd5a",
+          "state": {
+            "phase": "menu",
+            "play_started": true,
+            "version": "0.12.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 0,
+            "draw_calls": 158,
+            "frame_fps": 60,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:38",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 4,
+            "layout": {
+              "case_gutter_reserved": true,
+              "container_sorts": 28,
+              "panel": [
+                8,
+                49,
+                374,
+                746
+              ],
+              "peak_sorts_per_frame": 3,
+              "resize_calls": 22
+            },
+            "menu": "case",
+            "world_ready": true,
+            "art": {
+              "details": {
+                "case_labels": [
+                  {
+                    "rect": [
+                      60,
+                      69,
+                      286,
+                      25
+                    ],
+                    "text": "七期留證簿｜案卷 01・出金保證金"
+                  },
+                  {
+                    "rect": [
+                      72,
+                      260,
+                      262,
+                      22
+                    ],
+                    "text": "案卷 01・已封存"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      294,
+                      286,
+                      25
+                    ],
+                    "text": "已封存｜公司專戶 ←→ 個人戶名"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      329,
+                      286,
+                      137
+                    ],
+                    "text": "客服聲稱收款的是公司專戶，收據卻列個人戶名。這份矛盾足以質疑說詞，不能證明收款人就是幕後主嫌。先停止轉帳，保存對話與收據，再尋求協助。"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      476,
+                      286,
+                      25
+                    ],
+                    "text": "證物甲乙已封存，可隨時重讀。"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      511,
+                      286,
+                      53
+                    ],
+                    "text": "核對完成 4／4・返回即可接續街區主線"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      632,
+                      286,
+                      20
+                    ],
+                    "text": "案卷已封存｜可從暫停的「反詐案卷」重讀。"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      662,
+                      286,
+                      20
+                    ],
+                    "text": "全部證物均為虛構；未連接銀行或通訊軟體。"
+                  }
+                ],
+                "hour": 17.6383246666671,
+                "inspection": false,
+                "photos": [],
+                "seal": {
+                  "applicator": false,
+                  "paper_rotation": 0,
+                  "scale": 1,
+                  "tape_alpha": 1
+                },
+                "touch": []
+              },
+              "hero_feet": [
+                106.40796661377,
+                600.145080566406
+              ],
+              "hero_head": [
+                104.649887084961,
+                380.651275634766
+              ],
+              "hero_height_px": 219.493804931641,
+              "hud_coverage": 0,
+              "mei_feet": [
+                130.492401123047,
+                556.702514648438
+              ],
+              "mei_head": [
+                129.439300537109,
+                375.442138671875
+              ],
+              "mei_height_px": 181.260375976562,
+              "seal_visible": true
+            },
+            "notice": "反詐案卷已開啟｜沿光柱找美晴，靠近後交談",
+            "objective": "查看車店手機上的失聯訊息與接待站地址。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -52.45560073852539,
+            "player_z": 56.24906539916992
+          }
+        }
+      ],
+      "reopen_checks": [
+        {
+          "resize": 2,
+          "sorts": 3,
+          "stable": true
+        },
+        {
+          "resize": 2,
+          "sorts": 3,
+          "stable": true
+        },
+        {
+          "resize": 2,
+          "sorts": 4,
+          "stable": true
+        }
+      ],
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844
+      },
+      "game_renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 2060 (0x00001F03) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "last_layout": {
+        "case_gutter_reserved": true,
+        "container_sorts": 28,
+        "panel": [
+          8,
+          49,
+          374,
+          746
+        ],
+        "peak_sorts_per_frame": 3,
+        "resize_calls": 22
+      },
+      "frame_pacing": {
+        "method": "browser requestAnimationFrame presentation intervals, not native GPU timer; concurrent host load",
+        "runs": [
+          {
+            "p50": 16.69999999999709,
+            "p95": 16.799999999995634,
+            "max": 16.80000000000291,
+            "frames": 180
+          },
+          {
+            "p50": 16.69999999999709,
+            "p95": 16.700000000004366,
+            "max": 16.80000000000291,
+            "frames": 180
+          },
+          {
+            "p50": 16.69999999999709,
+            "p95": 16.700000000004366,
+            "max": 16.80000000000291,
+            "frames": 180
+          }
+        ],
+        "p95_median": 16.700000000004366
+      },
+      "inspections": [
+        {
+          "file": "390x844-message-inspection.png",
+          "sha256": "21d7b7d07a181d411653cd44c0c02a0215618874b7c46c3f12f76d42a7ef7863",
+          "state": {
+            "phase": "menu",
+            "play_started": true,
+            "version": "0.12.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 0,
+            "draw_calls": 183,
+            "frame_fps": 60,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:38",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 2,
+            "layout": {
+              "case_gutter_reserved": true,
+              "container_sorts": 9,
+              "panel": [
+                8,
+                49,
+                374,
+                746
+              ],
+              "peak_sorts_per_frame": 3,
+              "resize_calls": 10
+            },
+            "menu": "case",
+            "world_ready": true,
+            "art": {
+              "details": {
+                "case_labels": [
+                  {
+                    "rect": [
+                      60,
+                      69,
+                      286,
+                      25
+                    ],
+                    "text": "七期留證簿｜案卷 01・出金保證金"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      190,
+                      286,
+                      25
+                    ],
+                    "text": "甲｜客服聲稱「公司專戶」"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      225,
+                      286,
+                      25
+                    ],
+                    "text": "乙｜戶名記載「林○翔（個人）」"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      260,
+                      286,
+                      25
+                    ],
+                    "text": "先選一句要核對的說詞"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      469,
+                      286,
+                      20
+                    ],
+                    "text": "美晴：先比對戶名，別把客服的保證當證據。"
+                  },
+                  {
+                    "rect": [
+                      116,
+                      507,
+                      218,
+                      47
+                    ],
+                    "text": "甲乙留證 2／2\n點按證物放大核對"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      572,
+                      286,
+                      25
+                    ],
+                    "text": "留證 → 核對 → 連結 → 封存"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      607,
+                      286,
+                      20
+                    ],
+                    "text": "全部證物均為虛構；未連接銀行或通訊軟體。"
+                  }
+                ],
+                "hour": 17.6373246666671,
+                "inspection": {
+                  "close": [
+                    105,
+                    776,
+                    180,
+                    52
+                  ],
+                  "labels": [
+                    {
+                      "rect": [
+                        38,
+                        122,
+                        314,
+                        35
+                      ],
+                      "text": "證物甲・客服訊息"
+                    },
+                    {
+                      "rect": [
+                        38,
+                        169,
+                        314,
+                        20
+                      ],
+                      "text": "離線留存｜虛構證物・上週五"
+                    },
+                    {
+                      "rect": [
+                        54,
+                        217,
+                        282,
+                        29
+                      ],
+                      "text": "恆曜客服｜線上對話留存"
+                    },
+                    {
+                      "rect": [
+                        54,
+                        258,
+                        282,
+                        20
+                      ],
+                      "text": "上週五・客服傳送"
+                    },
+                    {
+                      "rect": [
+                        54,
+                        306,
+                        282,
+                        22
+                      ],
+                      "text": "客服說詞"
+                    },
+                    {
+                      "rect": [
+                        63,
+                        347,
+                        144,
+                        35
+                      ],
+                      "text": "恆曜公司專戶"
+                    },
+                    {
+                      "rect": [
+                        70,
+                        417,
+                        250,
+                        63
+                      ],
+                      "text": "先補繳四萬八千元「解凍保證金」，才能出金。"
+                    },
+                    {
+                      "rect": [
+                        54,
+                        508,
+                        282,
+                        20
+                      ],
+                      "text": "客服訊息・已留存"
+                    },
+                    {
+                      "rect": [
+                        38,
+                        556,
+                        314,
+                        51
+                      ],
+                      "text": "保存說詞，再與轉帳收據核對；不要繼續付款。"
+                    }
+                  ],
+                  "marks": [
+                    {
+                      "circled": false,
+                      "rect": [
+                        54,
+                        340,
+                        162,
+                        49
+                      ],
+                      "text": "恆曜公司專戶"
+                    }
+                  ],
+                  "paper": [
+                    16,
+                    100,
+                    358,
+                    560
+                  ],
+                  "receipt": false
+                },
+                "photos": [
+                  {
+                    "name": "InspectMessage",
+                    "rect": [
+                      60,
+                      104,
+                      139,
+                      76
+                    ]
+                  },
+                  {
+                    "name": "InspectReceipt",
+                    "rect": [
+                      207,
+                      104,
+                      139,
+                      76
+                    ]
+                  }
+                ],
+                "seal": {},
+                "touch": []
+              },
+              "hero_feet": [
+                106.40796661377,
+                600.145080566406
+              ],
+              "hero_head": [
+                104.649887084961,
+                380.651275634766
+              ],
+              "hero_height_px": 219.493804931641,
+              "hud_coverage": 0,
+              "mei_feet": [
+                130.492401123047,
+                556.702514648438
+              ],
+              "mei_head": [
+                129.439300537109,
+                375.442138671875
+              ],
+              "mei_height_px": 181.260375976562,
+              "seal_visible": false
+            },
+            "notice": "反詐案卷已開啟｜沿光柱找美晴，靠近後交談",
+            "objective": "查看車店手機上的失聯訊息與接待站地址。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -52.45560073852539,
+            "player_z": 56.24906539916992
+          }
+        },
+        {
+          "file": "390x844-receipt-inspection.png",
+          "sha256": "8afb2988dd01ff0d99b1a1a5b137eb891e1bfd7fcdd8698c3cc230be6115152b",
+          "state": {
+            "phase": "menu",
+            "play_started": true,
+            "version": "0.12.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 0,
+            "draw_calls": 189,
+            "frame_fps": 60,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:38",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 2,
+            "layout": {
+              "case_gutter_reserved": true,
+              "container_sorts": 9,
+              "panel": [
+                8,
+                49,
+                374,
+                746
+              ],
+              "peak_sorts_per_frame": 3,
+              "resize_calls": 10
+            },
+            "menu": "case",
+            "world_ready": true,
+            "art": {
+              "details": {
+                "case_labels": [
+                  {
+                    "rect": [
+                      60,
+                      69,
+                      286,
+                      25
+                    ],
+                    "text": "七期留證簿｜案卷 01・出金保證金"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      190,
+                      286,
+                      25
+                    ],
+                    "text": "甲｜客服聲稱「公司專戶」"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      225,
+                      286,
+                      25
+                    ],
+                    "text": "乙｜戶名記載「林○翔（個人）」"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      260,
+                      286,
+                      25
+                    ],
+                    "text": "先選一句要核對的說詞"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      469,
+                      286,
+                      20
+                    ],
+                    "text": "美晴：先比對戶名，別把客服的保證當證據。"
+                  },
+                  {
+                    "rect": [
+                      116,
+                      507,
+                      218,
+                      47
+                    ],
+                    "text": "甲乙留證 2／2\n點按證物放大核對"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      572,
+                      286,
+                      25
+                    ],
+                    "text": "留證 → 核對 → 連結 → 封存"
+                  },
+                  {
+                    "rect": [
+                      60,
+                      607,
+                      286,
+                      20
+                    ],
+                    "text": "全部證物均為虛構；未連接銀行或通訊軟體。"
+                  }
+                ],
+                "hour": 17.6373246666671,
+                "inspection": {
+                  "close": [
+                    105,
+                    776,
+                    180,
+                    52
+                  ],
+                  "labels": [
+                    {
+                      "rect": [
+                        38,
+                        82,
+                        314,
+                        35
+                      ],
+                      "text": "證物乙・轉帳收據"
+                    },
+                    {
+                      "rect": [
+                        38,
+                        129,
+                        314,
+                        20
+                      ],
+                      "text": "離線留存｜虛構證物・上週五"
+                    },
+                    {
+                      "rect": [
+                        54,
+                        177,
+                        282,
+                        29
+                      ],
+                      "text": "轉帳交易明細"
+                    },
+                    {
+                      "rect": [
+                        54,
+                        218,
+                        282,
+                        20
+                      ],
+                      "text": "留存編號 SD-01-B｜轉帳紀錄"
+                    },
+                    {
+                      "rect": [
+                        54,
+                        266,
+                        282,
+                        22
+                      ],
+                      "text": "受款戶名"
+                    },
+                    {
+                      "rect": [
+                        63,
+                        307,
+                        168,
+                        35
+                      ],
+                      "text": "林○翔（個人）"
+                    },
+                    {
+                      "rect": [
+                        54,
+                        365,
+                        282,
+                        22
+                      ],
+                      "text": "轉帳時間"
+                    },
+                    {
+                      "rect": [
+                        63,
+                        406,
+                        155,
+                        35
+                      ],
+                      "text": "上週五 14：32"
+                    },
+                    {
+                      "rect": [
+                        54,
+                        464,
+                        282,
+                        22
+                      ],
+                      "text": "轉帳金額"
+                    },
+                    {
+                      "rect": [
+                        63,
+                        505,
+                        120,
+                        35
+                      ],
+                      "text": "三十八萬元"
+                    },
+                    {
+                      "rect": [
+                        38,
+                        575,
+                        314,
+                        51
+                      ],
+                      "text": "紅圈：收據記載個人戶名。\n黃線：時間與金額僅作留證。"
+                    }
+                  ],
+                  "marks": [
+                    {
+                      "circled": true,
+                      "rect": [
+                        54,
+                        300,
+                        186,
+                        49
+                      ],
+                      "text": "林○翔（個人）"
+                    },
+                    {
+                      "circled": false,
+                      "rect": [
+                        54,
+                        399,
+                        173,
+                        49
+                      ],
+                      "text": "上週五 14：32"
+                    },
+                    {
+                      "circled": false,
+                      "rect": [
+                        54,
+                        498,
+                        138,
+                        49
+                      ],
+                      "text": "三十八萬元"
+                    }
+                  ],
+                  "paper": [
+                    16,
+                    60,
+                    358,
+                    640
+                  ],
+                  "receipt": true
+                },
+                "photos": [
+                  {
+                    "name": "InspectMessage",
+                    "rect": [
+                      60,
+                      104,
+                      139,
+                      76
+                    ]
+                  },
+                  {
+                    "name": "InspectReceipt",
+                    "rect": [
+                      207,
+                      104,
+                      139,
+                      76
+                    ]
+                  }
+                ],
+                "seal": {},
+                "touch": []
+              },
+              "hero_feet": [
+                106.40796661377,
+                600.145080566406
+              ],
+              "hero_head": [
+                104.649887084961,
+                380.651275634766
+              ],
+              "hero_height_px": 219.493804931641,
+              "hud_coverage": 0,
+              "mei_feet": [
+                130.492401123047,
+                556.702514648438
+              ],
+              "mei_head": [
+                129.439300537109,
+                375.442138671875
+              ],
+              "mei_height_px": 181.260375976562,
+              "seal_visible": false
+            },
+            "notice": "反詐案卷已開啟｜沿光柱找美晴，靠近後交談",
+            "objective": "查看車店手機上的失聯訊息與接待站地址。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -52.45560073852539,
+            "player_z": 56.24906539916992
+          }
+        }
+      ],
+      "witness_open_delta": {
+        "resize": 2,
+        "sorts": 3
+      },
+      "seal_screencast": [
+        {
+          "file": "390x844-stamp-frame-000.png",
+          "timestamp": 1792300837.7665,
+          "seal": {},
+          "sha256": "126ed98809cb805d5bff0751b276626478647e059b1947f4c514161b6aacafd0",
+          "method": "Full requested viewport PNG via Playwright page.screenshot, animations allowed."
+        },
+        {
+          "file": "390x844-stamp-frame-001.png",
+          "timestamp": 1792300837.8835,
+          "seal": {},
+          "sha256": "a030b24a273b2b36ab4992fe046465976dc8faa2a24c5b650a1351d97fb71db3",
+          "method": "Full requested viewport PNG via Playwright page.screenshot, animations allowed."
+        },
+        {
+          "file": "390x844-stamp-frame-002.png",
+          "timestamp": 1792300837.9825,
+          "seal": {},
+          "sha256": "bba32f68f37101c6ad7d5283ca8c07b330c090a6cea74f70f0442975ca1b15de",
+          "method": "Full requested viewport PNG via Playwright page.screenshot, animations allowed."
+        },
+        {
+          "file": "390x844-stamp-frame-003.png",
+          "timestamp": 1792300838.0675,
+          "seal": {},
+          "sha256": "0c015344ea53836f5580dd9a27f2978863219de155c72c492ce667fd406e911e",
+          "method": "Full requested viewport PNG via Playwright page.screenshot, animations allowed."
+        },
+        {
+          "file": "390x844-stamp-frame-004.png",
+          "timestamp": 1792300838.154,
+          "seal": {
+            "applicator": true,
+            "paper_rotation": 0,
+            "scale": 1,
+            "tape_alpha": 0.119443707168102
+          },
+          "sha256": "04cb264ce68d3808d0b2c39453472f2b4c4b404f55cf9f8b11ec36ff01af8caf",
+          "method": "Full requested viewport PNG via Playwright page.screenshot, animations allowed."
+        },
+        {
+          "file": "390x844-stamp-frame-005.png",
+          "timestamp": 1792300838.247,
+          "seal": {
+            "applicator": true,
+            "paper_rotation": 0,
+            "scale": 1,
+            "tape_alpha": 0.119443707168102
+          },
+          "sha256": "3df728784a53a0e91a800b7965970e89f267aa9c7a1dc2694712cc0b3f107160",
+          "method": "Full requested viewport PNG via Playwright page.screenshot, animations allowed."
+        },
+        {
+          "file": "390x844-stamp-frame-006.png",
+          "timestamp": 1792300838.344,
+          "seal": {
+            "applicator": true,
+            "paper_rotation": 0,
+            "scale": 1,
+            "tape_alpha": 0.119443707168102
+          },
+          "sha256": "b1811b8d904ea4f552fefc763bc48e178be7c01164f1deb296a16d00f384fd5a",
+          "method": "Full requested viewport PNG via Playwright page.screenshot, animations allowed."
+        },
+        {
+          "file": "390x844-stamp-frame-007.png",
+          "timestamp": 1792300838.432,
+          "seal": {
+            "applicator": true,
+            "paper_rotation": 0,
+            "scale": 1,
+            "tape_alpha": 0.119443707168102
+          },
+          "sha256": "b1811b8d904ea4f552fefc763bc48e178be7c01164f1deb296a16d00f384fd5a",
+          "method": "Full requested viewport PNG via Playwright page.screenshot, animations allowed."
+        },
+        {
+          "file": "390x844-stamp-frame-008.png",
+          "timestamp": 1792300838.5175,
+          "seal": {
+            "applicator": false,
+            "paper_rotation": 0,
+            "scale": 1,
+            "tape_alpha": 1
+          },
+          "sha256": "b1811b8d904ea4f552fefc763bc48e178be7c01164f1deb296a16d00f384fd5a",
+          "method": "Full requested viewport PNG via Playwright page.screenshot, animations allowed."
+        },
+        {
+          "file": "390x844-stamp-frame-009.png",
+          "timestamp": 1792300838.6085,
+          "seal": {
+            "applicator": false,
+            "paper_rotation": 0,
+            "scale": 1,
+            "tape_alpha": 1
+          },
+          "sha256": "b1811b8d904ea4f552fefc763bc48e178be7c01164f1deb296a16d00f384fd5a",
+          "method": "Full requested viewport PNG via Playwright page.screenshot, animations allowed."
+        },
+        {
+          "file": "390x844-stamp-frame-010.png",
+          "timestamp": 1792300838.6985,
+          "seal": {
+            "applicator": false,
+            "paper_rotation": 0,
+            "scale": 1,
+            "tape_alpha": 1
+          },
+          "sha256": "b1811b8d904ea4f552fefc763bc48e178be7c01164f1deb296a16d00f384fd5a",
+          "method": "Full requested viewport PNG via Playwright page.screenshot, animations allowed."
+        },
+        {
+          "file": "390x844-stamp-frame-011.png",
+          "timestamp": 1792300838.785,
+          "seal": {
+            "applicator": false,
+            "paper_rotation": 0,
+            "scale": 1,
+            "tape_alpha": 1
+          },
+          "sha256": "b1811b8d904ea4f552fefc763bc48e178be7c01164f1deb296a16d00f384fd5a",
+          "method": "Full requested viewport PNG via Playwright page.screenshot, animations allowed."
+        }
+      ],
+      "seal_animation": [
+        {
+          "file": "390x844-seal-sequence-1.png",
+          "sha256": "126ed98809cb805d5bff0751b276626478647e059b1947f4c514161b6aacafd0",
+          "source_index": 0,
+          "timestamp": 1792300837.7665,
+          "elapsed_seconds": 0.05949997901916504,
+          "method": "Unedited full-viewport PNG; ordered samples from the retained screenshot sequence."
+        },
+        {
+          "file": "390x844-seal-sequence-2.png",
+          "sha256": "bba32f68f37101c6ad7d5283ca8c07b330c090a6cea74f70f0442975ca1b15de",
+          "source_index": 2,
+          "timestamp": 1792300837.9825,
+          "elapsed_seconds": 0.2755000591278076,
+          "method": "Unedited full-viewport PNG; ordered samples from the retained screenshot sequence."
+        },
+        {
+          "file": "390x844-seal-sequence-3.png",
+          "sha256": "3df728784a53a0e91a800b7965970e89f267aa9c7a1dc2694712cc0b3f107160",
+          "source_index": 5,
+          "timestamp": 1792300838.247,
+          "elapsed_seconds": 0.5399999618530273,
+          "method": "Unedited full-viewport PNG; ordered samples from the retained screenshot sequence."
+        }
+      ],
+      "final_state": {
+        "phase": "menu",
+        "play_started": true,
+        "version": "0.12.0",
+        "device_profile": "phone",
+        "requested_profile": "phone",
+        "resolution_scale": 0.699999988079071,
+        "camera_distance": 240,
+        "touch_controls": true,
+        "visible_citizens": 3,
+        "visible_traffic": 0,
+        "draw_calls": 158,
+        "frame_fps": 60,
+        "life_title": "台灣街區生活",
+        "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+        "life_cash": 0,
+        "cargo_count": 0,
+        "culture_activity": "",
+        "culture_badges": 0,
+        "stamina": 100,
+        "max_stamina": 100,
+        "credits": 120,
+        "rank": "初到街區",
+        "time": "17:38",
+        "navigation": "任務導引",
+        "main_title": "第 1 環｜賠掉的存款",
+        "revisit": "",
+        "notebook_pages": 0,
+        "case_stage": 4,
+        "layout": {
+          "case_gutter_reserved": true,
+          "container_sorts": 28,
+          "panel": [
+            8,
+            49,
+            374,
+            746
+          ],
+          "peak_sorts_per_frame": 3,
+          "resize_calls": 22
+        },
+        "menu": "case",
+        "world_ready": true,
+        "art": {
+          "details": {
+            "case_labels": [
+              {
+                "rect": [
+                  60,
+                  69,
+                  286,
+                  25
+                ],
+                "text": "七期留證簿｜案卷 01・出金保證金"
+              },
+              {
+                "rect": [
+                  72,
+                  260,
+                  262,
+                  22
+                ],
+                "text": "案卷 01・已封存"
+              },
+              {
+                "rect": [
+                  60,
+                  294,
+                  286,
+                  25
+                ],
+                "text": "已封存｜公司專戶 ←→ 個人戶名"
+              },
+              {
+                "rect": [
+                  60,
+                  329,
+                  286,
+                  137
+                ],
+                "text": "客服聲稱收款的是公司專戶，收據卻列個人戶名。這份矛盾足以質疑說詞，不能證明收款人就是幕後主嫌。先停止轉帳，保存對話與收據，再尋求協助。"
+              },
+              {
+                "rect": [
+                  60,
+                  476,
+                  286,
+                  25
+                ],
+                "text": "證物甲乙已封存，可隨時重讀。"
+              },
+              {
+                "rect": [
+                  60,
+                  511,
+                  286,
+                  53
+                ],
+                "text": "核對完成 4／4・返回即可接續街區主線"
+              },
+              {
+                "rect": [
+                  60,
+                  632,
+                  286,
+                  20
+                ],
+                "text": "案卷已封存｜可從暫停的「反詐案卷」重讀。"
+              },
+              {
+                "rect": [
+                  60,
+                  662,
+                  286,
+                  20
+                ],
+                "text": "全部證物均為虛構；未連接銀行或通訊軟體。"
+              }
+            ],
+            "hour": 17.6383246666671,
+            "inspection": false,
+            "photos": [],
+            "seal": {
+              "applicator": false,
+              "paper_rotation": 0,
+              "scale": 1,
+              "tape_alpha": 1
+            },
+            "touch": []
+          },
+          "hero_feet": [
+            106.40796661377,
+            600.145080566406
+          ],
+          "hero_head": [
+            104.649887084961,
+            380.651275634766
+          ],
+          "hero_height_px": 219.493804931641,
+          "hud_coverage": 0,
+          "mei_feet": [
+            130.492401123047,
+            556.702514648438
+          ],
+          "mei_head": [
+            129.439300537109,
+            375.442138671875
+          ],
+          "mei_height_px": 181.260375976562,
+          "seal_visible": true
+        },
+        "notice": "反詐案卷已開啟｜沿光柱找美晴，靠近後交談",
+        "objective": "查看車店手機上的失聯訊息與接待站地址。",
+        "optional_title": "街坊委託",
+        "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+        "completed_sides": 0,
+        "completed_activities": 0,
+        "coins": 0,
+        "touch": true,
+        "player_x": -52.45560073852539,
+        "player_z": 56.24906539916992
+      },
+      "street_angles": [
+        {
+          "file": "390x844-street-angle-1.png",
+          "relative_yaw_radians": 1.5,
+          "sha256": "5c67960bc7f78a5cbb43c9ebaf0ce178d4b31c8357e4d2695765b2707b6b87ea",
+          "state": {
+            "phase": "playing",
+            "play_started": true,
+            "version": "0.12.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 0,
+            "draw_calls": 170,
+            "frame_fps": 56,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:39",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 4,
+            "layout": {
+              "case_gutter_reserved": true,
+              "container_sorts": 29,
+              "panel": [
+                8,
+                49,
+                374,
+                746
+              ],
+              "peak_sorts_per_frame": 3,
+              "resize_calls": 22
+            },
+            "menu": "",
+            "world_ready": true,
+            "art": {
+              "details": {
+                "case_labels": [],
+                "hour": 17.6511552266671,
+                "inspection": false,
+                "photos": [],
+                "seal": {
+                  "applicator": false,
+                  "paper_rotation": 0,
+                  "scale": 1,
+                  "tape_alpha": 1
+                },
+                "touch": [
+                  {
+                    "action": "interact",
+                    "text": "交談"
+                  },
+                  {
+                    "action": "mount",
+                    "text": "上下車"
+                  }
+                ]
+              },
+              "hero_feet": [
+                106.407775878906,
+                600.144775390625
+              ],
+              "hero_head": [
+                104.649696350098,
+                380.651397705078
+              ],
+              "hero_height_px": 219.493377685547,
+              "hud_coverage": 0.190332968768988,
+              "mei_feet": [
+                214.538497924805,
+                586.436157226562
+              ],
+              "mei_head": [
+                214.912002563477,
+                374.406799316406
+              ],
+              "mei_height_px": 212.029357910156,
+              "seal_visible": false
+            },
+            "notice": "反詐案卷已開啟｜沿光柱找美晴，靠近後交談",
+            "objective": "查看車店手機上的失聯訊息與接待站地址。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -52.45560073852539,
+            "player_z": 56.24906539916992
+          }
+        },
+        {
+          "file": "390x844-street-angle-2.png",
+          "relative_yaw_radians": 3,
+          "sha256": "58fc910fe229f47c26e8a5f862777f535f8792679e28c36084e9573ed55b3e10",
+          "state": {
+            "phase": "playing",
+            "play_started": true,
+            "version": "0.12.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 0,
+            "draw_calls": 194,
+            "frame_fps": 56,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:39",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 4,
+            "layout": {
+              "case_gutter_reserved": true,
+              "container_sorts": 29,
+              "panel": [
+                8,
+                49,
+                374,
+                746
+              ],
+              "peak_sorts_per_frame": 3,
+              "resize_calls": 22
+            },
+            "menu": "",
+            "world_ready": true,
+            "art": {
+              "details": {
+                "case_labels": [],
+                "hour": 17.6657589200004,
+                "inspection": false,
+                "photos": [],
+                "seal": {
+                  "applicator": false,
+                  "paper_rotation": 0,
+                  "scale": 1,
+                  "tape_alpha": 1
+                },
+                "touch": [
+                  {
+                    "action": "interact",
+                    "text": "交談"
+                  },
+                  {
+                    "action": "mount",
+                    "text": "上下車"
+                  }
+                ]
+              },
+              "hero_feet": [
+                106.407783508301,
+                600.145202636719
+              ],
+              "hero_head": [
+                104.649703979492,
+                380.651245117188
+              ],
+              "hero_height_px": 219.493957519531,
+              "hud_coverage": 0.190332968768988,
+              "mei_feet": [
+                90.9497451782227,
+                623.197570800781
+              ],
+              "mei_head": [
+                88.5923919677734,
+                373.118988037109
+              ],
+              "mei_height_px": 250.078582763672,
+              "seal_visible": false
+            },
+            "notice": "反詐案卷已開啟｜沿光柱找美晴，靠近後交談",
+            "objective": "查看車店手機上的失聯訊息與接待站地址。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -52.45560073852539,
+            "player_z": 56.24906539916992
+          }
+        },
+        {
+          "file": "390x844-street-angle-3.png",
+          "relative_yaw_radians": 4.5,
+          "sha256": "576a1d32dd90971ca81714d14522ca93beb1da02746e404a4a4c5736e2aa5550",
+          "state": {
+            "phase": "playing",
+            "play_started": true,
+            "version": "0.12.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 0,
+            "draw_calls": 171,
+            "frame_fps": 60,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:41",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 4,
+            "layout": {
+              "case_gutter_reserved": true,
+              "container_sorts": 29,
+              "panel": [
+                8,
+                49,
+                374,
+                746
+              ],
+              "peak_sorts_per_frame": 3,
+              "resize_calls": 22
+            },
+            "menu": "",
+            "world_ready": true,
+            "art": {
+              "details": {
+                "case_labels": [],
+                "hour": 17.6870902533338,
+                "inspection": false,
+                "photos": [],
+                "seal": {
+                  "applicator": false,
+                  "paper_rotation": 0,
+                  "scale": 1,
+                  "tape_alpha": 1
+                },
+                "touch": [
+                  {
+                    "action": "interact",
+                    "text": "交談"
+                  },
+                  {
+                    "action": "mount",
+                    "text": "上下車"
+                  }
+                ]
+              },
+              "hero_feet": [
+                106.407066345215,
+                600.144958496094
+              ],
+              "hero_head": [
+                104.648979187012,
+                380.651245117188
+              ],
+              "hero_height_px": 219.493713378906,
+              "hud_coverage": 0.190332968768988,
+              "mei_feet": [
+                -4.24638223648071,
+                587.24267578125
+              ],
+              "mei_head": [
+                -8.07585048675537,
+                374.378997802734
+              ],
+              "mei_height_px": 212.863677978516,
+              "seal_visible": false
+            },
+            "notice": "反詐案卷已開啟｜沿光柱找美晴，靠近後交談",
+            "objective": "查看車店手機上的失聯訊息與接待站地址。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -52.45560073852539,
+            "player_z": 56.24906539916992
+          }
+        }
+      ]
+    }
+  ],
+  "failures": [],
+  "chromium_version": "149.0.7827.55"
+}

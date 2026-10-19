@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "masks": [
+    {
+      "path": "assets/art/r5/archive-seal-mask.png",
+      "sha256": "4e2c395f25448f3911592add29fc4049cd6c267885a9f2f17d4ed8ea2bd4eebf",
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "assets/art/r5/toolbar-atlas-mask.png",
+      "sha256": "37c4ed0a3f7249ef42231fa366293b1556090ed3ecdbdef6fe30d92c1764abf9",
+      "size": [
+        1536,
+        1024
+      ]
+    }
+  ]
+}

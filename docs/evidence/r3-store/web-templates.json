@@ -1,0 +1,15 @@
+{
+  "status": "VERIFIED",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "method": "Read installed TPZ, extract only Web templates inside owned ignored audit directory; temporary candidate preset override only; no global installation or source change",
+  "templates": [
+    {
+      "name": "web_nothreads_debug.zip",
+      "sha256": "08962aefef811b603541d7951ac67ef00413aad2d978855183c28adee98f626a"
+    },
+    {
+      "name": "web_nothreads_release.zip",
+      "sha256": "d3ee2f08cef0cf3cf6678a6355a92a8db48ccdd35cbd2e8bfd5f0e8a0b4032a0"
+    }
+  ]
+}

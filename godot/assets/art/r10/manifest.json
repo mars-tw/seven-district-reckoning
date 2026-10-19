@@ -1,0 +1,31 @@
+{
+  "status": "VERIFIED",
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "model_note": "Actual tool did not expose model slug; do not infer a specific gpt-image model.",
+  "original_tool_sha256": "2e6a6f242a33dddc4bfd50f851b40bf17ae4a365001fac17b400aacf1d8ddf69",
+  "license": "AI-generated original project artwork; retained third-party licenses unchanged",
+  "postprocess": "Preserve opaque RGB master as lossless WebP; runtime LANCZOS resize 768 square, WebP quality86; diffuse only, no invented normal/ORM. No cutout required.",
+  "outputs": [
+    {
+      "path": "assets/art/r10/forecourt-asphalt-master.webp",
+      "sha256": "4d10d20bb3d8a6891b33ce4f78e2c515943446feb235d944aa9f36dc434205ac",
+      "bytes": 2475204,
+      "pixels": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "godot/assets/art/r10/forecourt-asphalt.webp",
+      "sha256": "b8f130a1ce8ab10e51c8eb0839a399bf19c659f637a8fe4fb59d7094584cd619",
+      "bytes": 201740,
+      "pixels": [
+        768,
+        768
+      ],
+      "mode": "RGB"
+    }
+  ]
+}

@@ -35,6 +35,8 @@ var _view_distance := 440.0
 var _prop_distance := 180.0
 var _world_shadows := false
 var _hour := 12.0
+var _applied_night := -1
+var _applied_night_count := -1
 var citizens: Array[Dictionary] = []
 var traffic: Array[Dictionary] = []
 var clock := 0.0
@@ -163,6 +165,9 @@ func set_hour(hour: float) -> void:
 	if not is_finite(hour): return
 	_hour = fposmod(hour,24.0)
 	var night := _hour >= 17.5 or _hour < 6.0
+	if _applied_night == int(night) and _applied_night_count == _night_materials.size(): return
+	_applied_night = int(night)
+	_applied_night_count = _night_materials.size()
 	for material: StandardMaterial3D in _night_materials:
 		if _startup_progress != null and not await _startup_progress.checkpoint(): return
 		material.emission_enabled = night

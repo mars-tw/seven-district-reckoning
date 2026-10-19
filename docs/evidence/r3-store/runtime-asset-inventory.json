@@ -1,0 +1,1967 @@
+[
+  {
+    "path": "godot/_checks/v04_rendered_capture.gd",
+    "bytes": 4128,
+    "sha256": "ccd50e30fbb13b8752c351ee691f87b0e2a8d1687041a31730ccc9efb25f322b"
+  },
+  {
+    "path": "godot/_checks/native-touch/probe.gd",
+    "bytes": 2531,
+    "sha256": "db337a18aa917efc97a8c493c44a5cfac0de4b6f1f955d88f6c0ea1e58d22b24"
+  },
+  {
+    "path": "godot/assets/icon.svg",
+    "bytes": 363,
+    "sha256": "0e51fa7be2f99443ab0f2da9aec38960fd8dbd8dbf13187bebd20398b265634a"
+  },
+  {
+    "path": "godot/assets/audio/chain.wav",
+    "bytes": 14156,
+    "sha256": "c578fb4ecd80fbd01882e669f5993a5fa63a05b16769036bf5822877db4b5dc8"
+  },
+  {
+    "path": "godot/assets/audio/engine.wav",
+    "bytes": 44144,
+    "sha256": "2fc0df34e4f58becf5e6951e4330b520e9e6f4e2c59e9b5f3dd146f2852c86ee"
+  },
+  {
+    "path": "godot/assets/audio/hit.wav",
+    "bytes": 7982,
+    "sha256": "cf3e611ed034c24f5583a89370a6daef3cb4511a7a00c9e896cf857108ed437e"
+  },
+  {
+    "path": "godot/assets/audio/mission.wav",
+    "bytes": 55610,
+    "sha256": "52468a44c11daf6624f830b32e4531268572f176c7fe4b2a98fb0f5d60a8b501"
+  },
+  {
+    "path": "godot/assets/audio/music_street.ogg",
+    "bytes": 387874,
+    "sha256": "1e6a3f5791fff4073de5d9bb07cdd3220a420d6e82cac697501300794397b8d6"
+  },
+  {
+    "path": "godot/assets/audio/music_title.ogg",
+    "bytes": 408887,
+    "sha256": "e17d4633e0dbe1ba7e9a02773c6c51bac2d88ad1f03f9948776c079b5faa4a7f"
+  },
+  {
+    "path": "godot/assets/audio/objective.wav",
+    "bytes": 23856,
+    "sha256": "16a9c88c40770669469f5a033c88b2ae97bd1550062a20f64fd5d341ade82faa"
+  },
+  {
+    "path": "godot/assets/audio/pickup.wav",
+    "bytes": 9746,
+    "sha256": "260d5d91a01a033d41bf42853a751212a96063e25bb596eb1d5423af016e29f3"
+  },
+  {
+    "path": "godot/assets/audio/swing.wav",
+    "bytes": 11510,
+    "sha256": "a13a2e1178118cd6cc0ec64b30b563074250bcad00e2b087f43f79c222f8b647"
+  },
+  {
+    "path": "godot/assets/audio/ui.wav",
+    "bytes": 3572,
+    "sha256": "1c9e5ce7b741a04b1edd6c5d224d19b159f11dc4edd06be30552d6d50a4fa6d7"
+  },
+  {
+    "path": "godot/assets/fonts/NotoSansTC-Regular.otf",
+    "bytes": 5683368,
+    "sha256": "5bab0cb3c1cf89dde07c4a95a4054b195afbcfe784d69d75c340780712237537"
+  },
+  {
+    "path": "godot/assets/fonts/SevenDistrictSansTC-Regular.otf",
+    "bytes": 283924,
+    "sha256": "0da1a79bab3e5cc7fe7d22c04c2adc798940f25fcbf55b16134da85471036578"
+  },
+  {
+    "path": "godot/assets/models/barrier.glb",
+    "bytes": 16612,
+    "sha256": "9d19c96644728184c1aa6225774fe08b8b71de1b3f71b9e2fbfea4f226167e36"
+  },
+  {
+    "path": "godot/assets/models/barrier_colormap.png",
+    "bytes": 11428,
+    "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185"
+  },
+  {
+    "path": "godot/assets/models/bat.glb",
+    "bytes": 27664,
+    "sha256": "768067b309ea7e27e03b802159df934d8dc9a768b9530253f9d59c972ea454da"
+  },
+  {
+    "path": "godot/assets/models/bench.glb",
+    "bytes": 10032,
+    "sha256": "399c9c44f5cc98e09481565fed94d26c8ff724e3b47400f04482d38c065d0b9d"
+  },
+  {
+    "path": "godot/assets/models/bicycle.glb",
+    "bytes": 2382136,
+    "sha256": "49409f5905c017b1e80f03e7768489ef51906545a0a01e2b6d5b64f5821464a6"
+  },
+  {
+    "path": "godot/assets/models/bicycle_Bike_BaseColor.png",
+    "bytes": 2269787,
+    "sha256": "5c2f0b739c224d89613aac9859c1551699d53c568f1a615d742871989b4eb53f"
+  },
+  {
+    "path": "godot/assets/models/car.glb",
+    "bytes": 128716,
+    "sha256": "328ac2d9f499f0571f359033fd5920393c1a61c9e2257e63bc1ff9b5542e43ab"
+  },
+  {
+    "path": "godot/assets/models/car_colormap.png",
+    "bytes": 12371,
+    "sha256": "f3622a03a20c6696065cae9cbe391351be873508af190c2ebd1d420c055787a5"
+  },
+  {
+    "path": "godot/assets/models/civilian.glb",
+    "bytes": 207076,
+    "sha256": "586890a0db1ae7d9fac6ba3b7bfc0de959267b80dcdf50f57d0e3e17c2b1f7fa"
+  },
+  {
+    "path": "godot/assets/models/civilian_civilian_palette.png",
+    "bytes": 353,
+    "sha256": "82fa278e7562e5d7feb8a5b1a98d7f5daff32174155fc6167ed6614492ea013e"
+  },
+  {
+    "path": "godot/assets/models/civilian_human.glb",
+    "bytes": 683716,
+    "sha256": "b1db145da19c63133e220bcbd835110f7a9a125c3b299bb44ded1f44a9ef4cc7"
+  },
+  {
+    "path": "godot/assets/models/civilian_human_civilian_human_Details.png",
+    "bytes": 23561,
+    "sha256": "4d1b9df3dd5fbb8d2ddafd77114f630a743b218d0762b5e8b1df700dc01364a3"
+  },
+  {
+    "path": "godot/assets/models/civilian_human_civilian_human_Fabric.png",
+    "bytes": 19170,
+    "sha256": "1c79c68fb3961129efd3b7481dba87561eb89190fb2adc73a8cd142408fc4840"
+  },
+  {
+    "path": "godot/assets/models/civilian_human_civilian_human_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/models/civilian_human_civilian_human_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/models/civilian_human_civilian_human_Skin.png",
+    "bytes": 19947,
+    "sha256": "4850c94b3b7c5f15711ed78728a6d457b81ae06209207daa03a0a6e3102b8f1b"
+  },
+  {
+    "path": "godot/assets/models/civilian_human_civilian_human_Trousers.png",
+    "bytes": 16224,
+    "sha256": "3bfea8db9b28f16e77fdabd743e24f3a664084c8a8d9153e7874f05334bba684"
+  },
+  {
+    "path": "godot/assets/models/desk.glb",
+    "bytes": 14324,
+    "sha256": "65f29c8830c8aa5d0cc86e47e06d7d79526d0e42affbbc6c21a016e7e438c3e4"
+  },
+  {
+    "path": "godot/assets/models/display.glb",
+    "bytes": 6352,
+    "sha256": "83fe468ff790792ae9e514e90379639536a588de2ab6ff3f283ffd62bf3df3be"
+  },
+  {
+    "path": "godot/assets/models/glass.glb",
+    "bytes": 10328,
+    "sha256": "e7dc6dc6c7544bb25b44b41e467738f5f689300a02116aa6a01943180424fb94"
+  },
+  {
+    "path": "godot/assets/models/guard.glb",
+    "bytes": 219688,
+    "sha256": "e44760d4b0ff047462f1a8c27a1dd5aa9960a6055d6e28750a933b11640d3e59"
+  },
+  {
+    "path": "godot/assets/models/guard_guard_palette.png",
+    "bytes": 353,
+    "sha256": "627ff9b99dbe35348d4814c1ca73aad170b8de7650c30de258e4a80dbd0a0f9d"
+  },
+  {
+    "path": "godot/assets/models/guard_human.glb",
+    "bytes": 699472,
+    "sha256": "8d8eaecc2ec1e6b298e9491e4c2b59e29dc9b736e836f0c07c914dfc632fd918"
+  },
+  {
+    "path": "godot/assets/models/guard_human_guard_human_Details.png",
+    "bytes": 23069,
+    "sha256": "c22aa903e90cfd1baf49eadd8836edd5f108859e45a0d61e5e807f1d3ea9af6b"
+  },
+  {
+    "path": "godot/assets/models/guard_human_guard_human_Fabric.png",
+    "bytes": 16033,
+    "sha256": "6db6e1305448fbc1cc885f0ed4b5d642b669be19d1f9ba492cadedae1c2e98bb"
+  },
+  {
+    "path": "godot/assets/models/guard_human_guard_human_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/models/guard_human_guard_human_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/models/guard_human_guard_human_Skin.png",
+    "bytes": 18806,
+    "sha256": "9432f866dc78400ab11cb4e28eb7f5495f88c7ef0de1c2cfbecffd0508b6f445"
+  },
+  {
+    "path": "godot/assets/models/guard_human_guard_human_Trousers.png",
+    "bytes": 11964,
+    "sha256": "1e72ace0be4cdb64da6b5cb0e772a0f3f3a75daf3a2d0172c0ec6bd00e076c90"
+  },
+  {
+    "path": "godot/assets/models/hero.glb",
+    "bytes": 233284,
+    "sha256": "1ce640fa5a2a7eb505bb904cb992749fa487f01e9aee5b4637a2ff258366cfb7"
+  },
+  {
+    "path": "godot/assets/models/hero_hero_palette.png",
+    "bytes": 353,
+    "sha256": "2418d4d27452b57a730b6db509cc7ad8d1019ce1789990dc5de3d7a4c3634fcd"
+  },
+  {
+    "path": "godot/assets/models/hero_human.glb",
+    "bytes": 703484,
+    "sha256": "fd79f2bd29beb1964178d7e723dd1c20f4b103089a116665f687cc1ef7caada7"
+  },
+  {
+    "path": "godot/assets/models/hero_human_hero_human_Details.png",
+    "bytes": 22724,
+    "sha256": "46fa16a1898d0f682f44f83bd35b40c5a2c6f095354e80ee34f0540753098e52"
+  },
+  {
+    "path": "godot/assets/models/hero_human_hero_human_Fabric.png",
+    "bytes": 15951,
+    "sha256": "6e8b8154e28185a8ed31d34b006e5323b4fa95e71e9b1ab33054a1cd21c5534a"
+  },
+  {
+    "path": "godot/assets/models/hero_human_hero_human_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/models/hero_human_hero_human_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/models/hero_human_hero_human_Skin.png",
+    "bytes": 19482,
+    "sha256": "d48a9e5244f11fa307d6bb9d7b722e9acd52078cb2315fa0418bdfa444184330"
+  },
+  {
+    "path": "godot/assets/models/hero_human_hero_human_Trousers.png",
+    "bytes": 14134,
+    "sha256": "3621f422b63312526aaee32ba1ce47c54560d4d20924545ecd0f5379d23a14ec"
+  },
+  {
+    "path": "godot/assets/models/mei_human.glb",
+    "bytes": 683180,
+    "sha256": "c957618ce237c25b4936d43b0436bfeeb4df08e001870c90a3aeb82781ba5612"
+  },
+  {
+    "path": "godot/assets/models/mei_human_mei_human_Details.png",
+    "bytes": 23553,
+    "sha256": "c088dcfe6e4291a62740d9a726ab9568e7a3aed508034642211e6b4a302d2856"
+  },
+  {
+    "path": "godot/assets/models/mei_human_mei_human_Fabric.png",
+    "bytes": 16366,
+    "sha256": "8ee8188717c4ee5742db2289821f97beb7b06c4e6602e9aeaf57409a1a387aa4"
+  },
+  {
+    "path": "godot/assets/models/mei_human_mei_human_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/models/mei_human_mei_human_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/models/mei_human_mei_human_Skin.png",
+    "bytes": 19868,
+    "sha256": "3e68ae1fc95758b61f2edeb71cd44bdd94d2615a1a0096da03e7bd4633b5afd6"
+  },
+  {
+    "path": "godot/assets/models/mei_human_mei_human_Trousers.png",
+    "bytes": 14806,
+    "sha256": "bb0aab8173927309b2c0bd628e7c8ab016d9372eabe98289d631914f6fec88bf"
+  },
+  {
+    "path": "godot/assets/models/office_lobby.glb",
+    "bytes": 210140,
+    "sha256": "4a0a504c86d892ff304d001915c542e1345089c1bbcb7950c8ad335fc5cfe8aa"
+  },
+  {
+    "path": "godot/assets/models/office_tower_a.glb",
+    "bytes": 111828,
+    "sha256": "ed4b1ab96721e10d00d856405689df44da78a91a116b35c0c2e5c59b82120e80"
+  },
+  {
+    "path": "godot/assets/models/office_tower_a_colormap.png",
+    "bytes": 11428,
+    "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185"
+  },
+  {
+    "path": "godot/assets/models/office_tower_a_colormap_1.png",
+    "bytes": 11002,
+    "sha256": "191bec3889aaaca5018380038fecc129ebb5c2182879a099b7b538b3fa050b5d"
+  },
+  {
+    "path": "godot/assets/models/office_tower_b.glb",
+    "bytes": 130860,
+    "sha256": "0038770f6c568bd460eccc71663d754cf1805ecb75042fdb904f1da2ab417202"
+  },
+  {
+    "path": "godot/assets/models/office_tower_b_colormap.png",
+    "bytes": 11428,
+    "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185"
+  },
+  {
+    "path": "godot/assets/models/office_tower_b_colormap_1.png",
+    "bytes": 11002,
+    "sha256": "191bec3889aaaca5018380038fecc129ebb5c2182879a099b7b538b3fa050b5d"
+  },
+  {
+    "path": "godot/assets/models/office_tower_c.glb",
+    "bytes": 139060,
+    "sha256": "7cd7455db187ec54d03f067072ad4c433441ac0564a0f4b77df182d743083b6d"
+  },
+  {
+    "path": "godot/assets/models/office_tower_c_colormap.png",
+    "bytes": 11428,
+    "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185"
+  },
+  {
+    "path": "godot/assets/models/office_tower_c_colormap_1.png",
+    "bytes": 11002,
+    "sha256": "191bec3889aaaca5018380038fecc129ebb5c2182879a099b7b538b3fa050b5d"
+  },
+  {
+    "path": "godot/assets/models/planter.glb",
+    "bytes": 7476,
+    "sha256": "efd1990210bdb739df124417674d69ec65510dc2873bd0a3e837650c3da04904"
+  },
+  {
+    "path": "godot/assets/models/pulse.glb",
+    "bytes": 21472,
+    "sha256": "6c47c9bd51503c49fa02b4732d5a9afc46e33f213bd8358d039f6abfa29050bf"
+  },
+  {
+    "path": "godot/assets/models/road_crossing.glb",
+    "bytes": 18060,
+    "sha256": "424fb59ba7eb411c8ff2a963917de7b70621560c8bad2ddee77472b62c263dbc"
+  },
+  {
+    "path": "godot/assets/models/road_crossing_colormap.png",
+    "bytes": 11428,
+    "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185"
+  },
+  {
+    "path": "godot/assets/models/road_straight.glb",
+    "bytes": 15420,
+    "sha256": "1756882d5296f1f6f882b6c9123726f3db21e6f1a5b025b0646f5c130f756247"
+  },
+  {
+    "path": "godot/assets/models/road_straight_colormap.png",
+    "bytes": 11428,
+    "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185"
+  },
+  {
+    "path": "godot/assets/models/server.glb",
+    "bytes": 130804,
+    "sha256": "41db9c9a0b937e4cca0c30733f111d49e4dfec130bfaf87a51f858e4e04b738a"
+  },
+  {
+    "path": "godot/assets/models/sign.glb",
+    "bytes": 15860,
+    "sha256": "c4c433f3be78b811baa8795859d5c5a2017882dc0d800a5e6fbfa4911b59ae96"
+  },
+  {
+    "path": "godot/assets/models/sign_colormap.png",
+    "bytes": 11428,
+    "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185"
+  },
+  {
+    "path": "godot/assets/models/streetlight.glb",
+    "bytes": 18504,
+    "sha256": "d4eb8729372893d0ae12f560bad1c64c30607cd28b3c288ddc3016a463b1b9b0"
+  },
+  {
+    "path": "godot/assets/models/streetlight_colormap.png",
+    "bytes": 11428,
+    "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185"
+  },
+  {
+    "path": "godot/assets/models/traffic_light.glb",
+    "bytes": 26168,
+    "sha256": "deba6c5ce9ca0e38341b98ee3d9d695bab4b61250ae48309bc7b61c72f86dd21"
+  },
+  {
+    "path": "godot/assets/models/traffic_light_colormap.png",
+    "bytes": 11428,
+    "sha256": "a48e2962661ae44368ffddf3054f80ed8491d082b757dcc3011184cd9a98b185"
+  },
+  {
+    "path": "godot/assets/models/tree.glb",
+    "bytes": 13792,
+    "sha256": "579f21427b822c36ea91cc1500aaea81483800a8a48c18d5d2f930ed12a1bdab"
+  },
+  {
+    "path": "godot/assets/models/tw_arcade_shop.glb",
+    "bytes": 168688,
+    "sha256": "cbe34534b350d9f534669a351f885390352ad14a9a9c469b9393c7d0b2f14462"
+  },
+  {
+    "path": "godot/assets/models/tw_arcade_shop_tw_canvas_albedo.png",
+    "bytes": 25307,
+    "sha256": "d8e4b80d1e2ec9053b2660dc10993ed4995be684521accde9d6b3468370683e1"
+  },
+  {
+    "path": "godot/assets/models/tw_arcade_shop_tw_metal_albedo.png",
+    "bytes": 23266,
+    "sha256": "21abd42bd61c5c59d8cd74a2c47ae644e762151605164357ab6d3a31508e0ccc"
+  },
+  {
+    "path": "godot/assets/models/tw_arcade_shop_tw_tile_albedo.png",
+    "bytes": 26845,
+    "sha256": "27fde9cb81ce539e2794b7f08903bb08371bdd0d648aefb696bb0d03e92253c7"
+  },
+  {
+    "path": "godot/assets/models/tw_breakfast_stall.glb",
+    "bytes": 96620,
+    "sha256": "c09cd343047ebb9826507f6cc2bd812d74155a47371c0101d7cdbd06dedb5e96"
+  },
+  {
+    "path": "godot/assets/models/tw_breakfast_stall_tw_canvas_albedo.png",
+    "bytes": 25307,
+    "sha256": "d8e4b80d1e2ec9053b2660dc10993ed4995be684521accde9d6b3468370683e1"
+  },
+  {
+    "path": "godot/assets/models/tw_breakfast_stall_tw_metal_albedo.png",
+    "bytes": 23266,
+    "sha256": "21abd42bd61c5c59d8cd74a2c47ae644e762151605164357ab6d3a31508e0ccc"
+  },
+  {
+    "path": "godot/assets/models/tw_bus_shelter.glb",
+    "bytes": 45668,
+    "sha256": "2204e11137a3f6e45b9dbda3c8860db8b71905cd52cca7ee534b8901bc7bb4ea"
+  },
+  {
+    "path": "godot/assets/models/tw_bus_shelter_tw_metal_albedo.png",
+    "bytes": 23266,
+    "sha256": "21abd42bd61c5c59d8cd74a2c47ae644e762151605164357ab6d3a31508e0ccc"
+  },
+  {
+    "path": "godot/assets/models/tw_carry_food.glb",
+    "bytes": 12172,
+    "sha256": "a2138f889c551e036723106c1db77b1c122e11a5b546b030953b0b7c5c7ee65f"
+  },
+  {
+    "path": "godot/assets/models/tw_carry_parcel.glb",
+    "bytes": 10264,
+    "sha256": "cc1293f0e43df178a0d7aef0f392675c179f11715912e0a1ee71ba1ed8919090"
+  },
+  {
+    "path": "godot/assets/models/tw_carry_shop.glb",
+    "bytes": 10072,
+    "sha256": "fa8087110b55eb3f1589783b7d2f29f6507d8e080c55a7935edc34668ca8229c"
+  },
+  {
+    "path": "godot/assets/models/tw_convenience.glb",
+    "bytes": 110092,
+    "sha256": "ec18c6fd4e726ddc5de7813e59a3eeb80894e4eeea5d342b2e992e06f355c557"
+  },
+  {
+    "path": "godot/assets/models/tw_convenience_tw_canvas_albedo.png",
+    "bytes": 25307,
+    "sha256": "d8e4b80d1e2ec9053b2660dc10993ed4995be684521accde9d6b3468370683e1"
+  },
+  {
+    "path": "godot/assets/models/tw_convenience_tw_metal_albedo.png",
+    "bytes": 23266,
+    "sha256": "21abd42bd61c5c59d8cd74a2c47ae644e762151605164357ab6d3a31508e0ccc"
+  },
+  {
+    "path": "godot/assets/models/tw_convenience_tw_tile_albedo.png",
+    "bytes": 26845,
+    "sha256": "27fde9cb81ce539e2794b7f08903bb08371bdd0d648aefb696bb0d03e92253c7"
+  },
+  {
+    "path": "godot/assets/models/tw_food_stall.glb",
+    "bytes": 103212,
+    "sha256": "7d57c3d85f80793161ada9c4c9724a9afbb296e93c99ee33bfa50b844107227c"
+  },
+  {
+    "path": "godot/assets/models/tw_food_stall_tw_canvas_albedo.png",
+    "bytes": 25307,
+    "sha256": "d8e4b80d1e2ec9053b2660dc10993ed4995be684521accde9d6b3468370683e1"
+  },
+  {
+    "path": "godot/assets/models/tw_food_stall_tw_metal_albedo.png",
+    "bytes": 23266,
+    "sha256": "21abd42bd61c5c59d8cd74a2c47ae644e762151605164357ab6d3a31508e0ccc"
+  },
+  {
+    "path": "godot/assets/models/tw_lantern_gate.glb",
+    "bytes": 199756,
+    "sha256": "308efb4b9bd4cda061972e36c0c73a93358a2aed64e33bdea3536b6c504a0544"
+  },
+  {
+    "path": "godot/assets/models/tw_lantern_gate_tw_canvas_albedo.png",
+    "bytes": 25307,
+    "sha256": "d8e4b80d1e2ec9053b2660dc10993ed4995be684521accde9d6b3468370683e1"
+  },
+  {
+    "path": "godot/assets/models/tw_lantern_gate_tw_metal_albedo.png",
+    "bytes": 23266,
+    "sha256": "21abd42bd61c5c59d8cd74a2c47ae644e762151605164357ab6d3a31508e0ccc"
+  },
+  {
+    "path": "godot/assets/models/tw_market_stall.glb",
+    "bytes": 210896,
+    "sha256": "c69adc73040a394adff6d68acf8be7387281175dde5051214650dbb86e1118c7"
+  },
+  {
+    "path": "godot/assets/models/tw_market_stall_tw_metal_albedo.png",
+    "bytes": 23266,
+    "sha256": "21abd42bd61c5c59d8cd74a2c47ae644e762151605164357ab6d3a31508e0ccc"
+  },
+  {
+    "path": "godot/assets/models/tw_parcel_shelf.glb",
+    "bytes": 89304,
+    "sha256": "34618b7210b0caf4884d36e54db7a61e924a6af71b7ac3195bddefd76e077780"
+  },
+  {
+    "path": "godot/assets/models/tw_parcel_shelf_tw_canvas_albedo.png",
+    "bytes": 25307,
+    "sha256": "d8e4b80d1e2ec9053b2660dc10993ed4995be684521accde9d6b3468370683e1"
+  },
+  {
+    "path": "godot/assets/models/tw_parcel_shelf_tw_metal_albedo.png",
+    "bytes": 23266,
+    "sha256": "21abd42bd61c5c59d8cd74a2c47ae644e762151605164357ab6d3a31508e0ccc"
+  },
+  {
+    "path": "godot/assets/models/tw_parcel_station.glb",
+    "bytes": 130788,
+    "sha256": "7a19aff0cd92242604b38bbbe1a4e6063c4a91da60e9cbf77207140fca304be8"
+  },
+  {
+    "path": "godot/assets/models/tw_parcel_station_tw_canvas_albedo.png",
+    "bytes": 25307,
+    "sha256": "d8e4b80d1e2ec9053b2660dc10993ed4995be684521accde9d6b3468370683e1"
+  },
+  {
+    "path": "godot/assets/models/tw_parcel_station_tw_metal_albedo.png",
+    "bytes": 23266,
+    "sha256": "21abd42bd61c5c59d8cd74a2c47ae644e762151605164357ab6d3a31508e0ccc"
+  },
+  {
+    "path": "godot/assets/models/tw_parcel_station_tw_tile_albedo.png",
+    "bytes": 26845,
+    "sha256": "27fde9cb81ce539e2794b7f08903bb08371bdd0d648aefb696bb0d03e92253c7"
+  },
+  {
+    "path": "godot/assets/models/tw_person_an.glb",
+    "bytes": 703728,
+    "sha256": "5fac284374bac7a4f3f1824291386df631cec9d0097cc754a0fd4715c3b3c731"
+  },
+  {
+    "path": "godot/assets/models/tw_person_an_tw_person_an_Details.png",
+    "bytes": 22606,
+    "sha256": "1a81da8754dc4cb6111a8730650e55fa2b80078de0989409a2ce40d90ff1b800"
+  },
+  {
+    "path": "godot/assets/models/tw_person_an_tw_person_an_Fabric.png",
+    "bytes": 19957,
+    "sha256": "05a0ca1d1eb1c205f011297fabc7b9ffae9426554130e6446cfbe8611cc213da"
+  },
+  {
+    "path": "godot/assets/models/tw_person_an_tw_person_an_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/models/tw_person_an_tw_person_an_Shoes.png",
+    "bytes": 9605,
+    "sha256": "347fd2a1b9c3535d2ab23b2424fc92ee3a3dcf2c961221bb2fe802809f888197"
+  },
+  {
+    "path": "godot/assets/models/tw_person_an_tw_person_an_Skin.png",
+    "bytes": 19676,
+    "sha256": "665ecb93ee6efa5dd999fdff4916fe0525ae73c1feaf792951e792488b2601b4"
+  },
+  {
+    "path": "godot/assets/models/tw_person_an_tw_person_an_Trousers.png",
+    "bytes": 16192,
+    "sha256": "9ea6759707d6b56599db1b75e0cca6b8b7cbe802e55b47eae6b89732adb8f780"
+  },
+  {
+    "path": "godot/assets/models/tw_person_chun.glb",
+    "bytes": 697724,
+    "sha256": "d4508268f14d623f0baffd79e0e6d741cabb2fc7d6bb66e175fe13ca0fa6a694"
+  },
+  {
+    "path": "godot/assets/models/tw_person_chun_tw_person_chun_Details.png",
+    "bytes": 23567,
+    "sha256": "b9f0bfb094b97b4c09f40ac26e26c9703cdf5b6dc44fa44887de8de6e44e0f18"
+  },
+  {
+    "path": "godot/assets/models/tw_person_chun_tw_person_chun_Fabric.png",
+    "bytes": 18434,
+    "sha256": "94dc4ce2092dc06187e0400e82c8cc1b88a16e8c36f7d9bd68a953320105abbb"
+  },
+  {
+    "path": "godot/assets/models/tw_person_chun_tw_person_chun_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/models/tw_person_chun_tw_person_chun_Shoes.png",
+    "bytes": 9605,
+    "sha256": "347fd2a1b9c3535d2ab23b2424fc92ee3a3dcf2c961221bb2fe802809f888197"
+  },
+  {
+    "path": "godot/assets/models/tw_person_chun_tw_person_chun_Skin.png",
+    "bytes": 19676,
+    "sha256": "665ecb93ee6efa5dd999fdff4916fe0525ae73c1feaf792951e792488b2601b4"
+  },
+  {
+    "path": "godot/assets/models/tw_person_chun_tw_person_chun_Trousers.png",
+    "bytes": 16192,
+    "sha256": "9ea6759707d6b56599db1b75e0cca6b8b7cbe802e55b47eae6b89732adb8f780"
+  },
+  {
+    "path": "godot/assets/models/tw_person_juan.glb",
+    "bytes": 683908,
+    "sha256": "fa4eb714145c7cace0f1d5924f8f3b38fa5b35bf27321124a83bdbe28aa6fdd0"
+  },
+  {
+    "path": "godot/assets/models/tw_person_juan_tw_person_juan_Details.png",
+    "bytes": 22740,
+    "sha256": "d27ed91f227ace9e81576e17e3d64a15178c17fe529cb2f4b73ad3309f9cb246"
+  },
+  {
+    "path": "godot/assets/models/tw_person_juan_tw_person_juan_Fabric.png",
+    "bytes": 18148,
+    "sha256": "790c1744cb1c0ebc231e8f71703249b73c24595a999691ed602289b89e1ff5d7"
+  },
+  {
+    "path": "godot/assets/models/tw_person_juan_tw_person_juan_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/models/tw_person_juan_tw_person_juan_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/models/tw_person_juan_tw_person_juan_Skin.png",
+    "bytes": 19947,
+    "sha256": "4850c94b3b7c5f15711ed78728a6d457b81ae06209207daa03a0a6e3102b8f1b"
+  },
+  {
+    "path": "godot/assets/models/tw_person_juan_tw_person_juan_Trousers.png",
+    "bytes": 16224,
+    "sha256": "3bfea8db9b28f16e77fdabd743e24f3a664084c8a8d9153e7874f05334bba684"
+  },
+  {
+    "path": "godot/assets/models/tw_person_lin.glb",
+    "bytes": 687344,
+    "sha256": "6af7f82fdfe113e39278fc3c99e9d281ae8e830cb0c1c0fbe6af0e99845970b4"
+  },
+  {
+    "path": "godot/assets/models/tw_person_lin_tw_person_lin_Details.png",
+    "bytes": 23175,
+    "sha256": "af90a68c6a8f040a64152a44d242c18c05e3d55332972cc298cc67350fe6c29e"
+  },
+  {
+    "path": "godot/assets/models/tw_person_lin_tw_person_lin_Fabric.png",
+    "bytes": 18970,
+    "sha256": "715f517abb23a48845d9f05dd7434a3564a67fb9b7fcefee4a5bd2877a5e3a1e"
+  },
+  {
+    "path": "godot/assets/models/tw_person_lin_tw_person_lin_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/models/tw_person_lin_tw_person_lin_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/models/tw_person_lin_tw_person_lin_Skin.png",
+    "bytes": 19947,
+    "sha256": "4850c94b3b7c5f15711ed78728a6d457b81ae06209207daa03a0a6e3102b8f1b"
+  },
+  {
+    "path": "godot/assets/models/tw_person_lin_tw_person_lin_Trousers.png",
+    "bytes": 16224,
+    "sha256": "3bfea8db9b28f16e77fdabd743e24f3a664084c8a8d9153e7874f05334bba684"
+  },
+  {
+    "path": "godot/assets/models/tw_person_ting.glb",
+    "bytes": 696032,
+    "sha256": "fad4359aae8614fd389c88e43e57b117eda8d97cde7fb915a7cc3202c04e503c"
+  },
+  {
+    "path": "godot/assets/models/tw_person_ting_tw_person_ting_Details.png",
+    "bytes": 23377,
+    "sha256": "8a6bbea4e9c16ab48da42c2b578325dd62a00b717e5a657b045a52ceb31be6c8"
+  },
+  {
+    "path": "godot/assets/models/tw_person_ting_tw_person_ting_Fabric.png",
+    "bytes": 16391,
+    "sha256": "78c319e170d59d43df2ea3d7ee7b4f711523f44d71e6ee14dc0678367e34c250"
+  },
+  {
+    "path": "godot/assets/models/tw_person_ting_tw_person_ting_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/models/tw_person_ting_tw_person_ting_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/models/tw_person_ting_tw_person_ting_Skin.png",
+    "bytes": 19482,
+    "sha256": "d48a9e5244f11fa307d6bb9d7b722e9acd52078cb2315fa0418bdfa444184330"
+  },
+  {
+    "path": "godot/assets/models/tw_person_ting_tw_person_ting_Trousers.png",
+    "bytes": 14134,
+    "sha256": "3621f422b63312526aaee32ba1ce47c54560d4d20924545ecd0f5379d23a14ec"
+  },
+  {
+    "path": "godot/assets/models/tw_person_wei.glb",
+    "bytes": 685564,
+    "sha256": "46cbf9670555d74d6efd8ca6e996c5af72d35dd71f5d5cafb610dc0a755769b7"
+  },
+  {
+    "path": "godot/assets/models/tw_person_wei_tw_person_wei_Details.png",
+    "bytes": 21050,
+    "sha256": "2cbce01b646831a7e2b95f3cbdb7f39c6b3de9ff79853c090a4a9541f0dbc546"
+  },
+  {
+    "path": "godot/assets/models/tw_person_wei_tw_person_wei_Fabric.png",
+    "bytes": 17691,
+    "sha256": "7ae6d839ee88c0f9ff1c26bad81ac889126faecc3e6f4fb5ea2b3a5185567864"
+  },
+  {
+    "path": "godot/assets/models/tw_person_wei_tw_person_wei_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/models/tw_person_wei_tw_person_wei_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/models/tw_person_wei_tw_person_wei_Skin.png",
+    "bytes": 19531,
+    "sha256": "77108aa25b65bdc5cac21dcc0ecd19c2446eb66593bf9ffe93736dda97dfae74"
+  },
+  {
+    "path": "godot/assets/models/tw_person_wei_tw_person_wei_Trousers.png",
+    "bytes": 13927,
+    "sha256": "58a3deeac6d3fc09e65da156599862e7b87550d770d864fc0814b16922fe1858"
+  },
+  {
+    "path": "godot/assets/models/tw_person_ya.glb",
+    "bytes": 682540,
+    "sha256": "b399dc268539bc1122940af754c40277ed430221e489595dc131d078113e298c"
+  },
+  {
+    "path": "godot/assets/models/tw_person_ya_tw_person_ya_Details.png",
+    "bytes": 22692,
+    "sha256": "c896567e12894b4abe3d53b40600923f1493a8216d5ba8cef60286b813c00289"
+  },
+  {
+    "path": "godot/assets/models/tw_person_ya_tw_person_ya_Fabric.png",
+    "bytes": 17821,
+    "sha256": "f756877e53cd919a20c8ef860bbe9c0d3dcc34737267428e66dfbfc155635e8e"
+  },
+  {
+    "path": "godot/assets/models/tw_person_ya_tw_person_ya_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/models/tw_person_ya_tw_person_ya_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/models/tw_person_ya_tw_person_ya_Skin.png",
+    "bytes": 19868,
+    "sha256": "3e68ae1fc95758b61f2edeb71cd44bdd94d2615a1a0096da03e7bd4633b5afd6"
+  },
+  {
+    "path": "godot/assets/models/tw_person_ya_tw_person_ya_Trousers.png",
+    "bytes": 14806,
+    "sha256": "bb0aab8173927309b2c0bd628e7c8ab016d9372eabe98289d631914f6fec88bf"
+  },
+  {
+    "path": "godot/assets/models/tw_person_yun.glb",
+    "bytes": 685028,
+    "sha256": "7fd09b72d93697d01ac2733b308103a1b19717257843a1638108d903275a899a"
+  },
+  {
+    "path": "godot/assets/models/tw_person_yun_tw_person_yun_Details.png",
+    "bytes": 23043,
+    "sha256": "e6f4d3d26b1fd94c6543ba80413131bdfee6fb698c76a8d567097084dd4544ed"
+  },
+  {
+    "path": "godot/assets/models/tw_person_yun_tw_person_yun_Fabric.png",
+    "bytes": 18612,
+    "sha256": "64030cd2eb09e194f7d97e9c1194ce75e35dd5b3ff05153cc19103174ce1936c"
+  },
+  {
+    "path": "godot/assets/models/tw_person_yun_tw_person_yun_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/models/tw_person_yun_tw_person_yun_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/models/tw_person_yun_tw_person_yun_Skin.png",
+    "bytes": 19868,
+    "sha256": "3e68ae1fc95758b61f2edeb71cd44bdd94d2615a1a0096da03e7bd4633b5afd6"
+  },
+  {
+    "path": "godot/assets/models/tw_person_yun_tw_person_yun_Trousers.png",
+    "bytes": 14806,
+    "sha256": "bb0aab8173927309b2c0bd628e7c8ab016d9372eabe98289d631914f6fec88bf"
+  },
+  {
+    "path": "godot/assets/models/tw_recycling_station.glb",
+    "bytes": 77728,
+    "sha256": "8074ec79e45b2a5a70e8939fa3bf94f1adc469539af12d6c38cdba03f656ffb9"
+  },
+  {
+    "path": "godot/assets/models/tw_recycling_station_tw_canvas_albedo.png",
+    "bytes": 25307,
+    "sha256": "d8e4b80d1e2ec9053b2660dc10993ed4995be684521accde9d6b3468370683e1"
+  },
+  {
+    "path": "godot/assets/models/tw_recycling_station_tw_metal_albedo.png",
+    "bytes": 23266,
+    "sha256": "21abd42bd61c5c59d8cd74a2c47ae644e762151605164357ab6d3a31508e0ccc"
+  },
+  {
+    "path": "godot/assets/models/tw_river_pavilion.glb",
+    "bytes": 33980,
+    "sha256": "1a74c17379ed6f7809aadbe388a875bb8e0b2d80974c82b76e9f278a4e78ee65"
+  },
+  {
+    "path": "godot/assets/models/tw_river_pavilion_tw_metal_albedo.png",
+    "bytes": 23266,
+    "sha256": "21abd42bd61c5c59d8cd74a2c47ae644e762151605164357ab6d3a31508e0ccc"
+  },
+  {
+    "path": "godot/assets/models/tw_rowhouse.glb",
+    "bytes": 193924,
+    "sha256": "63aa3c731f3cb8a112d10c9f91073ad66bc2b99ca7987927e9449a90fe51649c"
+  },
+  {
+    "path": "godot/assets/models/tw_rowhouse_tw_canvas_albedo.png",
+    "bytes": 25307,
+    "sha256": "d8e4b80d1e2ec9053b2660dc10993ed4995be684521accde9d6b3468370683e1"
+  },
+  {
+    "path": "godot/assets/models/tw_rowhouse_tw_metal_albedo.png",
+    "bytes": 23266,
+    "sha256": "21abd42bd61c5c59d8cd74a2c47ae644e762151605164357ab6d3a31508e0ccc"
+  },
+  {
+    "path": "godot/assets/models/tw_rowhouse_tw_tile_albedo.png",
+    "bytes": 26845,
+    "sha256": "27fde9cb81ce539e2794b7f08903bb08371bdd0d648aefb696bb0d03e92253c7"
+  },
+  {
+    "path": "godot/assets/models/tw_scooter.glb",
+    "bytes": 135864,
+    "sha256": "cd76575578bcda1f2ba5ddbedb3c26033bfa1d6fde90c9d6e377d75183e0ec30"
+  },
+  {
+    "path": "godot/assets/models/tw_scooter_tw_metal_albedo.png",
+    "bytes": 23266,
+    "sha256": "21abd42bd61c5c59d8cd74a2c47ae644e762151605164357ab6d3a31508e0ccc"
+  },
+  {
+    "path": "godot/assets/models/urban_bench.glb",
+    "bytes": 9976,
+    "sha256": "394eed97cfa7c9e0bf0747144536fd73b2faf4d284b970c41e637ff027749c16"
+  },
+  {
+    "path": "godot/assets/models/urban_shopfront.glb",
+    "bytes": 438764,
+    "sha256": "1a22c3f31e2101936700053c38222a8037299e8258468a9bd06c29ae90ead18c"
+  },
+  {
+    "path": "godot/assets/models/urban_shopfront_urban_glass_albedo.png",
+    "bytes": 77765,
+    "sha256": "71ba2197ccf35947b049baf37ab37aa607270918638e36ec6cb09b718d228bee"
+  },
+  {
+    "path": "godot/assets/models/urban_shopfront_urban_glass_normal.png",
+    "bytes": 60449,
+    "sha256": "9254e9167b8441444e9d8d58ebc0fd5a8c411301599d7cef5b2abafff176f39c"
+  },
+  {
+    "path": "godot/assets/models/urban_shopfront_urban_glass_orm.png",
+    "bytes": 41184,
+    "sha256": "9c6f578c056f09cbd414255d7ec760137ccad89cdfe220c5360768a7f607fe52"
+  },
+  {
+    "path": "godot/assets/models/urban_shopfront_urban_granite_albedo.png",
+    "bytes": 104086,
+    "sha256": "0b636e2bfc9bdae9955143d7f2c75cd8495d02faff74047258e0053d97366397"
+  },
+  {
+    "path": "godot/assets/models/urban_shopfront_urban_granite_normal.png",
+    "bytes": 60528,
+    "sha256": "82f4a9909d8a6fca3945d7beb10dcc560f6452f7679ad66e46c6f518805a7c58"
+  },
+  {
+    "path": "godot/assets/models/urban_shopfront_urban_granite_orm.png",
+    "bytes": 70131,
+    "sha256": "bb8b27d319fbd4722fc6b061678b1e677320fdb0580720545863835b2b458540"
+  },
+  {
+    "path": "godot/assets/models/urban_sidewalk.glb",
+    "bytes": 559460,
+    "sha256": "aa90ead6a0bf61e9ad1e872016a0f3a53f414c0bb393c2bb95900a0b3880cc22"
+  },
+  {
+    "path": "godot/assets/models/urban_sidewalk_urban_granite_albedo.png",
+    "bytes": 104086,
+    "sha256": "0b636e2bfc9bdae9955143d7f2c75cd8495d02faff74047258e0053d97366397"
+  },
+  {
+    "path": "godot/assets/models/urban_sidewalk_urban_granite_normal.png",
+    "bytes": 60528,
+    "sha256": "82f4a9909d8a6fca3945d7beb10dcc560f6452f7679ad66e46c6f518805a7c58"
+  },
+  {
+    "path": "godot/assets/models/urban_sidewalk_urban_granite_orm.png",
+    "bytes": 70131,
+    "sha256": "bb8b27d319fbd4722fc6b061678b1e677320fdb0580720545863835b2b458540"
+  },
+  {
+    "path": "godot/assets/models/urban_sidewalk_urban_pavers_albedo.png",
+    "bytes": 105843,
+    "sha256": "76761e8427cf3e26ef19bed09ff074ec6cbc19814a7def16129ad15d05c6881c"
+  },
+  {
+    "path": "godot/assets/models/urban_sidewalk_urban_pavers_normal.png",
+    "bytes": 60812,
+    "sha256": "f6fae515c3f6c06570d1323ce1347be5c0b39761d13f882b43b511111fbbd12f"
+  },
+  {
+    "path": "godot/assets/models/urban_sidewalk_urban_pavers_orm.png",
+    "bytes": 70511,
+    "sha256": "8d92735f3b78045bcbee0bc2f42363e53550f88b2eb08642e2c49a4337f5ac0d"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_a.glb",
+    "bytes": 905212,
+    "sha256": "112b72d77825213a7cbb78e4582f178efcd4abc08423bca1dbc06b0f2caae955"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_a_urban_glass_albedo.png",
+    "bytes": 77765,
+    "sha256": "71ba2197ccf35947b049baf37ab37aa607270918638e36ec6cb09b718d228bee"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_a_urban_glass_normal.png",
+    "bytes": 60449,
+    "sha256": "9254e9167b8441444e9d8d58ebc0fd5a8c411301599d7cef5b2abafff176f39c"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_a_urban_glass_orm.png",
+    "bytes": 41184,
+    "sha256": "9c6f578c056f09cbd414255d7ec760137ccad89cdfe220c5360768a7f607fe52"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_a_urban_granite_albedo.png",
+    "bytes": 104086,
+    "sha256": "0b636e2bfc9bdae9955143d7f2c75cd8495d02faff74047258e0053d97366397"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_a_urban_granite_normal.png",
+    "bytes": 60528,
+    "sha256": "82f4a9909d8a6fca3945d7beb10dcc560f6452f7679ad66e46c6f518805a7c58"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_a_urban_granite_orm.png",
+    "bytes": 70131,
+    "sha256": "bb8b27d319fbd4722fc6b061678b1e677320fdb0580720545863835b2b458540"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_b.glb",
+    "bytes": 874436,
+    "sha256": "09e49d704e1797f38ea22ba1747a39229b23e3dd4cdcc0efcb6256952b73112b"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_b_urban_glass_albedo.png",
+    "bytes": 77765,
+    "sha256": "71ba2197ccf35947b049baf37ab37aa607270918638e36ec6cb09b718d228bee"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_b_urban_glass_normal.png",
+    "bytes": 60449,
+    "sha256": "9254e9167b8441444e9d8d58ebc0fd5a8c411301599d7cef5b2abafff176f39c"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_b_urban_glass_orm.png",
+    "bytes": 41184,
+    "sha256": "9c6f578c056f09cbd414255d7ec760137ccad89cdfe220c5360768a7f607fe52"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_b_urban_granite_albedo.png",
+    "bytes": 104086,
+    "sha256": "0b636e2bfc9bdae9955143d7f2c75cd8495d02faff74047258e0053d97366397"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_b_urban_granite_normal.png",
+    "bytes": 60528,
+    "sha256": "82f4a9909d8a6fca3945d7beb10dcc560f6452f7679ad66e46c6f518805a7c58"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_b_urban_granite_orm.png",
+    "bytes": 70131,
+    "sha256": "bb8b27d319fbd4722fc6b061678b1e677320fdb0580720545863835b2b458540"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_c.glb",
+    "bytes": 661072,
+    "sha256": "c505250661aa8da8d91e62ac3558204f4691d8450d14ac857718d83fb0ddc312"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_c_urban_glass_albedo.png",
+    "bytes": 77765,
+    "sha256": "71ba2197ccf35947b049baf37ab37aa607270918638e36ec6cb09b718d228bee"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_c_urban_glass_normal.png",
+    "bytes": 60449,
+    "sha256": "9254e9167b8441444e9d8d58ebc0fd5a8c411301599d7cef5b2abafff176f39c"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_c_urban_glass_orm.png",
+    "bytes": 41184,
+    "sha256": "9c6f578c056f09cbd414255d7ec760137ccad89cdfe220c5360768a7f607fe52"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_c_urban_granite_albedo.png",
+    "bytes": 104086,
+    "sha256": "0b636e2bfc9bdae9955143d7f2c75cd8495d02faff74047258e0053d97366397"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_c_urban_granite_normal.png",
+    "bytes": 60528,
+    "sha256": "82f4a9909d8a6fca3945d7beb10dcc560f6452f7679ad66e46c6f518805a7c58"
+  },
+  {
+    "path": "godot/assets/models/urban_tower_c_urban_granite_orm.png",
+    "bytes": 70131,
+    "sha256": "bb8b27d319fbd4722fc6b061678b1e677320fdb0580720545863835b2b458540"
+  },
+  {
+    "path": "godot/assets/models/wrench.glb",
+    "bytes": 13872,
+    "sha256": "9879dd1a677a9605d1a965ee2635512376a16453931cee634078620d38a14fdf"
+  },
+  {
+    "path": "godot/assets/models/yuan_human.glb",
+    "bytes": 701144,
+    "sha256": "5baa0ed648fb8b517cb4947f6c3ebd4dc81b8dfc658d196a4ead5d56a8bccc96"
+  },
+  {
+    "path": "godot/assets/models/yuan_human_yuan_human_Details.png",
+    "bytes": 23850,
+    "sha256": "caab8a317a820dc801dd79db751d5055546c456f6f79b4f848bdfc69a9e74373"
+  },
+  {
+    "path": "godot/assets/models/yuan_human_yuan_human_Fabric.png",
+    "bytes": 19476,
+    "sha256": "f2964bf842a8cd9e2356dc8b4f5e02349d2a5b29367fa2c0497523ceb5a3bd4e"
+  },
+  {
+    "path": "godot/assets/models/yuan_human_yuan_human_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/models/yuan_human_yuan_human_Shoes.png",
+    "bytes": 9605,
+    "sha256": "347fd2a1b9c3535d2ab23b2424fc92ee3a3dcf2c961221bb2fe802809f888197"
+  },
+  {
+    "path": "godot/assets/models/yuan_human_yuan_human_Skin.png",
+    "bytes": 19676,
+    "sha256": "665ecb93ee6efa5dd999fdff4916fe0525ae73c1feaf792951e792488b2601b4"
+  },
+  {
+    "path": "godot/assets/models/yuan_human_yuan_human_Trousers.png",
+    "bytes": 16192,
+    "sha256": "9ea6759707d6b56599db1b75e0cca6b8b7cbe802e55b47eae6b89732adb8f780"
+  },
+  {
+    "path": "godot/assets/models/zhou_human.glb",
+    "bytes": 682548,
+    "sha256": "fff4d840f488d3c14854792d8b1da8b7f263c175d5347131f6e326001267a089"
+  },
+  {
+    "path": "godot/assets/models/zhou_human_zhou_human_Details.png",
+    "bytes": 19160,
+    "sha256": "2de7426bec3ac489a2306946e51ce4c9bea6f9ac6bbfa4accd3da1e3c0f4987a"
+  },
+  {
+    "path": "godot/assets/models/zhou_human_zhou_human_Fabric.png",
+    "bytes": 16512,
+    "sha256": "f35789d6aebb704aa30febf199835b1be5b24d0b7f07d5319e79a6b675e76712"
+  },
+  {
+    "path": "godot/assets/models/zhou_human_zhou_human_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/models/zhou_human_zhou_human_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/models/zhou_human_zhou_human_Skin.png",
+    "bytes": 19531,
+    "sha256": "77108aa25b65bdc5cac21dcc0ecd19c2446eb66593bf9ffe93736dda97dfae74"
+  },
+  {
+    "path": "godot/assets/models/zhou_human_zhou_human_Trousers.png",
+    "bytes": 13927,
+    "sha256": "58a3deeac6d3fc09e65da156599862e7b87550d770d864fc0814b16922fe1858"
+  },
+  {
+    "path": "godot/assets/textures/civilian_palette.png",
+    "bytes": 353,
+    "sha256": "82fa278e7562e5d7feb8a5b1a98d7f5daff32174155fc6167ed6614492ea013e"
+  },
+  {
+    "path": "godot/assets/textures/guard_palette.png",
+    "bytes": 353,
+    "sha256": "627ff9b99dbe35348d4814c1ca73aad170b8de7650c30de258e4a80dbd0a0f9d"
+  },
+  {
+    "path": "godot/assets/textures/hero_palette.png",
+    "bytes": 353,
+    "sha256": "2418d4d27452b57a730b6db509cc7ad8d1019ce1789990dc5de3d7a4c3634fcd"
+  },
+  {
+    "path": "godot/assets/textures/taiwan/tw_asphalt_albedo.png",
+    "bytes": 21547,
+    "sha256": "b6ab86229e08864c6171053024dc9a521d1c6f17198a684dc6f9b3499d5fa1c0"
+  },
+  {
+    "path": "godot/assets/textures/taiwan/tw_canvas_albedo.png",
+    "bytes": 25307,
+    "sha256": "d8e4b80d1e2ec9053b2660dc10993ed4995be684521accde9d6b3468370683e1"
+  },
+  {
+    "path": "godot/assets/textures/taiwan/tw_metal_albedo.png",
+    "bytes": 23266,
+    "sha256": "21abd42bd61c5c59d8cd74a2c47ae644e762151605164357ab6d3a31508e0ccc"
+  },
+  {
+    "path": "godot/assets/textures/taiwan/tw_pavers_albedo.png",
+    "bytes": 25377,
+    "sha256": "47a5e2c2fde43bef0c7c6cde72c86b22134f58cfcf375c30a2befbf2b4930369"
+  },
+  {
+    "path": "godot/assets/textures/taiwan/tw_tile_albedo.png",
+    "bytes": 26845,
+    "sha256": "27fde9cb81ce539e2794b7f08903bb08371bdd0d648aefb696bb0d03e92253c7"
+  },
+  {
+    "path": "godot/assets/textures/urban/urban_asphalt_albedo.png",
+    "bytes": 106016,
+    "sha256": "f1845372b44390c2469c13f355576f29c50688ac7caad006222acf2b66b0d379"
+  },
+  {
+    "path": "godot/assets/textures/urban/urban_asphalt_normal.png",
+    "bytes": 64314,
+    "sha256": "a786a757dc2213b3bf5efa3bdd595e567852ea842dc79b882097e66c19c8938d"
+  },
+  {
+    "path": "godot/assets/textures/urban/urban_asphalt_orm.png",
+    "bytes": 73067,
+    "sha256": "4c9a48824564eb519b1025d97bb971eed6c777e0209df0fdffe08bc616a88e7c"
+  },
+  {
+    "path": "godot/assets/textures/urban/urban_glass_albedo.png",
+    "bytes": 77765,
+    "sha256": "71ba2197ccf35947b049baf37ab37aa607270918638e36ec6cb09b718d228bee"
+  },
+  {
+    "path": "godot/assets/textures/urban/urban_glass_normal.png",
+    "bytes": 60449,
+    "sha256": "9254e9167b8441444e9d8d58ebc0fd5a8c411301599d7cef5b2abafff176f39c"
+  },
+  {
+    "path": "godot/assets/textures/urban/urban_glass_orm.png",
+    "bytes": 41184,
+    "sha256": "9c6f578c056f09cbd414255d7ec760137ccad89cdfe220c5360768a7f607fe52"
+  },
+  {
+    "path": "godot/assets/textures/urban/urban_granite_albedo.png",
+    "bytes": 104086,
+    "sha256": "0b636e2bfc9bdae9955143d7f2c75cd8495d02faff74047258e0053d97366397"
+  },
+  {
+    "path": "godot/assets/textures/urban/urban_granite_normal.png",
+    "bytes": 60528,
+    "sha256": "82f4a9909d8a6fca3945d7beb10dcc560f6452f7679ad66e46c6f518805a7c58"
+  },
+  {
+    "path": "godot/assets/textures/urban/urban_granite_orm.png",
+    "bytes": 70131,
+    "sha256": "bb8b27d319fbd4722fc6b061678b1e677320fdb0580720545863835b2b458540"
+  },
+  {
+    "path": "godot/assets/textures/urban/urban_pavers_albedo.png",
+    "bytes": 105843,
+    "sha256": "76761e8427cf3e26ef19bed09ff074ec6cbc19814a7def16129ad15d05c6881c"
+  },
+  {
+    "path": "godot/assets/textures/urban/urban_pavers_normal.png",
+    "bytes": 60812,
+    "sha256": "f6fae515c3f6c06570d1323ce1347be5c0b39761d13f882b43b511111fbbd12f"
+  },
+  {
+    "path": "godot/assets/textures/urban/urban_pavers_orm.png",
+    "bytes": 70511,
+    "sha256": "8d92735f3b78045bcbee0bc2f42363e53550f88b2eb08642e2c49a4337f5ac0d"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/civilian_human_Details.png",
+    "bytes": 23561,
+    "sha256": "4d1b9df3dd5fbb8d2ddafd77114f630a743b218d0762b5e8b1df700dc01364a3"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/civilian_human_Fabric.png",
+    "bytes": 19170,
+    "sha256": "1c79c68fb3961129efd3b7481dba87561eb89190fb2adc73a8cd142408fc4840"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/civilian_human_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/civilian_human_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/civilian_human_Skin.png",
+    "bytes": 19947,
+    "sha256": "4850c94b3b7c5f15711ed78728a6d457b81ae06209207daa03a0a6e3102b8f1b"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/civilian_human_Trousers.png",
+    "bytes": 16224,
+    "sha256": "3bfea8db9b28f16e77fdabd743e24f3a664084c8a8d9153e7874f05334bba684"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/guard_human_Details.png",
+    "bytes": 23069,
+    "sha256": "c22aa903e90cfd1baf49eadd8836edd5f108859e45a0d61e5e807f1d3ea9af6b"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/guard_human_Fabric.png",
+    "bytes": 16033,
+    "sha256": "6db6e1305448fbc1cc885f0ed4b5d642b669be19d1f9ba492cadedae1c2e98bb"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/guard_human_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/guard_human_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/guard_human_Skin.png",
+    "bytes": 18806,
+    "sha256": "9432f866dc78400ab11cb4e28eb7f5495f88c7ef0de1c2cfbecffd0508b6f445"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/guard_human_Trousers.png",
+    "bytes": 11964,
+    "sha256": "1e72ace0be4cdb64da6b5cb0e772a0f3f3a75daf3a2d0172c0ec6bd00e076c90"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/hero_human_Details.png",
+    "bytes": 22724,
+    "sha256": "46fa16a1898d0f682f44f83bd35b40c5a2c6f095354e80ee34f0540753098e52"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/hero_human_Fabric.png",
+    "bytes": 15951,
+    "sha256": "6e8b8154e28185a8ed31d34b006e5323b4fa95e71e9b1ab33054a1cd21c5534a"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/hero_human_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/hero_human_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/hero_human_Skin.png",
+    "bytes": 19482,
+    "sha256": "d48a9e5244f11fa307d6bb9d7b722e9acd52078cb2315fa0418bdfa444184330"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/hero_human_Trousers.png",
+    "bytes": 14134,
+    "sha256": "3621f422b63312526aaee32ba1ce47c54560d4d20924545ecd0f5379d23a14ec"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/mei_human_Details.png",
+    "bytes": 23553,
+    "sha256": "c088dcfe6e4291a62740d9a726ab9568e7a3aed508034642211e6b4a302d2856"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/mei_human_Fabric.png",
+    "bytes": 16366,
+    "sha256": "8ee8188717c4ee5742db2289821f97beb7b06c4e6602e9aeaf57409a1a387aa4"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/mei_human_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/mei_human_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/mei_human_Skin.png",
+    "bytes": 19868,
+    "sha256": "3e68ae1fc95758b61f2edeb71cd44bdd94d2615a1a0096da03e7bd4633b5afd6"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/mei_human_Trousers.png",
+    "bytes": 14806,
+    "sha256": "bb0aab8173927309b2c0bd628e7c8ab016d9372eabe98289d631914f6fec88bf"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_an_Details.png",
+    "bytes": 22606,
+    "sha256": "1a81da8754dc4cb6111a8730650e55fa2b80078de0989409a2ce40d90ff1b800"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_an_Fabric.png",
+    "bytes": 19957,
+    "sha256": "05a0ca1d1eb1c205f011297fabc7b9ffae9426554130e6446cfbe8611cc213da"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_an_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_an_Shoes.png",
+    "bytes": 9605,
+    "sha256": "347fd2a1b9c3535d2ab23b2424fc92ee3a3dcf2c961221bb2fe802809f888197"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_an_Skin.png",
+    "bytes": 19676,
+    "sha256": "665ecb93ee6efa5dd999fdff4916fe0525ae73c1feaf792951e792488b2601b4"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_an_Trousers.png",
+    "bytes": 16192,
+    "sha256": "9ea6759707d6b56599db1b75e0cca6b8b7cbe802e55b47eae6b89732adb8f780"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_chun_Details.png",
+    "bytes": 23567,
+    "sha256": "b9f0bfb094b97b4c09f40ac26e26c9703cdf5b6dc44fa44887de8de6e44e0f18"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_chun_Fabric.png",
+    "bytes": 18434,
+    "sha256": "94dc4ce2092dc06187e0400e82c8cc1b88a16e8c36f7d9bd68a953320105abbb"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_chun_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_chun_Shoes.png",
+    "bytes": 9605,
+    "sha256": "347fd2a1b9c3535d2ab23b2424fc92ee3a3dcf2c961221bb2fe802809f888197"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_chun_Skin.png",
+    "bytes": 19676,
+    "sha256": "665ecb93ee6efa5dd999fdff4916fe0525ae73c1feaf792951e792488b2601b4"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_chun_Trousers.png",
+    "bytes": 16192,
+    "sha256": "9ea6759707d6b56599db1b75e0cca6b8b7cbe802e55b47eae6b89732adb8f780"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_juan_Details.png",
+    "bytes": 22740,
+    "sha256": "d27ed91f227ace9e81576e17e3d64a15178c17fe529cb2f4b73ad3309f9cb246"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_juan_Fabric.png",
+    "bytes": 18148,
+    "sha256": "790c1744cb1c0ebc231e8f71703249b73c24595a999691ed602289b89e1ff5d7"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_juan_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_juan_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_juan_Skin.png",
+    "bytes": 19947,
+    "sha256": "4850c94b3b7c5f15711ed78728a6d457b81ae06209207daa03a0a6e3102b8f1b"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_juan_Trousers.png",
+    "bytes": 16224,
+    "sha256": "3bfea8db9b28f16e77fdabd743e24f3a664084c8a8d9153e7874f05334bba684"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_lin_Details.png",
+    "bytes": 23175,
+    "sha256": "af90a68c6a8f040a64152a44d242c18c05e3d55332972cc298cc67350fe6c29e"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_lin_Fabric.png",
+    "bytes": 18970,
+    "sha256": "715f517abb23a48845d9f05dd7434a3564a67fb9b7fcefee4a5bd2877a5e3a1e"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_lin_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_lin_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_lin_Skin.png",
+    "bytes": 19947,
+    "sha256": "4850c94b3b7c5f15711ed78728a6d457b81ae06209207daa03a0a6e3102b8f1b"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_lin_Trousers.png",
+    "bytes": 16224,
+    "sha256": "3bfea8db9b28f16e77fdabd743e24f3a664084c8a8d9153e7874f05334bba684"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_ting_Details.png",
+    "bytes": 23377,
+    "sha256": "8a6bbea4e9c16ab48da42c2b578325dd62a00b717e5a657b045a52ceb31be6c8"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_ting_Fabric.png",
+    "bytes": 16391,
+    "sha256": "78c319e170d59d43df2ea3d7ee7b4f711523f44d71e6ee14dc0678367e34c250"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_ting_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_ting_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_ting_Skin.png",
+    "bytes": 19482,
+    "sha256": "d48a9e5244f11fa307d6bb9d7b722e9acd52078cb2315fa0418bdfa444184330"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_ting_Trousers.png",
+    "bytes": 14134,
+    "sha256": "3621f422b63312526aaee32ba1ce47c54560d4d20924545ecd0f5379d23a14ec"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_wei_Details.png",
+    "bytes": 21050,
+    "sha256": "2cbce01b646831a7e2b95f3cbdb7f39c6b3de9ff79853c090a4a9541f0dbc546"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_wei_Fabric.png",
+    "bytes": 17691,
+    "sha256": "7ae6d839ee88c0f9ff1c26bad81ac889126faecc3e6f4fb5ea2b3a5185567864"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_wei_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_wei_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_wei_Skin.png",
+    "bytes": 19531,
+    "sha256": "77108aa25b65bdc5cac21dcc0ecd19c2446eb66593bf9ffe93736dda97dfae74"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_wei_Trousers.png",
+    "bytes": 13927,
+    "sha256": "58a3deeac6d3fc09e65da156599862e7b87550d770d864fc0814b16922fe1858"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_ya_Details.png",
+    "bytes": 22692,
+    "sha256": "c896567e12894b4abe3d53b40600923f1493a8216d5ba8cef60286b813c00289"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_ya_Fabric.png",
+    "bytes": 17821,
+    "sha256": "f756877e53cd919a20c8ef860bbe9c0d3dcc34737267428e66dfbfc155635e8e"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_ya_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_ya_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_ya_Skin.png",
+    "bytes": 19868,
+    "sha256": "3e68ae1fc95758b61f2edeb71cd44bdd94d2615a1a0096da03e7bd4633b5afd6"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_ya_Trousers.png",
+    "bytes": 14806,
+    "sha256": "bb0aab8173927309b2c0bd628e7c8ab016d9372eabe98289d631914f6fec88bf"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_yun_Details.png",
+    "bytes": 23043,
+    "sha256": "e6f4d3d26b1fd94c6543ba80413131bdfee6fb698c76a8d567097084dd4544ed"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_yun_Fabric.png",
+    "bytes": 18612,
+    "sha256": "64030cd2eb09e194f7d97e9c1194ce75e35dd5b3ff05153cc19103174ce1936c"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_yun_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_yun_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_yun_Skin.png",
+    "bytes": 19868,
+    "sha256": "3e68ae1fc95758b61f2edeb71cd44bdd94d2615a1a0096da03e7bd4633b5afd6"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/tw_person_yun_Trousers.png",
+    "bytes": 14806,
+    "sha256": "bb0aab8173927309b2c0bd628e7c8ab016d9372eabe98289d631914f6fec88bf"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/yuan_human_Details.png",
+    "bytes": 23850,
+    "sha256": "caab8a317a820dc801dd79db751d5055546c456f6f79b4f848bdfc69a9e74373"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/yuan_human_Fabric.png",
+    "bytes": 19476,
+    "sha256": "f2964bf842a8cd9e2356dc8b4f5e02349d2a5b29367fa2c0497523ceb5a3bd4e"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/yuan_human_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/yuan_human_Shoes.png",
+    "bytes": 9605,
+    "sha256": "347fd2a1b9c3535d2ab23b2424fc92ee3a3dcf2c961221bb2fe802809f888197"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/yuan_human_Skin.png",
+    "bytes": 19676,
+    "sha256": "665ecb93ee6efa5dd999fdff4916fe0525ae73c1feaf792951e792488b2601b4"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/yuan_human_Trousers.png",
+    "bytes": 16192,
+    "sha256": "9ea6759707d6b56599db1b75e0cca6b8b7cbe802e55b47eae6b89732adb8f780"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/zhou_human_Details.png",
+    "bytes": 19160,
+    "sha256": "2de7426bec3ac489a2306946e51ce4c9bea6f9ac6bbfa4accd3da1e3c0f4987a"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/zhou_human_Fabric.png",
+    "bytes": 16512,
+    "sha256": "f35789d6aebb704aa30febf199835b1be5b24d0b7f07d5319e79a6b675e76712"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/zhou_human_Hair.png",
+    "bytes": 6273,
+    "sha256": "ba66badce9c4a3841bdbb77f5f28cc5b060013bfc2f699b653eda846787d2fb5"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/zhou_human_Shoes.png",
+    "bytes": 4368,
+    "sha256": "bc7b5f81cf5d3fe589d7714b1f86b0d1dc4d36e09e20326546d960191d93f6b1"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/zhou_human_Skin.png",
+    "bytes": 19531,
+    "sha256": "77108aa25b65bdc5cac21dcc0ecd19c2446eb66593bf9ffe93736dda97dfae74"
+  },
+  {
+    "path": "godot/assets/textures/v03-human/zhou_human_Trousers.png",
+    "bytes": 13927,
+    "sha256": "58a3deeac6d3fc09e65da156599862e7b87550d770d864fc0814b16922fe1858"
+  },
+  {
+    "path": "godot/data/alpha_missions.json",
+    "bytes": 6444,
+    "sha256": "52d096d7b3be17300b18d76713778b0f4cda3ea8fe3a938ebecc30c7f88eb14d"
+  },
+  {
+    "path": "godot/data/carry_asset_manifest.json",
+    "bytes": 2457,
+    "sha256": "f35c9286af57040d9d70c8ec454658273ca63ecd0ded8de9beb8c105e3abde9e"
+  },
+  {
+    "path": "godot/data/device_profiles.json",
+    "bytes": 1771,
+    "sha256": "31e4758a205430b66fcbcb034736de07adb3febc65d4e06c51fe5d969dc02090"
+  },
+  {
+    "path": "godot/data/district_life.json",
+    "bytes": 2812,
+    "sha256": "c44b26afe6509cb630444368ed77d52aea6e514adac05b774a858b522254b24f"
+  },
+  {
+    "path": "godot/data/district_systems.json",
+    "bytes": 2581,
+    "sha256": "cf427baaff4fb763bc46956fb08b771b187b9edfd70c8f278226732b113c845b"
+  },
+  {
+    "path": "godot/data/optional_content.json",
+    "bytes": 12816,
+    "sha256": "7f11ff5fb233780806cb0e400c51dc8e8d461ca6d9d8dc1e3407def11c859c10"
+  },
+  {
+    "path": "godot/data/taiwan_activities.json",
+    "bytes": 2388,
+    "sha256": "17cc2713b10799e448c366859055a3a28305b6e366864309d5a36832428aea62"
+  },
+  {
+    "path": "godot/data/taiwan_asset_manifest.json",
+    "bytes": 14062,
+    "sha256": "b80b5f488f4b188355bce9e4d5769fc1797398b56ec32124fc43104cbd2f569a"
+  },
+  {
+    "path": "godot/data/taiwan_expansion.json",
+    "bytes": 3158,
+    "sha256": "36e670afef0a9cdd30c9ae55289d0593c061a6a768c5e19e7aaf534c0a7ace4a"
+  },
+  {
+    "path": "godot/data/taiwan_life.json",
+    "bytes": 91894,
+    "sha256": "00f41eba4a186a15d8e9d8354f391ead889de6e7b906e26ffacbde1fc7d33d5f"
+  },
+  {
+    "path": "godot/data/taiwan_people_manifest.json",
+    "bytes": 6448,
+    "sha256": "783792617b174c4d068faef54c528f85a6cefe989fec952d53f9684a9ab0f2ca"
+  },
+  {
+    "path": "godot/scenes/main.tscn",
+    "bytes": 168,
+    "sha256": "09956347e777f81297a0a1539256cb726836609a4beba1163576eef8c83512ac"
+  },
+  {
+    "path": "godot/scripts/main.gd",
+    "bytes": 92700,
+    "sha256": "89532f19d383c9668fbe26ba906e39b700502bf5f8c7f1cff6da4659302e21d5"
+  },
+  {
+    "path": "godot/scripts/combat/guard.gd",
+    "bytes": 11277,
+    "sha256": "c14a1f1622918c897a7a5b0a920ecaf686efc08f30030f81b77ecb9891532157"
+  },
+  {
+    "path": "godot/scripts/content/chapter_revisits.gd",
+    "bytes": 5738,
+    "sha256": "3aeee245c20c4c3321a9feab9a3e1f8f850ac5079e225e7b5b58080433ca518c"
+  },
+  {
+    "path": "godot/scripts/content/content_world.gd",
+    "bytes": 8485,
+    "sha256": "d173c4d2e6f73a5115d7a540526dd38635b180f2a8c4dddf0346c4d6bc5d47e0"
+  },
+  {
+    "path": "godot/scripts/content/fraud_case.gd",
+    "bytes": 2594,
+    "sha256": "fe82715197c13795f3e6b4e5ef7c24448cedcb6fe61a809eb3f40f308dec2b15"
+  },
+  {
+    "path": "godot/scripts/content/optional_content.gd",
+    "bytes": 17299,
+    "sha256": "f761e30e4c2df233097c0330d8c9250816683ed454b8e850b46ebf58d0294522"
+  },
+  {
+    "path": "godot/scripts/content/taiwan_activities.gd",
+    "bytes": 10986,
+    "sha256": "baca2262cc9ab0677e5bf2b6f43eb76dc5c193ec5a78c423ae159d3005f92dd3"
+  },
+  {
+    "path": "godot/scripts/content/taiwan_life.gd",
+    "bytes": 21185,
+    "sha256": "eba6ad8e7542b626da83ee9bac62bc9615cddd4d1a6df827b06180afe7e312a5"
+  },
+  {
+    "path": "godot/scripts/content/taiwan_world.gd",
+    "bytes": 5927,
+    "sha256": "4aaf6e8e3eefbfdd4f7ae62ca29bbc28836fe5c4a28f703746c356a6ccd37915"
+  },
+  {
+    "path": "godot/scripts/missions/mission_manager.gd",
+    "bytes": 17679,
+    "sha256": "900c6967efbf92324a78517531c878367e223faaa5d95ca18f331376af69581a"
+  },
+  {
+    "path": "godot/scripts/player/player_controller.gd",
+    "bytes": 24672,
+    "sha256": "1c4ac792482ac390a414d574d05ac253960883eb889e907d4022a0e92f974f62"
+  },
+  {
+    "path": "godot/scripts/save/save_manager.gd",
+    "bytes": 3273,
+    "sha256": "be414d977338b73e2bf3f9140aa3123352630d46dd95fe357182a0fe791ad684"
+  },
+  {
+    "path": "godot/scripts/systems/device_profiles.gd",
+    "bytes": 9148,
+    "sha256": "7a0773f8c8260f1c64be1e4a9cfa40a1221ae68db7f87d16ff52269b06246ac4"
+  },
+  {
+    "path": "godot/scripts/systems/district_systems.gd",
+    "bytes": 15920,
+    "sha256": "4730e6da378f593047f9467d9563853fc0ba237d22482d5cd098779db3dd57b4"
+  },
+  {
+    "path": "godot/scripts/systems/hit_feedback.gd",
+    "bytes": 5985,
+    "sha256": "c3bd6f990246911d994f4768a9393876dbb29a328773e94ac3bf3143d48441db"
+  },
+  {
+    "path": "godot/scripts/systems/music_director.gd",
+    "bytes": 2556,
+    "sha256": "8db30360385fca4847b4e9890781e2cf67f450833191db130aaafddaa59c63fe"
+  },
+  {
+    "path": "godot/scripts/systems/run_records.gd",
+    "bytes": 3999,
+    "sha256": "7091bcd6e6de78fdbba6d98e1bb74367d9d259e88054b9e218e385efcf940de1"
+  },
+  {
+    "path": "godot/scripts/systems/startup_progress.gd",
+    "bytes": 6745,
+    "sha256": "54072eb9e6a5564e96d3e2c0fda3b92bb00e1726a9bd516f60c47a8946666497"
+  },
+  {
+    "path": "godot/scripts/systems/street_state.gd",
+    "bytes": 2755,
+    "sha256": "cc064c83a8057a5cc193c4a44497ff7b66db0e87e84b085c0a2431d49f8cf09a"
+  },
+  {
+    "path": "godot/scripts/ui/district_map.gd",
+    "bytes": 5196,
+    "sha256": "6e35902dadb289cb6c0c84eff722b39df2b8e0ef745c5e8df36f9513421c01d7"
+  },
+  {
+    "path": "godot/scripts/ui/fraud_case_panel.gd",
+    "bytes": 4002,
+    "sha256": "cbcef1469e8e085fed89157e3288be8a33a8382e80f1b667bdc550794c9602a0"
+  },
+  {
+    "path": "godot/scripts/ui/game_hud.gd",
+    "bytes": 55270,
+    "sha256": "1c8656f9f09c68fb54e84a43ff0ec6b4ad7de83461c2fe7568d184769bdf9937"
+  },
+  {
+    "path": "godot/scripts/ui/mobile_touch_controls.gd",
+    "bytes": 3355,
+    "sha256": "0b5269fd1cf928760067931053f59fcf3f2fcf94f9384a91d6bad7dbc47ebe40"
+  },
+  {
+    "path": "godot/scripts/ui/story_intro.gd",
+    "bytes": 8045,
+    "sha256": "e66240b255da2df461f0b97f5e596b211f15b8b4c47ee34b24348e7272bb74d0"
+  },
+  {
+    "path": "godot/scripts/ui/taiwan_activity_panel.gd",
+    "bytes": 8137,
+    "sha256": "4d51e3aa309419136744d69ba03610b9391aa1642864397095c9e98157e6d68f"
+  },
+  {
+    "path": "godot/scripts/ui/taiwan_life_panel.gd",
+    "bytes": 9747,
+    "sha256": "9cf4efaeef61cffb4b7b404fbeb8977e3f3eef0e466360ec57b4bc7f6a2246b7"
+  },
+  {
+    "path": "godot/scripts/ui/touch_controls.gd",
+    "bytes": 16987,
+    "sha256": "472d149d1c2b23273afed77642f7c8b6611ead8971963cb4b06cba26d8a06c0e"
+  },
+  {
+    "path": "godot/scripts/vehicles/arcade_vehicle.gd",
+    "bytes": 9426,
+    "sha256": "aa50bea32e2740c21eddc6fd51be37c5dfb169fc1317c6853ae224e2628733c6"
+  },
+  {
+    "path": "godot/scripts/world/contact_shadow.gd",
+    "bytes": 873,
+    "sha256": "d0831d8ce0fa2b764b5938f6bfdeb1c347bf01723a87de9ee1899027f72a325b"
+  },
+  {
+    "path": "godot/scripts/world/district_life.gd",
+    "bytes": 27440,
+    "sha256": "1f7c8efa7fb6d219b3ee05848795379879cd943806652a59d3c8238f2bac436b"
+  },
+  {
+    "path": "godot/scripts/world/interactable.gd",
+    "bytes": 3295,
+    "sha256": "25cfb4bd3cf14e8682fa5ba272da002d59b290cdb0bdeb5c536cf4bba6ed3d4a"
+  },
+  {
+    "path": "godot/scripts/world/objective_beacon.gd",
+    "bytes": 3833,
+    "sha256": "e8400ccdc75b3924aec474b3668ef145ea52b0e12b645bdcf996d12cf3265e0f"
+  },
+  {
+    "path": "godot/scripts/world/rescue.gd",
+    "bytes": 2401,
+    "sha256": "8aebe3a7d222f64e3cc5d03a7d54bef1cdd48cc76b5a9a2f8825b776c5977f28"
+  },
+  {
+    "path": "godot/scripts/world/taiwan_expansion.gd",
+    "bytes": 42700,
+    "sha256": "dc15031839574c4e2ca6456efc02a75def60a6ea643d28a09502548f2ecb64b2"
+  },
+  {
+    "path": "godot/scripts/world/urban_detail.gd",
+    "bytes": 13887,
+    "sha256": "b9e4aefce54acdfc924a963f253bf46a76b9022f6a8b85014dd2c5ae7a9caa35"
+  },
+  {
+    "path": "godot/tests/responsive_startup.gd",
+    "bytes": 4488,
+    "sha256": "f8f5670142aec28b4648e83cc845bef7d53abaafc51da9aa96939440ad7c128a"
+  },
+  {
+    "path": "godot/tests/startup_streaming.gd",
+    "bytes": 8007,
+    "sha256": "55c3fcc70aa9620479ddaeee2cde168b9be4088c303bc2cfbdd55b95f60a73e9"
+  },
+  {
+    "path": "godot/tests/taiwan_expansion.gd",
+    "bytes": 11280,
+    "sha256": "9589d9a1c1fd48d17d2a4db7341eb07378e018884630aa129df7634260beb0b4"
+  },
+  {
+    "path": "godot/tests/title_cta_layout.gd",
+    "bytes": 6527,
+    "sha256": "6c4d4602144463e3c97a3a124d37ea10ba92fa6d7b31af4c4897e8a169d0511c"
+  },
+  {
+    "path": "web/404.html",
+    "bytes": 1257,
+    "sha256": "8e649cb767ce0de2d54db453eebf7198568985d52ef55cd67da39e11b56bcb0f"
+  },
+  {
+    "path": "web/play-site.css",
+    "bytes": 17942,
+    "sha256": "685c676b88afcd13436f65d743ffce2b88c05cd8bbce26e6c6ccd784413ac0f2"
+  },
+  {
+    "path": "web/play-site.js",
+    "bytes": 24577,
+    "sha256": "62020d6c48ac3abfe91aa46ca83f484d39e2b2946be22cb0c751f98cfc0d0755"
+  },
+  {
+    "path": "web/shell.html",
+    "bytes": 10627,
+    "sha256": "aa4052d457495b01c0a53c3e1fc26b5de5d1c598a2e0cac3343345842f00b1ac"
+  },
+  {
+    "path": "web/worker.mjs",
+    "bytes": 1601,
+    "sha256": "c1ce9e930cb7dc57f364fcf43300cdf60238840b4d4e077325c41f8c2762f456"
+  }
+]

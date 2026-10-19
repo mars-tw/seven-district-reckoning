@@ -1,0 +1,30 @@
+{
+  "status": "BLOCKED",
+  "version": "0.16.0",
+  "shipping_gate": "BLOCKED",
+  "items": [
+    {
+      "review_item": 1,
+      "status": "BLOCKED",
+      "reason": "本輪使用者明示不再追測並發桌機效能。乾淨機況桌機／手機 p95 <=18ms 與 Android、iPhone／iPad 原生裝置尚未驗證；Web 截圖不能證明原生效能。",
+      "needed": "可獨占的乾淨機況、至少一台 Android 與一台 iPhone 或 iPad，記錄裝置、GPU、原生 p95、操作查證簿與返回街區的體感。",
+      "historical_reference": ["docs/content/r1/screenshots/manifest.json", "docs/content/r1/host-after-capture.json", "docs/evidence/r10-art/performance-investigation.json"],
+      "historical_r1_raf_p95_ms": {"phone_390x844": 16.7, "desktop_1366x768": 83.4},
+      "measurement_environment": "歷史並發載量測，僅供參考；不是本輪新實測，不是乾淨機況或原生裝置結果。",
+      "screenshots": []
+    },
+    {
+      "review_items": [2, 4, 5],
+      "status": "BLOCKED",
+      "reason": "自動操作與截圖能證明流程、可達性、畫面與保存，不能代替未參與開發者的口述試玩。",
+      "needed": "未參與開發的玩家：從案件清單完成取證並說出去處與來源；遮住封存標題辨識三案；記錄第一案完成時間與理由；第三案正確複述至少兩組證詞／證物／結果。",
+      "observed_human_sessions": 0
+    },
+    {
+      "status": "BLOCKED",
+      "reason": "本輪沒有新的獨立 Muse 複審，不自填 8 分以上。",
+      "needed": "以 docs/content/r2/ 的手機直式原圖進行獨立複審。",
+      "independent_r2_score": null
+    }
+  ]
+}

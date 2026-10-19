@@ -78,6 +78,24 @@ func _material(key: String, color: Color, texture_key: String = "") -> StandardM
 			material.ao_texture_channel = BaseMaterial3D.TEXTURE_CHANNEL_RED
 			material.roughness_texture = material.ao_texture
 			material.roughness_texture_channel = BaseMaterial3D.TEXTURE_CHANNEL_GREEN
+		# R4 generated diffuse surfaces replace only the existing visual materials.
+		# Do not pretend unrelated old normal/ORM maps describe these new images.
+		if texture_key in ["asphalt","pavers"]:
+			material.albedo_texture = load("res://assets/art/" + ("r7/street-asphalt" if texture_key == "asphalt" else "r4/arcade-tile") + ".webp") as Texture2D
+			material.albedo_color = Color.WHITE
+			material.uv1_triplanar = true
+			material.uv1_world_triplanar = true
+			# These images already contain several tiles; excessive repeats shimmer
+			# at the phone camera distance. Keep their pattern at street scale.
+			material.uv1_scale = Vector3.ONE * (0.16 if texture_key == "asphalt" else 0.20)
+			material.albedo_color = Color("9c9c96") if texture_key == "pavers" else Color("a5a9ac")
+			material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+			material.normal_enabled = false
+			material.normal_texture = null
+			material.ao_enabled = false
+			material.ao_texture = null
+			material.roughness_texture = null
+			material.roughness = 0.9
 	_materials[key] = material
 	return material
 
@@ -93,7 +111,9 @@ func _retexture_existing_terrain() -> void:
 			if not visual.mesh is BoxMesh: continue
 			var size_value: Vector3 = (visual.mesh as BoxMesh).size
 			if size_value.x >= 299.0 and size_value.z >= 299.0:
-				visual.material_override = _material("soil", Color("72786b"))
+				visual.material_override = _material("soil", Color("72786b"), "asphalt")
+			elif size_value.x > 15.0 and size_value.z > 15.0 and size_value.y < 0.1:
+				visual.material_override = _material("forecourt", Color("77716b"), "asphalt")
 			elif size_value.x > 30.0 and size_value.z > 30.0 and size_value.y < 0.2:
 				visual.material_override = _material("pavers", Color("a19e90"), "pavers")
 

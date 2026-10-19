@@ -1,0 +1,8 @@
+{
+  "status": "BLOCKED",
+  "fixture": "tests/art_capture.gd",
+  "fixture_sha256": "dcfe6e4dc12da38244ab1d57d1eba293a382cf1446bc0d289040deeac9c4532b",
+  "timeout": false,
+  "returncode": 0,
+  "output": "Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org\r\n\r\nART_CAPTURE_RESULT {\"display\":\"headless\",\"driver\":\"opengl3\",\"reason\":\"Godot headless dummy renderer does not render pixels. Browser and windowed capture are outside this task's authorization.\",\"requested_sizes\":[[1290,2796],[2064,2752]],\"screenshots_written\":0,\"status\":\"BLOCKED\"}\r\nERROR: Parameter \"t\" is null.\r\n   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)\r\n   GDScript backtrace (most recent call first):\r\n       [0] probe (<repository-root>/qa/local/r4-baseline-od8lptq6/tests/art_capture.gd:19)\r\n"
+}

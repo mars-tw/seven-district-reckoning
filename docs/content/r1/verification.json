@@ -1,0 +1,54 @@
+{
+  "status": "VERIFIED",
+  "version": "0.15.0",
+  "protected_files_unchanged": 228,
+  "test_suites": 31,
+  "test_checks": 23683,
+  "test_failures": 0,
+  "browser_views": 9,
+  "captured_screenshots": 90,
+  "new_store_screenshots": 6,
+  "source_digest": "f431d54cf9a3943ab758864e9f7e31d003cb7c1fde24521eeb1e7ff39ca80378",
+  "pck_sha256": "8d22a3fe97bd4601e54bd9d000eade80bc42a677354c63f1b87c30c44a77a715",
+  "pck_bytes": 25995764,
+  "art_generated_masters": 1,
+  "art_runtime_images": 1,
+  "explicit_paths": 128,
+  "performance_reference": [
+    {
+      "viewport": "390x844",
+      "p95_median_ms": 16.700000000004366,
+      "threshold_ms": 18,
+      "status": "VERIFIED"
+    },
+    {
+      "viewport": "1366x768",
+      "p95_median_ms": 83.40000000000146,
+      "threshold_ms": 18,
+      "status": "BLOCKED"
+    }
+  ],
+  "performance_environment": "\u4e26\u767c\u8f09\u91cf\u6e2c\uff0c\u50c5\u4f9b\u53c3\u8003; not a clean-host or native-device proof",
+  "shipping_gate": "BLOCKED",
+  "secret_scan": {
+    "status": "VERIFIED",
+    "actual_secret_findings": [],
+    "actual_secret_count": 0,
+    "raw_scanner_status": "FAIL",
+    "unchanged_head_godot_cache_false_positives": [
+      {
+        "file": "godot/assets/art/r8/dusk-sky.webp.import",
+        "line": 6,
+        "type": "api_token"
+      },
+      {
+        "file": "godot/assets/art/r8/dusk-sky.webp.import",
+        "line": 14,
+        "type": "api_token"
+      }
+    ],
+    "tracked_files": 2994,
+    "required_pattern_hits": 0,
+    "scope": "Prospective tracked text (git ls-files); no credential directories read"
+  }
+}

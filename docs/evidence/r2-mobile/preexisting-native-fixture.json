@@ -1,0 +1,24 @@
+[
+  {
+    "phase": "before",
+    "status": "BLOCKED",
+    "timeout_seconds": 15,
+    "result_lines": [
+      "SCRIPT ERROR: Invalid call. Nonexistent function 'initialize' in base 'Nil'.",
+      "   at: run_checks (<repository-root>/tests/native_touch.gd:23)",
+      "       [0] run_checks (<repository-root>/tests/native_touch.gd:23)"
+    ],
+    "note": "Pre-existing untracked native_touch.gd assumes device_profiles is ready after two frames; CI suites use the asynchronous startup contract. This fixture is preserved and not committed."
+  },
+  {
+    "phase": "after",
+    "status": "BLOCKED",
+    "timeout_seconds": 15,
+    "result_lines": [
+      "SCRIPT ERROR: Invalid call. Nonexistent function 'initialize' in base 'Nil'.",
+      "   at: run_checks (<repository-root>/tests/native_touch.gd:23)",
+      "       [0] run_checks (<repository-root>/tests/native_touch.gd:23)"
+    ],
+    "note": "Pre-existing untracked native_touch.gd assumes device_profiles is ready after two frames; CI suites use the asynchronous startup contract. This fixture is preserved and not committed."
+  }
+]

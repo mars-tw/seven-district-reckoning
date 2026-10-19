@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED",
+  "checks": {
+    "hero_human_hash": true,
+    "hero_human_source_hash": true,
+    "hero_human_relative_images": true,
+    "hero_human_embedded_glb": true,
+    "hero_human_eight_real_clips": true,
+    "hero_human_skin_present": true,
+    "mei-workbench_hash": true,
+    "mei-workbench_source_hash": true,
+    "mei-workbench_relative_images": true,
+    "mei-workbench_embedded_glb": true,
+    "forecourt-detail_hash": true,
+    "forecourt-detail_source_hash": true,
+    "forecourt-detail_relative_images": true,
+    "forecourt-detail_embedded_glb": true
+  },
+  "sheets": [
+    "docs/art/character-sheets/r10/hero_human-front.png",
+    "docs/art/character-sheets/r10/hero_human-side.png",
+    "docs/art/character-sheets/r10/hero_human-back.png"
+  ],
+  "method": "Background Blender 5.2, CPU Cycles 8 samples, actual saved skinned sources with original idle clip. Studio QA only, never store screenshots."
+}

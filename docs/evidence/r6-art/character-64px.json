@@ -1,0 +1,38 @@
+{
+  "status": "VERIFIED",
+  "characters": [
+    {
+      "character": "hero",
+      "source": "docs/art/compare/r6-after/390x844-street.png",
+      "source_sha256": "19e818fc0f1fcf25e81650f7ab99ffe509cf1801b77be02c697277453b458e19",
+      "source_crop": [
+        136,
+        378,
+        253,
+        585
+      ],
+      "path": "docs/evidence/r6-art/hero-64px.png",
+      "sha256": "6fd5eaddabcb14f7e25f7891c01c044111ad011ee89d003099d6eecc649a1715",
+      "height_px": 64,
+      "source_character_height_px": 195.732727050781,
+      "method": "Actual gameplay crop, resized to 64px tall for clothing silhouette review; not a store image or a blinded identity test."
+    },
+    {
+      "character": "mei",
+      "source": "docs/art/compare/r6-after/390x844-street.png",
+      "source_sha256": "19e818fc0f1fcf25e81650f7ab99ffe509cf1801b77be02c697277453b458e19",
+      "source_crop": [
+        278,
+        337,
+        326,
+        422
+      ],
+      "path": "docs/evidence/r6-art/mei-64px.png",
+      "sha256": "4874f79ed22387132a5de0157c474baa7b3b14eb0d12c86d4cf40e1f02262174",
+      "height_px": 64,
+      "source_character_height_px": 80.4715270996094,
+      "method": "Actual gameplay crop, resized to 64px tall for clothing silhouette review; not a store image or a blinded identity test."
+    }
+  ],
+  "limits": "Facial identity and complete 3D alpha masks are not validated by these background-containing crops."
+}

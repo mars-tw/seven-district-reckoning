@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED",
+  "version": "0.21.0",
+  "new_screenshots": [
+    {
+      "file": "docs/store/screenshots/1290x2796-content-r7-before_night-relations-chosen.png",
+      "source": "docs/content/r7/phone-before_night-relations-chosen-1290x2796.png",
+      "sha256": "3885bb25fd4b4da6dd6f937753b6a9418d31d7847a75b26d8b3ab48da1093a53"
+    },
+    {
+      "file": "docs/store/screenshots/1290x2796-content-r7-three_voices-support-both-sides.png",
+      "source": "docs/content/r7/phone-three_voices-support-both-sides-1290x2796.png",
+      "sha256": "2a9d3b661987388610acabda140364ca53390dc0100af14b56a6efcf78490dca"
+    },
+    {
+      "file": "docs/store/screenshots/2064x2752-content-r7-before_night-relations-chosen.png",
+      "source": "docs/content/r7/2064x2752-before_night-relations-chosen.png",
+      "sha256": "08a7344890457d6cecedbb8ab67cb0e86830b26e4ecdcf6a9faaffd52dd3cecc"
+    },
+    {
+      "file": "docs/store/screenshots/2064x2752-content-r7-three_voices-support-both-sides.png",
+      "source": "docs/content/r7/2064x2752-three_voices-support-both-sides.png",
+      "sha256": "ae5b0a7a8617afd1ca0015b24195afe999d200e711565950dde1470df12e9d78"
+    }
+  ],
+  "existing_screenshots_deleted": false,
+  "method": "Unedited native-size PNGs of actual local Godot Web export, headless Chromium with hardware NVIDIA ANGLE D3D11. Engine.copyToFS resumes the unfinished target from native headless-world near-source saves, preserving earlier cases actually completed in this browser. The target completion is never injected. Visible UI performs target collection, retry, sorting, pairing and completion. Long travel resumes from near-source saves, not a continuous walked route. No target-case completion injection, compositing, screenshot scaling or native-device claim."
+}

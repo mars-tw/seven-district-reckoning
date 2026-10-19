@@ -1,0 +1,78 @@
+{
+  "status": "VERIFIED",
+  "files": [
+    {
+      "path": ".gitignore",
+      "unchanged": true,
+      "expected_scoped_edit": false,
+      "preserved": true
+    },
+    {
+      "path": "godot/export_presets.cfg",
+      "unchanged": false,
+      "expected_scoped_edit": true,
+      "preserved": true
+    },
+    {
+      "path": "godot/scripts/ui/touch_controls.gd",
+      "unchanged": true,
+      "expected_scoped_edit": false,
+      "preserved": true
+    },
+    {
+      "path": "qa/engine-checks-incremental.json",
+      "unchanged": true,
+      "expected_scoped_edit": false,
+      "preserved": true
+    },
+    {
+      "path": "qa/engine-checks.json",
+      "unchanged": true,
+      "expected_scoped_edit": false,
+      "preserved": true
+    },
+    {
+      "path": ".github/workflows/native-export.yml",
+      "unchanged": true,
+      "expected_scoped_edit": false,
+      "preserved": true
+    },
+    {
+      "path": "docs/art/ART_REVIEW_MUSE.md",
+      "unchanged": true,
+      "expected_scoped_edit": false,
+      "preserved": true
+    },
+    {
+      "path": "native/README.md",
+      "unchanged": true,
+      "expected_scoped_edit": false,
+      "preserved": true
+    },
+    {
+      "path": "native/build-config.json",
+      "unchanged": true,
+      "expected_scoped_edit": false,
+      "preserved": true
+    },
+    {
+      "path": "tests/native_touch.gd",
+      "unchanged": false,
+      "expected_scoped_edit": true,
+      "preserved": true
+    },
+    {
+      "path": "tools/export_mobile.py",
+      "unchanged": true,
+      "expected_scoped_edit": false,
+      "preserved": true
+    },
+    {
+      "path": "tools/install_native_toolchain.py",
+      "unchanged": true,
+      "expected_scoped_edit": false,
+      "preserved": true
+    }
+  ],
+  "deleted": []
+}

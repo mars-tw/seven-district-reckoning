@@ -1,0 +1,35 @@
+{
+  "status": "VERIFIED",
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "license": "MIT; original generated work, no third-party characters or logos",
+  "generated_masters": 1,
+  "runtime_images": 1,
+  "postprocess": "RGB conversion, lossless master; 960x640 LANCZOS runtime WebP quality 88",
+  "files": [
+    {
+      "path": "assets/art/content-r1/investigation-desk-master.webp",
+      "size": [
+        1536,
+        1024
+      ],
+      "bytes": 2040462,
+      "sha256": "b08e0b6efe3fd0f9d94514283525abb725b9e89245949ea9a0cdcb3351057de7"
+    },
+    {
+      "path": "godot/assets/art/content-r1/investigation-desk.webp",
+      "size": [
+        960,
+        640
+      ],
+      "bytes": 174976,
+      "sha256": "932aadbca6485340f1fa8e07c5d848e4a7f7667bbece9ea7b90d055ba7664fe9"
+    }
+  ],
+  "godot_texture_import": {
+    "mode": "lossy",
+    "quality": 0.7,
+    "mipmaps": false,
+    "note": "Only the new UI illustration uses this import recipe; master remains lossless."
+  }
+}

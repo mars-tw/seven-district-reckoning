@@ -1,0 +1,216 @@
+// Actual local Web gameplay. R4 native-world fixtures remain unfinished; visible touch input completes the R5 cases.
+import fs from 'node:fs';
+import path from 'node:path';
+import http from 'node:http';
+import crypto from 'node:crypto';
+import {createRequire} from 'node:module';
+import {parseArgs} from 'node:util';
+const {values:a}=parseArgs({options:{'playwright-module':{type:'string'},'web-dir':{type:'string'},'data-swap':{type:'boolean',default:false},only:{type:'string'},proof:{type:'boolean',default:false},output:{type:'string',default:'docs/content/r5'}}});
+const root=path.resolve(import.meta.dirname,'..'),web=path.resolve(root,a['web-dir']||'.audit-tmp/content-r5/web'),out=path.resolve(root,a.output);
+fs.mkdirSync(out,{recursive:true});
+const {chromium}=createRequire(import.meta.url)(a['playwright-module']);
+const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const report={status:'EXECUTED',version:'0.19.0',pck_sha256:sha(path.join(web,'game.pck')),views:[],failures:[],
+ method:'Unedited native-size PNGs of actual local Godot Web export, headless Chromium with hardware NVIDIA ANGLE D3D11. Engine.copyToFS imports unmodified native headless-world saves; the target case is always unfinished, while earlier cases may retain native completion. Visible UI performs target collection, retry, sorting, pairing and completion. Long travel resumes from near-source saves, not a continuous walked route. No target-case completion injection, compositing, screenshot scaling or native-device claim.'};
+const flags=['--use-angle=d3d11','--enable-gpu','--ignore-gpu-blocklist','--force_high_performance_gpu'];report.gpu_args=flags;
+report.guards=['touch44','button_bounds','button_overlap','label_bounds','label_overlap','no_remote_requests'];
+report.touch_press_ms=350;
+const server=http.createServer((req,res)=>{
+ let name=decodeURIComponent(new URL(req.url,'http://localhost').pathname);if(name.endsWith('/'))name+='index.html';
+ const wasm=name==='/game.wasm',file=path.resolve(web,'.'+name+(wasm?'.br':''));
+ if(!file.startsWith(web+path.sep)||!fs.existsSync(file)){res.writeHead(404).end();return;}
+ res.setHeader('Content-Type',wasm?'application/wasm':({'.html':'text/html','.js':'application/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png'})[path.extname(file)]||'application/octet-stream');
+ if(wasm)res.setHeader('Content-Encoding','br');fs.createReadStream(file).pipe(res);
+});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin=`http://127.0.0.1:${server.address().port}`;
+const assert=(b,s)=>{if(!b)throw Error(s)};let browser;
+try{
+ browser=await chromium.launch({headless:true,args:flags});report.chromium=browser.version();
+ for(const [w,h,dpr,profile] of [[390,844,1,'phone'],[320,568,1,'phone'],[430,932,3,'phone'],[1032,1376,2,'tablet'],[844,390,1,'phone'],[1024,768,1,'tablet']]){
+  const tag=`${w*dpr}x${h*dpr}`;if((a.only&&tag!==a.only)||(a.proof&&tag!=='390x844'))continue;
+  const view={tag,viewport:{width:w,height:h},dpr,profile,errors:[],shots:[],checks:[]};report.views.push(view);console.log('VIEW',tag);
+  const context=await browser.newContext({viewport:{width:w,height:h},deviceScaleFactor:dpr,hasTouch:true,isMobile:true});
+  const page=await context.newPage();page.setDefaultTimeout(90000);
+  const input=await context.newCDPSession(page);
+  page.on('pageerror',e=>view.errors.push(e.message));page.on('console',m=>{if(m.type()==='error')view.errors.push(m.text())});
+  await context.route('**/*',async route=>{
+   const u=new URL(route.request().url());if(['http:','https:'].includes(u.protocol)&&u.origin!==origin){view.errors.push('Remote request '+u.origin);return route.abort();}
+   if(u.pathname==='/play-site.js'){
+    const response=await route.fetch(),script=await response.text(),marker='engine = new Engine(runtimeConfig);';
+    assert(script.includes(marker),'public Engine instance marker');
+    return route.fulfill({response,body:script.replace(marker,marker+' window.contentCaptureEngine=engine;')});
+   }return route.continue();
+  });
+  const state=()=>page.evaluate(()=>JSON.parse(JSON.stringify(window.sevenDistrictGame)));
+  const pace=async()=>{
+   const runs=[];
+   for(let run=0;run<3;run++)runs.push(await page.evaluate(()=>new Promise(resolve=>{
+    let prev;const values=[];
+    function tick(t){if(prev!==undefined)values.push(t-prev);prev=t;if(values.length<180)requestAnimationFrame(tick);else {values.sort((a,b)=>a-b);resolve({frames:180,p50:values[89],p95:values[170],max:values.at(-1)});}}
+    requestAnimationFrame(tick);
+   })));
+   return {method:'3 x 180 browser RAF presentation intervals; concurrent host load; reference only, not native GPU timings',runs,p95_median:runs.map(r=>r.p95).sort((a,b)=>a-b)[1]};
+  };
+  const healthy=async()=>{
+   const s=await state();assert(s.version==='0.19.0','version');assert(!view.errors.length,JSON.stringify(view.errors));
+   const ui=s.investigations?.ui;if(ui?.visible){
+    for(const b of [...ui.buttons,...ui.labels]){const [x,y,bw,bh]=b.rect;assert(x>=-.5&&y>=-.5&&x+bw<=w+.5&&y+bh<=h+.5,'Offscreen '+b.text);}
+    for(const b of ui.buttons){assert(b.rect[2]>=44&&b.rect[3]>=44,'Touch44 '+b.text);}
+    for(let i=0;i<ui.buttons.length;i++)for(let j=i+1;j<ui.buttons.length;j++){
+     const [x,y,bw,bh]=ui.buttons[i].rect,[a,b,c,d]=ui.buttons[j].rect;assert(!(x<a+c&&a<x+bw&&y<b+d&&b<y+bh),'Button overlap');
+    }
+    for(let i=0;i<ui.labels.length;i++)for(let j=i+1;j<ui.labels.length;j++){
+     const [x,y,bw,bh]=ui.labels[i].rect,[a,b,c,d]=ui.labels[j].rect;
+     assert(!(x<a+c&&a<x+bw&&y<b+d&&b<y+bh),'Label overlap '+ui.labels[i].text+' / '+ui.labels[j].text);
+    }
+   }return s;
+  };
+  const tap=async b=>{
+   assert(b,'Visible touch target');const [x,y,bw,bh]=b.rect;
+   await input.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:x+bw/2,y:y+bh/2,id:0}]});
+   await page.waitForTimeout(350);
+   await input.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+   await page.waitForTimeout(800);await healthy();
+  };
+  const click=async text=>{const s=await healthy(),b=s.investigations.ui.buttons.find(b=>b.text===text&&!b.disabled);assert(b,'Missing enabled button '+text);await tap(b);};
+  const shot=async (name,delay=400)=>{
+   await page.waitForTimeout(delay);const s=await healthy();
+   const supplemental=tag==='320x568'?/paper-[ab]-(unmarked|marked)|wrong-field|middle-to-left|shuffled|attachment-picked|statement-2|pinning-last|sealed(?:-reloaded)?$/:['1290x2796','2064x2752'].includes(tag)?/paper-b-marked|attachment-picked|three_voices-original-[012]|statement-2|pinning-last|sealed$/:/sealed$/;
+   if(tag!=='390x844'&&!supplemental.test(name))return;
+   const file=profile==='phone'&&h>w?`phone-${name}${tag==='390x844'?'':'-'+tag}.png`:`${tag}-${name}.png`;
+   await page.screenshot({path:path.join(out,file)});view.shots.push({file,sha256:sha(path.join(out,file)),state:s});console.log('SHOT',file);
+  };
+  const load=async fixture=>{
+   const file=path.join(root,'.audit-tmp/content-r5/release-saves',fixture+'.json'),raw=fs.readFileSync(file),data=JSON.parse(raw);
+   assert(data.data.investigations.records[fixture.split('-')[0]].complete===false,'fixture target case must be unfinished');
+   view.checks.push({fixture,sha256:sha(file),collected:data.data.investigations.records});
+   await page.evaluate(value=>{window.contentCaptureEngine.copyToFS(window.sevenDistrictGame.investigations.save_path,new TextEncoder().encode(JSON.stringify(value)).buffer);window.sevenDistrictCommand('load');},data);
+   await page.waitForTimeout(900);await healthy();
+  };
+  try{
+   await page.goto(`${origin}/${profile}/`);await page.locator('#start-button').click();await page.waitForFunction(()=>window.sevenDistrictGame?.phase==='title');
+   await page.locator('#fullscreen-button').click();await page.waitForTimeout(600);
+   await page.evaluate(()=>window.sevenDistrictCommand('new_game'));
+   for(let i=0;i<4;i++){await page.keyboard.press('Enter');await page.waitForTimeout(300);}
+   await page.waitForFunction(()=>window.sevenDistrictGame?.world_ready&&window.sevenDistrictGame?.play_started);
+   view.renderer=await page.evaluate(()=>{const gl=document.querySelector('#canvas').getContext('webgl2'),e=gl.getExtension('WEBGL_debug_renderer_info');return gl.getParameter(e.UNMASKED_RENDERER_WEBGL)});
+   assert(/NVIDIA/.test(view.renderer)&&!/SwiftShader/i.test(view.renderer),'hardware renderer');
+
+   await page.evaluate(()=>window.sevenDistrictCommand('pause'));await page.waitForTimeout(500);
+   let s=await state();await tap(s.investigations.hud_buttons.find(b=>b.text==='查證'));
+   s=await state();await tap(s.investigations.hud_buttons.find(b=>b.text==='街坊查證簿・三宗新案'));
+   await shot('case-list');
+
+
+   const full=!a.proof&&['390x844','1290x2796','2064x2752'].includes(tag);
+   for(const [id,title,count] of [['second_help','第二次求助，第二次收費',2],['before_night','晚班之前的收據',3],['three_voices','三張嘴，一句真話',3]]){
+    if(full){
+     await click(title);await shot(id+'-pending');await click('返回街區');
+     for(let i=0;i<count;i++){
+      await load(id+'-field-'+i);s=await state();assert(s.investigations.field.nearby,'real source proximity '+id+i);
+      await shot(id+'-field-'+i);
+      if(id==='second_help'&&i===0&&['390x844','1290x2796','2064x2752'].includes(tag)){
+       // Performance deferred by this round's instruction.
+      }
+      let attempts=0;
+      while(attempts<3){
+       s=await state();if(s.investigations.progress.records[id].collected.length===i+1)break;
+       assert(s.phase==='playing'&&s.investigations.field.nearby&&s.investigations.progress.records[id].collected.length===i,'guarded input retry only while same source is still uncollected');
+       const action=s.investigations.field.actions.find(b=>b.action==='interact');assert(action,'visible interaction');await tap(action);attempts++;
+       await page.waitForFunction(({id,count})=>window.sevenDistrictGame.investigations.progress.records[id].collected.length===count,{id,count:i+1},{timeout:3000}).catch(()=>{});
+      }
+      view.checks.push({field_touch:{case:id,source:i,attempts}});
+      s=await state();assert(s.investigations.progress.records[id].collected.length===i+1,'field interaction collects exactly one source');
+      await shot(id+'-original-'+i);await click('返回街區');
+     }
+    }
+    await load(id+'-ready');await page.evaluate(()=>window.sevenDistrictCommand('investigations'));await page.waitForTimeout(450);await click(title);
+    await click(h<400?'推論':'證物已齊，開始推論');
+    if(id==='second_help'){
+     await shot(id+'-paper-a-unmarked');
+     await click('案號：岸七');await shot(id+'-wrong-field');
+     assert((await state()).investigations.progress.records[id].viewed_fields['0'].includes(1),'wrong paper field retained');
+     await click('承諾：本案協助不收任何預付費。');await shot(id+'-paper-a-marked');
+     await click('返回街區');await page.waitForTimeout(1800);
+     if(tag==='390x844'){
+      await page.reload();await page.locator('#start-button').click();await page.waitForFunction(()=>window.sevenDistrictGame?.phase==='title'&&window.sevenDistrictGame?.world_ready);
+      await page.locator('#fullscreen-button').click();await page.waitForTimeout(600);
+     }
+     await page.evaluate(()=>window.sevenDistrictCommand('load'));await page.waitForTimeout(900);
+     s=await state();assert(s.investigations.progress.records[id].citations['0']===2&&!s.investigations.progress.records[id].complete,'paper mark survives cold reload');
+     view.checks.push({paper_mark_saved:true,reload:tag==='390x844'?'IndexedDB cold reload':'normal disk load',still_unsealed:true});
+     await page.evaluate(()=>window.sevenDistrictCommand('investigations'));await page.waitForTimeout(450);await click(title);await click('推論');await shot(id+'-paper-a-reloaded');
+     await click('乙 原件');await shot(id+'-paper-b-unmarked');await click('要求：本案須先付代辦費，才受理協助。');await shot(id+'-paper-b-marked');
+     await click('核對兩個標欄');await shot(id+'-spread-before-seal');
+     assert((await state()).investigations.progress.records[id].compared&&!(await state()).investigations.progress.records[id].complete,'paper comparison does not seal');
+     await click('暫停付款，兩頁一起封存');
+     view.checks.push({evidence_body_comparison:'VERIFIED',document_a_field:'承諾',document_b_field:'要求',paper_citations_saved:true});
+    }else if(id==='before_night'){
+     const masked=async label=>{const ui=(await state()).investigations.ui;assert(!/(17[：:]42|17[：:]55|18[：:]00)/.test(JSON.stringify([...ui.buttons,...ui.labels])),label+' no visible time');};
+     await masked('unsorted');await shot(id+'-unsorted');await click('打亂牌位');await masked('shuffled');await shot(id+'-shuffled');
+     const drag=async(index,slot,frames=false)=>{
+      const ui=(await healthy()).investigations.ui,letter=['甲','乙','丙'][index],card=ui.buttons.find(b=>b.text.startsWith(letter+' ')),r=ui.drop_zone;
+      assert(card&&r.length===4,'real drag targets');const [x,y,bw,bh]=card.rect,sx=x+bw/2,sy=y+bh/2,dx=r[0]+r[2]*(slot+.5)/3,dy=r[1]+r[3]/2;
+      await input.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:sx,y:sy,id:4}]});
+      await page.waitForTimeout(100);
+      if(frames){
+       for(let preview=0;preview<3;preview++){
+        const px=r[0]+r[2]*(preview+.5)/3;
+        await input.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:px,y:dy,id:4}]});
+        await page.waitForTimeout(600);await masked('drag_preview');await shot(id+'-drag-preview-'+(preview+1),0);
+        assert((await state()).investigations.ui.preview_slot===preview,'visible exact slot preview');
+       }
+      }
+      for(let k=1;k<=5;k++){
+       await input.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:sx+(dx-sx)*k/5,y:sy+(dy-sy)*k/5,id:4}]});await page.waitForTimeout(60);
+      }
+      await input.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await page.waitForTimeout(450);await healthy();
+     };
+     await drag(2,0,true);assert((await state()).investigations.progress.records[id].order.join(',')==='2','real touch drop');await masked('sorting');await shot(id+'-sorting');
+     await drag(0,1);await drag(1,2);assert((await state()).investigations.progress.records[id].order.join(',')==='2,0,1','initial mixed order');
+     await drag(0,0);assert((await state()).investigations.progress.records[id].order.join(',')==='0,2,1','middle card moves to left immediately');await shot(id+'-middle-to-left');
+     await drag(1,1);assert((await state()).investigations.progress.records[id].order.join(',')==='0,1,2','real touch reorder');await masked('arranged');await shot(id+'-arranged');
+     await click('撤回最後一張');assert((await state()).investigations.progress.records[id].order.join(',')==='0,1','undo real UI');
+     s=await state();await tap(s.investigations.ui.buttons.find(b=>b.text.startsWith('丙 ')));assert((await state()).investigations.progress.records[id].order.join(',')==='0,1,2','tap alternative');await shot(id+'-tap-alternative');
+     await click('確認時間線');assert(!(await state()).investigations.progress.records[id].complete,'reveal alone cannot seal');await shot(id+'-revealed');
+     await click('17：42\n點選拿起收據');await shot(id+'-attachment-picked');await click('18：00\n貼入收據 →');
+    }else{
+     await click('甲 首筆\n17：50');await click('支持這句');assert(Object.keys((await state()).investigations.progress.records[id].pairs).length===0,'wrong pairing');await shot(id+'-retry');
+     for(let i=0;i<3;i++){
+      // Complete index is a valid counterexample to either universal statement.
+      await click('丙 三筆索引');await shot(id+'-statement-'+i);await click(i===2?'支持這句':'推翻這句');
+      if(i<2){
+       assert((await state()).investigations.progress.records[id].pairs[String(i)][0]===2,'complete index accepted as counterexample');
+       await shot(id+'-index-accepted-'+i);
+       await click(i===0?'乙 末筆\n18：10':'甲 首筆\n17：50');await shot(id+'-focus-'+i);await click('推翻這句');
+       assert((await state()).investigations.progress.records[id].pairs[String(i)][0]===(i===0?1:0),'valid pair can be replaced without penalty');
+       await click(`換一句 ${i+1}／3`);
+      }
+     }
+     assert((await state()).investigations.ui.page==='pinning','third case finishes on physical record ribbon');
+     await shot(id+'-pinning-empty');await click('釘上 17：50');await click('釘上 18：00');await shot(id+'-pinning-last');
+     await click('返回街區');await page.waitForTimeout(1800);await page.evaluate(()=>window.sevenDistrictCommand('load'));await page.waitForTimeout(900);
+     assert((await state()).investigations.progress.records[id].pins.join(',')==='0,1','pinned records survive disk reload');
+     await page.evaluate(()=>window.sevenDistrictCommand('investigations'));await page.waitForTimeout(450);await click(title);await click('推論');await click('換一句 1／3');await click('換一句 2／3');await click('丙 三筆索引');await click('支持這句');await shot(id+'-pinning-reloaded');await click('釘上 18：10');
+    }
+    await shot(id+'-sealed');s=await state();assert(s.investigations.progress.records[id].complete,'completed '+id);
+    assert(s.investigations.ui.visible,'case completion visibly rendered');
+    await click('返回街區');await page.evaluate(()=>window.sevenDistrictCommand('load'));await page.waitForTimeout(800);assert((await state()).investigations.progress.records[id].complete,'disk load completion');
+    await page.evaluate(()=>window.sevenDistrictCommand('investigations'));await page.waitForTimeout(450);
+    view.checks.push({case:id,status:'VERIFIED',completed:true,saved:true,wrong_retry:true});
+   }
+   await page.waitForTimeout(1800);await page.reload();await page.locator('#start-button').click();await page.waitForFunction(()=>window.sevenDistrictGame?.phase==='title'&&window.sevenDistrictGame?.world_ready);
+   await page.locator('#fullscreen-button').click();await page.waitForTimeout(600);
+   await page.evaluate(()=>window.sevenDistrictCommand('load'));await page.waitForTimeout(900);assert(Object.values((await state()).investigations.progress.records).every(r=>r.complete),'all completions survive IndexedDB cold reload');
+   await page.evaluate(()=>window.sevenDistrictCommand('investigations'));await page.waitForTimeout(450);await shot('case-list-reloaded');
+   for(const [id,title] of [['second_help','第二次求助，第二次收費'],['before_night','晚班之前的收據'],['three_voices','三張嘴，一句真話']]){
+    await click('已封存｜'+title);await shot(id+'-sealed-reloaded');await click('案件清單');
+   }
+   view.checks.push({indexeddb_cold_reload:'VERIFIED',all_cases_complete:true});view.status='VERIFIED';
+  }catch(e){view.status='BLOCKED';view.failure=e.stack;view.failure_state=await state().catch(()=>null);await page.screenshot({path:path.join(out,'debug-failure.png')});report.failures.push({tag,message:e.message});console.log('FAIL',tag,e.message);}
+  finally{await context.close();fs.writeFileSync(path.join(out,'manifest.json'),JSON.stringify(report,null,2)+'\n');}
+  if(report.failures.length)break;
+ }
+ report.status=report.failures.length?'BLOCKED':'VERIFIED';
+}finally{if(browser)await browser.close();await new Promise(r=>server.close(r));fs.writeFileSync(path.join(out,'manifest.json'),JSON.stringify(report,null,2)+'\n');}
+console.log(JSON.stringify({status:report.status,views:report.views.length,failures:report.failures}));if(report.failures.length)process.exitCode=1;

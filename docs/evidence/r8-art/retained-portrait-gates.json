@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "scope": "Actual retained 2D portrait alpha only; not a 3D per-object mask measurement",
+  "characters": {
+    "ayuan-portrait": {
+      "value_mean": 0.3574194562108031,
+      "near_black": 0.2343938216021802,
+      "saturation_mean": 0.4384568810178174,
+      "low_saturation": 0.04373232638206624,
+      "pass": true
+    },
+    "meiqing-portrait": {
+      "value_mean": 0.4960238896346545,
+      "near_black": 0.10211465580511002,
+      "saturation_mean": 0.6572723473628095,
+      "low_saturation": 0.01405192430673883,
+      "pass": true
+    }
+  }
+}

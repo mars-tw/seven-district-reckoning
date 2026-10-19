@@ -1,0 +1,22 @@
+{
+  "version": "0.12.0",
+  "round": 8,
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "model_note": "Actual model slug is not exposed by the tool.",
+  "style_prefix": "Seven District: Break the Chain, Taiwanese urban investigation dossier art direction, tactile archival materials, charcoal #16181D, warm ivory #F1E8D5, evidence amber #FFB800 and sparing vermilion #C4271C, warm upper-left light, restrained realistic material detail",
+  "items": [
+    {
+      "id": "paper",
+      "prompt": "Seven District: Break the Chain, Taiwanese urban investigation dossier art direction, tactile archival materials, charcoal #16181D, warm ivory #F1E8D5, evidence amber #FFB800 and sparing vermilion #C4271C, warm upper-left light, restrained realistic material detail, no generic game UI. Generate a single 1024x1536 portrait archival paper surface texture for actual readable game documents. Cream warm ivory cellulose paper, subtle realistic fibers and slight warm edge wear, flat orthographic evenly lit, central 90 percent very quiet uniform readable ivory. Absolutely NO text, NO symbols, NO red circles, NO lines, NO grids, NO holes, NO stitching, NO borders, NO objects, NO stains across center, NO mockup or perspective. Full bleed opaque paper only. This replaces a faulty document background so annotations will be rendered in code aligned to actual evidence text."
+    },
+    {
+      "id": "sky",
+      "prompt": "Seven District: Break the Chain, Taiwanese urban investigation dossier art direction, restrained charcoal and warm ivory with amber dusk light, realistic illustrated material detail, warm upper-left light. Generate a 2048x1024 full spherical equirectangular 360-degree SKY ENVIRONMENT MAP for a 3D game, 2:1 aspect, horizon exactly through image center, smooth seamless left and right edges. A beautiful humid Taichung golden-hour sky at 17:30, soft peach apricot clouds, pale warm blue zenith, subtle illuminated cloud edges, warm amber horizon. Lower hemisphere a uniform dark muted warm gray ground bounce. No buildings, no skyline, no people, no objects, no sun disc, no text, no UI, no landscape, no dramatic fantasy. This will be an actual Godot PanoramaSkyMaterial above real modeled Taiwanese garage roof silhouettes; this is sky only, never a fake street background. Keep natural readable contrast, gentle detail and clearly warmer sunset near the horizon than gray daylight."
+    },
+    {
+      "id": "stamp",
+      "prompt": "Seven District: Break the Chain, Taiwanese urban investigation dossier art direction, tactile archival materials, charcoal #16181D, warm ivory #F1E8D5, evidence amber #FFB800 and sparing vermilion #C4271C, warm upper-left light, restrained realistic material detail, fine dark ink contours. A single original illustration of a physical archival RUBBER STAMP APPLICATOR, rounded turned walnut wood knob on a heavy vermilion and dark rubber square base, angled in three-quarter view from above, to animate pressing a red sealed impression in a detective game. No letters, no text, no logos, no hands, no paper, no background objects, no cast shadow, no glow. Object fully visible with generous transparent padding, base in lower half and wood handle upper half; readable silhouette at 64px. Transparent background true alpha. This is one real key object asset, not a mockup or screenshot."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "status": "VERIFIED",
+  "wrong_arrow_disables_reveal": true,
+  "explicit_player_and_correct_directions": true,
+  "local_link_repair_preserves_other_link": true,
+  "paper_safe_drag_390_and_320": true,
+  "protected_phrases_not_split": true,
+  "time_mask_frames": [
+    1,
+    2,
+    3
+  ],
+  "persistent_replay_mark": true,
+  "local_unpin_preserves_other_two": true,
+  "muse_rescore": "BLOCKED: independent review not performed"
+}

@@ -1,0 +1,62 @@
+{
+  "status": "EXECUTED",
+  "blender": "5.2.0 LTS",
+  "license": "CC0-1.0; original project tailoring and workshop; anatomical rig derived from retained licensed MakeHuman source",
+  "outputs": [
+    {
+      "id": "mei_human",
+      "source": "assets/source/blender/r9/mei_human.blend",
+      "path": "godot/assets/models/r9/mei_human.glb",
+      "triangles": 7867,
+      "bytes": 669112,
+      "sha256": "8588ecc80b96610c1a209e1dfa328aa3512b40fd8e9e14d7d7ae69aa47223294",
+      "source_sha256": "99e72de998548954363eeb9492ea0120d23558972168a0a4a1bc1d5b1068880d",
+      "exported_triangles": 7867,
+      "animation_names": [
+        "idle",
+        "walk",
+        "run",
+        "attack",
+        "hit",
+        "drive",
+        "pedal",
+        "knockdown"
+      ],
+      "material_batches": 10
+    },
+    {
+      "id": "hero_human",
+      "source": "assets/source/blender/r9/hero_human.blend",
+      "path": "godot/assets/models/r9/hero_human.glb",
+      "triangles": 9402,
+      "bytes": 816884,
+      "sha256": "dbe7b63cdc9953d68049030593855f4bed2d78210f31e353b43f6a8ad02e4c69",
+      "source_sha256": "e9ae4000929b55f91e7d8c5ce86e98b1089dff3e907dcd435540691f524c8525",
+      "exported_triangles": 9402,
+      "animation_names": [
+        "idle",
+        "walk",
+        "run",
+        "attack",
+        "hit",
+        "drive",
+        "pedal",
+        "knockdown"
+      ],
+      "material_batches": 19
+    },
+    {
+      "id": "mei-workbench",
+      "source": "assets/source/blender/r9/mei-workbench.blend",
+      "path": "godot/assets/models/r9/mei-workbench.glb",
+      "triangles": 18320,
+      "objects": 1,
+      "bytes": 1134612,
+      "sha256": "49a4c63c4c5a0a323e4a085c3e74312c632c54adeaa54e3946dd1c6ae3fab5eb",
+      "source_sha256": "5d759ed91c385f4fe4ff8741f871eb14e95ba37bc1a285d8fe2809e0509637bc",
+      "exported_triangles": 18320,
+      "animation_names": [],
+      "material_batches": 5
+    }
+  ]
+}

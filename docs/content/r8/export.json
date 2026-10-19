@@ -1,0 +1,43 @@
+{
+  "status": "VERIFIED",
+  "pck_bytes": 25648692,
+  "pck_sha256": "82ec4cd8d0128490977b33d52c27d5df7500c4ae7d7a64f0b4b742890adc5424",
+  "owner_drafts_included": false,
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 125,
+    "digest": "13e11ba0d735ddd8c5ffb8d1bfb90916e8acad1a0571f1eeab705179d7738a8d"
+  },
+  "font_subset_sha256": "bb02a6cfd0b515b1b9bdd27b442f869340dcf73e6fb09775c463b8844b47a4df",
+  "export_preset_adapter": {
+    "status": "EXECUTED",
+    "installed_template": "4.7.stable web_nothreads release",
+    "historical_images_excluded": [
+      "assets/art/r4/app-icon.png",
+      "assets/art/r4/ayuan-portrait.png",
+      "assets/art/r4/meiqing-portrait.png",
+      "assets/art/r4/title-logo.png",
+      "assets/art/r4/title-street.webp",
+      "assets/models/r7/hero_human.glb",
+      "assets/models/r7/mei-workbench.glb",
+      "assets/models/r9/hero_human*",
+      "assets/models/r9/mei-workbench*",
+      "assets/art/r5/title-street.webp",
+      "assets/art/r6/ayuan-portrait.png",
+      "assets/art/r6/meiqing-portrait.png",
+      "assets/art/r6/title-street.webp",
+      "assets/models/r7/ayuan-tailored.glb",
+      "assets/art/r7/case-panel.webp",
+      "assets/models/r7/ayuan-tailored_hero_human_Details.png",
+      "assets/models/r7/ayuan-tailored_hero_human_Fabric.png",
+      "assets/models/r7/ayuan-tailored_hero_human_Hair.png",
+      "assets/models/r7/ayuan-tailored_hero_human_Shoes.png",
+      "assets/models/r7/ayuan-tailored_hero_human_Skin.png",
+      "assets/models/r7/ayuan-tailored_hero_human_Trousers.png",
+      "assets/art/r7/ayuan-portrait.png",
+      "assets/art/r7/meiqing-portrait.png"
+    ],
+    "original_preset_restored": true
+  }
+}

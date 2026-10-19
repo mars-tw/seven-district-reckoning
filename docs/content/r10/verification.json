@@ -1,0 +1,46 @@
+{
+  "status": "VERIFIED",
+  "version": "0.24.0",
+  "automated_suites": 40,
+  "native_engine_suites": 39,
+  "reported_checks": 114140,
+  "failures": 0,
+  "web_views": 6,
+  "screenshots": 163,
+  "review_images": 15,
+  "store_images": 2,
+  "new_generated_images": 0,
+  "protected_files_unchanged": 258,
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 128,
+    "digest": "e7d835177f433ae3b2a6159ea132fafbcdec3a45c89d6be84861e9a12c394186"
+  },
+  "pck_sha256": "8ab06d9b1de642de8c286d7774244fef9bb24d8965925a0084b7ba351b14122a",
+  "concurrent_reference_performance": {
+    "method": "3 x 180 browser RAF presentation intervals; concurrent host load; reference only, not native GPU timings",
+    "runs": [
+      {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.799999999995634,
+        "max": 17
+      },
+      {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.80000000000291,
+        "max": 16.80000000000291
+      },
+      {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.700000000004366,
+        "max": 17
+      }
+    ],
+    "p95_median": 16.799999999995634
+  },
+  "external_acceptance": "BLOCKED: physical devices, human testing, clean native timings and actual external Muse rescore require external conditions."
+}

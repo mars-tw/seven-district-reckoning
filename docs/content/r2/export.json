@@ -1,0 +1,12 @@
+{
+  "status": "VERIFIED",
+  "pck_bytes": 26186368,
+  "pck_sha256": "c0f65159c7616f7df0564d164f7cbf806d3a55c2fd5352e9469543a3cb3d2975",
+  "owner_drafts_included": false,
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 116,
+    "digest": "294a8da64c55016235734464e8f22ce7104a7eab87358200ca33c2a337d9aba8"
+  }
+}

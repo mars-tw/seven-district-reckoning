@@ -1,5 +1,7 @@
 # 七期：斷鏈行動 / Seven District: Break the Chain
 
+本機開發版為 **0.25.0**：從「暫停 → 查證 → 街坊查證簿」進入三宗虛構案件。讀甲乙原文再決定付款與留存；拖曳遮時原件，以具名箭頭核對引用先後，再揭時貼回收據；合看首末兩筆紀錄，判斷街坊的完整主張。本輪修正錯選標記、拿起收據的提示、分界時間文案及三步分頁位置。三案離線自動存檔，只練習識破矛盾。驗收及限制見 [第十一輪報告](docs/CODEX_RESPONSE_CONTENT_R11.md) 與 [手機精選圖](docs/content/r11/review-set/)。美術沿用 [既有規格](docs/art/ART_DIRECTION.md)，只做本機提交。
+
 **Alpha 0.4.0 已上線：台灣街坊生活、800 公尺地圖與三端操作。** 原創第三人稱沙盒動作遊戲，以台中七期的高級商辦與台灣街景為靈感，使用 Blender 製作資產、Godot 執行遊戲。
 
 [手機版](https://seven-district-reckoning.digimkt.workers.dev/phone/) · [平板版](https://seven-district-reckoning.digimkt.workers.dev/tablet/) · [電腦版](https://seven-district-reckoning.digimkt.workers.dev/desktop/) · [Windows Alpha 0.4.0](https://github.com/mars-tw/seven-district-reckoning/releases/tag/v0.4.0) · [操作與存檔說明](docs/newv04-device-entry.md)

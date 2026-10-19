@@ -1,0 +1,7 @@
+{
+  ".gitignore": "7f5c082e4c062384dfb3634d3af3d9b6dc10d4506a9f172fcc5b6eb1598a4180",
+  "godot/export_presets.cfg": "ba7299ab57f5331dea2c764cc73ecd920d68ab4336df0210a4dc6dec6e86e630",
+  "godot/scripts/ui/touch_controls.gd": "472d149d1c2b23273afed77642f7c8b6611ead8971963cb4b06cba26d8a06c0e",
+  "qa/engine-checks-incremental.json": "c696d471ab77d6fe3d23a76ee4387083761e49f994c073f09d62d742daea1f7e",
+  "qa/engine-checks.json": "8c0525969bb293cb82994a98735550b84eb3837427a09c999ceaf15da1c2f1f5"
+}

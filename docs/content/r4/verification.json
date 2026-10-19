@@ -1,0 +1,105 @@
+{
+  "status": "VERIFIED",
+  "version": "0.18.0",
+  "test_suites": 34,
+  "reported_checks": 39599,
+  "failures": 0,
+  "protected_files_unchanged": 231,
+  "browser_views": 6,
+  "review_images": 15,
+  "review_case_distribution": {
+    "second_help": 5,
+    "before_night": 5,
+    "three_voices": 5
+  },
+  "screenshots": 231,
+  "store_screenshots": 4,
+  "generated_art_images": 1,
+  "generated_atlas_cells": 3,
+  "displayed_glyphs_checked": 333,
+  "pck_sha256": "a716557d9c5512ff0dbce25e399901c9fad494a7fb35a6bbcc0ab33993c302b1",
+  "pck_bytes": 25613212,
+  "source_digest": "010341da91afc5d2fdf2a2179c280385c22c780c4fc69cd929b9f0fb955ab825",
+  "external_acceptance": "BLOCKED: Muse rescore, physical devices and human acceptance remain pending.",
+  "drag_motion": [
+    {
+      "viewport": "390x844",
+      "status": "VERIFIED",
+      "red_ghost_y_centroids_px": [
+        74.3248730964467,
+        119.3248730964467
+      ],
+      "state_interval_ms": 350,
+      "method": "Read original PNG pixels inside card/drop area; require visible vermilion ghost in both frames and displacement, plus an actual dragging=true sample."
+    },
+    {
+      "viewport": "320x568",
+      "status": "VERIFIED",
+      "red_ghost_y_centroids_px": [
+        61.3248730964467,
+        99.3248730964467
+      ],
+      "state_interval_ms": 350,
+      "method": "Read original PNG pixels inside card/drop area; require visible vermilion ghost in both frames and displacement, plus an actual dragging=true sample."
+    },
+    {
+      "viewport": "1290x2796",
+      "status": "VERIFIED",
+      "red_ghost_y_centroids_px": [
+        194.75845070422534,
+        322.7190192180252
+      ],
+      "state_interval_ms": 350,
+      "method": "Read original PNG pixels inside card/drop area; require visible vermilion ghost in both frames and displacement, plus an actual dragging=true sample."
+    },
+    {
+      "viewport": "2064x2752",
+      "status": "VERIFIED",
+      "red_ghost_y_centroids_px": [
+        130.205288796103,
+        215.8517730496454
+      ],
+      "state_interval_ms": 350,
+      "method": "Read original PNG pixels inside card/drop area; require visible vermilion ghost in both frames and displacement, plus an actual dragging=true sample."
+    },
+    {
+      "viewport": "844x390",
+      "status": "VERIFIED",
+      "red_ghost_y_centroids_px": [
+        38.3248730964467,
+        57.3248730964467
+      ],
+      "state_interval_ms": 350,
+      "method": "Read original PNG pixels inside card/drop area; require visible vermilion ghost in both frames and displacement, plus an actual dragging=true sample."
+    },
+    {
+      "viewport": "1024x768",
+      "status": "VERIFIED",
+      "red_ghost_y_centroids_px": [
+        64.3248730964467,
+        107.3248730964467
+      ],
+      "state_interval_ms": 350,
+      "method": "Read original PNG pixels inside card/drop area; require visible vermilion ghost in both frames and displacement, plus an actual dragging=true sample."
+    }
+  ],
+  "secret_scan": {
+    "status": "VERIFIED",
+    "scope": "Prospective index only; owner drafts and credential directories were not read.",
+    "tracked_files": 3897,
+    "findings": [],
+    "required_pattern_hits": 0,
+    "final_deltas": [
+      {
+        "status": "VERIFIED",
+        "file": "docs/CODEX_RESPONSE_CONTENT_R4.md",
+        "index_sha256": "a83fcc0af316a8d5628745d4b596c76695d0608baf161613617a781a19c5a847"
+      },
+      {
+        "status": "VERIFIED",
+        "file": "tools/content_r4_evidence.mjs",
+        "index_sha256": "c851fe0908b77945dea0b56c227d232bdac8c1cf04fae41f0eda316e0044929e"
+      }
+    ]
+  }
+}

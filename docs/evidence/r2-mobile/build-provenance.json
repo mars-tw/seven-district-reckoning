@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "baseline_commit": "f4ac7adb37a279f1af31cab8636b2cc8d527cdf8",
+  "version": "0.6.0",
+  "comparison": "Git index versus corresponding final isolated source files; text normalized to LF. Exported artifacts are kept in rendered-web and are not committed.",
+  "source_files_checked": 788,
+  "mismatches": [],
+  "pck": [
+    {
+      "name": "game.pck",
+      "bytes": 11899452,
+      "sha256": "ac1182c80135c3bdb0ccdb1591cace0b27fcd1d059ffe59198a96431fe64e938"
+    }
+  ],
+  "wasm_sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+  "generated_outputs_verified": []
+}

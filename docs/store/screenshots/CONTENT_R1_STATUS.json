@@ -1,0 +1,56 @@
+{
+  "status": "VERIFIED",
+  "version": "0.15.0",
+  "method": "Unedited native-size headless Chromium Web screenshots. The documented Godot Engine.copyToFS API imports actual headless-world field saves into an isolated browser. Normal Load validates them. No completion is injected: every wrong attempt, reorder, evidence pairing and conclusion uses actual visible buttons. Native tests independently cover field proximity and collection. Browser images are not native iOS captures.",
+  "new_screenshots": [
+    {
+      "path": "docs/store/screenshots/1290x2796-content-r1-timeline-arranged.png",
+      "sha256": "127d523139b1c89d24fb0d6199a34173092b204389f0c45b320683ce893a2a26",
+      "pixels": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/1290x2796-content-r1-testimony-crosscheck.png",
+      "sha256": "30f5ea1f8525d325d7acbedb6ecc72edd5fa41e34aa2a6bf369c6016e0c2faed",
+      "pixels": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/1290x2796-content-r1-second_help-sealed.png",
+      "sha256": "64a65f93d835c4036a14feb9b7245ebfd3fa708bf1c743edc165ee17489fc5ba",
+      "pixels": [
+        1290,
+        2796
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-content-r1-timeline-arranged.png",
+      "sha256": "eb7071cb1f8aafee7997ede58ad8a2d5666026e8fd98bdfc68807f9f4fed396d",
+      "pixels": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-content-r1-testimony-crosscheck.png",
+      "sha256": "8bcd8d7f60151dc717fade9ed491af5c4bd5dcc29d9371012cc492fbd2d316c7",
+      "pixels": [
+        2064,
+        2752
+      ]
+    },
+    {
+      "path": "docs/store/screenshots/2064x2752-content-r1-second_help-sealed.png",
+      "sha256": "de7a3a42542360cb8a0eb3df9bd9478cddfe1bc97071b71164d976292421b7fc",
+      "pixels": [
+        2064,
+        2752
+      ]
+    }
+  ],
+  "existing_screenshots_deleted": false
+}

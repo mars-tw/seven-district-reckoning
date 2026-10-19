@@ -1,0 +1,71 @@
+{
+  "status": "VERIFIED",
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "generated_masters": 3,
+  "runtime_images": 3,
+  "license": "MIT; original generated artwork",
+  "postprocess": "RGB lossless WebP masters; LANCZOS 768x512 WebP Q83 runtime. No generated lettering is gameplay evidence.",
+  "files": [
+    {
+      "path": "assets/art/content-r2/second_help-master.webp",
+      "pixels": [
+        1536,
+        1024
+      ],
+      "bytes": 2180508,
+      "sha256": "760a78c6103e27b566e610c6a525e8afe5ad833a0ab7a7cf0dd11234f39aee35"
+    },
+    {
+      "path": "godot/assets/art/content-r2/second_help.webp",
+      "pixels": [
+        768,
+        512
+      ],
+      "bytes": 100358,
+      "sha256": "0951b4a69b9a9c436a2627523d6dd46fefec1c5041d1f54e85578237e31e4bfe"
+    },
+    {
+      "path": "assets/art/content-r2/before_night-master.webp",
+      "pixels": [
+        1536,
+        1024
+      ],
+      "bytes": 1967472,
+      "sha256": "fbddf7b1b38282de2df5acc08614768afab12c719174d0bcbe185a41392e06e9"
+    },
+    {
+      "path": "godot/assets/art/content-r2/before_night.webp",
+      "pixels": [
+        768,
+        512
+      ],
+      "bytes": 80448,
+      "sha256": "aa1a5b8bd871d6c41cf89e1730f1d67fae89dc914f8343c9a8860d7fc66dc544"
+    },
+    {
+      "path": "assets/art/content-r2/three_voices-master.webp",
+      "pixels": [
+        1536,
+        1024
+      ],
+      "bytes": 1950198,
+      "sha256": "c0965ddc1258015f3138ef0bc141bbcb6d6639d100a8d63db68f404586cf5a27"
+    },
+    {
+      "path": "godot/assets/art/content-r2/three_voices.webp",
+      "pixels": [
+        768,
+        512
+      ],
+      "bytes": 78772,
+      "sha256": "a118825c6963d06d0549d25e65a76cb8f33e0d9b042f3dd082cdedb0fe0362b6"
+    }
+  ],
+  "godot_texture_import": {
+    "mode": "lossy",
+    "quality": 0.62,
+    "mipmaps": false,
+    "scope": "three new case illustrations only; lossless masters preserved"
+  }
+}

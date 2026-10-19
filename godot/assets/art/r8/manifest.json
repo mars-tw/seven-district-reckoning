@@ -1,0 +1,64 @@
+{
+  "status": "VERIFIED",
+  "version": "0.12.0",
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "model_note": "Actual model slug not exposed.",
+  "generated_masters": 3,
+  "runtime_images": 3,
+  "outputs": [
+    {
+      "id": "paper",
+      "master": "assets/art/r8/paper-master.webp",
+      "master_sha256": "e0b40f436fb91ef53eead5a738958a701f6e287d8442c56d4e88c42da54d041c",
+      "generated_png_sha256": "985b976b36095422f42f81f55575c78215b6c6763daa6c1c9e6d552964e0bb2f",
+      "path": "godot/assets/art/r8/clean-paper.webp",
+      "sha256": "837e806badd4ab6f09c0d277d1a4f85fe36d8aa28e043eed1b63c13a7b1814e6",
+      "size": [
+        768,
+        1152
+      ],
+      "bytes": 70880,
+      "decoded_rgba_bytes": 3538944,
+      "alpha_corners": null
+    },
+    {
+      "id": "sky",
+      "master": "assets/art/r8/sky-master.webp",
+      "master_sha256": "e5c3c64f7e5efdbf34466f806b792322d19be3809d8fe1cb370406fd6fd9b54c",
+      "generated_png_sha256": "eab33aa6b294e6dfe15aa2092c18626c3e7b2168157363818df0962972ed12e3",
+      "path": "godot/assets/art/r8/dusk-sky.webp",
+      "sha256": "e1e515ee082b6bbeeee416f39cf02cd323d4aff17dd31104c083712b49fa2b51",
+      "size": [
+        2048,
+        1024
+      ],
+      "bytes": 101970,
+      "decoded_rgba_bytes": 8388608,
+      "alpha_corners": null
+    },
+    {
+      "id": "stamp",
+      "master": "assets/art/r8/stamp-master.webp",
+      "master_sha256": "a363537fd5dfe81cd40b9b2efda7cfebe8a2b6428efa0f6b3f8b483f9954ede2",
+      "generated_png_sha256": "2c7223399b238fad026a2df876acf1b831fd00c83bfecabc6ee0c0ae6d896bc2",
+      "path": "godot/assets/art/r8/stamp-applicator.png",
+      "sha256": "df19359e58c869030b14ee5a14be8aabed7c0866a0ab0c933f10c9c7cbd5cf41",
+      "size": [
+        256,
+        256
+      ],
+      "bytes": 65512,
+      "decoded_rgba_bytes": 262144,
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "runtime_bytes": 238362,
+  "license": "CC BY 4.0 to the extent applicable; original generated project artwork",
+  "postprocess": "Retain lossless masters; WebP Q86; transparent object preserves native generated alpha, alpha-zero RGB cleared, cropped and padded; no invented normal/ORM."
+}

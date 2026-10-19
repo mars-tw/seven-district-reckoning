@@ -1,0 +1,241 @@
+{
+  "status": "EXECUTED",
+  "version": "0.8.0",
+  "generated_master_count": 10,
+  "runtime_image_count": 13,
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "model_note": "Tool does not expose the actual model slug. Do not infer gpt-image-2 from a planning document.",
+  "license": "CC-BY-4.0",
+  "prompts": "docs/art/PROMPTS.json",
+  "outputs": [
+    {
+      "id": "title-street",
+      "source_id": "title-street",
+      "path": "godot/assets/art/r4/title-street.webp",
+      "sha256": "1e819474a0fa4239b7fd619aebe81014b1d71873e07d0f6aa46a2b37a65a15e7",
+      "bytes": 329186,
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGB"
+    },
+    {
+      "id": "ayuan-portrait",
+      "source_id": "ayuan-portrait",
+      "path": "godot/assets/art/r4/ayuan-portrait.png",
+      "sha256": "59a207c3d784bd4971e73aaab7da758ecd620d66e8b85cd9c9a7b3863c17019f",
+      "bytes": 491395,
+      "size": [
+        640,
+        640
+      ],
+      "mode": "RGBA",
+      "alpha": {
+        "corner_max": 0,
+        "occupancy": 0.51189208984375,
+        "has_partial": true,
+        "clear_rgb_zero": true
+      },
+      "character_gate": {
+        "value_mean": 0.34883008590208703,
+        "near_black_fraction": 0.2526148108226698,
+        "saturation_mean": 0.4779520969406692,
+        "low_saturation_fraction": 0.03818839992178222,
+        "pass": true
+      }
+    },
+    {
+      "id": "meiqing-portrait",
+      "source_id": "meiqing-portrait",
+      "path": "godot/assets/art/r4/meiqing-portrait.png",
+      "sha256": "ca841bd40a322eae05f82b872a9439602fe30df4d3c1a2cac2e2f4ba65a40956",
+      "bytes": 479160,
+      "size": [
+        640,
+        640
+      ],
+      "mode": "RGBA",
+      "alpha": {
+        "corner_max": 0,
+        "occupancy": 0.45911376953125,
+        "has_partial": true,
+        "clear_rgb_zero": true
+      },
+      "character_gate": {
+        "value_mean": 0.48733393162107097,
+        "near_black_fraction": 0.06302478556577135,
+        "saturation_mean": 0.594087399015484,
+        "low_saturation_fraction": 0.02155243468596619,
+        "pass": true
+      }
+    },
+    {
+      "id": "evidence-still",
+      "source_id": "evidence-still",
+      "path": "godot/assets/art/r4/evidence-still.webp",
+      "sha256": "7a1f0c9a07bc9ea409589842f67b1b49ae2094717be1ce8f5dd2b95452c682fe",
+      "bytes": 101568,
+      "size": [
+        960,
+        640
+      ],
+      "mode": "RGB"
+    },
+    {
+      "id": "case-paper",
+      "source_id": "case-paper",
+      "path": "godot/assets/art/r4/case-paper.webp",
+      "sha256": "891a71299d33606462b51aff9d914d60e384da2080000e41ad0324c5b26d4115",
+      "bytes": 11076,
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB"
+    },
+    {
+      "id": "icon-chain",
+      "source_id": "evidence-icons",
+      "path": "godot/assets/art/r4/icon-chain.png",
+      "sha256": "536a81345fdd5cfe1aaa8ab70ea5d69f53bbc3a8285077d6879e334730c56058",
+      "bytes": 13633,
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "alpha": {
+        "corner_max": 0,
+        "occupancy": 0.21405029296875,
+        "has_partial": true,
+        "clear_rgb_zero": true
+      }
+    },
+    {
+      "id": "icon-phone",
+      "source_id": "evidence-icons",
+      "path": "godot/assets/art/r4/icon-phone.png",
+      "sha256": "65b7f983a6e3a2be1c54b23f1fd6e8a638e2876bf740ff1aa3443e7e5bb87843",
+      "bytes": 14071,
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "alpha": {
+        "corner_max": 0,
+        "occupancy": 0.30010986328125,
+        "has_partial": true,
+        "clear_rgb_zero": true
+      }
+    },
+    {
+      "id": "icon-receipt",
+      "source_id": "evidence-icons",
+      "path": "godot/assets/art/r4/icon-receipt.png",
+      "sha256": "475a706c9e1d8398a5c2c5597fefea96ff9ec56721c90cf751053f0b355d0037",
+      "bytes": 14589,
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "alpha": {
+        "corner_max": 0,
+        "occupancy": 0.30712890625,
+        "has_partial": true,
+        "clear_rgb_zero": true
+      }
+    },
+    {
+      "id": "icon-folder",
+      "source_id": "evidence-icons",
+      "path": "godot/assets/art/r4/icon-folder.png",
+      "sha256": "57fe8a9900d4c8d2dd5cd301cf980f1b865d86ef5c073eda392a102a85e067d1",
+      "bytes": 16831,
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "alpha": {
+        "corner_max": 0,
+        "occupancy": 0.369873046875,
+        "has_partial": true,
+        "clear_rgb_zero": true
+      }
+    },
+    {
+      "id": "title-logo",
+      "source_id": "title-logo",
+      "path": "godot/assets/art/r4/title-logo.png",
+      "sha256": "36c131ad11fb0370e1b9241becfe8cee707bad0ca5c527d354c8a2901d980462",
+      "bytes": 433226,
+      "size": [
+        768,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha": {
+        "corner_max": 0,
+        "occupancy": 0.37982940673828125,
+        "has_partial": true,
+        "clear_rgb_zero": true
+      }
+    },
+    {
+      "id": "app-icon",
+      "source_id": "app-icon",
+      "path": "godot/assets/art/r4/app-icon.png",
+      "sha256": "1f2fb4b18ab2de158df3da64edc566b970e7caaf3113a9c283f624324c560828",
+      "bytes": 486570,
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB"
+    },
+    {
+      "id": "street-asphalt",
+      "source_id": "street-asphalt",
+      "path": "godot/assets/art/r4/street-asphalt.webp",
+      "sha256": "c22c3853832a7a49e8f4c81b0cb2bd77bfcc4b8eb0e6f61eaeb0fc0f4ffbda7e",
+      "bytes": 105954,
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB"
+    },
+    {
+      "id": "arcade-tile",
+      "source_id": "arcade-tile",
+      "path": "godot/assets/art/r4/arcade-tile.webp",
+      "sha256": "2fb9502dde299d77978ae58cec40784f54741b353d54dd1f8044016edacf8001",
+      "bytes": 42930,
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "postprocess": "lossless WebP source preservation; LANCZOS resize; portraits saturation x1.12 and brightness x1.10; true alpha preserved, zero-alpha RGB cleared; icon atlas split; material edge-pair blend 20px; RGB WebP q83",
+  "master_bytes": 17482984,
+  "runtime_bytes": 2540189,
+  "estimated_runtime_rgba_bytes": 18055168,
+  "alpha_masks": [
+    {
+      "path": "assets/art/r4/ayuan-portrait-mask.png",
+      "sha256": "bedb94abcba0a1a4db6aa7904a60a2ded3de620b80737beab738efb6c91cf1e1",
+      "bytes": 35734
+    },
+    {
+      "path": "assets/art/r4/meiqing-portrait-mask.png",
+      "sha256": "5e6f056f52f5bbfa3287230924546b98a52c38410ecab1ea5ae73cba32f25e62",
+      "bytes": 37033
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "status": "VERIFIED",
+  "checks": [
+    {
+      "check": "mei-workbench/sha256",
+      "pass_result": true
+    },
+    {
+      "check": "mei-workbench/GLB2",
+      "pass_result": true
+    },
+    {
+      "check": "mei-workbench/source_mesh",
+      "pass_result": true
+    },
+    {
+      "check": "mei-workbench/relative_images",
+      "pass_result": true
+    },
+    {
+      "check": "workbench/batched",
+      "pass_result": true
+    },
+    {
+      "check": "ayuan-tailored/sha256",
+      "pass_result": true
+    },
+    {
+      "check": "ayuan-tailored/GLB2",
+      "pass_result": true
+    },
+    {
+      "check": "ayuan-tailored/source_mesh",
+      "pass_result": true
+    },
+    {
+      "check": "ayuan-tailored/relative_images",
+      "pass_result": true
+    },
+    {
+      "check": "courier/53_anatomical_bones",
+      "pass_result": true
+    },
+    {
+      "check": "courier/eight_real_clips",
+      "pass_result": true
+    },
+    {
+      "check": "courier/sewn_bag_geometry",
+      "pass_result": true
+    },
+    {
+      "check": "courier/bag_bound_to_pelvis",
+      "pass_result": true
+    }
+  ],
+  "models": [
+    {
+      "id": "mei-workbench",
+      "source_sha256": "6fa96175b3f419c8a9044d65b5925241d0103ecd337ba3432574d2f444cb0f4e",
+      "meshes": 1,
+      "primitives": 5,
+      "clips": [],
+      "triangles": 27536
+    },
+    {
+      "id": "ayuan-tailored",
+      "source_sha256": "681dc488bf5a86b172db3d741ccd9547bf00a41bc811f057496729e986d54701",
+      "meshes": 12,
+      "primitives": 17,
+      "clips": [
+        "idle",
+        "walk",
+        "run",
+        "attack",
+        "hit",
+        "drive",
+        "pedal",
+        "knockdown"
+      ],
+      "triangles": 9346
+    }
+  ],
+  "blender": "5.2.0 LTS"
+}

@@ -1,0 +1,56 @@
+{
+  "status": "VERIFIED",
+  "method": "Final headless content_r4 actual world interactions; target remains unfinished. Only travel is shortened for subsequent visible browser operations.",
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 125,
+    "digest": "13e11ba0d735ddd8c5ffb8d1bfb90916e8acad1a0571f1eeab705179d7738a8d"
+  },
+  "fixtures": [
+    {
+      "file": "before_night-field-0.json",
+      "sha256": "c2b7bba252b97d8d7debdab7c02716dfd774398d180f2c28c69c660719026849"
+    },
+    {
+      "file": "before_night-field-1.json",
+      "sha256": "cf2e4b59e1b442cb5e2034431388fb4a9918a42c0956051e4dfe34b71bfb5bea"
+    },
+    {
+      "file": "before_night-field-2.json",
+      "sha256": "c972cb23d6fa92490e4723f1625793975f1ce323b5281387e9fc032123f7f0cb"
+    },
+    {
+      "file": "before_night-ready.json",
+      "sha256": "4fc914ac875ad79e48fc83639de9662879d23165bb0c3c58381fc6bac5b2f318"
+    },
+    {
+      "file": "second_help-field-0.json",
+      "sha256": "6ab96d9b431531f7bf6edada809d7df8a6a16df228ce702fb90505ff791be860"
+    },
+    {
+      "file": "second_help-field-1.json",
+      "sha256": "8ab52f5899e40c6e5c2d548f3d45f049183c4cceeadd65df4123734c2da9c802"
+    },
+    {
+      "file": "second_help-ready.json",
+      "sha256": "1a5392fc8921b51782caef7c403bda9d8610723364723dbbd0e0367ef63069ed"
+    },
+    {
+      "file": "three_voices-field-0.json",
+      "sha256": "2f8216b5bc14f86a821aeca86af947e239db3434abab3d108c9449395d1f4102"
+    },
+    {
+      "file": "three_voices-field-1.json",
+      "sha256": "4cfc8020185be64af55d28a15641d96f8d4c6868e8a2bf1fa3649db08a79a0e6"
+    },
+    {
+      "file": "three_voices-field-2.json",
+      "sha256": "f8af2592f3b6089c7242668ee7f7dc7266ba836afce00a0319699ad404bfe32c"
+    },
+    {
+      "file": "three_voices-ready.json",
+      "sha256": "544cba7df85651f13322309b7cd56d4cfc2c2ddd981e2172b5ad5c947fc19148"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED",
+  "version": "0.19.0",
+  "new_screenshots": [
+    {
+      "file": "docs/store/screenshots/1290x2796-content-r5-before_night-attachment-picked.png",
+      "sha256": "122f99158592e945b4c2a86d81e8dc68dc06f707634d8c3a3690b04cd878d378",
+      "source": "docs/content/r5/phone-before_night-attachment-picked-1290x2796.png"
+    },
+    {
+      "file": "docs/store/screenshots/1290x2796-content-r5-three_voices-statement-2.png",
+      "sha256": "5f76cc4d02f23ce7b31bea944726a5af297086cee54edce5b709594c52a0f60f",
+      "source": "docs/content/r5/phone-three_voices-statement-2-1290x2796.png"
+    },
+    {
+      "file": "docs/store/screenshots/2064x2752-content-r5-before_night-attachment-picked.png",
+      "sha256": "147e9153aea0751c8fc285a3e1e95bbe12fc772f5054f094641bb78118e3f279",
+      "source": "docs/content/r5/2064x2752-before_night-attachment-picked.png"
+    },
+    {
+      "file": "docs/store/screenshots/2064x2752-content-r5-three_voices-statement-2.png",
+      "sha256": "70abd72bc47fe7fe660127ad66679b01ead91e33051f4edd04b9297e6d1e67dc",
+      "source": "docs/content/r5/2064x2752-three_voices-statement-2.png"
+    }
+  ],
+  "existing_screenshots_deleted": false,
+  "method": "Unedited native-size PNGs of actual local Godot Web export, headless Chromium with hardware NVIDIA ANGLE D3D11. Engine.copyToFS imports unmodified native headless-world saves; the target case is always unfinished, while earlier cases may retain native completion. Visible UI performs target collection, retry, sorting, pairing and completion. Long travel resumes from near-source saves, not a continuous walked route. No target-case completion injection, compositing, screenshot scaling or native-device claim."
+}

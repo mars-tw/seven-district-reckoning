@@ -1,0 +1,6 @@
+{
+  "algorithm": "sha256",
+  "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+  "file_count": 84,
+  "digest": "46af8c1b7d6eb6d522ffe13b99040bec900387673ad7b1ec9b48fab52db90c2e"
+}

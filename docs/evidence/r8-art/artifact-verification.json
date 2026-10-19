@@ -1,0 +1,63 @@
+{
+  "status": "VERIFIED",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "Independent 8/10 rescore and native hardware validation outstanding",
+    "3D per-object luminance and saturation mask validation outstanding",
+    "Concurrent-load RAF p95 exceeds 18 ms"
+  ],
+  "version": "0.12.0",
+  "generated_masters": 3,
+  "runtime_images": 3,
+  "new_glb": 1,
+  "store_screenshots": [
+    "1290x2796-title.png",
+    "1290x2796-dialogue.png",
+    "1290x2796-dialogue-meiqing.png",
+    "1290x2796-street.png",
+    "1290x2796-evidence.png",
+    "1290x2796-link.png",
+    "1290x2796-sealed.png",
+    "1290x2796-message-inspection.png",
+    "1290x2796-receipt-inspection.png",
+    "1290x2796-seal-action.png",
+    "2064x2752-title.png",
+    "2064x2752-dialogue.png",
+    "2064x2752-dialogue-meiqing.png",
+    "2064x2752-street.png",
+    "2064x2752-evidence.png",
+    "2064x2752-link.png",
+    "2064x2752-sealed.png",
+    "2064x2752-message-inspection.png",
+    "2064x2752-receipt-inspection.png",
+    "2064x2752-seal-action.png"
+  ],
+  "viewports": 10,
+  "subject_pixels": {
+    "hero_height_px": 219.493713378906,
+    "mei_height_px": 96.9162292480469
+  },
+  "rectangle_checks": 247,
+  "tests": 28,
+  "reported_checks": 16434,
+  "protected_files": 331,
+  "protected_mismatches": [],
+  "staged_runtime_mismatches": [],
+  "staged_text_scanned": 932,
+  "secret_findings": [],
+  "pck_bytes": 24480432,
+  "pck_delta_bytes": 1641552,
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 231,
+    "digest": "02661c20bcb5045adf73d440fee73dae074cc3778a20f6f5058501a5aa687618"
+  },
+  "pck_sha256": "aacdc4e8411d94adaec242ea1c24ce8140aba9c9d77a62d6342978ad0feeee2a",
+  "capture_manifest_sha256": "2f24398ef19356e7b3c35c1f1a34f063136c793aaf60be877280d24fce340f43",
+  "version_active_files": [
+    "godot/project.godot",
+    "web/shell.html",
+    "README.md"
+  ]
+}

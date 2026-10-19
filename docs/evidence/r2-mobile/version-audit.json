@@ -1,0 +1,10 @@
+{
+  "version": "0.6.0",
+  "status": "PASS",
+  "historical_matches": [
+    "CHANGELOG.md:11:## 0.5.0 — 好玩與美觀優化輪（R1，本地版本，未發布）",
+    "CHANGELOG.md:21:- 字型子集重建為 277,324 bytes，涵蓋新文字。版本號 0.5.0。",
+    "CREDITS.md:17:| Alpha 0.5 background music (`music_street.ogg`, `music_title.ogg`) | Generated locally by Seven District contributors with ACE-Step models through the owner's local AI dispatcher (ComfyUI workers `ace_step_turbo` for the street loop, `ace_step_base_backup` for the title theme), 2026-10-15; trimmed, faded and encoded with FFmpeg | Released by the project under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); generation prompts and task IDs in [docs/R1_FUN_AND_POLISH_REPORT.md](docs/R1_FUN_AND_POLISH_REPORT.md). Generated audio may resemble existing styles; no reference tracks were supplied. |"
+  ],
+  "note": "Before captures, historical R1 docs and credits retain their original version. No active Godot/Web config retains the prior version."
+}

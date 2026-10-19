@@ -1,0 +1,41 @@
+{
+  "status": "VERIFIED",
+  "engine": "4.7.stable.official.5b4e0cb0f",
+  "baseline_commit": "41c78c4",
+  "baseline_version": "0.8.0",
+  "css_viewport": [
+    430,
+    932
+  ],
+  "dpr": 1,
+  "experiment": "Baseline plus counter/print instrumentation; then only reserve the case scrollbar gutter. No memory-limit increase or timer throttle.",
+  "baseline_pck_sha256": "5e6cbded3fe2734b3e97da52dc762900f7564d30556682c44a22258936a79d52",
+  "fixed_gutter_only_pck_sha256": "0f0f5fcfa751fd283e1f2ce8f0c5c99d8be37817a1bf6ba3f1b9638dcea02a94",
+  "root_cause": "AUTO vertical scrollbar alternates content widths 358/366 and delayed wrapped minimum heights 522/582 around a 530px scroll area in one frame. Each sort invalidates layout again. R4 artwork raised the case content into this threshold.",
+  "explicit_resize_calls_during_storm": 11,
+  "same_frame": 1038,
+  "observed_container_sorts_lower_bound": 23000,
+  "fatal_error": "Message queue out of memory",
+  "trace": [],
+  "gutter_only_result": {
+    "states": [
+      "430x932-title.png",
+      "430x932-dialogue.png",
+      "430x932-dialogue-meiqing.png",
+      "430x932-street.png",
+      "430x932-evidence.png",
+      "430x932-link.png",
+      "430x932-sealed.png"
+    ],
+    "completed_case_stage": 4,
+    "sorts_per_page": 2
+  },
+  "regression_mutation": {
+    "edit": "Replace case SHOW_ALWAYS with AUTO in an isolated source copy; retain every test assertion.",
+    "checks": 902,
+    "failures": 135,
+    "expected_failure_observed": true,
+    "failure_kind": "overflow_does_not_change_wrap_width"
+  },
+  "note": "Native dummy rendering alone did not reproduce the Web font/layout oscillation; the overflow-width invariant test catches the reverted fix, and actual hardware WebGL exercises the original trigger."
+}

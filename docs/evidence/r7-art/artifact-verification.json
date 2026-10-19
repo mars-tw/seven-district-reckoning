@@ -1,0 +1,114 @@
+{
+  "status": "VERIFIED",
+  "version": "0.11.0",
+  "generated_masters": 8,
+  "runtime_images": 11,
+  "new_glb": 2,
+  "store_screenshots": [
+    "1290x2796-title.png",
+    "1290x2796-dialogue.png",
+    "1290x2796-dialogue-meiqing.png",
+    "1290x2796-street.png",
+    "1290x2796-evidence.png",
+    "1290x2796-link.png",
+    "1290x2796-sealed.png",
+    "1290x2796-message-inspection.png",
+    "1290x2796-receipt-inspection.png",
+    "1290x2796-seal-action.png",
+    "2064x2752-title.png",
+    "2064x2752-dialogue.png",
+    "2064x2752-dialogue-meiqing.png",
+    "2064x2752-street.png",
+    "2064x2752-evidence.png",
+    "2064x2752-link.png",
+    "2064x2752-sealed.png",
+    "2064x2752-message-inspection.png",
+    "2064x2752-receipt-inspection.png",
+    "2064x2752-seal-action.png"
+  ],
+  "viewports": 10,
+  "subject_pixels": {
+    "hero_height_px": 195.732574462891,
+    "mei_height_px": 89.587890625
+  },
+  "tests": 27,
+  "reported_checks": 16088,
+  "protected_mismatches": [],
+  "initial_untracked_preserved": 19,
+  "staged_text_scanned": 894,
+  "secret_findings": [],
+  "pacing": [
+    {
+      "pixels": [
+        390,
+        844
+      ],
+      "method": "browser requestAnimationFrame presentation intervals, not native GPU timer; concurrent host load",
+      "runs": [
+        {
+          "p50": 16.69999999999709,
+          "p95": 16.700000000004366,
+          "max": 16.80000000000291,
+          "frames": 180
+        },
+        {
+          "p50": 16.69999999999709,
+          "p95": 16.700000000004366,
+          "max": 16.80000000000291,
+          "frames": 180
+        },
+        {
+          "p50": 16.69999999999709,
+          "p95": 16.799999999995634,
+          "max": 16.80000000000291,
+          "frames": 180
+        }
+      ],
+      "p95_median": 16.700000000004366
+    },
+    {
+      "pixels": [
+        1366,
+        768
+      ],
+      "method": "browser requestAnimationFrame presentation intervals, not native GPU timer; concurrent host load",
+      "runs": [
+        {
+          "p50": 33.29999999999927,
+          "p95": 33.400000000001455,
+          "max": 50.099999999998545,
+          "frames": 180
+        },
+        {
+          "p50": 33.29999999999927,
+          "p95": 49.89999999999782,
+          "max": 50,
+          "frames": 180
+        },
+        {
+          "p50": 33.30000000000291,
+          "p95": 33.400000000001455,
+          "max": 50.10000000000582,
+          "frames": 180
+        }
+      ],
+      "p95_median": 33.400000000001455
+    }
+  ],
+  "pck_bytes": 22838880,
+  "pck_delta_bytes": -1942936,
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 229,
+    "digest": "18ed23f75270dd29726e4c5cf35e66fd396dd79377a1bad9f9fae62b19c4f01b"
+  },
+  "pck_sha256": "e40921d70368989868085b2f341d92a9f8f5dbd19934a04ad993d19a1b94a911",
+  "capture_manifest_sha256": "7ef6de10c642b4160d8b7d75e3a1091785fdcdf2910de81a2e64636ec2fec9e0",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "Desktop concurrent-load RAF p95 33.4 ms exceeds 18 ms",
+    "Early seal frames still show short-lived layout noise",
+    "Independent 8/10 rescore and native hardware validation outstanding"
+  ]
+}

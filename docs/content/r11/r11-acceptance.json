@@ -1,0 +1,49 @@
+{
+  "status": "VERIFIED",
+  "receipt_pickup_consistent": true,
+  "wrong_actions_distinct": true,
+  "index_boundary_not_original": true,
+  "three_step_header_y": {
+    "390x844": [
+      [
+        22,
+        65,
+        65,
+        65
+      ],
+      [
+        22,
+        65,
+        65,
+        65
+      ],
+      [
+        22,
+        65,
+        65,
+        65
+      ]
+    ],
+    "320x568": [
+      [
+        7,
+        31,
+        31,
+        31
+      ],
+      [
+        7,
+        31,
+        31,
+        31
+      ],
+      [
+        7,
+        31,
+        31,
+        31
+      ]
+    ]
+  },
+  "external_muse_rescore": "BLOCKED"
+}

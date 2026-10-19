@@ -7,6 +7,8 @@ signal weapon_changed(weapon_id: String)
 signal interaction_requested
 signal mount_requested
 signal defeated
+## R1: emitted once per landed hit so presentation layers can add impact.
+signal hit_landed(target: Node3D, damage: float)
 
 @export var walk_speed: float = 4.6
 @export var sprint_speed: float = 7.5
@@ -50,7 +52,7 @@ var _weapon_visual: Node3D = null
 var _weapon_rest_transform: Transform3D = Transform3D.IDENTITY
 var _visual_scene: PackedScene = null
 var _facing: Vector3 = Vector3.FORWARD
-var _pitch: float = -0.18
+var _pitch: float = -0.06
 var _attack_clock: float = -1.0
 var _attack_sequence: int = 0
 var _attack_hits: Dictionary = {}
@@ -62,6 +64,9 @@ var _riding: bool = false
 var _gravity: float = 20.0
 var _active_animation: StringName = &""
 var _contact_shadow: MeshInstance3D
+var _shake: float = 0.0
+var _hit_pause: float = 0.0
+var _shake_rng := RandomNumberGenerator.new()
 
 func _ready() -> void:
 	health = maximum_health
@@ -83,18 +88,35 @@ func _ready() -> void:
 	add_child(_camera_pivot)
 	_spring_arm = SpringArm3D.new()
 	_spring_arm.name = "CameraCollisionArm"
+	# Shoulder framing separates the objective person from the courier silhouette.
+	_spring_arm.position.x = 0.72
 	_spring_arm.spring_length = 5.4
 	_spring_arm.margin = 0.25
 	_spring_arm.collision_mask = 3
 	_spring_arm.add_excluded_object(get_rid())
 	_spring_arm.rotation.x = _pitch
+	# R1: menus pause the tree; the arm keeps resolving its length so the title
+	# backdrop and pause screen do not render from inside the hero's head.
+	_spring_arm.process_mode = Node.PROCESS_MODE_ALWAYS
 	_camera_pivot.add_child(_spring_arm)
 	_camera = Camera3D.new()
 	_camera.name = "ThirdPersonCamera"
-	_camera.fov = 68.0
+	_camera.fov = 58.0
 	_camera.near = 0.08
 	_camera.current = true
 	_spring_arm.add_child(_camera)
+	# R1 character fill: a soft, shadowless light riding with the camera keeps
+	# the dark delivery jacket readable against the street (brightness gate).
+	var fill := OmniLight3D.new()
+	fill.name = "CharacterFillLight"
+	fill.light_color = Color(1.0, 0.93, 0.84)
+	fill.light_energy = 1.20
+	fill.omni_range = 11.0
+	fill.omni_attenuation = 0.7
+	fill.shadow_enabled = false
+	fill.light_specular = 0.2
+	fill.position = Vector3(0.6, 0.8, 0.0)
+	_camera.add_child(fill)
 	_facing = -_camera.global_basis.z
 	_facing.y = 0.0
 	_facing = _facing.normalized()
@@ -122,6 +144,7 @@ func _build_visual() -> void:
 	add_child(_visual_root)
 	var model: Node = _visual_scene.instantiate()
 	_visual_root.add_child(model)
+	preload("res://scripts/world/street_art.gd").dress_hero(model)
 	_animation_player = _find_animation_player(model)
 	animations_missing.clear()
 	_configure_animation_loops()
@@ -193,10 +216,39 @@ func reset_view(yaw: float) -> void:
 func get_view_yaw() -> float:
 	return _camera_pivot.rotation.y if is_instance_valid(_camera_pivot) else 0.0
 
+## R1 camera shake: offsets only the lens, never the aim basis or facing.
+func add_camera_shake(amount: float) -> void:
+	if is_finite(amount) and amount > 0.0: _shake = clampf(maxf(_shake, amount), 0.0, 0.4)
+
+## R1 hit-pause: freezes the skeletal pose briefly. Strike windows use
+## _attack_clock, which keeps advancing, so damage timing is unchanged.
+func hit_pause(duration: float) -> void:
+	if not is_finite(duration) or duration <= 0.0 or is_instance_valid(mounted_vehicle): return
+	_hit_pause = clampf(duration, 0.0, 0.15)
+	if is_instance_valid(_animation_player): _animation_player.speed_scale = 0.0
+
+func is_hit_paused() -> bool:
+	return _hit_pause > 0.0
+
+func _update_impact(delta: float) -> void:
+	if _hit_pause > 0.0:
+		_hit_pause = maxf(0.0, _hit_pause - delta)
+		if _hit_pause <= 0.0 and is_instance_valid(_animation_player) and not _riding: _animation_player.speed_scale = 1.0
+	if not is_instance_valid(_camera): return
+	if _shake > 0.0:
+		_shake = maxf(0.0, _shake - delta * 1.6)
+		var power: float = _shake * _shake
+		_camera.h_offset = _shake_rng.randf_range(-1.0, 1.0) * power
+		_camera.v_offset = _shake_rng.randf_range(-1.0, 1.0) * power
+	elif _camera.h_offset != 0.0 or _camera.v_offset != 0.0:
+		_camera.h_offset = 0.0
+		_camera.v_offset = 0.0
+
 func _physics_process(delta: float) -> void:
 	if _contact_shadow: _contact_shadow.visible = not is_instance_valid(mounted_vehicle)
 	if not is_instance_valid(_camera):
 		return
+	_update_impact(delta)
 	if Input.is_action_just_pressed("interact") and controls_enabled and health > 0.0:
 		interaction_requested.emit()
 	if Input.is_action_just_pressed("mount") and controls_enabled and health > 0.0:
@@ -458,7 +510,12 @@ func _has_line_of_sight(target_node: Node3D) -> bool:
 func _deliver_hit(target_node: Node3D, damage: float) -> void:
 	_attack_hits[target_node.get_instance_id()] = true
 	var hit_id: String = "%s:%s" % [get_instance_id(), _attack_sequence]
+	var health_before: Variant = target_node.get("health")
 	target_node.call("apply_hit", hit_id, str(get_instance_id()), damage * tool_damage_multiplier)
+	# Only report impacts the target actually accepted (gates may refuse a hit).
+	var health_after: Variant = target_node.get("health")
+	if health_before == null or health_after == null or float(health_after) < float(health_before):
+		hit_landed.emit(target_node, damage * tool_damage_multiplier)
 
 func apply_hit(hit_id: String, _source_id: String, damage: float) -> void:
 	if health <= 0.0 or _received_hits.has(hit_id) or damage <= 0.0:
@@ -471,6 +528,7 @@ func apply_hit(hit_id: String, _source_id: String, damage: float) -> void:
 	if is_instance_valid(_weapon_mount):
 		_weapon_mount.transform = _weapon_rest_transform
 	_hit_reaction = 0.3
+	add_camera_shake(0.22)
 	_play_animation("hit", true)
 	health_changed.emit(health, maximum_health)
 	if health <= 0.0:

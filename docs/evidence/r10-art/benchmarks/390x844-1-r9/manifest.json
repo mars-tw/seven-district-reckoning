@@ -1,0 +1,4898 @@
+{
+  "status": "VERIFIED",
+  "version": "0.13.0",
+  "base_commit": "R9-local-candidate",
+  "environment": "並發載量測，僅供參考",
+  "method": "Unedited screenshots of the actual Godot 4.7 stable Web export; headless Chromium, ANGLE D3D11 hardware WebGL. No compositing, generated substitute or screenshot resizing. These are browser captures, not native iOS device captures.",
+  "chromium_args": [
+    "--use-angle=d3d11",
+    "--enable-gpu",
+    "--ignore-gpu-blocklist",
+    "--force_high_performance_gpu"
+  ],
+  "image_model_slug": null,
+  "pck_sha256": "6704c0645a78aca2fdabc8e3dacc3d296f4fd105fb6faf9816c84e5601fa8343",
+  "views": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "device_scale_factor": 1,
+      "pixels": {
+        "width": 390,
+        "height": 844
+      },
+      "profile": "phone",
+      "logs": [],
+      "blocked_remote_origins": [],
+      "shots": [
+        {
+          "file": "390x844-title.png",
+          "sha256": "ca30e018456625cd578037c828f3e23bd2ff723a0d58bc9cc1cdb1482ff91189",
+          "state": {
+            "phase": "title",
+            "play_started": false,
+            "version": "0.13.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 1,
+            "draw_calls": 127,
+            "render_primitives": 335260,
+            "process_ms": 23,
+            "physics_ms": 7.199999809265137,
+            "frame_fps": 47,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "15:30",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 0,
+            "layout": {
+              "case_gutter_reserved": false,
+              "container_sorts": 7,
+              "panel": [
+                8,
+                158,
+                374,
+                528
+              ],
+              "peak_sorts_per_frame": 0,
+              "resize_calls": 9
+            },
+            "menu": "title",
+            "world_ready": false,
+            "art": {
+              "details": {
+                "case_labels": [],
+                "hour": 15.5,
+                "inspection": false,
+                "photos": [],
+                "seal": {},
+                "touch": []
+              },
+              "hero_feet": [
+                95.0999603271484,
+                622.823913574219
+              ],
+              "hero_head": [
+                93.1180953979492,
+                375.388488769531
+              ],
+              "hero_height_px": 247.435424804688,
+              "hud_coverage": 0,
+              "mei_feet": [
+                23552.703125,
+                16444.505859375
+              ],
+              "mei_head": [
+                -147160.4375,
+                -8034.03125
+              ],
+              "mei_height_px": 24478.537109375,
+              "seal_visible": false
+            },
+            "notice": "",
+            "objective": "到車店找美晴，點互動交談。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -56,
+            "player_z": 52
+          }
+        },
+        {
+          "file": "390x844-dialogue.png",
+          "sha256": "280f04787380197272b409084ae863839f341965418dbc06f04c73dfed50e80d",
+          "state": {
+            "phase": "menu",
+            "play_started": true,
+            "version": "0.13.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 1,
+            "draw_calls": 130,
+            "render_primitives": 338932,
+            "process_ms": 115.4000015258789,
+            "physics_ms": 0.20000000298023224,
+            "frame_fps": 41,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:15",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 0,
+            "layout": {
+              "case_gutter_reserved": false,
+              "container_sorts": 7,
+              "panel": [
+                8,
+                158,
+                374,
+                528
+              ],
+              "peak_sorts_per_frame": 0,
+              "resize_calls": 9
+            },
+            "menu": "",
+            "world_ready": false,
+            "art": {
+              "details": {
+                "case_labels": [],
+                "hour": 17.25,
+                "inspection": false,
+                "photos": [],
+                "seal": {},
+                "touch": []
+              },
+              "hero_feet": [
+                95.1012191772461,
+                622.823791503906
+              ],
+              "hero_head": [
+                93.1193618774414,
+                375.388549804688
+              ],
+              "hero_height_px": 247.435241699219,
+              "hud_coverage": 1.2039919795844,
+              "mei_feet": [
+                148.873291015625,
+                495.244995117188
+              ],
+              "mei_head": [
+                148.474182128906,
+                386.223388671875
+              ],
+              "mei_height_px": 109.021606445312,
+              "seal_visible": false
+            },
+            "notice": "",
+            "objective": "到車店找美晴，點互動交談。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -56,
+            "player_z": 52
+          }
+        },
+        {
+          "file": "390x844-dialogue-meiqing.png",
+          "sha256": "f2463d8eb53e1b7cfcd32cd10952e2abf93f31226352383ebda6031c09e3c6c9",
+          "state": {
+            "phase": "menu",
+            "play_started": true,
+            "version": "0.13.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 1,
+            "draw_calls": 157,
+            "render_primitives": 348221,
+            "process_ms": 58.599998474121094,
+            "physics_ms": 0.30000001192092896,
+            "frame_fps": 58,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:15",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 0,
+            "layout": {
+              "case_gutter_reserved": false,
+              "container_sorts": 8,
+              "panel": [
+                8,
+                158,
+                374,
+                528
+              ],
+              "peak_sorts_per_frame": 0,
+              "resize_calls": 9
+            },
+            "menu": "",
+            "world_ready": false,
+            "art": {
+              "details": {
+                "case_labels": [],
+                "hour": 17.25,
+                "inspection": false,
+                "photos": [],
+                "seal": {},
+                "touch": []
+              },
+              "hero_feet": [
+                95.1059951782227,
+                622.823425292969
+              ],
+              "hero_head": [
+                93.1241302490234,
+                375.388366699219
+              ],
+              "hero_height_px": 247.43505859375,
+              "hud_coverage": 0.227311945558391,
+              "mei_feet": [
+                148.878036499023,
+                495.244781494141
+              ],
+              "mei_head": [
+                148.478897094727,
+                386.223205566406
+              ],
+              "mei_height_px": 109.021575927734,
+              "seal_visible": false
+            },
+            "notice": "",
+            "objective": "到車店找美晴，點互動交談。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -56,
+            "player_z": 52
+          }
+        },
+        {
+          "file": "390x844-street.png",
+          "sha256": "85d3ea25d5852e178819c2cf49c896f5b08b343845ed51b899471b6cdb7ad1cd",
+          "state": {
+            "phase": "playing",
+            "play_started": true,
+            "version": "0.13.0",
+            "device_profile": "phone",
+            "requested_profile": "phone",
+            "resolution_scale": 0.699999988079071,
+            "camera_distance": 240,
+            "touch_controls": true,
+            "visible_citizens": 3,
+            "visible_traffic": 0,
+            "draw_calls": 177,
+            "render_primitives": 350545,
+            "process_ms": 15,
+            "physics_ms": 2.700000047683716,
+            "frame_fps": 60,
+            "life_title": "台灣街區生活",
+            "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+            "life_cash": 0,
+            "cargo_count": 0,
+            "culture_activity": "",
+            "culture_badges": 0,
+            "stamina": 100,
+            "max_stamina": 100,
+            "credits": 120,
+            "rank": "初到街區",
+            "time": "17:28",
+            "navigation": "任務導引",
+            "main_title": "第 1 環｜賠掉的存款",
+            "revisit": "",
+            "notebook_pages": 0,
+            "case_stage": 1,
+            "layout": {
+              "case_gutter_reserved": false,
+              "container_sorts": 8,
+              "panel": [
+                8,
+                158,
+                374,
+                528
+              ],
+              "peak_sorts_per_frame": 0,
+              "resize_calls": 9
+            },
+            "menu": "",
+            "world_ready": true,
+            "art": {
+              "details": {
+                "case_labels": [],
+                "hour": 17.4759266666669,
+                "inspection": false,
+                "photos": [],
+                "seal": {},
+                "touch": [
+                  {
+                    "action": "interact",
+                    "text": "互動"
+                  },
+                  {
+                    "action": "mount",
+                    "text": "上下車"
+                  }
+                ]
+              },
+              "hero_feet": [
+                95.1310424804688,
+                622.822021484375
+              ],
+              "hero_head": [
+                93.1491851806641,
+                375.388061523438
+              ],
+              "hero_height_px": 247.433959960938,
+              "hud_coverage": 0.140302588406854,
+              "mei_feet": [
+                148.853958129883,
+                481.917327880859
+              ],
+              "mei_head": [
+                148.454010009766,
+                372.664215087891
+              ],
+              "mei_height_px": 109.253112792969,
+              "seal_visible": false
+            },
+            "notice": "反詐案卷已開啟｜沿光柱找美晴，靠近後交談",
+            "objective": "到車店找美晴，點互動交談。",
+            "optional_title": "街坊委託",
+            "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+            "completed_sides": 0,
+            "completed_activities": 0,
+            "coins": 0,
+            "touch": true,
+            "player_x": -56,
+            "player_z": 52
+          }
+        }
+      ],
+      "reopen_checks": [],
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844
+      },
+      "game_renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 2060 (0x00001F03) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "last_layout": {
+        "case_gutter_reserved": false,
+        "container_sorts": 8,
+        "panel": [
+          8,
+          158,
+          374,
+          528
+        ],
+        "peak_sorts_per_frame": 0,
+        "resize_calls": 9
+      },
+      "frame_pacing": {
+        "method": "browser requestAnimationFrame presentation intervals, not native GPU timer; concurrent host load",
+        "runs": [
+          {
+            "p50": 16.69999999999709,
+            "p95": 16.700000000004366,
+            "max": 16.80000000000291,
+            "frames": 180,
+            "counters": [
+              {
+                "process_ms": 15,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13.800000190734863,
+                "physics_ms": 1.899999976158142,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              }
+            ]
+          },
+          {
+            "p50": 16.69999999999709,
+            "p95": 16.799999999995634,
+            "max": 16.80000000000291,
+            "frames": 180,
+            "counters": [
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.699999809265137,
+                "physics_ms": 3.0999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 16.399999618530273,
+                "physics_ms": 3.5,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 12.600000381469727,
+                "physics_ms": 1.7000000476837158,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              }
+            ]
+          },
+          {
+            "p50": 16.69999999999709,
+            "p95": 16.700000000004366,
+            "max": 16.80000000000291,
+            "frames": 180,
+            "counters": [
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 15.5,
+                "physics_ms": 2.5999999046325684,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 14,
+                "physics_ms": 3.200000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 13,
+                "physics_ms": 1.600000023841858,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              },
+              {
+                "process_ms": 18.100000381469727,
+                "physics_ms": 2.700000047683716,
+                "draw_calls": 177,
+                "primitives": 350545,
+                "resolution_scale": 0.699999988079071,
+                "fps": 60
+              }
+            ]
+          }
+        ],
+        "p95_median": 16.700000000004366
+      },
+      "final_state": {
+        "phase": "playing",
+        "play_started": true,
+        "version": "0.13.0",
+        "device_profile": "phone",
+        "requested_profile": "phone",
+        "resolution_scale": 0.699999988079071,
+        "camera_distance": 240,
+        "touch_controls": true,
+        "visible_citizens": 3,
+        "visible_traffic": 0,
+        "draw_calls": 177,
+        "render_primitives": 350545,
+        "process_ms": 18.100000381469727,
+        "physics_ms": 2.700000047683716,
+        "frame_fps": 60,
+        "life_title": "台灣街區生活",
+        "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+        "life_cash": 0,
+        "cargo_count": 0,
+        "culture_activity": "",
+        "culture_badges": 0,
+        "stamina": 100,
+        "max_stamina": 100,
+        "credits": 120,
+        "rank": "初到街區",
+        "time": "17:39",
+        "navigation": "任務導引",
+        "main_title": "第 1 環｜賠掉的存款",
+        "revisit": "",
+        "notebook_pages": 0,
+        "case_stage": 1,
+        "layout": {
+          "case_gutter_reserved": false,
+          "container_sorts": 8,
+          "panel": [
+            8,
+            158,
+            374,
+            528
+          ],
+          "peak_sorts_per_frame": 0,
+          "resize_calls": 9
+        },
+        "menu": "",
+        "world_ready": true,
+        "art": {
+          "details": {
+            "case_labels": [],
+            "hour": 17.6649266666671,
+            "inspection": false,
+            "photos": [],
+            "seal": {},
+            "touch": [
+              {
+                "action": "interact",
+                "text": "互動"
+              },
+              {
+                "action": "mount",
+                "text": "上下車"
+              }
+            ]
+          },
+          "hero_feet": [
+            95.1310424804688,
+            622.822021484375
+          ],
+          "hero_head": [
+            93.1492004394531,
+            375.388061523438
+          ],
+          "hero_height_px": 247.433959960938,
+          "hud_coverage": 0.140302588406854,
+          "mei_feet": [
+            148.853958129883,
+            481.917327880859
+          ],
+          "mei_head": [
+            148.454010009766,
+            372.664215087891
+          ],
+          "mei_height_px": 109.253112792969,
+          "seal_visible": false
+        },
+        "notice": "反詐案卷已開啟｜沿光柱找美晴，靠近後交談",
+        "objective": "到車店找美晴，點互動交談。",
+        "optional_title": "街坊委託",
+        "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+        "completed_sides": 0,
+        "completed_activities": 0,
+        "coins": 0,
+        "touch": true,
+        "player_x": -56,
+        "player_z": 52
+      }
+    }
+  ],
+  "failures": [],
+  "chromium_version": "147.0.7727.15"
+}

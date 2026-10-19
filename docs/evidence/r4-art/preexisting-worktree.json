@@ -1,0 +1,14 @@
+{
+  ".gitignore": "7f5c082e4c062384dfb3634d3af3d9b6dc10d4506a9f172fcc5b6eb1598a4180",
+  "godot/export_presets.cfg": "2be5949c84ad40b024e332b8c36721d5fd6379e3ab9fc75efe07eeea370c7702",
+  "godot/scripts/ui/touch_controls.gd": "472d149d1c2b23273afed77642f7c8b6611ead8971963cb4b06cba26d8a06c0e",
+  "qa/engine-checks-incremental.json": "c696d471ab77d6fe3d23a76ee4387083761e49f994c073f09d62d742daea1f7e",
+  "qa/engine-checks.json": "625eab8439844a6c0dd75c9a142d8db78518ab145547d82e86c623695d9e8c1a",
+  ".github/workflows/native-export.yml": "bd9b8381e5d1e0b29ff668ee81dbc09c589d0dbede29eb87e1a04c556ea23e26",
+  "docs/art/ART_REVIEW_MUSE.md": "411958ac61d084d95147d77a263ce96f7b4fa9a7fba866b457f62a2870143d6e",
+  "native/README.md": "f8d6a23f8bcd278941ff748756c4ef13689f78caa981373cb164d80d8cb61f86",
+  "native/build-config.json": "a913c26fe8a838ad00f2febf8a96a9a4d548e3162e5a6318f6340ce3ffcc5e8b",
+  "tests/native_touch.gd": "00068340c2437e6f3e113d794bcf6a6040b2aa82909ba67cd70f8c23951ed5f9",
+  "tools/export_mobile.py": "a4fe3a07bf29ea006e14d232f7f8a260b86ae597f3930c55cdf352d1015df658",
+  "tools/install_native_toolchain.py": "9f0cb530748a21e86fb45c8b72ae436fa770be49d1ab4ba316eb74886077d6c5"
+}

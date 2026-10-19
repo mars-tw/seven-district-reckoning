@@ -1,0 +1,60 @@
+{
+  "status": "VERIFIED",
+  "version": "0.11.0",
+  "generated_masters": 8,
+  "runtime_images": 11,
+  "new_glb": 2,
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "model_note": "Actual tool does not expose model slug.",
+  "store_screenshots": [
+    "1290x2796-title.png",
+    "1290x2796-dialogue.png",
+    "1290x2796-dialogue-meiqing.png",
+    "1290x2796-street.png",
+    "1290x2796-evidence.png",
+    "1290x2796-link.png",
+    "1290x2796-sealed.png",
+    "1290x2796-message-inspection.png",
+    "1290x2796-receipt-inspection.png",
+    "1290x2796-seal-action.png",
+    "2064x2752-title.png",
+    "2064x2752-dialogue.png",
+    "2064x2752-dialogue-meiqing.png",
+    "2064x2752-street.png",
+    "2064x2752-evidence.png",
+    "2064x2752-link.png",
+    "2064x2752-sealed.png",
+    "2064x2752-message-inspection.png",
+    "2064x2752-receipt-inspection.png",
+    "2064x2752-seal-action.png"
+  ],
+  "action_captures": [
+    {
+      "file": "1290x2796-seal-action.png",
+      "source": "docs/evidence/r7-art/clock-phone/1290x2796-seal-controlled-3.png",
+      "sha256": "ce3eb195c8592e84a604904fa925ca2d940610f3d2d6ce054b6e49d98607e061",
+      "elapsed_ms": 320,
+      "method": "Actual Godot frame with browser clock stepped and paused; no image editing, injected art or game-state modification."
+    },
+    {
+      "file": "2064x2752-seal-action.png",
+      "source": "docs/evidence/r7-art/clock-tablet/2064x2752-seal-controlled-3.png",
+      "sha256": "a3e6d3f878fd63a23f6b5a1e473bed712a7a7cd53c661c52a27abcea4125ccc7",
+      "elapsed_ms": 320,
+      "method": "Actual Godot frame with browser clock stepped and paused; no image editing, injected art or game-state modification."
+    }
+  ],
+  "comparison_manifest": "docs/art/compare/r7-after/manifest.json",
+  "before": "docs/art/compare/r7-before/",
+  "report": "docs/CODEX_RESPONSE_R7_ART.md",
+  "remaining": "docs/art/R7_MISSING_3D.md",
+  "pck_sha256": "e40921d70368989868085b2f341d92a9f8f5dbd19934a04ad993d19a1b94a911",
+  "scope": "Actual Godot Web export; native hardware and independent 8/10 score remain unverified.",
+  "release_status": "BLOCKED",
+  "release_blockers": [
+    "Desktop concurrent-load RAF p95 33.4 ms exceeds 18 ms",
+    "Early seal frames still show short-lived layout noise",
+    "Independent 8/10 rescore and native hardware validation outstanding"
+  ]
+}

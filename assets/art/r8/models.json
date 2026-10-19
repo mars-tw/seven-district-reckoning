@@ -1,0 +1,20 @@
+{
+  "status": "EXECUTED",
+  "blender": "5.2.0 LTS",
+  "license": "CC0-1.0; original project-authored garage geometry",
+  "source": "assets/source/blender/r8/garage-life.blend",
+  "path": "godot/assets/models/r8/garage-life.glb",
+  "sha256": "fdf349e34f97f0e89cbe9c9899387a13c276f7a98500afaff44826b80798ac8e",
+  "bytes": 379528,
+  "triangles": 6038,
+  "material_batches": 5,
+  "features": [
+    "corrugated canopy",
+    "rounded rain gutter and drain",
+    "sagging utility cables",
+    "gooseneck lamps",
+    "treaded tire stack",
+    "curved planter and leaves",
+    "oil bottles"
+  ]
+}

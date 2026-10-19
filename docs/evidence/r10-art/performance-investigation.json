@@ -1,0 +1,218 @@
+{
+  "status": "VERIFIED",
+  "method": "Same R9 capture harness, hardware ANGLE D3D11, same viewport/DPR/profile, actual cold-open, 3 x 180 RAF intervals per build; ABBA order for each viewport",
+  "environment": "Concurrent host load; no other owner workloads stopped",
+  "rows": [
+    {
+      "revision": "r4",
+      "pixels": "390x844",
+      "order": 0,
+      "pck_sha256": "9bfa3255321c53f78a65c9ce8684a7c115f3c10daebbc31b29820baa0aae8c81",
+      "p95_median": 16.700000000004366,
+      "three_run_p95": [
+        16.799999999995634,
+        16.700000000004366,
+        16.700000000004366
+      ],
+      "cpu_range": [
+        15.7,
+        48.5
+      ],
+      "gpu_range": [
+        94,
+        99
+      ],
+      "gpu_used_range_mib": [
+        11440,
+        11619
+      ],
+      "gpu_median_percent": 98,
+      "gpu_samples_above90_fraction": 1.0
+    },
+    {
+      "revision": "r9",
+      "pixels": "390x844",
+      "order": 1,
+      "pck_sha256": "6704c0645a78aca2fdabc8e3dacc3d296f4fd105fb6faf9816c84e5601fa8343",
+      "p95_median": 16.700000000004366,
+      "three_run_p95": [
+        16.700000000004366,
+        16.799999999995634,
+        16.700000000004366
+      ],
+      "cpu_range": [
+        10.7,
+        44.1
+      ],
+      "gpu_range": [
+        95,
+        99
+      ],
+      "gpu_used_range_mib": [
+        11440,
+        11629
+      ],
+      "gpu_median_percent": 98.0,
+      "gpu_samples_above90_fraction": 1.0
+    },
+    {
+      "revision": "r9",
+      "pixels": "390x844",
+      "order": 2,
+      "pck_sha256": "6704c0645a78aca2fdabc8e3dacc3d296f4fd105fb6faf9816c84e5601fa8343",
+      "p95_median": 33.299999999995634,
+      "three_run_p95": [
+        33.299999999995634,
+        16.799999999995634,
+        33.299999999995634
+      ],
+      "cpu_range": [
+        16.3,
+        42.1
+      ],
+      "gpu_range": [
+        4,
+        100
+      ],
+      "gpu_used_range_mib": [
+        11440,
+        11622
+      ],
+      "gpu_median_percent": 98.0,
+      "gpu_samples_above90_fraction": 0.9047619047619048
+    },
+    {
+      "revision": "r4",
+      "pixels": "390x844",
+      "order": 3,
+      "pck_sha256": "9bfa3255321c53f78a65c9ce8684a7c115f3c10daebbc31b29820baa0aae8c81",
+      "p95_median": 16.700000000004366,
+      "three_run_p95": [
+        16.700000000004366,
+        16.700000000004366,
+        16.700000000004366
+      ],
+      "cpu_range": [
+        9.2,
+        35.7
+      ],
+      "gpu_range": [
+        13,
+        99
+      ],
+      "gpu_used_range_mib": [
+        11440,
+        11617
+      ],
+      "gpu_median_percent": 98,
+      "gpu_samples_above90_fraction": 0.7560975609756098
+    },
+    {
+      "revision": "r4",
+      "pixels": "1366x768",
+      "order": 0,
+      "pck_sha256": "9bfa3255321c53f78a65c9ce8684a7c115f3c10daebbc31b29820baa0aae8c81",
+      "p95_median": 50.099999999998545,
+      "three_run_p95": [
+        50.099999999998545,
+        50,
+        50.099999999998545
+      ],
+      "cpu_range": [
+        10.2,
+        46.2
+      ],
+      "gpu_range": [
+        94,
+        100
+      ],
+      "gpu_used_range_mib": [
+        11440,
+        11764
+      ],
+      "gpu_median_percent": 99.0,
+      "gpu_samples_above90_fraction": 1.0
+    },
+    {
+      "revision": "r9",
+      "pixels": "1366x768",
+      "order": 1,
+      "pck_sha256": "6704c0645a78aca2fdabc8e3dacc3d296f4fd105fb6faf9816c84e5601fa8343",
+      "p95_median": 50.099999999998545,
+      "three_run_p95": [
+        50.099999999998545,
+        50.099999999998545,
+        50.099999999998545
+      ],
+      "cpu_range": [
+        14.0,
+        32.1
+      ],
+      "gpu_range": [
+        96,
+        100
+      ],
+      "gpu_used_range_mib": [
+        11440,
+        11738
+      ],
+      "gpu_median_percent": 99,
+      "gpu_samples_above90_fraction": 1.0
+    },
+    {
+      "revision": "r9",
+      "pixels": "1366x768",
+      "order": 2,
+      "pck_sha256": "6704c0645a78aca2fdabc8e3dacc3d296f4fd105fb6faf9816c84e5601fa8343",
+      "p95_median": 50.099999999998545,
+      "three_run_p95": [
+        50.099999999998545,
+        50.099999999998545,
+        50.099999999998545
+      ],
+      "cpu_range": [
+        13.7,
+        43.9
+      ],
+      "gpu_range": [
+        98,
+        100
+      ],
+      "gpu_used_range_mib": [
+        11440,
+        11780
+      ],
+      "gpu_median_percent": 99,
+      "gpu_samples_above90_fraction": 1.0
+    },
+    {
+      "revision": "r4",
+      "pixels": "1366x768",
+      "order": 3,
+      "pck_sha256": "9bfa3255321c53f78a65c9ce8684a7c115f3c10daebbc31b29820baa0aae8c81",
+      "p95_median": 50.099999999998545,
+      "three_run_p95": [
+        50.099999999998545,
+        50.099999999998545,
+        50.099999999998545
+      ],
+      "cpu_range": [
+        17.2,
+        59.3
+      ],
+      "gpu_range": [
+        1,
+        100
+      ],
+      "gpu_used_range_mib": [
+        11440,
+        11723
+      ],
+      "gpu_median_percent": 99.0,
+      "gpu_samples_above90_fraction": 0.6666666666666666
+    }
+  ],
+  "inference": "The same historical and current builds both give desktop p95 50.1ms in ABBA. The R9 phone changes from16.7 to33.3ms without source or package changes. Sustained external GPU load is evidenced while all owned browser/Godot children are closed. These observations do not reproduce a source-level regression and support host contention as the observed timing limitation; clean-machine <=18ms remains unverified.",
+  "historical_83_4ms_specific_cause": "No retained historical load trace; cannot attribute that individual past run with certainty",
+  "idle_load": "docs/evidence/r10-art/idle-host-load.json"
+}

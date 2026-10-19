@@ -1,0 +1,12 @@
+{
+  "status": "VERIFIED",
+  "reason": "Adapt the R1 interaction driver to the reviewed replacement controls, retain existing assertions and add the wrong-paper-field gate. R3 updates only the three renamed event strings.",
+  "runtime_pck_before": "9d4176af65582a239a9a6dd36338cae310515e809b9a754874b480bfac15f72e",
+  "runtime_pck_after": "9d4176af65582a239a9a6dd36338cae310515e809b9a754874b480bfac15f72e",
+  "runtime_package_byte_identical": true,
+  "scope": [
+    "tests/content_r1.gd",
+    "tests/content_r3.gd"
+  ],
+  "note": "This receipt isolates the interaction-driver update before the later record-ribbon spacing fix. Final export and capture manifests identify the release runtime package."
+}

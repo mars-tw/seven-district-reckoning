@@ -1,0 +1,155 @@
+{
+  "status": "PASS",
+  "version": "0.6.0",
+  "files": 37,
+  "checks": [
+    {
+      "path": "404.html",
+      "matches": true
+    },
+    {
+      "path": "CREDITS.txt",
+      "matches": true
+    },
+    {
+      "path": "LICENSE-ASSETS.txt",
+      "matches": true
+    },
+    {
+      "path": "LICENSE.txt",
+      "matches": true
+    },
+    {
+      "path": "_headers",
+      "matches": true
+    },
+    {
+      "path": "_redirects",
+      "matches": true
+    },
+    {
+      "path": "desktop/index.html",
+      "matches": true
+    },
+    {
+      "path": "favicon.svg",
+      "matches": true
+    },
+    {
+      "path": "game.apple-touch-icon.png",
+      "matches": true
+    },
+    {
+      "path": "game.audio.position.worklet.js",
+      "matches": true
+    },
+    {
+      "path": "game.audio.worklet.js",
+      "matches": true
+    },
+    {
+      "path": "game.html",
+      "matches": true
+    },
+    {
+      "path": "game.icon.png",
+      "matches": true
+    },
+    {
+      "path": "game.js",
+      "matches": true
+    },
+    {
+      "path": "game.pck",
+      "matches": true
+    },
+    {
+      "path": "game.png",
+      "matches": true
+    },
+    {
+      "path": "game.wasm.br",
+      "matches": true
+    },
+    {
+      "path": "index.html",
+      "matches": true
+    },
+    {
+      "path": "licenses/CC-BY-3.0.txt",
+      "matches": true
+    },
+    {
+      "path": "licenses/Godot-COPYRIGHT.txt",
+      "matches": true
+    },
+    {
+      "path": "licenses/Godot-LICENSE.txt",
+      "matches": true
+    },
+    {
+      "path": "licenses/MakeHuman-ASSETS-CC0.txt",
+      "matches": true
+    },
+    {
+      "path": "licenses/MakeHuman-source-notice.txt",
+      "matches": true
+    },
+    {
+      "path": "licenses/OFL.txt",
+      "matches": true
+    },
+    {
+      "path": "licenses/car-kit-License.txt",
+      "matches": true
+    },
+    {
+      "path": "licenses/city-kit-commercial-License.txt",
+      "matches": true
+    },
+    {
+      "path": "licenses/city-kit-roads-License.txt",
+      "matches": true
+    },
+    {
+      "path": "licenses/furniture-kit-License.txt",
+      "matches": true
+    },
+    {
+      "path": "licenses/mini-characters-License.txt",
+      "matches": true
+    },
+    {
+      "path": "licenses/nature-kit-License.txt",
+      "matches": true
+    },
+    {
+      "path": "licenses/taiwan-CC0.txt",
+      "matches": true
+    },
+    {
+      "path": "licenses/urban-CC0.txt",
+      "matches": true
+    },
+    {
+      "path": "phone/index.html",
+      "matches": true
+    },
+    {
+      "path": "play-site.css",
+      "matches": true
+    },
+    {
+      "path": "play-site.js",
+      "matches": true
+    },
+    {
+      "path": "robots.txt",
+      "matches": true
+    },
+    {
+      "path": "tablet/index.html",
+      "matches": true
+    }
+  ]
+}

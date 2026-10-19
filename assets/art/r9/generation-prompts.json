@@ -1,0 +1,23 @@
+{
+  "version": "0.13.0",
+  "round": 9,
+  "user_round": 6,
+  "tool": "image_gen.imagegen",
+  "model_slug": null,
+  "model_note": "The actual model slug was not exposed by the built-in tool.",
+  "style_prefix": "Seven District: Break the Chain, Taiwanese urban investigation dossier art direction, tactile archival materials, charcoal #16181D, warm ivory #F1E8D5, evidence amber #FFB800 and sparing vermilion #C4271C, warm upper-left light, restrained realistic painterly material detail, fine dark ink contours",
+  "items": [
+    {
+      "id": "meiqing-waist",
+      "prompt": "Seven District: Break the Chain, Taiwanese urban investigation dossier art direction, tactile archival materials, charcoal #16181D, warm ivory #F1E8D5, evidence amber #FFB800 and sparing vermilion #C4271C, warm upper-left light, restrained realistic painterly material detail, fine dark ink contours. Edit target is the isolated woman portrait; the two-character turnaround is identity reference only. Deliver one refined WAIST-UP game dialogue portrait of the same Taiwanese mechanic Mei: same face, asymmetrical chin-length black bob, olive rolled-sleeve shirt, vermilion worn canvas apron, brass buckles, yellow rag, same right hand holding adjustable wrench upright near shoulder and left hand on hip. Preserve face identity and realistic painterly rendering. Crop cleanly and decisively straight across below the waist at apron pocket, with completely opaque fabric all the way to the lower canvas edge. No thighs, no legs, no shoes, NO fade, NO dissolving lower body, NO translucent clothes. Whole head and both elbows visible, 6% generous top/side transparent margin, isolated on true transparent background. No background objects, no text, no shadow floating on background. Portrait 1024x1024, full appealing character silhouette, warm upper-left light.",
+      "references": [
+        "godot/assets/art/r7/meiqing-portrait.png",
+        "docs/art/character-sheets/r7-cast-turnaround.png"
+      ],
+      "reference_sha256": {
+        "godot/assets/art/r7/meiqing-portrait.png": "b1612670e53b982da4d9760b8d93773c75fa9a013bc98f21d20d94decd593de8",
+        "docs/art/character-sheets/r7-cast-turnaround.png": "2ba584f63d0769e3dc352713d6b1807569d23974ac5ce03c769636569840f333"
+      }
+    }
+  ]
+}

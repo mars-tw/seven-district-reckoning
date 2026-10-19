@@ -25,9 +25,32 @@ SUITES = [
     ("taiwan_life.gd", "TAIWAN_LIFE_RESULT "),
     ("taiwan_expansion.gd", "TAIWAN_MAP_RESULT "),
     ("device_profiles.gd", "DEVICE_PROFILE_CHECKS="),
-    ("mobile_hud.gd", "MOBILE_HUD_CHECKS="),
     ("v04_integration.gd", "V04_INTEGRATION_RESULT "),
     ("taiwan_activities.gd", "TAIWAN_ACTIVITY_CHECKS="),
+    ("r1_fun_polish.gd", "R1_FUN_POLISH_CHECKS="),
+    ("r2_mobile.gd", "R2_MOBILE_CHECKS="),
+    ("r3_store.gd", "R3_STORE_CHECKS="),
+    ("r3_store_restart.gd", "R3_RESTART_CHECKS="),
+    ("native_touch.gd", "NATIVE_TOUCH_CHECKS="),
+    ("r4_art.gd", "R4_ART_CHECKS="),
+    ("r4_1_resize.gd", "R4_1_RESIZE_CHECKS="),
+    ("r5_art.gd", "R5_ART_CHECKS="),
+    ("r6_art.gd", "R6_ART_CHECKS="),
+    ("r7_art.gd", "R7_ART_CHECKS="),
+    ("r8_art.gd", "R8_ART_CHECKS="),
+    ("r9_art.gd", "R9_ART_CHECKS="),
+    ("r10_art.gd", "R10_ART_CHECKS="),
+    ("content_r1.gd", "CONTENT_R1_CHECKS="),
+    ("content_r2.gd", "CONTENT_R2_CHECKS="),
+    ("content_r3.gd", "CONTENT_R3_CHECKS="),
+    ("content_r4.gd", "CONTENT_R4_CHECKS="),
+    ("content_r5.gd", "CONTENT_R5_CHECKS="),
+    ("content_r6.gd", "CONTENT_R6_CHECKS="),
+    ("content_r7.gd", "CONTENT_R7_CHECKS="),
+    ("content_r8.gd", "CONTENT_R8_CHECKS="),
+    ("content_r9.gd", "CONTENT_R9_CHECKS="),
+    ("content_r10.gd", "CONTENT_R10_CHECKS="),
+    ("content_r11.gd", "CONTENT_R11_CHECKS="),
 ]
 JS_SUITES = [("device_web.mjs", "DEVICE_WEB_CHECKS=")]
 JS_SUPPORT = ["prepare_web_assets.mjs", "verify_web.mjs"]
@@ -122,6 +145,7 @@ def main():
     parser.add_argument("--godot", default=os.environ.get("GODOT_BIN", "godot"))
     parser.add_argument("--import-only", action="store_true")
     parser.add_argument("--node", default=os.environ.get("NODE_BIN", "node"))
+    parser.add_argument("--report-path", type=Path, help="Explicit report destination, preserving unrelated qa reports")
     parser.add_argument("--suite", action="append", choices=["gameplay_integration"] + [Path(name).stem for name, _ in SUITES + JS_SUITES],
                         help="Run selected suites after a clean import; repeat to select more than one")
     args = parser.parse_args()
@@ -218,7 +242,8 @@ def main():
             if label == "godot_import_parse" and errors:
                 break
     (ROOT / "qa").mkdir(exist_ok=True)
-    report_path = ROOT / ("qa/engine-checks-incremental.json" if args.suite else "qa/engine-checks.json")
+    report_path = args.report_path or ROOT / ("qa/engine-checks-incremental.json" if args.suite else "qa/engine-checks.json")
+    report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if len(results) != len(commands) or any(item["status"] != "PASS" for item in results):
         return 1

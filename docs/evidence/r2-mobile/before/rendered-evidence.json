@@ -1,0 +1,176 @@
+{
+  "phase": "before",
+  "status": "VERIFIED",
+  "environment": "並發載量測，僅供參考",
+  "rendering": "Actual Godot WebGL canvas in headless Chromium with SwiftShader software rendering; frame intervals are not hardware GPU execution times or phone hardware results.",
+  "views": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844
+      },
+      "state": {
+        "phase": "playing",
+        "play_started": true,
+        "version": "0.5.0",
+        "device_profile": "phone",
+        "requested_profile": "phone",
+        "resolution_scale": 0.699999988079071,
+        "camera_distance": 240,
+        "touch_controls": true,
+        "visible_citizens": 3,
+        "visible_traffic": 0,
+        "draw_calls": 130,
+        "frame_fps": 13,
+        "life_title": "台灣街區生活",
+        "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+        "life_cash": 0,
+        "cargo_count": 0,
+        "culture_activity": "",
+        "culture_badges": 0,
+        "stamina": 100,
+        "max_stamina": 100,
+        "credits": 120,
+        "rank": "初到街區",
+        "time": "15:43",
+        "navigation": "任務導引",
+        "main_title": "MAIN-001　賠掉的存款",
+        "objective": "到車店找美晴，按 E 交談。",
+        "optional_title": "街坊委託",
+        "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+        "completed_sides": 0,
+        "completed_activities": 0,
+        "coins": 0,
+        "touch": true,
+        "player_x": -56,
+        "player_z": 52
+      },
+      "logs": [
+        "error: Loading the image 'blob:http://127.0.0.1:64421/a0dbe4e2-2b21-49c4-b686-31fe7a8e582e' violates the following Content Security Policy directive: \"img-src 'self' data:\". The action has been blocked.",
+        "error: ERROR: No loader found for resource: res://assets/fonts/NotoSansTC-Regular.otf (expected type: unknown)",
+        "error:    at: _load (core/io/resource_loader.cpp:332)",
+        "error: ERROR: Required object \"rp_font\" is null.",
+        "error:    at: add_theme_font_override (scene/gui/control.cpp:4018)"
+      ],
+      "runs": []
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 844,
+        "height": 390
+      },
+      "state": {
+        "phase": "playing",
+        "play_started": true,
+        "version": "0.5.0",
+        "device_profile": "phone",
+        "requested_profile": "phone",
+        "resolution_scale": 0.699999988079071,
+        "camera_distance": 240,
+        "touch_controls": true,
+        "visible_citizens": 3,
+        "visible_traffic": 0,
+        "draw_calls": 175,
+        "frame_fps": 10,
+        "life_title": "台灣街區生活",
+        "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+        "life_cash": 0,
+        "cargo_count": 0,
+        "culture_activity": "",
+        "culture_badges": 0,
+        "stamina": 100,
+        "max_stamina": 100,
+        "credits": 120,
+        "rank": "初到街區",
+        "time": "15:43",
+        "navigation": "任務導引",
+        "main_title": "MAIN-001　賠掉的存款",
+        "objective": "到車店找美晴，按 E 交談。",
+        "optional_title": "街坊委託",
+        "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+        "completed_sides": 0,
+        "completed_activities": 0,
+        "coins": 0,
+        "touch": true,
+        "player_x": -56,
+        "player_z": 52
+      },
+      "logs": [
+        "error: Loading the image 'blob:http://127.0.0.1:64421/cae4174f-8636-4cc2-bd9d-6e957f83e40b' violates the following Content Security Policy directive: \"img-src 'self' data:\". The action has been blocked.",
+        "error: ERROR: No loader found for resource: res://assets/fonts/NotoSansTC-Regular.otf (expected type: unknown)",
+        "error:    at: _load (core/io/resource_loader.cpp:332)",
+        "error: ERROR: Required object \"rp_font\" is null.",
+        "error:    at: add_theme_font_override (scene/gui/control.cpp:4018)"
+      ],
+      "runs": []
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 600
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 1366,
+        "height": 600
+      },
+      "state": {
+        "phase": "playing",
+        "play_started": true,
+        "version": "0.5.0",
+        "device_profile": "desktop",
+        "requested_profile": "desktop",
+        "resolution_scale": 1,
+        "camera_distance": 560,
+        "touch_controls": false,
+        "visible_citizens": 8,
+        "visible_traffic": 4,
+        "draw_calls": 241,
+        "frame_fps": 5,
+        "life_title": "台灣街區生活",
+        "life_objective": "接街坊故事，或做美食、便利商店與店到店配送",
+        "life_cash": 0,
+        "cargo_count": 0,
+        "culture_activity": "",
+        "culture_badges": 0,
+        "stamina": 100,
+        "max_stamina": 100,
+        "credits": 120,
+        "rank": "初到街區",
+        "time": "15:39",
+        "navigation": "任務導引",
+        "main_title": "MAIN-001　賠掉的存款",
+        "objective": "到車店找美晴，按 E 交談。",
+        "optional_title": "街坊委託",
+        "optional_text": "到委託板選支線或活動。主線可以同時繼續。",
+        "completed_sides": 0,
+        "completed_activities": 0,
+        "coins": 0,
+        "touch": false,
+        "player_x": -56,
+        "player_z": 52
+      },
+      "logs": [
+        "error: Loading the image 'blob:http://127.0.0.1:64421/9bc3c4b2-7dfc-4532-9247-f6b6ca96cca0' violates the following Content Security Policy directive: \"img-src 'self' data:\". The action has been blocked.",
+        "error: ERROR: No loader found for resource: res://assets/fonts/NotoSansTC-Regular.otf (expected type: unknown)",
+        "error:    at: _load (core/io/resource_loader.cpp:332)",
+        "error: ERROR: Required object \"rp_font\" is null.",
+        "error:    at: add_theme_font_override (scene/gui/control.cpp:4018)"
+      ],
+      "runs": []
+    }
+  ]
+}
