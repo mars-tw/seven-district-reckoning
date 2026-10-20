@@ -22,6 +22,12 @@ func capture_save(id: String) -> void:
 	var file := FileAccess.open(directory.path_join(id+".json"),FileAccess.WRITE)
 	file.store_string(JSON.stringify({"schema":1,"data":game._snapshot(false)}))
 func click(text: String) -> void:
+	if text == "18：00\n點此貼入":
+		drag_attachment()
+		return
+	var aliases := {"反駁林秀蘭：\n全在前":"林秀蘭｜七號簿上那兩筆，全在傍晚六點以前。","反駁陳奕廷：\n全在後":"陳奕廷｜我記得七號簿那兩筆都在六點以後。","支持吳安琪：\n前後都有":"吳安琪｜同一本簿，有六點以前，也有六點以後。"}
+	if root.get_visible_rect().size.y >= 400: text = aliases.get(text,text)
+	else: text = {"反駁林秀蘭：\n全在前":"林秀蘭：\n兩筆全在前","反駁陳奕廷：\n全在後":"陳奕廷：\n兩筆全在後","支持吳安琪：\n前後都有":"吳安琪：\n前後都有"}.get(text,text)
 	var found := false
 	for b: Node in game.investigation_panel.surface.find_children("*","Button",true,false):
 		if b.get_meta("original_text",b.text) == text and not b.disabled:
@@ -29,6 +35,18 @@ func click(text: String) -> void:
 			found = true
 			break
 	check(found,"reachable_action_"+text)
+
+func drag_attachment(correct: bool = true) -> void:
+	var panel: CanvasLayer = game.investigation_panel
+	check(is_instance_valid(panel.attachment_receipt) and is_instance_valid(panel.attachment_target),"attachment_real_drag_targets")
+	var touch := InputEventScreenTouch.new(); touch.pressed = true
+	touch.position = panel.attachment_receipt.get_global_rect().get_center()
+	panel._input(touch)
+	var motion := InputEventScreenDrag.new()
+	motion.position = panel.attachment_target.get_global_rect().get_center() if correct else Vector2(10,20)
+	panel._input(motion)
+	check(panel.attachment_moved,"attachment_crosses_drag_threshold")
+	touch.position = motion.position; touch.pressed = false; panel._input(touch)
 func layout(tag: String) -> void:
 	var screen := Rect2(Vector2.ZERO,root.size)
 	var buttons: Array[Rect2] = []
@@ -136,13 +154,17 @@ func run() -> void:
 			check(not game.investigations.entry().compared,"wrong_paper_field_cannot_advance")
 			click("甲 原件"); click("承諾：本案協助不收任何預付費。"); click("核對兩處黃標")
 			check(not game.investigations.entry().complete,"panel_requires_second_decision")
+			click("展開原件 甲"); click("收起原件，返回判定"); click("展開原件 乙"); click("收起原件，返回判定")
 			click("暫停付款，留存甲乙兩份原件")
 		elif spec.mode == "timeline":
 			for text: String in ["丙 輪值資料","甲 車店收據","乙 交接摘要","核對關係","車店收據 → 交接摘要","乙與丙","交接摘要 → 輪值資料","揭時核對","回排序改排","撤回末張","撤回末張","撤回末張","甲 17：42","乙 17：55","丙 18：00","核對關係","車店收據 → 交接摘要","乙與丙","交接摘要 → 輪值資料","揭時核對","17：42\n點選拿起收據","18：00\n點此貼入"]:
+				if text == "18：00\n點此貼入": await settle()
 				click(text)
 				if text == "揭時核對" and game.investigations.entry().time_checked:
 					check(game.investigation_panel.reveal_count == 0,"time_masks_begin_closed")
-					await create_timer(2.7,true).timeout
+					for index: int in 3: game.investigations.reveal_time(index,3)
+					game.investigation_panel.show_page()
+					await settle()
 					check(game.investigation_panel.reveal_count == 3,"all_three_masks_reveal_before_attachment")
 		else:
 			for i: int in 3:

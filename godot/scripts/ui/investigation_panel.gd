@@ -10,6 +10,7 @@ var statement := 0
 var selected_document := -1
 var compact := false
 var body: VBoxContainer
+var navigation_tabs: HBoxContainer
 var notice := ""
 var marked_field := -1
 var cited_fields: Dictionary = {}
@@ -32,27 +33,112 @@ var slot_buttons: Array[Button] = []
 var history_index := 0
 var reveal_count := -1
 var reveal_clock := 0.0
+var attachment_receipt: Control
+var attachment_target: Control
+var attachment_start := Vector2.ZERO
+var attachment_held := false
+var attachment_moved := false
+var attachment_lane: Control
+var reviewed_originals: Array = []
 const Paper = preload("res://scripts/ui/investigation_paper.gd")
 const Rail = preload("res://scripts/ui/investigation_rail.gd")
 const Links = preload("res://scripts/ui/investigation_links.gd")
 const TimeMask = preload("res://scripts/ui/investigation_time_mask.gd")
 
-func _process(delta: float) -> void:
-	if reveal_count < 0 or reveal_count >= 3 or not is_instance_valid(surface): return
-	reveal_clock += delta
-	if reveal_clock >= .8:
-		reveal_clock = 0
-		reveal_count += 1
-		show_page()
+func _process(_delta: float) -> void:
+	pass # Time covers move only while the player holds or drags them.
 
-class DraggedPaper extends Label:
-	func _draw() -> void:
-		var ink := Color("16181d")
-		draw_arc(Vector2(18,size.y-18),4,PI,TAU,16,ink,1.5,true)
-		draw_rect(Rect2(13,size.y-18,10,9),ink,false,1.5)
-		draw_line(Vector2(18,size.y-15),Vector2(18,size.y-12),ink,1.5,true)
+var original_return := ""
+var action_offset := randi_range(0,2)
+var action_serial := -1
+
+func first_hint(kind: String, detail: String) -> String:
+	var errors: Array = manager.entry().history.filter(func(e: Dictionary) -> bool: return e.kind == kind and not e.feedback.is_empty())
+	if kind == "pin": return detail
+	if errors.size() > 1: return detail
+	return {"action":"甲乙的收費條件仍有衝突。回看兩處黃標與乙的備註。","relation":"你把引用方向讀反了，先回看『附件：』或『接班依據：』那一句。","pin":"這筆時間與你選的『全部』說法對不上。回看分界兩側的原件。"}.get(kind,detail)
+
+func open_original(index: int) -> void:
+	original_return = page
+	if manager.definition().mode == "contradiction" and manager.entry().compared and not index in reviewed_originals: reviewed_originals.append(index)
+	document = index
+	page = "original"
+	show_page()
+
+func original_page() -> void:
+	var doc: Dictionary = manager.definition().documents[document]
+	label("完整原件｜"+doc.title,18)
+	var original_body := body
+	var side: VBoxContainer
+	if get_viewport().get_visible_rect().size.y < 400:
+		var split := row()
+		var source := VBoxContainer.new(); source.size_flags_horizontal = Control.SIZE_EXPAND_FILL; split.add_child(source)
+		side = VBoxContainer.new(); side.size_flags_horizontal = Control.SIZE_EXPAND_FILL; split.add_child(side)
+		body = source
+	label(manager.document_text(document),16)
+	if side: body = side
+	if manager.definition().mode == "contradiction":
+		var paper := Paper.make(doc,[doc.fields[2]],0 if manager.entry().citations.get(str(document),-1) == 2 else -1,[],true,func(_i: int) -> void: pass)
+		body.add_child(paper)
+	button("收起原件，返回判定",func() -> void: page = original_return; show_page(),null,true)
+	body = original_body
+
+func _attachment_input(event: InputEvent) -> void:
+	if not is_instance_valid(attachment_receipt): return
+	var pos := Vector2.ZERO
+	var down := false
+	var up := false
+	var motion := false
+	if event is InputEventScreenTouch:
+		pos = event.position; down = event.pressed; up = not down
+	elif event is InputEventScreenDrag:
+		pos = event.position; motion = true
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		pos = event.position; down = event.pressed; up = not down
+	elif event is InputEventMouseMotion:
+		pos = event.position; motion = true
+	else: return
+	if down and attachment_receipt.get_global_rect().has_point(pos):
+		attachment_held = true; attachment_moved = false; attachment_start = pos
+	if not attachment_held: return
+	if motion and pos.distance_to(attachment_start) > 8:
+		attachment_moved = true
+		if not is_instance_valid(drag_ghost):
+			drag_ghost = Label.new()
+			drag_ghost.text = "甲 17：42\n拖曳中"
+			drag_ghost.size = Vector2(96,48)
+			drag_ghost.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			drag_ghost.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+			var ghost_paper := Art.paper()
+			ghost_paper.content_margin_left = 6; ghost_paper.content_margin_right = 6
+			ghost_paper.content_margin_top = 2; ghost_paper.content_margin_bottom = 2
+			ghost_paper.texture_margin_top = 4; ghost_paper.texture_margin_bottom = 4
+			ghost_paper.texture_margin_left = 6; ghost_paper.texture_margin_right = 6
+			drag_ghost.add_theme_stylebox_override("normal",ghost_paper)
+			drag_ghost.add_theme_color_override("font_color",Art.CHARCOAL)
+			drag_ghost.add_theme_font_size_override("font_size",13)
+			drag_ghost.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			drag_ghost.z_index = 100
+			surface.add_child(drag_ghost)
+		attachment_receipt.modulate.a = .35
+		drag_ghost.size = Vector2(96,48)
+		drag_ghost.position = Vector2(clampf(pos.x-48,attachment_lane.global_position.x,attachment_lane.get_global_rect().end.x-96),attachment_lane.global_position.y+4)
+		get_viewport().set_input_as_handled()
+	if up:
+		attachment_held = false
+		if attachment_moved:
+			get_viewport().set_input_as_handled()
+			if attachment_target.get_global_rect().has_point(pos):
+				manager.seal_time(0); notice = ""
+			else:
+				selected_document = -1
+				notice = "位置不對，收據已退回原位。"
+			show_page()
 
 func _input(event: InputEvent) -> void:
+	if is_instance_valid(surface) and page == "solve" and manager.definition().get("mode") == "timeline" and manager.entry().time_checked:
+		_attachment_input(event)
+		return
 	if not is_instance_valid(surface) or page != "solve" or manager.definition().get("mode") != "timeline": return
 	var pos := Vector2.ZERO
 	var down := false
@@ -76,7 +162,7 @@ func _input(event: InputEvent) -> void:
 	if motion and (drag_moved or pos.distance_to(drag_origin) > 8):
 		drag_moved = true
 		if not is_instance_valid(drag_ghost):
-			drag_ghost = DraggedPaper.new()
+			drag_ghost = Label.new()
 			drag_ghost.name = "DraggedOriginal"
 			drag_ghost.text = ["甲 車店收據","乙 交接摘要","丙 輪值資料"][drag_card]+"\n"+manager.definition().documents[drag_card].event+"\n時間被遮蔽"
 			drag_ghost.custom_minimum_size = Vector2(224,66)
@@ -167,11 +253,15 @@ func open_hub() -> void:
 	show_page()
 
 func open_case(id: String) -> void:
+	if action_serial != manager.game_serial:
+		action_offset = (action_offset+1)%3
+		action_serial = manager.game_serial
 	manager.start(id)
 	page = "pinning" if manager.entry().get("judging",false) and not manager.entry().complete else "evidence"
 	document = 0
 	statement = 0
 	selected_document = -1
+	reviewed_originals.clear()
 	notice = ""
 	cited_fields.clear()
 	display_cards.clear()
@@ -305,7 +395,7 @@ func source_summary() -> void:
 	for i: int in c.documents.size():
 		var d: Dictionary = c.documents[i]
 		sources.append(("已留存" if i in manager.entry().collected else "待訪")+["甲 ","乙 ","丙 "][i]+d.title.get_slice("｜",1))
-	label("｜".join(sources),12 if get_viewport().get_visible_rect().size.x < 360 else 14,Color("65502c")).name = "SourceSummary"
+	label("｜".join(sources),13 if get_viewport().get_visible_rect().size.y < 400 else 12 if get_viewport().get_visible_rect().size.x < 360 else 14,Color("65502c")).name = "SourceSummary"
 
 func record_strip(sealed: bool = false, pinning: bool = false) -> void:
 	var strip := Rail.new()
@@ -316,7 +406,7 @@ func record_strip(sealed: bool = false, pinning: bool = false) -> void:
 	for i: int in 3:
 		if not manager.pin_error(i).is_empty(): strip.errors.append(i)
 	strip.highlights = ([0] if selected_document == 0 else [2] if selected_document == 1 else [0,1,2]) if selected_document >= 0 else [[2],[0],[0,1,2]][statement]
-	strip.custom_minimum_size.y = (184 if compact else 214) if sealed or pinning else 150
+	strip.custom_minimum_size.y = (210 if compact and get_viewport().get_visible_rect().size.y >= 400 else 184 if compact else 232) if sealed or pinning else 150
 	body.add_child(strip)
 	var columns := HBoxContainer.new()
 	strip.add_child(columns)
@@ -334,7 +424,7 @@ func record_strip(sealed: bool = false, pinning: bool = false) -> void:
 		time.add_theme_font_size_override("font_size",18 if not compact else 16)
 		time.add_theme_color_override("font_color",Art.CHARCOAL)
 		cell.add_child(time)
-		for text: String in [["首筆原文","玩家推論","末筆原文"][i],["林秀蘭記","首筆＋末筆","陳奕廷記"][i]]:
+		for text: String in [["首筆原文","玩家推論","末筆原文"][i],["林秀蘭記收件\n未記發言","首筆＋末筆\n不新增原件","陳奕廷記收件\n未記發言"][i]]:
 			var caption := Label.new()
 			caption.text = text
 			caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -345,7 +435,9 @@ func record_strip(sealed: bool = false, pinning: bool = false) -> void:
 			var result := Label.new()
 			var choice: int = int(manager.entry().pin_choices.get(str(i),[1,2,0][i]))
 			var wrong: bool = not manager.pin_error(i).is_empty()
-			result.text = "你選的｜\n"+["反駁林秀蘭\n『全在前』","反駁陳奕廷\n『全在後』","支持吳安琪\n『前後都有』"][choice] if wrong else ["已核對\n17：50 在前\n反駁全在後","已核對\n支持吳安琪\n『前後都有』","已核對\n18：10 在後\n反駁全在前"][i]
+			result.text = "你選的｜\n"+["反駁林秀蘭\n『全在前』","反駁陳奕廷\n『全在後』","支持吳安琪\n『前後都有』"][choice] if wrong else ["已核對\n17：50 在前\n反駁陳奕廷\n『全在後』","已核對\n支持吳安琪\n『前後都有』","已核對\n18：10 在後\n反駁林秀蘭\n『全在前』"][i]
+			if get_viewport().get_visible_rect().size.y < 400 and not wrong:
+				result.text = ["已核對\n反駁陳奕廷\n『全在後』","已核對\n支持吳安琪\n『前後都有』","已核對\n反駁林秀蘭\n『全在前』"][i]
 			result.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 			result.add_theme_font_size_override("font_size",12)
 			result.add_theme_color_override("font_color",Art.RED if not manager.pin_error(i).is_empty() else Art.CHARCOAL)
@@ -358,15 +450,32 @@ func record_strip(sealed: bool = false, pinning: bool = false) -> void:
 		label("17：50 在前，18：10 在後。\n合看支持吳安琪『前後都有』；\n18：00 只作分界，沒有第三筆原件。",16)
 
 func spread() -> void:
-	label(manager.definition().reference,13)
+	if not compact: label(manager.definition().reference,13)
 	var pages := row()
 	for i: int in 2:
-		var paper := Paper.make(manager.definition().documents[i],[manager.definition().documents[i].fields[2]],0,[],true,func(_field: int) -> void: pass)
+		var doc: Dictionary = manager.definition().documents[i].duplicate()
+		doc.title = ["甲｜承諾","乙｜要求"][i]
+		var paper := Paper.make(doc,[manager.definition().documents[i].fields[2]],0,[],true,func(_field: int) -> void: open_original(i))
 		pages.add_child(paper)
 		for b: Button in paper.find_children("*","Button",true,false):
-			b.disabled = true
-			b.add_theme_color_override("font_disabled_color",Art.CHARCOAL)
-			b.add_theme_stylebox_override("disabled",b.get_theme_stylebox("normal"))
+			b.disabled = manager.entry().complete
+			if b.disabled:
+				b.add_theme_color_override("font_disabled_color",Art.CHARCOAL)
+				b.add_theme_stylebox_override("disabled",b.get_theme_stylebox("normal"))
+			else: b.tooltip_text = "展開完整原件"
+
+class AttachedReceipt extends Control:
+	func _draw() -> void:
+		draw_set_transform(Vector2.ZERO,0,Vector2(1,size.y/92.0))
+		var paper := Rect2(size.x*.42,8,size.x*.55,72)
+		draw_style_box(Art.paper(),paper); draw_rect(paper,Art.KRAFT,false,1)
+		draw_string(get_theme_default_font(),paper.position+Vector2(12,24),"丙｜輪值資料",HORIZONTAL_ALIGNMENT_LEFT,-1,15,Art.CHARCOAL)
+		draw_string(get_theme_default_font(),paper.position+Vector2(12,51),"18：00",HORIZONTAL_ALIGNMENT_LEFT,-1,18,Art.CHARCOAL)
+		var receipt := Rect2(10,24,size.x*.43,60)
+		draw_style_box(Art.paper(),receipt); draw_rect(receipt,Art.KRAFT,false,1)
+		draw_string(get_theme_default_font(),receipt.position+Vector2(8,23),"甲 收據 17：42",HORIZONTAL_ALIGNMENT_LEFT,-1,14,Art.CHARCOAL)
+		draw_rect(Rect2(receipt.position+Vector2(receipt.size.x-30,-6),Vector2(43,14)),Color("c8b084"))
+		draw_line(Vector2(24,60),Vector2(size.x*.35,60),Art.RED,2,true)
 
 func sealed_results() -> void:
 	var c: Dictionary = manager.definition()
@@ -396,29 +505,53 @@ func sealed_results() -> void:
 		label(c.boundary,14,Color("65502c"))
 		body = original_body
 	elif c.mode == "timeline":
-		label("最終順序：甲 收據 → 乙 摘要 → 丙 輪值",16)
+		var original_body := body
+		var result_column: VBoxContainer
+		if get_viewport().get_visible_rect().size.y < 400:
+			var split := row()
+			var originals := VBoxContainer.new(); originals.size_flags_horizontal = Control.SIZE_EXPAND_FILL; split.add_child(originals)
+			result_column = VBoxContainer.new(); result_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL; split.add_child(result_column)
+			body = originals
+		else: label("最終順序：甲 收據 → 乙 摘要 → 丙 輪值",16)
 		var documents_row: HBoxContainer
-		if get_viewport().get_visible_rect().size.y < 400: documents_row = row()
+		documents_row = row()
 		for i: int in 3:
-			var doc: Dictionary = c.documents[i]
-			var fields: Array = [["17：42｜收據供摘要引用。"],["17：55｜摘要附件為甲收據。"],["18：00｜晚班開始；依據為已簽收摘要。"]][i]
+			var doc: Dictionary = c.documents[i].duplicate()
+			if result_column: doc.title = ["甲","乙","丙"][i]
+			var fields: Array = [["17：42\n收據"],["17：55\n附件：甲"],["18：00\n輪值起點"]][i]
 			var paper := Paper.make(doc,fields,0,[],true,func(_field: int) -> void: pass)
 			(documents_row if documents_row else body).add_child(paper)
 			for b: Button in paper.find_children("*","Button",true,false):
 				b.disabled = true
 				b.add_theme_color_override("font_disabled_color",Art.CHARCOAL)
 				b.add_theme_stylebox_override("disabled",b.get_theme_stylebox("normal"))
+		var attached := AttachedReceipt.new(); attached.name = "TapedReceipt"; attached.custom_minimum_size.y = 64 if get_viewport().get_visible_rect().size.y < 400 else 92; body.add_child(attached)
+		if result_column: body = result_column
 		label("收據早於晚班，晚班開立的猜測已被推翻。",18)
 		label(c.boundary,14,Color("65502c"))
+		body = original_body
 	else:
 		spread()
 		label(c.seal_comparison,18)
 		label("安全行動："+c.action_choices[int(c.action_answer)]+"。",18)
+		var mistakes: Array = manager.entry().history.filter(func(e: Dictionary) -> bool: return e.kind == "action" and not e.feedback.is_empty())
+		if not mistakes.is_empty() and get_viewport().get_visible_rect().size.y >= 400: label("錯選留存："+c.action_choices[int(mistakes[0].choice)],14)
 		if get_viewport().get_visible_rect().size.y >= 400: label("同機構、同案號；乙件備註：未撤回原承諾。",14)
 		label(c.boundary,14,Color("65502c"))
 
+func illustration_caption() -> String:
+	if manager.active == "before_night":
+		var times := PackedStringArray()
+		for i: int in 3: times.append(["17：42","17：55","18：00"][i] if manager.entry().complete or manager.entry().reveal_steps[i] == 3 else "待揭")
+		return " → ".join(times)
+	if manager.entry().complete: return "封存｜原件已歸位"
+	if manager.active == "second_help": return "黃標 %d／2" % [int(manager.entry().citations.get("0",-1) == 2)+int(manager.entry().citations.get("1",-1) == 2)]
+	return "已釘 %d／3" % manager.entry().pins.size()
+
 func show_page() -> void:
 	drag_card = -1
+	attachment_receipt = null; attachment_target = null
+	attachment_held = false; attachment_moved = false
 	drag_ghost = null
 	timeline_cards.clear()
 	slot_labels.clear()
@@ -449,11 +582,12 @@ func show_page() -> void:
 	var center: Container = MarginContainer.new()
 	center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	center.add_theme_constant_override("margin_top",8 if screen.y >= 400 else 0)
+	center.add_theme_constant_override("margin_bottom",8 if screen.y >= 400 else 0)
 	surface.add_child(center)
 	var sheet := PanelContainer.new()
 	sheet.name = "CaseSheet"
 	sheet.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	sheet.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	sheet.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	sheet.custom_minimum_size.x = minf(screen.x-16,760)
 	var paper := Art.paper(true)
 	paper.content_margin_left = 6 if compact else 20
@@ -461,16 +595,16 @@ func show_page() -> void:
 	if timeline_portrait and compact:
 		paper.content_margin_left = 6; paper.content_margin_right = 6
 	if compact:
-		paper.content_margin_top = 0 if screen.y < 400 else 1
-		paper.content_margin_bottom = 0 if screen.y < 400 else 1
+		paper.content_margin_top = 0
+		paper.content_margin_bottom = 0
 	sheet.add_theme_stylebox_override("panel",paper)
 	center.add_child(sheet)
 	var margin := MarginContainer.new()
 	sheet.add_child(margin)
 	for side: String in ["left","right","top","bottom"]:
-		margin.add_theme_constant_override("margin_"+side,2 if (screen.y < 400 or compact) and side in ["top","bottom"] else 4 if screen.y < 400 else 8 if compact else 14)
+		margin.add_theme_constant_override("margin_"+side,0 if compact and side in ["top","bottom"] else 4 if screen.y < 400 else 8 if compact else 14)
 	body = VBoxContainer.new()
-	body.add_theme_constant_override("separation",0 if screen.y < 400 else 1 if compact else 8)
+	body.add_theme_constant_override("separation",0 if compact else 4)
 	margin.add_child(body)
 	if page == "hub" or screen.y >= 400: label("街坊查證簿" if page == "hub" else manager.definition().title,24)
 	if page == "hub":
@@ -481,6 +615,7 @@ func show_page() -> void:
 		label("人物、機構與案件均為虛構。只核對證據，不猜誰有罪。",14)
 	else:
 		var tabs := row()
+		navigation_tabs = tabs
 		var paper_landscape: bool = screen.y < 400 and manager.ready_to_solve() and manager.definition().mode == "contradiction" and page in ["solve","inspect"]
 		var timeline_landscape: bool = compact and manager.definition().mode == "timeline" and page == "solve"
 		if (timeline_portrait or page not in ["fieldnote","relations"] and not paper_landscape and not timeline_landscape) and not manager.entry().complete:
@@ -495,9 +630,10 @@ func show_page() -> void:
 			for tab: String in ["封存結論","證據鏈","曾選錯"]:
 				var destination: String = {"封存結論":"evidence","證據鏈":"chain","曾選錯":"history"}[tab]
 				var pick := button(tab,func() -> void: page = destination; history_index = 0; show_page(),tabs)
-				current_tab(pick,page == destination)
+				current_tab(pick,page == destination or tab == "封存結論" and page not in ["chain","history"])
 			sealed_results()
 		elif page in ["evidence","fieldnote"]: _evidence()
+		elif page == "original": original_page()
 		elif page == "inspect": _inspect()
 		elif page == "pinning": _pinning()
 		elif page == "judgement": _judgement()
@@ -509,6 +645,26 @@ func show_page() -> void:
 			var replay := row()
 			for choice: int in 3:
 				button(["實際處置","付款回放","單件回放"][choice],func() -> void: manager.street_choice = choice; close(),replay)
+	var breathing := TextureRect.new()
+	breathing.name = "SourceContextFill"
+	breathing.texture = load("res://assets/art/content-r2/"+manager.active+".webp") if not manager.active.is_empty() else load("res://assets/art/content-r1/investigation-desk.webp")
+	breathing.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	breathing.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	breathing.clip_contents = true
+	breathing.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	breathing.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	body.add_child(breathing)
+	if manager.ready_to_solve():
+		var status := Label.new(); status.name = "IllustrationState"
+		status.text = illustration_caption()
+		status.add_theme_color_override("font_color",Art.CHARCOAL)
+		status.add_theme_font_size_override("font_size",16)
+		var tag := StyleBoxFlat.new(); tag.bg_color = Art.AMBER if manager.active == "second_help" and not manager.entry().complete else Art.PAPER
+		tag.content_margin_left = 8; tag.content_margin_right = 8; tag.content_margin_top = 4; tag.content_margin_bottom = 4
+		status.add_theme_stylebox_override("normal",tag); status.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		breathing.add_child(status)
+		status.visible = breathing.size.y >= 30 and screen.y >= 400
+		breathing.resized.connect(func() -> void: status.visible = breathing.size.y >= 30 and screen.y >= 400)
 	var footer := row()
 	if page != "hub":
 		button("案件清單",open_hub,footer)
@@ -563,17 +719,21 @@ func _solve() -> void:
 				body = left
 			if get_viewport().get_visible_rect().size.y >= 400: label("步驟 2／2｜比對原件，決定處置",17)
 			spread()
+			var review_actions := row()
+			for source: int in 2:
+				button(("已回看 " if source in reviewed_originals else "展開原件 ")+["甲","乙"][source],func() -> void: open_original(source),review_actions)
 			if side:
-				label("甲乙原件均已留存",13)
 				body = side
 			label(c.action_question,17)
 			var last_action: Dictionary = {}
 			for event: Dictionary in manager.entry().history:
 				if event.kind == "action": last_action = event
-			for i: int in c.action_choices.size():
+			for position: int in c.action_choices.size():
+				var i: int = (position+action_offset)%c.action_choices.size()
 				var choice := button(c.action_choices[i],func() -> void: manager.choose_action(i); show_page())
+				choice.disabled = not (0 in reviewed_originals and 1 in reviewed_originals)
 				wrong_choice(choice,last_action.get("choice",-1) == i and i != int(c.action_answer))
-			feedback_line(14,last_action.get("feedback",""))
+			feedback_line(14,first_hint("action",last_action.get("feedback","")) if not last_action.is_empty() else "")
 			body = original_body
 		else:
 			if not compact: label(c.reference+"\n"+c.short_question,14,Color("65502c"))
@@ -601,7 +761,7 @@ func _solve() -> void:
 			selected(evidence_button,i == selected_document)
 			evidence_button.add_theme_font_size_override("font_size",13 if compact else 15)
 		if not short_page:
-			label("原文提供者與被核對的說法，可能來自不同人。",14)
+			label("原件記收件時間，沒有記錄發言；用時間核對各人的『全部』說法。",14)
 			record_strip()
 		var verdicts := row()
 		for i: int in 2:
@@ -783,7 +943,7 @@ func _relations() -> void:
 		if manager.entry().relations.has(str(i)) and manager.entry().relations[str(i)] != [0,1][i]:
 			error_index = i
 			if i == relation_index: break
-	if error_index >= 0: feedback_line(13 if compact else 14,manager.relation_error(error_index))
+	if error_index >= 0: feedback_line(13 if compact else 14,first_hint("relation",manager.relation_error(error_index)))
 	if side: body = source_body
 	body = original_body
 
@@ -805,22 +965,23 @@ func _pinning() -> void:
 	if short_page: body = controls
 	var picks := row()
 	for i: int in 3:
-		button(("拔釘 " if i in manager.entry().pins else "判定 ")+["17：50","前後合看","18：10"][i],func() -> void:
+		var repair := button(("拔釘 " if i in manager.entry().pins else "判定 ")+["17：50","前後合看","18：10"][i],func() -> void:
 			pin_index = i
 			if i in manager.entry().pins: manager.unpin_record(i)
 			page = "judgement"; show_page()
 		,picks)
+		if not manager.pin_error(i).is_empty(): repair.add_theme_color_override("font_color",Art.RED)
 	var ready: bool = manager.pins_correct()
 	label("三筆判定相符，可以封存。" if ready else "已釘 %d／3；可拔釘重選。" % manager.entry().pins.size(),14)
 	for i: int in 3:
 		var error: String = manager.pin_error(i)
 		if not error.is_empty():
-			var ink := label(error,14,Art.RED)
+			var ink := label(first_hint("pin",error),14,Art.RED)
 			var marker := StyleBoxFlat.new(); marker.bg_color = Color.TRANSPARENT; marker.border_color = Art.RED; marker.border_width_left = 3; marker.content_margin_left = 6
 			ink.add_theme_stylebox_override("normal",marker)
 	var seal := button("封存三筆判定",func() -> void: manager.seal_records(); show_page(),null,true)
 	seal.disabled = not ready
-	label(manager.definition().boundary,14,Color("65502c"))
+	if not compact: label(manager.definition().boundary,14,Color("65502c"))
 	body = original_body
 
 func _judgement() -> void:
@@ -835,31 +996,54 @@ func _judgement() -> void:
 		side.size_flags_stretch_ratio = 1.3
 		body = source
 	label("步驟 2／3｜"+(["首筆","合看","末筆"] if get_viewport().get_visible_rect().size.y < 400 else ["首筆反證","前後兩筆一起核對","末筆反證"])[pin_index],18)
-	label(["首筆原文｜林秀蘭記\n17：50。首筆不能代表整本簿。","索引原文｜吳安琪提供，只供定位。\n原件：17：50、18：10\n分界：18：00（非原件）","末筆原文｜陳奕廷記\n18：10。末筆不能代表整本簿。"][pin_index],13 if short_page and pin_index == 1 else 16)
-	if pin_index != 1: label("18：00 分界：整點既非以前，也非以後。",14)
+	label(["原件記載｜17：50 收件\n記錄人：林秀蘭；未記發言。","索引原文｜吳安琪提供，只供定位。"+("\n分界：18：00（非原件）" if short_page else ""),"原件記載｜18：10 收件\n記錄人：陳奕廷；未記發言。"][pin_index],13 if short_page else 14)
+	if not short_page:
+		var axis := Rail.new(); axis.name = "JudgementTimeAxis"; axis.record_mode = true
+		axis.custom_minimum_size.y = 48
+		body.add_child(axis)
+		var ticks := HBoxContainer.new(); axis.add_child(ticks)
+		ticks.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		for time: String in ["17：50 原件","18：00 分界","18：10 原件"]:
+			var tick := Label.new(); tick.text = time; tick.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			tick.vertical_alignment = VERTICAL_ALIGNMENT_TOP; tick.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER; tick.add_theme_font_size_override("font_size",14)
+			tick.add_theme_color_override("font_color",Art.CHARCOAL); ticks.add_child(tick)
 	if pin_index == 1:
-		if manager.entry().support_refs.size() < 2 and get_viewport().get_visible_rect().size.y >= 400: label(manager.support_missing(),14,Art.RED)
+		if manager.entry().support_refs.size() < 2 and get_viewport().get_visible_rect().size.y >= 400: label(manager.support_missing(),14,Art.CHARCOAL)
 		var refs := row()
 		for i: int in [0,2]:
-			selected(button(("已引用 " if i in manager.entry().support_refs else "引用 ")+["17：50","","18：10"][i],func() -> void:
+			var reference := button(("已引用 " if i in manager.entry().support_refs else "引用 ")+["17：50","","18：10"][i],func() -> void:
 				if i in manager.entry().support_refs: manager.uncite_support(i)
 				else: manager.reference_support(i)
 				manager.feedback = ""; show_page()
-			,refs),i in manager.entry().support_refs)
+			,refs)
+			selected(reference,i in manager.entry().support_refs)
+			checked_choice(reference,i in manager.entry().support_refs)
 	if side: body = side
-	var choices := row()
+	if not short_page:
+		var boundary := label("18：00  ┄ 分界，不是原件 ┄",14,Color("766c5c"))
+		boundary.name = "BoundaryNotOriginal"
+	var choices: Node = row() if short_page else body
 	for i: int in 3:
-		var decision := button(["反駁林秀蘭：\n全在前","反駁陳奕廷：\n全在後","支持吳安琪：\n前後都有"][i],func() -> void: manager.choose_pin(pin_index,i); show_page(),choices)
+		var decision := button(["林秀蘭：\n兩筆全在前","陳奕廷：\n兩筆全在後","吳安琪：\n前後都有"][i],func() -> void: manager.choose_pin(pin_index,i); show_page(),choices)
+		if not short_page:
+			decision.text = ["林秀蘭｜七號簿上那兩筆，全在傍晚六點以前。","陳奕廷｜我記得七號簿那兩筆都在六點以後。","吳安琪｜同一本簿，有六點以前，也有六點以後。"][i]
+			decision.set_meta("original_text",decision.text)
+			decision.add_theme_font_size_override("font_size",13 if compact else 16)
 		selected(decision,manager.entry().pin_choices.get(str(pin_index),-1) == i)
-		wrong_choice(decision,manager.entry().pin_choices.get(str(pin_index),-1) == i and i != [1,2,0][pin_index])
-		checked_choice(decision,manager.entry().pin_choices.get(str(pin_index),-1) == i and i == [1,2,0][pin_index])
-		decision.disabled = pin_index == 1 and manager.entry().support_refs.size() < 2
+		# Candidate claims remain selectable; evidence gates the pin action.
+		if not decision.get_meta("selected",false):
+			var paper_style := StyleBoxFlat.new(); paper_style.bg_color = Art.PAPER; paper_style.border_color = Art.KRAFT; paper_style.set_border_width_all(1)
+			paper_style.content_margin_left = 10; paper_style.content_margin_right = 10
+			paper_style.content_margin_top = 6; paper_style.content_margin_bottom = 6
+			for state: String in ["normal","hover","pressed","focus"]: decision.add_theme_stylebox_override(state,paper_style)
+			for state: String in ["font_color","font_hover_color","font_pressed_color","font_focus_color"]: decision.add_theme_color_override(state,Art.CHARCOAL)
 	var selected: int = manager.entry().pin_choices.get(str(pin_index),-1)
-	label("尚未選擇判定。" if selected < 0 else ["17：50（分界前）","首筆＋末筆（玩家合看）","18：10（分界後）"][pin_index]+" → "+["反駁林秀蘭『全在前』","反駁陳奕廷『全在後』","支持吳安琪『前後都有』"][selected],16)
-	feedback_line()
-	var pin := button("釘上 "+["17：50","前後合看","18：10"][pin_index],func() -> void: manager.pin_record(pin_index); page = "pinning"; show_page(),null,true)
-	pin.disabled = selected < 0
-	button("回紀錄帶",func() -> void: page = "pinning"; show_page())
+	# Source sufficiency is already stated above; verdict reasons belong to the
+	# pinned record. Do not repeat stale pairing feedback between these controls.
+	var judgement_actions := row()
+	var pin := button("釘上 "+["17：50","前後合看","18：10"][pin_index],func() -> void: manager.pin_record(pin_index); page = "pinning"; show_page(),judgement_actions,true)
+	pin.disabled = selected < 0 or pin_index == 1 and manager.entry().support_refs.size() < 2
+	button("回紀錄帶",func() -> void: page = "pinning"; show_page(),judgement_actions)
 	body = original_body
 
 func _attachment() -> void:
@@ -868,46 +1052,79 @@ func _attachment() -> void:
 		var diagram := Links.new()
 		diagram.name = "RevealedDocumentLinks"
 		diagram.choices = manager.entry().relations.duplicate()
-		diagram.revealed = reveal_count-1 if reveal_count >= 0 else 2
+		diagram.revealed = manager.entry().reveal_steps.count(3)-1
+		diagram.reveal_steps = manager.entry().reveal_steps.duplicate()
+		diagram.time_confirmed = manager.entry().reveal_steps == [3,3,3]
 		diagram.custom_minimum_size.y = 90
 		body.add_child(diagram)
-	if reveal_count >= 0 and reveal_count < 3:
-		label("正在揭開第 %d／3 張時間遮罩。" % (reveal_count+1),16)
+	var steps: Array = manager.entry().get("reveal_steps",[0,0,0])
+	reveal_count = steps.count(3)
+	if reveal_count < 3:
+		label("親手揭時｜拖動紙封條；長按可逐格揭開",16)
 		var mask := TimeMask.new()
 		mask.name = "VisibleTimeMask"
 		mask.panel = self
-		mask.custom_minimum_size.y = 118 if compact else 180
+		mask.custom_minimum_size.y = 132 if compact else 180
 		body.add_child(mask)
-		label("遮罩逐張移開，核對文件上的原始時間。",14)
+		label("鬆手停住，往回拖可遮回。三張全揭後才開放貼件。",14)
 		var locked := button("貼回收據｜揭時後開放",func() -> void: pass)
 		locked.disabled = true
 		return
 	label("17：42 收據 → 17：55 摘要 → 18：00 輪值",16)
-	if get_viewport().get_visible_rect().size.y >= 400: label("收據早於晚班；貼在輪值單旁，留下反查依據。",16)
+	if get_viewport().get_visible_rect().size.y >= 400: label("以收據核對輪值起點，拖入原件旁的附件框。",16)
 	var desk := row()
-	var receipt := Paper.make({"title":"甲｜車店收據"},["17：42\n"+("已拿起・點右側貼入" if selected_document == 0 else "點選拿起收據")],0 if selected_document == 0 else -1,[],compact,func(_field: int) -> void: selected_document = 0; show_page())
+	var receipt := Paper.make({"title":"甲｜車店收據"},["17：42\n"+("已退回原位" if notice.begins_with("位置不對") else "已備妥・按住拖曳" if selected_document == 0 else "點選拿起收據")],-1,[],compact,func(_field: int) -> void: selected_document = 0; notice = ""; show_page())
 	desk.add_child(receipt)
-	var target := Paper.make({"title":"丙｜輪值資料"},["18：00\n點此貼入"],-1,[],compact,func(_field: int) -> void:
-		if selected_document == 0: manager.seal_time(0); show_page()
+	var target := Paper.make({"title":"丙｜輪值資料"},["18：00\n拖到此處"],-1,[],compact,func(_field: int) -> void:
+		notice = "請把甲收據拖進丙件框內。"; show_page()
 	)
 	desk.add_child(target)
+	attachment_receipt = receipt; attachment_target = target
 	if selected_document == 0:
 		var frame := Panel.new(); frame.name = "AttachmentTarget"; frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		var box := StyleBoxFlat.new(); box.bg_color = Color.TRANSPARENT; box.border_color = Art.AMBER; box.set_border_width_all(4)
-		frame.add_theme_stylebox_override("panel",box); target.add_child(frame); frame.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		var box := StyleBoxFlat.new(); box.bg_color = Color.TRANSPARENT; box.border_color = Art.AMBER; box.set_border_width_all(2)
+		frame.add_theme_stylebox_override("panel",box)
+		# Keep the frame outside PanelContainer's child layout: a managed child
+		# would be stretched onto the text content rather than the paper edge.
+		surface.add_child(frame)
+		var fit := func() -> void:
+			if is_instance_valid(frame) and is_instance_valid(target):
+				frame.position = target.get_global_rect().position+Vector2(4,4)
+				frame.size = target.size-Vector2(8,8)
+		target.item_rect_changed.connect(fit)
+		fit.call_deferred()
 	for paper: PanelContainer in [receipt,target]:
+		var inset: StyleBoxTexture = paper.get_theme_stylebox("panel").duplicate()
+		inset.content_margin_left = 12; inset.content_margin_right = 12
+		paper.add_theme_stylebox_override("panel",inset)
+		var heading: Label = paper.get_child(0).get_child(0)
+		heading.text = ("甲｜車店收據" if paper == receipt else "丙｜輪值資料")+"\n原件"
+		heading.set_meta("original_text",heading.text)
+		heading.add_theme_font_size_override("font_size",14 if compact else 16)
 		for b: Button in paper.find_children("*","Button",true,false): b.custom_minimum_size.y = 76
-	label("已拿起收據，再點右邊的貼件位置。" if selected_document == 0 else "先拿起左邊收據，再貼到右邊。",14)
+	attachment_lane = Control.new(); attachment_lane.name = "ReceiptDragLane"; attachment_lane.custom_minimum_size.y = 52; body.add_child(attachment_lane)
+	label(notice if not notice.is_empty() else "按住收據拖入附件框，放錯退回。" if selected_document == 0 else "先拿起左邊收據，再拖到右邊。",14)
 	label(manager.definition().boundary,14,Color("65502c"))
 
 func _inspect() -> void:
 	var c: Dictionary = manager.definition()
 	var short_page := get_viewport().get_visible_rect().size.y < 400
 	if c.mode == "contradiction" and not short_page and get_viewport().get_visible_rect().size.y >= 800: label("步驟 1／2｜標出兩份收費原句",14)
-	var picks := row()
+	# Small portrait magnification keeps the same font and complete paper;
+	# source switches share the existing tab row instead of consuming a row.
+	var picks := navigation_tabs if compact and not short_page and page == "inspect" and c.mode == "contradiction" else row()
 	for i: int in c.documents.size():
 		current_tab(button((["首筆","末筆","索引"][i] if c.mode == "testimony" else ["甲","乙","丙"][i])+" 原件",func() -> void: document = i; marked_field = -1; show_page(),picks),i == document)
 	var fields: Array = c.documents[document].fields.duplicate()
+	if short_page:
+		# Keep long provenance/edition clauses across the paper width rather
+		# than squeezing them into one of the narrow horizontal ink columns.
+		var context := PackedStringArray()
+		for i: int in fields.size():
+			var clauses: PackedStringArray = fields[i].split("\n")
+			fields[i] = clauses[0]
+			for j: int in range(1,clauses.size()): context.append(clauses[j])
+		if not context.is_empty(): label("\n".join(context),13)
 	if c.mode == "timeline" and not manager.entry().time_revealed:
 		for i: int in fields.size():
 			for time: String in ["17：42","17：55","18：00"]: fields[i] = fields[i].replace(time,"〔確認後揭時〕")
@@ -918,6 +1135,9 @@ func _inspect() -> void:
 		var columns := row()
 		for i: int in fields.size():
 			var paper := Paper.make({"title":(["首筆","末筆","索引"] if c.mode == "testimony" else ["甲","乙","丙"])[document]},[fields[i]],0 if chosen == i else -1,[],true,func(_field: int) -> void: _cite(i))
+			var short_inset: StyleBoxTexture = paper.get_theme_stylebox("panel").duplicate()
+			short_inset.content_margin_top = 3; short_inset.content_margin_bottom = 3
+			paper.add_theme_stylebox_override("panel",short_inset)
 			columns.add_child(paper)
 			var field_button: Button = paper.find_child("CitedField0",true,false)
 			field_button.name = "CitedField"+str(i)
@@ -926,13 +1146,13 @@ func _inspect() -> void:
 		var original := Paper.make(c.documents[document],fields,chosen,viewed,compact,func(i: int) -> void: _cite(i))
 		body.add_child(original)
 		if page == "inspect":
-			for ink: Button in original.find_children("*","Button",true,false): ink.add_theme_font_size_override("font_size",16 if compact else 22)
+			for ink: Button in original.find_children("*","Button",true,false): ink.add_theme_font_size_override("font_size",16 if compact else 20 if get_viewport().get_visible_rect().size.x < 400 else 22)
 	if c.mode == "contradiction":
 		var missing := "點紙上的收費句。"
 		if chosen >= 0: missing = "已選："+fields[chosen].get_slice("：",0)
 		if not manager.feedback.is_empty() and marked_field >= 0 and marked_field != 2: missing = manager.feedback
 		var both: bool = manager.entry().citations.get("0",-1) == 2 and manager.entry().citations.get("1",-1) == 2
-		if not short_page: label(missing+"｜"+("甲乙已選" if both else "還缺"+("甲乙" if manager.entry().citations.is_empty() else "甲" if not manager.entry().citations.has("0") else "乙")),14,Color("8e1b12") if chosen >= 0 and chosen != 2 else Art.CHARCOAL)
+		if not short_page: label("已標 %d／2｜" % [int(manager.entry().citations.get("0",-1) == 2)+int(manager.entry().citations.get("1",-1) == 2)]+missing+"｜"+("甲乙已選" if both else "還缺"+("甲乙" if manager.entry().citations.is_empty() else "甲" if not manager.entry().citations.has("0") else "乙")),14,Color("8e1b12") if chosen >= 0 and chosen != 2 else Art.CHARCOAL)
 		var compare := button("核對兩處黃標",func() -> void:
 			manager.compare_choice(int(c.answer) if manager.entry().citations.get("0",-1) == 2 and manager.entry().citations.get("1",-1) == 2 else (int(c.answer)+1)%c.choices.size())
 			page = "solve"; show_page()
@@ -1013,8 +1233,19 @@ func diagnostics() -> Dictionary:
 	if is_instance_valid(drag_ghost):
 		var r := drag_ghost.get_global_rect(); ghost = [r.position.x,r.position.y,r.size.x,r.size.y]
 	var paper_rect: Array = []
+	var mask_rect: Array = []
+	if is_instance_valid(surface):
+		var mask := surface.find_child("VisibleTimeMask",true,false) as Control
+		if mask:
+			var bounds := mask.get_global_rect()
+			mask_rect = [bounds.position.x,bounds.position.y,bounds.size.x,bounds.size.y]
 	if is_instance_valid(surface):
 		var sheet := surface.find_child("CaseSheet",true,false) as Control
 		if sheet:
 			var r := sheet.get_global_rect(); paper_rect = [r.position.x,r.position.y,r.size.x,r.size.y]
-	return {"paper_rect":paper_rect,"revealed_cards":reveal_count,"ghost_text":drag_ghost.text if is_instance_valid(drag_ghost) else "","slot_order":slot_buttons.map(func(b: Button) -> int: return int(b.get_meta("card_index",-1)) if is_instance_valid(b) else -1),"ghost_rect":ghost,"pin_choices":manager.entry().get("pin_choices",{}).duplicate(),"visible":is_instance_valid(surface),"page":page,"document":document,"statement":statement,"buttons":buttons,"labels":labels,"art":art_path,"art_rect":art_rect,"drop_zone":drop,"dragging":drag_moved and drag_card >= 0,"marked_field":marked_field,"preview_slot":rail.preview if is_instance_valid(rail) and not rail.record_mode else -1}
+	return {"attachment_source":_bounds(attachment_receipt),"attachment_target":_bounds(attachment_target),"attachment_dragging":attachment_moved and attachment_held,"attachment_notice":notice,"time_mask_rect":mask_rect,"reveal_steps":manager.entry().get("reveal_steps",[]),"paper_rect":paper_rect,"revealed_cards":reveal_count,"ghost_text":drag_ghost.text if is_instance_valid(drag_ghost) else "","slot_order":slot_buttons.map(func(b: Button) -> int: return int(b.get_meta("card_index",-1)) if is_instance_valid(b) else -1),"ghost_rect":ghost,"pin_choices":manager.entry().get("pin_choices",{}).duplicate(),"visible":is_instance_valid(surface),"page":page,"document":document,"statement":statement,"buttons":buttons,"labels":labels,"art":art_path,"art_rect":art_rect,"drop_zone":drop,"dragging":drag_moved and drag_card >= 0,"marked_field":marked_field,"preview_slot":rail.preview if is_instance_valid(rail) and not rail.record_mode else -1}
+
+func _bounds(control: Control) -> Array:
+	if not is_instance_valid(control): return []
+	var r := control.get_global_rect()
+	return [r.position.x,r.position.y,r.size.x,r.size.y]

@@ -1,0 +1,52 @@
+{
+  "status": "VERIFIED",
+  "version": "0.28.0",
+  "suites": 44,
+  "reported_checks": 143008,
+  "failures": 0,
+  "web_views": 6,
+  "review_images": 15,
+  "store_images": 2,
+  "new_generated_assets": 1,
+  "deleted_files": 16,
+  "released_bytes": 6786047,
+  "retained_inputs": 3149,
+  "protected_files_unchanged": 270,
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 133,
+    "digest": "6d7ed65f9f62ed9aad76f0ae51e3073200dbd259b973b542d319093e17acab16"
+  },
+  "pck_sha256": "0d4474132b1792ba9312d4d82f914240bd2bf2c31172260ce6a98dd6df755b72",
+  "concurrent_performance": {
+    "method": "3 x 180 browser RAF presentation intervals; concurrent host load; reference only, not native GPU timings",
+    "runs": [
+      {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "max": 16.89999999999418
+      },
+      {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.80000000000291,
+        "max": 16.80000000000291
+      },
+      {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.80000000000291,
+        "max": 16.89999999999418
+      }
+    ],
+    "p95_median": 16.80000000000291
+  },
+  "blocked": [
+    "Muse external rescore",
+    "physical phone/iPad and human play",
+    "clean-host native timing",
+    "320x568 street interact action in protected touch layout"
+  ]
+}

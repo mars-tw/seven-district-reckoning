@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "license": "MIT",
+  "model_slug": null,
+  "model_note": "The built-in tool did not expose a model slug.",
+  "new_generated_assets": 1,
+  "assets": [
+    {
+      "id": "paper-seal",
+      "source": "assets/art/content-r14/paper-seal-source.png",
+      "runtime": "godot/assets/art/content-r14/paper-seal.webp",
+      "processing": "PNG resized to 512px width with preserved aspect ratio, then WebP quality 85; no semantic edits.",
+      "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.\nUse case: texture game asset. One single wide horizontal archival paper masking seal viewed perfectly top-down, rectangular 3:1 strip filling canvas, cream warm kraft fibrous paper with visibly torn and feathered left and right ends, small curled lifted corner at upper left revealing darker underside, translucent amber archival tape along top and bottom edges, subtle cast shadow from raised edge, tactile natural irregular paper grain and old adhesive residue. Center plain and opaque to hide numbers underneath in game. No text, no lettering, no ruled lines, no symbols, no numbers, no UI, no background scene. Whole image opaque cream paper texture, no transparency. Wide landscape 3:1.",
+      "source_sha256": "1a26c6a90e195dbe5c8439ac2cd5439d8edf3c2a0754e142a4ef063293d7fba2",
+      "source_size": [
+        2172,
+        724
+      ],
+      "runtime_sha256": "14529beb109833edea70db77ad4e635a6a8bc13eac4b025f8deec5564a8d7359",
+      "runtime_size": [
+        512,
+        171
+      ]
+    }
+  ]
+}

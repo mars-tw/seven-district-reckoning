@@ -1,0 +1,24 @@
+{
+  "status": "EXECUTED",
+  "tool": "image_gen.imagegen",
+  "new_generated_assets": 1,
+  "style_prefix": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters.",
+  "prompt": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters. Asset use: seamless square diffuse skin material for existing Taiwanese woman mechanic 3D mesh UVs. A uniform softly hand painted warm mid tan skin surface, average color close to #B8876D. Very subtle natural fine skin microtexture only, low contrast, no visible repeated pattern, no diagonal hatching, no pixelation, no coarse pores, no obvious brush strokes, no baked directional light or shadows. Tileable continuous edges. No face, no eyes, no body, no shapes, no lettering, no objects, no borders. Cover entire square with same material. 1024 by 1024. This is a material surface only, not a portrait.",
+  "file": "godot/assets/art/content-r13/meiqing-skin.png",
+  "sha256": "9fa3ad75bcdea2e6b957bf40458d473aefa0112c1c05d2340922fbc6ba4faeb1",
+  "bytes": 413159,
+  "provenance": "Generated in this session with the built-in image tool for this original game; no external or licensed character reference. No model or rig replaced.",
+  "source_file": "assets/art/content-r13/meiqing-skin-source.png",
+  "source_sha256": "81664a3dc70871171c27beb62876cfee78799f375950013cf5a975d6a9e7ed4a",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "size": [
+    512,
+    512
+  ],
+  "processing": "Deterministic Lanczos downsample from generated 1254 square source to 512 square runtime diffuse, no painting or content alteration. 16x texel count versus old 128 square material.",
+  "prompt_summary": "Seven District: Break the Chain original Taiwanese urban investigation game. Cohesive hand-painted semi-realistic editorial game art, bold readable silhouettes, tactile paper and weathered city materials, warm dusk amber key light and slate blue shadows, charcoal #16181D, case-paper #F1E8D5, vermilion #C4271C used sparingly, evidence amber #FFB800, kraft #9A7443. Restrained cinematic adult crime-drama tone, no cyberpunk, no fantasy, no generic teal rounded-card interface, no watermarks, no licensed characters. Asset use: seamless square diffuse skin material for existing Taiwanese woman mechanic 3D mesh UVs. Uniform softly painted warm mid tan, #B8876D, subtle fine skin microtexture only. Low contrast, no diagonal hatching, no pixelation, no directional shadows. No face, eyes, body, shapes, lettering, objects or borders. Tileable continuous edges. Material only, not a portrait.",
+  "transparent_background": false
+}

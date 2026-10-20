@@ -24,7 +24,7 @@ func layout(tag: String) -> void:
 		var a: Array = ui.labels[i].rect
 		for j: int in range(i+1,ui.labels.size()):
 			var b: Array = ui.labels[j].rect
-			check(not Rect2(a[0],a[1],a[2],a[3]).intersects(Rect2(b[0],b[1],b[2],b[3])),tag+" readable_labels "+ui.labels[i].text+" / "+ui.labels[j].text)
+			check(not Rect2(a[0],a[1],a[2],a[3]).intersects(Rect2(b[0],b[1],b[2],b[3])),tag+" readable_labels "+str(root.size)+str(a)+ui.labels[i].text+" / "+str(b)+ui.labels[j].text)
 	for i: int in ui.buttons.size():
 		var b: Dictionary = ui.buttons[i]
 		check(b.rect[2] >= 44 and b.rect[3] >= 44,tag+" touch44")
@@ -40,7 +40,7 @@ func run() -> void:
 	c.start("second_help")
 	check(not c.cite(0,2),"cannot_cite_uncollected")
 	while c.pending() >= 0: c.collect(c.target_position())
-	check(c.cite(0,1) and c.feedback.contains("案號"),"wrong_field_explained")
+	check(c.cite(0,1) and c.feedback == "這是案號，不是收費條件。" and not c.entry().citations.has("0"),"wrong_field_explained")
 	check(c.cite(0,2) and c.cite(1,2),"paper_clauses_selectable")
 	check(c.entry().viewed_fields["0"] == [1,2],"viewed_ink_trace_retained")
 	check(Save.save_state({"schema":1,"investigations":c.to_dict()},96) == OK,"citation_disk_save")

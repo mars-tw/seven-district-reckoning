@@ -480,6 +480,8 @@ func _process(delta: float) -> void:
 	if investigations and investigations.nearby(player.global_position,player.mounted_vehicle == null):
 		prompt = "點互動留證｜"+investigations.definition().documents[investigations.pending()].place if touch_controls.enabled else "E｜核對新案件原件"
 		touch_controls.set_interaction_context("留證")
+	if investigations.street_at_source and not investigations.street_result().is_empty():
+		touch_controls.set_interaction_context("互動")
 	var weapon_value: Variant = player.get("weapon_id")
 	if weapon_value == null:
 		weapon_value = player.get("equipped_weapon")
@@ -1037,6 +1039,14 @@ func _create_contact_people() -> void:
 			model.scale = Vector3.ONE*1.15
 			targets["mei"] = model.global_position
 			preload("res://scripts/world/opening_street.gd").dress_mei(model)
+			for mesh: Node in model.find_children("*","MeshInstance3D",true,false):
+				for i: int in mesh.mesh.get_surface_count():
+					var old: Material = mesh.get_active_material(i)
+					if old is StandardMaterial3D:
+						var face: StandardMaterial3D = old.duplicate()
+						face.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+						if old.resource_name.contains("Skin"): face.albedo_texture = load("res://assets/art/content-r13/meiqing-skin.png")
+						mesh.set_surface_override_material(i,face)
 		model.add_child(ContactShadowScript.new())
 		contact_people.append(model)
 		var animations: Array[Node] = model.find_children("*","AnimationPlayer",true,false)
@@ -1054,7 +1064,9 @@ func _create_contact_people() -> void:
 		label.font = load("res://assets/fonts/SevenDistrictSansTC-Regular.otf") as Font
 		label.font_size = 28
 		label.pixel_size = 0.012
-		label.visible = false
+		label.visible = str(entry[0]) == "mei_human"
+		label.visibility_range_end = 18
+		label.pixel_size = .006
 		label.modulate = Color("dfd4ac")
 		model.add_child(label)
 
@@ -1379,7 +1391,7 @@ func _update_interaction() -> void:
 	for person: Node3D in contact_people:
 		for child: Node in person.get_children():
 			# The fixed interaction caption already carries the person's identity.
-			if child is Label3D: child.visible = false
+			if child is Label3D: child.visible = not investigations.active.is_empty() and person == contact_people[0] and person.global_position.distance_to(player.global_position) < 8
 
 func _caption(node: Node3D) -> String:
 	if node.get("caption") != null:

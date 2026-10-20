@@ -1,0 +1,48 @@
+{
+  "status": "VERIFIED",
+  "version": "0.27.0",
+  "suites": 43,
+  "reported_checks": 131719,
+  "failures": 0,
+  "web_views": 6,
+  "native_size_images": 134,
+  "review_images": 15,
+  "store_images": 2,
+  "new_generated_assets": 1,
+  "cleanup_deleted": 195,
+  "released_bytes": 58388448,
+  "protected_files_unchanged": 267,
+  "source_fingerprint": {
+    "algorithm": "sha256",
+    "scope": "Godot source/config, GDScript/JS fixtures, web shell and imported web build/verification helpers; excludes binary art/import caches",
+    "file_count": 132,
+    "digest": "ad75a0c93431ea57e6da9ae2a83e5838bf86358453dd4982aaff9a62af421344"
+  },
+  "pck_sha256": "01b4a9bb69040a7ce32e9bf2284f3279b67f23ce6675e2b851b26bcfac6590ce",
+  "concurrent_performance": {
+    "method": "3 x 180 browser RAF presentation intervals; concurrent host load; reference only, not native GPU timings",
+    "runs": [
+      {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.80000000000291,
+        "max": 16.80000000000291
+      },
+      {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.80000000000291,
+        "max": 16.80000000000291
+      },
+      {
+        "frames": 180,
+        "p50": 16.69999999999709,
+        "p95": 16.70000000001164,
+        "max": 16.80000000000291
+      }
+    ],
+    "p95_median": 16.80000000000291
+  },
+  "external_acceptance": "BLOCKED: actual Muse rescore, physical devices, human play and clean-host native timings require external conditions.",
+  "small_phone_street": "BLOCKED: 320x568 held touch layout has no visible interact action; complete dossier touch mechanics and saved results are verified. The user-protected touch_controls.gd was not modified."
+}

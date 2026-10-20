@@ -73,7 +73,8 @@ func run() -> void:
 			panel.page = "judgement"; panel.pin_index = i; panel.show_page(); await settle(); layout("r7_raw_record_same_screen")
 			if i == 1:
 				game.investigations.choose_pin(1,2); panel.show_page(); await settle(); layout("r7_single_side_rejected_feedback")
-			check(JSON.stringify(panel.diagnostics().labels).contains("原文"),"selected_raw_record_visible")
+			var source_ink := JSON.stringify(panel.diagnostics().labels)
+			check(source_ink.contains("索引原文") if i == 1 else source_ink.contains("原件記載") and source_ink.contains("記錄人") and source_ink.contains("未記發言"),"selected_raw_record_visible")
 			check_ink(panel)
 		var backdrop: ColorRect = panel.surface.find_child("OpaqueDossierBackdrop",true,false)
 		check(backdrop.color.a == 1 and backdrop.get_global_rect() == root.get_visible_rect(),"modal_covers_all_underlying_hud")

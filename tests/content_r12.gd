@@ -25,6 +25,8 @@ func run() -> void:
 		game.investigations.cite(0,2); game.investigations.cite(1,2); game.investigations.compare_choice(0)
 		panel.page = "solve"; panel.show_page(); await settle()
 		check(h == header12(),"r12_fee_header_zero_delta")
+		press_text("展開原件 甲"); await settle(); press_text("收起原件，返回判定"); await settle()
+		press_text("展開原件 乙"); await settle(); press_text("收起原件，返回判定"); await settle()
 		for wrong: int in [1,2]:
 			press_text(game.investigations.definition().action_choices[wrong]); await settle(); layout("r12_fee_wrong")
 			check(panel.diagnostics().buttons.filter(func(b: Dictionary) -> bool: return b.text.begins_with("你選的｜") and b.color == "c4271cff").size() == 1,"r12_fee_one_red_wrong")
@@ -39,6 +41,7 @@ func run() -> void:
 		panel.reveal_count = 1; panel.reveal_clock = .4; panel.page = "solve"; panel.show_page(); await settle()
 		check(is_instance_valid(panel.surface.find_child("VisibleTimeMask",true,false)),"r12_real_visible_mask")
 		check(panel.diagnostics().buttons.any(func(b: Dictionary) -> bool: return b.text == "貼回收據｜揭時後開放" and b.disabled),"r12_attachment_locked_while_revealing")
+		for i: int in 3: game.investigations.reveal_time(i,3)
 		panel.reveal_count = 3; panel.show_page(); await settle(); press_text("17：42\n點選拿起收據"); await settle()
 		check(is_instance_valid(panel.surface.find_child("AttachmentTarget",true,false)),"r12_amber_target_frame")
 		for b: Dictionary in panel.diagnostics().buttons:
@@ -51,14 +54,14 @@ func run() -> void:
 		for i: int in 3: game.investigations.choose_pin(i,[0,2,0][i]); game.investigations.pin_record(i)
 		panel.page = "pinning"; panel.show_page(); await settle(); layout("r12_wrong_pin"); check(h == header12(),"r12_wrong_pin_header_zero_delta")
 		var ink := "\n".join(panel.diagnostics().labels.map(func(l: Dictionary) -> String: return l.text))
-		check(ink.contains("你選的｜") and ink.count("反駁林秀蘭") == 1 and ink.contains("18：10 在後"),"r12_distinct_pin_source_and_wrong_choice")
+		check(ink.count("你選的｜\n反駁林秀蘭\n『全在前』") == 1 and ink.count("已核對\n18：10 在後\n反駁林秀蘭\n『全在前』") == 1,"r12_distinct_pin_source_and_wrong_choice")
 		game.investigations.unpin_record(0); check(game.investigations.entry().pins == [1,2],"r12_local_unpin_preserves_two")
 		game.investigations.choose_pin(0,1); game.investigations.pin_record(0); game.investigations.seal_records()
 		panel.page = "chain"; panel.show_page(); await settle(); layout("r12_voices_chain"); check(h == header12(),"r12_voices_sealed_header_zero_delta"); persisted("r12_voices")
 		game.investigations.street_at_source = true
 		game.hud.device_profile = "phone"; game.hud.set_target_distance(384); game.hud.update_status(100,"none",0,"", "已讀取進度")
 		check(not game.hud._objective_label.text.contains("公尺"),"r12_npc_no_distance_leak")
-		check(game.hud._prompt_label.text.begins_with("點互動｜") and game.hud._prompt_label.text.ends_with("｜交談"),"r12_street_prompt_not_load_notice")
+		check(game.hud._prompt_label.text.begins_with("點互動｜") and game.hud._prompt_label.text.ends_with("｜互動"),"r12_street_prompt_not_load_notice")
 	panel.close(); game.queue_free(); await settle()
 	print("CONTENT_R12_CHECKS=%d FAILURES=%d" % [checks,failures])
 	quit(0 if failures == 0 else 1)

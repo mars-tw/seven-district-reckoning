@@ -88,6 +88,7 @@ var _map_target := Vector2.ZERO
 var _has_map_target := false
 var _mode: String = ""
 var _cached_notice: String = ""
+var _notice_until := 0
 var _optional: Node
 var _life: Node
 var _activities: Node
@@ -241,6 +242,14 @@ func objective_text() -> String:
 	if investigations and investigations.pending() >= 0:
 		var source: Dictionary = investigations.definition().documents[investigations.pending()]
 		return "查證 %d／%d｜" % [investigations.entry().collected.size()+1,investigations.definition().documents.size()]+source.place+"\n"+source.title+"・靠近後互動留證"
+	if investigations and not investigations.active.is_empty() and not investigations.entry().complete and investigations.ready_to_solve():
+		var next_step := "原件已齊，開查證簿核對。"
+		if investigations.active == "second_help":
+			var count := int(investigations.entry().citations.get("0",-1) == 2)+int(investigations.entry().citations.get("1",-1) == 2)
+			next_step = "已標兩句，去決定處置。" if count == 2 else "已標 %d／2，去原件找收費句。" % count
+		elif investigations.active == "before_night": next_step = "揭時 %d／3，去核對收據。" % investigations.entry().reveal_steps.count(3)
+		else: next_step = "已釘 %d／3，去核對三人的原話。" % investigations.entry().pins.size()
+		return investigations.definition().title+"\n"+next_step+"\n暫停 → 查證 → 街坊查證簿"
 	if investigations and not investigations.street_result().is_empty():
 		var result: Dictionary = investigations.street_result()
 		if not investigations.street_at_source: return "返回來源｜"+result.place+"\n跟隨街區導引，查看處置與留存原件。"
@@ -274,7 +283,11 @@ func update_survival(stamina_value: float, maximum: float, time_value: String, t
 		_survival_label.text = caption
 	_stamina_bar.max_value = maximum
 	_stamina_bar.value = stamina_value
-	if _stamina_caption: _stamina_caption.text = "體力 %d／%d" % [ceili(stamina_value),int(maximum)]
+	if _stamina_caption:
+		_stamina_caption.text = "體力 %d／%d" % [ceili(stamina_value),int(maximum)]
+		var screen := get_viewport().get_visible_rect().size
+		_stamina_caption.visible = screen.y > screen.x
+		_stamina_bar.visible = _stamina_caption.visible
 	var compact: bool = get_viewport().get_visible_rect().size.x < 750 or get_viewport().get_visible_rect().size.y < 480
 	_prompt_label.add_theme_font_size_override("font_size", 14 if compact and touch_enabled else 19)
 	_prompt_label.max_lines_visible = 2 if compact and touch_enabled else -1
@@ -389,8 +402,13 @@ func _build_ui() -> void:
 		health_style.content_margin_bottom = 0
 	mission_column.add_child(_health_bar)
 	_stamina_caption = _label("體力 100／100",12,INK)
-	mission_column.add_child(_stamina_caption)
-	mission_column.add_child(_stamina_bar)
+	_hud.add_child(_stamina_caption)
+	_stamina_caption.position = Vector2(16,16)
+	_stamina_caption.size = Vector2(112,20)
+	_hud.add_child(_stamina_bar)
+	_stamina_bar.position = Vector2(16,40)
+	_stamina_bar.size = Vector2(112,6)
+	_stamina_caption.visible = false
 	_health_bar.visible = false
 	_stamina_bar.visible = true
 	var top_spacer := Control.new()
@@ -1212,6 +1230,14 @@ func show_chapter_complete(chosen_branch: String, run: Dictionary = {}) -> void:
 
 func show_message(message: String) -> void:
 	_cached_notice = message
+	_notice_until = Time.get_ticks_msec()+1500
+	_notice_label.modulate.a = 1
+	var expiration := _notice_until
+	get_tree().create_timer(1.5,true).timeout.connect(func() -> void:
+		if _notice_until == expiration:
+			_notice_until = 0
+			_notice_label.text = ""
+	)
 	if _notice_label != null:
 		_notice_label.text = message
 	if is_menu_open():
@@ -1248,7 +1274,7 @@ func _refresh_mission() -> void:
 		_mission_label.text = _revisits.ROUTES[_revisits.active]["title"]
 		_objective_label.text = _revisits.active_text()
 	_scores_label.text = _score_text()
-	_notice_label.text = str(_manager.notice) if not str(_manager.notice).is_empty() else _cached_notice
+	_notice_label.text = _cached_notice if Time.get_ticks_msec() < _notice_until else ""
 
 func _player_mission_title() -> String:
 	if _manager.chapter_complete: return "第一章完成"
@@ -1264,7 +1290,7 @@ func update_status(hp: float, weapon: String, heat: int, vehicle: String, prompt
 	_status_label.text = "安全值 %d／100　工具：%s　警戒 %d／5　%s" % [clampi(int(hp), 0, 100), str(weapon_names.get(weapon, weapon)), clampi(heat, 0, 5), str(vehicle_names.get(vehicle, vehicle))]
 	_prompt_label.text = prompt if not prompt.is_empty() else "沿光柱前往目標，靠近後點右下黃鍵互動。" if device_profile in ["phone","tablet"] else "沿導航前往任務目標。靠近標示物件，按 E 互動。"
 	if investigations and investigations.street_at_source and not investigations.street_result().is_empty():
-		_prompt_label.text = ("點互動｜" if device_profile in ["phone","tablet"] else "E｜")+investigations.street_result().place+"｜交談"
+		_prompt_label.text = ("點互動｜" if device_profile in ["phone","tablet"] else "E｜")+investigations.street_result().place+"｜互動"
 	if device_profile in ["phone","tablet"]: _prompt_panel.visible = not prompt.is_empty() and get_viewport().get_visible_rect().size.y >= 480
 
 

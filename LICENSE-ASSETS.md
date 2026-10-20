@@ -11,6 +11,7 @@ The MIT license in LICENSE covers the project's original software and documentat
 - Original generated .wav feedback clips are CC BY 4.0, credited to Seven District contributors. Their generator source is MIT.
 - Alpha 0.8 generated illustrations and UI art in `assets/art/r4/` and `godot/assets/art/r4/` are offered under CC BY 4.0, credited to Seven District contributors. This includes the new app-icon proposal and does not change the original CC0 icon or older texture licenses. Exact generation prompts, actual tool-name evidence, source/output hashes and postprocessing are recorded in `docs/art/PROMPTS.json` and `assets/art/r4/manifest.json`.
 - The bundled Godot executable and third-party runtime components retain the licenses in assets/provenance/Godot-LICENSE.txt and Godot-COPYRIGHT.txt.
+- Content R14's original generated paper-seal source and runtime texture in `assets/art/content-r14/` and `godot/assets/art/content-r14/` are offered under MIT. Generation provenance is in `docs/content/r14/art-manifest.json`; existing third-party media are not relicensed.
 
 The 70-item planning register is a future production inventory. Its entries marked Proposed / pending provenance are not representations that those models exist or have acquired final licenses. The source repository contains 25 original alpha model exports, 12 added Alpha 0.3 models, and 24 added Alpha 0.4 models; their actual source rights are recorded in the original, v03 and v04 provenance ledgers.
 

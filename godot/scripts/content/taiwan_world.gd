@@ -94,7 +94,7 @@ func setup(world: Node3D, manager: Node, avatar: CharacterBody3D) -> void:
 					break
 		var label := Label3D.new()
 		label.text = str(spec["name"])+"｜"+str(spec["role"])
-		label.position.y = 2.0
+		label.position.y = 2.25
 		label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		label.font = load("res://assets/fonts/SevenDistrictSansTC-Regular.otf") as Font
 		label.font_size = 23

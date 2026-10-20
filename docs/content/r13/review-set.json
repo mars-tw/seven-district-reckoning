@@ -1,0 +1,86 @@
+{
+  "status": "VERIFIED",
+  "images": [
+    {
+      "file": "docs/content/r13/review-set/01-second_help-paper-b-marked.png",
+      "original": "docs/content/r13/phone-second_help-paper-b-marked.png",
+      "sha256": "739a2ca1f153a05c2fd55a6b5088f9ea65b87fb85ed8edaea653cf640cd16a47"
+    },
+    {
+      "file": "docs/content/r13/review-set/02-second_help-action-payment-retry.png",
+      "original": "docs/content/r13/phone-second_help-action-payment-retry.png",
+      "sha256": "d115a14c892bfd153892ee9161f9fc5a42a9748e93e207a5e0face0a4337682c"
+    },
+    {
+      "file": "docs/content/r13/review-set/03-second_help-full-original-after-error.png",
+      "original": "docs/content/r13/phone-second_help-full-original-after-error.png",
+      "sha256": "0ea5bf05db7df63bd8e5847420e2f4930926d34d895ff9ec5aa616c1b426376c"
+    },
+    {
+      "file": "docs/content/r13/review-set/04-second_help-sealed.png",
+      "original": "docs/content/r13/phone-second_help-sealed.png",
+      "sha256": "a9d5346305dd77e8215baed28ec16394c0a92e7a8e7f4637b4d88258dc172aec"
+    },
+    {
+      "file": "docs/content/r13/review-set/05-second_help-street-actual.png",
+      "original": "docs/content/r13/phone-second_help-street-actual.png",
+      "sha256": "1457e84e9e181491bcc4c79cd8edcb6ed77db2af02d043bfee75b77d9ef7f205"
+    },
+    {
+      "file": "docs/content/r13/review-set/06-before_night-reveal-0-1.png",
+      "original": "docs/content/r13/phone-before_night-reveal-0-1.png",
+      "sha256": "b9d0ebd642483b21f465d484860bacb499ac84d784ac3aff697c610f5d5cfd8d"
+    },
+    {
+      "file": "docs/content/r13/review-set/07-before_night-reveal-0-2.png",
+      "original": "docs/content/r13/phone-before_night-reveal-0-2.png",
+      "sha256": "50116ffc83dc9d209c82f28fa72c139e6e3d0bdef7a3c5d52782f79cd2107e90"
+    },
+    {
+      "file": "docs/content/r13/review-set/08-before_night-reveal-0-3.png",
+      "original": "docs/content/r13/phone-before_night-reveal-0-3.png",
+      "sha256": "b536ba79fb9f84d4d3325dc9686b64173c125c7f282bafd29b3da5b3bb4f4921"
+    },
+    {
+      "file": "docs/content/r13/review-set/09-before_night-attachment-picked.png",
+      "original": "docs/content/r13/phone-before_night-attachment-picked.png",
+      "sha256": "8fc0fbfd5264e4277f5510e8ad9c7dcfc9f45a995448a999fce1e57545963110"
+    },
+    {
+      "file": "docs/content/r13/review-set/10-before_night-street-result.png",
+      "original": "docs/content/r13/phone-before_night-street-result.png",
+      "sha256": "11cd28e1da6f0911223dae7160fad6c8b489be507e601d3cd4a281f1e9a53efa"
+    },
+    {
+      "file": "docs/content/r13/review-set/11-three_voices-support-one-side.png",
+      "original": "docs/content/r13/phone-three_voices-support-one-side.png",
+      "sha256": "6dea01b9c4490e087ad14dcf3d6275e6171dbbc4273815f92528912bdb4fe497"
+    },
+    {
+      "file": "docs/content/r13/review-set/12-three_voices-wrong-pin-with-two-preserved.png",
+      "original": "docs/content/r13/phone-three_voices-wrong-pin-with-two-preserved.png",
+      "sha256": "44a9c2698e538aaca925e4782a4ba31c6b5d01e071c612b0fe7e1fcc29631eeb"
+    },
+    {
+      "file": "docs/content/r13/review-set/13-three_voices-local-pin-repaired.png",
+      "original": "docs/content/r13/phone-three_voices-local-pin-repaired.png",
+      "sha256": "e56720150441dc08ddd6eeaa399fb73d8451e407420a12848e7b9440a16b5455"
+    },
+    {
+      "file": "docs/content/r13/review-set/14-three_voices-chain-reloaded.png",
+      "original": "docs/content/r13/phone-three_voices-chain-reloaded.png",
+      "sha256": "6732ff8efa77a2e2553843dfd66a445fd34b435468c2f9ee6ff58a1675413c1a"
+    },
+    {
+      "file": "docs/content/r13/review-set/15-three_voices-street-result.png",
+      "original": "docs/content/r13/phone-three_voices-street-result.png",
+      "sha256": "bf3a7c01d3bb3aa2999eeeafa1e2fb4a48a92c3428918619c787f3e8c9873b79"
+    }
+  ],
+  "case_counts": [
+    5,
+    5,
+    5
+  ],
+  "resized_or_composited": false
+}

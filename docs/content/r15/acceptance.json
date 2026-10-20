@@ -1,0 +1,1283 @@
+{
+  "status": "VERIFIED",
+  "images": {
+    "phone-case-list.png": {
+      "sha256": "84ec747f2581b1c998af588994d98152edee32cc8f089771975224f001eeb7bc",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-case-list-entry-second_help.png": {
+      "sha256": "a85b932bad7b228a5a169988ae45e8e97dbb701aeb1d9e349fb2e8b486039979",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-paper-a-unmarked.png": {
+      "sha256": "9a90b196bef18f538a44223c85ab258386360101525cd9954857b9f430aa3700",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-wrong-field-classified.png": {
+      "sha256": "eeeb4ec07d97777a28b1950df59b1ded10093891b74555fb2d903fe39cdc0932",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-paper-a-marked.png": {
+      "sha256": "2de5e483f227bcf182c1485047efc48c7f6a399e8366129d2fd5653d54e2f78b",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-street-progress.png": {
+      "sha256": "b3de0a62fea58c12e4c1a6669b85720624beef5e2d051d67ecef7bd475f9ef24",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-paper-b-unmarked.png": {
+      "sha256": "657b12f4016f4692fd43d4347dc320f3970f64aaf491fc020d7dade9a997ac7b",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-paper-b-marked.png": {
+      "sha256": "e639798a9ed5e013f3a18de97a651108122f52f41b9d0df0328a03d6c08c4381",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-review-locked.png": {
+      "sha256": "f7edc211576d66918dd8f784ce1b06415ef95826e51839cfe30b890b3f299bc0",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-review-a.png": {
+      "sha256": "38c7358a39d4c351de78de5560fd185707ba4870c954364d55296058eb5dd8a7",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-review-b.png": {
+      "sha256": "2dc8a442dbda0b1745ab080600dd2390b5e8da1eb8329614d3201c6f96b09fc8",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-action-payment-retry.png": {
+      "sha256": "02ed7610082e406f48a934e7be2b90df65a91dedd0ace7f759ab15873eeb3c0d",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-full-original-after-error.png": {
+      "sha256": "38c7358a39d4c351de78de5560fd185707ba4870c954364d55296058eb5dd8a7",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-returned-error.png": {
+      "sha256": "02ed7610082e406f48a934e7be2b90df65a91dedd0ace7f759ab15873eeb3c0d",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-action-latest-only-retry.png": {
+      "sha256": "054311daee66cc34a38021ddadf9e0fccacda42b366eb5126c31257c1e11fa6f",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-sealed.png": {
+      "sha256": "2e4de41f10569b50c1e3e8b90a9cc9d2d2bced679a80d9bd9bc775fc1b49f3bd",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-street-motion-start.png": {
+      "sha256": "280da1bf0273b6ec0d15398d58ef595fa7ab4953f5ce536e58d245817712a577",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-street-during.png": {
+      "sha256": "e1f8e7c21bf09de98e807351218fd221c636255b5ce3fc90b10a6739d82c4fc9",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-street-actual.png": {
+      "sha256": "518fd4012d98f2ab65c78fa27ccf67ba5debcc8f7477ee046b4f713aa5c3e779",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-street-latest-replay.png": {
+      "sha256": "8ca56263aa29e51f59b270e304ea92d89531faadbd4dd099102dd8d849a83994",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-street-restored-actual.png": {
+      "sha256": "1cab4cec68e28983cce3d9bd9a36d92a55490551b2fa626df45b5b75cacdcd7f",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-case-list-entry-before_night.png": {
+      "sha256": "ef6681737f843423fde3c37dbdc52401d83872599236a02dc237b45301a92cac",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-relation-retry.png": {
+      "sha256": "5d520a5464e1a81feed09130ad55e9e933f0d8309a1b6f25a3f1b8340ba01221",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-relation-b-retry.png": {
+      "sha256": "15328b1ef13b658516d4ebde60183be541e96b412abbd392901cce58b7aa58ad",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-relations-chosen.png": {
+      "sha256": "4f4dc8a76c31b77d9772ea468bb5be21caab8b3a0078d4594a59e73ec8253c62",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-reveal-0-0.png": {
+      "sha256": "9b93c3a692716939c3c91d941bd84cc6402eb84f655a114d4bfcd059985989f6",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-seals-bc-partial.png": {
+      "sha256": "00f80ed3e86d9e6771c1ebbe513ee3ae4b242a21e39cdfdbc65cf22648eabefe",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-reveal-0-1.png": {
+      "sha256": "ddbac40ac66c5fc541ee6bccb50cf0dc90cec3071f34b2da9f1d8d0768e7347e",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-reveal-0-2.png": {
+      "sha256": "a30574be4a8a218ac614cb2373d5134ddc181a4b7e0116eab5dbc3162c8f0de9",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-reveal-0-backcovered.png": {
+      "sha256": "ddbac40ac66c5fc541ee6bccb50cf0dc90cec3071f34b2da9f1d8d0768e7347e",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-reveal-0-3.png": {
+      "sha256": "ca3316bed3bc0c9a75ec41ce2c51778e4ea1a88d21829efa357cdd92a0ceacde",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-reveal-1-1.png": {
+      "sha256": "ca3316bed3bc0c9a75ec41ce2c51778e4ea1a88d21829efa357cdd92a0ceacde",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-reveal-1-2.png": {
+      "sha256": "30141168b9ef6a5bd7fffe0ba58eb5b20893127d2397c10520578348f5a6b562",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-reveal-1-backcovered.png": {
+      "sha256": "ca3316bed3bc0c9a75ec41ce2c51778e4ea1a88d21829efa357cdd92a0ceacde",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-reveal-1-3.png": {
+      "sha256": "cc40a4af88e39719576765dc84932239b3b22f2b2b315bf635a6c1c49ee54282",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-reveal-2-1.png": {
+      "sha256": "cc40a4af88e39719576765dc84932239b3b22f2b2b315bf635a6c1c49ee54282",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-reveal-2-2.png": {
+      "sha256": "704e462af9ad8fb254d971a3170b5f62d441308360abcb0bffd9f14c82c32c68",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-reveal-2-backcovered.png": {
+      "sha256": "cc40a4af88e39719576765dc84932239b3b22f2b2b315bf635a6c1c49ee54282",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-reveal-2-3.png": {
+      "sha256": "33d7ca833a17f94d72845f6139359d5533fa2f0290ef4c7dc0a6eb5f75d3c924",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-attachment-picked.png": {
+      "sha256": "c8535611a917f06dffe54cd3154651c86967363a3331f3f52c822130789e7d61",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-attachment-dragging.png": {
+      "sha256": "b7c19577e98579a0a36746f92e70809549d5239ad60f6876c63ec33a4d7d02a4",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-attachment-over-target.png": {
+      "sha256": "65bf3e9d65b47319dcbf6b138f8683b546f7a79fd00e5fd8e47123d6702dde1c",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-attachment-rejected.png": {
+      "sha256": "164a9d66e0cf6a8a1a9721bf8ee671a6d88ff119489c88aa0ecdc3a20f587138",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-attachment-sealed.png": {
+      "sha256": "756d75ab4d363db44701e857e3fd9d7d133d2b60cd1a9e07a46ca1414af5b169",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-sealed.png": {
+      "sha256": "756d75ab4d363db44701e857e3fd9d7d133d2b60cd1a9e07a46ca1414af5b169",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-street-motion-start.png": {
+      "sha256": "b0cb8376ffbd23dca448e24c5fa02f0a528298b0e3305d08f2036c73a739e9d8",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-street-during.png": {
+      "sha256": "bed2eba242d7f954dd8907da01d684bde532bd74e6d11006c93bf14ee745513e",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-street-result.png": {
+      "sha256": "c5f696b5f18dd14b96922d759202269415e4ee287c09be7cd26e4fe854be044c",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-case-list-entry-three_voices.png": {
+      "sha256": "89173da2886e47c9be362b3702b2a5e5a3a6c02857dc5164660aa5cd5a73e1f8",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-judgment-before-pin.png": {
+      "sha256": "d4235f19330f6dcc2e4342e77de0b388adbd8b6bc8672066690e61ea49c2ada4",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-wrong-pin.png": {
+      "sha256": "791178f9daf685c44bc339cfc6a861a676c891ecbd2b37f057859105855d288d",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-support-one-side.png": {
+      "sha256": "872aa21cf86078b76dc48cd411b1261c6ae077ee8fb0a152fd7dc6efe6e33fda",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-support-one-side-grayscale.png": {
+      "sha256": "1ebed665e51e3ab5f597dc86e66ebb80426843eea4bcccd202915c939bd9cd32",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-support-both-sides.png": {
+      "sha256": "d7f62ccf6503d75562d29b1db4d1acabe20adf6b2bef640a77bbc32bc5301c22",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-judgment-chosen.png": {
+      "sha256": "70b7734bf65488b713181ef89756fe85ffedbe45c98fba8d0d4a4784e52ea72f",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-wrong-pin-with-two-preserved.png": {
+      "sha256": "b5055ae55c1268159f906109fe777088f99a5b776d4d969204714d3e79fe230c",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-local-pin-repaired.png": {
+      "sha256": "249abbf180b829f32adf0f2587ab400e75bbda7027be2e0655136fd325693440",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-sealed.png": {
+      "sha256": "b1d4486fbcddf0adeab1bed3957d3411fedd82579fe39fa17d580a7f10de318a",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-street-motion-start.png": {
+      "sha256": "1324a7c1ef22e59370c3d8f3643f2c12986e04600c515d3c81d555ce028a6962",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-street-during.png": {
+      "sha256": "70120e1cefef61f6bd6fe8035c87c2dfcc587fe57398195bd818806c24b8912d",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-street-result.png": {
+      "sha256": "5d302bd5758363dcadcdd9530ded576ab7e553a1a60f8523147418592bd4ced6",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-case-list-reloaded.png": {
+      "sha256": "44d79a7a1b1533269a00e46ac4f393199af5b32d92f3e31caee4b4578a59a6f9",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-sealed-reloaded.png": {
+      "sha256": "09d34f464ddd8456952cde3bcee417d99c8abaf4e7d9fb5dffdcab381d4ba5a2",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-chain-reloaded.png": {
+      "sha256": "0a8e66db9f7e9c8524adcca650904fb112eac8ff8cdf306b7df271183621d567",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-second_help-history-reloaded.png": {
+      "sha256": "c15152bea5273a1cde133a9528adf131bc24207841ddb612fb35adb5beb629f9",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-sealed-reloaded.png": {
+      "sha256": "66ad87cf3d4d259d6a90f5c830901a0e5e17389f50f25e2cd7627592b69a3cc2",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-chain-reloaded.png": {
+      "sha256": "825f4d32e0dcd958bf0e7b8d6283376e9012fd1d866edb967049fa6a27703d4b",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-before_night-history-reloaded.png": {
+      "sha256": "d0c75ba70a50eeb983da017d3a6a34d1fae62cdc3d63cf0de4516f4e9efbf5f3",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-sealed-reloaded.png": {
+      "sha256": "0c1f2ae08c3933feb96e6d5cccf2c73ea4675895b71c80ccdd405a1c54add2fa",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-chain-reloaded.png": {
+      "sha256": "55680b2eef3d9c7bace3b76e378f73335c599b212d9eca33265274d8648ad902",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-three_voices-history-reloaded.png": {
+      "sha256": "04d597ee1f8732c0c0735f76e7b40da02aabde7a4b1557288f18c707505e7d90",
+      "size": [
+        390,
+        844
+      ]
+    },
+    "phone-case-list-320x568.png": {
+      "sha256": "65abbbf13ca0adeaeeb666fd16f4ed5faa6227e1a030cdedeed623cf13364b79",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-case-list-entry-second_help-320x568.png": {
+      "sha256": "a933af23ecdbef55e5f4b5f13ad556237173efa25dc638a0304d0d4afd7eb024",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-paper-a-unmarked-320x568.png": {
+      "sha256": "02239f0762661e3d84113354426101861e0302ea3b240992476085a2afe2a983",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-wrong-field-classified-320x568.png": {
+      "sha256": "6154c22337a37f0b676e77b694402838351d964cffe1e0c7f4405b0ae5705093",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-paper-a-marked-320x568.png": {
+      "sha256": "e93d5d0ba0f46143947f5fb9e586d69c1ddd5b8f6d213f680afe56ed7245d65b",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-street-progress-320x568.png": {
+      "sha256": "06ff475af39855e972f8c92b559680676052fd3c0e8942e1c59a134d386db069",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-paper-b-unmarked-320x568.png": {
+      "sha256": "ba41db0f03a76e2eae154a19a7369e4c5aa0dcf0abb02664613d1ef280b0aac2",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-paper-b-marked-320x568.png": {
+      "sha256": "7b32a699b4842c42576cb78f470e55e584aad2e91a5f34f82a72bcbf969d88d3",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-review-locked-320x568.png": {
+      "sha256": "b869320c8c585bdddd899fb9081b440f0ffede3960a9be92fff8cde0ebd5c945",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-review-a-320x568.png": {
+      "sha256": "68fe0cf8f38550e66a025bb2e1d1b1311721ecd019c5239af8f914b2053bfafa",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-review-b-320x568.png": {
+      "sha256": "b821d8bd7fd8a604e02b72e202e447f9e0fba1281f07808f14ddcb0d557b70d3",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-action-payment-retry-320x568.png": {
+      "sha256": "2b62da5eff0c971e0b2b1d845277705146cdd8696a616be742bee619d86f4b11",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-full-original-after-error-320x568.png": {
+      "sha256": "68fe0cf8f38550e66a025bb2e1d1b1311721ecd019c5239af8f914b2053bfafa",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-returned-error-320x568.png": {
+      "sha256": "2b62da5eff0c971e0b2b1d845277705146cdd8696a616be742bee619d86f4b11",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-action-latest-only-retry-320x568.png": {
+      "sha256": "b1eddf3440d0ce699dc58e8353980e43b3a410f1980a508965914474cb214fae",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-sealed-320x568.png": {
+      "sha256": "5591a545a6f83bdfb7eccd0b4221ed317abf589641f0e124f6a26ac00e626cd1",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-street-motion-start-320x568.png": {
+      "sha256": "1dadd53c1434ee7729bda3bbf393590f4f6e55e43caa8e37f9559e16ba47435c",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-street-during-320x568.png": {
+      "sha256": "ba934e9c1287b883e78aaa87b30bfc9b4440df5b093187e6a0e9a5866e2f87f6",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-street-actual-320x568.png": {
+      "sha256": "4a940c7bc6c27502724354b6cce99a2d44d8731d580aa53a0731a55094560771",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-case-list-entry-before_night-320x568.png": {
+      "sha256": "16a5ea2f7bc786cc2d102424085f99d3bda7991d2465164ff9ef222e066a6afe",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-relation-retry-320x568.png": {
+      "sha256": "529f499ae94bd57577089ae21d50a0c25ca222498e61b11281e644cd07f4ad43",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-relation-b-retry-320x568.png": {
+      "sha256": "366cf0e0d334785a2b767a5c5d5063e2d5e7a854c8c44e18cac2e0394e09b46c",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-relations-chosen-320x568.png": {
+      "sha256": "4e9969dbcf4ccfdf5eb22736efdf2c2eed8484d4400d5532b76b9bb07eba9066",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-reveal-0-0-320x568.png": {
+      "sha256": "aebcc99c2febd977e57ce541ac9f70f6eb5392dd43fd6342082dd68e2b5b7216",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-seals-bc-partial-320x568.png": {
+      "sha256": "b4ec1be20f22d83f13a6b5b04cc7a7d1af6ef2d064b62b878bcdf8f1541bed99",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-reveal-0-1-320x568.png": {
+      "sha256": "d570759815a0400e8ad468875087d884865855f1375843383d8f11ffd8660a4d",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-reveal-0-2-320x568.png": {
+      "sha256": "0f3db3667bb201da57959959c1abbabcdf547c6813ca2ea10d2e7eaf9c1e7631",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-reveal-0-backcovered-320x568.png": {
+      "sha256": "d570759815a0400e8ad468875087d884865855f1375843383d8f11ffd8660a4d",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-reveal-0-3-320x568.png": {
+      "sha256": "6c77ecffa0baff42a65c257fb493fd4e66f445d72206038fe5789ee5d762e94d",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-reveal-1-1-320x568.png": {
+      "sha256": "6c77ecffa0baff42a65c257fb493fd4e66f445d72206038fe5789ee5d762e94d",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-reveal-1-2-320x568.png": {
+      "sha256": "c68260690169f62edaf3fcf98c4072432c96584c179b89a658043a4215067f30",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-reveal-1-backcovered-320x568.png": {
+      "sha256": "6c77ecffa0baff42a65c257fb493fd4e66f445d72206038fe5789ee5d762e94d",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-reveal-1-3-320x568.png": {
+      "sha256": "bd739d61f62dab6687641919bd36e348a433a1a21b52d8ad6b0c5de5165fe1b5",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-reveal-2-1-320x568.png": {
+      "sha256": "bd739d61f62dab6687641919bd36e348a433a1a21b52d8ad6b0c5de5165fe1b5",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-reveal-2-2-320x568.png": {
+      "sha256": "daeec7be6741ee3ea5575d3ed918c58e6ee9e5c9d2d47b225078cd137e48758a",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-reveal-2-backcovered-320x568.png": {
+      "sha256": "bd739d61f62dab6687641919bd36e348a433a1a21b52d8ad6b0c5de5165fe1b5",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-reveal-2-3-320x568.png": {
+      "sha256": "f52470071705d83df6516e9bd357057555dddcb0f50da6445ee38d79789a5a33",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-attachment-picked-320x568.png": {
+      "sha256": "bf57229509266c0020108a0f33b61607d65e4e8d8f5deca28f316f3288328359",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-attachment-dragging-320x568.png": {
+      "sha256": "a2622841359923b8c35cf380b589782d5d2a92c8e61c26e0f782a3ce8f681b8b",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-attachment-over-target-320x568.png": {
+      "sha256": "8b55bfc78d36875e3f05ca63a79441b94d5695a4f3961315586102c7af5f45f8",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-attachment-rejected-320x568.png": {
+      "sha256": "f1568b10b7a75680c2d923de1fc83026b0801a979428080b5cc734e3332dcee0",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-attachment-sealed-320x568.png": {
+      "sha256": "c0fcfe433d74ba1c1941722254c782f3b79a2e93e678314b318712668de604f3",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-sealed-320x568.png": {
+      "sha256": "c0fcfe433d74ba1c1941722254c782f3b79a2e93e678314b318712668de604f3",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-street-motion-start-320x568.png": {
+      "sha256": "90cf15fe2c01c0212cc510e7c438e2558dc48a48eaddcb77e8a765caa7f74b46",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-street-during-320x568.png": {
+      "sha256": "e6976ee8fa89b7acb8679ec4a93be217633337e046f42a1b2f126cfd10b9f642",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-street-result-320x568.png": {
+      "sha256": "47015179b9a259cb4c4484429b33668a210bd2c2a35e0649c7bc571e69567c84",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-case-list-entry-three_voices-320x568.png": {
+      "sha256": "54e9e76162db4d3a5b6d2219cd905bac673993f40a1eef6f3b965bea4fe3669e",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-three_voices-judgment-before-pin-320x568.png": {
+      "sha256": "8a7aefde65447d69a2cfa39deae81810899dbf2384b967d9cc1ba743d868ce48",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-three_voices-wrong-pin-320x568.png": {
+      "sha256": "8c79bdfecfe5009ae60bd5d1b10b74a551fb9c79974b0b00eec41ffc744d50e8",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-three_voices-support-one-side-320x568.png": {
+      "sha256": "01f82ab94c1880f7dfd2be7a5e98e58787ab4f395558734c4b2dd37e6d4d11d0",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-three_voices-support-one-side-grayscale-320x568.png": {
+      "sha256": "742625772d83df3c8aae27e760821b66d4d8af2f771bb31c966bdf7c7f91487c",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-three_voices-support-both-sides-320x568.png": {
+      "sha256": "9e7328ee826f14ccaa9b0b260121e9831b3b317de22d8f44d3d834a21cf16f6b",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-three_voices-judgment-chosen-320x568.png": {
+      "sha256": "0946363fd647b6995d84cf9a97111983c881aef25df113ceaa501373baafedd7",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-three_voices-sealed-320x568.png": {
+      "sha256": "eef1403c663544405a33b7e9b13010e97aaa946d419f1b311a8bd48961243848",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-three_voices-street-motion-start-320x568.png": {
+      "sha256": "e282fbd780e5430ff6781c56f6a9f71b011a69880df01909bfe901e8e8211254",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-three_voices-street-during-320x568.png": {
+      "sha256": "2dd533264dae1c297f0da16402f2f67bd981c27df62de003363cf1002517faab",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-three_voices-street-result-320x568.png": {
+      "sha256": "732bbde16c633b99bc9083e3bdd6a197c559e01c22505c03a1db506676b7bb88",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-case-list-reloaded-320x568.png": {
+      "sha256": "f466ae5567383b9fb583da09f9dc61c39385fe71e5345c83385f23574392fa3e",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-sealed-reloaded-320x568.png": {
+      "sha256": "fba3302b37ed3fc9e23647b812ed9f61412f63d47ce296b293de9ee722319d17",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-chain-reloaded-320x568.png": {
+      "sha256": "70076c6d67560e0bc90b476c592de77a350222c25f798c3531581cb3fde0fd72",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-history-reloaded-320x568.png": {
+      "sha256": "1495097cc57260897b02519bff258b46bbf9a1f27f600092343be76080b3932e",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-sealed-reloaded-320x568.png": {
+      "sha256": "211cc7a48d054c35484d581d8f357952dfffd10fb3d468a9bb26cf117256cb72",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-chain-reloaded-320x568.png": {
+      "sha256": "97cfcdef61dbf5578bf60d6667339023ad6a7768712c4a6f16fb25561254e01e",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-before_night-history-reloaded-320x568.png": {
+      "sha256": "d08f545c6091d6d76e54e90699283b87ee98fca9b77e1e52322759c97d5f74ae",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-three_voices-sealed-reloaded-320x568.png": {
+      "sha256": "484fa24be05ae5605256042c45304a0d2d99284f9223e83da8c1e9f2c17980ef",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-three_voices-chain-reloaded-320x568.png": {
+      "sha256": "bb48bc037be161b570ddda40eeb517bc9ad1fc4f885c22b9cd125056cf435d4b",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-three_voices-history-reloaded-320x568.png": {
+      "sha256": "2d947a534578c0fa2b5bc4609227f9917c8fd802821a815243f1e7047128472a",
+      "size": [
+        320,
+        568
+      ]
+    },
+    "phone-second_help-paper-b-marked-1290x2796.png": {
+      "sha256": "4928581cc233dc440b9599d4d2b6c20f1122b175bece04ee7ce7dca3f0c3503c",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    "phone-second_help-sealed-1290x2796.png": {
+      "sha256": "eb1635383fa125d561a32043706f71a3fad1453d818450df37021da6ba61362c",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    "phone-before_night-relations-chosen-1290x2796.png": {
+      "sha256": "ab7b708ae8e9aa195cafbeabd37fb79ad7a17555907a6ac5979d83f2595c05e5",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    "phone-before_night-attachment-picked-1290x2796.png": {
+      "sha256": "bf3a95bc612a6388f6924322f7ea5fb540d202fa1c871be2a7dafa14414d7953",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    "phone-before_night-attachment-sealed-1290x2796.png": {
+      "sha256": "4b069b2d85b456584c59e6f57f166517d23e8c54cdf0da36e15d28c5c66128fb",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    "phone-before_night-sealed-1290x2796.png": {
+      "sha256": "4b069b2d85b456584c59e6f57f166517d23e8c54cdf0da36e15d28c5c66128fb",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    "phone-three_voices-support-both-sides-1290x2796.png": {
+      "sha256": "3eef85ae10cacd5d85df617b03de8987e46f97fbc96aae0bb45c318f3eae2a68",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    "phone-three_voices-judgment-chosen-1290x2796.png": {
+      "sha256": "0f0c0f493f3fa228833ba69ea0c7cbea62316b0d985e589a87acff2320d6b9ef",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    "phone-three_voices-sealed-1290x2796.png": {
+      "sha256": "c6d53ae4dbee65b26f5f4b3753a6655ddaa724914bdf8d2c4405bcf846474426",
+      "size": [
+        1290,
+        2796
+      ]
+    },
+    "2064x2752-second_help-paper-b-marked.png": {
+      "sha256": "3eb4c4dbff5d0ae0984b3fbe65ec67222148cdc3a88657f95be5b31a6ca5947b",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    "2064x2752-second_help-sealed.png": {
+      "sha256": "c378eb1a6b9e6419182a8d834c8be233f9bbada1f971e05d651a7da408ef7f25",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    "2064x2752-before_night-relations-chosen.png": {
+      "sha256": "fdd9c45523bc464d39dc7cb919746e8329d90a870495e06f83c2c733ed403f11",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    "2064x2752-before_night-attachment-picked.png": {
+      "sha256": "2221c06226dc454188faabb39772a8f35e0483e3551ef6756684535d76f08385",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    "2064x2752-before_night-attachment-sealed.png": {
+      "sha256": "d0c33136771db775e2fe66909488b3dd96d0b7ff47e6808360fd3c573e22c26c",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    "2064x2752-before_night-sealed.png": {
+      "sha256": "d0c33136771db775e2fe66909488b3dd96d0b7ff47e6808360fd3c573e22c26c",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    "2064x2752-three_voices-support-both-sides.png": {
+      "sha256": "fb905ca16037f4792d35fd662a2a5e8caea50abc15d49f91b5549e56fd990a34",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    "2064x2752-three_voices-judgment-chosen.png": {
+      "sha256": "c0d5ac24caa6047cdbc7248090aea5618e7c1b236a465a9328281e96f6d1b8e1",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    "2064x2752-three_voices-sealed.png": {
+      "sha256": "4a370a92c55942cf62c49268cf65355fc850702e75b58ece47e22a518b2d7fbd",
+      "size": [
+        2064,
+        2752
+      ]
+    },
+    "844x390-second_help-paper-b-marked.png": {
+      "sha256": "f7b4b1ed692b2df2f6e557cf75c6d7f63c26f345ebc2baba887f4c6905af5717",
+      "size": [
+        844,
+        390
+      ]
+    },
+    "844x390-second_help-sealed.png": {
+      "sha256": "fd08c65fe85c5457c4359cbaf9000b101d10d338e6f9d50bf9e17ae50638acac",
+      "size": [
+        844,
+        390
+      ]
+    },
+    "844x390-before_night-relations-chosen.png": {
+      "sha256": "330b07f8a1706ffe1b4de5e7895f876af7024abdb63d7909c24a1231dd571684",
+      "size": [
+        844,
+        390
+      ]
+    },
+    "844x390-before_night-attachment-picked.png": {
+      "sha256": "069145a92da48a08c45c701445139126101b66a69a061195c4364ca948211e10",
+      "size": [
+        844,
+        390
+      ]
+    },
+    "844x390-before_night-attachment-sealed.png": {
+      "sha256": "81d8ce33ff75b2f4e2852f424c0dd98f92c32cfe9a21d1b7540be5e88aa3d23c",
+      "size": [
+        844,
+        390
+      ]
+    },
+    "844x390-before_night-sealed.png": {
+      "sha256": "81d8ce33ff75b2f4e2852f424c0dd98f92c32cfe9a21d1b7540be5e88aa3d23c",
+      "size": [
+        844,
+        390
+      ]
+    },
+    "844x390-three_voices-support-both-sides.png": {
+      "sha256": "abf6210aa6ca50801b4c8fa704f8a258571653af431d0aacb475c83a9a969cd2",
+      "size": [
+        844,
+        390
+      ]
+    },
+    "844x390-three_voices-judgment-chosen.png": {
+      "sha256": "024f6254e8513a312344c00799a2ac6dac2257eefa8c791630f191131a51b322",
+      "size": [
+        844,
+        390
+      ]
+    },
+    "844x390-three_voices-sealed.png": {
+      "sha256": "a3c6addf9ad6d5ebfd431e486844c7cc37a2c58b79d375cd827d31128a0d8bc0",
+      "size": [
+        844,
+        390
+      ]
+    },
+    "1024x768-second_help-paper-b-marked.png": {
+      "sha256": "b0c1ab4f2afa4dd1a1aa11fad47a4e53a8d43addc1a05adb889a7305e39588c6",
+      "size": [
+        1024,
+        768
+      ]
+    },
+    "1024x768-second_help-sealed.png": {
+      "sha256": "9a5323959e414c2b2084e269f7bca935be0cf0d04ff5f29abe77bcd1cb30b0a2",
+      "size": [
+        1024,
+        768
+      ]
+    },
+    "1024x768-before_night-relations-chosen.png": {
+      "sha256": "e46291040f8029367d24ed33c457b597299f5dba9303373a67b8b4e6bfd1aceb",
+      "size": [
+        1024,
+        768
+      ]
+    },
+    "1024x768-before_night-attachment-picked.png": {
+      "sha256": "9fc1a5ba17d019a6a27eb8925ff58c937c54ea0c0d4db48a98a4ac7d6a6f203b",
+      "size": [
+        1024,
+        768
+      ]
+    },
+    "1024x768-before_night-attachment-sealed.png": {
+      "sha256": "a0a0708f68d7c78a087b9f21078f4b4b0f90e7135329bafd03aa1802c763759b",
+      "size": [
+        1024,
+        768
+      ]
+    },
+    "1024x768-before_night-sealed.png": {
+      "sha256": "a0a0708f68d7c78a087b9f21078f4b4b0f90e7135329bafd03aa1802c763759b",
+      "size": [
+        1024,
+        768
+      ]
+    },
+    "1024x768-three_voices-support-both-sides.png": {
+      "sha256": "52739517bcc884e84924bb82e01b570dab4d58a77715c13271d6e3cfe06002c4",
+      "size": [
+        1024,
+        768
+      ]
+    },
+    "1024x768-three_voices-judgment-chosen.png": {
+      "sha256": "d2726e2da6c45a5ff2059c25997257f15b08616bef0756a125c752f22d4929e1",
+      "size": [
+        1024,
+        768
+      ]
+    },
+    "1024x768-three_voices-sealed.png": {
+      "sha256": "ec146f17c8d0fd58a50895fbd8cf5f09680ed43ece7930784bc64e12c4e744a4",
+      "size": [
+        1024,
+        768
+      ]
+    }
+  },
+  "capture_reports": [
+    {
+      "file": ".audit-tmp/content-r15/capture-accepted/manifest.json",
+      "sha256": "49faa6196d4fbb7bf480e098138c98825050f744aeac41aba7f2831c4c513b3f"
+    }
+  ],
+  "candidate_text": [
+    {
+      "background": "f1e8d5ff",
+      "color": "16181dff",
+      "current_tab": false,
+      "disabled": false,
+      "font_size": 16,
+      "primary": false,
+      "rect": [
+        42,
+        281,
+        314,
+        60
+      ],
+      "rendered_text": "林秀蘭｜七號簿上那兩筆，全在傍晚六點\n以前。",
+      "selected": false,
+      "text": "林秀蘭｜七號簿上那兩筆，全在傍晚六點以前。"
+    },
+    {
+      "background": "f1e8d5ff",
+      "color": "16181dff",
+      "current_tab": false,
+      "disabled": false,
+      "font_size": 16,
+      "primary": false,
+      "rect": [
+        42,
+        345,
+        314,
+        60
+      ],
+      "rendered_text": "陳奕廷｜我記得七號簿那兩筆都在六\n點以後。",
+      "selected": false,
+      "text": "陳奕廷｜我記得七號簿那兩筆都在六點以後。"
+    },
+    {
+      "background": "f1e8d5ff",
+      "color": "16181dff",
+      "current_tab": false,
+      "disabled": false,
+      "font_size": 16,
+      "primary": false,
+      "rect": [
+        42,
+        409,
+        314,
+        60
+      ],
+      "rendered_text": "吳安琪｜同一本簿，有六點以前，也有六\n點以後。",
+      "selected": false,
+      "text": "吳安琪｜同一本簿，有六點以前，也有六點以後。"
+    }
+  ],
+  "scope": "Real touch source reviews, paper detents, true drag/drop, local pin repair and exact IndexedDB cold reload."
+}

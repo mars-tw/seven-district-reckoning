@@ -1,0 +1,10 @@
+{
+  "status": "VERIFIED",
+  "new_generated_assets": 0,
+  "assets": [],
+  "reused": [
+    "godot/assets/art/content-r14/paper-seal.webp",
+    "godot/assets/art/r4/case-paper.webp"
+  ],
+  "method": "Existing licensed game textures, original typeset evidence and physical frame geometry; no new image generation."
+}

@@ -1,7 +1,7 @@
 extends RefCounted
 ## Real typeset document surface; hit targets are the ink lines on the paper.
 const Art = preload("res://scripts/ui/art_theme.gd")
-const PHRASES = "車店收據|輪值資料|交接摘要|反查依據|工作天|原件影本|前後合看|玩家推論|甲先發|乙後補|林秀蘭|陳奕廷|吳安琪|預付費|代辦費|點此貼入|已拿起|右側|摘要|原件|首筆|末筆|犯罪"
+const PHRASES = "第二次收費|自動保存|同案補充通知|同案|已退回原位|展開原件|已回看|費用疑問|三個工作天|車店收據|輪值資料|交接摘要|反查依據|工作天|原件影本|前後合看|玩家推論|甲先發|乙後補|林秀蘭|陳奕廷|吳安琪|預付費|代辦費|點此貼入|已拿起|右側|摘要|原件|首筆|末筆|犯罪"
 
 static func wrap_ink(value) -> void:
 	# Web's fallback text server may ignore CJK punctuation rules. Insert measured
@@ -17,7 +17,7 @@ static func wrap_ink(value) -> void:
 	var units: Array[String] = []
 	for match_value: RegExMatch in pattern.search_all(source):
 		var token := match_value.get_string()
-		if token != "\n" and not units.is_empty() and units[-1] != "\n" and (token in ["。","，","：","；","？","！","」","』","）","、"] or units[-1] in ["「","『","（"]): units[-1] += token
+		if token != "\n" and not units.is_empty() and units[-1] != "\n" and (token in ["。","，","：","；","？","！","」","』","）","、","｜"] or units[-1] in ["「","『","（"]): units[-1] += token
 		else: units.append(token)
 	var lines := PackedStringArray()
 	var line := ""
@@ -36,7 +36,7 @@ static func wrap_ink(value) -> void:
 			var before := lines[i-1]
 			var take := 0
 			var prior_tokens := pattern.search_all(before)
-			while not prior_tokens.is_empty() and (take < 2 or before[before.length()-take] in ["。","，","：","；","？","！","」","』","）","、"]):
+			while not prior_tokens.is_empty() and (take < 2 or before[before.length()-take] in ["。","，","：","；","？","！","」","』","）","、","｜"]):
 				take += prior_tokens.pop_back().get_string().length()
 			lines[i] = before.right(take)+lines[i]
 			lines[i-1] = before.left(before.length()-take)

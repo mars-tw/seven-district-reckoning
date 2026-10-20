@@ -1,0 +1,87 @@
+{
+  "status": "VERIFIED",
+  "images": [
+    {
+      "file": "docs/content/r14/review-set/01-second_help-paper-a-marked.png",
+      "original": "docs/content/r14/phone-second_help-paper-a-marked.png",
+      "sha256": "76cd1b84c85423632e7b1b357cad19b7c6a3025cf1743e364dc9f32be14c029f"
+    },
+    {
+      "file": "docs/content/r14/review-set/02-second_help-returned-error.png",
+      "original": "docs/content/r14/phone-second_help-returned-error.png",
+      "sha256": "d4eaba01c140c1bc5694081287bc5814f7abf4c6fa7671ff36423790de49c3ce"
+    },
+    {
+      "file": "docs/content/r14/review-set/03-second_help-action-latest-only-retry.png",
+      "original": "docs/content/r14/phone-second_help-action-latest-only-retry.png",
+      "sha256": "975d7c37f50aa762c615a6488787729681c016c43059b208eeabbb6d7387ec26"
+    },
+    {
+      "file": "docs/content/r14/review-set/04-second_help-street-actual.png",
+      "original": "docs/content/r14/phone-second_help-street-actual.png",
+      "sha256": "ae88753b4da8daffa2932c24a072f810542a8ccd94dc9f62ab68975dcb4031a3"
+    },
+    {
+      "file": "docs/content/r14/review-set/05-case-list-reloaded.png",
+      "original": "docs/content/r14/phone-case-list-reloaded.png",
+      "sha256": "3034aa810960ddb66eca82a4eca5bab0b5a83d971b1f945524c5936f2ac8b9a2"
+    },
+    {
+      "file": "docs/content/r14/review-set/06-before_night-seals-bc-partial.png",
+      "original": "docs/content/r14/phone-before_night-seals-bc-partial.png",
+      "sha256": "8881aec990dd3479d0caeec76bfd3431105d849f4054de16d701b2ebdaf40563"
+    },
+    {
+      "file": "docs/content/r14/review-set/07-before_night-attachment-dragging.png",
+      "original": "docs/content/r14/phone-before_night-attachment-dragging.png",
+      "sha256": "0e3f2fb6e9fad8b23b81c46b92f1562a29df588bca6ec5429a3001450eb4041f"
+    },
+    {
+      "file": "docs/content/r14/review-set/08-before_night-attachment-rejected.png",
+      "original": "docs/content/r14/phone-before_night-attachment-rejected.png",
+      "sha256": "236938ccb284b52d1089fc30a4c388fbfc121442cd1a3b1197da244909e1b4b6"
+    },
+    {
+      "file": "docs/content/r14/review-set/09-before_night-attachment-sealed.png",
+      "original": "docs/content/r14/phone-before_night-attachment-sealed.png",
+      "sha256": "336176178cb861fc73c7d49f37c3a06909f6894027130fb760a0d69c5ec994cb"
+    },
+    {
+      "file": "docs/content/r14/review-set/10-before_night-street-result.png",
+      "original": "docs/content/r14/phone-before_night-street-result.png",
+      "sha256": "77825911141f8d78c84abfa52729a0a6b67ca7d3da76016734c7243cf9139009"
+    },
+    {
+      "file": "docs/content/r14/review-set/11-three_voices-support-one-side-grayscale.png",
+      "original": "docs/content/r14/phone-three_voices-support-one-side-grayscale.png",
+      "sha256": "07414a19e5450e2a012ce7950f2015418cc7406f116f514922aa7b398698ab94"
+    },
+    {
+      "file": "docs/content/r14/review-set/12-three_voices-wrong-pin-with-two-preserved.png",
+      "original": "docs/content/r14/phone-three_voices-wrong-pin-with-two-preserved.png",
+      "sha256": "bd3d596c2b3d2a4bb82af55bdf41090b528cebd7715d13e50b83d96c6fb7a76c"
+    },
+    {
+      "file": "docs/content/r14/review-set/13-three_voices-local-pin-repaired.png",
+      "original": "docs/content/r14/phone-three_voices-local-pin-repaired.png",
+      "sha256": "249abbf180b829f32adf0f2587ab400e75bbda7027be2e0655136fd325693440"
+    },
+    {
+      "file": "docs/content/r14/review-set/14-three_voices-chain-reloaded.png",
+      "original": "docs/content/r14/phone-three_voices-chain-reloaded.png",
+      "sha256": "55680b2eef3d9c7bace3b76e378f73335c599b212d9eca33265274d8648ad902"
+    },
+    {
+      "file": "docs/content/r14/review-set/15-three_voices-street-result.png",
+      "original": "docs/content/r14/phone-three_voices-street-result.png",
+      "sha256": "ff7e928e0f870fe7c165e37c31d62821e3af0cf2502b382eb84de22aa95bee09"
+    }
+  ],
+  "case_counts": [
+    5,
+    5,
+    5
+  ],
+  "shared_list_in_first_group": true,
+  "resized_or_composited": false
+}

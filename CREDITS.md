@@ -62,3 +62,11 @@ The original Noto Sans TC font was retrieved from the upstream repository at com
 # 新內容第四輪美術
 
 `godot/assets/art/content-r4/street-fronts.webp` 是一張原創門面材質 atlas，三格分別為晨光市場、街角便利店及橘盒取件站。實際工具為 **image_gen.imagegen**，模型 slug 未揭露；2172×724 母圖只轉成 lossless WebP，Godot 另採有損壓縮與 mipmaps 匯入。只作既有 3D 街景的門面細節，不冒稱重建三棟建築或人物。完整提示、尺寸、SHA-256 與 MIT 授權記錄見同目錄 `manifest.json` 及 `docs/content/r4/ART_PROMPT.txt`。既有第三方授權與骨架動畫保留。
+
+## Content R13
+
+`godot/assets/art/content-r13/meiqing-skin.png` is an original generated diffuse material produced with `image_gen.imagegen` for this game. Existing character mesh, facial geometry, rig and animations retain their original credits. Prompt, dimensions and SHA-256: `docs/content/r13/art-manifest.json`.
+
+## Content R14
+
+The original paper-seal material in `godot/assets/art/content-r14/` was directed by Seven District contributors with `image_gen.imagegen`. The lossless source is retained in `assets/art/content-r14/`; the runtime WebP is resized for the existing package budget. This new original material is offered under MIT. Actual tool, exact prompt, processing, dimensions and SHA-256 are recorded in `docs/content/r14/art-manifest.json`; the tool did not expose a model slug. Existing paper illustrations, character meshes, rigs, fonts and third-party assets retain their individual credits and licenses.

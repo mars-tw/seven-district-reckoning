@@ -8,6 +8,7 @@ var active := ""
 var feedback := ""
 var street_choice := -1 # Read-only archived action replay; never changes the save.
 var street_at_source := false
+var game_serial := 0
 
 func _init() -> void:
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(DATA))
@@ -15,22 +16,28 @@ func _init() -> void:
 	reset()
 
 func reset() -> void:
+	game_serial += 1
 	active = ""
 	street_choice = -1
 	street_at_source = false
 	feedback = ""
 	records.clear()
 	for c: Dictionary in definitions:
-		records[c.id] = {"collected": [], "order": [], "pairs": {}, "compared": false, "complete": false, "time_revealed": false, "time_checked": false, "citations": {}, "viewed_fields": {}, "pins": [], "pin_choices": {}, "judging": false, "relations": {}, "support_refs": [], "history": []}
+		records[c.id] = {"collected": [], "order": [], "pairs": {}, "compared": false, "complete": false, "time_revealed": false, "time_checked": false, "reveal_steps": [0,0,0], "citations": {}, "viewed_fields": {}, "pins": [], "pin_choices": {}, "judging": false, "relations": {}, "support_refs": [], "history": []}
 
 func remember(kind: String, index: int, choice: int, message: String = "") -> void:
+	if not message.is_empty():
+		var prior: Array = entry().history.filter(func(e: Dictionary) -> bool: return e.kind == kind and not e.feedback.is_empty())
+		if prior.is_empty(): message = {"action":"甲乙收費條件仍有衝突，回看黃標及備註。","relation":"引用方向讀反，回看『附件：』與『接班依據：』。","pin":"時間與『全部』的說法對不上，回看分界兩側。"}.get(kind,message)
 	if choice < 0: return
 	entry().history.append({"kind":kind,"index":index,"choice":choice,"feedback":message})
 	if entry().history.size() > 128: entry().history.pop_front()
 
 func pin_error(index: int) -> String:
 	if not index in entry().pins or entry().pin_choices.get(str(index),-1) == [1,2,0][index]: return ""
-	return ["錯釘：17：50 在分界前 → 應反駁陳奕廷『全在後』。", "錯釘：前後合看 → 應核對吳安琪『前後都有』。", "錯釘：18：10 在分界後 → 應反駁林秀蘭『全在前』。"][index]
+	var attempts: int = entry().history.filter(func(e: Dictionary) -> bool: return e.kind == "pin" and e.index == index and not e.feedback.is_empty()).size()
+	if attempts <= 1: return "先看這筆在 18：00 哪一側，再核對『全部』。"
+	return ["再看陳奕廷的原話：他說的『全部』能容納這筆嗎？","再看吳安琪的原話：單側資料足夠嗎？","再看林秀蘭的原話：她說的『全部』能容納這筆嗎？"][index]
 
 func support_missing() -> String:
 	if entry().support_refs == [0]: return "已引用 17：50，只有分界前；還缺末筆 18：10。"
@@ -39,7 +46,7 @@ func support_missing() -> String:
 
 func feedback_is_error() -> bool:
 	if feedback.is_empty(): return false
-	if feedback.contains("還缺") or feedback.begins_with("尚未"): return true
+	if feedback.contains("還缺") or feedback.begins_with("尚未"): return false
 	return not (feedback.begins_with("已") or feedback.begins_with("矛盾已") or feedback.begins_with("時間與") or feedback.begins_with("此句已") or feedback.begins_with("17：50 是") or feedback.begins_with("18：10 是") or feedback.begins_with("首、末"))
 
 func street_result() -> Dictionary:
@@ -100,7 +107,7 @@ func cite(document: int, field: int) -> bool:
 	if not entry().viewed_fields.has(key): entry().viewed_fields[key] = []
 	if not field in entry().viewed_fields[key]: entry().viewed_fields[key].append(field)
 	if field == 2: entry().citations[key] = field
-	feedback = "已標出收費條件。" if field == 2 else "這是案號，不是收費條件。" if field == 1 else "這是期限，不是收費條件。" if definition().documents[document].fields[field].begins_with("期限") else "這是收件或聯絡欄位，不是收費條件。"
+	feedback = "已標出收費條件。" if field == 2 else "這是期限說明，不是本案收費條件。" if definition().documents[document].fields[field].begins_with("期限：") else "這是收件說明，不是本案收費條件。" if definition().documents[document].fields[field].begins_with("收件：") else "這是案號，不是收費條件。" if field == 1 else "這是版次備註，不是收費條件。" if field == 3 else "這是機構資料，不是收費條件。"
 	changed.emit()
 	return true
 
@@ -110,6 +117,9 @@ func pin_record(index: int) -> bool:
 	if not index in entry().pins: entry().pins.append(index)
 	feedback = pin_error(index)
 	remember("pin",index,int(entry().pin_choices.get(str(index),-1)),feedback)
+	if not feedback.is_empty() and entry().pin_choices.has(str(index)):
+		feedback = pin_error(index)
+		entry().history[-1].feedback = feedback
 	changed.emit()
 	return true
 
@@ -124,7 +134,7 @@ func choose_pin(index: int, choice: int) -> bool:
 		feedback = support_missing()
 		return false
 	entry().pin_choices[str(index)] = choice
-	feedback = ["17：50 是六點以前，足以推翻陳奕廷的『全在六點後』。","首、末兩筆分居六點前後，合看才支持吳安琪。","18：10 是六點以後，足以推翻林秀蘭的『全在六點前』。"][index] if choice == [1,2,0][index] else "這個選擇尚不足：單筆不能代表全部。釘入後仍可拔釘修正。"
+	feedback = "已選原話，釘入後核對；仍可拔釘修正。"
 	changed.emit()
 	return true
 
@@ -249,7 +259,14 @@ func verify_time() -> bool:
 				remember("relation",pair_index,int(entry().relations[str(pair_index)]),feedback)
 		changed.emit()
 		return false
-	feedback = "時間與事件相符。只憑這條時間線，能確認哪件事？"
+	entry().reveal_steps = [0,0,0]
+	feedback = "引用方向已選，時間待核對。親手揭開三張原件。"
+	changed.emit()
+	return true
+
+func reveal_time(index: int, step: int) -> bool:
+	if active != "before_night" or entry().complete or not entry().time_checked or index < 0 or index > 2 or step < 0 or step > 3: return false
+	entry().reveal_steps[index] = step
 	changed.emit()
 	return true
 
@@ -330,6 +347,9 @@ func valid(value: Variant) -> bool:
 	for c: Dictionary in definitions:
 		var r: Variant = value.records.get(c.id)
 		if not r is Dictionary or not r.get("complete") is bool or not r.get("collected") is Array or not r.get("order") is Array or not r.get("pairs") is Dictionary: return false
+		if not r.get("reveal_steps",[0,0,0]) is Array or r.get("reveal_steps",[0,0,0]).size() != 3: return false
+		for step: Variant in r.get("reveal_steps",[0,0,0]):
+			if not _whole(step,3): return false
 		if not r.get("history",[]) is Array or r.get("history",[]).size() > 128: return false
 		for event: Variant in r.get("history",[]):
 			if not event is Dictionary or event.size() != 4: return false
@@ -406,6 +426,8 @@ func from_dict(value: Dictionary) -> bool:
 	records = value.records.duplicate(true)
 	for id: String in records:
 		var record: Dictionary = records[id]
+		record["reveal_steps"] = record.get("reveal_steps",[3,3,3] if record.complete else [0,0,0])
+		record.reveal_steps = record.reveal_steps.map(func(step: Variant) -> int: return int(step))
 		record["history"] = record.get("history",[])
 		for event: Dictionary in record.history:
 			event.index = int(event.index); event.choice = int(event.choice)
